@@ -10,10 +10,13 @@ import com.example.closedcircuitapplication.databinding.FragmentLoginBinding
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var binding: FragmentLoginBinding
+    private lateinit var email: String
+    private lateinit var password: String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
+
 
     }
 }
