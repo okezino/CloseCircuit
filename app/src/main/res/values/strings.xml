@@ -9,4 +9,15 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="verify_email_address">Verify Email Address</string>
+    <string name="check_your_email">Check Your Email</string>
+    <string name="shared_building_shared_prosperity">Shared Building, shared prosperity</string>
+
+    <string name="quote">To run fast, run alone. TO run far run togother. Together we can archieve greater things</string>
+    <string name="registerUsingGoogle">Register with Google</string>
+    <string name="createAccount">Create an Account</string>
+    <string name="welcome">Welcome</string>
+    <string name="already_have_and_account">Already have and account? </string>
 </resources>
