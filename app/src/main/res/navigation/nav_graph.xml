@@ -20,9 +20,17 @@
         android:name="com.example.closedcircuitapplication.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
-
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/action_SecondFragment_to_welcomeScreenFragment2"
+            app:destination="@id/welcomeScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailVerificationSuccessfulFragment"
+        android:name="com.example.closedcircuitapplication.authentication.EmailVerificationSuccessfulFragment"
+        android:label="fragment_email_verification_successful"
+        tools:layout="@layout/fragment_email_verification_successful" >
+        <action
+            android:id="@+id/action_emailVerificationSuccessfulFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
     <fragment
@@ -51,5 +59,29 @@
             app:destination="@id/FirstFragment"
             app:popUpTo="@id/viewPagerFragment"
             app:popUpToInclusive="true" />
+        <action
+        android:id="@+id/verifyEmailFragment"
+        android:name="com.example.closedcircuitapplication.authentication.VerifyEmailFragment"
+        android:label="fragment_verify_email"
+        tools:layout="@layout/fragment_verify_email"/>
+        <action
+            android:id="@+id/action_verifyEmailFragment_to_emailVerificationSuccessfulFragment"
+            app:destination="@id/emailVerificationSuccessfulFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/welcomeScreenFragment"
+        android:name="com.example.closedcircuitapplication.authentication.WelcomeScreenFragment"
+        android:label="fragment_welcome_screen"
+        tools:layout="@layout/fragment_welcome_screen"/>
+        <action
+            android:id="@+id/action_welcomeScreenFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.example.closedcircuitapplication.authentication.CreateAccountFragment"
+        android:label="fragment_create_account"
+        tools:layout="@layout/fragment_create_account"/>
+        <action
+            android:id="@+id/action_createAccountFragment_to_verifyEmailFragment"
+            app:destination="@id/verifyEmailFragment" />
 </navigation>
