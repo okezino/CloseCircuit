@@ -32,7 +32,7 @@
         android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="1.0">
@@ -192,6 +192,7 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
+                app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -201,6 +202,7 @@
                     android:id="@+id/passwordTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPassword"
                     android:hint="password" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -261,6 +263,8 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
+                app:endIconMode="password_toggle"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -323,6 +327,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/createAccount_btn" />
 
+
             <TextView
                 android:id="@+id/alreadyHaveAnAccount_Tv"
                 android:layout_width="wrap_content"
@@ -334,9 +339,9 @@
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="@+id/createAccount_btn"
+                app:layout_constraintHorizontal_bias="0.797"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/createAccount_btn" />
-
 
             <TextView
                 android:id="@+id/login_Tv"
@@ -360,18 +365,18 @@
                 android:layout_height="54dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginBottom="50dp"
+                android:drawableStart="@drawable/google_icon"
                 android:text="@string/registerUsingGoogle"
                 android:textAllCaps="false"
                 android:textColor="#24500F"
-                android:textSize="14sp"
-                android:drawableStart="@drawable/google_icon"
+                android:textSize="10sp"
                 app:backgroundTint="@color/white"
                 app:cornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/registerUsingApple_btn"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/registerUsingApple_btn"
                 app:layout_constraintTop_toBottomOf="@id/or_Tv"
                 app:strokeColor="#24500F"
                 app:strokeWidth="2dp" />
@@ -382,17 +387,17 @@
                 android:layout_height="54dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="50dp"
+                android:drawableStart="@drawable/apple_icon"
                 android:text="Register with Apple"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="14sp"
-                android:drawableStart="@drawable/apple_icon"
+                android:textSize="10sp"
                 app:backgroundTint="#000000"
                 app:cornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/registerUsingGoogle_btn"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/or_Tv"
                 app:strokeColor="#24500F"

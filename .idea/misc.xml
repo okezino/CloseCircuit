@@ -8,7 +8,7 @@
         <entry key="app/src/main/res/drawable/text_input_background.xml" value="0.24739583333333334" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.21875" />
         <entry key="app/src/main/res/layout/fragment_account_registration.xml" value="0.21875" />
-        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_email_verification_successful.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.21875" />
