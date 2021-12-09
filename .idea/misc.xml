@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="app/src/main/res/drawable-v24/custom_dialog_rectangle.xml" value="0.2518987341772152" />
         <entry key="app/src/main/res/drawable-v24/rectangle_button.xml" value="0.2518987341772152" />
         <entry key="app/src/main/res/drawable/apple_btn.xml" value="0.2518987341772152" />
@@ -12,6 +13,19 @@
         <entry key="app/src/main/res/layout/cutom_login_successful_dialog.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/layout_practice.xml" value="0.33" />
+=======
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_announcement_24.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_arrow_back_24.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/drawable/text_input_background.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.21875" />
+        <entry key="app/src/main/res/layout/fragment_account_registration.xml" value="0.21875" />
+        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_email_verification_successful.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.21875" />
+        <entry key="app/src/main/res/layout/fragment_wellcome_screen.xml" value="0.21875" />
+        <entry key="app/src/main/res/menu/menu_main.xml" value="0.23125" />
+>>>>>>> d6c655678e4368b283ea235860b8b404ac7943f7
       </map>
     </option>
   </component>

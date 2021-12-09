@@ -16,4 +16,7 @@
     <color name="custom_dialog_bg_color">#CAD6DF</color>
     <color name="progress_bar_end_color">#E0E0E0</color>
     <color name="text_red_color">#D91D1D</color>
+    <color name="red">#D91D1D</color>
+    <color name="green">#24500F</color>
+    <color name="blue">#0000fF</color>
 </resources>
