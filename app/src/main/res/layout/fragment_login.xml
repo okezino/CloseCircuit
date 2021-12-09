@@ -42,8 +42,7 @@
             android:layout_marginTop="25dp"
             android:layout_marginBottom="82dp"
             android:background="@color/primary_color"
-            android:paddingHorizontal="20dp"
-           >
+            android:paddingHorizontal="20dp">
 
             <TextView
                 android:id="@+id/fragment_login_welcome_tv"
@@ -57,6 +56,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22.32dp"
@@ -80,7 +80,7 @@
                 android:id="@+id/fragment_login_icon_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="82dp"
+                android:layout_marginTop="40dp"
                 android:src="@drawable/login_illustration"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +90,7 @@
                 android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fragment_login_icon_iv">
@@ -111,9 +111,9 @@
                     android:layout_height="54dp"
                     android:background="@drawable/text_input_rectangle"
                     android:hint="@string/email"
+                    android:inputType="textEmailAddress"
                     android:lines="1"
                     android:maxLines="1"
-                    android:inputType="textEmailAddress"
                     android:paddingVertical="10dp"
                     android:paddingStart="20dp"
                     android:paddingEnd="10dp"
@@ -149,10 +149,10 @@
                 android:id="@+id/fragment_login_forgot_password_tv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:text="@string/forgot_password"
                 android:textColor="@color/forgot_text_color"
                 android:textSize="16sp"
-                android:layout_marginTop="15dp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
@@ -179,17 +179,114 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="47dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="47dp"
-                android:layout_marginBottom="82dp"
                 android:text="@string/don_t_have_an_account"
                 android:textColor="@color/body_text_color"
                 android:textSize="16sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fragment_login_btn" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/custom_dialog_rectangle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_login_create_account_tv" />
+
+            <View
+                android:id="@+id/lineView"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@color/primary_color"
+                app:layout_constraintBottom_toBottomOf="@+id/line1"
+                app:layout_constraintEnd_toEndOf="@+id/line1"
+                app:layout_constraintStart_toStartOf="@+id/line1"
+                app:layout_constraintTop_toTopOf="@id/line1" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/or"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/lineView"
+                app:layout_constraintLeft_toLeftOf="@id/lineView"
+                app:layout_constraintRight_toRightOf="@id/lineView"
+                app:layout_constraintTop_toTopOf="@id/lineView"
+                tools:layout_editor_absoluteX="20dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_login_apple_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="42dp"
+                android:background="@drawable/apple_btn"
+                android:paddingStart="46dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="16dp"
+                android:text="@string/login_with_apple"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_login_google_btn"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineView" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_login_google_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="42dp"
+                android:background="@drawable/google_btn"
+                android:paddingStart="46dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="16dp"
+                android:text="@string/login_with_google"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/fragment_login_apple_btn"
+                app:layout_constraintTop_toBottomOf="@id/lineView" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/ic_apple_icon"
+                android:elevation="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_login_apple_btn"
+                app:layout_constraintStart_toStartOf="@+id/fragment_login_apple_btn"
+                app:layout_constraintTop_toTopOf="@+id/fragment_login_apple_btn" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/google_icon"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_login_google_btn"
+                app:layout_constraintStart_toStartOf="@+id/fragment_login_google_btn"
+                app:layout_constraintTop_toTopOf="@+id/fragment_login_google_btn" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

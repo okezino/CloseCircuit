@@ -28,4 +28,7 @@
     <string name="four_digit_details">A four-digit code has been sent to your Email, please enter code.</string>
     <string name="didn_t_receive_email_resend">Didn\'t receive email? <font color='#0386FF'>resend</font></string>
     <string name="you_entered_a_wrong_code">You entered a wrong code, please enter code correctly</string>
+    <string name="or">Or</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="login_with_apple">Login with Apple</string>
 </resources>
