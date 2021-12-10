@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.closedcircuitapplication.MainActivity
 import com.example.closedcircuitapplication.R
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -43,6 +44,12 @@ fun BottomNavigationView.hide() {
 fun Fragment.hideBottomNavigationView() {
     requireActivity()
         .findViewById<BottomAppBar>(R.id.bottom_app_bar)
+        .isVisible = false
+}
+
+fun Fragment.hideAppBar() {
+    requireActivity()
+        .findViewById<AppBarLayout>(R.id.appBarLayout)
         .isVisible = false
 }
 
