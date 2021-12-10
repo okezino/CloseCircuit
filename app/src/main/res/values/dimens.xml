@@ -1,3 +1,28 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="margin_34dp">34dp</dimen>
+    <dimen name="textSize_24sp">24sp</dimen>
+    <dimen name="width_0dp">0dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="margin_54dp">54dp</dimen>
+    <dimen name="textSize_15sp">15sp</dimen>
+    <dimen name="margin_100dp">100dp</dimen>
+    <dimen name="height_54dp">54dp</dimen>
+    <dimen name="spacing_20dp">20dp</dimen>
+    <dimen name="width_54dp">54dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="textSize_16sp">16sp</dimen>
+    <dimen name="margin_50dp">50dp</dimen>
+    <dimen name="radius_10dp">10dp</dimen>
+    <dimen name="margin_30dp">30dp</dimen>
+    <dimen name="padding_13dp">13dp</dimen>
+    <dimen name="textSize_14sp">14sp</dimen>
+    <dimen name="margin_33dp">33dp</dimen>
+    <dimen name="textSize_18sp">18sp</dimen>
+    <dimen name="margin_60dp">60dp</dimen>
+    <dimen name="margin_53dp">53dp</dimen>
+    <dimen name="margin_43dp">43dp</dimen>
+    <dimen name="margin_100dp">100dp</dimen>
+    <dimen name="margin_40dp">40dp</dimen>
 </resources>

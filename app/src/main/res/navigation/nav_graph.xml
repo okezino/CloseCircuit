@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/recoverPasswordOtpFragment">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -25,4 +25,24 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/recoverPasswordOtpFragment"
+        android:name="com.example.closedcircuitapplication.RecoverPasswordOtpFragment"
+        android:label="fragment_recover_password_otp"
+        tools:layout="@layout/fragment_recover_password_otp" />
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.closedcircuitapplication.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
+    <fragment
+        android:id="@+id/resetYourPasswordFragment"
+        android:name="com.example.closedcircuitapplication.ResetYourPasswordFragment"
+        android:label="fragment_reset_your_password"
+        tools:layout="@layout/fragment_reset_your_password" />
+    <fragment
+        android:id="@+id/passwordRecoverySuccessfulFragment"
+        android:name="com.example.closedcircuitapplication.PasswordRecoverySuccessfulFragment"
+        android:label="fragment_password_recovery_successful"
+        tools:layout="@layout/fragment_password_recovery_successful" />
 </navigation>
