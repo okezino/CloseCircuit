@@ -31,6 +31,13 @@ class RecoverPasswordOtpFragment : Fragment() {
         binding.recoverPasswordOtpView.setOtpCompletionListener {
             findNavController().navigate(R.id.action_recoverPasswordOtpFragment_to_resetYourPasswordFragment)
         }
+
+        binding.recoverPasswordOtpToolbar.apply {
+            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+            setNavigationOnClickListener {
+                activity?.onBackPressed()
+            }
+        }
     }
 
     private fun setUpSpannableText() {
