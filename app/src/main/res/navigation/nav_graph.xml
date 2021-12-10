@@ -6,33 +6,10 @@
     app:startDestination="@id/splashScreen">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.closedcircuitapplication.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.closedcircuitapplication.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-        <action
-            android:id="@+id/action_SecondFragment_to_welcomeScreenFragment2"
-            app:destination="@id/welcomeScreenFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/emailVerificationSuccessfulFragment"
         android:name="com.example.closedcircuitapplication.authentication.EmailVerificationSuccessfulFragment"
         android:label="fragment_email_verification_successful"
-        tools:layout="@layout/fragment_email_verification_successful" >
-        <action
-            android:id="@+id/action_emailVerificationSuccessfulFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_email_verification_successful" />
     <fragment
         android:id="@+id/splashScreen"
         android:name="com.example.closedcircuitapplication.ui.splashScreen.splashScreen"
@@ -53,12 +30,12 @@
         android:id="@+id/viewPagerFragment"
         android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.ViewPagerFragment"
         android:label="fragment_view_pager"
-        tools:layout="@layout/fragment_view_pager" >
-        <action
+        tools:layout="@layout/fragment_view_pager" />
+    <fragment
         android:id="@+id/verifyEmailFragment"
         android:name="com.example.closedcircuitapplication.authentication.VerifyEmailFragment"
         android:label="fragment_verify_email"
-        tools:layout="@layout/fragment_verify_email"/>
+        tools:layout="@layout/fragment_verify_email">
         <action
             android:id="@+id/action_verifyEmailFragment_to_emailVerificationSuccessfulFragment"
             app:destination="@id/emailVerificationSuccessfulFragment" />
@@ -80,8 +57,15 @@
         android:id="@+id/createAccountFragment"
         android:name="com.example.closedcircuitapplication.authentication.CreateAccountFragment"
         android:label="fragment_create_account"
-        tools:layout="@layout/fragment_create_account"/>
+        tools:layout="@layout/fragment_create_account">
         <action
             android:id="@+id/action_createAccountFragment_to_verifyEmailFragment"
             app:destination="@id/verifyEmailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment2"
+        android:name="com.example.closedcircuitapplication.dashboard.DashboardFragment"
+        android:label="DashboardFragment"
+        tools:layout="@layout/fragment_dashboard"/>
+
 </navigation>

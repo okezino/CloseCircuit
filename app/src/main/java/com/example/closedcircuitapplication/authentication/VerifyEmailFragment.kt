@@ -5,9 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.compose.ui.text.resolveDefaults
-import androidx.core.graphics.green
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
@@ -35,7 +32,7 @@ class VerifyEmailFragment : Fragment() {
 
         // this is use to check the input value of the pinview if it correct with the OTP sent to the user email
        binding.pinView.addTextChangedListener {
-           binding.pinView.setLineColor(resources.getColor(R.color.green))
+           binding.pinView.setLineColor(resources.getColor(R.color.green_700))
            binding.wrongcodeTv.visibility = View.INVISIBLE
            if (pin.toString().length == 4){
                if (pin.toString() == "1234"){

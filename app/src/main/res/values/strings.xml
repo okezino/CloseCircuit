@@ -29,7 +29,7 @@
     <string name="login">Login</string>
     <string name="create_an_account">Create an Account</string>
     <string name="to_login">to login</string>
-    <string name="please_wait">Please wait...</string>
+    <string name="please_wait">Please wait…</string>
     <string name="successfully_logged_in">Successfully Logged In</string>
     <string name="email_or_password_is_incorrect">Email or Password is incorrect</string>
     <string name="shared_building_shared_prosperity">Shared Building, Shared Prosperity</string>
@@ -47,4 +47,13 @@
     <string name="createAccount">Create an Account</string>
     <string name="welcome">Welcome</string>
     <string name="already_have_and_account">Already have and account? </string>
+    <string name="total_funds_raised">Total Funds Raised</string>
+    <string name="welcome_description">We are happy to have you on board. To start raising funds for your business or project, you need to create a plan.</string>
+    <string name="create_a_plan">Create a plan</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+    <string name="no_sponsor_description">Patience, you currently do not have any Sponsors. Share your link to family and friends.</string>
+    <string name="menu_message">Message</string>
+    <string name="menu_account">Account</string>
+    <string name="floating_action_button_desc">Floating action button</string>
 </resources>
