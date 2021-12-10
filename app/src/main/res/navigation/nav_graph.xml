@@ -31,7 +31,11 @@
         android:id="@+id/viewPagerFragment"
         android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.ViewPagerFragment"
         android:label="fragment_view_pager"
-        tools:layout="@layout/fragment_view_pager" />
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_welcomeScreenFragment2"
+            app:destination="@id/welcomeScreenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/verifyEmailFragment"
         android:name="com.example.closedcircuitapplication.authentication.VerifyEmailFragment"

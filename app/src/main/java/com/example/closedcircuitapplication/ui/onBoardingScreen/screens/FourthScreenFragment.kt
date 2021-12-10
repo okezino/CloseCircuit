@@ -28,7 +28,7 @@ class FourthScreenFragment : Fragment(R.layout.fragment_fourth_screen) {
         val viewPager = activity?.findViewById<ViewPager2>(R.id.onBoardingViewPager)
 
         binding.getStarted.setOnClickListener {
-            findNavController().navigate(R.id.action_viewPagerFragment_to_welcomeScreenFragment)
+            findNavController().navigate(R.id.action_viewPagerFragment_to_welcomeScreenFragment2)
             onBoardingFinished()
         }
 
