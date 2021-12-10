@@ -1,14 +1,11 @@
 package com.example.closedcircuitapplication.authentication
 
-import android.graphics.Color.red
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.compose.ui.graphics.Color
-import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
@@ -79,22 +76,22 @@ class CreateAccountFragment : Fragment() {
             if (password.toString().length <= 7){
                 binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.red))
             }else{
-                binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.green))
+                binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.green_700))
             }
             if (!password.toString().contains(uppercase) || !password.toString().contains(lowercase)){
                 binding.UppercaseAndLowercaseTv.setTextColor(resources.getColor(R.color.red))
             }else{
-                binding.UppercaseAndLowercaseTv.setTextColor(resources.getColor(R.color.green))
+                binding.UppercaseAndLowercaseTv.setTextColor(resources.getColor(R.color.green_700))
             }
             if (!password.toString().contains(digitCharackter)){
                 binding.NumbersTv.setTextColor(resources.getColor(R.color.red))
             }else{
-                binding.NumbersTv.setTextColor(resources.getColor(R.color.green))
+                binding.NumbersTv.setTextColor(resources.getColor(R.color.green_700))
             }
             if (!password.toString().contains(specailCharacter)){
                 binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.red))
             }else{
-                binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.green))
+                binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.green_700))
             }
         }
 

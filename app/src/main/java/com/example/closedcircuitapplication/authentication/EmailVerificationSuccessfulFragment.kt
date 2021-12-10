@@ -29,7 +29,7 @@ class EmailVerificationSuccessfulFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.proceedBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_emailVerificationSuccessfulFragment_to_FirstFragment)
+            findNavController().navigate(R.id.dashboardFragment2)
         }
 
     }
