@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.onBoardingScreen.adapter
+package com.example.closedcircuitapplication.ui.onboardingscreen.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.ViewPagerTemplateBinding
-import com.example.closedcircuitapplication.ui.onBoardingScreen.adapterModel.AdapterModel
+import com.example.closedcircuitapplication.ui.onboardingscreen.adaptermodel.AdapterModel
 
 class OnBoardingItemAdapter(): RecyclerView.Adapter<OnBoardingItemAdapter.OnBoardingItemViewHolder>() {
 

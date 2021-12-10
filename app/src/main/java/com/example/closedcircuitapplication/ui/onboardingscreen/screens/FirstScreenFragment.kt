@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.onBoardingScreen.screens
+package com.example.closedcircuitapplication.ui.onboardingscreen.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.databinding.FragmentSecondScreenBinding
-import com.example.closedcircuitapplication.databinding.FragmentThirdScreenBinding
+import com.example.closedcircuitapplication.databinding.FragmentFirstScreenBinding
 
-class ThirdScreenFragment : Fragment(R.layout.fragment_third_screen) {
+class FirstScreenFragment : Fragment(R.layout.fragment_first_screen) {
 
-    private var _binding: FragmentThirdScreenBinding? = null
+
+    private var _binding: FragmentFirstScreenBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -20,12 +20,12 @@ class ThirdScreenFragment : Fragment(R.layout.fragment_third_screen) {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding =  FragmentThirdScreenBinding.inflate(inflater, container, false)
+        _binding =  FragmentFirstScreenBinding.inflate(inflater, container, false)
 
         val viewPager = activity?.findViewById<ViewPager2>(R.id.onBoardingViewPager)
 
         binding.nextBtn.setOnClickListener {
-            viewPager?.currentItem = 3
+            viewPager?.currentItem = 1
         }
 
         return  binding.root

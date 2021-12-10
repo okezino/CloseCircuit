@@ -25,8 +25,20 @@ class WelcomeScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.wellcomePageCreateAccountBtn.setOnClickListener {
+
+        //navigate from  login/create an account to loginScreen
+        binding.loginBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_welcomeScreenFragment_to_loginFragment)
+        }
+
+        //navigate from  login/create an account to  Create an account screen
+        binding.welcomePageCreateAccountBtn.setOnClickListener {
             findNavController().navigate(R.id.action_welcomeScreenFragment_to_createAccountFragment)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

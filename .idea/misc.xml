@@ -13,11 +13,12 @@
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/fragment_first_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_fourth_screen.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/fragment_second_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.23697916666666666" />
-        <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.1234375" />
+        <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.22" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.128125" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.25" />
       </map>
