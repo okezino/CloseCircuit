@@ -110,7 +110,7 @@
                 android:textSize="24sp"
                 app:itemCount="4"
                 app:lineColor="#EBEFF2"
-                app:cursorColor="@color/green"
+                app:cursorColor="@color/green_700"
                 android:layout_marginTop="128dp"
                 android:cursorVisible="true"
                 android:background="@color/white"

@@ -4,20 +4,71 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next Fragment</string>
+    <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="verify_email_address">Verify Email Address</string>
+    <string name="password_recovery_text">Password Recovery</string>
+    <string name="you_re_almost_close_to_recovering_your_password_text">You’re almost close to recovering your password. A code has been sent to your email address, please enter code to proceed.</string>
+    <string name="you_entered_a_wrong_code_text">You entered a wrong code, please enter code correctly</string>
+    <string name="didn_t_recieve_email_resend_text">Didn’t recieve email? resend</string>
+    <string name="all_password_recovery_text">Password Recovery</string>
+    <string name="we_are_here_to_help_you_recover_your_password_text">We are here to help you recover your password, please enter your registered email address below.</string>
+    <string name="email_text">Email</string>
+    <string name="recover_password_text">Recover Password</string>
+    <string name="remember_password_login_text">Remember password? Login</string>
+    <string name="password_recovery_n_sucessful_text">Password Recovery\nSucessful</string>
+    <string name="all_congratulations_text">Congratulations</string>
+    <string name="please_proceed_to_login_into_your_account_text">Please proceed to login into your account.</string>
+    <string name="all_reset_your_password_text">Reset your password</string>
+    <string name="finally_here_text">Finally we are here!\nCreate new password and let’s continue.</string>
+    <string name="enter_a_new_password_text">Enter a new password</string>
+    <string name="onBoarding_title">Easily raise funds for your business or project</string>
+    <string name="onBoarding_description">Start a business or project and get your family, friends or wellwishers to financially support from anywhere in the world.</string>
+    <string name="skip">Skip</string>
+    <string name="get_guided_execution_create_a_budget_and_action_steps">Get guided execution. Create a budget and action steps</string>
+    <string name="follow_the_guided_steps_on_execution_of_your_business_or_project_to_unlock_funds_and_stay_accountable_to_your_sponsors">Follow the guided steps on execution of your business or project to unlock funds and stay accountable to your sponsors.</string>
+    <string name="support_incubate_and_mentor_with_your_financial_contributions">Support, incubate and mentor with your financial contributions</string>
+    <string name="ensure_your_financial_contributions_are_meaningfully_used_to_establish_success_in_the_business_or_project_funded">Ensure your financial contributions are meaningfully used to establish success in the business or project funded.</string>
+    <string name="discover_diligently_executed_ideas_to_invest_in">Discover diligently executed ideas to invest in</string>
+    <string name="discover_investment_opportunities_in_star_performing_businesses_or_projects_on_the_platform">Discover investment opportunities in star performing businesses or projects on the platform.</string>
+    <string name="start_a_business_or_project_and_get_your_family_friends_or_wellwishers_to_financially_support_from_anywhere_in_the_world">Start a business or project and get your family, friends or wellwishers to financially support from anywhere in the world.</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="welcome_back_detail_text">We are happy to see you, login into your account to continue managing your dreams with us.</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="don_t_have_an_account">Don\'t have an account?<font color='#0386FF'>Create an Account</font></string>
+    <string name="login">Login</string>
+    <string name="create_an_account">Create an Account</string>
+    <string name="to_login">to login</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="successfully_logged_in">Successfully Logged In</string>
+    <string name="email_or_password_is_incorrect">Email or Password is incorrect</string>
+    <string name="shared_building_shared_prosperity">Shared Building, Shared Prosperity</string>
     <string name="check_your_email">Check Your Email</string>
-    <string name="shared_building_shared_prosperity">Shared Building, shared prosperity</string>
-
+    <string name="verify_email_address">Verify Email Address</string>
+    <string name="four_digit_details">A four-digit code has been sent to your Email, please enter code.</string>
+    <string name="didn_t_receive_email_resend">Didn\'t receive email? <font color='#0386FF'>resend</font></string>
+    <string name="you_entered_a_wrong_code">You entered a wrong code, please enter code correctly</string>
+    <string name="or">Or</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="login_with_apple">Login with Apple</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="quote">To run fast, run alone. TO run far run togother. Together we can archieve greater things</string>
     <string name="registerUsingGoogle">Register with Google</string>
     <string name="createAccount">Create an Account</string>
     <string name="welcome">Welcome</string>
     <string name="already_have_and_account">Already have and account? </string>
+    <string name="total_funds_raised">Total Funds Raised</string>
+    <string name="welcome_description">We are happy to have you on board. To start raising funds for your business or project, you need to create a plan.</string>
+    <string name="create_a_plan">Create a plan</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+    <string name="no_sponsor_description">Patience, you currently do not have any Sponsors. Share your link to family and friends.</string>
+    <string name="menu_message">Message</string>
+    <string name="menu_account">Account</string>
+    <string name="floating_action_button_desc">Floating action button</string>
 </resources>
