@@ -96,6 +96,15 @@
         android:id="@+id/forgotPasswordFragment"
         android:name="com.example.closedcircuitapplication.authentication.ForgotPasswordFragment"
         android:label="fragment_forgot_password"
-        tools:layout="@layout/fragment_forgot_password" />
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_recoverPasswordOtpFragment"
+            app:destination="@id/recoverPasswordOtpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recoverPasswordOtpFragment"
+        android:name="com.example.closedcircuitapplication.authentication.RecoverPasswordOtpFragment"
+        android:label="fragment_recover_password_otp"
+        tools:layout="@layout/fragment_recover_password_otp" />
 
 </navigation>

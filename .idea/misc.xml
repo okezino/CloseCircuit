@@ -16,6 +16,9 @@
         <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.24230072463768115" />
         <entry key="app/src/main/res/layout/fragment_fourth_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_password_recovery_successful.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/fragment_recover_password_otp.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_reset_your_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/fragment_second_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.1578125" />
