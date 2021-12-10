@@ -25,6 +25,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
 
+        //navigate to forgot password screen
+        binding.fragmentLoginForgotPasswordTv.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+        }
 
         //navigate back to welcome screen from login screen
         binding.imageView.setOnClickListener {

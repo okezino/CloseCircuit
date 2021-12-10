@@ -27,6 +27,9 @@ class ForgotPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
+
+        //navigate to forgot password screen
+
     }
 
     private fun setUpSpannableText() {
