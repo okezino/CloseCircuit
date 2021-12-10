@@ -37,7 +37,7 @@ class CreateAccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //navigate back to  login/create an account screen
+        //navigate back to  welcome screen from create account screen
         binding.backBtn.setOnClickListener {
             findNavController().navigate(R.id.action_createAccountFragment_to_welcomeScreenFragment)
         }

@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ImageView
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentLoginBinding
 import java.util.*
@@ -23,6 +24,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
+
+
+        //navigate back to welcome screen from login screen
+        binding.imageView.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_welcomeScreenFragment)
+        }
+
         email = "phil@gmail.com"
         password = "emma"
 
