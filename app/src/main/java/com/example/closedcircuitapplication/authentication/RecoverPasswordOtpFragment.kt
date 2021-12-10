@@ -38,6 +38,7 @@ class RecoverPasswordOtpFragment : Fragment() {
                 activity?.onBackPressed()
             }
         }
+        //navigate from recover password screen with otp to reset password screen
     }
 
     private fun setUpSpannableText() {

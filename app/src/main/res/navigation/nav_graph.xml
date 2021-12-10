@@ -13,7 +13,7 @@
         tools:layout="@layout/fragment_email_verification_successful" />
     <fragment
         android:id="@+id/splashScreen"
-        android:name="com.example.closedcircuitapplication.ui.splashScreen.splashScreen"
+        android:name="com.example.closedcircuitapplication.ui.splashscreen.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
@@ -29,9 +29,15 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.ViewPagerFragment"
+        android:name="com.example.closedcircuitapplication.ui.onboardingscreen.ViewPagerFragment"
         android:label="fragment_view_pager"
-        tools:layout="@layout/fragment_view_pager" />
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_welcomeScreenFragment2"
+            app:destination="@id/welcomeScreenFragment"
+            app:popUpTo="@id/viewPagerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/verifyEmailFragment"
         android:name="com.example.closedcircuitapplication.authentication.VerifyEmailFragment"
@@ -47,13 +53,45 @@
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/recoverPasswordOtpFragment"
-        android:name="com.example.closedcircuitapplication.authentication.RecoverPasswordOtpFragment"
-        android:label="fragment_recover_password_otp"
-        tools:layout="@layout/fragment_recover_password_otp" >
+        android:id="@+id/welcomeScreenFragment"
+        android:name="com.example.closedcircuitapplication.authentication.WelcomeScreenFragment"
+        android:label="fragment_welcome_screen"
+        tools:layout="@layout/fragment_welcome_screen">
         <action
-            android:id="@+id/action_recoverPasswordOtpFragment_to_resetYourPasswordFragment"
-            app:destination="@id/resetYourPasswordFragment" />
+            android:id="@+id/action_welcomeScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_welcomeScreenFragment_to_createAccountFragment2"
+            app:destination="@id/createAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.example.closedcircuitapplication.authentication.CreateAccountFragment"
+        android:label="fragment_create_account"
+        tools:layout="@layout/fragment_create_account">
+        <action
+            android:id="@+id/action_createAccountFragment_to_verifyEmailFragment"
+            app:destination="@id/verifyEmailFragment" />
+        <action
+            android:id="@+id/action_createAccountFragment_to_welcomeScreenFragment"
+            app:destination="@id/welcomeScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment2"
+        android:name="com.example.closedcircuitapplication.dashboard.DashboardFragment"
+        android:label="DashboardFragment"
+        tools:layout="@layout/fragment_dashboard"/>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.closedcircuitapplication.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeScreenFragment"
+            app:destination="@id/welcomeScreenFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -63,6 +101,15 @@
         <action
             android:id="@+id/action_forgotPasswordFragment_to_recoverPasswordOtpFragment"
             app:destination="@id/recoverPasswordOtpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recoverPasswordOtpFragment"
+        android:name="com.example.closedcircuitapplication.authentication.RecoverPasswordOtpFragment"
+        android:label="fragment_recover_password_otp"
+        tools:layout="@layout/fragment_recover_password_otp" >
+        <action
+            android:id="@+id/action_recoverPasswordOtpFragment_to_resetYourPasswordFragment"
+            app:destination="@id/resetYourPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/resetYourPasswordFragment"
@@ -77,29 +124,10 @@
         android:id="@+id/passwordRecoverySuccessfulFragment"
         android:name="com.example.closedcircuitapplication.authentication.PasswordRecoverySuccessfulFragment"
         android:label="fragment_password_recovery_successful"
-        tools:layout="@layout/fragment_password_recovery_successful" />
-
+        tools:layout="@layout/fragment_password_recovery_successful" >
         <action
-            android:id="@+id/action_welcomeScreenFragment_to_createAccountFragment"
-            app:destination="@id/createAccountFragment" />
-    <fragment
-        android:id="@+id/createAccountFragment"
-        android:name="com.example.closedcircuitapplication.authentication.CreateAccountFragment"
-        android:label="fragment_create_account"
-        tools:layout="@layout/fragment_create_account">
-        <action
-            android:id="@+id/action_createAccountFragment_to_verifyEmailFragment"
-            app:destination="@id/verifyEmailFragment" />
+            android:id="@+id/action_passwordRecoverySuccessfulFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/dashboardFragment2"
-        android:name="com.example.closedcircuitapplication.dashboard.DashboardFragment"
-        android:label="DashboardFragment"
-        tools:layout="@layout/fragment_dashboard"/>
-    <fragment
-        android:id="@+id/welcomeScreenFragment"
-        android:name="com.example.closedcircuitapplication.authentication.WelcomeScreenFragment"
-        android:label="fragment_welcome_screen"
-        tools:layout="@layout/fragment_welcome_screen" />
 
 </navigation>

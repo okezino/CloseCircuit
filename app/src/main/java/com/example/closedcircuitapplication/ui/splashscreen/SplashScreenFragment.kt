@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.splashScreen
+package com.example.closedcircuitapplication.ui.splashscreen
 
 import android.content.Context
 import android.os.Bundle
@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentSplashScreenBinding
 
-class splashScreen : Fragment(R.layout.fragment_splash_screen) {
+class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
 
     private var _binding : FragmentSplashScreenBinding? = null
     private val binding get() = _binding!!

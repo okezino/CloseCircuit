@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentPasswordRecoverySuccessfulBinding
 
@@ -28,6 +29,9 @@ class PasswordRecoverySuccessfulFragment : Fragment() {
             setNavigationOnClickListener {
                 activity?.onBackPressed()
             }
+        }
+        binding.passwordRecoverySuccessProceedButtpn.setOnClickListener {
+            findNavController().navigate(R.id.action_passwordRecoverySuccessfulFragment_to_loginFragment)
         }
     }
 
