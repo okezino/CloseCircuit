@@ -61,14 +61,10 @@ class MainActivity : AppCompatActivity() {
                         binding.appBarDashboard.notificationImageView.visibility = View.VISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.VISIBLE
                     }
-                    R.id.welcomeScreenFragment -> {
-                        bottomAppBar.visibility = View.INVISIBLE
-                        binding.appBarDashboard.contentMain.fab.visibility = View.INVISIBLE
-                        binding.appBarDashboard.appBarLayout.visibility = View.GONE
-                    }
                     else -> {
                         binding.appBarDashboard.contentMain.fab.visibility = View.INVISIBLE
                         bottomAppBar.visibility = View.INVISIBLE
+                        binding.appBarDashboard.appBarLayout.visibility = View.GONE
                         binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
                     }

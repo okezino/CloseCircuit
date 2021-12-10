@@ -30,12 +30,12 @@
         android:id="@+id/viewPagerFragment"
         android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.ViewPagerFragment"
         android:label="fragment_view_pager"
-        tools:layout="@layout/fragment_view_pager" >
-        <action
+        tools:layout="@layout/fragment_view_pager" />
+    <fragment
         android:id="@+id/verifyEmailFragment"
         android:name="com.example.closedcircuitapplication.authentication.VerifyEmailFragment"
         android:label="fragment_verify_email"
-        tools:layout="@layout/fragment_verify_email"/>
+        tools:layout="@layout/fragment_verify_email">
         <action
             android:id="@+id/action_verifyEmailFragment_to_emailVerificationSuccessfulFragment"
             app:destination="@id/emailVerificationSuccessfulFragment" />
@@ -49,22 +49,23 @@
         android:id="@+id/welcomeScreenFragment"
         android:name="com.example.closedcircuitapplication.authentication.WelcomeScreenFragment"
         android:label="fragment_welcome_screen"
-        tools:layout="@layout/fragment_welcome_screen">
+        tools:layout="@layout/fragment_welcome_screen"/>
         <action
             android:id="@+id/action_welcomeScreenFragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment" />
-    </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
         android:name="com.example.closedcircuitapplication.authentication.CreateAccountFragment"
         android:label="fragment_create_account"
-        tools:layout="@layout/fragment_create_account"/>
+        tools:layout="@layout/fragment_create_account">
         <action
             android:id="@+id/action_createAccountFragment_to_verifyEmailFragment"
             app:destination="@id/verifyEmailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/dashboardFragment2"
         android:name="com.example.closedcircuitapplication.dashboard.DashboardFragment"
         android:label="DashboardFragment"
         tools:layout="@layout/fragment_dashboard"/>
+
 </navigation>
