@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentRecoverPasswordOtpBinding
 
@@ -27,9 +28,11 @@ class RecoverPasswordOtpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
+        binding.recoverPasswordOtpView.setOtpCompletionListener {
+            findNavController().navigate(R.id.action_recoverPasswordOtpFragment_to_resetYourPasswordFragment)
+        }
 
         //navigate from recover password screen with otp to reset password screen
-
     }
 
     private fun setUpSpannableText() {
