@@ -37,6 +37,11 @@ class CreateAccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //navigate back to  login/create an account screen
+        binding.backBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_createAccountFragment_to_welcomeScreenFragment)
+        }
+
         val fullName = binding.fullNameTextInput.text
         val phoneNumber = binding.phoneNumberTextInput.text
         val email = binding.emailTextInput.text

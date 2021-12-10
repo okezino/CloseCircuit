@@ -69,6 +69,9 @@
         <action
             android:id="@+id/action_createAccountFragment_to_verifyEmailFragment"
             app:destination="@id/verifyEmailFragment" />
+        <action
+            android:id="@+id/action_createAccountFragment_to_welcomeScreenFragment"
+            app:destination="@id/welcomeScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment2"
