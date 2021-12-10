@@ -105,6 +105,24 @@
         android:id="@+id/recoverPasswordOtpFragment"
         android:name="com.example.closedcircuitapplication.authentication.RecoverPasswordOtpFragment"
         android:label="fragment_recover_password_otp"
-        tools:layout="@layout/fragment_recover_password_otp" />
+        tools:layout="@layout/fragment_recover_password_otp" >
+        <action
+            android:id="@+id/action_recoverPasswordOtpFragment_to_resetYourPasswordFragment"
+            app:destination="@id/resetYourPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetYourPasswordFragment"
+        android:name="com.example.closedcircuitapplication.authentication.ResetYourPasswordFragment"
+        android:label="fragment_reset_your_password"
+        tools:layout="@layout/fragment_reset_your_password" >
+        <action
+            android:id="@+id/action_resetYourPasswordFragment_to_passwordRecoverySuccessfulFragment"
+            app:destination="@id/passwordRecoverySuccessfulFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordRecoverySuccessfulFragment"
+        android:name="com.example.closedcircuitapplication.authentication.PasswordRecoverySuccessfulFragment"
+        android:label="fragment_password_recovery_successful"
+        tools:layout="@layout/fragment_password_recovery_successful" />
 
 </navigation>
