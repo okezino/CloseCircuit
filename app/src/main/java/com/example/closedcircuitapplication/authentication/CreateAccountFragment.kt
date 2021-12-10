@@ -48,17 +48,9 @@ class CreateAccountFragment : Fragment() {
 
         binding.countrycode.setOnCountryChangeListener {
             countryCode = binding.countrycode.selectedCountryCodeWithPlus
-
         }
 
         binding.createAccountBtn.setOnClickListener {
-
-            Toast.makeText(context, fullName, Toast.LENGTH_SHORT).show()
-            Toast.makeText(context, email.toString(), Toast.LENGTH_SHORT).show()
-            Toast.makeText(context, password, Toast.LENGTH_SHORT).show()
-            Toast.makeText(context, phoneNumber, Toast.LENGTH_SHORT).show()
-            Toast.makeText(context, countryCode, Toast.LENGTH_SHORT).show()
-
             // check if the email address is correct or not
             if (!Validation.validateEmailInput(email.toString())) {
                 binding.wrongEmailWorningTv.visibility = View.VISIBLE

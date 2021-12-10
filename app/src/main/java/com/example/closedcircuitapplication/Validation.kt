@@ -18,5 +18,4 @@ object Validation {
         }
         return true
     }
-
 }
