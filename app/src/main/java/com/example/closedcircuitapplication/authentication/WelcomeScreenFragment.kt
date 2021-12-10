@@ -33,7 +33,7 @@ class WelcomeScreenFragment : Fragment() {
 
         //navigate from  login/create an account to  Create an account screen
         binding.welcomePageCreateAccountBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeScreenFragment_to_createAccountFragment)
+            findNavController().navigate(R.id.action_welcomeScreenFragment_to_createAccountFragment2)
         }
     }
 

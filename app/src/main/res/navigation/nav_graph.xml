@@ -57,10 +57,10 @@
         <action
             android:id="@+id/action_welcomeScreenFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-    </fragment>
         <action
-            android:id="@+id/action_welcomeScreenFragment_to_createAccountFragment"
+            android:id="@+id/action_welcomeScreenFragment_to_createAccountFragment2"
             app:destination="@id/createAccountFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
         android:name="com.example.closedcircuitapplication.authentication.CreateAccountFragment"
