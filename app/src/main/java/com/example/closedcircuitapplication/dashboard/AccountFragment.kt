@@ -5,9 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.databinding.FragmentCreateAccountBinding
 
 class AccountFragment : Fragment() {
+    var _binding:FragmentCreateAccountBinding? = null
+    val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -15,6 +19,18 @@ class AccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false)
+        _binding= FragmentCreateAccountBinding.inflate(inflater, container, false)
+       return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navigateToForgetPasswordFragment()
+    }
+
+    fun navigateToForgetPasswordFragment(){
+        binding.createAccountTv.setOnClickListener {
+            findNavController().navigate(R.id.action_accountFragment_to_forgotPasswordFragment)
+        }
     }
 }

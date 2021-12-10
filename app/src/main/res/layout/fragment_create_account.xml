@@ -8,36 +8,16 @@
     tools:context=".authentication.CreateAccountFragment">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/back_btn"
-            android:layout_width="19dp"
-            android:layout_height="16dp"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="20dp" />
-
-    </androidx.appcompat.widget.Toolbar>
-
     <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="@dimen/margin_20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -204,8 +184,8 @@
                     android:id="@+id/passwordTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:hint="password" />
+                    android:hint="password"
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -365,20 +345,20 @@
                 android:id="@+id/registerUsingGoogle_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="54dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginStart="10dp"
                 android:layout_marginBottom="50dp"
-               android:text="@string/registerUsingGoogle"
+                android:paddingStart="40dp"
+                android:text="@string/registerUsingGoogle"
                 android:textAllCaps="false"
                 android:textColor="#24500F"
                 android:textSize="10sp"
-                android:paddingStart="40dp"
                 app:backgroundTint="@color/white"
                 app:cornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/registerUsingApple_btn"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/registerUsingApple_btn"
                 app:layout_constraintTop_toBottomOf="@id/or_Tv"
                 app:strokeColor="#24500F"
                 app:strokeWidth="2dp" />
@@ -391,13 +371,13 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="50dp"
+                android:paddingStart="40dp"
                 android:text="Register with Apple"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="10sp"
                 app:backgroundTint="#000000"
                 app:cornerRadius="10dp"
-                android:paddingStart="40dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/registerUsingGoogle_btn"
                 app:layout_constraintStart_toStartOf="parent"
@@ -414,15 +394,14 @@
                 android:src="@drawable/google_icon"
                 app:layout_constraintBottom_toBottomOf="@+id/registerUsingGoogle_btn"
                 app:layout_constraintStart_toStartOf="@+id/registerUsingGoogle_btn"
-                app:layout_constraintTop_toTopOf="@+id/registerUsingGoogle_btn"
-                 />
+                app:layout_constraintTop_toTopOf="@+id/registerUsingGoogle_btn" />
 
             <ImageView
                 android:layout_width="31dp"
                 android:layout_height="34dp"
+                android:layout_marginStart="1dp"
                 android:background="#000000"
                 android:elevation="2dp"
-                android:layout_marginStart="1dp"
                 android:src="@drawable/apple_icon"
                 app:layout_constraintBottom_toBottomOf="@+id/registerUsingApple_btn"
                 app:layout_constraintStart_toStartOf="@+id/registerUsingApple_btn"

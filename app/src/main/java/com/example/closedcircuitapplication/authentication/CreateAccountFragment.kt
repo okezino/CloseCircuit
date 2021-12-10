@@ -38,9 +38,7 @@ class CreateAccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //navigate back to  welcome screen from create account screen
-        binding.backBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_createAccountFragment_to_welcomeScreenFragment)
-        }
+
 
         val fullName = binding.fullNameTextInput.text
         val phoneNumber = binding.phoneNumberTextInput.text
@@ -67,7 +65,9 @@ class CreateAccountFragment : Fragment() {
             if (password.toString() != comfirmPassword.toString()){
                 Toast.makeText(context, "password does not match", Toast.LENGTH_SHORT).show()
             }
-       }
+            findNavController().navigate(R.id.action_createAccountFragment_to_verifyEmailFragment)
+
+        }
         // check the password input if it meet all the requirement
         binding.passwordTextInput.addTextChangedListener {
             if (password.toString().length <= 7){
