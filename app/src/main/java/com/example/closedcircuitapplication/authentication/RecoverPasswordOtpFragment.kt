@@ -27,6 +27,9 @@ class RecoverPasswordOtpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
+
+        //navigate from recover password screen with otp to reset password screen
+
     }
 
     private fun setUpSpannableText() {

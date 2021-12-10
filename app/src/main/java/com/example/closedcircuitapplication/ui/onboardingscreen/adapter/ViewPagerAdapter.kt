@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.onBoardingScreen.adapter
+package com.example.closedcircuitapplication.ui.onboardingscreen.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
