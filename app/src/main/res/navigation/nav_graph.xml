@@ -89,5 +89,10 @@
             android:id="@+id/action_loginFragment_to_welcomeScreenFragment"
             app:destination="@id/welcomeScreenFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.closedcircuitapplication.authentication.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
 
 </navigation>
