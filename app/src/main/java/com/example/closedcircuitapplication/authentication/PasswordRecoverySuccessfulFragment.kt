@@ -1,10 +1,11 @@
-package com.example.closedcircuitapplication
+package com.example.closedcircuitapplication.authentication
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.closedcircuitapplication.R
 
 
 class PasswordRecoverySuccessfulFragment : Fragment() {

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/background_lines"
+tools:context=".authentication.WelcomeScreenFragment">
+
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/upper_guidline"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <TextView
+        android:id="@+id/wellcome_tv"
+        android:layout_width="109dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="center"
+        android:text="@string/welcome"
+        android:textColor="#0B0B0B"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/upper_guidline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/hand_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/emoji"
+        app:layout_constraintBottom_toBottomOf="@+id/wellcome_tv"
+        app:layout_constraintStart_toEndOf="@+id/wellcome_tv"
+        app:layout_constraintTop_toTopOf="@+id/wellcome_tv" />
+
+    <TextView
+        android:id="@+id/quotetextView"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/quote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wellcome_tv" />
+
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/hands_example_illustration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quotetextView" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/welcomePageLogin_btn"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:backgroundTint="#24500F"
+        app:cornerRadius="10dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/background_image" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/wellcomePageCreateAccount_btn"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:clickable="true"
+        android:layout_marginBottom="40dp"
+        android:text="@string/createAccount"
+        android:textAllCaps="false"
+        android:textColor="#24500F"
+        android:textSize="16sp"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcomePageLogin_btn"
+        app:strokeColor="#24500F"
+        app:strokeWidth="2dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

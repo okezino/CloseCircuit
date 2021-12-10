@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication
+package com.example.closedcircuitapplication.authentication
 
 import android.os.Bundle
 import android.text.SpannableString
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentRecoverPasswordOtpBinding
 
 
