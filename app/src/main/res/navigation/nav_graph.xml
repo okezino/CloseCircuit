@@ -94,6 +94,9 @@
         <action
             android:id="@+id/action_createAccountFragment_to_verifyEmailFragment"
             app:destination="@id/verifyEmailFragment" />
+        <action
+            android:id="@+id/action_createAccountFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment2"
@@ -104,6 +107,19 @@
         android:id="@+id/welcomeScreenFragment"
         android:name="com.example.closedcircuitapplication.authentication.WelcomeScreenFragment"
         android:label="fragment_welcome_screen"
-        tools:layout="@layout/fragment_welcome_screen" />
+        tools:layout="@layout/fragment_welcome_screen" >
+        <action
+            android:id="@+id/action_welcomeScreenFragment_to_createAccountFragment2"
+            app:destination="@id/createAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.closedcircuitapplication.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment2"
+            app:destination="@id/dashboardFragment2" />
+    </fragment>
 
 </navigation>
