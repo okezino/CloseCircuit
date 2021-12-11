@@ -1,6 +1,5 @@
-package com.example.closedcircuitapplication.ui.onBoardingScreen
+package com.example.closedcircuitapplication.ui.onboardingscreen
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,19 +11,14 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentViewPagerBinding
-import com.example.closedcircuitapplication.ui.onBoardingScreen.adapter.OnBoardingItemAdapter
-import com.example.closedcircuitapplication.ui.onBoardingScreen.adapter.ViewPagerAdapter
-import com.example.closedcircuitapplication.ui.onBoardingScreen.adapterModel.AdapterModel
-import com.example.closedcircuitapplication.ui.onBoardingScreen.screens.FirstScreenFragment
-import com.example.closedcircuitapplication.ui.onBoardingScreen.screens.FourthScreenFragment
-import com.example.closedcircuitapplication.ui.onBoardingScreen.screens.SecondScreenFragment
-import com.example.closedcircuitapplication.ui.onBoardingScreen.screens.ThirdScreenFragment
+import com.example.closedcircuitapplication.ui.onboardingscreen.adapter.OnBoardingItemAdapter
+import com.example.closedcircuitapplication.ui.onboardingscreen.adapter.ViewPagerAdapter
+import com.example.closedcircuitapplication.ui.onboardingscreen.screens.FirstScreenFragment
+import com.example.closedcircuitapplication.ui.onboardingscreen.screens.FourthScreenFragment
+import com.example.closedcircuitapplication.ui.onboardingscreen.screens.SecondScreenFragment
+import com.example.closedcircuitapplication.ui.onboardingscreen.screens.ThirdScreenFragment
 
 class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
 

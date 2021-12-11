@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.onBoardingScreen.screens
+package com.example.closedcircuitapplication.ui.onboardingscreen.screens
 
 import android.content.Context
 import android.os.Bundle
@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentFourthScreenBinding
-import com.example.closedcircuitapplication.databinding.FragmentSecondScreenBinding
 
 class FourthScreenFragment : Fragment(R.layout.fragment_fourth_screen) {
 
@@ -27,8 +26,9 @@ class FourthScreenFragment : Fragment(R.layout.fragment_fourth_screen) {
 
         val viewPager = activity?.findViewById<ViewPager2>(R.id.onBoardingViewPager)
 
+        //user navigates from the on-boarding screen to login/create account screen
         binding.getStarted.setOnClickListener {
-            findNavController().navigate(R.id.action_viewPagerFragment_to_welcomeScreenFragment)
+            findNavController().navigate(R.id.action_viewPagerFragment_to_welcomeScreenFragment2)
             onBoardingFinished()
         }
 

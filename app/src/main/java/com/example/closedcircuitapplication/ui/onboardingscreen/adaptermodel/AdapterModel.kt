@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.onBoardingScreen.adapterModel
+package com.example.closedcircuitapplication.ui.onboardingscreen.adaptermodel
 
 data class AdapterModel(
     val onBoardingImage: Int,
