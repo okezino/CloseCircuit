@@ -10,6 +10,21 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="password_recovery_text">Password Recovery</string>
+    <string name="you_re_almost_close_to_recovering_your_password_text">You’re almost close to recovering your password. A code has been sent to your email address, please enter code to proceed.</string>
+    <string name="you_entered_a_wrong_code_text">You entered a wrong code, please enter code correctly</string>
+    <string name="didn_t_recieve_email_resend_text">Didn’t recieve email? resend</string>
+    <string name="all_password_recovery_text">Password Recovery</string>
+    <string name="we_are_here_to_help_you_recover_your_password_text">We are here to help you recover your password, please enter your registered email address below.</string>
+    <string name="email_text">Email</string>
+    <string name="recover_password_text">Recover Password</string>
+    <string name="remember_password_login_text">Remember password? Login</string>
+    <string name="password_recovery_n_sucessful_text">Password Recovery\nSucessful</string>
+    <string name="all_congratulations_text">Congratulations</string>
+    <string name="please_proceed_to_login_into_your_account_text">Please proceed to login into your account.</string>
+    <string name="all_reset_your_password_text">Reset your password</string>
+    <string name="finally_here_text">Finally we are here!\nCreate new password and let’s continue.</string>
+    <string name="enter_a_new_password_text">Enter a new password</string>
     <string name="onBoarding_title">Easily raise funds for your business or project</string>
     <string name="onBoarding_description">Start a business or project and get your family, friends or wellwishers to financially support from anywhere in the world.</string>
     <string name="skip">Skip</string>
@@ -29,7 +44,7 @@
     <string name="login">Login</string>
     <string name="create_an_account">Create an Account</string>
     <string name="to_login">to login</string>
-    <string name="please_wait">Please wait...</string>
+    <string name="please_wait">Please wait…</string>
     <string name="successfully_logged_in">Successfully Logged In</string>
     <string name="email_or_password_is_incorrect">Email or Password is incorrect</string>
     <string name="shared_building_shared_prosperity">Shared Building, Shared Prosperity</string>
@@ -47,4 +62,19 @@
     <string name="createAccount">Create an Account</string>
     <string name="welcome">Welcome</string>
     <string name="already_have_and_account">Already have and account? </string>
+    <string name="total_funds_raised">Total Funds Raised</string>
+    <string name="welcome_description">We are happy to have you on board. To start raising funds for your business or project, you need to create a plan.</string>
+    <string name="create_a_plan">Create a plan</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+    <string name="no_sponsor_description">Patience, you currently do not have any Sponsors. Share your link to family and friends.</string>
+    <string name="menu_message">Message</string>
+    <string name="menu_account">Account</string>
+    <string name="floating_action_button_desc">Floating action button</string>
+    <string name="share_link">share link</string>
+    <string name="view_all">VIEW ALL</string>
+    <string name="recent_donations">Recent Donations</string>
+    <string name="not_started_plans">Not started \nPlans</string>
+    <string name="top_sponsor">Top Sponsor</string>
+    <string name="completed_plans">Completed \nPlans</string>
 </resources>

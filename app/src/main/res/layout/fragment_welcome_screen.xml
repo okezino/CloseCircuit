@@ -8,8 +8,6 @@ android:layout_height="match_parent"
 android:background="@drawable/background_lines"
 tools:context=".authentication.WelcomeScreenFragment">
 
-    >
-
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -72,7 +70,7 @@ tools:context=".authentication.WelcomeScreenFragment">
         app:layout_constraintTop_toBottomOf="@+id/quotetextView" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/welcomePageLogin_btn"
+        android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginStart="20dp"
@@ -90,7 +88,7 @@ tools:context=".authentication.WelcomeScreenFragment">
         app:layout_constraintTop_toBottomOf="@+id/background_image" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/wellcomePageCreateAccount_btn"
+        android:id="@+id/welcomePageCreateAccount_btn"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginStart="20dp"
@@ -108,7 +106,7 @@ tools:context=".authentication.WelcomeScreenFragment">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/welcomePageLogin_btn"
+        app:layout_constraintTop_toBottomOf="@id/login_btn"
         app:strokeColor="#24500F"
         app:strokeWidth="2dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

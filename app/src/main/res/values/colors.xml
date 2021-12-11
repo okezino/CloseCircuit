@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="spannableBlue">#0386FF</color>
 
     <color name="main">#24500F</color>
     <color name="background">#E5E5E5</color>
@@ -24,6 +25,10 @@
     <color name="progress_bar_end_color">#E0E0E0</color>
     <color name="text_red_color">#D91D1D</color>
     <color name="red">#D91D1D</color>
-    <color name="green">#24500F</color>
+    <color name="tea_green">#FF9AD444</color>
+    <color name="green_500">#FF259F46</color>
+    <color name="green_700">#FF24500F</color>
+    <color name="gray">#FFF1F5FF</color>
+    <color name="gray_700">#FFE3ECFF</color>
     <color name="blue">#0000fF</color>
 </resources>
