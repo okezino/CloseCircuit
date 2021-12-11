@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/guideline_sponsor"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:orientation="horizontal"
@@ -26,7 +26,7 @@
         android:textColor="#0B0B0B"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_sponsor"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:textColor="#24500F"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline2" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline_sponsor" />
 
     <ImageView
         android:id="@+id/congrtulationIcon_Iv"
