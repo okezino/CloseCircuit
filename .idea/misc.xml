@@ -4,14 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/background_sponsors.xml" value="0.14375" />
+        <entry key="app/src/main/res/drawable/ic_group_32.xml" value="0.2703125" />
+        <entry key="app/src/main/res/drawable/progress_bar.xml" value="0.26506639427987744" />
         <entry key="app/src/main/res/layout/active_user_dashboard.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/app_bar_dashboard.xml" value="0.27608165954222885" />
         <entry key="app/src/main/res/layout/content_dashboard.xml" value="0.27434808593394083" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1" />
+<<<<<<< HEAD
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.32393999566593223" />
+=======
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1234375" />
         <entry key="app/src/main/res/layout/fragment_email_verification_successful.xml" value="0.1578125" />
+>>>>>>> ed12f66cbd9341657d11a51d81d299602575cb8f
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/fragment_first_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.24230072463768115" />
@@ -21,10 +27,18 @@
         <entry key="app/src/main/res/layout/fragment_recover_password_otp.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_reset_your_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.26458333333333334" />
+<<<<<<< HEAD
+        <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.1234375" />
+        <entry key="app/src/main/res/layout/plan_item.xml" value="0.3366687673630448" />
+        <entry key="app/src/main/res/layout/recent_donations_item.xml" value="0.34247872494595566" />
+=======
         <entry key="app/src/main/res/layout/fragment_second_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.22" />
+>>>>>>> ed12f66cbd9341657d11a51d81d299602575cb8f
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.128125" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.25" />
       </map>

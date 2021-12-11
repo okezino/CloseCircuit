@@ -25,7 +25,7 @@
         app:fabCradleVerticalOffset="10dp"
         app:fabCradleRoundedCornerRadius="20dp"
         app:fabAnimationMode="scale"
-        app:hideOnScroll="true"
+        app:hideOnScroll="false"
         app:layout_scrollFlags="scroll|enterAlways">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
