@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
@@ -23,6 +24,7 @@ class CreateAccountFragment : Fragment() {
     val  lowercase= Regex("[a-z]")
     val digitCharackter= Regex("[0-9]")
     val specailCharacter= Regex("[@#\$%^&+=*_-]")
+    lateinit var password:TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,14 +33,12 @@ class CreateAccountFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentCreateAccountBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         //navigate back to  welcome screen from create account screen
-
 
         val fullName = binding.fullNameTextInput.text
         val phoneNumber = binding.phoneNumberTextInput.text
@@ -59,16 +59,20 @@ class CreateAccountFragment : Fragment() {
                 )
             } else {
                 binding.wrongEmailWorningTv.visibility = View.GONE
+                // check if the passworde provide is the same with the comfirm password
+                if (password.toString() != comfirmPassword.toString()){
+                    Toast.makeText(context, "password does not match", Toast.LENGTH_SHORT).show()
+                }else {
+                    findNavController().navigate(R.id.action_createAccountFragment_to_verifyEmailFragment)
+                }
+
             }
 
-            // check if the passworde provide is the same with the comfirm password
-            if (password.toString() != comfirmPassword.toString()){
-                Toast.makeText(context, "password does not match", Toast.LENGTH_SHORT).show()
-            }
-            findNavController().navigate(R.id.action_createAccountFragment_to_verifyEmailFragment)
 
-        }
+        }}
         // check the password input if it meet all the requirement
+
+        fun passwordInputValidation(password:TextView){
         binding.passwordTextInput.addTextChangedListener {
             if (password.toString().length <= 7){
                 binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.red))
@@ -98,4 +102,6 @@ class CreateAccountFragment : Fragment() {
         }
 
     }
+
+
 }

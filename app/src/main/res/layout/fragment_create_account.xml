@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/text_input_background"
                 app:boxCornerRadiusBottomEnd="10dp"
@@ -174,10 +174,11 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleDrawable="@drawable/password_toggle_selector"
                 app:layout_constraintTop_toBottomOf="@id/phoneNumberTextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -196,6 +197,7 @@
                 android:text="* Maximuim of 8 charater"
                 android:textColor="#8A8A8E"
                 android:textSize="13dp"
+                android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout" />
 
@@ -206,6 +208,8 @@
                 android:layout_marginStart="20dp"
                 android:text="* Spacial character"
                 android:textColor="#8A8A8E"
+                android:textStyle="normal"
+
                 android:textSize="13dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Maximuimof8Charater_Tv" />
@@ -217,6 +221,7 @@
                 android:layout_marginStart="20dp"
                 android:text="* Numbers"
                 android:textColor="#8A8A8E"
+                android:textStyle="normal"
                 android:textSize="13dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spacialCharacter_Tv" />
@@ -229,6 +234,7 @@
                 android:text="* Uppercase and lowercase"
                 android:textColor="#8A8A8E"
                 android:textSize="13dp"
+                android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Numbers_Tv" />
 
@@ -245,8 +251,8 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:endIconMode="password_toggle"
-
+                app:passwordToggleEnabled="true"
+                app:passwordToggleDrawable="@drawable/password_toggle_selector"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -266,7 +272,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="48dp"
                 android:layout_marginEnd="20dp"
-                android:enabled="false"
                 android:text="@string/createAccount"
                 android:textAllCaps="false"
                 android:textColor="@color/white"

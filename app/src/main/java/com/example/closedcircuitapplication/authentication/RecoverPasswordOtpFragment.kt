@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentRecoverPasswordOtpBinding
@@ -28,9 +29,7 @@ class RecoverPasswordOtpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
-        binding.recoverPasswordOtpView.setOtpCompletionListener {
-            findNavController().navigate(R.id.action_recoverPasswordOtpFragment_to_resetYourPasswordFragment)
-        }
+      validateOtp()
 
         //navigate from recover password screen with otp to reset password screen
     }
@@ -47,4 +46,18 @@ class RecoverPasswordOtpFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+// this function is sed to validate the otp
+    fun validateOtp(){
+        val pin=binding.recoverPasswordOtpView.text
+        binding.recoverPasswordOtpView.addTextChangedListener {
+        if (pin.toString().length == 4){
+            if (pin.toString() == "1234"){
+                findNavController().navigate(R.id.action_recoverPasswordOtpFragment_to_resetYourPasswordFragment)
+
+            }else{
+                binding.recoverPasswordOtpView.setLineColor( resources.getColor(R.color.red))
+                binding.recoverPasswordOtpView.setTextColor(resources.getColor(R.color.red))
+            }
+    }
+    }}
 }

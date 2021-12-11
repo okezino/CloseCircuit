@@ -34,6 +34,7 @@ class VerifyEmailFragment : Fragment() {
        binding.pinView.addTextChangedListener {
            binding.pinView.setLineColor(resources.getColor(R.color.green_700))
            binding.wrongcodeTv.visibility = View.INVISIBLE
+
            if (pin.toString().length == 4){
                if (pin.toString() == "1234"){
                    findNavController().navigate(R.id.action_verifyEmailFragment_to_emailVerificationSuccessfulFragment)
