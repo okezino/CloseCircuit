@@ -28,6 +28,12 @@ class ForgotPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
+        binding.forgotPasswordToolbar.apply {
+            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+            setNavigationOnClickListener {
+                activity?.onBackPressed()
+            }
+        }
 
         //navigate to password recovery screen
         binding.forgotPasswordButton.setOnClickListener {

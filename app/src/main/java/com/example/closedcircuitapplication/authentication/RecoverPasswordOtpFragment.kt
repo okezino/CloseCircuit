@@ -32,6 +32,12 @@ class RecoverPasswordOtpFragment : Fragment() {
             findNavController().navigate(R.id.action_recoverPasswordOtpFragment_to_resetYourPasswordFragment)
         }
 
+        binding.recoverPasswordOtpToolbar.apply {
+            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+            setNavigationOnClickListener {
+                activity?.onBackPressed()
+            }
+        }
         //navigate from recover password screen with otp to reset password screen
     }
 
