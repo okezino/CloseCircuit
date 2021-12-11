@@ -29,4 +29,9 @@ class WelcomeScreenFragment : Fragment() {
             findNavController().navigate(R.id.action_welcomeScreenFragment_to_createAccountFragment)
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
