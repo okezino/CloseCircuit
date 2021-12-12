@@ -48,6 +48,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 Log.d("USER_INPUTS", "email=> $emailEt and password=> $passwordEt")
                 if (emailEt == email && passwordEt == password){
                     showLoginSuccessfulDialog()
+                    findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment2)
+
                 }else {
                     showAlertInfoAlert()
                 }
@@ -70,6 +72,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         Timer().schedule(3000){
             dialog.dismiss()
+
         }
     }
 

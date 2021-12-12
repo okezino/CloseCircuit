@@ -77,4 +77,6 @@
     <string name="not_started_plans">Not started \nPlans</string>
     <string name="top_sponsor">Top Sponsor</string>
     <string name="completed_plans">Completed \nPlans</string>
+    <string name="wrong_email_address">* Wrong email address</string>
+    <string name="create_a_new_account">Create a New Account</string>
 </resources>
