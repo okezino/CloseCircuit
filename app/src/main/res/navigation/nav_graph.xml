@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/forgotPasswordFragment">
-
+    app:startDestination="@id/splashScreen">
 
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment"
@@ -92,6 +91,9 @@
         <action
             android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment2"
+            app:destination="@id/dashboardFragment2" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -128,6 +130,34 @@
         <action
             android:id="@+id/action_passwordRecoverySuccessfulFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+    </fragment>
+        tools:layout="@layout/fragment_password_recovery_successful" />
+    <fragment
+        android:id="@+id/firstScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.onboardingscreen.screens.FirstScreenFragment"
+        android:label="FirstScreenFragment" />
+    <fragment
+        android:id="@+id/fourthScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.onboardingscreen.screens.FourthScreenFragment"
+        android:label="FourthScreenFragment" />
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
     </fragment>
 
 </navigation>

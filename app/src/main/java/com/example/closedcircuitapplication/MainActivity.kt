@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         onDestinationChangedListener()
+
     }
 
     private fun onDestinationChangedListener() {
@@ -61,10 +62,19 @@ class MainActivity : AppCompatActivity() {
                         binding.appBarDashboard.notificationImageView.visibility = View.VISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.VISIBLE
                     }
+                    R.id.welcomeScreenFragment ->{
+                        binding.appBarDashboard.contentMain.fab.visibility = View.GONE
+                        bottomAppBar.visibility = View.INVISIBLE
+                        binding.appBarDashboard.appBarLayout.visibility = View.GONE
+                        binding.appBarDashboard.notificationImageView.visibility = View.GONE
+                        binding.appBarDashboard.profileImageView.visibility = View.GONE
+
+                    }
+
                     else -> {
                         binding.appBarDashboard.contentMain.fab.visibility = View.INVISIBLE
                         bottomAppBar.visibility = View.INVISIBLE
-                        binding.appBarDashboard.appBarLayout.visibility = View.GONE
+                        binding.appBarDashboard.appBarLayout.visibility = View.VISIBLE
                         binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
                     }
