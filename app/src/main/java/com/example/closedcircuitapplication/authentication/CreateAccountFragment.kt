@@ -51,6 +51,7 @@ class CreateAccountFragment : Fragment() {
 
         binding.passwordTextInput.addTextChangedListener {
             createAcount(password, email, comfirmPassword, view)
+            passwordInputValidation(password)
         }
     }
 
@@ -60,7 +61,6 @@ class CreateAccountFragment : Fragment() {
         comfirmPassword: Editable?,
         view: View
     ) {
-        passwordInputValidation(password)
         binding.createAccountBtn.setOnClickListener {
             // check if the email address is correct or not
             if (!Validation.validateEmailInput(email.toString())) {
