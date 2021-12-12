@@ -83,11 +83,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showAppBar(){
-        binding.appBarDashboard.contentMain.fab.visibility = View.INVISIBLE
-        bottomAppBar.visibility = View.INVISIBLE
+        binding.appBarDashboard.contentMain.fab.visibility = View.GONE
+        bottomAppBar.visibility = View.GONE
         binding.appBarDashboard.appBarLayout.visibility = View.VISIBLE
-        binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
-        binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
+        binding.appBarDashboard.notificationImageView.visibility = View.GONE
+        binding.appBarDashboard.profileImageView.visibility = View.GONE
     }
 
     override fun onSupportNavigateUp(): Boolean {
