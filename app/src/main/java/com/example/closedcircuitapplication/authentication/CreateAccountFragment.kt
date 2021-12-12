@@ -19,13 +19,13 @@ class CreateAccountFragment : Fragment() {
 
     private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
-    lateinit var countryCode :String
+    lateinit var countryCode: String
 
-    val uppercase= Regex("[A-Z]")
-    val  lowercase= Regex("[a-z]")
-    val digitCharackter= Regex("[0-9]")
-    val specailCharacter= Regex("[@#\$%^&+=*_-]")
-    lateinit var password:TextView
+    val uppercase = Regex("[A-Z]")
+    val lowercase = Regex("[a-z]")
+    val digitCharackter = Regex("[0-9]")
+    val specailCharacter = Regex("[@#\$%^&+=*_-]")
+    lateinit var password: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,57 +48,62 @@ class CreateAccountFragment : Fragment() {
         binding.countrycode.setOnCountryChangeListener {
             countryCode = binding.countrycode.selectedCountryCodeWithPlus
         }
+
         binding.passwordTextInput.addTextChangedListener {
             createAcount(password, email, comfirmPassword, view)
         }
     }
 
-        fun createAcount(password: Editable?, email:Editable?, comfirmPassword:Editable?, view: View) {
-            passwordInputValidation(password)
-            binding.createAccountBtn.setOnClickListener {
-                // check if the email address is correct or not
-                if (!Validation.validateEmailInput(email.toString())) {
-                    binding.wrongEmailWorningTv.visibility = View.VISIBLE
-                    binding.wrongEmailWorningTv.setTextColor(
-                        resources.getColor(R.color.red)
-                    )
-                } else {
-                    binding.wrongEmailWorningTv.visibility = View.GONE
-                    // check if the passworde provide is the same with the comfirm password
+    fun createAcount(
+        password: Editable?,
+        email: Editable?,
+        comfirmPassword: Editable?,
+        view: View
+    ) {
+        passwordInputValidation(password)
+        binding.createAccountBtn.setOnClickListener {
+            // check if the email address is correct or not
+            if (!Validation.validateEmailInput(email.toString())) {
+                binding.wrongEmailWorningTv.visibility = View.VISIBLE
+                binding.wrongEmailWorningTv.setTextColor(
+                    resources.getColor(R.color.red)
+                )
+            } else {
+                binding.wrongEmailWorningTv.visibility = View.GONE
+                // check if the passworde provide is the same with the comfirm password
 
-                    if (password.toString() != comfirmPassword.toString()) {
-                        Toast.makeText(context, "password does not match", Toast.LENGTH_SHORT)
-                            .show()
-                    } else {
-                        findNavController().navigate(R.id.action_createAccountFragment_to_verifyEmailFragment)
-                    }
+                if (password.toString() != comfirmPassword.toString()) {
+                    Toast.makeText(context, "password does not match", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    findNavController().navigate(R.id.action_createAccountFragment_to_verifyEmailFragment)
                 }
             }
         }
+    }
 
-        // check the password input if it meet all the requirement
-        fun passwordInputValidation(password:Editable?){
+    // check the password input if it meet all the requirement
+    fun passwordInputValidation(password: Editable?) {
 
-            if (password.toString().length <= 7){
-                binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.red))
-            }else{
-                binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.green_700))
-            }
-            if (!password.toString().contains(uppercase) || !password.toString().contains(lowercase)){
-                binding.UppercaseAndLowercaseTv.setTextColor(resources.getColor(R.color.red))
-            }else{
-                binding.UppercaseAndLowercaseTv.setTextColor(resources.getColor(R.color.green_700))
-            }
-            if (!password.toString().contains(digitCharackter)){
-                binding.NumbersTv.setTextColor(resources.getColor(R.color.red))
-            }else{
-                binding.NumbersTv.setTextColor(resources.getColor(R.color.green_700))
-            }
-            if (!password.toString().contains(specailCharacter)){
-                binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.red))
-            }else{
-                binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.green_700))
-
+        if (password.toString().length <= 7) {
+            binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.red))
+        } else {
+            binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.green_700))
+        }
+        if (!password.toString().contains(uppercase) || !password.toString().contains(lowercase)) {
+            binding.UppercaseAndLowercaseTv.setTextColor(resources.getColor(R.color.red))
+        } else {
+            binding.UppercaseAndLowercaseTv.setTextColor(resources.getColor(R.color.green_700))
+        }
+        if (!password.toString().contains(digitCharackter)) {
+            binding.NumbersTv.setTextColor(resources.getColor(R.color.red))
+        } else {
+            binding.NumbersTv.setTextColor(resources.getColor(R.color.green_700))
+        }
+        if (!password.toString().contains(specailCharacter)) {
+            binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.red))
+        } else {
+            binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.green_700))
         }
 
     }
@@ -107,6 +112,4 @@ class CreateAccountFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }

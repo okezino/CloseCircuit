@@ -11,8 +11,8 @@ import com.example.closedcircuitapplication.databinding.FragmentAccountBinding
 import com.example.closedcircuitapplication.databinding.FragmentCreateAccountBinding
 
 class AccountFragment : Fragment() {
-    var _binding:FragmentAccountBinding? = null
-    val binding get() = _binding!!
+    private var _binding:FragmentAccountBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
