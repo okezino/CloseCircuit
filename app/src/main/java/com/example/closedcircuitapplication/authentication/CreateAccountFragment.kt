@@ -1,6 +1,7 @@
 package com.example.closedcircuitapplication.authentication
 
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,13 +36,11 @@ class CreateAccountFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         //navigate back to  welcome screen from create account screen
 
-        val fullName = binding.fullNameTextInput.text
-        val phoneNumber = binding.phoneNumberTextInput.text
         val email = binding.emailTextInput.text
         val password = binding.passwordTextInput.text
         val comfirmPassword = binding.comfirmPasswordTextInput.text
@@ -49,31 +48,37 @@ class CreateAccountFragment : Fragment() {
         binding.countrycode.setOnCountryChangeListener {
             countryCode = binding.countrycode.selectedCountryCodeWithPlus
         }
-
-        binding.createAccountBtn.setOnClickListener {
-            // check if the email address is correct or not
-            if (!Validation.validateEmailInput(email.toString())) {
-                binding.wrongEmailWorningTv.visibility = View.VISIBLE
-                binding.wrongEmailWorningTv.setTextColor(
-                    resources.getColor(R.color.red)
-                )
-            } else {
-                binding.wrongEmailWorningTv.visibility = View.GONE
-                // check if the passworde provide is the same with the comfirm password
-                if (password.toString() != comfirmPassword.toString()){
-                    Toast.makeText(context, "password does not match", Toast.LENGTH_SHORT).show()
-                }else {
-                    findNavController().navigate(R.id.action_createAccountFragment_to_verifyEmailFragment)
-                }
-
-            }
-
-
-        }}
-        // check the password input if it meet all the requirement
-
-        fun passwordInputValidation(password:TextView){
         binding.passwordTextInput.addTextChangedListener {
+            createAcount(password, email, comfirmPassword, view)
+        }
+    }
+
+        fun createAcount(password: Editable?, email:Editable?, comfirmPassword:Editable?, view: View) {
+            passwordInputValidation(password)
+            binding.createAccountBtn.setOnClickListener {
+                // check if the email address is correct or not
+                if (!Validation.validateEmailInput(email.toString())) {
+                    binding.wrongEmailWorningTv.visibility = View.VISIBLE
+                    binding.wrongEmailWorningTv.setTextColor(
+                        resources.getColor(R.color.red)
+                    )
+                } else {
+                    binding.wrongEmailWorningTv.visibility = View.GONE
+                    // check if the passworde provide is the same with the comfirm password
+
+                    if (password.toString() != comfirmPassword.toString()) {
+                        Toast.makeText(context, "password does not match", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        findNavController().navigate(R.id.action_createAccountFragment_to_verifyEmailFragment)
+                    }
+                }
+            }
+        }
+
+        // check the password input if it meet all the requirement
+        fun passwordInputValidation(password:Editable?){
+
             if (password.toString().length <= 7){
                 binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.red))
             }else{
@@ -93,14 +98,14 @@ class CreateAccountFragment : Fragment() {
                 binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.red))
             }else{
                 binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.green_700))
-            }
-        }
-
-        binding.registerUsingGoogleBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_createAccountFragment_to_verifyEmailFragment)
 
         }
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

@@ -126,6 +126,11 @@
         android:id="@+id/passwordRecoverySuccessfulFragment"
         android:name="com.example.closedcircuitapplication.authentication.PasswordRecoverySuccessfulFragment"
         android:label="fragment_password_recovery_successful"
+        tools:layout="@layout/fragment_password_recovery_successful" >
+        <action
+            android:id="@+id/action_passwordRecoverySuccessfulFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
         tools:layout="@layout/fragment_password_recovery_successful" />
     <fragment
         android:id="@+id/firstScreenFragment"

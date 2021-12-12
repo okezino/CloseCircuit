@@ -71,4 +71,12 @@
     <string name="menu_message">Message</string>
     <string name="menu_account">Account</string>
     <string name="floating_action_button_desc">Floating action button</string>
+    <string name="share_link">share link</string>
+    <string name="view_all">VIEW ALL</string>
+    <string name="recent_donations">Recent Donations</string>
+    <string name="not_started_plans">Not started \nPlans</string>
+    <string name="top_sponsor">Top Sponsor</string>
+    <string name="completed_plans">Completed \nPlans</string>
+    <string name="wrong_email_address">* Wrong email address</string>
+    <string name="create_a_new_account">Create a New Account</string>
 </resources>

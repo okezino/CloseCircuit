@@ -11,8 +11,8 @@ import com.example.closedcircuitapplication.databinding.FragmentResetYourPasswor
 
 
 class ResetYourPasswordFragment : Fragment() {
-    var _binding:FragmentResetYourPasswordBinding?= null
-    val binding get() = _binding!!
+    private var _binding: FragmentResetYourPasswordBinding? = null
+    private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,5 +33,22 @@ class ResetYourPasswordFragment : Fragment() {
             findNavController().navigate(R.id.action_resetYourPasswordFragment_to_passwordRecoverySuccessfulFragment)
 
         }
+
+
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        binding.resetYourPasswordToolbar.apply {
+//            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+//            setNavigationOnClickListener {
+//                activity?.onBackPressed()
+//            }
+//        }
+
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

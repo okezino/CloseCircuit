@@ -30,7 +30,13 @@ class RecoverPasswordOtpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
       validateOtp()
-
+//
+//        binding.recoverPasswordOtpToolbar.apply {
+//            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+//            setNavigationOnClickListener {
+//                activity?.onBackPressed()
+//            }
+//        }
         //navigate from recover password screen with otp to reset password screen
     }
 

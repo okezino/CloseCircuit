@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             navController.addOnDestinationChangedListener { _, destination, _ ->
                 bottomAppBar.visibility = View.VISIBLE
                 binding.appBarDashboard.contentMain.fab.visibility = View.VISIBLE
-                binding.appBarDashboard.appBarLayout.visibility = View.VISIBLE
+                binding.appBarDashboard.appBarLayout.visibility = View.GONE
                 binding.appBarDashboard.appBarLayout.visibility = View.VISIBLE
                 when (destination.id) {
                     R.id.dashboardFragment -> {
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.welcomeScreenFragment ->{
                         binding.appBarDashboard.contentMain.fab.visibility = View.GONE
                         bottomAppBar.visibility = View.INVISIBLE
-                        binding.appBarDashboard.appBarLayout.visibility = View.INVISIBLE
+                        binding.appBarDashboard.appBarLayout.visibility = View.GONE
                         binding.appBarDashboard.notificationImageView.visibility = View.GONE
                         binding.appBarDashboard.profileImageView.visibility = View.GONE
 
