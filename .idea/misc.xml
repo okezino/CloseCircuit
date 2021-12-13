@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/background_sponsors.xml" value="0.14375" />
+        <entry key="app/src/main/res/drawable/ic_background_lines.xml" value="0.202991452991453" />
         <entry key="app/src/main/res/layout/active_user_dashboard.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/app_bar_dashboard.xml" value="0.27608165954222885" />
@@ -29,7 +30,8 @@
         <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_view_pager.xml" value="0.20170940170940171" />
-        <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.28869047619047616" />
+        <entry key="app/src/main/res/layout/plan_item.xml" value="0.9" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.128125" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.25" />
       </map>

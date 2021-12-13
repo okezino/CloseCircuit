@@ -57,7 +57,7 @@
     <string name="login_with_google">Login with Google</string>
     <string name="login_with_apple">Login with Apple</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="quote">To run fast, run alone. TO run far run togother. Together we can archieve greater things</string>
+    <string name="quote">To run fast, run alone. To run far, run together. Together we can achieve greater things</string>
     <string name="registerUsingGoogle">Register with Google</string>
     <string name="createAccount">Create an Account</string>
     <string name="welcome">Welcome</string>
@@ -79,4 +79,6 @@
     <string name="completed_plans">Completed \nPlans</string>
     <string name="wrong_email_address">* Wrong email address</string>
     <string name="create_a_new_account">Create a New Account</string>
+    <string name= "by_clicking_create">By clicking create account, you are agreeing to our terms of services, payment terms, privacy policy, and terms of use. <u><link><font color="#0000ff">read terms</font></link></u></string>
+    <string name="read_terms">read terms</string>
 </resources>
