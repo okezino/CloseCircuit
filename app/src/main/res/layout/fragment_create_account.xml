@@ -8,36 +8,16 @@
     tools:context=".authentication.CreateAccountFragment">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/back_btn"
-            android:layout_width="19dp"
-            android:layout_height="16dp"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="20dp" />
-
-    </androidx.appcompat.widget.Toolbar>
-
     <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="@dimen/margin_20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -68,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="Create a New  Account"
+                android:text="@string/create_a_new_account"
                 android:textColor="#0B0B0B"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -85,7 +65,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="48dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/text_input_background"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
@@ -99,6 +78,7 @@
                     android:id="@+id/fullNameTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/text_input_background"
                     android:hint="full name"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -109,9 +89,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/text_input_background"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
@@ -126,7 +105,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusableInTouchMode="true"
-                    android:hint="email"
+                    android:background="@drawable/text_input_background"
+                    android:hint="@string/email"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="* Wrong emqil address"
+                android:text="@string/wrong_email_address"
                 android:textColor="#ff0000"
                 android:textSize="16sp"
                 android:visibility="invisible"
@@ -148,13 +128,12 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/text_input_background"
+                android:layout_marginStart="20dp"
                 android:orientation="vertical"
                 app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusBottomStart="0dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +143,12 @@
                     android:id="@+id/phoneNumberTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="140dp"
+                    android:layout_marginStart="135dp"
+                    android:lineHeight="2dp"
+                    android:defaultFocusHighlightEnabled="true"
+                    android:outlineAmbientShadowColor="@color/green_500"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/text_input_background"
                     android:inputType="phone"
                     android:maxLength="10" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -173,13 +157,14 @@
                 android:id="@+id/countrycode"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginTop="40dp"
                 android:clickable="true"
                 android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/text_input_background"
                 app:ccp_hintExampleNumber="true"
                 app:layout_constraintBottom_toBottomOf="@+id/phoneNumberTextInputLayout"
                 app:layout_constraintStart_toStartOf="@+id/phoneNumberTextInputLayout"
-                app:layout_constraintTop_toBottomOf="@+id/emailTextInputLayout" />
+                app:layout_constraintTop_toTopOf="@+id/phoneNumberTextInputLayout" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passwordTextInputLayout"
@@ -189,23 +174,25 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/text_input_background"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
+                app:passwordToggleEnabled="true"
+                app:boxStrokeColor="@color/green_500"
+
                 app:layout_constraintTop_toBottomOf="@id/phoneNumberTextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordTextInput"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:hint="password" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/text_input_background"
+                    android:hint="password"
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -216,6 +203,7 @@
                 android:text="* Maximuim of 8 charater"
                 android:textColor="#8A8A8E"
                 android:textSize="13dp"
+                android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout" />
 
@@ -226,6 +214,8 @@
                 android:layout_marginStart="20dp"
                 android:text="* Spacial character"
                 android:textColor="#8A8A8E"
+                android:textStyle="normal"
+
                 android:textSize="13dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Maximuimof8Charater_Tv" />
@@ -237,6 +227,7 @@
                 android:layout_marginStart="20dp"
                 android:text="* Numbers"
                 android:textColor="#8A8A8E"
+                android:textStyle="normal"
                 android:textSize="13dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spacialCharacter_Tv" />
@@ -249,6 +240,7 @@
                 android:text="* Uppercase and lowercase"
                 android:textColor="#8A8A8E"
                 android:textSize="13dp"
+                android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Numbers_Tv" />
 
@@ -260,13 +252,12 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/text_input_background"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:endIconMode="password_toggle"
-
+                app:passwordToggleEnabled="true"
+                app:passwordToggleDrawable="@drawable/password_toggle_selector"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -274,8 +265,11 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/comfirmPasswordTextInput"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:outlineAmbientShadowColor="@color/green_500"
+                    android:background="@drawable/text_input_background"
                     android:hint="comfirm password" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -286,7 +280,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="48dp"
                 android:layout_marginEnd="20dp"
-                android:enabled="false"
                 android:text="@string/createAccount"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
@@ -334,15 +327,14 @@
                 android:id="@+id/alreadyHaveAnAccount_Tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
                 android:background="@color/white"
                 android:gravity="center"
+                android:layout_marginEnd="35dp"
                 android:text="@string/already_have_and_account"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="@+id/createAccount_btn"
-                app:layout_constraintHorizontal_bias="0.797"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/createAccount_btn"
                 app:layout_constraintTop_toBottomOf="@id/createAccount_btn" />
 
             <TextView
@@ -365,21 +357,20 @@
                 android:id="@+id/registerUsingGoogle_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="54dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginStart="10dp"
                 android:layout_marginBottom="50dp"
-                android:drawableStart="@drawable/google_icon"
+                android:paddingStart="36dp"
                 android:text="@string/registerUsingGoogle"
                 android:textAllCaps="false"
                 android:textColor="#24500F"
                 android:textSize="10sp"
-                android:paddingStart="49dp"
                 app:backgroundTint="@color/white"
-                app:cornerRadius="10dp"
+                app:cornerRadius="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/registerUsingApple_btn"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/registerUsingApple_btn"
                 app:layout_constraintTop_toBottomOf="@id/or_Tv"
                 app:strokeColor="#24500F"
                 app:strokeWidth="2dp" />
@@ -392,14 +383,13 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="50dp"
-                android:drawableStart="@drawable/apple_icon"
+                android:paddingStart="36dp"
                 android:text="Register with Apple"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="10sp"
                 app:backgroundTint="#000000"
-                app:cornerRadius="10dp"
-                android:paddingStart="49dp"
+                app:cornerRadius="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/registerUsingGoogle_btn"
                 app:layout_constraintStart_toStartOf="parent"
@@ -410,21 +400,20 @@
 
             <ImageView
                 android:layout_width="23dp"
-                android:layout_height="31dp"
-                android:layout_marginStart="16dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="8dp"
                 android:elevation="20dp"
                 android:src="@drawable/google_icon"
                 app:layout_constraintBottom_toBottomOf="@+id/registerUsingGoogle_btn"
                 app:layout_constraintStart_toStartOf="@+id/registerUsingGoogle_btn"
-                app:layout_constraintTop_toTopOf="@+id/registerUsingGoogle_btn"
-                 />
+                app:layout_constraintTop_toTopOf="@+id/registerUsingGoogle_btn" />
 
             <ImageView
                 android:layout_width="31dp"
                 android:layout_height="34dp"
+                android:layout_marginStart="4dp"
                 android:background="#000000"
-                android:elevation="2dp"
-                android:layout_marginStart="16dp"
+                android:elevation="20dp"
                 android:src="@drawable/apple_icon"
                 app:layout_constraintBottom_toBottomOf="@+id/registerUsingApple_btn"
                 app:layout_constraintStart_toStartOf="@+id/registerUsingApple_btn"
