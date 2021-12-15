@@ -50,7 +50,7 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
         val splashScreenTimeout = 3500
         Handler(Looper.getMainLooper()).postDelayed({
             if (onBoardingFinished()) {
-                findNavController().navigate(R.id.action_splashScreen_to_welcomeScreenFragment)
+                findNavController().navigate(R.id.action_splashScreen_to_viewPagerFragment)
             } else {
                 findNavController().navigate(
                     R.id.action_splashScreen_to_viewPagerFragment, null,

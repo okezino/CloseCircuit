@@ -3,4 +3,5 @@
     <corners android:radius="10dp"/>
     <solid android:color="@color/text_input_color"/>
     <size android:height="50dp"/>
+<!--    <stroke android:color="@color/green_500" android:width="2dp"/>-->
 </shape>

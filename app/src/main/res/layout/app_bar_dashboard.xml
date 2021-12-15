@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -15,7 +16,7 @@
             android:id="@+id/dashboard_activity_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white">
+            android:background="@color/primary_color">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/dashboard_activity_toolbar_CL"
@@ -32,7 +33,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_notification" />
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/profile_image_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -40,7 +41,8 @@
                     android:src="@drawable/profile_img"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                   />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

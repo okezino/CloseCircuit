@@ -18,22 +18,33 @@ class ResetYourPasswordFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentResetYourPasswordBinding.inflate(inflater, container, false)
+        _binding = FragmentResetYourPasswordBinding.inflate( inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.resetYourPasswordToolbar.apply {
-            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-            setNavigationOnClickListener {
-                activity?.onBackPressed()
-            }
+        navigateToPasswordRecoverySuccessfulFragment()
+    }
+
+    // this used to navigate to PasswordRecoverySuccessfulFragment
+    fun navigateToPasswordRecoverySuccessfulFragment(){
+        binding.restYourPasswordResetPasswordBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_resetYourPasswordFragment_to_passwordRecoverySuccessfulFragment)
+
         }
 
-        binding.restYourPasswordResetPassword.setOnClickListener {
-            findNavController().navigate(R.id.action_resetYourPasswordFragment_to_passwordRecoverySuccessfulFragment)
-        }
+
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        binding.resetYourPasswordToolbar.apply {
+//            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+//            setNavigationOnClickListener {
+//                activity?.onBackPressed()
+//            }
+//        }
+
+
     }
 
     override fun onDestroyView() {

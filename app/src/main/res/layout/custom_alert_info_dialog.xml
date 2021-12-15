@@ -48,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/email_or_password_is_incorrect"
                 android:textAlignment="center"
+                android:fontFamily="@font/inter"
                 android:textColor="@color/text_red_color"
                 android:textSize="13.62sp"
                 app:layout_constraintBottom_toBottomOf="parent"
