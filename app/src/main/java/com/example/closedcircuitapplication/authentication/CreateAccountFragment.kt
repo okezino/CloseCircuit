@@ -54,7 +54,6 @@ class CreateAccountFragment : Fragment() {
             // create a user account
             createAcount( fullNmae, password, email, comfirmPassword, view)
         }
-        binding.countrycode.
         binding.countrycode.setOnCountryChangeListener {
             countryCode = binding.countrycode.selectedCountryCodeWithPlus
         }
@@ -125,6 +124,5 @@ class CreateAccountFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-
     }
 }

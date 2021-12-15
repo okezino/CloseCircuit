@@ -39,13 +39,8 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
             requireContext(),
             R.anim.slide_from_top_animation
         )
-        val circuitAnimation = android.view.animation.AnimationUtils.loadAnimation(
-            requireContext(),
-            R.anim.slide_from_bottom_animation
-        )
 
         binding.closedCircuit.startAnimation(closedAnimation)
-//        binding.circuit.startAnimation(circuitAnimation)
 
         val splashScreenTimeout = 3500
         Handler(Looper.getMainLooper()).postDelayed({

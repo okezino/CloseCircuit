@@ -11,7 +11,7 @@
         <entry key="app/src/main/res/layout/content_dashboard.xml" value="0.27434808593394083" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.20170940170940171" />
-        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_email_verification_successful.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.26458333333333334" />
