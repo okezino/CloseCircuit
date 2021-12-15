@@ -76,7 +76,7 @@ class CreateAccountFragment : Fragment() {
                     Toast.makeText(context, "password does not match", Toast.LENGTH_SHORT)
                         .show()
                 } else {
-                    findNavController().navigate(R.id.action_createAccountFragment_to_verifyEmailFragment)
+                   // findNavController().navigate(R.id.action_createAccountFragment_to_verifyEmailFragment)
                 }
             }
         }

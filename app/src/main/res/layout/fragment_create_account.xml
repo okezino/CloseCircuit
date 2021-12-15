@@ -183,7 +183,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:passwordToggleEnabled="true"
                 app:boxStrokeColor="@color/green_500"
-                app:passwordToggleDrawable="@drawable/password_toggle_selector"
+
                 app:layout_constraintTop_toBottomOf="@id/phoneNumberTextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText

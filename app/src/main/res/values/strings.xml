@@ -47,7 +47,7 @@
     <string name="please_wait">Please wait…</string>
     <string name="successfully_logged_in">Successfully Logged In</string>
     <string name="email_or_password_is_incorrect">Email or Password is incorrect</string>
-    <string name="shared_building_shared_prosperity">Shared Building, Shared Prosperity</string>
+    <string name="shared_building_shared_prosperity">Shared Building. Shared Prosperity</string>
     <string name="check_your_email">Check Your Email</string>
     <string name="verify_email_address">Verify Email Address</string>
     <string name="four_digit_details">A four-digit code has been sent to your Email, please enter code.</string>
@@ -79,6 +79,6 @@
     <string name="completed_plans">Completed \nPlans</string>
     <string name="wrong_email_address">* Wrong email address</string>
     <string name="create_a_new_account">Create a New Account</string>
-    <string name= "by_clicking_create">By clicking create account, you are agreeing to our terms of services, payment terms, privacy policy, and terms of use. <u><link><font color="#0000ff">read terms</font></link></u></string>
+    <string name="by_clicking_create">By clicking create account, you are agreeing to our terms of services, payment terms, privacy policy, and terms of use. <u><link><font color="#0000ff">read terms</font></link></u></string>
     <string name="read_terms">read terms</string>
 </resources>
