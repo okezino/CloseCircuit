@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.example.closedcircuitapplication.ui.onboardingscreen.ViewPagerFragment"
+        android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.ViewPagerFragment"
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
@@ -129,11 +129,11 @@
         tools:layout="@layout/fragment_password_recovery_successful" />
     <fragment
         android:id="@+id/firstScreenFragment"
-        android:name="com.example.closedcircuitapplication.ui.onboardingscreen.screens.FirstScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.screens.FirstScreenFragment"
         android:label="FirstScreenFragment" />
     <fragment
         android:id="@+id/fourthScreenFragment"
-        android:name="com.example.closedcircuitapplication.ui.onboardingscreen.screens.FourthScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.screens.FourthScreenFragment"
         android:label="FourthScreenFragment" />
     <fragment
         android:id="@+id/messageFragment"
@@ -156,7 +156,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondScreenFragment"
-        android:name="com.example.closedcircuitapplication.ui.onboardingscreen.screens.SecondScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.screens.SecondScreenFragment"
         android:label="SecondScreenFragment" />
 
 </navigation>

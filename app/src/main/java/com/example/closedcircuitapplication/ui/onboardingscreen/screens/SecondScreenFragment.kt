@@ -1,10 +1,11 @@
-package com.example.closedcircuitapplication.ui.onboardingscreen.screens
+package com.example.closedcircuitapplication.ui.onBoardingScreen.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentSecondScreenBinding
@@ -25,6 +26,10 @@ class SecondScreenFragment : Fragment(R.layout.fragment_second_screen) {
 
         binding.nextBtn.setOnClickListener {
             viewPager?.currentItem = 2
+        }
+
+        binding.skipBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_viewPagerFragment_to_welcomeScreenFragment2)
         }
 
         return  binding.root

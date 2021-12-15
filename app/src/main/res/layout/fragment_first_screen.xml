@@ -8,6 +8,22 @@
     android:background="@color/backgound1">
 
 
+    <Button
+        android:textColor="@color/text_color2"
+        android:elevation="400dp"
+        android:id="@+id/skipBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="64dp"
+        android:background="#00000000"
+        android:text="@string/skip"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
@@ -21,20 +37,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
-
-    <Button
-        android:id="@+id/skipBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginBottom="64dp"
-        android:background="#00000000"
-        android:text="@string/skip"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 
     <ImageView
         android:id="@+id/background"
