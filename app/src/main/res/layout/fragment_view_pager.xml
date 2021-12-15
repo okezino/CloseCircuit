@@ -4,25 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.onboardingscreen.ViewPagerFragment">
+    tools:context=".ui.onBoardingScreen.ViewPagerFragment">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_marginTop="480dp"
         android:id="@+id/indicatorController"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="400dp"
+        android:elevation="200dp"
         android:gravity="center"
+        android:orientation="horizontal"
         android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/onBoardingViewPager" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/onBoardingViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </androidx.viewpager2.widget.ViewPager2>
-
+        android:layout_height="match_parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

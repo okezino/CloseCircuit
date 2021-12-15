@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.onboardingscreen.screens
+package com.example.closedcircuitapplication.ui.onBoardingScreen.screens
 
 import android.content.Context
 import android.os.Bundle
