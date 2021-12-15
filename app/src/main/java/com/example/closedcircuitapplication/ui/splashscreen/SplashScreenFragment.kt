@@ -59,7 +59,7 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
                 )
             }
         }, splashScreenTimeout.toLong())
-        }
+       }
 
         private fun onBoardingFinished(): Boolean {
             val sharedPref = requireActivity().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
