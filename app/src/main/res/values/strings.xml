@@ -40,7 +40,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="forgot_password">Forgot password?</string>
-    <string name="don_t_have_an_account">Don\'t have an account?<font color='#0386FF'>Create an Account</font></string>
+    <string name="don_t_have_an_account">Don\'t have an account?<font color='#0386FF'>    Create an Account</font></string>
     <string name="login">Login</string>
     <string name="create_an_account">Create an Account</string>
     <string name="to_login">to login</string>
@@ -61,7 +61,7 @@
     <string name="registerUsingGoogle">Register with Google</string>
     <string name="createAccount">Create an Account</string>
     <string name="welcome">welcome</string>
-    <string name="already_have_and_account">Already have and account? </string>
+    <string name="already_have_and_account">Already have an account? </string>
     <string name="total_funds_raised">Total Funds Raised</string>
     <string name="welcome_description">We are happy to have you on board. To start raising funds for your business or project, you need to create a plan.</string>
     <string name="create_a_plan">Create a plan</string>
@@ -87,4 +87,5 @@
     <string name="numbers">* Numbers</string>
     <string name="project">Projects</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="not_started_a_plan">Patience, you have not started any plan yet. Please start a plan to view plans.</string>
 </resources>

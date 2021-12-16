@@ -30,7 +30,6 @@
         android:layout_marginBottom="64dp"
         android:background="#00000000"
         android:text="@string/skip"
-        android:textColor="#8A8A8E"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

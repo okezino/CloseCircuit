@@ -44,15 +44,14 @@ class CreateAccountFragment : Fragment() {
         //navigate back to  welcome screen from create account screen
 
         binding.createAccountBtn.setOnClickListener {
-            val fullNmae = binding.fullNameTextInput.text.toString()
-            val email = binding.emailTextInput.text.toString()
-            password = binding.passwordTextInput.text.toString()
-            val comfirmPassword = binding.comfirmPasswordTextInput.text.toString()
-
-
+            val fullNmae = binding.fullNameTextInput.text.toString().trim()
+            val phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
+            val email = binding.emailTextInput.text.toString().trim()
+            password = binding.passwordTextInput.text.toString().trim()
+            val comfirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
 
             // create a user account
-            createAcount( fullNmae, password, email, comfirmPassword, view)
+            createAcount( fullNmae, phoneNumber, password, email, comfirmPassword, view)
         }
         binding.countrycode.setOnCountryChangeListener {
             countryCode = binding.countrycode.selectedCountryCodeWithPlus
@@ -62,10 +61,18 @@ class CreateAccountFragment : Fragment() {
             password = binding.passwordTextInput.text.toString()
             passwordInputValidation(password)
         }
+        binding.loginTv.setOnClickListener {
+            navigationToLoginScreen()
+        }
+    }
+
+    private fun navigationToLoginScreen() {
+        findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment2)
     }
 
     fun createAcount(
         fullName :String,
+        phoneNumber :String,
         password: String,
         email: String,
         comfirmPassword: String,
@@ -73,24 +80,22 @@ class CreateAccountFragment : Fragment() {
     ) {
         // check if the full name is entered and is valide name
         if(fullName.isEmpty() || fullName.length < 4 || fullName.isDigitsOnly()){
-            binding.fullNameTextInput.error = "enter your name"
-            Toast.makeText(context, "Enter your full name", Toast.LENGTH_SHORT).show()
-        }
-            // check if the email address is correct or not
-            if (!Validation.validateEmailInput(email.toString())) {
-                binding.emailTextInput.error = ""
+            binding.fullNameTextInput.error = "Enter your name"
+        } else if (!Validation.validateEmailInput(email.toString())) {
+                binding.emailTextInput.error
                 binding.wrongEmailWorningTv.visibility = View.VISIBLE
                 binding.wrongEmailWorningTv.setTextColor(
-                    resources.getColor(R.color.red)
-                )
-            } else {
-                binding.wrongEmailWorningTv.visibility = View.GONE
+                    resources.getColor(R.color.red))
+            }else if (phoneNumber.length < 9){
+            binding.wrongEmailWorningTv.visibility = View.GONE
+            binding.phoneNumberTextInput.error ="Incorrect number"
+        } else {
 
                 // check if the password provided is the same with the confirm password
                  if (password.isEmpty() || password != comfirmPassword) {
-                     binding.comfirmPasswordTextInput.error = "password does not match"
+                     binding.comfirmPasswordTextInput.error = "Password does not match"
                 } else {
-                    findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
+                    findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment2)
                 }
             }
     }
@@ -98,22 +103,22 @@ class CreateAccountFragment : Fragment() {
     // check the password input if it meet all the requirement
     fun passwordInputValidation(password: String) {
 
-        if (password.toString().length <= 7) {
+        if (password.length <= 7) {
             binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.red))
         } else {
             binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.green_700))
         }
-        if (!password.toString().contains(uppercase) || !password.toString().contains(lowercase)) {
+        if (!password.contains(uppercase) || !password.toString().contains(lowercase)) {
             binding.UppercaseAndLowercaseTv.setTextColor(resources.getColor(R.color.red))
         } else {
             binding.UppercaseAndLowercaseTv.setTextColor(resources.getColor(R.color.green_700))
         }
-        if (!password.toString().contains(digitCharackter)) {
+        if (!password.contains(digitCharackter)) {
             binding.NumbersTv.setTextColor(resources.getColor(R.color.red))
         } else {
             binding.NumbersTv.setTextColor(resources.getColor(R.color.green_700))
         }
-        if (!password.toString().contains(specailCharacter)) {
+        if (!password.contains(specailCharacter)) {
             binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.red))
         } else {
             binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.green_700))

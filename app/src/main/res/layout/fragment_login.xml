@@ -53,7 +53,6 @@
                 android:textSize="24sp"
                 android:fontFamily="@font/helvetica"
                 android:textStyle="bold"
-                android:fontFamily="@font/helvetica_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
                         binding.appBarDashboard.notificationImageView.visibility = View.VISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.VISIBLE
                         binding.appBarDashboard.appBarLayout.visibility = View.VISIBLE
-                        binding.appBarDashboard.menuIconImageView.visibility = View.VISIBLE
                     }
                     R.id.dashboardFragment2 -> {
                         bottomAppBar.visibility = View.VISIBLE

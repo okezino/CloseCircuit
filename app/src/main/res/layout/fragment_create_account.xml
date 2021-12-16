@@ -143,7 +143,7 @@
                 app:boxBackgroundColor="@color/text_input_color"
                 app:boxStrokeColor="@color/green_500"
                 app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="0dp"
+                app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -154,12 +154,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="140dp"
-                    android:lineHeight="2dp"
-                    android:defaultFocusHighlightEnabled="true"
-                    android:outlineAmbientShadowColor="@color/green_500"
-                    android:paddingStart="20dp"
+                    android:paddingStart="30dp"
                     android:inputType="phone"
-                    android:maxLength="10" />
+                    android:maxLength="11" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.hbb20.CountryCodePicker
@@ -168,8 +165,11 @@
                 android:layout_height="0dp"
                 android:clickable="true"
                 android:gravity="center"
+                app:ccpDialog_allowSearch="false"
+                app:ccp_customMasterCountries="NG,ZA"
                 android:layout_marginTop="5dp"
-                app:ccp_hintExampleNumber="true"
+                app:ccp_defaultNameCode="NG"
+                android:background="@drawable/text_input_background"
                 app:layout_constraintBottom_toBottomOf="@+id/phoneNumberTextInputLayout"
                 app:layout_constraintStart_toStartOf="@+id/phoneNumberTextInputLayout"
                 app:layout_constraintTop_toTopOf="@+id/phoneNumberTextInputLayout" />

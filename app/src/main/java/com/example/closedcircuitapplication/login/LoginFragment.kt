@@ -35,6 +35,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.imageView.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_welcomeScreenFragment)
         }
+        binding.fragmentLoginCreateAccountTv.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_createAccountFragment)
+        }
 
         email = "phil@gmail.com"
         password = "emma"

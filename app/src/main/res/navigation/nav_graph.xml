@@ -89,6 +89,9 @@
         <action
             android:id="@+id/action_loginFragment_to_dashboardFragment2"
             app:destination="@id/dashboardFragment2" />
+        <action
+            android:id="@+id/action_loginFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -166,6 +169,9 @@
         <action
             android:id="@+id/action_createAccountFragment_to_verifyEmailFragment"
             app:destination="@id/verifyEmailFragment" />
+        <action
+            android:id="@+id/action_createAccountFragment_to_loginFragment2"
+            app:destination="@id/loginFragment" />
     </fragment>
 
 </navigation>

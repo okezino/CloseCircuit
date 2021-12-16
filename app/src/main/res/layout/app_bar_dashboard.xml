@@ -33,15 +33,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_notification" />
 
-                <ImageView
-                    android:id="@+id/menu_icon_image_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic__menu_icon" />
-
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/profile_image_view"
                     android:layout_width="wrap_content"
