@@ -62,13 +62,10 @@ class CreateAccountFragment : Fragment() {
             passwordInputValidation(password)
         }
         binding.loginTv.setOnClickListener {
-            navigationToLoginScreen()
+            findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment2)
         }
     }
 
-    private fun navigationToLoginScreen() {
-        findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment2)
-    }
 
     fun createAcount(
         fullName :String,
