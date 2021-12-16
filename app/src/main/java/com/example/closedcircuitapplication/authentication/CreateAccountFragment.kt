@@ -66,7 +66,6 @@ class CreateAccountFragment : Fragment() {
         }
     }
 
-
     fun createAcount(
         fullName :String,
         phoneNumber :String,
