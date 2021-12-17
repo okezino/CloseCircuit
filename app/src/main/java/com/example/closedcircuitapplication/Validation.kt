@@ -10,8 +10,13 @@ object Validation {
                 "(" +
                 "\\." +
                 "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                ")+"
-    )
+                ")+" )
+
+    val UPPERCASE = Regex("[A-Z]")
+    val LOWERCASE = Regex("[a-z]")
+    val DIGITCHARACTER = Regex("[0-9]")
+    val SPECAILCHARAACTERS = Regex("[@#\$%^&+=*_-]")
+
     fun validateEmailInput(email:String):Boolean{
         if (email.isEmpty() || !email.matches(EMAIL_PATTERN)) {
             return false
@@ -28,6 +33,7 @@ object Validation {
         return false
     }
 
+    //Validate user email pattern
     fun validatePasswordPattern(usersPassword : String) : Boolean{
         val passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[-@%\\[}+'!/#$^?:;,(\")~`.*=&{>\\]<_])(?=\\S+$).{8,20}$".toRegex()
         if (usersPassword.matches(passwordPattern)){
@@ -36,19 +42,8 @@ object Validation {
         return false
     }
 
-    fun emptyPassword(usersPassword:String):Boolean{
-        if(usersPassword.isEmpty()){
-            return true
-        }
-        return false
+    fun validateFullNameInput(name: String): Boolean {
+        val regex = Regex("^([0-9]+([a-z|A-Z]+?)?|([!@#$%&*=|'+,./_-]+)|\\s+|\\+)")
+        return name.matches(regex) || name.isEmpty()
     }
-
-    fun emptyEmail(usersEmail: String):Boolean{
-        if(usersEmail.isEmpty()){
-            return true
-        }
-        return false
-    }
-
-
 }

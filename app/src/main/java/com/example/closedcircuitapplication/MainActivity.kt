@@ -35,10 +35,11 @@ class MainActivity : AppCompatActivity() {
         bottomAppBar = binding.appBarDashboard.contentMain.bottomAppBar
         bottomNavigationView = binding.appBarDashboard.contentMain.bottomNavigationView
         bottomNavigationView.setupWithNavController(navController)
-        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+        appBarConfiguration = AppBarConfiguration(topLevelDestinationIds = setOf(
+            R.id.dashboardFragment2
+        ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         onDestinationChangedListener()
-
     }
 
     private fun onDestinationChangedListener() {
@@ -69,11 +70,11 @@ class MainActivity : AppCompatActivity() {
                     R.id.forgotPasswordFragment ->  showAppBar()
 
                     else -> {
-                        binding.appBarDashboard.contentMain.fab.visibility = View.INVISIBLE
-                        bottomAppBar.visibility = View.INVISIBLE
+                        binding.appBarDashboard.contentMain.fab.visibility = View.GONE
+                        bottomAppBar.visibility = View.GONE
                         binding.appBarDashboard.appBarLayout.visibility = View.GONE
-                        binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
-                        binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
+                        binding.appBarDashboard.notificationImageView.visibility = View.GONE
+                        binding.appBarDashboard.profileImageView.visibility = View.GONE
                     }
                 }
             }

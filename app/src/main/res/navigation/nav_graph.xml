@@ -19,7 +19,9 @@
             android:id="@+id/action_splashScreen_to_viewPagerFragment"
             app:destination="@id/viewPagerFragment"
             app:popUpTo="@id/splashScreen"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_from_top_animation"
+            app:exitAnim="@anim/slide_from_bottom_animation" />
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
@@ -30,7 +32,9 @@
             android:id="@+id/action_viewPagerFragment_to_welcomeScreenFragment2"
             app:destination="@id/welcomeScreenFragment"
             app:popUpTo="@id/viewPagerFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_from_bottom_animation"
+            app:exitAnim="@anim/slide_from_top_animation" />
     </fragment>
     <fragment
         android:id="@+id/verifyEmailFragment"
@@ -53,10 +57,28 @@
         tools:layout="@layout/fragment_welcome_screen">
         <action
             android:id="@+id/action_welcomeScreenFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_from_top_animation"
+            app:exitAnim="@anim/slide_from_bottom_animation" />
         <action
             android:id="@+id/action_welcomeScreenFragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.example.closedcircuitapplication.authentication.CreateAccountFragment"
+        android:label="fragment_create_account"
+        tools:layout="@layout/fragment_create_account">
+        <action
+            android:id="@+id/action_createAccountFragment_to_welcomeScreenFragment"
+            app:destination="@id/welcomeScreenFragment"
+            app:enterAnim="@anim/slide_from_left"
+            app:exitAnim="@anim/slide_from_bottom_animation" />
+        <action
+            android:id="@+id/action_createAccountFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_from_bottom_animation"
+            app:exitAnim="@anim/slide_from_top_animation" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment2"
@@ -70,13 +92,26 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_welcomeScreenFragment"
-            app:destination="@id/welcomeScreenFragment" />
+            app:destination="@id/welcomeScreenFragment"
+            app:enterAnim="@anim/slide_from_bottom_animation"
+            app:exitAnim="@anim/slide_from_top_animation" />
         <action
             android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragment" />
+            app:destination="@id/forgotPasswordFragment"
+            app:enterAnim="@anim/slide_from_bottom_animation"
+            app:exitAnim="@anim/slide_from_top_animation" />
         <action
             android:id="@+id/action_loginFragment_to_dashboardFragment2"
-            app:destination="@id/dashboardFragment2" />
+            app:destination="@id/dashboardFragment2"
+            app:enterAnim="@anim/slide_from_top_animation"
+            app:exitAnim="@anim/slide_from_bottom_animation"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment"
+            app:enterAnim="@anim/slide_from_bottom_animation"
+            app:exitAnim="@anim/slide_from_top_animation" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -85,7 +120,9 @@
         tools:layout="@layout/fragment_forgot_password" >
         <action
             android:id="@+id/action_forgotPasswordFragment_to_recoverPasswordOtpFragment"
-            app:destination="@id/recoverPasswordOtpFragment" />
+            app:destination="@id/recoverPasswordOtpFragment"
+            app:enterAnim="@anim/slide_from_bottom_animation"
+            app:exitAnim="@anim/slide_from_top_animation" />
     </fragment>
     <fragment
         android:id="@+id/recoverPasswordOtpFragment"
@@ -94,7 +131,9 @@
         tools:layout="@layout/fragment_recover_password_otp" >
         <action
             android:id="@+id/action_recoverPasswordOtpFragment_to_resetYourPasswordFragment"
-            app:destination="@id/resetYourPasswordFragment" />
+            app:destination="@id/resetYourPasswordFragment"
+            app:enterAnim="@anim/slide_from_bottom_animation"
+            app:exitAnim="@anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/resetYourPasswordFragment"
@@ -103,7 +142,9 @@
         tools:layout="@layout/fragment_reset_your_password" >
         <action
             android:id="@+id/action_resetYourPasswordFragment_to_passwordRecoverySuccessfulFragment"
-            app:destination="@id/passwordRecoverySuccessfulFragment" />
+            app:destination="@id/passwordRecoverySuccessfulFragment"
+            app:enterAnim="@anim/slide_from_top_animation"
+            app:exitAnim="@anim/slide_from_bottom_animation" />
     </fragment>
     <fragment
         android:id="@+id/passwordRecoverySuccessfulFragment"
@@ -112,17 +153,12 @@
         tools:layout="@layout/fragment_password_recovery_successful" >
         <action
             android:id="@+id/action_passwordRecoverySuccessfulFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_from_top_animation"
+            app:exitAnim="@anim/slide_in_left" />
+    </fragment><![CDATA[
         tools:layout="@layout/fragment_password_recovery_successful" />
-    <fragment
-        android:id="@+id/firstScreenFragment"
-        android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.screens.FirstScreenFragment"
-        android:label="FirstScreenFragment" />
-    <fragment
-        android:id="@+id/fourthScreenFragment"
-        android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.screens.FourthScreenFragment"
-        android:label="FourthScreenFragment" />
+    ]]>
     <fragment
         android:id="@+id/messageFragment"
         android:name="com.example.closedcircuitapplication.dashboard.MessageFragment"
@@ -140,20 +176,9 @@
         tools:layout="@layout/fragment_account" >
         <action
             android:id="@+id/action_accountFragment_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/secondScreenFragment"
-        android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.screens.SecondScreenFragment"
-        android:label="SecondScreenFragment" />
-    <fragment
-        android:id="@+id/createAccountFragment"
-        android:name="com.example.closedcircuitapplication.authentication.CreateAccountFragment"
-        android:label="fragment_create_account"
-        tools:layout="@layout/fragment_create_account" >
-        <action
-            android:id="@+id/action_createAccountFragment_to_verifyEmailFragment"
-            app:destination="@id/verifyEmailFragment" />
+            app:destination="@id/forgotPasswordFragment"
+            app:enterAnim="@anim/slide_out_right"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
 
 </navigation>

@@ -37,9 +37,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.imageView.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_welcomeScreenFragment)
         }
+        binding.fragmentLoginCreateAccountTv.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_createAccountFragment)
+        }
 
         binding.emailTv.addTextChangedListener(loginButtonHandler)
         binding.passwordTv.addTextChangedListener(loginButtonHandler)
+
 
         binding.loginBtn .setOnClickListener {
             val email = binding.emailTv .text.toString().trim()
