@@ -1,22 +1,21 @@
 package com.example.closedcircuitapplication.login
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.dashboard.BeneficiaryDashboardActivity
 import com.example.closedcircuitapplication.databinding.FragmentLoginBinding
 import java.util.*
 import kotlin.concurrent.schedule
 
-
 class LoginFragment : Fragment(R.layout.fragment_login) {
-
 
     private lateinit var binding: FragmentLoginBinding
     private lateinit var email: String
@@ -26,12 +25,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
 
-        //navigate to forgot password screen
+        // navigate to forgot password screen
         binding.fragmentLoginForgotPasswordTv.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
         }
 
-        //navigate back to welcome screen from login screen
+        // navigate back to welcome screen from login screen
         binding.imageView.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_welcomeScreenFragment)
         }
@@ -47,20 +46,19 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 val emailEt = binding.fragmentLoginEmailEt.text.toString()
                 val passwordEt = binding.fragmentLoginPasswordEt.text.toString()
                 Log.d("USER_INPUTS", "email=> $emailEt and password=> $passwordEt")
-                if (emailEt == email && passwordEt == password){
+                if (emailEt == email && passwordEt == password) {
                     showLoginSuccessfulDialog()
-                    findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment2)
-
-                }else {
+                    val intentBeneficiaryDashboard = Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
+                    startActivity(intentBeneficiaryDashboard)
+                } else {
                     showAlertInfoAlert()
                 }
             }, 1000)
         }
     }
 
-
-    private fun showPleaseWaitAlertDialog(){
-        val view = View.inflate(context,R.layout.custom_login_wait_dialog,null)
+    private fun showPleaseWaitAlertDialog() {
+        val view = View.inflate(context, R.layout.custom_login_wait_dialog, null)
         val builder = AlertDialog.Builder(context)
         builder.setView(view)
 
@@ -71,14 +69,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val height = (resources.displayMetrics.heightPixels * 0.35).toInt()
         dialog!!.window?.setLayout(width, height)
 
-        Timer().schedule(3000){
+        Timer().schedule(3000) {
             dialog.dismiss()
-
         }
     }
 
-    private fun showLoginSuccessfulDialog(){
-        val view = View.inflate(context,R.layout.cutom_login_successful_dialog,null)
+    private fun showLoginSuccessfulDialog() {
+        val view = View.inflate(context, R.layout.cutom_login_successful_dialog, null)
         val builder = AlertDialog.Builder(context)
         builder.setView(view)
 
@@ -89,13 +86,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val height = (resources.displayMetrics.heightPixels * 0.35).toInt()
         dialog!!.window?.setLayout(width, height)
 
-        Timer().schedule(3000){
+        Timer().schedule(3000) {
             dialog.dismiss()
         }
     }
 
-    private fun showAlertInfoAlert(){
-        val view = View.inflate(context,R.layout.custom_alert_info_dialog,null)
+    private fun showAlertInfoAlert() {
+        val view = View.inflate(context, R.layout.custom_alert_info_dialog, null)
         val builder = AlertDialog.Builder(context)
         builder.setView(view)
 

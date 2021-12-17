@@ -46,7 +46,7 @@ class DashboardFragment : Fragment() {
         getRecentDonations()
     }
 
-    fun createPlans() {
+    private fun createPlans() {
         val plans = ArrayList<PlanItems>()
         plans.add(PlanItems("School Fees", "20% Funds Raised", "10% Tasks Completed", R.drawable.fish_farming))
         plans.add(PlanItems("Fish Farming", "70% Funds Raised", "40% Tasks Completed", R.drawable.diane_russell))

@@ -10,4 +10,19 @@
         android:name="com.example.closedcircuitapplication.dashboard.DashboardFragment"
         android:label="DashboardFragment"
         tools:layout="@layout/fragment_dashboard"/>
+    <fragment
+        android:id="@+id/accountFragment2"
+        android:name="com.example.closedcircuitapplication.dashboard.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/messageFragment2"
+        android:name="com.example.closedcircuitapplication.dashboard.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" />
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="com.example.closedcircuitapplication.dashboard.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
