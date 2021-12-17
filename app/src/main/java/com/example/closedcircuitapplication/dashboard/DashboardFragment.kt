@@ -27,8 +27,8 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        plansRecyclerView = binding.plansConstraint
-        recentDonationsRecyclerView = binding.recentDonationsConstraint
+        plansRecyclerView = binding.activeUserConstraint.plansConstraint
+        recentDonationsRecyclerView = binding.activeUserConstraint.recentDonationsConstraint
         return binding.root
     }
 
@@ -38,8 +38,8 @@ class DashboardFragment : Fragment() {
         /*TODO: Implement Create plan. For now this button displays an active user UI*/
         binding.createPlanButton.setOnClickListener {
             binding.newUserConstraint.visibility = View.GONE
-            if (!binding.activeUserConstraint.isVisible) {
-                binding.activeUserConstraint.visibility = View.VISIBLE
+            if (!binding.activeUserConstraint.activeUserConstraint.isVisible) {
+                binding.activeUserConstraint.activeUserConstraint.visibility = View.VISIBLE
             }
         }
         createPlans()

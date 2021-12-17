@@ -81,4 +81,5 @@
     <string name="create_a_new_account">Create a New Account</string>
     <string name="by_clicking_create">By clicking create account, you are agreeing to our terms of services, payment terms, privacy policy, and terms of use. <u><link><font color="#0000ff">read terms</font></link></u></string>
     <string name="read_terms">read terms</string>
+    <string name="plan_analytics">Plan Analytics</string>
 </resources>
