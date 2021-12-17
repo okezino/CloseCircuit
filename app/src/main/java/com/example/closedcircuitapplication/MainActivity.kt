@@ -35,7 +35,9 @@ class MainActivity : AppCompatActivity() {
         bottomAppBar = binding.appBarDashboard.contentMain.bottomAppBar
         bottomNavigationView = binding.appBarDashboard.contentMain.bottomNavigationView
         bottomNavigationView.setupWithNavController(navController)
-        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+        appBarConfiguration = AppBarConfiguration(topLevelDestinationIds = setOf(
+            R.id.dashboardFragment2
+        ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         onDestinationChangedListener()
     }

@@ -39,8 +39,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             findNavController().navigate(R.id.action_loginFragment_to_createAccountFragment)
         }
 
-        email = "phil@gmail.com"
-        password = "emma"
+        email = "ben@gmail.com"
+        password = "Benjamin@123"
 
         binding.fragmentLoginBtn.setOnClickListener {
 

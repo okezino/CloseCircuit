@@ -153,8 +153,8 @@
                     android:id="@+id/phoneNumberTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="140dp"
-                    android:paddingStart="30dp"
+                    android:layout_marginStart="145dp"
+                    android:paddingStart="35dp"
                     android:inputType="phone"
                     android:maxLength="11" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -206,7 +206,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/Maximuimof8Charater_Tv"
+                android:id="@+id/minimuimof8Charater_Tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -227,7 +227,7 @@
                 android:textStyle="normal"
                 android:textSize="13dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Maximuimof8Charater_Tv" />
+                app:layout_constraintTop_toBottomOf="@id/minimuimof8Charater_Tv" />
 
             <TextView
                 android:id="@+id/Numbers_Tv"

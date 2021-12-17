@@ -10,12 +10,22 @@ object Validation {
                 "(" +
                 "\\." +
                 "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                ")+"
-    )
+                ")+" )
+
+    val UPPERCASE = Regex("[A-Z]")
+    val LOWERCASE = Regex("[a-z]")
+    val DIGITCHARACTER = Regex("[0-9]")
+    val SPECAILCHARAACTERS = Regex("[@#\$%^&+=*_-]")
+
     fun validateEmailInput(email:String):Boolean{
         if (email.isEmpty() || !email.matches(EMAIL_PATTERN)) {
             return false
         }
         return true
+    }
+
+    fun validateFullNameInput(name: String): Boolean {
+        val regex = Regex("^([0-9]+([a-z|A-Z]+?)?|([!@#$%&*=|'+,./_-]+)|\\s+|\\+)")
+        return name.matches(regex) || name.isEmpty()
     }
 }

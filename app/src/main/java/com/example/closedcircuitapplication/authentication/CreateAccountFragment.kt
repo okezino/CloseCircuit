@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.core.text.isDigitsOnly
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
@@ -23,11 +24,12 @@ class CreateAccountFragment : Fragment() {
     private val binding get() = _binding!!
     lateinit var countryCode: String
     lateinit var password:String
+    lateinit var email : String
+    lateinit var fullName :String
+    lateinit var phoneNumber:String
+    lateinit var comfirmPassword: String
 
-    val uppercase = Regex("[A-Z]")
-    val lowercase = Regex("[a-z]")
-    val digitCharackter = Regex("[0-9]")
-    val specailCharacter = Regex("[@#\$%^&+=*_-]")
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,27 +46,41 @@ class CreateAccountFragment : Fragment() {
         //navigate back to  welcome screen from create account screen
 
         binding.createAccountBtn.setOnClickListener {
-            val fullNmae = binding.fullNameTextInput.text.toString().trim()
-            val phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
-            val email = binding.emailTextInput.text.toString().trim()
+             fullName = binding.fullNameTextInput.text.toString().trim()
+             phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
+             email = binding.emailTextInput.text.toString().trim()
             password = binding.passwordTextInput.text.toString().trim()
-            val comfirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
+             comfirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
 
             // create a user account
-            createAcount( fullNmae, phoneNumber, password, email, comfirmPassword, view)
+            createAcount( fullName, phoneNumber, password, email, comfirmPassword, view)
         }
         binding.countrycode.setOnCountryChangeListener {
             countryCode = binding.countrycode.selectedCountryCodeWithPlus
         }
+        binding.fullNameTextInput.addTextChangedListener {
+            fullName = binding.fullNameTextInput.text.toString().trim()
+            onFullNameTExtInputChangeListener(fullName)
+        }
+        binding.phoneNumberTextInput.addTextChangedListener {
+            phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
+            onNumberTextInputChangeListener(phoneNumber)
+        }
 
+        binding.emailTextInput.addTextChangedListener {
+            email = binding.emailTextInput.text.toString().trim()
+            onEmailTextInputChangeListener(email)
+        }
         binding.passwordTextInput.addTextChangedListener {
             password = binding.passwordTextInput.text.toString()
-            passwordInputValidation(password)
+            passwordInputValidationListener(password)
         }
         binding.loginTv.setOnClickListener {
-            findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment2)
+            findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
         }
     }
+
+
 
     fun createAcount(
         fullName :String,
@@ -75,46 +91,72 @@ class CreateAccountFragment : Fragment() {
         view: View
     ) {
         // check if the full name is entered and is valide name
-        if(fullName.isEmpty() || fullName.length < 4 || fullName.isDigitsOnly()){
-            binding.fullNameTextInput.error = "Enter your name"
-        } else if (!Validation.validateEmailInput(email.toString())) {
-                binding.emailTextInput.error
-                binding.wrongEmailWorningTv.visibility = View.VISIBLE
-                binding.wrongEmailWorningTv.setTextColor(
-                    resources.getColor(R.color.red))
-            }else if (phoneNumber.length < 9){
-            binding.wrongEmailWorningTv.visibility = View.GONE
-            binding.phoneNumberTextInput.error ="Incorrect number"
-        } else {
+        if(Validation.validateFullNameInput(fullName) ){
 
+        }
+        if (!Validation.validateEmailInput(email)) {
+            binding.emailTextInput.error
+
+        }else if (phoneNumber.length < 9){
+            binding.wrongEmailWorningTv.visibility = View.GONE
+            binding.phoneNumberTextInput.error ="Incomplete number"
+        } else {
                 // check if the password provided is the same with the confirm password
                  if (password.isEmpty() || password != comfirmPassword) {
                      binding.comfirmPasswordTextInput.error = "Password does not match"
                 } else {
-                    findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment2)
+                    findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
                 }
             }
     }
 
+    fun onFullNameTExtInputChangeListener(fullName:String){
+        if (fullName.isNotEmpty() && fullName.isDigitsOnly()){
+           binding.fullNameTextInput.error = "Can't be numbers"
+        }else if (fullName.isNotEmpty() &&fullName[0].isDigit()){
+            binding.fullNameTextInput.error = "must not start with numbers"
+        } else if (fullName.isNotEmpty() && fullName.contains(Validation.SPECAILCHARAACTERS)){
+            binding.fullNameTextInput.error = "must not contain special characters"
+        }
+
+    }
+
+    fun onEmailTextInputChangeListener(email:String){
+        if (!Validation.validateEmailInput(email)) {
+            binding.emailTextInput.error
+            binding.wrongEmailWorningTv.visibility = View.VISIBLE
+            binding.wrongEmailWorningTv.setTextColor(
+                resources.getColor(R.color.red))
+        }else{
+            binding.wrongEmailWorningTv.visibility = View.GONE
+        }
+    }
+
+    fun onNumberTextInputChangeListener(number:String) {
+        if (number.length < 9) {
+            binding.wrongEmailWorningTv.visibility = View.GONE
+            binding.phoneNumberTextInput.error = "Incomplete number"
+        }
+    }
     // check the password input if it meet all the requirement
-    fun passwordInputValidation(password: String) {
+    fun passwordInputValidationListener(password: String) {
 
         if (password.length <= 7) {
-            binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.red))
+            binding.minimuimof8CharaterTv.setTextColor(resources.getColor(R.color.red))
         } else {
-            binding.Maximuimof8CharaterTv.setTextColor(resources.getColor(R.color.green_700))
+            binding.minimuimof8CharaterTv.setTextColor(resources.getColor(R.color.green_700))
         }
-        if (!password.contains(uppercase) || !password.toString().contains(lowercase)) {
+        if (!password.contains(Validation.UPPERCASE) || !password.toString().contains(Validation.LOWERCASE)) {
             binding.UppercaseAndLowercaseTv.setTextColor(resources.getColor(R.color.red))
         } else {
             binding.UppercaseAndLowercaseTv.setTextColor(resources.getColor(R.color.green_700))
         }
-        if (!password.contains(digitCharackter)) {
+        if (!password.contains(Validation.DIGITCHARACTER)) {
             binding.NumbersTv.setTextColor(resources.getColor(R.color.red))
         } else {
             binding.NumbersTv.setTextColor(resources.getColor(R.color.green_700))
         }
-        if (!password.contains(specailCharacter)) {
+        if (!password.contains(Validation.SPECAILCHARAACTERS)) {
             binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.red))
         } else {
             binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.green_700))

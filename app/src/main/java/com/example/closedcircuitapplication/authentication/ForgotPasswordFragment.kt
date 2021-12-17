@@ -8,13 +8,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.Validation
 import com.example.closedcircuitapplication.databinding.FragmentForgotPasswordBinding
 
 class ForgotPasswordFragment : Fragment() {
     private var _binding: FragmentForgotPasswordBinding? = null
     private val binding get() = _binding!!
+    lateinit var email:String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +40,12 @@ class ForgotPasswordFragment : Fragment() {
 
         //navigate to password recovery screen
         binding.forgotPasswordButton.setOnClickListener {
-            findNavController().navigate(R.id.action_forgotPasswordFragment_to_recoverPasswordOtpFragment)
+            email = binding.forgoetPasswordEmailEtv.text.toString().trim()
+            emailTextInputValidation(email)
+        }
+        binding.forgoetPasswordEmailEtv.addTextChangedListener {
+            email = binding.forgoetPasswordEmailEtv.text.toString().trim()
+            onEmailTextInputChangeListener(email)
         }
 
     }
@@ -48,6 +56,16 @@ class ForgotPasswordFragment : Fragment() {
         val foregroundBlue = ForegroundColorSpan(requireActivity().resources.getColor(R.color.spannableBlue))
         spannableText.setSpan(foregroundBlue, 19, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.forgotPasswordRememberPasswordTextView.text = spannableText
+    }
+    fun emailTextInputValidation(email:String){
+        if (Validation.validateEmailInput(email)){
+            findNavController().navigate(R.id.action_forgotPasswordFragment_to_recoverPasswordOtpFragment)
+        }
+    }
+    fun onEmailTextInputChangeListener(email:String){
+        if (!Validation.validateEmailInput(email)) {
+            binding.forgoetPasswordEmailEtv.error = "wrong email address"
+        }
     }
 
     override fun onDestroyView() {

@@ -36,12 +36,12 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         /*TODO: Implement Create plan. For now this button displays an active user UI*/
-        binding.createPlanButton.setOnClickListener {
+       // binding.createPlanButton.setOnClickListener {
             binding.newUserConstraint.visibility = View.GONE
             if (!binding.activeUserConstraint.isVisible) {
                 binding.activeUserConstraint.visibility = View.VISIBLE
             }
-        }
+        //}
         createPlans()
         getRecentDonations()
     }
