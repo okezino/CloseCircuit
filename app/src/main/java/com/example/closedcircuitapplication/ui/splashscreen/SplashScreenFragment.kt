@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.splashscreen
+package com.example.closedcircuitapplication.ui.splashScreen
 
 import android.content.Context
 import android.os.Bundle
@@ -54,21 +54,21 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
                 )
             }
         }, splashScreenTimeout.toLong())
-        }
-
-        private fun onBoardingFinished(): Boolean {
-            val sharedPref = requireActivity().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
-            return sharedPref.getBoolean("finished", false)
-        }
-
-        override fun onDetach() {
-            requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-            super.onDetach()
-        }
-
-        override fun onDestroyView() {
-            super.onDestroyView()
-            _binding = null
-        }
     }
+
+    private fun onBoardingFinished(): Boolean {
+        val sharedPref = requireActivity().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
+        return sharedPref.getBoolean("finished", false)
+    }
+
+    override fun onDetach() {
+        requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        super.onDetach()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
     
