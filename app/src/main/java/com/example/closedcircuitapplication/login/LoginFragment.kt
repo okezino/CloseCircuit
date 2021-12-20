@@ -46,7 +46,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
 
         binding.loginBtn .setOnClickListener {
-            val email = binding.emailTv .text.toString().trim()
+            val email = binding.emailTv.text.toString().trim()
             val password = binding.passwordTv .text.toString().trim()
 
             showPleaseWaitAlertDialog()

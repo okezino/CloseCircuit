@@ -2,7 +2,10 @@ package com.example.closedcircuitapplication.authentication
 
 import android.os.Bundle
 import android.text.Editable
+import android.text.SpannableString
+import android.text.Spanned
 import android.text.TextWatcher
+import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +32,7 @@ class ForgotPasswordFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        setUpSpannableText()
+        setUpSpannableText()
 ////        binding.forgotPasswordToolbar.apply {
 ////            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
 ////            setNavigationOnClickListener {
@@ -79,13 +82,13 @@ class ForgotPasswordFragment : Fragment() {
 
     }
 //
-//    private fun setUpSpannableText() {
-//        val text ="Remember password? Login"
-//        val spannableText = SpannableString(text)
-//        val foregroundBlue = ForegroundColorSpan(requireActivity().resources.getColor(R.color.spannableBlue))
-//        spannableText.setSpan(foregroundBlue, 19, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-//        binding.forgotPasswordRememberPasswordTextView.text = spannableText
-//    }
+    private fun setUpSpannableText() {
+        val text ="Remember password? Login"
+        val spannableText = SpannableString(text)
+        val foregroundBlue = ForegroundColorSpan(requireActivity().resources.getColor(R.color.spannableBlue))
+        spannableText.setSpan(foregroundBlue, 19, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        binding.forgotPasswordRememberPasswordTextView.text = spannableText
+    }
 //    fun emailTextInputValidation(email:String){
 //        if (Validation.validateEmailInput(email)){
 //            findNavController().navigate(R.id.action_forgotPasswordFragment_to_recoverPasswordOtpFragment)
