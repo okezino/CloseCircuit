@@ -35,7 +35,10 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
         bottomAppBar = binding.appBarDashboard.contentMain.bottomAppBar
         bottomNavigationView = binding.appBarDashboard.contentMain.bottomNavigationView
         bottomNavigationView.setupWithNavController(navController)
-        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+        appBarConfiguration = AppBarConfiguration(topLevelDestinationIds = setOf(
+            R.id.dashboardFragment
+        ), drawerLayout)
+//        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         onDestinationChangedListener()
     }

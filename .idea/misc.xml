@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.3104166666666667" />
+        <entry key="app/src/main/res/drawable-v24/rectangle_button.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/drawable-v24/text_input_rectangle.xml" value="0.24316239316239316" />
         <entry key="app/src/main/res/drawable/background_sponsors.xml" value="0.14375" />
         <entry key="app/src/main/res/drawable/google_btn.xml" value="0.24316239316239316" />
         <entry key="app/src/main/res/drawable/ic_group_32.xml" value="0.2703125" />
+        <entry key="app/src/main/res/drawable/login_btn.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/drawable/password_toggle_selector.xml" value="0.29635416666666664" />
         <entry key="app/src/main/res/drawable/progress_bar.xml" value="0.26506639427987744" />
         <entry key="app/src/main/res/layout/active_user_dashboard.xml" value="0.23697916666666666" />
@@ -33,8 +36,7 @@
         <entry key="app/src/main/res/layout/fragment_recover_password_otp.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_reset_your_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.26458333333333334" />
-        <entry key="app/src/main/res/layout/fragment_second_screen.xml" value="0.1578125" />
-        <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_second_screen.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.22" />

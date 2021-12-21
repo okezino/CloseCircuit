@@ -29,10 +29,10 @@
 
         <TextView
             android:id="@+id/wellcome_tv"
-            android:layout_width="109dp"
-            android:layout_height="28dp"
-            android:layout_marginEnd="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
+            android:fontFamily="@font/helvetica"
             android:gravity="center"
             android:text="@string/welcome"
             android:textColor="#0B0B0B"
@@ -40,15 +40,14 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/upper_guidline"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.499"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/hand_emoji"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:src="@drawable/emoji"
+            android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/wellcome_tv"
             app:layout_constraintStart_toEndOf="@+id/wellcome_tv"
             app:layout_constraintTop_toTopOf="@+id/wellcome_tv" />

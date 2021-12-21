@@ -4,22 +4,23 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.Validation
 import com.example.closedcircuitapplication.dashboard.BeneficiaryDashboardActivity
 import com.example.closedcircuitapplication.databinding.FragmentLoginBinding
-import java.util.*
+import com.google.android.material.snackbar.Snackbar
+import java.util.Timer
 import kotlin.concurrent.schedule
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var email: String
-    private lateinit var password: String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,27 +35,53 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.imageView.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_welcomeScreenFragment)
         }
+        binding.fragmentLoginCreateAccountTv.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_createAccountFragment)
+        }
 
-        email = "phil@gmail.com"
-        password = "emma"
+        binding.emailTv.addTextChangedListener(loginButtonHandler)
+        binding.passwordTv.addTextChangedListener(loginButtonHandler)
 
-        binding.fragmentLoginBtn.setOnClickListener {
+        binding.loginBtn.setOnClickListener {
+            val email = binding.emailTv.text.toString().trim()
+            val password = binding.passwordTv.text.toString().trim()
 
             showPleaseWaitAlertDialog()
             val handler = Handler()
             handler.postDelayed({
-                val emailEt = binding.fragmentLoginEmailEt.text.toString()
-                val passwordEt = binding.fragmentLoginPasswordEt.text.toString()
-                Log.d("USER_INPUTS", "email=> $emailEt and password=> $passwordEt")
-                if (emailEt == email && passwordEt == password) {
-                    showLoginSuccessfulDialog()
-                    val intentBeneficiaryDashboard = Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
-                    startActivity(intentBeneficiaryDashboard)
+                if (Validation.validateEmailPattern(email)) {
+                    if (Validation.validatePasswordPattern(password)) {
+                        showLoginSuccessfulDialog()
+                        val intentBeneficiaryDashboard = Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
+                        startActivity(intentBeneficiaryDashboard)
+                    } else {
+                        // call for incorrect password here
+                        showAlertInfoAlert()
+                        Snackbar.make(binding.root, "Invalid Password", Snackbar.LENGTH_LONG).show()
+                    }
                 } else {
+                    // call for incorrect email here
                     showAlertInfoAlert()
+                    Snackbar.make(binding.root, "Invalid email address", Snackbar.LENGTH_LONG)
+                        .show()
                 }
             }, 1000)
         }
+    }
+
+    // Login button handler
+    // If the two text fields are empty, the login button will be disabled
+    private val loginButtonHandler: TextWatcher = object : TextWatcher {
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            val userLoginEmail: String = binding.emailTv.text.toString().trim()
+            val userLoginPassword: String = binding.passwordTv.text.toString().trim()
+            binding.loginBtn.isEnabled =
+                userLoginEmail.isNotEmpty() && userLoginPassword.isNotEmpty()
+        }
+
+        override fun afterTextChanged(p0: Editable?) {}
     }
 
     private fun showPleaseWaitAlertDialog() {
@@ -91,6 +118,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
+    // implement alert info for incorrect email and also for incorrect password
     private fun showAlertInfoAlert() {
         val view = View.inflate(context, R.layout.custom_alert_info_dialog, null)
         val builder = AlertDialog.Builder(context)
