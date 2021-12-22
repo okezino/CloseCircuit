@@ -88,4 +88,7 @@
     <string name="project">Projects</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="not_started_a_plan">Patience, you have not started any plan yet. Please start a plan to view plans.</string>
+    <string name="notifications">Notifications</string>
+    <string name="no_notifications">No Notifications</string>
+    <string name="patience_you_currently_do_not_have_any_notifications">Patience, you currently do not have any notifications.</string>
 </resources>
