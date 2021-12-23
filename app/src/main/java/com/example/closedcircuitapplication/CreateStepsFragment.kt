@@ -37,9 +37,6 @@ class CreateStepsFragment : Fragment() {
         binding.createStepAutoCompleteTextView.apply {
             setAdapter(weekAdapter)
         }
-        binding.createStepsNotHaveABudgetTextView.setOnClickListener {
-            findNavController().navigate(R.id.action_createStepsFragment_to_createBudgetFragment)
-        }
         addChips()
     }
 

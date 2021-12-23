@@ -27,8 +27,8 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        plansRecyclerView = binding.plansConstraint
-        recentDonationsRecyclerView = binding.recentDonationsConstraint
+        plansRecyclerView = binding.activeUserConstraint.plansConstraint
+        recentDonationsRecyclerView = binding.activeUserConstraint.recentDonationsConstraint
         return binding.root
     }
 
@@ -36,17 +36,17 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         /*TODO: Implement Create plan. For now this button displays an active user UI*/
-        binding.createPlanButton.setOnClickListener {
+       // binding.createPlanButton.setOnClickListener {
             binding.newUserConstraint.visibility = View.GONE
-            if (!binding.activeUserConstraint.isVisible) {
-                binding.activeUserConstraint.visibility = View.VISIBLE
+            if (!binding.activeUserConstraint.activeUserConstraint.isVisible) {
+                binding.activeUserConstraint.activeUserConstraint.visibility = View.VISIBLE
             }
-        }
+        //}
         createPlans()
         getRecentDonations()
     }
 
-    fun createPlans() {
+    private fun createPlans() {
         val plans = ArrayList<PlanItems>()
         plans.add(PlanItems("School Fees", "20% Funds Raised", "10% Tasks Completed", R.drawable.fish_farming))
         plans.add(PlanItems("Fish Farming", "70% Funds Raised", "40% Tasks Completed", R.drawable.diane_russell))

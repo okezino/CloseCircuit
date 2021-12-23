@@ -39,13 +39,8 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
             requireContext(),
             R.anim.slide_from_top_animation
         )
-        val circuitAnimation = android.view.animation.AnimationUtils.loadAnimation(
-            requireContext(),
-            R.anim.slide_from_bottom_animation
-        )
 
         binding.closedCircuit.startAnimation(closedAnimation)
-//        binding.circuit.startAnimation(circuitAnimation)
 
         val splashScreenTimeout = 3500
         Handler(Looper.getMainLooper()).postDelayed({
@@ -59,21 +54,21 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
                 )
             }
         }, splashScreenTimeout.toLong())
-       }
-
-        private fun onBoardingFinished(): Boolean {
-            val sharedPref = requireActivity().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
-            return sharedPref.getBoolean("finished", false)
-        }
-
-        override fun onDetach() {
-            requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-            super.onDetach()
-        }
-
-        override fun onDestroyView() {
-            super.onDestroyView()
-            _binding = null
-        }
     }
+
+    private fun onBoardingFinished(): Boolean {
+        val sharedPref = requireActivity().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
+        return sharedPref.getBoolean("finished", false)
+    }
+
+    override fun onDetach() {
+        requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        super.onDetach()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
     

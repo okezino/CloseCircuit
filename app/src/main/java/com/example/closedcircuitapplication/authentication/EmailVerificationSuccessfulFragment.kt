@@ -1,24 +1,22 @@
 package com.example.closedcircuitapplication.authentication
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import com.example.closedcircuitapplication.R
+import androidx.fragment.app.Fragment
+import com.example.closedcircuitapplication.dashboard.BeneficiaryDashboardActivity
 import com.example.closedcircuitapplication.databinding.FragmentEmailVerificationSuccessfulBinding
-import com.example.closedcircuitapplication.databinding.FragmentVerifyEmailBinding
-
 
 class EmailVerificationSuccessfulFragment : Fragment() {
 
- private var _binding:FragmentEmailVerificationSuccessfulBinding? = null
- private val binding get() = _binding!!
+    private var _binding: FragmentEmailVerificationSuccessfulBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -29,9 +27,8 @@ class EmailVerificationSuccessfulFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.proceedBtn.setOnClickListener {
-            findNavController().navigate(R.id.dashboardFragment2)
+            val intentBeneficiaryDashboard = Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
+            startActivity(intentBeneficiaryDashboard)
         }
-
     }
-
 }
