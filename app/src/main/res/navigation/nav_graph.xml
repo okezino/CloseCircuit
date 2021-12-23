@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashScreen">
+    app:startDestination="@id/welcomeScreenFragment">
 
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment"
@@ -154,6 +154,20 @@
         <action
             android:id="@+id/action_createAccountFragment_to_verifyEmailFragment"
             app:destination="@id/verifyEmailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createBudgetFragment"
+        android:name="com.example.closedcircuitapplication.CreateBudgetFragment"
+        android:label="fragment_create_budget"
+        tools:layout="@layout/fragment_create_budget" />
+    <fragment
+        android:id="@+id/createStepsFragment"
+        android:name="com.example.closedcircuitapplication.CreateStepsFragment"
+        android:label="fragment_create_steps"
+        tools:layout="@layout/fragment_create_steps" >
+        <action
+            android:id="@+id/action_createStepsFragment_to_createBudgetFragment"
+            app:destination="@id/createBudgetFragment" />
     </fragment>
 
 </navigation>

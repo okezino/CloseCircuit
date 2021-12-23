@@ -31,4 +31,5 @@
     <color name="gray">#FFF1F5FF</color>
     <color name="gray_700">#FFE3ECFF</color>
     <color name="blue">#0000fF</color>
+    <color name="closed_circuit_dark_green">#24500F</color>
 </resources>
