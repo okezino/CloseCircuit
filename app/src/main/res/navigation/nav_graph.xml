@@ -71,11 +71,6 @@
             app:destination="@id/loginFragment"/>
     </fragment>
     <fragment
-        android:id="@+id/dashboardFragment2"
-        android:name="com.example.closedcircuitapplication.dashboard.DashboardFragment"
-        android:label="DashboardFragment"
-        tools:layout="@layout/fragment_dashboard"/>
-    <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.closedcircuitapplication.login.LoginFragment"
         android:label="fragment_login"
@@ -86,11 +81,6 @@
         <action
             android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment"/>
-        <action
-            android:id="@+id/action_loginFragment_to_dashboardFragment2"
-            app:destination="@id/dashboardFragment2"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_loginFragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment"/>
@@ -131,16 +121,6 @@
             android:id="@+id/action_passwordRecoverySuccessfulFragment_to_loginFragment"
             app:destination="@id/loginFragment"/>
     </fragment>
-    <fragment
-        android:id="@+id/messageFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.MessageFragment"
-        android:label="fragment_message"
-        tools:layout="@layout/fragment_message" />
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.closedcircuitapplication.dashboard.AccountFragment"

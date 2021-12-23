@@ -29,6 +29,7 @@
     <color name="green_500">#FF259F46</color>
     <color name="green_700">#FF24500F</color>
     <color name="gray">#FFF1F5FF</color>
+    <color name="gray_600">#FFEBEFF2</color>
     <color name="gray_700">#FFE3ECFF</color>
     <color name="blue">#0000fF</color>
     <color name="background2">#FBFBFF</color>
