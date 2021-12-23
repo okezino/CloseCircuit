@@ -33,7 +33,7 @@
         <item name="chipBackgroundColor">#B7E143</item>
         <item name="checkedIconVisible">false</item>
         <item name="shapeAppearanceOverlay">@null</item>
-        <item name="chipMinHeight">50dp</item>
+        <item name="chipMinHeight">40dp</item>
         <item name="fontFamily">@font/helvetica</item>
     </style>
 

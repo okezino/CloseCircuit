@@ -43,14 +43,14 @@ class CreateStepsFragment : Fragment() {
         addChips()
     }
 
-    fun addChips() {
+    private fun addChips() {
         val contextThemeWrapper = ContextThemeWrapper(context, R.style.Widget_App_Chip)
         val travellingChip = Chip(contextThemeWrapper)
         val engineeringChip = Chip(contextThemeWrapper)
         val chipDrawable = ChipDrawable.createFromAttributes(requireContext(), null, 0,R.style.Widget_App_Chip)
         travellingChip.apply {
             text = "Travelling"
-            textSize = 20F
+            textSize = 15F
             setChipDrawable(chipDrawable)
             height = 70
             closeIcon =
@@ -62,7 +62,7 @@ class CreateStepsFragment : Fragment() {
         engineeringChip.apply {
             setText("Engineering")
             isCheckable = false
-            textSize = 20F
+            textSize = 15F
             setChipDrawable(chipDrawable)
             height = 70
             chipEndPadding = 10F
