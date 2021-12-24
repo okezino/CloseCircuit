@@ -24,4 +24,18 @@
 
     <style name="Theme.ClosedCircuitApplication.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="SpinnerTheme" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/spinner_dropdown_style</item>
+    </style>
+
+    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="chipIconTint">@color/white</item>
+        <item name="chipBackgroundColor">#B7E143</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="shapeAppearanceOverlay">@null</item>
+        <item name="chipMinHeight">40dp</item>
+        <item name="fontFamily">@font/helvetica</item>
+    </style>
+
+
 </resources>

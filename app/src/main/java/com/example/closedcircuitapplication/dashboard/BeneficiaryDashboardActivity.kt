@@ -10,7 +10,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.ActivityBeneficiaryDashboardBinding
 import com.google.android.material.bottomappbar.BottomAppBar
@@ -67,7 +66,6 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
                         binding.appBarDashboard.notificationImageView.visibility = View.VISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.VISIBLE
                     }
-
                     else -> {
                         binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE

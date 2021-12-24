@@ -22,6 +22,8 @@
         <entry key="app/src/main/res/drawable/ic_group_32.xml" value="0.2703125" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.2522982635342186" />
         <entry key="app/src/main/res/drawable/ic_messages.xml" value="0.2522982635342186" />
+        <entry key="app/src/main/res/drawable/ic_plus_circle.xml" value="0.12135416666666667" />
+        <entry key="app/src/main/res/drawable/ic_target_amount.xml" value="0.12135416666666667" />
         <entry key="app/src/main/res/drawable/image_view_circular_shape.xml" value="0.2522982635342186" />
         <entry key="app/src/main/res/drawable/image_view_circular_shape_blue.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/on_boarding_button.xml" value="0.22037037037037038" />

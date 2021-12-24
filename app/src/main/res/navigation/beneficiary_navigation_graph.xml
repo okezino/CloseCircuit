@@ -40,4 +40,14 @@
         android:name="com.example.closedcircuitapplication.dashboard.CreatePlanStepsFragment"
         android:label="CreatePlanStepsFragment"
         tools:layout="@layout/fragment_create_plan_steps"/>
+    <fragment
+        android:id="@+id/createStepsFragment"
+        android:name="com.example.closedcircuitapplication.CreateStepsFragment"
+        android:label="fragment_create_steps"
+        tools:layout="@layout/fragment_create_steps" />
+    <fragment
+        android:id="@+id/createBudgetFragment"
+        android:name="com.example.closedcircuitapplication.CreateBudgetFragment"
+        android:label="fragment_create_budget"
+        tools:layout="@layout/fragment_create_budget" />
 </navigation>
