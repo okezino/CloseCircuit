@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".CreateBudgetFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/create_budget_create_budget_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_17dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/all_create_budget_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/create_budget_enter_budget_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_40dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/enter_budget_name_text"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintStart_toStartOf="@+id/create_budget_create_budget_textView"
+            app:layout_constraintTop_toBottomOf="@+id/create_budget_create_budget_textView" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/create_budget_enter_budget_name_textInputLayout"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="@dimen/height_54dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:backgroundTint="#EBEFF2"
+            app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
+            app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusTopStart="@dimen/radius_5dp"
+            app:boxStrokeWidth="@dimen/width_0dp"
+            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/create_budget_enter_budget_name_textView"
+            app:layout_constraintTop_toBottomOf="@+id/create_budget_enter_budget_name_textView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/create_budget_enter_budget_name_editText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/create_budget_enter_budget_cost_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/enter_budget_cost_text"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintStart_toStartOf="@+id/create_budget_enter_budget_name_textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/create_budget_enter_budget_name_textInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/create_budget_cost_textInputLayout"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="@dimen/height_54dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:backgroundTint="#EBEFF2"
+            app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
+            app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusTopStart="@dimen/radius_5dp"
+            app:boxStrokeWidth="@dimen/width_0dp"
+            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:layout_constraintEnd_toEndOf="@+id/create_budget_enter_budget_name_textInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/create_budget_enter_budget_cost_textView"
+            app:layout_constraintTop_toBottomOf="@+id/create_budget_enter_budget_cost_textView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/create_budget_enter_budget_cost_editText"
+                android:paddingStart="@dimen/padding_120dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/create_budget_currency_picker_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/width_0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/create_budget_cost_textInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/create_budget_cost_textInputLayout"
+            app:layout_constraintTop_toTopOf="@+id/create_budget_cost_textInputLayout">
+
+            <ImageView
+                android:id="@+id/create_budget_currency_picker_icon_imageView"
+                android:layout_width="@dimen/width_32dp"
+                android:layout_height="@dimen/height_24dp"
+                android:src="@drawable/flag_nigeria"
+                android:layout_marginStart="@dimen/margin_10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/create_budget_currency_picker_code_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:text="@string/ngn_text"
+                app:layout_constraintBottom_toBottomOf="@+id/create_budget_currency_picker_icon_imageView"
+                app:layout_constraintStart_toEndOf="@+id/create_budget_currency_picker_icon_imageView"
+                app:layout_constraintTop_toTopOf="@+id/create_budget_currency_picker_icon_imageView" />
+
+            <View
+                android:layout_width="@dimen/width_1dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_15dp"
+                android:background="#C4C4C4"
+                app:layout_constraintBottom_toBottomOf="@+id/create_budget_currency_picker_code_textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/create_budget_currency_picker_code_textView"
+                app:layout_constraintTop_toTopOf="@+id/create_budget_currency_picker_code_textView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/create_budget__describe_this_budget_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/describe_this_budget_text"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintStart_toStartOf="@+id/create_budget_cost_textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/create_budget_cost_textInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/describe_this_budget_textInputLayout"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="@dimen/height_161dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:backgroundTint="#EBEFF2"
+            app:counterMaxLength="200"
+            app:counterEnabled="true"
+            app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
+            app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusTopStart="@dimen/radius_5dp"
+            app:boxStrokeWidth="@dimen/width_0dp"
+            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:layout_constraintEnd_toEndOf="@+id/create_budget_cost_textInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/create_budget__describe_this_budget_textView"
+            app:layout_constraintTop_toBottomOf="@+id/create_budget__describe_this_budget_textView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/create_budget__describe_this_budget_editText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/padding_10dp"
+                android:gravity="top"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/create_budget_maximum_words_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/_200_maximum_words_text"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintEnd_toEndOf="@+id/describe_this_budget_textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/describe_this_budget_textInputLayout" />
+
+        <Button
+            android:id="@+id/create_budget_save_and_add_new_budget_button"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_60dp"
+            android:background="@drawable/all_button_background"
+            android:padding="@dimen/padding_9dp"
+            android:text="@string/save_budget_and_add_new_budget_text"
+            android:textAllCaps="false"
+            android:textSize="@dimen/textSize_16sp"
+            android:textStyle="normal"
+            android:fontFamily="@font/helvetica"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="@+id/create_budget_maximum_words_textView"
+            app:layout_constraintStart_toStartOf="@+id/describe_this_budget_textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/create_budget_maximum_words_textView" />
+
+        <Button
+            android:id="@+id/create_budget_save_and_continue_button"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:padding="@dimen/padding_9dp"
+            android:text="@string/save_and_continue_text"
+            android:textAllCaps="false"
+            android:fontFamily="@font/helvetica"
+            android:textSize="@dimen/textSize_16sp"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:background="@drawable/all_outlined_white_button_background"
+            android:layout_marginBottom="@dimen/margin_60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/create_budget_save_and_add_new_budget_button"
+            app:layout_constraintStart_toStartOf="@+id/create_budget_save_and_add_new_budget_button"
+            app:layout_constraintTop_toBottomOf="@+id/create_budget_save_and_add_new_budget_button" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>
