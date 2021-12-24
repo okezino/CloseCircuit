@@ -25,4 +25,14 @@
         android:name="com.example.closedcircuitapplication.dashboard.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/createStepsFragment"
+        android:name="com.example.closedcircuitapplication.CreateStepsFragment"
+        android:label="fragment_create_steps"
+        tools:layout="@layout/fragment_create_steps" />
+    <fragment
+        android:id="@+id/createBudgetFragment"
+        android:name="com.example.closedcircuitapplication.CreateBudgetFragment"
+        android:label="fragment_create_budget"
+        tools:layout="@layout/fragment_create_budget" />
 </navigation>
