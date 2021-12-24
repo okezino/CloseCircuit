@@ -4,10 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ProjectScreenFragment">
+    android:background="@color/backgound1"
+    tools:context=".ui.projectScreens.ProjectScreenFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="116dp"
+        android:src="@drawable/ic_notification_2"
+        app:layout_constraintBottom_toBottomOf="@+id/project_Tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/project_Tv"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="30dp"
+        android:layout_height="@dimen/margin_30dp"
+        android:layout_marginEnd="68dp"
+        app:cardCornerRadius="@dimen/margin_30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/girl"
+            tools:layout_editor_absoluteX="338dp"
+            tools:layout_editor_absoluteY="14dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
     <TextView
+        android:layout_marginTop="@dimen/margin_20dp"
         android:id="@+id/project_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +61,7 @@
         android:layout_marginTop="72dp"
         android:layout_marginEnd="12dp"
         android:fontFamily="@font/helvetica"
-        android:text="Start a Plan"
+        android:text="@string/start_a_plan"
         android:textColor="#B7E143"
         android:textSize="17sp"
         android:textStyle="bold"
@@ -61,22 +95,25 @@
         android:id="@+id/no_plans_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/helvetica"
-        android:text="No Plans"
         android:layout_marginTop="44dp"
+        android:fontFamily="@font/helvetica"
+        android:text="@string/no_plans"
         android:textColor="@color/black"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/no_project_ilustartion_Tv"
-        tools:layout_editor_absoluteX="138dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/no_project_ilustartion_Tv" />
 
     <TextView
+        android:textAlignment="center"
         android:id="@+id/not_started_a_plan_Tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_20dp"
         android:layout_marginTop="@dimen/margin_10dp"
         android:layout_marginEnd="@dimen/margin_20dp"
-        android:layout_marginStart="@dimen/margin_20dp"
         android:fontFamily="@font/helvetica"
         android:text="@string/not_started_a_plan"
         android:textColor="@color/text_color_project"
@@ -85,5 +122,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/no_plans_Tv" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui
+package com.example.closedcircuitapplication.ui.projectScreens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,15 +9,10 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 
 
-class ProjectScreenFragment : Fragment() {
+class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
     private var _binding : FragmentProjectScreenBinding? = null
     private val binding get() = _binding!!
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

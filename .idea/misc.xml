@@ -11,10 +11,11 @@
         <entry key="app/src/main/res/drawable/login_btn.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/drawable/password_toggle_selector.xml" value="0.29635416666666664" />
         <entry key="app/src/main/res/layout/active_user_dashboard.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/activity_beneficiary_dashboard.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/app_bar_dashboard.xml" value="0.27608165954222885" />
         <entry key="app/src/main/res/layout/content_dashboard.xml" value="0.27434808593394083" />
-        <entry key="app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/custom_alert_info_dialog.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/custom_login_wait_dialog.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/cutom_login_successful_dialog.xml" value="0.1585144927536232" />

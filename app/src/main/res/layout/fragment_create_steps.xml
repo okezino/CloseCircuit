@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".CreateStepsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/create_steps_create_steps_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/create_step_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/create_step_target_ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_40dp"
+            android:src="@drawable/ic_target_amount_2"
+            app:layout_constraintStart_toStartOf="@+id/create_steps_create_steps_textView"
+            app:layout_constraintTop_toBottomOf="@+id/create_steps_create_steps_textView" />
+
+        <TextView
+            android:id="@+id/create_steps_target_amount_figure_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_10dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/ngn_400_000_00"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:padding="@dimen/width_0dp"
+            android:textSize="@dimen/textSize_22sp"
+            android:textStyle="bold"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toEndOf="@+id/create_step_target_ImageView"
+            app:layout_constraintTop_toTopOf="@+id/create_step_target_ImageView" />
+
+        <TextView
+            android:id="@+id/create_step_target_amount_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica"
+            android:includeFontPadding="false"
+            android:text="@string/target_amount_text"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintStart_toStartOf="@+id/create_steps_target_amount_figure_textView"
+            app:layout_constraintTop_toBottomOf="@+id/create_steps_target_amount_figure_textView" />
+
+        <TextView
+            android:id="@+id/create_steps_step_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:fontFamily="@font/helvetica"
+            android:includeFontPadding="false"
+            android:text="@string/step_name_text"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintStart_toStartOf="@+id/create_step_target_ImageView"
+            app:layout_constraintTop_toBottomOf="@+id/create_step_target_ImageView" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/create_step_step_name_textInputLayout"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="@dimen/height_54dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:backgroundTint="#EBEFF2"
+            app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
+            app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusTopStart="@dimen/radius_5dp"
+            app:boxStrokeWidth="@dimen/width_0dp"
+            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/create_steps_step_name_textView"
+            app:layout_constraintTop_toBottomOf="@+id/create_steps_step_name_textView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/create_step_step_name_editText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/create_steps_edit_step_description_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/edit_step_description_text"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintStart_toStartOf="@+id/create_step_step_name_textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/create_step_step_name_textInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/create_step_edit_step_description_textInputLayout"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_height="@dimen/height_161dp"
+            android:backgroundTint="#EBEFF2"
+            app:counterMaxLength="200"
+            app:counterEnabled="true"
+            app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
+            app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusTopStart="@dimen/radius_5dp"
+            app:boxStrokeWidth="@dimen/width_0dp"
+            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:layout_constraintEnd_toEndOf="@+id/create_step_step_name_textInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/create_steps_edit_step_description_textView"
+            app:layout_constraintTop_toBottomOf="@+id/create_steps_edit_step_description_textView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/create_steps_edit_step_description_editText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:padding="@dimen/padding_10dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/create_steps_edit_step_description_maximum_words_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/_200_maximum_words"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintEnd_toEndOf="@+id/create_step_edit_step_description_textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/create_step_edit_step_description_textInputLayout" />
+
+        <TextView
+            android:id="@+id/create_steps_enter_step_duration_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:includeFontPadding="false"
+            android:text="@string/enter_step_duration_text"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintStart_toStartOf="@+id/create_step_edit_step_description_textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/create_steps_edit_step_description_maximum_words_textView" />
+
+        <TextView
+            android:id="@+id/create_steps_enter_steps_duration_weeks_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_27dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/weeks_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_16sp"
+            app:layout_constraintStart_toStartOf="@+id/create_steps_enter_step_duration_textView"
+            app:layout_constraintTop_toBottomOf="@+id/create_steps_enter_step_duration_textView" />
+
+        <Spinner
+            android:id="@+id/create_step_autoCompleteTextView"
+            style="@style/SpinnerTheme"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="@dimen/height_54dp"
+            android:layout_marginStart="@dimen/margin_9dp"
+            android:paddingEnd="@dimen/padding_15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/create_steps_enter_steps_duration_weeks_textView"
+            app:layout_constraintEnd_toEndOf="@+id/create_steps_edit_step_description_maximum_words_textView"
+            app:layout_constraintStart_toEndOf="@+id/create_steps_enter_steps_duration_weeks_textView"
+            app:layout_constraintTop_toTopOf="@+id/create_steps_enter_steps_duration_weeks_textView" />
+
+        <TextView
+            android:id="@+id/create_steps_select_budgets_for_steps_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/select_budgets_for_this_step_text"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintStart_toStartOf="@+id/create_steps_enter_steps_duration_weeks_textView"
+            app:layout_constraintTop_toBottomOf="@+id/create_step_autoCompleteTextView" />
+
+        <TextView
+            android:id="@+id/create_steps_not_have_a_budget_textView"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:includeFontPadding="false"
+            android:text="@string/do_not_have_a_budget_yet_create_new_budget_text"
+            android:textColor="#B7E143"
+            android:textSize="@dimen/textSize_10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/create_steps_select_budgets_for_steps_textView"
+            app:layout_constraintEnd_toEndOf="@+id/create_step_autoCompleteTextView"
+            app:layout_constraintStart_toEndOf="@+id/create_steps_select_budgets_for_steps_textView"
+            app:layout_constraintTop_toTopOf="@+id/create_steps_select_budgets_for_steps_textView"
+            tools:ignore="SmallSp" />
+
+        <com.google.android.material.chip.ChipGroup
+            style="@style/Widget.MaterialComponents.ChipGroup"
+            android:id="@+id/create_step_select_budget_for_steps_textInputLayout"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="@dimen/height_140dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:background="@drawable/chip_group_background"
+            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:layout_constraintEnd_toEndOf="@+id/create_steps_not_have_a_budget_textView"
+            app:layout_constraintStart_toStartOf="@+id/create_steps_select_budgets_for_steps_textView"
+            app:layout_constraintTop_toBottomOf="@+id/create_steps_not_have_a_budget_textView">
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <Button
+            android:id="@+id/create_step_save_and_continue_button"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/all_button_background"
+            android:text="@string/save_and_add_new_step_text"
+            android:textAllCaps="false"
+            android:textSize="@dimen/textSize_16sp"
+            app:backgroundTint="@null"
+            android:layout_marginTop="@dimen/margin_98dp"
+            android:fontFamily="@font/helvetica"
+            app:layout_constraintEnd_toEndOf="@+id/create_step_select_budget_for_steps_textInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/create_step_select_budget_for_steps_textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/create_step_select_budget_for_steps_textInputLayout" />
+
+        <Button
+            android:id="@+id/create_steps_save_and_continue_button"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_53dp"
+            android:layout_marginBottom="@dimen/margin_125dp"
+            android:background="@drawable/all_outlined_white_button_background"
+            android:text="@string/save_and_continue_text"
+            android:textAllCaps="false"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="@dimen/textSize_16sp"
+            app:backgroundTint="@null"
+            android:fontFamily="@font/helvetica"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/create_step_save_and_continue_button"
+            app:layout_constraintStart_toStartOf="@+id/create_step_save_and_continue_button"
+            app:layout_constraintTop_toBottomOf="@id/create_step_save_and_continue_button" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

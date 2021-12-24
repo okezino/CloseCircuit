@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.closedcircuitapplication.databinding.ActivityMainBinding
@@ -26,18 +25,20 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+       // binding.
 
-        binding.appBarDashboard.contentMain.bottomNavigationView.background = null
-        setSupportActionBar(binding.appBarDashboard.dashboardActivityToolbar)
+       // binding.appBarDashboard.contentMain.bottomNavigationView.background = null
+        setSupportActionBar(binding.dashboardActivityToolbar)
 
         val drawerLayout = binding.drawerLayout
         navController = findNavController(R.id.nav_host_fragment_content_main)
-        bottomAppBar = binding.appBarDashboard.contentMain.bottomAppBar
-        bottomNavigationView = binding.appBarDashboard.contentMain.bottomNavigationView
+       // bottomAppBar = binding.appBarDashboard.contentMain.bottomAppBar
+       // bottomNavigationView = binding.appBarLayout.contentMain.bottomNavigationView
+        bottomNavigationView = binding.contentMain.bottomNavigationView
         bottomNavigationView.setupWithNavController(navController)
-        appBarConfiguration = AppBarConfiguration(topLevelDestinationIds = setOf(
-            R.id.dashboardFragment2
-        ), drawerLayout)
+       // appBarConfiguration = AppBarConfiguration(topLevelDestinationIds = setOf(
+//            R.id.dashboardFragment2
+//        ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         onDestinationChangedListener()
     }
@@ -46,23 +47,23 @@ class MainActivity : AppCompatActivity() {
         try {
             navController.addOnDestinationChangedListener { _, destination, _ ->
                 bottomAppBar.visibility = View.VISIBLE
-                binding.appBarDashboard.contentMain.fab.visibility = View.VISIBLE
-                binding.appBarDashboard.appBarLayout.visibility = View.GONE
-                binding.appBarDashboard.appBarLayout.visibility = View.VISIBLE
+                binding.contentMain.fab.visibility = View.VISIBLE
+                binding.appBarLayout.visibility = View.GONE
+                binding.appBarLayout.visibility = View.VISIBLE
                 when (destination.id) {
                     R.id.dashboardFragment -> {
                         bottomAppBar.visibility = View.VISIBLE
-                        binding.appBarDashboard.contentMain.fab.visibility = View.VISIBLE
-                        binding.appBarDashboard.notificationImageView.visibility = View.VISIBLE
-                        binding.appBarDashboard.profileImageView.visibility = View.VISIBLE
-                        binding.appBarDashboard.appBarLayout.visibility = View.VISIBLE
+                        binding.contentMain.fab.visibility = View.VISIBLE
+                        binding.notificationImageView.visibility = View.VISIBLE
+                        binding.profileImageView.visibility = View.VISIBLE
+                        binding.appBarLayout.visibility = View.VISIBLE
                     }
-                    R.id.dashboardFragment2 -> {
-                        bottomAppBar.visibility = View.VISIBLE
-                        binding.appBarDashboard.contentMain.fab.visibility = View.VISIBLE
-                        binding.appBarDashboard.notificationImageView.visibility = View.VISIBLE
-                        binding.appBarDashboard.profileImageView.visibility = View.VISIBLE
-                    }
+//                    R.id.dashboardFragment2 -> {
+//                        bottomAppBar.visibility = View.VISIBLE
+//                        binding.appBarDashboard.contentMain.fab.visibility = View.VISIBLE
+//                        binding.appBarDashboard.notificationImageView.visibility = View.VISIBLE
+//                        binding.appBarDashboard.profileImageView.visibility = View.VISIBLE
+//                    }
                     R.id.createAPlanFragment ->{
                         bottomAppBar.visibility = View.VISIBLE
                         binding.appBarDashboard.contentMain.fab.visibility = View.VISIBLE

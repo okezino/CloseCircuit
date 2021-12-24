@@ -56,7 +56,6 @@
     <string name="or">Or</string>
     <string name="login_with_google">Login with Google</string>
     <string name="login_with_apple">Login with Apple</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="quote">To run fast, run alone. To run far, run together. Together we can achieve greater things</string>
     <string name="registerUsingGoogle">Register with Google</string>
     <string name="createAccount">Create an Account</string>
@@ -81,6 +80,35 @@
     <string name="create_a_new_account">Create a New Account</string>
     <string name="by_clicking_create">By clicking create account, you are agreeing to our terms of services, payment terms, privacy policy and terms of use. <u><link><font color="#0000ff">read terms</font></link></u></string>
     <string name="read_terms">read terms</string>
+    <string name="all_create_budget_text">Create Budget</string>
+    <string name="enter_budget_name_text">Enter Budget name</string>
+    <string name="enter_budget_cost_text">Enter Budget cost</string>
+    <string name="ngn_text">NGN</string>
+    <string name="describe_this_budget_text">Describe this budget</string>
+    <string name="_200_maximum_words_text">200 maximum words</string>
+    <string name="save_budget_and_add_new_budget_text">Save budget and add new budget</string>
+    <string name="save_and_continue_text">Save and continue</string>
+    <string name="create_step_text">Create Step</string>
+    <string name="ngn_400_000_00">NGN 400,000.00</string>
+    <string name="target_amount_text">Target Amount</string>
+    <string name="step_name_text">Step Name</string>
+    <string name="edit_step_description_text">Edit step description</string>
+    <string name="_200_maximum_words">200 maximum words</string>
+    <string name="enter_step_duration_text">Enter step duration</string>
+    <string name="weeks_text">Weeks</string>
+    <string name="select_budgets_for_this_step_text">Select Budgets for this step</string>
+    <string name="do_not_have_a_budget_yet_create_new_budget_text">Do not have a budget yet? Create new budget</string>
+    <string name="save_and_add_new_step_text">Save and add new step</string>
+    <string-array name="weeks">
+        <item></item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string name="plan_analytics">Plan Analytics</string>
     <string name="full_name">Full Name</string>
     <string name="minimum_of_8_characters">* Minimum of 8 characters</string>
     <string name="special_characters">* Special characters</string>
@@ -104,4 +132,14 @@
         <item>Business</item>
         <item>Project</item>
     </string-array>
+    <string name="notifications">Notifications</string>
+    <string name="no_notifications">No Notifications</string>
+    <string name="patience_you_currently_do_not_have_any_notifications">Patience, you currently do not have any notifications.</string>
+    <string name="start_a_plan">Start a Plan</string>
+    <string name="no_plans">No Plans</string>
+    <string name="not_your_email_change_email_address">Not your email? <font color='#0386FF'> change email address</font></string>
+    <string name="email_has_been_sent_to_pat_gmail_com_please_click_on_the_link_sent_to_you_to_verify">Email has been sent to Pat****@gmail.com, Please click on the link sent to you to verify.</string>
+    <string name="verify_email">Verify email</string>
+    <string name="email_verification_successfull">Email Verification Successful</string>
+    <string name="congratulation">Congratulation</string>
 </resources>
