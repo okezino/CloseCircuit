@@ -31,9 +31,9 @@ class WelcomeScreenFragment : Fragment() {
             findNavController().navigate(R.id.action_welcomeScreenFragment_to_loginFragment)
         }
 
-        binding.click.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeScreenFragment_to_createPlanSummaryFragment)
-        }
+//        binding.click.setOnClickListener {
+//            findNavController().navigate(R.id.action_welcomeScreenFragment_to_createPlanSummaryFragment)
+//        }
 
         // navigate from  welcome screen to create an account
         binding.welcomePageCreateAccountBtn.setOnClickListener {
