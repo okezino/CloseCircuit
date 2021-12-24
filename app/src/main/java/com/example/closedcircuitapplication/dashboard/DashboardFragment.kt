@@ -9,6 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.dashboard.adapter.PlansAdapter
+import com.example.closedcircuitapplication.dashboard.adapter.RecentDonationsAdapter
+import com.example.closedcircuitapplication.dashboard.models.DonationItem
+import com.example.closedcircuitapplication.dashboard.models.PlanItems
 import com.example.closedcircuitapplication.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -28,7 +32,7 @@ class DashboardFragment : Fragment() {
     ): View {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         plansRecyclerView = binding.activeUserConstraint.plansConstraint
-        recentDonationsRecyclerView = binding.activeUserConstraint.recentDonationsConstraint
+        recentDonationsRecyclerView = binding.activeUserConstraint.recentDonationsRecyclerView
         return binding.root
     }
 
@@ -36,12 +40,12 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         /*TODO: Implement Create plan. For now this button displays an active user UI*/
-       // binding.createPlanButton.setOnClickListener {
+        binding.createPlanButton.setOnClickListener {
             binding.newUserConstraint.visibility = View.GONE
             if (!binding.activeUserConstraint.activeUserConstraint.isVisible) {
                 binding.activeUserConstraint.activeUserConstraint.visibility = View.VISIBLE
             }
-        //}
+        }
         createPlans()
         getRecentDonations()
     }
@@ -60,7 +64,7 @@ class DashboardFragment : Fragment() {
         plansRecyclerView.adapter = plansAdapter
     }
 
-    fun getRecentDonations() {
+    private fun getRecentDonations() {
         val donations = ArrayList<DonationItem>()
         donations.add(DonationItem("Dianne Russell", "NGN 40,000.00", "Fish Farming", R.drawable.diane_russell))
         donations.add(DonationItem("Ayo Makun", "NGN 8,000.00", "Detty December", R.drawable.diane_russell))

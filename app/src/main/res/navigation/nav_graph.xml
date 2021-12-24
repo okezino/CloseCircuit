@@ -113,6 +113,15 @@
             app:destination="@id/passwordRecoverySuccessfulFragment" />
     </fragment>
     <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/passwordRecoverySuccessfulFragment"
         android:name="com.example.closedcircuitapplication.authentication.PasswordRecoverySuccessfulFragment"
         android:label="fragment_password_recovery_successful"
@@ -120,15 +129,6 @@
         <action
             android:id="@+id/action_passwordRecoverySuccessfulFragment_to_loginFragment"
             app:destination="@id/loginFragment"/>
-    </fragment>
-    <fragment
-        android:id="@+id/accountFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.AccountFragment"
-        android:label="fragment_account"
-        tools:layout="@layout/fragment_account" >
-        <action
-            android:id="@+id/action_accountFragment_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragment"/>
     </fragment>
 
 </navigation>

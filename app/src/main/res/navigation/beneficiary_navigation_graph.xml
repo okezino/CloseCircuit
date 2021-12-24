@@ -16,13 +16,28 @@
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
     <fragment
-        android:id="@+id/messageFragment2"
+        android:id="@+id/messageFragment"
         android:name="com.example.closedcircuitapplication.dashboard.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
     <fragment
-        android:id="@+id/profileFragment2"
+        android:id="@+id/profileFragment"
         android:name="com.example.closedcircuitapplication.dashboard.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/createPlanFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.CreatePlanFragment"
+        android:label="fragment_create_plan"
+        tools:layout="@layout/fragment_create_plan" />
+    <fragment
+        android:id="@+id/createPlanBudgetFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.CreatePlanBudgetFragment"
+        android:label="CreatePlanBudgetFragment"
+        tools:layout="@layout/fragment_create_plan_budget"/>
+    <fragment
+        android:id="@+id/createPlanStepsFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.CreatePlanStepsFragment"
+        android:label="CreatePlanStepsFragment"
+        tools:layout="@layout/fragment_create_plan_steps"/>
 </navigation>

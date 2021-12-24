@@ -5,7 +5,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
@@ -27,18 +29,27 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
         binding = ActivityBeneficiaryDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.appBarDashboard.contentMain.bottomNavigationView.background = null
+        bottomNavigationView = binding.appBarDashboard.contentMain.bottomNavigationView
+        bottomNavigationView.background = null
         setSupportActionBar(binding.appBarDashboard.dashboardActivityToolbar)
 
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
         val drawerLayout = binding.drawerLayout
-        navController = findNavController(R.id.nav_host_fragment_content_main)
+        navController = navHostFragment.navController
         bottomAppBar = binding.appBarDashboard.contentMain.bottomAppBar
-        bottomNavigationView = binding.appBarDashboard.contentMain.bottomNavigationView
-        bottomNavigationView.setupWithNavController(navController)
-        appBarConfiguration = AppBarConfiguration(topLevelDestinationIds = setOf(
-            R.id.dashboardFragment
-        ), drawerLayout)
-//        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+        val fab = binding.appBarDashboard.contentMain.fab
+        fab.setOnClickListener {
+            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.createPlanFragment)
+        }
+        NavigationUI.setupWithNavController(bottomNavigationView, navController)
+//        bottomNavigationView.setupWithNavController(navController)
+//        appBarConfiguration = AppBarConfiguration(
+//            topLevelDestinationIds = setOf(
+//                R.id.dashboardFragment
+//            ),
+//            drawerLayout
+//        )
+        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         onDestinationChangedListener()
     }
@@ -48,7 +59,6 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
             navController.addOnDestinationChangedListener { _, destination, _ ->
                 bottomAppBar.visibility = View.VISIBLE
                 binding.appBarDashboard.contentMain.fab.visibility = View.VISIBLE
-                binding.appBarDashboard.appBarLayout.visibility = View.GONE
                 binding.appBarDashboard.appBarLayout.visibility = View.VISIBLE
                 when (destination.id) {
                     R.id.dashboardFragment -> {
@@ -57,16 +67,8 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
                         binding.appBarDashboard.notificationImageView.visibility = View.VISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.VISIBLE
                     }
-                    R.id.loginFragment -> showAppBar()
-                    R.id.createAccountFragment -> showAppBar()
-                    R.id.recoverPasswordOtpFragment -> showAppBar()
-                    R.id.resetYourPasswordFragment -> showAppBar()
-                    R.id.forgotPasswordFragment -> showAppBar()
 
                     else -> {
-                        binding.appBarDashboard.contentMain.fab.visibility = View.INVISIBLE
-                        bottomAppBar.visibility = View.INVISIBLE
-                        binding.appBarDashboard.appBarLayout.visibility = View.GONE
                         binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
                     }
@@ -77,13 +79,13 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
         }
     }
 
-    fun showAppBar() {
-        binding.appBarDashboard.contentMain.fab.visibility = View.GONE
-        bottomAppBar.visibility = View.GONE
-        binding.appBarDashboard.appBarLayout.visibility = View.VISIBLE
-        binding.appBarDashboard.notificationImageView.visibility = View.GONE
-        binding.appBarDashboard.profileImageView.visibility = View.GONE
-    }
+//    fun showAppBar() {
+//        binding.appBarDashboard.contentMain.fab.visibility = View.GONE
+//        bottomAppBar.visibility = View.GONE
+//        binding.appBarDashboard.appBarLayout.visibility = View.VISIBLE
+//        binding.appBarDashboard.notificationImageView.visibility = View.GONE
+//        binding.appBarDashboard.profileImageView.visibility = View.GONE
+//    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
