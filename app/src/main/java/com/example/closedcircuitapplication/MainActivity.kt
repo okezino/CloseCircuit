@@ -63,6 +63,13 @@ class MainActivity : AppCompatActivity() {
                         binding.appBarDashboard.notificationImageView.visibility = View.VISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.VISIBLE
                     }
+                    R.id.createAPlanFragment ->{
+                        bottomAppBar.visibility = View.VISIBLE
+                        binding.appBarDashboard.contentMain.fab.visibility = View.VISIBLE
+                        binding.appBarDashboard.notificationImageView.visibility = View.GONE
+                        binding.appBarDashboard.profileImageView.visibility = View.GONE
+                    }
+
                     R.id.loginFragment ->  showAppBar()
                     R.id.createAccountFragment ->  showAppBar()
                     R.id.recoverPasswordOtpFragment -> showAppBar()

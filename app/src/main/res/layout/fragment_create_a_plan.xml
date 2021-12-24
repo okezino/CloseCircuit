@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBFBFF"
+    tools:context=".ui.createAPlantScreenUi.CreateAPlanFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/createPlan_Tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/create_a_planTv"
+            android:textSize="@dimen/textSize_24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/uploadImage_IV"
+            android:layout_width="150dp"
+            android:layout_height="@dimen/margin_40dp"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:src="@drawable/upload_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/createPlan_Tv" />
+
+        <TextView
+            android:id="@+id/selectPlanCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_34dp"
+            android:text="Select plan category"
+            android:textColor="#24500F"
+            android:textSize="@dimen/textSize_15sp"
+            android:textStyle="normal"
+            android:fontFamily="@font/helvetica"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uploadImage_IV" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/SelectPlanCategory_sp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            app:boxBackgroundColor="#E5E5E5"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
+            app:boxStrokeColor="#E5E5E5"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="dropdown_menu"
+            app:endIconTint="#24500F"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/selectPlanCategory"            >
+
+            <AutoCompleteTextView
+                android:id="@+id/selectPlanCategoryDropdown"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dropDownVerticalOffset="4dp"
+                android:dropDownSelector="#E5E5E5"
+                android:gravity="center_vertical"
+                android:inputType="none"
+                android:paddingTop="4dp"
+                android:scrollIndicators="none"
+                android:scrollbars="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+            android:id="@+id/choosePlanSector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_34dp"
+            android:text="Choose plan sector"
+            android:textColor="#24500F"
+            android:textSize="@dimen/textSize_15sp"
+            android:fontFamily="@font/helvetica"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SelectPlanCategory_sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/choosePlanSectorSpinner"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            app:boxBackgroundColor="#E5E5E5"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
+            app:boxStrokeColor="#E5E5E5"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="dropdown_menu"
+            app:endIconTint="#24500F"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/choosePlanSector">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdown_menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dropDownVerticalOffset="4dp"
+                android:dropDownSelector="#E5E5E5"
+                android:gravity="center_vertical"
+                android:inputType="none"
+                android:paddingTop="4dp"
+                android:scrollIndicators="none"
+                android:scrollbars="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/useTemplateSwitch"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_20dp"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/choosePlanSectorSpinner" />
+
+        <TextView
+            android:id="@+id/useTemplate_Tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25.5dp"
+            android:text="@string/use_template"
+            android:textColor="#9DC333"
+            android:textSize="@dimen/textSize_15sp"
+            android:textStyle="normal"
+            android:fontFamily="@font/helvetica"
+            app:layout_constraintBottom_toBottomOf="@+id/useTemplateSwitch"
+            app:layout_constraintStart_toEndOf="@+id/useTemplateSwitch"
+            app:layout_constraintTop_toTopOf="@+id/useTemplateSwitch" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/createPlan_btn"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="81dp"
+            android:text="@string/create_plan"
+            android:textAllCaps="false"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:backgroundTint="#C4C4C4"
+            app:cornerRadius="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/useTemplateSwitch" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/planImageCard"
+            android:layout_width="match_parent"
+            android:layout_height="303dp"
+            android:layout_marginTop="55dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/createPlan_btn">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FBFBFF"
+                >
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="78dp"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:background="@drawable/view_planimage_"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/helvetica"
+                    android:text="Plan Image"
+                    android:textColor="#24500F"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="27dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.511"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/galaryCardView"
+                    android:layout_width="@dimen/margin_40dp"
+                    android:layout_height="@dimen/margin_40dp"
+                    android:layout_marginStart="@dimen/margin_20dp"
+                    android:layout_marginTop="93dp"
+                    app:cardCornerRadius="@dimen/margin_40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_outline_photo_24" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/gallery_Tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/helvetica"
+                    android:text="@string/gallery"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/galaryCardView"
+                    app:layout_constraintStart_toEndOf="@+id/galaryCardView"
+                    app:layout_constraintTop_toTopOf="@+id/galaryCardView" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cameraCardView"
+                    android:layout_width="@dimen/margin_40dp"
+                    android:layout_height="@dimen/margin_40dp"
+                    android:layout_marginStart="@dimen/margin_20dp"
+                    android:layout_marginTop="31dp"
+                    app:cardCornerRadius="@dimen/margin_40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/galaryCardView">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_photo_camera_24" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/camera_Tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/helvetica"
+                    android:text="Camera"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textSize_15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cameraCardView"
+                    app:layout_constraintStart_toEndOf="@+id/cameraCardView"
+                    app:layout_constraintTop_toTopOf="@+id/cameraCardView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

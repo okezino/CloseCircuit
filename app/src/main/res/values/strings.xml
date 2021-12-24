@@ -9,7 +9,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_a_planTv">Create a Plan</string>
     <string name="password_recovery_text">Password Recovery</string>
     <string name="you_re_almost_close_to_recovering_your_password_text">You’re almost close to recovering your password. A code has been sent to your email address, please enter code to proceed.</string>
     <string name="you_entered_a_wrong_code_text">You entered a wrong code, please enter code correctly</string>
@@ -88,4 +88,20 @@
     <string name="project">Projects</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="not_started_a_plan">Patience, you have not started any plan yet. Please start a plan to view plans.</string>
+    <string name="choose_plan_sector">Choose plan sector</string>
+    <string name="use_template">Use template</string>
+    <string name="create_plan">Create plan</string>
+    <string name="gallery">Gallery</string>
+
+    <string-array name="support_means">
+        <item>E-commerce.</item>
+        <item>Agriculture.</item>
+        <item>Aviation.</item>
+        <item>Commercial/ Retail.</item>
+        <item>Education and Training.</item>
+        <item>Fashion.</item>
+    </string-array><string-array name="selectPlanCategory">
+        <item>Business</item>
+        <item>Project</item>
+    </string-array>
 </resources>

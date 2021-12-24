@@ -140,7 +140,11 @@
         android:id="@+id/profileFragment"
         android:name="com.example.closedcircuitapplication.dashboard.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_createAPlanFragment"
+            app:destination="@id/createAPlanFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.closedcircuitapplication.dashboard.AccountFragment"
@@ -150,5 +154,10 @@
             android:id="@+id/action_accountFragment_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment"/>
     </fragment>
+    <fragment
+        android:id="@+id/createAPlanFragment"
+        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.CreateAPlanFragment"
+        android:label="fragment_create_a_plan"
+        tools:layout="@layout/fragment_create_a_plan" />
 
 </navigation>
