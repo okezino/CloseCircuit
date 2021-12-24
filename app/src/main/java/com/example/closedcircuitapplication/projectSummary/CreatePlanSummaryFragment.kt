@@ -33,8 +33,6 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
     }
 
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreatePlanSummaryBinding.bind(view)

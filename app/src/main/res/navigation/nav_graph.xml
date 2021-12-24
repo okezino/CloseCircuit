@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_email_verification_successful" />
     <fragment
         android:id="@+id/splashScreen"
-        android:name="com.example.closedcircuitapplication.ui.splashscreen.SplashScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.splashScreen.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
