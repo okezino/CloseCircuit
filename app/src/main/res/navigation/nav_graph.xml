@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_welcomeScreenFragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_welcomeScreenFragment_to_createPlanSummaryFragment"-->
+<!--            app:destination="@id/createPlanSummaryFragment" />-->
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -130,5 +133,10 @@
             android:id="@+id/action_accountFragment_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment"/>
     </fragment>
+    <fragment
+        android:id="@+id/createPlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragment"
+        android:label="fragment_create_plan_summary"
+        tools:layout="@layout/fragment_create_plan_summary" />
 
 </navigation>

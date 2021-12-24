@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="20dp"
+    android:padding="10dp"
+    android:background="@color/primary_color">
+
+    <EditText
+        android:id="@+id/sector_category_search_box"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="7dp"
+        android:background="@drawable/dropdown_search_input"
+        android:drawableStart="@drawable/search"
+        android:hint="   Search for sectors"
+        android:paddingStart="13dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="15dp"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/select_sector_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="2344"
+        android:listSelector="@drawable/text_input_rectangle_otp"
+        android:fitsSystemWindows="true"
+        android:defaultFocusHighlightEnabled="true"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:dividerHeight="10dp"
+        android:divider="@android:color/transparent"
+        app:layout_constraintCircleRadius="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sector_category_search_box" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
