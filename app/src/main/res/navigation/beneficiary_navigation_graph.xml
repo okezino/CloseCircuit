@@ -16,15 +16,30 @@
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
     <fragment
-        android:id="@+id/messageFragment2"
+        android:id="@+id/messageFragment"
         android:name="com.example.closedcircuitapplication.dashboard.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
     <fragment
-        android:id="@+id/profileFragment2"
+        android:id="@+id/profileFragment"
         android:name="com.example.closedcircuitapplication.dashboard.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/createPlanFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.ProjectSummaryFragment"
+        android:label="fragment_create_plan"
+        tools:layout="@layout/fragment_create_plan" />
+    <fragment
+        android:id="@+id/createPlanBudgetFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.CreatePlanBudgetFragment"
+        android:label="CreatePlanBudgetFragment"
+        tools:layout="@layout/fragment_create_plan_budget"/>
+    <fragment
+        android:id="@+id/createPlanStepsFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.CreatePlanStepsFragment"
+        android:label="CreatePlanStepsFragment"
+        tools:layout="@layout/fragment_create_plan_steps"/>
     <fragment
         android:id="@+id/createStepsFragment"
         android:name="com.example.closedcircuitapplication.CreateStepsFragment"
@@ -35,4 +50,29 @@
         android:name="com.example.closedcircuitapplication.CreateBudgetFragment"
         android:label="fragment_create_budget"
         tools:layout="@layout/fragment_create_budget" />
+    <fragment
+        android:id="@+id/notificationScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.notification.NotificationScreenFragment"
+        android:label="fragment_notification_screen"
+        tools:layout="@layout/fragment_notification_screen" />
+    <fragment
+        android:id="@+id/projectScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectScreens.ProjectScreenFragment"
+        android:label="fragment_project_screen"
+        tools:layout="@layout/fragment_project_screen" />
+    <fragment
+        android:id="@+id/emailVerificationFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectScreens.EmailVerificationFragment"
+        android:label="fragment_email_verification"
+        tools:layout="@layout/fragment_email_verification"/>
+    <fragment
+        android:id="@+id/editEmailVerificationScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectScreens.EditEmailVerificationScreenFragment"
+        android:label="EditEmailVerificationScreenFragment"
+        tools:layout="@layout/fragment_edit_email_verification_screen"/>
+    <fragment
+        android:id="@+id/successfulEmailVerificationScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectScreens.SuccessfulEmailVerificationScreenFragment"
+        android:label="fragment_successful_email_verification_screen"
+        tools:layout="@layout/fragment_successful_email_verification_screen" />
 </navigation>

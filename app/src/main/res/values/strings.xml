@@ -1,15 +1,9 @@
 <resources>
     <string name="app_name">Closed CircuitApplication</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="password_recovery_text">Password Recovery</string>
     <string name="you_re_almost_close_to_recovering_your_password_text">You’re almost close to recovering your password. A code has been sent to your email address, please enter code to proceed.</string>
     <string name="you_entered_a_wrong_code_text">You entered a wrong code, please enter code correctly</string>
@@ -116,6 +110,14 @@
     <string name="project">Projects</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="not_started_a_plan">Patience, you have not started any plan yet. Please start a plan to view plans.</string>
+    <string name="copy_plan_link"><link><font color="#0000ff">copy plan link</font></link></string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_budget">Add Budget</string>
+    <string name="add_step">Add Step</string>
+    <string name="steps_info_title">what is a Step?</string>
+    <string name="steps_info_description">A Step is the project or business planning phase that determines the course of action for your entire project. A step consist of budgets.</string>
+    <string name="budget_info_title">what is a Budget?</string>
+    <string name="budget_info_description">A Budget is the cost for a particular item or action</string>
     <string name="sample_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
 
     <string-array name="support_means">
@@ -130,6 +132,7 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
     <string name="notifications">Notifications</string>
     <string name="no_notifications">No Notifications</string>
     <string name="patience_you_currently_do_not_have_any_notifications">Patience, you currently do not have any notifications.</string>

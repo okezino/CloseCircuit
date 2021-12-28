@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.dashboard
+package com.example.closedcircuitapplication.dashboard.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.dashboard.models.PlanItems
 import com.example.closedcircuitapplication.databinding.PlanItemBinding
 
 class PlansAdapter(private val plans: MutableList<PlanItems>) : RecyclerView.Adapter<PlansAdapter.ViewHolder>() {
