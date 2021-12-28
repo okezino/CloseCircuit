@@ -118,6 +118,21 @@
     <string name="steps_info_description">A Step is the project or business planning phase that determines the course of action for your entire project. A step consist of budgets.</string>
     <string name="budget_info_title">what is a Budget?</string>
     <string name="budget_info_description">A Budget is the cost for a particular item or action</string>
+    <string name="sample_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
+
+    <string-array name="support_means">
+        <item>Donations(cash gifts)</item>
+        <item>Loans</item>
+        <item>Both(loans and donations)</item>
+    </string-array>
+
+    <string-array name="number_of_lenders">
+        <item>Select amount of lenders</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <string name="notifications">Notifications</string>
     <string name="no_notifications">No Notifications</string>
     <string name="patience_you_currently_do_not_have_any_notifications">Patience, you currently do not have any notifications.</string>
