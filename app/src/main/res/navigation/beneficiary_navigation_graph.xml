@@ -40,11 +40,7 @@
         android:name="com.example.closedcircuitapplication.dashboard.CreatePlanStepsFragment"
         android:label="CreatePlanStepsFragment"
         tools:layout="@layout/fragment_create_plan_steps"/>
-        tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_profileFragment2_to_createAPlanFragment2"
-            app:destination="@id/createAPlanFragment2" />
-    </fragment>
+
     <fragment
         android:id="@+id/createStepsFragment"
         android:name="com.example.closedcircuitapplication.CreateStepsFragment"
@@ -79,10 +75,32 @@
         android:id="@+id/successfulEmailVerificationScreenFragment"
         android:name="com.example.closedcircuitapplication.ui.projectScreens.SuccessfulEmailVerificationScreenFragment"
         android:label="fragment_successful_email_verification_screen"
-        tools:layout="@layout/fragment_successful_email_verification_screen" />
+        tools:layout="@layout/fragment_successful_email_verification_screen" >
+        <action
+            android:id="@+id/action_successfulEmailVerificationScreenFragment_to_createAPlanFragment22"
+            app:destination="@id/createAPlanFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/createAPlanFragment2"
         android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.CreateAPlanFragment"
         android:label="fragment_create_a_plan"
-        tools:layout="@layout/fragment_create_a_plan" />
+        tools:layout="@layout/fragment_create_a_plan" >
+        <action
+            android:id="@+id/action_createAPlanFragment2_to_createPlanSummaryFragment2"
+            app:destination="@id/createPlanSummaryFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPlanSummaryFragment2"
+        android:name="com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragment"
+        android:label="fragment_create_plan_summary"
+        tools:layout="@layout/fragment_create_plan_summary" >
+        <action
+            android:id="@+id/action_createPlanSummaryFragment2_to_createPlanFragment"
+            app:destination="@id/createPlanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailVerificationSuccessfulFragment2"
+        android:name="com.example.closedcircuitapplication.authentication.EmailVerificationSuccessfulFragment"
+        android:label="fragment_email_verification_successful"
+        tools:layout="@layout/fragment_email_verification_successful" />
 </navigation>

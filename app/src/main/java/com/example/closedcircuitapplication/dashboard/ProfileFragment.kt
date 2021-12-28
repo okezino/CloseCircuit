@@ -25,9 +25,7 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.uploadImageTv.setOnClickListener {
-            findNavController().navigate(R.id.action_profileFragment2_to_createAPlanFragment2)
-        }
-    }
+       }
+
 
 }

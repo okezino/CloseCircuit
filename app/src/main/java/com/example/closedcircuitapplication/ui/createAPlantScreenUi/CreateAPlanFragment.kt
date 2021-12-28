@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.CAMERA_REQUEST_CODE
 import com.example.closedcircuitapplication.authentication.REQUEST_CODE_IMAGE_PICKER
@@ -70,6 +71,9 @@ class CreateAPlanFragment : Fragment() {
         binding.cameraCardView.setOnClickListener {
             uploadImageWithCamera()
             binding.planImageCard.visibility = View.GONE
+        }
+        binding.createPlanBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_createAPlanFragment2_to_createPlanSummaryFragment2)
         }
 
 

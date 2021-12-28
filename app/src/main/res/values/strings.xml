@@ -124,6 +124,7 @@
         <item>Commercial/ Retail.</item>
         <item>Education and Training.</item>
         <item>Fashion.</item>
+        <item>Others.</item>
     </string-array><string-array name="selectPlanCategory">
         <item>Business</item>
         <item>Project</item>
