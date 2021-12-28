@@ -31,7 +31,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/profile_image_view"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_notification" />
+                    app:srcCompat="@drawable/ic_notification_2" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/profile_image_view"

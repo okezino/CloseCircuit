@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary_color"
+    tools:context=".createPlanSummary.CreatePlanSummaryFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardView"
+                android:layout_width="115dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="51dp"
+                android:background="@drawable/upload_image_button"
+                app:cardBackgroundColor="@color/primary_color"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/upload_image_button_color"
+                app:strokeWidth="1dp">
+
+                <TextView
+                    android:id="@+id/upload_image_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingTop="11dp"
+                    android:paddingEnd="9dp"
+                    android:paddingBottom="12dp"
+                    android:text="@string/upload_image"
+                    android:textColor="@color/upload_image_button_color"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/upload_image_holder_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher"
+                    android:visibility="gone" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Select plan category"
+                android:textColor="#24500F"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+            <TextView
+                android:id="@+id/fragment_summary_select_plan_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_input_background_5dp"
+                android:fontFamily="@font/helvetica"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+            <View
+                android:id="@+id/fragment_summary_select_plan_chevron_down"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/ic_chevron_left"
+                android:rotation="-90"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_summary_select_plan_dropdown"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_summary_select_plan_dropdown"
+                app:layout_constraintTop_toTopOf="@+id/fragment_summary_select_plan_dropdown" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Choose business Sector"
+                android:textColor="#24500F"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_select_plan_dropdown" />
+
+            <TextView
+                android:id="@+id/fragment_summary_choose_sector_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_input_background_5dp"
+                android:fontFamily="@font/helvetica"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+            <View
+                android:id="@+id/fragment_summary_sector_chevron_down"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/ic_chevron_left"
+                android:rotation="-90"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_summary_choose_sector_dropdown"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_summary_choose_sector_dropdown"
+                app:layout_constraintTop_toTopOf="@+id/fragment_summary_choose_sector_dropdown" />
+
+            <Switch
+                android:id="@+id/fragment_create_plan_template_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_choose_sector_dropdown"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica"
+                android:text="@string/use_template"
+                android:textColor="#C4C4C4"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_create_plan_template_switch"
+                app:layout_constraintLeft_toRightOf="@id/fragment_create_plan_template_switch"
+                app:layout_constraintTop_toTopOf="@+id/fragment_create_plan_template_switch" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Enter Business type"
+                android:textColor="#24500F"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_create_plan_template_switch" />
+
+            <EditText
+                android:id="@+id/fragment_summary_business_type"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_input_background_5dp"
+                android:fontFamily="@font/helvetica"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Describe your plan"
+                android:textColor="#24500F"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/helvetica_bold"
+                android:text="Create Business Plan"
+                android:textColor="#24500F"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_business_type" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Enter business Name"
+                android:textColor="#24500F"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_input_background_5dp"
+                android:fontFamily="@font/helvetica"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+            <EditText
+                android:id="@+id/fragment_summary_describe_plan_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_input_background_5dp"
+                android:fontFamily="@font/helvetica"
+                android:gravity="start"
+                android:minHeight="161dp"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+            <TextView
+                android:id="@+id/fragment_plan_summary_200_max_words_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica"
+                android:text="200 maximum words"
+                android:textColor="#C4C4C4"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_describe_plan_et" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Enter plan duration"
+                android:textColor="#24500F"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_plan_summary_200_max_words_tv" />
+
+            <TextView
+                android:id="@+id/frgament_summary_month_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Month"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+
+            <EditText
+                android:id="@+id/fragment_summary_month_duration"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginStart="52dp"
+                android:background="@drawable/text_input_background_5dp"
+                android:fontFamily="@font/helvetica"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@id/frgament_summary_month_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/frgament_summary_month_tv" />
+
+            <TextView
+                android:id="@+id/fragment_summary_preffered_support_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Select your preferred means of support"
+                android:textColor="#24500F"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_month_duration" />
+
+            <TextView
+                android:id="@+id/fragment_summary_prefered_support_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_input_background_5dp"
+                android:fontFamily="@font/helvetica"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_preffered_support_tv" />
+
+            <View
+                android:id="@+id/fragment_summary_prefered_support_chevron_down"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/ic_chevron_left"
+                android:rotation="-90"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_summary_prefered_support_dropdown"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_summary_prefered_support_dropdown"
+                app:layout_constraintTop_toTopOf="@+id/fragment_summary_prefered_support_dropdown" />
+
+            <TextView
+                android:id="@+id/fragment_summary_loan_range_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/helvetica"
+                android:text="What’s your loan range"
+                android:textColor="#24500F"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_prefered_support_dropdown" />
+
+            <TextView
+                android:id="@+id/fragment_summary_change_currency_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/helvetica"
+                android:text="change currency type"
+                android:textColor="#9DC333"
+                android:textSize="12sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_prefered_support_dropdown" />
+
+            <TextView
+                android:id="@+id/frgament_summary_minimum_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/helvetica"
+                android:text="NGN"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_summary_loan_range_tv" />
+
+
+            <EditText
+                android:id="@+id/fragment_summary_minimum_et"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginStart="52dp"
+                android:background="@drawable/text_input_background_5dp"
+                android:fontFamily="@font/helvetica"
+                android:gravity="center_vertical|end"
+                android:hint="minimum"
+                android:maxLines="2"
+                android:paddingRight="18dp"
+                android:textColor="@color/black"
+                android:textColorHint="#C4C4C4"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@id/frgament_summary_minimum_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/frgament_summary_minimum_tv" />
+
+            <TextView
+                android:id="@+id/frgament_summary_maximum_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/helvetica"
+                android:text="NGN"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_minimum_et" />
+
+
+            <EditText
+                android:id="@+id/fragment_summary_maximum_et"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/text_input_background_5dp"
+                android:fontFamily="@font/helvetica"
+                android:gravity="center_vertical|end"
+                android:hint="maximum"
+                android:maxLines="2"
+                android:paddingRight="18dp"
+                android:textColor="@color/black"
+                android:textColorHint="#C4C4C4"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/frgament_summary_maximum_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/frgament_summary_maximum_tv" />
+
+            <TextView
+                android:id="@+id/fragment_summary_max_lenders_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Select Maximum number of lenders"
+                android:textColor="#24500F"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_maximum_et" />
+
+            <TextView
+                android:id="@+id/fragment_summary_max_lenders_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_input_background_5dp"
+                android:fontFamily="@font/helvetica"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_max_lenders_tv" />
+
+            <View
+                android:id="@+id/fragment_summary_max_lenders_chevron_down"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/ic_chevron_left"
+                android:rotation="-90"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_summary_max_lenders_dropdown"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_summary_max_lenders_dropdown"
+                app:layout_constraintTop_toTopOf="@+id/fragment_summary_max_lenders_dropdown" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_summary_create_plan_btn"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="87dp"
+                android:background="@drawable/rectangle_button"
+                android:fontFamily="@font/helvetica"
+                android:paddingVertical="10dp"
+                android:text="@string/create_plan_text"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_max_lenders_dropdown" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

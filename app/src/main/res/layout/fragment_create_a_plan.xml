@@ -18,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin_20dp"
-            android:layout_marginTop="@dimen/margin_20dp"
             android:fontFamily="@font/helvetica"
             android:text="@string/create_a_planTv"
             android:textSize="@dimen/textSize_24sp"
@@ -34,6 +33,7 @@
             android:layout_height="@dimen/margin_40dp"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_30dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/upload_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/createPlan_Tv" />

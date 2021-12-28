@@ -121,7 +121,7 @@
     <string name="create_plan">Create plan</string>
     <string name="gallery">Gallery</string>
 
-    <string-array name="support_means">
+    <string-array name="Choose_business_Sector">
         <item>E-commerce.</item>
         <item>Agriculture.</item>
         <item>Aviation.</item>
@@ -131,6 +131,20 @@
     </string-array><string-array name="selectPlanCategory">
         <item>Business</item>
         <item>Project</item>
+    </string-array>
+    <string name="sample_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
+
+    <string-array name="support_means">
+        <item>Donations(cash gifts)</item>
+        <item>Loans</item>
+        <item>Both(loans and donations)</item>
+    </string-array>
+
+    <string-array name="number_of_lenders">
+        <item>Select amount of lenders</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
     <string name="notifications">Notifications</string>
     <string name="no_notifications">No Notifications</string>

@@ -1,8 +1,9 @@
 package com.example.closedcircuitapplication.ui.createAPlantScreenUi
 
-import android.content.ContentUris
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -11,10 +12,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.authentication.CAMERA_REQUEST_CODE
 import com.example.closedcircuitapplication.authentication.REQUEST_CODE_IMAGE_PICKER
 import com.example.closedcircuitapplication.authentication.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
@@ -42,7 +45,7 @@ class CreateAPlanFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val planCategory = resources.getStringArray(R.array.support_means)
+        val planCategory = resources.getStringArray(R.array.Choose_business_Sector)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, planCategory)
         binding.dropdownMenu.setAdapter(arrayAdapter)
 
@@ -65,9 +68,8 @@ class CreateAPlanFragment : Fragment() {
         }
 
         binding.cameraCardView.setOnClickListener {
-            openImageChooser()
+            uploadImageWithCamera()
             binding.planImageCard.visibility = View.GONE
-            readStorage()
         }
 
 
@@ -89,12 +91,50 @@ class CreateAPlanFragment : Fragment() {
         }
     }
 
+    fun uploadImageWithCamera(){
+        if (ContextCompat.checkSelfPermission(requireActivity(),android.Manifest.permission.CAMERA) !=
+            PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                requireActivity(), arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                TO_READ_EXTERNAL_STORAGE
+            )
+        }else{
+            val intent =  Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                 startActivityForResult(intent, CAMERA_REQUEST_CODE)
+        }
+
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(data != null){
              uri = data.data!!
+            binding.uploadImageIV.setImageURI(uri)
 
         }
-        binding.uploadImageIV.setImageURI(uri)
+        // upload image using camera
+        if (resultCode == Activity.RESULT_OK){
+            if(requestCode == CAMERA_REQUEST_CODE){
+                val thumbNail = data!!.data!!
+                binding.uploadImageIV.setImageURI(thumbNail)
+            }
+        }
     }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode == CAMERA_REQUEST_CODE ){
+            if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                val intent =  Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                startActivityForResult(intent, CAMERA_REQUEST_CODE)
+            }else{
+                Toast.makeText(context, "permission was denied,please grant permission", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
 }

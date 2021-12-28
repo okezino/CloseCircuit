@@ -24,7 +24,11 @@
         android:id="@+id/profileFragment2"
         android:name="com.example.closedcircuitapplication.dashboard.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment2_to_createAPlanFragment2"
+            app:destination="@id/createAPlanFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/createStepsFragment"
         android:name="com.example.closedcircuitapplication.CreateStepsFragment"
@@ -35,4 +39,9 @@
         android:name="com.example.closedcircuitapplication.CreateBudgetFragment"
         android:label="fragment_create_budget"
         tools:layout="@layout/fragment_create_budget" />
+    <fragment
+        android:id="@+id/createAPlanFragment2"
+        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.CreateAPlanFragment"
+        android:label="fragment_create_a_plan"
+        tools:layout="@layout/fragment_create_a_plan" />
 </navigation>
