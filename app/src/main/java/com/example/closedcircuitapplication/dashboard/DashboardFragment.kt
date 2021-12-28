@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
@@ -41,6 +42,7 @@ class DashboardFragment : Fragment() {
 
         /*TODO: Implement Create plan. For now this button displays an active user UI*/
         binding.createPlanButton.setOnClickListener {
+            findNavController().navigate(R.id.projectScreenFragment)
             binding.newUserConstraint.visibility = View.GONE
             if (!binding.activeUserConstraint.activeUserConstraint.isVisible) {
                 binding.activeUserConstraint.activeUserConstraint.visibility = View.VISIBLE

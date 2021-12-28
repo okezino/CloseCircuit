@@ -5,19 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.CompositePageTransformer
-import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.example.closedcircuitapplication.dashboard.adapter.CreatePlanFragmentAdapter
+import com.example.closedcircuitapplication.dashboard.adapter.CreateStepsBudgetsFragmentAdapter
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class CreatePlanFragment : Fragment() {
+class ProjectSummaryFragment : Fragment() {
 
     private var _binding: FragmentCreatePlanBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewPagerAdapter: CreatePlanFragmentAdapter
+    private lateinit var viewPagerAdapter: CreateStepsBudgetsFragmentAdapter
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
 
@@ -35,7 +33,7 @@ class CreatePlanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewPagerAdapter = CreatePlanFragmentAdapter(this)
+        viewPagerAdapter = CreateStepsBudgetsFragmentAdapter(this)
         viewPager.adapter = viewPagerAdapter
         initPagerAdapter()
 
@@ -49,18 +47,11 @@ class CreatePlanFragment : Fragment() {
     }
 
     private fun initPagerAdapter() {
-        viewPagerAdapter = CreatePlanFragmentAdapter(this)
+        viewPagerAdapter = CreateStepsBudgetsFragmentAdapter(this)
         viewPager.apply {
             adapter = viewPagerAdapter
             clipToPadding = false
             clipChildren = false
-            val marginPageTransformer = MarginPageTransformer(30)
-            val compositionPageTransformer = CompositePageTransformer()
-            compositionPageTransformer.addTransformer(marginPageTransformer)
-            compositionPageTransformer.addTransformer { page, position ->
-                page.scaleY = 1 - (0.25f * kotlin.math.abs(position))
-            }
-            viewPager.setPageTransformer(compositionPageTransformer)
         }
     }
 

@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="116dp"
-        android:src="@drawable/ic_notification_2"
+        android:src="@drawable/ic_notification_bell"
         app:layout_constraintBottom_toBottomOf="@+id/project_Tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/project_Tv"

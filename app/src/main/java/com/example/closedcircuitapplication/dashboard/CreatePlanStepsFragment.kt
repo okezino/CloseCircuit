@@ -6,13 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.dashboard.adapter.PlansAdapter
+import com.example.closedcircuitapplication.dashboard.adapter.StepsBudgetsAdapter
+import com.example.closedcircuitapplication.dashboard.models.BudgetItem
+import com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanStepsBinding
 
 class CreatePlanStepsFragment : Fragment() {
 
     private var _binding: FragmentCreatePlanStepsBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var stepsAdapter: StepsBudgetsAdapter
+    private lateinit var stepsRecyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,6 +30,7 @@ class CreatePlanStepsFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentCreatePlanStepsBinding.inflate(inflater, container, false)
+        stepsRecyclerView = binding.stepsItemRecyclerView
         return binding.root
     }
 
@@ -47,6 +57,20 @@ class CreatePlanStepsFragment : Fragment() {
                 stepsInfo.infoItemLayout.visibility = View.VISIBLE
             }
         }
+
+        getProjectSteps()
+    }
+
+    private fun getProjectSteps() {
+        val projectSteps = ArrayList<StepsBudgetItem>()
+        projectSteps.add(StepsBudgetItem("Design a website", "NGN 0.00", "NGN 0.00"))
+        projectSteps.add(StepsBudgetItem("Marketing the product", "NGN 0.00", "NGN 0.00"))
+        projectSteps.add(StepsBudgetItem("Maintaining the app", "NGN 0.00", "NGN 0.00"))
+
+        stepsAdapter = StepsBudgetsAdapter(projectSteps)
+
+        stepsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        stepsRecyclerView.adapter = stepsAdapter
     }
 
     override fun onDestroy() {

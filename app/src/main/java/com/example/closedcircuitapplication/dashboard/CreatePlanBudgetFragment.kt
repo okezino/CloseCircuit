@@ -6,12 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.dashboard.adapter.StepsBudgetsAdapter
+import com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanBudgetBinding
 
 class CreatePlanBudgetFragment : Fragment() {
     private var _binding: FragmentCreatePlanBudgetBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var budgetsAdapter: StepsBudgetsAdapter
+    private lateinit var budgetsRecyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,6 +27,7 @@ class CreatePlanBudgetFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentCreatePlanBudgetBinding.inflate(inflater, container, false)
+        budgetsRecyclerView = binding.budgetItemRecyclerView
         return binding.root
     }
 
@@ -46,6 +54,20 @@ class CreatePlanBudgetFragment : Fragment() {
                 stepsInfo.infoItemLayout.visibility = View.VISIBLE
             }
         }
+
+        getProjectBudgets()
+    }
+
+    private fun getProjectBudgets() {
+        val budgetSteps = ArrayList<StepsBudgetItem>()
+        budgetSteps.add(StepsBudgetItem("Frontend Development", "NGN 0.00", "NGN 0.00"))
+        budgetSteps.add(StepsBudgetItem("UI/UX Design", "NGN 0.00", "NGN 0.00"))
+        budgetSteps.add(StepsBudgetItem("Backend Development", "NGN 0.00", "NGN 0.00"))
+
+        budgetsAdapter = StepsBudgetsAdapter(budgetSteps)
+
+        budgetsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        budgetsRecyclerView.adapter = budgetsAdapter
     }
 
     override fun onDestroy() {

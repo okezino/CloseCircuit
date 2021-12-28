@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FBFBFF</color>
     <color name="purple_700">#FBFBFF</color>
@@ -28,6 +29,8 @@
     <color name="green_500">#FF259F46</color>
     <color name="green_700">#FF24500F</color>
     <color name="light_green">#5CB7E143</color>
+    <color name="light_green_300">#A6B7E143</color>
+    <color name="light_green_500">#FFB7E143</color>
     <color name="gray">#FFF1F5FF</color>
     <color name="gray_600">#FFEBEFF2</color>
     <color name="gray_700">#FFE3ECFF</color>

@@ -38,7 +38,11 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
         bottomAppBar = binding.appBarDashboard.contentMain.bottomAppBar
         val fab = binding.appBarDashboard.contentMain.fab
         fab.setOnClickListener {
-            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.createPlanFragment)
+            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.projectScreenFragment)
+        }
+        val notificationIcon = binding.appBarDashboard.notificationImageView
+        notificationIcon.setOnClickListener {
+            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.notificationScreenFragment)
         }
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
 //        bottomNavigationView.setupWithNavController(navController)

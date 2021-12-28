@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".dashboard.CreatePlanFragment">
+    android:layout_height="wrap_content"
+    tools:context=".dashboard.ProjectSummaryFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -296,12 +296,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/project_summary_layout"
+            app:tabIndicator="@drawable/tab_indicator"
             app:tabIndicatorAnimationMode="linear"
-            app:tabIndicatorColor="@color/light_green"
+            app:tabIndicatorColor="@color/light_green_500"
             app:tabIndicatorGravity="stretch"
             app:tabTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:tabIndicatorFullWidth="true"
-            app:tabIndicatorHeight="2dp"
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/green_700" />
 

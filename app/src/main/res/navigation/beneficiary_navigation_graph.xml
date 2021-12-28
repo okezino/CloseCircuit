@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/createPlanFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.CreatePlanFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.ProjectSummaryFragment"
         android:label="fragment_create_plan"
         tools:layout="@layout/fragment_create_plan" />
     <fragment
@@ -50,4 +50,29 @@
         android:name="com.example.closedcircuitapplication.CreateBudgetFragment"
         android:label="fragment_create_budget"
         tools:layout="@layout/fragment_create_budget" />
+    <fragment
+        android:id="@+id/notificationScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.notification.NotificationScreenFragment"
+        android:label="fragment_notification_screen"
+        tools:layout="@layout/fragment_notification_screen" />
+    <fragment
+        android:id="@+id/projectScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectScreens.ProjectScreenFragment"
+        android:label="fragment_project_screen"
+        tools:layout="@layout/fragment_project_screen" />
+    <fragment
+        android:id="@+id/emailVerificationFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectScreens.EmailVerificationFragment"
+        android:label="fragment_email_verification"
+        tools:layout="@layout/fragment_email_verification"/>
+    <fragment
+        android:id="@+id/editEmailVerificationScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectScreens.EditEmailVerificationScreenFragment"
+        android:label="EditEmailVerificationScreenFragment"
+        tools:layout="@layout/fragment_edit_email_verification_screen"/>
+    <fragment
+        android:id="@+id/successfulEmailVerificationScreenFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectScreens.SuccessfulEmailVerificationScreenFragment"
+        android:label="fragment_successful_email_verification_screen"
+        tools:layout="@layout/fragment_successful_email_verification_screen" />
 </navigation>
