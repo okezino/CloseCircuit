@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import androidx.compose.ui.res.fontResource
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -14,12 +13,12 @@ import com.example.closedcircuitapplication.databinding.FragmentCreateStepsBindi
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipDrawable
 
-
 class CreateStepsFragment : Fragment() {
     private var _binding: FragmentCreateStepsBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -35,16 +34,19 @@ class CreateStepsFragment : Fragment() {
             android.R.layout.simple_dropdown_item_1line
         )
         binding.createStepAutoCompleteTextView.apply {
-            setAdapter(weekAdapter)
+            adapter = weekAdapter
         }
         addChips()
+        binding.createStepSaveAndContinueButton.setOnClickListener {
+            findNavController().navigate(R.id.createPlanFragment)
+        }
     }
 
     private fun addChips() {
         val contextThemeWrapper = ContextThemeWrapper(context, R.style.Widget_App_Chip)
         val travellingChip = Chip(contextThemeWrapper)
         val engineeringChip = Chip(contextThemeWrapper)
-        val chipDrawable = ChipDrawable.createFromAttributes(requireContext(), null, 0,R.style.Widget_App_Chip)
+        val chipDrawable = ChipDrawable.createFromAttributes(requireContext(), null, 0, R.style.Widget_App_Chip)
         travellingChip.apply {
             text = "Travelling"
             textSize = 15F
@@ -57,7 +59,7 @@ class CreateStepsFragment : Fragment() {
             }
         }
         engineeringChip.apply {
-            setText("Engineering")
+            text = "Engineering"
             isCheckable = false
             textSize = 15F
             setChipDrawable(chipDrawable)
@@ -74,7 +76,6 @@ class CreateStepsFragment : Fragment() {
             addView(travellingChip)
             addView(engineeringChip)
         }
-
     }
 
     override fun onDestroyView() {
