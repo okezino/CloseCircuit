@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.dashboard
+package com.example.closedcircuitapplication.dashboard.models
 
 data class PlanItems(
     val planName: String,

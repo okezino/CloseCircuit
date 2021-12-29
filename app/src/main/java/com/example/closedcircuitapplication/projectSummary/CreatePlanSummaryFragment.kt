@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.core.content.res.ResourcesCompat
+import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanSummaryBinding
 
@@ -17,6 +18,8 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
 
     private lateinit var binding: FragmentCreatePlanSummaryBinding
     private lateinit var description: String
+
+    private val args: CreatePlanSummaryFragmentArgs by navArgs()
 
     override fun onResume() {
         super.onResume()
@@ -39,6 +42,11 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreatePlanSummaryBinding.bind(view)
+
+        val categoryArgs = args.category
+        val sectorArgs = args.sector
+        binding.dropdownMenuCategory.setText(categoryArgs)
+        binding.dropdownMenuSector.setText(sectorArgs)
 
 //        val descriptionArray = arrayOf<String>()
 //        binding.fragmentSummaryDescribePlanEt.addTextChangedListener(object : TextWatcher{
