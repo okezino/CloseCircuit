@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.splashscreen
+package com.example.closedcircuitapplication.ui.splashScreen
 
 import android.content.Context
 import android.os.Bundle
