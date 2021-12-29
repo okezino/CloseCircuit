@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,10 +26,8 @@ class CreateAPlanFragment : Fragment() {
     private var _binding: FragmentCreateAPlanBinding? = null
     private val binding get() = _binding!!
     lateinit var uri: Uri
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    lateinit var sector: String
+    lateinit var category: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -68,7 +67,12 @@ class CreateAPlanFragment : Fragment() {
             binding.planImageCard.visibility = View.GONE
         }
         binding.createPlanBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_createAPlanFragment2_to_createPlanSummaryFragment2)
+            sector = binding.selectPlanCategoryDropdown.text.toString()
+            category = binding.dropdownMenu.text.toString()
+
+            Log.d("TEST", "SECTOR=====> $sector and CATEGORY====> $category ")
+            val action = CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(category, sector)
+            findNavController().navigate(action)
         }
     }
     // this method allow the user to pick image

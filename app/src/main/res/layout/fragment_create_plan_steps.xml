@@ -55,6 +55,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
+        android:id="@+id/no_steps_yet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_steps_yet"

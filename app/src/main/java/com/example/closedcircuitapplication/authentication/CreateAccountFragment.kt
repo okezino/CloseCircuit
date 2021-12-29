@@ -90,7 +90,7 @@ class CreateAccountFragment : Fragment() {
         comfirmPassword: String,
         view: View
     ) {
-        // check if the full name is entered and is valide name
+        // check if the full name is entered and is a valid name
         if(Validation.validateFullNameInput(fullName) ){
 
         }

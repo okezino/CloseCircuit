@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".projectSummary.CreatePlanSummaryFragment">
 
@@ -202,7 +203,7 @@
                     android:textColor="#24500F"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editText" />
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_enter_business_name_et" />
 
                 <TextView
                     android:id="@+id/textView29"
@@ -229,7 +230,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/fragment_summary_enter_business_name_et"
                     android:layout_width="match_parent"
                     android:layout_height="54dp"
                     android:layout_marginTop="10dp"

@@ -42,6 +42,7 @@ class CreatePlanStepsFragment : Fragment() {
         val infoDescription = stepsInfo.infoDialogDescription
         val infoCloseButton = stepsInfo.closeDialogIcon
         val createStepsButton = binding.addItemLayout
+        val noStepsTextView = binding.noStepsYet
 
         infoTitle.text = getString(R.string.steps_info_title)
         infoDescription.text = getString(R.string.steps_info_description)
@@ -70,6 +71,10 @@ class CreatePlanStepsFragment : Fragment() {
         projectSteps.add(StepsBudgetItem("Design a website", "NGN 0.00", "NGN 0.00"))
         projectSteps.add(StepsBudgetItem("Marketing the product", "NGN 0.00", "NGN 0.00"))
         projectSteps.add(StepsBudgetItem("Maintaining the app", "NGN 0.00", "NGN 0.00"))
+
+        if (projectSteps.isEmpty()) {
+
+        }
 
         stepsAdapter = StepsBudgetsAdapter(projectSteps)
 

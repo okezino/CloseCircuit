@@ -1,17 +1,24 @@
 package com.example.closedcircuitapplication.projectSummary
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.core.content.res.ResourcesCompat
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanSummaryBinding
 
 class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary) {
 
     private lateinit var binding: FragmentCreatePlanSummaryBinding
+    private lateinit var description: String
+
+    private val args: CreatePlanSummaryFragmentArgs by navArgs()
 
     override fun onResume() {
         super.onResume()
@@ -33,8 +40,39 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreatePlanSummaryBinding.bind(view)
         val createPlanButton = binding.fragmentSummaryCreatePlanBtn
+
+        val categoryArgs = args.category
+        val sectorArgs = args.sector
+        binding.dropdownMenuCategory.setText(categoryArgs)
+        binding.dropdownMenuSector.setText(sectorArgs)
+
         createPlanButton.setOnClickListener {
             findNavController().navigate(R.id.createPlanFragment)
         }
     }
 }
+
+//        val descriptionArray = arrayOf<String>()
+//        binding.fragmentSummaryDescribePlanEt.addTextChangedListener(object : TextWatcher{
+//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                description = binding.fragmentSummaryDescribePlanEt.text.toString()
+//                description = description.replace("\n"," ")
+//            }
+//
+//            override fun afterTextChanged(p0: Editable?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        })
+
+//    }
+//    fun onPlanDescriptionInputChangeListener(description: String){
+//        if (description.isEmpty()){
+//            binding.fragmentSummaryDescribePlanEt.error = "This field cannot be empty"
+//        }
+//    }
+
