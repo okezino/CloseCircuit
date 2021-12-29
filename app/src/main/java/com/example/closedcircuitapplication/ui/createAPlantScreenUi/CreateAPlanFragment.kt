@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,18 +18,21 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.CAMERA_REQUEST_CODE
 import com.example.closedcircuitapplication.authentication.REQUEST_CODE_IMAGE_PICKER
 import com.example.closedcircuitapplication.authentication.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
+import com.example.closedcircuitapplication.projectSummary.dataModel.CreatePlanObject
 
 
 class CreateAPlanFragment : Fragment() {
     private var _binding: FragmentCreateAPlanBinding? = null
     private val binding get() = _binding!!
     lateinit var uri: Uri
-
+    lateinit var sector: String
+    lateinit var category:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,9 +77,13 @@ class CreateAPlanFragment : Fragment() {
             binding.planImageCard.visibility = View.GONE
         }
         binding.createPlanBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_createAPlanFragment2_to_createPlanSummaryFragment2)
-        }
+            sector = binding.selectPlanCategoryDropdown.text.toString()
+            category = binding.dropdownMenu.text.toString()
 
+            Log.d("TEST", "SECTOR=====> $sector and CATEGORY====> $category ")
+            val action = CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(category,sector)
+            findNavController().navigate(action)
+        }
 
     }
     // this method allow the user to pick image

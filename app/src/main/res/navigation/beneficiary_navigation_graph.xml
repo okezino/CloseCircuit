@@ -88,6 +88,12 @@
         <action
             android:id="@+id/action_createAPlanFragment2_to_createPlanSummaryFragment2"
             app:destination="@id/createPlanSummaryFragment2" />
+        <argument
+            android:name="sector"
+            app:argType="string" />
+        <argument
+            android:name="category"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment2"
@@ -97,6 +103,12 @@
         <action
             android:id="@+id/action_createPlanSummaryFragment2_to_createPlanFragment"
             app:destination="@id/createPlanFragment" />
+        <argument
+            android:name="sector"
+            app:argType="string" />
+        <argument
+            android:name="category"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment2"
