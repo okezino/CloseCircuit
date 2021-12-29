@@ -7,17 +7,35 @@
     android:layout_height="match_parent"
     tools:context=".authentication.CreateAccountFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/fragment_createAccount_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_button" />
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="@dimen/margin_40dp"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_createAccount_toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -65,14 +83,14 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="48dp"
                 android:layout_marginEnd="20dp"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="2dp"
                 app:boxBackgroundColor="@color/text_input_color"
-                app:boxStrokeColor="@color/green_500"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/green_500"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -94,14 +112,14 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="2dp"
                 app:boxBackgroundColor="@color/text_input_color"
-                app:boxStrokeColor="@color/green_500"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/green_500"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -134,18 +152,18 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
                 android:orientation="vertical"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="2dp"
                 app:boxBackgroundColor="@color/text_input_color"
-                app:boxStrokeColor="@color/green_500"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/green_500"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/emailTextInputLayout">
 
@@ -154,22 +172,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="145dp"
-                    android:paddingStart="35dp"
                     android:inputType="phone"
-                    android:maxLength="11" />
+                    android:maxLength="11"
+                    android:paddingStart="35dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.hbb20.CountryCodePicker
                 android:id="@+id/countrycode"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/text_input_background"
                 android:clickable="true"
                 android:gravity="center"
                 app:ccpDialog_allowSearch="false"
                 app:ccp_customMasterCountries="NG,ZA"
-                android:layout_marginTop="5dp"
                 app:ccp_defaultNameCode="NG"
-                android:background="@drawable/text_input_background"
                 app:layout_constraintBottom_toBottomOf="@+id/phoneNumberTextInputLayout"
                 app:layout_constraintStart_toStartOf="@+id/phoneNumberTextInputLayout"
                 app:layout_constraintTop_toTopOf="@+id/phoneNumberTextInputLayout" />
@@ -182,20 +200,20 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="2dp"
                 app:boxBackgroundColor="@color/text_input_color"
-                app:boxStrokeColor="@color/green_500"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/green_500"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:passwordToggleEnabled="true"
+                app:layout_constraintTop_toBottomOf="@id/phoneNumberTextInputLayout"
                 app:passwordToggleDrawable="@drawable/password_toggle_selector"
-                app:layout_constraintTop_toBottomOf="@id/phoneNumberTextInputLayout">
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordTextInput"
@@ -224,8 +242,8 @@
                 android:layout_marginStart="20dp"
                 android:text="@string/special_characters"
                 android:textColor="#8A8A8E"
-                android:textStyle="normal"
                 android:textSize="13dp"
+                android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/minimuimof8Charater_Tv" />
 
@@ -236,8 +254,8 @@
                 android:layout_marginStart="20dp"
                 android:text="@string/numbers"
                 android:textColor="#8A8A8E"
-                android:textStyle="normal"
                 android:textSize="13dp"
+                android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spacialCharacter_Tv" />
 
@@ -261,20 +279,20 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="2dp"
                 app:boxBackgroundColor="@color/text_input_color"
-                app:boxStrokeColor="@color/green_500"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleDrawable="@drawable/password_toggle_selector"
+                app:boxStrokeColor="@color/green_500"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/UppercaseAndLowercase_Tv">
+                app:layout_constraintTop_toBottomOf="@id/UppercaseAndLowercase_Tv"
+                app:passwordToggleDrawable="@drawable/password_toggle_selector"
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/comfirmPasswordTextInput"
@@ -338,9 +356,9 @@
                 android:id="@+id/alreadyHaveAnAccount_Tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="35dp"
                 android:background="@color/white"
                 android:gravity="center"
-                android:layout_marginEnd="35dp"
                 android:text="@string/already_have_and_account"
                 android:textColor="@color/black"
                 android:textSize="16dp"

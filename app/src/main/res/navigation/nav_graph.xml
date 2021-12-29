@@ -125,6 +125,20 @@
             app:destination="@id/loginFragment"/>
     </fragment>
     <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_createAPlanFragment"
+            app:destination="@id/createAPlanFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.closedcircuitapplication.dashboard.AccountFragment"
         android:label="fragment_account"
@@ -133,6 +147,16 @@
             android:id="@+id/action_accountFragment_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment"/>
     </fragment>
+    <fragment
+        android:id="@+id/createAPlanFragment"
+        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.CreateAPlanFragment"
+        android:label="fragment_create_a_plan"
+        tools:layout="@layout/fragment_create_a_plan" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.closedcircuitapplication.MainActivity"
+        android:label="app_bar_dashboard"
+        tools:layout="@layout/app_bar_dashboard" />
     <fragment
         android:id="@+id/createPlanSummaryFragment"
         android:name="com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragment"

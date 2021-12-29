@@ -46,11 +46,14 @@
         <entry key="app/src/main/res/layout/cutom_login_successful_dialog.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.12735042735042734" />
         <entry key="app/src/main/res/layout/fragment_account_registration.xml" value="0.3338267949666913" />
+        <entry key="app/src/main/res/layout/fragment_create_a_plan.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_create_budget.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_create_plan.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_create_plan_budget.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/fragment_create_plan_steps.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_create_plan_summary.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/fragment_create_steps.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.23697916666666666" />

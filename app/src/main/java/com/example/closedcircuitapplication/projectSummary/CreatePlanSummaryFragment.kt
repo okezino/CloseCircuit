@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanSummaryBinding
 
@@ -31,5 +32,9 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreatePlanSummaryBinding.bind(view)
+        val createPlanButton = binding.fragmentSummaryCreatePlanBtn
+        createPlanButton.setOnClickListener {
+            findNavController().navigate(R.id.createPlanFragment)
+        }
     }
 }

@@ -59,7 +59,7 @@ class CreatePlanStepsFragment : Fragment() {
         }
 
         createStepsButton.setOnClickListener {
-            findNavController().navigate(R.id.createPlanSummaryFragment)
+            findNavController().navigate(R.id.createStepsFragment)
         }
 
         getProjectSteps()
