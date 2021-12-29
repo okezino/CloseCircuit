@@ -6,12 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.dashboard.adapter.PlansAdapter
 import com.example.closedcircuitapplication.dashboard.adapter.StepsBudgetsAdapter
-import com.example.closedcircuitapplication.dashboard.models.BudgetItem
 import com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanStepsBinding
 
@@ -42,6 +41,7 @@ class CreatePlanStepsFragment : Fragment() {
         val infoTitle = stepsInfo.infoDialogTitle
         val infoDescription = stepsInfo.infoDialogDescription
         val infoCloseButton = stepsInfo.closeDialogIcon
+        val createStepsButton = binding.addItemLayout
 
         infoTitle.text = getString(R.string.steps_info_title)
         infoDescription.text = getString(R.string.steps_info_description)
@@ -56,6 +56,10 @@ class CreatePlanStepsFragment : Fragment() {
             } else {
                 stepsInfo.infoItemLayout.visibility = View.VISIBLE
             }
+        }
+
+        createStepsButton.setOnClickListener {
+            findNavController().navigate(R.id.createPlanSummaryFragment)
         }
 
         getProjectSteps()

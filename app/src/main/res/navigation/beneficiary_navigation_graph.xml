@@ -75,4 +75,9 @@
         android:name="com.example.closedcircuitapplication.ui.projectScreens.SuccessfulEmailVerificationScreenFragment"
         android:label="fragment_successful_email_verification_screen"
         tools:layout="@layout/fragment_successful_email_verification_screen" />
+    <fragment
+        android:id="@+id/createPlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragment"
+        android:label="fragment_create_plan_summary"
+        tools:layout="@layout/fragment_create_plan_summary" />
 </navigation>
