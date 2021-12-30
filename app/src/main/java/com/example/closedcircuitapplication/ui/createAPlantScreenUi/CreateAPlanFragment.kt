@@ -3,19 +3,18 @@ package com.example.closedcircuitapplication.ui.createAPlantScreenUi
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.CAMERA_REQUEST_CODE
@@ -23,20 +22,16 @@ import com.example.closedcircuitapplication.authentication.REQUEST_CODE_IMAGE_PI
 import com.example.closedcircuitapplication.authentication.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
 
-
 class CreateAPlanFragment : Fragment() {
     private var _binding: FragmentCreateAPlanBinding? = null
     private val binding get() = _binding!!
     lateinit var uri: Uri
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    lateinit var sector: String
+    lateinit var category: String
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -60,7 +55,6 @@ class CreateAPlanFragment : Fragment() {
 
         binding.uploadImageIV.setOnClickListener {
             binding.planImageCard.visibility = View.VISIBLE
-
         }
         binding.galaryCardView.setOnClickListener {
             openImageChooser()
@@ -73,21 +67,25 @@ class CreateAPlanFragment : Fragment() {
             binding.planImageCard.visibility = View.GONE
         }
         binding.createPlanBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_createAPlanFragment2_to_createPlanSummaryFragment2)
+            sector = binding.selectPlanCategoryDropdown.text.toString()
+            category = binding.dropdownMenu.text.toString()
+
+            Log.d("TEST", "SECTOR=====> $sector and CATEGORY====> $category ")
+            val action = CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(category, sector)
+            findNavController().navigate(action)
         }
-
-
     }
     // this method allow the user to pick image
-    fun openImageChooser(){
+    fun openImageChooser() {
         Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).also {
             startActivityForResult(it, REQUEST_CODE_IMAGE_PICKER)
         }
     }
 
-    private fun readStorage(){
-        if (ContextCompat.checkSelfPermission(requireActivity(),android.Manifest.permission.READ_EXTERNAL_STORAGE) !=
-            PackageManager.PERMISSION_GRANTED) {
+    private fun readStorage() {
+        if (ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE) !=
+            PackageManager.PERMISSION_GRANTED
+        ) {
             ActivityCompat.requestPermissions(
                 requireActivity(), arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 TO_READ_EXTERNAL_STORAGE
@@ -95,29 +93,28 @@ class CreateAPlanFragment : Fragment() {
         }
     }
 
-    fun uploadImageWithCamera(){
-        if (ContextCompat.checkSelfPermission(requireActivity(),android.Manifest.permission.CAMERA) !=
-            PackageManager.PERMISSION_GRANTED) {
+    fun uploadImageWithCamera() {
+        if (ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.CAMERA) !=
+            PackageManager.PERMISSION_GRANTED
+        ) {
             ActivityCompat.requestPermissions(
                 requireActivity(), arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 TO_READ_EXTERNAL_STORAGE
             )
-        }else{
-            val intent =  Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                 startActivityForResult(intent, CAMERA_REQUEST_CODE)
+        } else {
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent, CAMERA_REQUEST_CODE)
         }
-
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(data != null){
-             uri = data.data!!
+        if (data != null) {
+            uri = data.data!!
             binding.uploadImageIV.setImageURI(uri)
-
         }
         // upload image using camera
-        if (resultCode == Activity.RESULT_OK){
-            if(requestCode == CAMERA_REQUEST_CODE){
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == CAMERA_REQUEST_CODE) {
                 val thumbNail = data!!.data!!
                 binding.uploadImageIV.setImageURI(thumbNail)
             }
@@ -130,15 +127,13 @@ class CreateAPlanFragment : Fragment() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == CAMERA_REQUEST_CODE ){
-            if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                val intent =  Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        if (requestCode == CAMERA_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(intent, CAMERA_REQUEST_CODE)
-            }else{
+            } else {
                 Toast.makeText(context, "permission was denied,please grant permission", Toast.LENGTH_SHORT).show()
             }
         }
     }
-
-
 }
