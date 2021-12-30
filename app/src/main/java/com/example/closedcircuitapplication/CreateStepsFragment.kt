@@ -20,7 +20,7 @@ class CreateStepsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentCreateStepsBinding.inflate(inflater, container, false)
         return binding.root
@@ -37,8 +37,12 @@ class CreateStepsFragment : Fragment() {
             adapter = weekAdapter
         }
         addChips()
-        binding.createStepSaveAndContinueButton.setOnClickListener {
+        binding.createStepsSaveAndContinueButton.setOnClickListener {
             findNavController().navigate(R.id.createPlanFragment)
+        }
+
+        binding.createStepSaveAndAddNewStepsButton.setOnClickListener {
+            findNavController().navigate(R.id.createStepsFragment)
         }
     }
 

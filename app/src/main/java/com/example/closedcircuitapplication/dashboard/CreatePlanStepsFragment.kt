@@ -33,6 +33,11 @@ class CreatePlanStepsFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        getProjectSteps()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -42,7 +47,6 @@ class CreatePlanStepsFragment : Fragment() {
         val infoDescription = stepsInfo.infoDialogDescription
         val infoCloseButton = stepsInfo.closeDialogIcon
         val createStepsButton = binding.addItemLayout
-        val noStepsTextView = binding.noStepsYet
 
         infoTitle.text = getString(R.string.steps_info_title)
         infoDescription.text = getString(R.string.steps_info_description)
@@ -70,10 +74,14 @@ class CreatePlanStepsFragment : Fragment() {
         val projectSteps = ArrayList<StepsBudgetItem>()
         projectSteps.add(StepsBudgetItem("Design a website", "NGN 0.00", "NGN 0.00"))
         projectSteps.add(StepsBudgetItem("Marketing the product", "NGN 0.00", "NGN 0.00"))
-        projectSteps.add(StepsBudgetItem("Maintaining the app", "NGN 0.00", "NGN 0.00"))
 
+        val noStepsTextView = binding.noStepsYet
         if (projectSteps.isEmpty()) {
-
+            noStepsTextView.visibility = View.VISIBLE
+            binding.stepsItemRecyclerView.visibility = View.GONE
+        } else {
+            binding.stepsItemRecyclerView.visibility = View.VISIBLE
+            noStepsTextView.visibility = View.GONE
         }
 
         stepsAdapter = StepsBudgetsAdapter(projectSteps)
