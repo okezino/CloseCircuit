@@ -234,7 +234,7 @@
         </com.google.android.material.chip.ChipGroup>
 
         <Button
-            android:id="@+id/create_step_save_and_continue_button"
+            android:id="@+id/create_step_save_and_add_new_steps_button"
             android:layout_width="@dimen/width_0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/all_button_background"
@@ -262,9 +262,9 @@
             app:backgroundTint="@null"
             android:fontFamily="@font/helvetica"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/create_step_save_and_continue_button"
-            app:layout_constraintStart_toStartOf="@+id/create_step_save_and_continue_button"
-            app:layout_constraintTop_toBottomOf="@id/create_step_save_and_continue_button" />
+            app:layout_constraintEnd_toEndOf="@+id/create_step_save_and_add_new_steps_button"
+            app:layout_constraintStart_toStartOf="@+id/create_step_save_and_add_new_steps_button"
+            app:layout_constraintTop_toBottomOf="@id/create_step_save_and_add_new_steps_button" />
 
 
 

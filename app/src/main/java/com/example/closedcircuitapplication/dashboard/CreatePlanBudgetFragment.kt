@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
@@ -39,6 +40,7 @@ class CreatePlanBudgetFragment : Fragment() {
         val infoTitle = stepsInfo.infoDialogTitle
         val infoDescription = stepsInfo.infoDialogDescription
         val infoCloseButton = stepsInfo.closeDialogIcon
+        val createBudgetsButton = binding.addItemLayout
 
         infoTitle.text = getString(R.string.budget_info_title)
         infoDescription.text = getString(R.string.budget_info_description)
@@ -53,6 +55,10 @@ class CreatePlanBudgetFragment : Fragment() {
             } else {
                 stepsInfo.infoItemLayout.visibility = View.VISIBLE
             }
+        }
+
+        createBudgetsButton.setOnClickListener {
+            findNavController().navigate(R.id.createBudgetFragment)
         }
 
         getProjectBudgets()
