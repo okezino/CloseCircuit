@@ -22,9 +22,11 @@ import com.example.closedcircuitapplication.authentication.CAMERA_REQUEST_CODE
 import com.example.closedcircuitapplication.authentication.REQUEST_CODE_IMAGE_PICKER
 import com.example.closedcircuitapplication.authentication.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class CreateAPlanFragment : Fragment() {
+class CreateAPlanFragment : BottomSheetDialogFragment() {
     private var _binding: FragmentCreateAPlanBinding? = null
     private val binding get() = _binding!!
     lateinit var uri: Uri
@@ -59,25 +61,32 @@ class CreateAPlanFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.uploadImageIV.setOnClickListener {
-            binding.planImageCard.visibility = View.VISIBLE
+         //   binding.planImageCard.visibility = View.VISIBLE
+            showUploadImageBottomSheetDialog()
 
         }
-        binding.galaryCardView.setOnClickListener {
+//        binding.galaryCardView.setOnClickListener {
             openImageChooser()
-            binding.planImageCard.visibility = View.GONE
-            readStorage()
-        }
-
-        binding.cameraCardView.setOnClickListener {
+//            binding.planImageCard.visibility = View.GONE
+//            readStorage()
+//        }
+//
+//        binding.cameraCardView.setOnClickListener {
             uploadImageWithCamera()
-            binding.planImageCard.visibility = View.GONE
-        }
+//            binding.planImageCard.visibility = View.GONE
+//        }
         binding.createPlanBtn.setOnClickListener {
             findNavController().navigate(R.id.action_createAPlanFragment2_to_createPlanSummaryFragment2)
         }
 
 
     }
+
+    private fun showUploadImageBottomSheetDialog() {
+        findNavController().navigate(R.id.action_createAPlanFragment_to_uploadImageBottomSheetFragment)
+
+    }
+
     // this method allow the user to pick image
     fun openImageChooser(){
         Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).also {
@@ -139,6 +148,4 @@ class CreateAPlanFragment : Fragment() {
             }
         }
     }
-
-
 }

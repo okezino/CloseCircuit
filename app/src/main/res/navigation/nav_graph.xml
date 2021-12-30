@@ -151,7 +151,11 @@
         android:id="@+id/createAPlanFragment"
         android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.CreateAPlanFragment"
         android:label="fragment_create_a_plan"
-        tools:layout="@layout/fragment_create_a_plan" />
+        tools:layout="@layout/fragment_create_a_plan" >
+        <action
+            android:id="@+id/action_createAPlanFragment_to_uploadImageBottomSheetFragment"
+            app:destination="@id/uploadImageBottomSheetFragment" />
+    </fragment>
     <activity
         android:id="@+id/mainActivity"
         android:name="com.example.closedcircuitapplication.MainActivity"
@@ -162,5 +166,10 @@
         android:name="com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragment"
         android:label="fragment_create_plan_summary"
         tools:layout="@layout/fragment_create_plan_summary" />
+    <fragment
+        android:id="@+id/uploadImageBottomSheetFragment"
+        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment"
+        android:label="fragment_upload_image_bottom_sheet"
+        tools:layout="@layout/fragment_upload_image_bottom_sheet" />
 
 </navigation>
