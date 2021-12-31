@@ -94,6 +94,9 @@
         <argument
             android:name="category"
             app:argType="string" />
+        <argument
+            android:name="uri"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment2"
@@ -109,6 +112,8 @@
         <argument
             android:name="category"
             app:argType="string" />
+        <argument
+            android:name="uri" />
     </fragment>
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment2"
