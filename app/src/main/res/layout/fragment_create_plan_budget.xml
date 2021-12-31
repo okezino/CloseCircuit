@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:minHeight="300dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/budget_steps_item_header_layout"
@@ -53,11 +54,25 @@
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_budgets_yet"
+        android:textSize="@dimen/textSize_24sp"
+        android:textStyle="bold"
+        android:textColor="@color/gray_500"
+        android:layout_marginVertical="@dimen/margin_100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/budget_steps_item_header_layout" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/budget_item_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

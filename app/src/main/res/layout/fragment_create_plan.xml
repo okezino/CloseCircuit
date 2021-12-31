@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/textSize_16sp"
-            android:text="Project Title"
+            android:text="Patience LTD"
             android:textSize="26sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -62,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text="E-commerce (Electronics)"
+                    android:text="Business (Electronics)"
                     android:textColor="@color/green_700"
                     android:textStyle="bold" />
 
@@ -159,7 +159,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:baselineAligned="false"
-                    android:text="NGN 0"
+                    android:text="NGN 100000"
                     android:textColor="@color/green_700"
                     android:textStyle="bold" />
 
@@ -257,7 +257,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:text="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. "
+                android:text="A small scale business selling mobile phones and other electronic devices. "
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/project_description_title_text_view" />
