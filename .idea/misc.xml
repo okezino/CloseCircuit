@@ -10,11 +10,13 @@
         <entry key="app/src/main/res/drawable-anydpi/ic_camera.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_copy.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_menu.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_plus.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/drawable-v24/circular_shape.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-v24/rectangle_button.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/drawable-v24/text_input_rectangle.xml" value="0.24316239316239316" />
         <entry key="app/src/main/res/drawable/background_sponsors.xml" value="0.14375" />
         <entry key="app/src/main/res/drawable/google_btn.xml" value="0.24316239316239316" />
+        <entry key="app/src/main/res/drawable/ic_plus_circle.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/drawable/ic_target_amount.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/icon_circles.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/icon_circles_blue.xml" value="0.31145833333333334" />
@@ -53,7 +55,7 @@
         <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_view_pager.xml" value="0.24230072463768115" />
         <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_when_project_is_not_funded.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_when_project_is_not_funded.xml" value="0.28413631196215267" />
         <entry key="app/src/main/res/layout/plan_item.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.128125" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.25" />
