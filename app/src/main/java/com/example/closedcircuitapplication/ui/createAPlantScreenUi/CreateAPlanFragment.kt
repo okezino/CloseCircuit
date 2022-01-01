@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +33,7 @@ class CreateAPlanFragment : Fragment() {
     lateinit var sector: String
     lateinit var category: String
 
-    private  var args: CreateAPlanFragmentArgs by navArgs()
+  // private val args: CreateAPlanFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,20 +70,21 @@ class CreateAPlanFragment : Fragment() {
             sector = binding.selectPlanCategoryDropdown.text.toString()
             category = binding.dropdownMenu.text.toString()
 
-           // Log.d("TEST", "SECTOR=====> $sector and CATEGORY====> $category ")
-           val action = CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(category, sector)
-           findNavController().navigate(action)
+            Log.d("TEST", "SECTOR=====> $sector and CATEGORY====> $category ")
+           //val action = CreateAPlanFragmentDirections.(category, sector)
+         //  findNavController().navigate(action)
         }
 
-        binding.uploadImageIV.setImageURI(uri)
+       // binding.uploadImageIV.setImageURI(uri)
         //binding.uploadImageIV.setImageURI(thumbNail)
 
     }
 
     private fun showUploadImageBottomSheetDialog() {
-        findNavController().navigate(R.id.action_createAPlanFragment_to_uploadImageBottomSheetFragment)
+        findNavController().navigate(R.id.action_createAPlanFragment2_to_uploadImageBottomSheetFragment2)
 
     }
+
 
 
 }

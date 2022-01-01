@@ -80,11 +80,6 @@
             android:id="@+id/action_successfulEmailVerificationScreenFragment_to_createAPlanFragment22"
             app:destination="@id/createAPlanFragment2" />
     </fragment>
-    <fragment
-        android:id="@+id/createPlanSummaryFragment"
-        android:name="com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragment"
-        android:label="fragment_create_plan_summary"
-        tools:layout="@layout/fragment_create_plan_summary" />
 
     <fragment
         android:id="@+id/createAPlanFragment2"
@@ -94,12 +89,9 @@
         <action
             android:id="@+id/action_createAPlanFragment2_to_createPlanSummaryFragment2"
             app:destination="@id/createPlanSummaryFragment2" />
-        <argument
-            android:name="sector"
-            app:argType="string" />
-        <argument
-            android:name="category"
-            app:argType="string" />
+        <action
+            android:id="@+id/action_createAPlanFragment2_to_uploadImageBottomSheetFragment2"
+            app:destination="@id/uploadImageBottomSheetFragment2" />
     </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment2"
@@ -126,8 +118,12 @@
         android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment"
         android:label="fragment_upload_image_bottom_sheet"
         tools:layout="@layout/fragment_upload_image_bottom_sheet" >
+        <action
+            android:id="@+id/action_uploadImageBottomSheetFragment2_to_createAPlanFragment25"
+            app:destination="@id/createAPlanFragment2" />
         <argument
-            android:name="Image"
-            app:argType="integer" />
+            android:name="image_uri"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 </navigation>
