@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 class SuccessfulEmailVerificationScreenFragment : Fragment() {
 
@@ -20,4 +22,11 @@ class SuccessfulEmailVerificationScreenFragment : Fragment() {
         )
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val proceedButton = view.findViewById<Button>(R.id.proceed_btn)
+        proceedButton.setOnClickListener {
+            findNavController().navigate(R.id.action_successfulEmailVerificationScreenFragment_to_createAPlanFragment22)
+        }
+    }
 }

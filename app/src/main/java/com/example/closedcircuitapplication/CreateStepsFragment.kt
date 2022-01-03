@@ -50,6 +50,7 @@ class CreateStepsFragment : Fragment() {
             textSize = 15F
             setChipDrawable(chipDrawable)
             height = 70
+            closeIconStartPadding = 15F
             closeIcon =
                 ResourcesCompat.getDrawable(requireActivity().resources, R.drawable.ic_chip_close, null)
             setOnCloseIconClickListener {
@@ -62,7 +63,7 @@ class CreateStepsFragment : Fragment() {
             textSize = 15F
             setChipDrawable(chipDrawable)
             height = 70
-            chipEndPadding = 10F
+            closeIconStartPadding = 15F
             closeIcon =
                 ResourcesCompat.getDrawable(requireActivity().resources, R.drawable.ic_chip_close, null)
             setOnCloseIconClickListener {
@@ -74,7 +75,6 @@ class CreateStepsFragment : Fragment() {
             addView(travellingChip)
             addView(engineeringChip)
         }
-
     }
 
     override fun onDestroyView() {
