@@ -95,27 +95,5 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
             findNavController().navigate(R.id.createPlanFragment)
         }
     }
-//        val descriptionArray = arrayOf<String>()
-//        binding.fragmentSummaryDescribePlanEt.addTextChangedListener(object : TextWatcher{
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                description = binding.fragmentSummaryDescribePlanEt.text.toString()
-//                description = description.replace("\n"," ")
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//                TODO("Not yet implemented")
-//            }
-//
-//        })
 
-//    }
-//    fun onPlanDescriptionInputChangeListener(description: String){
-//        if (description.isEmpty()){
-//            binding.fragmentSummaryDescribePlanEt.error = "This field cannot be empty"
-//        }
-//    }
 }
