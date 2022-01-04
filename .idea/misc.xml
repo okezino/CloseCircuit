@@ -53,7 +53,7 @@
         <entry key="app/src/main/res/layout/fragment_create_plan_budget.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/fragment_create_plan_steps.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_create_plan_summary.xml" value="0.14" />
-        <entry key="app/src/main/res/layout/fragment_create_steps.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/fragment_create_steps.xml" value="0.22002820874471085" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.23697916666666666" />
@@ -63,7 +63,6 @@
         <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.24230072463768115" />
         <entry key="app/src/main/res/layout/fragment_fourth_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
-<<<<<<< HEAD
         <entry key="app/src/main/res/layout/fragment_notification_screen.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_password_recovery_successful.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.23697916666666666" />
@@ -74,17 +73,6 @@
         <entry key="app/src/main/res/layout/fragment_second_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_successful_email_verification_screen.xml" value="0.23697916666666666" />
-=======
-        <entry key="app/src/main/res/layout/fragment_notification_screen.xml" value="0.15555555555555556" />
-        <entry key="app/src/main/res/layout/fragment_password_recovery_successful.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.13768115942028986" />
-        <entry key="app/src/main/res/layout/fragment_project_screen.xml" value="0.13768115942028986" />
-        <entry key="app/src/main/res/layout/fragment_recover_password_otp.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_reset_your_password.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.26458333333333334" />
-        <entry key="app/src/main/res/layout/fragment_second_screen.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_successful_email_verification_screen.xml" value="0.2375" />
->>>>>>> 6c4776a18461c71360100a1223b4f71151738847
         <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.22" />
