@@ -100,7 +100,7 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
                 description = binding.fragmentSummaryDescribePlanEt.text.toString()
                 description = description.replace("\n", " ")
                 val descriptionText: List<String> = description.split(" ")
-                if(descriptionText.size >= 6){
+                if(descriptionText.size >= 201){
                     binding.fragmentPlanSummary200MaxWordsTv.visibility = View.GONE
                     binding.fragmentPlanSummaryExceeded200MaxWordsTv.visibility = View.VISIBLE
 
