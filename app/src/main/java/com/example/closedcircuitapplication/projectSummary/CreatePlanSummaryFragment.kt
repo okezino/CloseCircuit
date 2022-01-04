@@ -1,13 +1,11 @@
 package com.example.closedcircuitapplication.projectSummary
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
@@ -16,7 +14,11 @@ import com.example.closedcircuitapplication.databinding.FragmentCreatePlanSummar
 class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary) {
 
     private lateinit var binding: FragmentCreatePlanSummaryBinding
-    private lateinit var description: String
+    lateinit var businessName: String
+    lateinit var businessSector: String
+    lateinit var planDescription: String
+    lateinit var planCategory: String
+    lateinit var planDuration: String
 
     private val args: CreatePlanSummaryFragmentArgs by navArgs()
 
@@ -47,7 +49,13 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
         binding.dropdownMenuSector.setText(sectorArgs)
 
         createPlanButton.setOnClickListener {
-            findNavController().navigate(R.id.createPlanFragment)
+            businessName = binding.fragmentSummaryEnterBusinessNameEt.text.toString()
+            businessSector = binding.fragmentSummaryBusinessType.text.toString()
+            planDescription = binding.fragmentSummaryDescribePlanEt.text.toString()
+            planCategory = binding.dropdownMenuCategory.text.toString()
+            planDuration = binding.fragmentSummaryMonthDuration.text.toString()
+            val action = CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCreatePlanFragment(planDuration, planDescription, businessName, planCategory, businessSector)
+            findNavController().navigate(action)
         }
     }
 }
@@ -75,4 +83,3 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
 //            binding.fragmentSummaryDescribePlanEt.error = "This field cannot be empty"
 //        }
 //    }
-

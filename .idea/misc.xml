@@ -49,10 +49,10 @@
         <entry key="app/src/main/res/layout/fragment_create_a_plan.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_create_budget.xml" value="0.23697916666666666" />
-        <entry key="app/src/main/res/layout/fragment_create_plan.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_create_plan.xml" value="0.4092842430410353" />
         <entry key="app/src/main/res/layout/fragment_create_plan_budget.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/fragment_create_plan_steps.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_create_plan_summary.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/fragment_create_plan_summary.xml" value="0.21" />
         <entry key="app/src/main/res/layout/fragment_create_steps.xml" value="0.22002820874471085" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.23697916666666666" />
@@ -76,6 +76,7 @@
         <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_when_project_is_not_funded.xml" value="1.6537388580070211" />
         <entry key="app/src/main/res/layout/plan_item.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/recent_donations_item.xml" value="0.34247872494595566" />
         <entry key="app/src/main/res/layout/steps_budget_item.xml" value="0.14" />
