@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
+import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.dashboard.adapter.CreateStepsBudgetsFragmentAdapter
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanBinding
 import com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragmentArgs
@@ -41,6 +43,10 @@ class ProjectSummaryFragment : Fragment() {
         binding.projectDuration.text = args.planDuration
         binding.projectDescriptionTextView.text = args.planDescription
         binding.projectBusinessSector.text = "${args.businessSector} (${args.planCategory})"
+
+        binding.planLink.setOnClickListener {
+            findNavController().navigate(R.id.sendFundsSummaryFragment)
+        }
 
         viewPagerAdapter = CreateStepsBudgetsFragmentAdapter(this)
         viewPager.adapter = viewPagerAdapter

@@ -71,6 +71,7 @@
         <entry key="app/src/main/res/layout/fragment_reset_your_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/fragment_second_screen.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/fragment_send_funds_summary.xml" value="0.15" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_successful_email_verification_screen.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.1578125" />

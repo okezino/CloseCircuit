@@ -165,4 +165,6 @@
     <string name="congratulation">Congratulation</string>
     <string name="no_steps_yet">No steps yet</string>
     <string name="no_budgets_yet">No budgets yet</string>
+    <string name="send_funds">Send Funds</string>
+    <string name="funds_available">Funds Available</string>
 </resources>

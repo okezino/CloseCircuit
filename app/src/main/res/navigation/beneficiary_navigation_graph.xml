@@ -143,4 +143,9 @@
         android:name="com.example.closedcircuitapplication.frame13.WhenProjectIsNotFundedFragment"
         android:label="fragment_when_project_is_not_funded"
         tools:layout="@layout/fragment_when_project_is_not_funded" />
+    <fragment
+        android:id="@+id/sendFundsSummaryFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.SendFundsSummaryFragment"
+        android:label="SendFundsSummaryFragment"
+        tools:layout="@layout/fragment_send_funds_summary"/>
 </navigation>
