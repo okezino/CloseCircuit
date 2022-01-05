@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -24,8 +25,12 @@ class EmailVerificationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val editEmailAddress = view.findViewById<TextView>(R.id.not_your_email_message_tv)
+        val verificationSuccessful = view.findViewById<ImageView>(R.id.envelope_iv)
         editEmailAddress.setOnClickListener {
             findNavController().navigate(R.id.editEmailVerificationScreenFragment)
+        }
+        verificationSuccessful.setOnClickListener {
+            findNavController().navigate(R.id.successfulEmailVerificationScreenFragment)
         }
     }
 }

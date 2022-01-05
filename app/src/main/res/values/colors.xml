@@ -35,6 +35,7 @@
     <color name="gray">#FFF1F5FF</color>
     <color name="gray_600">#FFEBEFF2</color>
     <color name="gray_700">#FFE3ECFF</color>
+    <color name="gray_500">#FFC4C4C4</color>
     <color name="light_blue">#360386FF</color>
     <color name="blue_500">#FF0386FF</color>
     <color name="blue">#0000fF</color>
