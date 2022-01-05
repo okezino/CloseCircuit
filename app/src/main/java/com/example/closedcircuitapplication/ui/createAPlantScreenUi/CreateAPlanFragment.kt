@@ -1,6 +1,7 @@
 package com.example.closedcircuitapplication.ui.createAPlantScreenUi
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -16,11 +17,13 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.CAMERA_REQUEST_CODE
 import com.example.closedcircuitapplication.authentication.REQUEST_CODE_IMAGE_PICKER
+import com.example.closedcircuitapplication.authentication.SendImage_UriToCreateAPlanFragment
 import com.example.closedcircuitapplication.authentication.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -29,11 +32,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 class CreateAPlanFragment : Fragment() {
     private var _binding: FragmentCreateAPlanBinding? = null
     private val binding get() = _binding!!
-    lateinit var uri: Uri
     lateinit var sector: String
     lateinit var category: String
-
-  // private val args: CreateAPlanFragmentArgs by navArgs()
+    private val args: CreateAPlanFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,16 +55,14 @@ class CreateAPlanFragment : Fragment() {
         val selectplanCategory = resources.getStringArray(R.array.selectPlanCategory)
         val selectPlanCategoryArrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, selectplanCategory)
         binding.selectPlanCategoryDropdown.setAdapter(selectPlanCategoryArrayAdapter)
+        Toast.makeText(requireContext(), args.imageUri, Toast.LENGTH_SHORT).show()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.uploadImageIV.setOnClickListener {
-         //   binding.planImageCard.visibility = View.VISIBLE
             showUploadImageBottomSheetDialog()
-
-          //  binding.planImageCard.visibility = View.VISIBLE
         }
 
         binding.createPlanBtn.setOnClickListener {
@@ -71,12 +70,17 @@ class CreateAPlanFragment : Fragment() {
             category = binding.dropdownMenu.text.toString()
 
             Log.d("TEST", "SECTOR=====> $sector and CATEGORY====> $category ")
-           //val action = CreateAPlanFragmentDirections.(category, sector)
-         //  findNavController().navigate(action)
         }
 
-       // binding.uploadImageIV.setImageURI(uri)
-        //binding.uploadImageIV.setImageURI(thumbNail)
+        if(args.imageUri != 0 ){
+            if (args.imageUri == 1){
+            openImageChooser()
+            readStorage()
+        }else if ( args.imageUri == 2){
+            uploadImageWithCamera()
+        }
+
+        }
 
     }
 
@@ -85,6 +89,73 @@ class CreateAPlanFragment : Fragment() {
 
     }
 
+//    override fun send_ImageUri(data: String) {
+//        binding.uploadImageIV.setImageURI(data.toUri())
+//    }
+
+    // this method allow the user to pick image
+    fun openImageChooser() {
+        Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).also {
+            startActivityForResult(it, REQUEST_CODE_IMAGE_PICKER)
+        }
+    }
+
+
+
+    fun uploadImageWithCamera() {
+        if (ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.CAMERA) !=
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(), arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                TO_READ_EXTERNAL_STORAGE
+            )
+        } else {
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent, CAMERA_REQUEST_CODE)
+        }
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_IMAGE_PICKER) {
+            binding.uploadImageIV.setImageURI(data!!.data)
+        }
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == CAMERA_REQUEST_CODE) {
+                val pictureBitmap = data!!.getParcelableExtra<Bitmap>("data")
+                binding.uploadImageIV.setImageBitmap(pictureBitmap)
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == CAMERA_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                startActivityForResult(intent, CAMERA_REQUEST_CODE)
+            } else {
+                Toast.makeText(context, "permission was denied,please grant permission", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
+    private fun readStorage() {
+        if (ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE) !=
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(), arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                TO_READ_EXTERNAL_STORAGE
+            )
+        }
+    }
 
 
 }

@@ -18,7 +18,7 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
     private lateinit var binding: FragmentCreatePlanSummaryBinding
     private lateinit var description: String
 
-    //private val args: CreatePlanSummaryFragmentArgs by navArgs()
+    private val args: CreatePlanSummaryFragmentArgs by navArgs()
 
     override fun onResume() {
         super.onResume()
@@ -41,10 +41,10 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
         binding = FragmentCreatePlanSummaryBinding.bind(view)
         val createPlanButton = binding.fragmentSummaryCreatePlanBtn
 
-//        val categoryArgs = args.category
-//        val sectorArgs = args.sector
-//        binding.dropdownMenuCategory.setText(categoryArgs)
-//        binding.dropdownMenuSector.setText(sectorArgs)
+        val categoryArgs = args.category
+        val sectorArgs = args.sector
+        binding.dropdownMenuCategory.setText(categoryArgs)
+        binding.dropdownMenuSector.setText(sectorArgs)
 
         createPlanButton.setOnClickListener {
             findNavController().navigate(R.id.createPlanFragment)

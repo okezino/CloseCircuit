@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_30dp"
+    android:background="@drawable/bottomsheet_background"
     tools:context=".ui.createAPlantScreenUi.UploadImageBottomSheetFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/planImageCard"
         android:layout_width="match_parent"
-        android:layout_height="303dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/bottomsheet_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -18,7 +21,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FBFBFF">
+            android:background="@drawable/bottomsheet_background"
+            android:backgroundTint="#FBFBFF">
 
             <View
                 android:id="@+id/view3"
