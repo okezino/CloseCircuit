@@ -38,7 +38,7 @@ class CreateStepsFragment : Fragment() {
         }
         addChips()
         binding.createStepsSaveAndContinueButton.setOnClickListener {
-            findNavController().navigate(R.id.createPlanFragment)
+            findNavController().navigate(R.id.whenProjectIsNotFundedFragment)
         }
 
         binding.createStepSaveAndAddNewStepsButton.setOnClickListener {

@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/textSize_16sp"
-            android:text="Patience LTD"
             android:textSize="26sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -59,6 +58,7 @@
                 app:layout_constraintTop_toTopOf="@+id/project_sector_image_view">
 
                 <TextView
+                    android:id="@+id/project_business_sector"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
