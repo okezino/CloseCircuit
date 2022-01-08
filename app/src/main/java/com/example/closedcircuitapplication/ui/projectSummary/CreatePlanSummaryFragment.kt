@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.projectSummary
+package com.example.closedcircuitapplication.ui.projectSummary
 
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -78,7 +78,9 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
         val categoryArgs = args.category
         val sectorArgs = args.sector
         val uriArgs = args.uri
+        val currencyTypeArgs = args.currencyType
         val myUri = Uri.parse(uriArgs)
+
         Log.d(
             "CREATE_PLAN_SUMMARY",
             "SECTOR=====> $sectorArgs  CATEGORY====> $categoryArgs URI====> $myUri "
@@ -86,6 +88,17 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
         binding.dropdownMenuCategory.setText(categoryArgs)
         binding.dropdownMenuSector.setText(sectorArgs)
         binding.uploadImageHolderIv.setImageURI(myUri)
+
+        //setting dates from the currency type screen
+        binding.frgamentSummaryMinimumTv.text = currencyTypeArgs
+        binding.frgamentSummaryMaximumTv.text = currencyTypeArgs
+
+        //navigating to the select currency screen
+        binding.fragmentSummaryChangeCurrencyType.setOnClickListener {
+            val currencyType = binding.frgamentSummaryMinimumTv.text.toString()
+            val action = CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCurrencyTypeFragment(currencyType,sectorArgs,categoryArgs,uriArgs)
+            findNavController().navigate(action)
+        }
 
         // To set the maximum number of characters to be entered when a user types in the description box.
         binding.fragmentSummaryDescribePlanEt.addTextChangedListener(object : TextWatcher {
@@ -109,12 +122,6 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
         })
 
         createPlanButton.setOnClickListener {
-
-//            businessName = binding.fragmentSummaryEnterBusinessNameEt.text.toString()
-//            businessSector = binding.fragmentSummaryBusinessType.text.toString()
-//            planDescription = binding.fragmentSummaryDescribePlanEt.text.toString()
-//            planCategory = binding.dropdownMenuCategory.text.toString()
-//            planDuration = binding.fragmentSummaryMonthDuration.text.toString()
 
             val businessType = binding.fragmentSummaryBusinessType.text.toString()
             val businessName = binding.fragmentSummaryEnterBusinessNameEt.text.toString()
