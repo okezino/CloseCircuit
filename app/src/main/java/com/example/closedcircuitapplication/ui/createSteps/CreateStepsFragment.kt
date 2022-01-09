@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication
+package com.example.closedcircuitapplication.ui.createSteps
 
 import android.os.Bundle
 import android.view.ContextThemeWrapper
@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentCreateStepsBinding
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipDrawable
@@ -51,7 +52,9 @@ class CreateStepsFragment : Fragment() {
         val travellingChip = Chip(contextThemeWrapper)
         val engineeringChip = Chip(contextThemeWrapper)
         val chipsArray = arrayListOf<Chip>(travellingChip, engineeringChip)
-        val chipDrawable = ChipDrawable.createFromAttributes(requireContext(), null, 0, R.style.Widget_App_Chip)
+        val chipDrawable = ChipDrawable.createFromAttributes(requireContext(), null, 0,
+            R.style.Widget_App_Chip
+        )
 
         for (i in chipsArray) {
             i.apply {
@@ -61,7 +64,8 @@ class CreateStepsFragment : Fragment() {
                 height = 70
                 closeIconStartPadding = 15F
                 closeIcon =
-                    ResourcesCompat.getDrawable(requireActivity().resources, R.drawable.ic_chip_close, null)
+                    ResourcesCompat.getDrawable(requireActivity().resources,
+                        R.drawable.ic_chip_close, null)
                 setOnCloseIconClickListener {
                     binding.createStepSelectBudgetForStepsTextInputLayout.removeView(travellingChip)
                 }

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dashboard.MyBudgetFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="My Budget"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/budget_details_constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F1F5FF"
+            android:layout_marginTop="@dimen/margin_30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView36">
+
+            <TextView
+                android:id="@+id/my_budget_budget_name_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginTop="@dimen/margin_9dp"
+                android:fontFamily="@font/helvetica"
+                android:text="UI/UX Design"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/my_budget_target_budget_icon_imageView"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_target_amount_2"
+                app:layout_constraintStart_toStartOf="@+id/my_budget_budget_name_textView"
+                app:layout_constraintTop_toBottomOf="@+id/my_budget_budget_name_textView" />
+
+            <TextView
+                android:id="@+id/my_budget_target_budget_amount_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/helvetica"
+                android:maxLines="1"
+                android:text="NGN 100,000.00"
+                android:textColor="@color/closed_circuit_dark_green"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/my_budget_target_budget_icon_imageView"
+                app:layout_constraintTop_toTopOf="@+id/my_budget_target_budget_icon_imageView" />
+
+            <TextView
+                android:id="@+id/my_budget_target_amount_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica"
+                android:text="Target Amount"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/my_budget_target_budget_amount_textView"
+                app:layout_constraintTop_toBottomOf="@+id/my_budget_target_budget_amount_textView" />
+
+            <ImageView
+                android:id="@+id/my_budget_amount_raised_icon_imageView"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:src="@drawable/ic_funds_raised"
+                app:layout_constraintStart_toEndOf="@+id/my_budget_target_budget_amount_textView"
+                app:layout_constraintTop_toTopOf="@+id/my_budget_target_budget_icon_imageView" />
+
+            <TextView
+                android:id="@+id/my_budget_amount_raised_amount_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/helvetica"
+                android:maxLines="1"
+                android:text="NGN 0"
+                android:textColor="@color/closed_circuit_dark_green"
+                android:textSize="@dimen/textSize_15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/my_budget_amount_raised_icon_imageView"
+                app:layout_constraintTop_toTopOf="@+id/my_budget_amount_raised_icon_imageView" />
+
+            <TextView
+                android:id="@+id/my_budget_amount_raised_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica"
+                android:text="Total Funds Raised"
+                android:textSize="@dimen/textSize_10sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/my_budget_amount_raised_amount_textView"
+                app:layout_constraintTop_toBottomOf="@+id/my_budget_amount_raised_amount_textView" />
+
+            <TextView
+                android:id="@+id/my_budget_budget_description_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Budget Description"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/my_budget_target_budget_icon_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/my_budget_target_budget_icon_imageView" />
+
+            <TextView
+                android:id="@+id/my_budget_budget_description_description_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:layout_marginEnd="@dimen/margin_20dp"
+                android:layout_marginBottom="@dimen/margin_20dp"
+                android:fontFamily="@font/helvetica"
+                android:text="@string/step_description_placeholder_text"
+                android:textSize="@dimen/textSize_15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/my_budget_budget_description_textView"
+                app:layout_constraintTop_toBottomOf="@+id/my_budget_budget_description_textView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/my_budget_delete_icon_imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:elevation="10dp"
+            android:padding="7dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:src="@drawable/ic_trash"
+            android:background="@drawable/step_icons_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/budget_details_constraintLayout" />
+
+        <ImageView
+            android:id="@+id/my_budget_edit_icon_imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:background="@drawable/step_icons_background"
+            android:padding="7dp"
+            android:elevation="10dp"
+            android:src="@drawable/ic_edit_square"
+            app:layout_constraintBottom_toBottomOf="@+id/my_budget_delete_icon_imageView"
+            app:layout_constraintEnd_toStartOf="@+id/my_budget_delete_icon_imageView"
+            app:layout_constraintTop_toTopOf="@+id/my_budget_delete_icon_imageView" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/margin_40dp"
+            android:fontFamily="@font/helvetica"
+            android:text="Sponsors"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_budget_edit_icon_imageView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_budget_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:layout_marginBottom="@dimen/margin_100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView37"
+            tools:listitem="@layout/my_budget_sponsor_item_layout" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

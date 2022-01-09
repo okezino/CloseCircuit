@@ -165,4 +165,5 @@
     <string name="congratulation">Congratulation</string>
     <string name="no_steps_yet">No steps yet</string>
     <string name="no_budgets_yet">No budgets yet</string>
+    <string name="step_description_placeholder_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
 </resources>
