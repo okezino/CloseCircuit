@@ -265,11 +265,6 @@
             app:layout_constraintEnd_toEndOf="@+id/create_step_save_and_add_new_steps_button"
             app:layout_constraintStart_toStartOf="@+id/create_step_save_and_add_new_steps_button"
             app:layout_constraintTop_toBottomOf="@id/create_step_save_and_add_new_steps_button" />
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.core.widget.NestedScrollView>

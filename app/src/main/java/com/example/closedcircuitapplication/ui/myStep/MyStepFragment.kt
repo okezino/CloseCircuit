@@ -1,15 +1,13 @@
-package com.example.closedcircuitapplication.dashboard
+package com.example.closedcircuitapplication.ui.myStep
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.dashboard.adapter.MyStepsBudgetAdapter
-import com.example.closedcircuitapplication.dashboard.models.BudgetItem
 import com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.FragmentMyStepBinding
 import com.example.closedcircuitapplication.utils.budgetList

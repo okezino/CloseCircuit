@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".dashboard.MyBudgetFragment">
+    tools:context=".ui.myBudget.MyBudgetFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView36"
+            android:id="@+id/my_budget_my_budget_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_20dp"
             android:fontFamily="@font/helvetica"
-            android:text="My Budget"
+            android:text="@string/my_budget"
             android:textColor="@color/black"
             android:textSize="@dimen/textSize_24sp"
             android:textStyle="bold"
@@ -25,14 +25,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/budget_details_constraintLayout"
+            android:id="@+id/my_budget_budget_details_constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#F1F5FF"
             android:layout_marginTop="@dimen/margin_30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView36">
+            app:layout_constraintTop_toBottomOf="@+id/my_budget_my_budget_textView">
 
             <TextView
                 android:id="@+id/my_budget_budget_name_textView"
@@ -41,9 +41,9 @@
                 android:layout_marginStart="@dimen/margin_20dp"
                 android:layout_marginTop="@dimen/margin_9dp"
                 android:fontFamily="@font/helvetica"
-                android:text="UI/UX Design"
+                android:text="@string/ui_ux_design_placeholder_text"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="@dimen/textSize_20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -51,9 +51,9 @@
 
             <ImageView
                 android:id="@+id/my_budget_target_budget_icon_imageView"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="@dimen/width_35dp"
+                android:layout_height="@dimen/height_35dp"
+                android:layout_marginTop="@dimen/margin_20dp"
                 android:src="@drawable/ic_target_amount_2"
                 app:layout_constraintStart_toStartOf="@+id/my_budget_budget_name_textView"
                 app:layout_constraintTop_toBottomOf="@+id/my_budget_budget_name_textView" />
@@ -62,13 +62,13 @@
                 android:id="@+id/my_budget_target_budget_amount_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="@dimen/margin_7dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/helvetica"
                 android:maxLines="1"
-                android:text="NGN 100,000.00"
+                android:text="@string/ngn_100_000_00_placeholder_amount"
                 android:textColor="@color/closed_circuit_dark_green"
-                android:textSize="15sp"
+                android:textSize="@dimen/textSize_15sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/my_budget_target_budget_icon_imageView"
                 app:layout_constraintTop_toTopOf="@+id/my_budget_target_budget_icon_imageView" />
@@ -78,16 +78,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helvetica"
-                android:text="Target Amount"
-                android:textSize="10sp"
+                android:text="@string/target_amount_text"
+                android:textSize="@dimen/textSize_10sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/my_budget_target_budget_amount_textView"
                 app:layout_constraintTop_toBottomOf="@+id/my_budget_target_budget_amount_textView" />
 
             <ImageView
                 android:id="@+id/my_budget_amount_raised_icon_imageView"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="@dimen/width_35dp"
+                android:layout_height="@dimen/height_35dp"
                 android:layout_marginStart="@dimen/margin_20dp"
                 android:src="@drawable/ic_funds_raised"
                 app:layout_constraintStart_toEndOf="@+id/my_budget_target_budget_amount_textView"
@@ -97,11 +97,11 @@
                 android:id="@+id/my_budget_amount_raised_amount_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="@dimen/margin_7dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/helvetica"
                 android:maxLines="1"
-                android:text="NGN 0"
+                android:text="@string/ngn_0_placeholder_text"
                 android:textColor="@color/closed_circuit_dark_green"
                 android:textSize="@dimen/textSize_15sp"
                 android:textStyle="bold"
@@ -113,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helvetica"
-                android:text="Total Funds Raised"
+                android:text="@string/total_funds_raised"
                 android:textSize="@dimen/textSize_10sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/my_budget_amount_raised_amount_textView"
@@ -123,18 +123,18 @@
                 android:id="@+id/my_budget_budget_description_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="21dp"
+                android:layout_marginTop="@dimen/margin_21dp"
                 android:fontFamily="@font/helvetica"
-                android:text="Budget Description"
+                android:text="@string/budget_description_text"
                 android:textColor="@color/black"
-                android:textSize="17sp"
+                android:textSize="@dimen/textSize_17sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/my_budget_target_budget_icon_imageView"
                 app:layout_constraintTop_toBottomOf="@+id/my_budget_target_budget_icon_imageView" />
 
             <TextView
                 android:id="@+id/my_budget_budget_description_description_textView"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/width_0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10dp"
                 android:layout_marginEnd="@dimen/margin_20dp"
@@ -152,41 +152,55 @@
 
         <ImageView
             android:id="@+id/my_budget_delete_icon_imageView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/width_40dp"
+            android:layout_height="@dimen/height_40dp"
             android:layout_marginEnd="@dimen/margin_20dp"
-            android:elevation="10dp"
-            android:padding="7dp"
+            android:elevation="@dimen/elevation_10dp"
+            android:padding="@dimen/padding_7dp"
             android:layout_marginTop="@dimen/margin_20dp"
             android:src="@drawable/ic_trash"
             android:background="@drawable/step_icons_background"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/budget_details_constraintLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/my_budget_budget_details_constraintLayout" />
 
         <ImageView
             android:id="@+id/my_budget_edit_icon_imageView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/width_40dp"
+            android:layout_height="@dimen/height_40dp"
             android:layout_marginEnd="@dimen/margin_20dp"
             android:background="@drawable/step_icons_background"
-            android:padding="7dp"
-            android:elevation="10dp"
+            android:padding="@dimen/padding_7dp"
+            android:elevation="@dimen/elevation_10dp"
             android:src="@drawable/ic_edit_square"
             app:layout_constraintBottom_toBottomOf="@+id/my_budget_delete_icon_imageView"
             app:layout_constraintEnd_toStartOf="@+id/my_budget_delete_icon_imageView"
             app:layout_constraintTop_toTopOf="@+id/my_budget_delete_icon_imageView" />
 
         <TextView
-            android:id="@+id/textView37"
+            android:id="@+id/my_budget_sponsors_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/margin_16dp"
             android:layout_marginTop="@dimen/margin_40dp"
             android:fontFamily="@font/helvetica"
-            android:text="Sponsors"
+            android:text="@string/sponsors_text"
+            android:visibility="gone"
             android:textColor="@color/closed_circuit_dark_green"
-            android:textSize="17sp"
+            android:textSize="@dimen/textSize_17sp"
             android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_budget_edit_icon_imageView" />
+
+        <TextView
+            android:id="@+id/my_budget_no_sponsors_yet_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/no_sponsors_yet_text"
+            android:textSize="@dimen/textSize_24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_125dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/my_budget_edit_icon_imageView" />
 
@@ -196,10 +210,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_20dp"
             android:layout_marginBottom="@dimen/margin_100dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView37"
+            app:layout_constraintTop_toBottomOf="@+id/my_budget_sponsors_textView"
             tools:listitem="@layout/my_budget_sponsor_item_layout" />
 
 

@@ -1,13 +1,18 @@
 package com.example.closedcircuitapplication.dashboard
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
+import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.dashboard.adapter.CreateStepsBudgetsFragmentAdapter
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanBinding
+import com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragmentArgs
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -15,6 +20,7 @@ class ProjectSummaryFragment : Fragment() {
 
     private var _binding: FragmentCreatePlanBinding? = null
     private val binding get() = _binding!!
+    private val args: ProjectSummaryFragmentArgs by navArgs()
     private lateinit var viewPagerAdapter: CreateStepsBudgetsFragmentAdapter
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
@@ -32,6 +38,15 @@ class ProjectSummaryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.projectTitle.text = args.businessName
+        binding.projectDuration.text = args.planDuration
+        binding.projectDescriptionTextView.text = args.planDescription
+        binding.projectBusinessSector.text = "${args.businessSector} (${args.planCategory})"
+
+        binding.planLink.setOnClickListener {
+            findNavController().navigate(R.id.sendFundsSummaryFragment)
+        }
 
         viewPagerAdapter = CreateStepsBudgetsFragmentAdapter(this)
         viewPager.adapter = viewPagerAdapter

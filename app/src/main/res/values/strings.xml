@@ -166,4 +166,19 @@
     <string name="no_steps_yet">No steps yet</string>
     <string name="no_budgets_yet">No budgets yet</string>
     <string name="step_description_placeholder_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
+    <string name="send_funds">Send Funds</string>
+    <string name="funds_available">Funds Available</string>
+    <string name="design_a_website_placeholder_text">Design a website</string>
+    <string name="ngn_500_000_00_placeholder_target_amount_text">NGN 500,000.00</string>
+    <string name="ngn_0_placeholder_text">NGN 0</string>
+    <string name="total_funds_raised">Total Funds Raised</string>
+    <string name="step_description">Step Description</string>
+    <string name="duration_text">Duration</string>
+    <string name="_6_weeks">: 6 weeks</string>
+    <string name="my_budget">My Budget</string>
+    <string name="ui_ux_design_placeholder_text">UI/UX Design</string>
+    <string name="ngn_100_000_00_placeholder_amount">NGN 100,000.00</string>
+    <string name="budget_description_text">Budget Description</string>
+    <string name="sponsors_text">Sponsors</string>
+    <string name="no_sponsors_yet_text">No Sponsors yet</string>
 </resources>

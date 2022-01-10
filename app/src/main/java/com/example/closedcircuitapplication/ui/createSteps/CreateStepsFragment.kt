@@ -39,11 +39,11 @@ class CreateStepsFragment : Fragment() {
         }
         addChips()
         binding.createStepsSaveAndContinueButton.setOnClickListener {
-            findNavController().navigate(R.id.createPlanFragment)
+            findNavController().navigate(R.id.createAPlanFragment2)
         }
 
         binding.createStepSaveAndAddNewStepsButton.setOnClickListener {
-            findNavController().navigate(R.id.createStepsFragment)
+            findNavController().navigate(R.id.createPlanFragment)
         }
     }
 

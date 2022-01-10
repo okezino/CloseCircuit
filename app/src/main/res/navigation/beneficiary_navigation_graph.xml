@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/beneficiary_navigation_graph"
-    app:startDestination="@id/createPlanFragment">
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
         android:id="@+id/dashboardFragment"
@@ -29,7 +29,24 @@
         android:id="@+id/createPlanFragment"
         android:name="com.example.closedcircuitapplication.dashboard.ProjectSummaryFragment"
         android:label="fragment_create_plan"
-        tools:layout="@layout/fragment_create_plan" />
+        tools:layout="@layout/fragment_create_plan">
+
+        <argument
+            android:name="planDuration"
+            app:argType="string" />
+        <argument
+            android:name="planDescription"
+            app:argType="string" />
+        <argument
+            android:name="businessName"
+            app:argType="string" />
+        <argument
+            android:name="planCategory"
+            app:argType="string" />
+        <argument
+            android:name="businessSector"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/createPlanBudgetFragment"
         android:name="com.example.closedcircuitapplication.dashboard.CreatePlanBudgetFragment"
@@ -104,6 +121,9 @@
         <argument
             android:name="category"
             app:argType="string" />
+        <argument
+            android:name="uri"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment2"
@@ -119,6 +139,8 @@
         <argument
             android:name="category"
             app:argType="string" />
+        <argument
+            android:name="uri" />
     </fragment>
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment2"
@@ -127,7 +149,7 @@
         tools:layout="@layout/fragment_email_verification_successful" />
     <fragment
         android:id="@+id/myStepFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.MyStepFragment"
+        android:name="com.example.closedcircuitapplication.ui.myStep.MyStepFragment"
         android:label="fragment_my_step"
         tools:layout="@layout/fragment_my_step" >
         <argument
@@ -136,7 +158,13 @@
     </fragment>
     <fragment
         android:id="@+id/myBudgetFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.MyBudgetFragment"
+        android:name="com.example.closedcircuitapplication.ui.myBudget.MyBudgetFragment"
         android:label="fragment_my_budget"
         tools:layout="@layout/fragment_my_budget" />
+
+    <fragment
+        android:id="@+id/sendFundsSummaryFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.SendFundsSummaryFragment"
+        android:label="SendFundsSummaryFragment"
+        tools:layout="@layout/fragment_send_funds_summary"/>
 </navigation>

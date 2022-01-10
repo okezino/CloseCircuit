@@ -31,6 +31,9 @@ class CreateBudgetFragment : Fragment() {
             }
             picker.show(requireActivity().supportFragmentManager, "CURRENCY_PICKER")
         }
+        binding.createBudgetSaveAndContinueButton.setOnClickListener {
+//            find
+        }
     }
 
     override fun onDestroyView() {

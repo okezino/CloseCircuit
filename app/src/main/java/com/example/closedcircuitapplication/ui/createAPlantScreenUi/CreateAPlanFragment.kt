@@ -11,9 +11,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
@@ -25,9 +27,14 @@ import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBindi
 class CreateAPlanFragment : Fragment() {
     private var _binding: FragmentCreateAPlanBinding? = null
     private val binding get() = _binding!!
-    lateinit var uri: Uri
-    lateinit var sector: String
-    lateinit var category: String
+    private var uri: Uri? = null
+    private var sector: String? = null
+    private var category:String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,10 +76,15 @@ class CreateAPlanFragment : Fragment() {
         binding.createPlanBtn.setOnClickListener {
             sector = binding.selectPlanCategoryDropdown.text.toString()
             category = binding.dropdownMenu.text.toString()
+            val _category = category
+            val _sector = sector
+            val _uri = uri.toString()
+            if (_sector != null && _category != null){
+                Log.d("CREATE_PLAN", "SECTOR=====> $_sector  CATEGORY====> $_category URI====> $_uri ")
+                val action = CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(_category,_sector,_uri)
+                findNavController().navigate(action)
+            }
 
-            Log.d("TEST", "SECTOR=====> $sector and CATEGORY====> $category ")
-            val action = CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(category, sector)
-            findNavController().navigate(action)
         }
     }
     // this method allow the user to pick image
@@ -111,6 +123,8 @@ class CreateAPlanFragment : Fragment() {
         if (data != null) {
             uri = data.data!!
             binding.uploadImageIV.setImageURI(uri)
+            Log.d("IMAGE", "onActivityResult: $uri")
+
         }
         // upload image using camera
         if (resultCode == Activity.RESULT_OK) {
