@@ -3,14 +3,10 @@ package com.example.closedcircuitapplication.dashboard.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.closedcircuitapplication.ClickListener
-import com.example.closedcircuitapplication.dashboard.CreatePlanStepsFragmentDirections
+import com.example.closedcircuitapplication.dashboard.interfaces.ClickListener
 import com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.StepsBudgetRecyclerItemBinding
-import com.example.closedcircuitapplication.ui.createAPlantScreenUi.CreateAPlanFragmentDirections
 
 class StepsBudgetsAdapter(private val items: MutableList<StepsBudgetItem>, var listener: ClickListener) : RecyclerView.Adapter<StepsBudgetsAdapter.ViewHolder>() {
 

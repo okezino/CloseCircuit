@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication
+package com.example.closedcircuitapplication.dashboard.interfaces
 
 import androidx.navigation.NavController
 import com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem

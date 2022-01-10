@@ -10,7 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.closedcircuitapplication.ClickListener
+import com.example.closedcircuitapplication.dashboard.interfaces.ClickListener
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.dashboard.adapter.StepsBudgetsAdapter
 import com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem

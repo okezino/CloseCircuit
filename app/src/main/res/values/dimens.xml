@@ -1,11 +1,9 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="margin_20dp">20dp</dimen>
     <dimen name="margin_34dp">34dp</dimen>
     <dimen name="textSize_24sp">24sp</dimen>
     <dimen name="width_0dp">0dp</dimen>
     <dimen name="margin_54dp">54dp</dimen>
-    <dimen name="textSize_15sp">15sp</dimen>
     <dimen name="height_54dp">54dp</dimen>
     <dimen name="spacing_20dp">20dp</dimen>
     <dimen name="width_54dp">54dp</dimen>
