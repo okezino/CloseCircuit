@@ -1,11 +1,9 @@
 package com.example.closedcircuitapplication.ui.createAPlantScreenUi
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -17,8 +15,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
-import androidx.navigation.fragment.findNavController
+
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.CAMERA_REQUEST_CODE
@@ -26,14 +23,13 @@ import com.example.closedcircuitapplication.authentication.REQUEST_CODE_IMAGE_PI
 import com.example.closedcircuitapplication.authentication.SendImage_UriToCreateAPlanFragment
 import com.example.closedcircuitapplication.authentication.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class CreateAPlanFragment : Fragment() {
+class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanFragment  {
     private var _binding: FragmentCreateAPlanBinding? = null
     private val binding get() = _binding!!
     lateinit var sector: String
     lateinit var category: String
+    private  var image_data = 0
     private val args: CreateAPlanFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -55,12 +51,13 @@ class CreateAPlanFragment : Fragment() {
         val selectplanCategory = resources.getStringArray(R.array.selectPlanCategory)
         val selectPlanCategoryArrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, selectplanCategory)
         binding.selectPlanCategoryDropdown.setAdapter(selectPlanCategoryArrayAdapter)
-        Toast.makeText(requireContext(), args.imageUri, Toast.LENGTH_SHORT).show()
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // show the upoadimage bottomsheet when the upload image view is clicked
         binding.uploadImageIV.setOnClickListener {
             showUploadImageBottomSheetDialog()
         }
@@ -71,27 +68,11 @@ class CreateAPlanFragment : Fragment() {
 
             Log.d("TEST", "SECTOR=====> $sector and CATEGORY====> $category ")
         }
-
-        if(args.imageUri != 0 ){
-            if (args.imageUri == 1){
-            openImageChooser()
-            readStorage()
-        }else if ( args.imageUri == 2){
-            uploadImageWithCamera()
-        }
-
-        }
-
     }
-
+    // show bottomsheet fragment holding the camera and uplaod image icon
     private fun showUploadImageBottomSheetDialog() {
-        findNavController().navigate(R.id.action_createAPlanFragment2_to_uploadImageBottomSheetFragment2)
-
+        UploadImageBottomSheetFragment(this).show(requireActivity().supportFragmentManager,"uploadImageBottomSheet")
     }
-
-//    override fun send_ImageUri(data: String) {
-//        binding.uploadImageIV.setImageURI(data.toUri())
-//    }
 
     // this method allow the user to pick image
     fun openImageChooser() {
@@ -99,8 +80,6 @@ class CreateAPlanFragment : Fragment() {
             startActivityForResult(it, REQUEST_CODE_IMAGE_PICKER)
         }
     }
-
-
 
     fun uploadImageWithCamera() {
         if (ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.CAMERA) !=
@@ -145,7 +124,7 @@ class CreateAPlanFragment : Fragment() {
         }
     }
 
-
+    //  read external storage and  get the image from the galery
     private fun readStorage() {
         if (ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE) !=
             PackageManager.PERMISSION_GRANTED
@@ -157,5 +136,13 @@ class CreateAPlanFragment : Fragment() {
         }
     }
 
-
+    override fun send_ImageUri(data: Int) {
+        image_data = data
+        if (image_data == 1){
+            openImageChooser()
+            readStorage()
+        }else if ( image_data == 2){
+            uploadImageWithCamera()
+        }
+    }
 }

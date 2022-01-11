@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/margin_30dp"
-    android:background="@drawable/bottomsheet_background"
+    android:background="#000000"
     tools:context=".ui.createAPlantScreenUi.UploadImageBottomSheetFragment">
 
     <androidx.cardview.widget.CardView
@@ -21,7 +20,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bottomsheet_background"
             android:backgroundTint="#FBFBFF">
 
             <View
@@ -86,6 +84,8 @@
                 android:layout_marginStart="@dimen/margin_20dp"
                 android:layout_marginTop="31dp"
                 app:cardCornerRadius="@dimen/margin_40dp"
+                android:layout_marginBottom="@dimen/margin_20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/galaryCardView">
 
@@ -93,6 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+
                     android:src="@drawable/ic_photo_camera_24" />
             </androidx.cardview.widget.CardView>
 

@@ -43,4 +43,5 @@
     <color name="background2">#FBFBFF</color>
     <color name="disabled_btn">#6e875c</color>
     <color name="text_color_project">#8A8A8E</color>
+    <color name="button_background_color">#24500F</color>
 </resources>

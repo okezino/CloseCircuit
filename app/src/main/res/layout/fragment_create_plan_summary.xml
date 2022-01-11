@@ -195,15 +195,28 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
                 <TextView
+                    android:id="@+id/business_type_field_cannot_be_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:fontFamily="@font/helvetica"
+                    android:text="This field cannot be empty"
+                    android:textColor="#FF0000"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_business_type" />
+
+                <TextView
                     android:id="@+id/textView28"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:fontFamily="@font/helvetica"
                     android:text="Describe your plan"
                     android:textColor="#24500F"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_enter_business_name_et" />
+                    app:layout_constraintTop_toBottomOf="@+id/business_name_field_cannot_be_empty" />
 
                 <TextView
                     android:id="@+id/textView29"
@@ -214,8 +227,9 @@
                     android:text="Create Business Plan"
                     android:textColor="#24500F"
                     android:textSize="20sp"
+                    app:layout_constraintTop_toBottomOf="@id/business_type_field_cannot_be_empty"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_business_type" />
+                    tools:layout_editor_absoluteY="501dp" />
 
                 <TextView
                     android:id="@+id/textView30"
@@ -245,6 +259,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
+                <TextView
+                    android:id="@+id/business_name_field_cannot_be_empty"
+                    android:layout_width="0dp"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/helvetica"
+                    android:text="This field cannot be empty"
+                    android:textColor="#FF0000"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_enter_business_name_et" />
+
                 <EditText
                     android:id="@+id/fragment_summary_describe_plan_et"
                     android:layout_width="match_parent"
@@ -263,9 +289,22 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
                 <TextView
+                    android:id="@+id/describe_plan_field_cannot_be_empty"
+                    android:layout_width="0dp"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/helvetica"
+                    android:text="This field cannot be empty"
+                    android:textColor="#FF0000"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_describe_plan_et" />
+
+                <TextView
                     android:id="@+id/fragment_plan_summary_200_max_words_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:visibility="visible"
                     android:fontFamily="@font/helvetica"
                     android:text="200 maximum words"
                     android:textColor="#C4C4C4"
@@ -274,16 +313,27 @@
                     app:layout_constraintTop_toBottomOf="@+id/fragment_summary_describe_plan_et" />
 
                 <TextView
+                    android:id="@+id/fragment_plan_summary_exceeded_200_max_words_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:fontFamily="@font/helvetica"
+                    android:text="You have exceeded the maximum number of words (200)"
+                    android:textColor="#FF0000"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_describe_plan_et" />
+
+                <TextView
                     android:id="@+id/textView31"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/helvetica"
                     android:text="Enter plan duration"
                     android:textColor="#24500F"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/fragment_plan_summary_200_max_words_tv" />
+                    app:layout_constraintTop_toBottomOf="@+id/describe_plan_field_cannot_be_empty" />
 
                 <TextView
                     android:id="@+id/frgament_summary_month_tv"
@@ -306,7 +356,7 @@
                     android:background="@drawable/text_input_background_5dp"
                     android:fontFamily="@font/helvetica"
                     android:gravity="center_vertical"
-                    android:maxLines="2"
+                    android:maxLines="1"
                     android:paddingLeft="10dp"
                     android:inputType="number"
                     android:textColor="@color/black"
@@ -315,6 +365,19 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/frgament_summary_month_tv" />
+
+                <TextView
+                    android:id="@+id/plan_duration_field_cannot_be_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginStart="52dp"
+                    android:fontFamily="@font/helvetica"
+                    android:text="This field cannot be empty"
+                    android:textColor="#FF0000"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_month_duration" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/fragment_summary_plan_support_dropdown_layout"
@@ -351,10 +414,22 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
+                    android:id="@+id/support_field_cannot_be_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:fontFamily="@font/helvetica"
+                    android:text="This field cannot be empty"
+                    android:textColor="#FF0000"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_plan_support_dropdown_layout" />
+
+                <TextView
                     android:id="@+id/fragment_summary_preffered_support_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="25dp"
                     android:fontFamily="@font/helvetica"
                     android:text="Select your preferred means of support"
                     android:textColor="#24500F"
@@ -369,7 +444,7 @@
                     android:id="@+id/fragment_summary_change_currency_type"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="29dp"
                     android:fontFamily="@font/helvetica"
                     android:text="change currency type"
                     android:textColor="#9DC333"
@@ -381,7 +456,7 @@
                     android:id="@+id/frgament_summary_loan_range_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="22dp"
                     android:fontFamily="@font/helvetica"
                     android:text="What’s your loan range"
                     android:textColor="#24500F"
@@ -412,9 +487,9 @@
                     android:gravity="center_vertical|end"
                     android:hint="minimum"
                     android:foregroundGravity="left"
-                    android:maxLines="2"
+                    android:maxLines="1"
                     android:paddingRight="18dp"
-                    android:inputType=""
+                    android:inputType="text"
                     android:textColor="@color/black"
                     android:textColorHint="#C4C4C4"
                     android:textSize="15sp"
@@ -422,6 +497,21 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="@id/frgament_summary_minimum_tv" />
+
+                <TextView
+                    android:id="@+id/minimum_field_cannot_be_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginStart="52dp"
+                    android:fontFamily="@font/helvetica"
+                    android:text="This field cannot be empty"
+                    android:textColor="#FF0000"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_minimum_et" />
+
+
 
                 <TextView
                     android:id="@+id/frgament_summary_maximum_tv"
@@ -446,7 +536,8 @@
                     android:fontFamily="@font/helvetica"
                     android:gravity="center_vertical|end"
                     android:hint="maximum"
-                    android:maxLines="2"
+                    android:maxLines="1"
+                    android:inputType="text"
                     android:paddingRight="18dp"
                     android:textColor="@color/black"
                     android:textColorHint="#C4C4C4"
@@ -455,6 +546,19 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/frgament_summary_maximum_tv" />
+
+                <TextView
+                    android:id="@+id/maximum_field_cannot_be_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginStart="52dp"
+                    android:fontFamily="@font/helvetica"
+                    android:text="This field cannot be empty"
+                    android:textColor="#FF0000"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_maximum_et" />
 
                 <TextView
                     android:id="@+id/fragment_summary_max_lenders_tv"
@@ -499,6 +603,18 @@
                         android:scrollbars="none" />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/lenders_field_cannot_be_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:fontFamily="@font/helvetica"
+                    android:text="This field cannot be empty"
+                    android:textColor="#FF0000"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_summary_plan_lenders_dropdown_layout" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/fragment_summary_create_plan_btn"

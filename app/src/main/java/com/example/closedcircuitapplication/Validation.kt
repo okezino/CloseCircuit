@@ -1,7 +1,5 @@
 package com.example.closedcircuitapplication
 
-import java.util.regex.Pattern
-
 object Validation {
     var EMAIL_PATTERN = Regex(
         "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
@@ -45,5 +43,43 @@ object Validation {
     fun validateFullNameInput(name: String): Boolean {
         val regex = Regex("^([0-9]+([a-z|A-Z]+?)?|([!@#$%&*=|'+,./_-]+)|\\s+|\\+)")
         return name.matches(regex) || name.isEmpty()
+    }
+    // validate Business name
+    fun validateBusinessType(businessType: String):Boolean{
+        return (businessType.isNotEmpty())
+    }
+
+    //validate Business name
+    fun validateBusinessName(businessName: String): Boolean{
+        return (businessName.isNotEmpty())
+    }
+    //validate plan duration
+    fun validatePlanDuration(planDuration: String): Boolean{
+        return (planDuration.isNotEmpty())
+    }
+
+    //validate minimum loan range
+    fun validateMinimumLoan(minimumRange: String): Boolean{
+        return (minimumRange.isNotEmpty())
+    }
+
+    //validate maximum loan range
+    fun validateMaximumLoan(maximumRange: String): Boolean{
+        return (maximumRange.isNotEmpty())
+    }
+
+    // validate maximum number of lenders
+    fun validateNumberOfLenders(numberOfLenders: String): Boolean{
+        return (numberOfLenders.isNotEmpty())
+    }
+
+    //validate description
+    fun validateDescription(description: String): Boolean{
+        return (description.isNotEmpty())
+    }
+
+    //validate support
+    fun validateSupport(support: String): Boolean{
+        return (support.isNotEmpty())
     }
 }
