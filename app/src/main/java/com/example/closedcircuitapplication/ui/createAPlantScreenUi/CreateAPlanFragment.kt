@@ -81,7 +81,7 @@ class CreateAPlanFragment : Fragment() {
             val _uri = uri.toString()
             if (_sector != null && _category != null){
                 Log.d("CREATE_PLAN", "SECTOR=====> $_sector  CATEGORY====> $_category URI====> $_uri ")
-                val action = CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(_category,_sector,_uri)
+                val action = CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(_category,_sector,_uri,"NGN")
                 findNavController().navigate(action)
             }
 

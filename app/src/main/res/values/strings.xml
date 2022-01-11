@@ -153,6 +153,12 @@
         <item>3</item>
     </string-array>
 
+    <string-array name="currency_type">
+        <item>NGN</item>
+        <item>USD</item>
+        <item>RAND</item>
+    </string-array>
+
     <string name="notifications">Notifications</string>
     <string name="no_notifications">No Notifications</string>
     <string name="patience_you_currently_do_not_have_any_notifications">Patience, you currently do not have any notifications.</string>

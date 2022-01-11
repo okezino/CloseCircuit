@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.projectSummary.dataModel
+package com.example.closedcircuitapplication.ui.projectSummary.dataModel
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

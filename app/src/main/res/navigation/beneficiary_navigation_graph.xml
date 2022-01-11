@@ -99,7 +99,7 @@
     </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment"
-        android:name="com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectSummary.CreatePlanSummaryFragment"
         android:label="fragment_create_plan_summary"
         tools:layout="@layout/fragment_create_plan_summary" />
 
@@ -123,7 +123,7 @@
     </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment2"
-        android:name="com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectSummary.CreatePlanSummaryFragment"
         android:label="fragment_create_plan_summary"
         tools:layout="@layout/fragment_create_plan_summary" >
         <action
@@ -137,6 +137,12 @@
             app:argType="string" />
         <argument
             android:name="uri" />
+        <argument
+            android:name="currency_type"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_createPlanSummaryFragment2_to_currencyTypeFragment"
+            app:destination="@id/currencyTypeFragment" />
     </fragment>
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment2"
@@ -153,4 +159,23 @@
         android:name="com.example.closedcircuitapplication.dashboard.SendFundsSummaryFragment"
         android:label="SendFundsSummaryFragment"
         tools:layout="@layout/fragment_send_funds_summary"/>
+    <fragment
+        android:id="@+id/currencyTypeFragment"
+        android:name="com.example.closedcircuitapplication.ui.currencyType.CurrencyTypeFragment"
+        android:label="fragment_currency_type"
+        tools:layout="@layout/fragment_currency_type" >
+        <action
+            android:id="@+id/action_currencyTypeFragment_to_createPlanSummaryFragment2"
+            app:destination="@id/createPlanSummaryFragment2" />
+        <argument
+            android:name="currency_type"
+            app:argType="string" />
+        <argument
+            android:name="sector"
+            app:argType="string" />
+        <argument
+            android:name="category"
+            app:argType="string" />
+        <argument android:name="uri" />
+    </fragment>
 </navigation>
