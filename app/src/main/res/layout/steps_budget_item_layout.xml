@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin_10dp"
+    android:layout_marginBottom="@dimen/margin_10dp"
+    android:background="@drawable/steps_budget_item_background"
+    android:layout_marginEnd="@dimen/margin_20dp"
+    android:layout_marginStart="@dimen/margin_20dp">
+
+    <TextView
+        android:id="@+id/steps_budget_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:fontFamily="@font/helvetica"
+        android:text="UI/UX Design"
+        android:textColor="@color/closed_circuit_dark_green"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/steps_budget_target_funds_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:fontFamily="@font/helvetica"
+        android:text="Target Funds"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/steps_budget_name_textView"
+        app:layout_constraintTop_toBottomOf="@+id/steps_budget_name_textView" />
+
+    <TextView
+        android:id="@+id/steps_budget_taget_funds_amount_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_10dp"
+        android:fontFamily="@font/helvetica"
+        android:text="NGN 100,000.00"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:maxWidth="150dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/steps_budget_target_funds_textView" />
+
+    <TextView
+        android:id="@+id/steps_budget_total_funds_raised_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/helvetica"
+        android:text="Total Funds Raised"
+        android:textSize="17sp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/steps_budget_target_funds_textView"
+        app:layout_constraintTop_toBottomOf="@+id/steps_budget_target_funds_textView" />
+
+    <TextView
+        android:id="@+id/steps_budget_total_funds_raised_amount_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/helvetica"
+        android:text="NGN 0"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:maxWidth="150dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintEnd_toEndOf="@+id/steps_budget_taget_funds_amount_textView"
+        app:layout_constraintTop_toTopOf="@+id/steps_budget_total_funds_raised_textView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

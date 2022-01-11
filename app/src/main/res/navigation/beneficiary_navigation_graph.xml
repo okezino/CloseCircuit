@@ -56,16 +56,20 @@
         android:id="@+id/createPlanStepsFragment"
         android:name="com.example.closedcircuitapplication.dashboard.CreatePlanStepsFragment"
         android:label="CreatePlanStepsFragment"
-        tools:layout="@layout/fragment_create_plan_steps"/>
+        tools:layout="@layout/fragment_create_plan_steps">
+        <action
+            android:id="@+id/action_createPlanStepsFragment_to_myStepFragment"
+            app:destination="@id/myStepFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/createStepsFragment"
-        android:name="com.example.closedcircuitapplication.CreateStepsFragment"
+        android:name="com.example.closedcircuitapplication.ui.createSteps.CreateStepsFragment"
         android:label="fragment_create_steps"
         tools:layout="@layout/fragment_create_steps" />
     <fragment
         android:id="@+id/createBudgetFragment"
-        android:name="com.example.closedcircuitapplication.CreateBudgetFragment"
+        android:name="com.example.closedcircuitapplication.ui.createBudget.CreateBudgetFragment"
         android:label="fragment_create_budget"
         tools:layout="@layout/fragment_create_budget" />
     <fragment
@@ -150,10 +154,20 @@
         android:label="fragment_email_verification_successful"
         tools:layout="@layout/fragment_email_verification_successful" />
     <fragment
-        android:id="@+id/whenProjectIsNotFundedFragment"
-        android:name="com.example.closedcircuitapplication.frame13.WhenProjectIsNotFundedFragment"
-        android:label="fragment_when_project_is_not_funded"
-        tools:layout="@layout/fragment_when_project_is_not_funded" />
+        android:id="@+id/myStepFragment"
+        android:name="com.example.closedcircuitapplication.ui.myStep.MyStepFragment"
+        android:label="fragment_my_step"
+        tools:layout="@layout/fragment_my_step" >
+        <argument
+            android:name="BudgetDetails"
+            app:argType="com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/myBudgetFragment"
+        android:name="com.example.closedcircuitapplication.ui.myBudget.MyBudgetFragment"
+        android:label="fragment_my_budget"
+        tools:layout="@layout/fragment_my_budget" />
+
     <fragment
         android:id="@+id/sendFundsSummaryFragment"
         android:name="com.example.closedcircuitapplication.dashboard.SendFundsSummaryFragment"
