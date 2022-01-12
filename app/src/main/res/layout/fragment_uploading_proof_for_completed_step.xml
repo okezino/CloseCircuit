@@ -174,7 +174,7 @@
             android:background="@drawable/spinner_background"
             android:ems="10"
             android:outlineSpotShadowColor="@color/black"
-            android:padding="@dimen/padding_10dp"
+            android:padding="30dp"
             android:gravity="start|top"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
