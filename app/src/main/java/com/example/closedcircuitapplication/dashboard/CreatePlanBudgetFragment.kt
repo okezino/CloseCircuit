@@ -75,6 +75,7 @@ class CreatePlanBudgetFragment : Fragment(), ClickListener {
 
         budgetsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         budgetsRecyclerView.adapter = budgetsAdapter
+        budgetsRecyclerView.visibility = View.VISIBLE
     }
 
     override fun onDestroy() {
@@ -83,6 +84,8 @@ class CreatePlanBudgetFragment : Fragment(), ClickListener {
     }
 
     override fun onClick(budgetDate: StepsBudgetItem) {
-        TODO("Not yet implemented")
+        val bundle = Bundle()
+        bundle.putParcelable("budgetData", budgetDate)
+        findNavController().navigate(R.id.myBudgetFragment, bundle)
     }
 }

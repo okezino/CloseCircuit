@@ -1,5 +1,6 @@
 package com.example.closedcircuitapplication.dashboard
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +42,9 @@ class ProjectSummaryFragment : Fragment() {
         binding.projectDuration.text = args.planDuration
         binding.projectDescriptionTextView.text = args.planDescription
         binding.projectBusinessSector.text = "${args.businessSector} (${args.planCategory})"
+        if (args.imageUri != null) {
+            binding.projectSummaryImageView.setImageURI(Uri.parse(args.imageUri))
+        }
 
         binding.planLink.setOnClickListener {
             findNavController().navigate(R.id.sendFundsSummaryFragment)
