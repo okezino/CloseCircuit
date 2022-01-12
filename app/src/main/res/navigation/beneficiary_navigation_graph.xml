@@ -217,4 +217,9 @@
         android:name="com.example.closedcircuitapplication.ui.uploadingProofForCompletedStepUI.RequestVerificationSuccessfullFragment"
         android:label="fragment_request_verification_successfull"
         tools:layout="@layout/fragment_request_verification_successfull" />
+    <fragment
+        android:id="@+id/uploadingProofForCompletedStepFragment"
+        android:name="com.example.closedcircuitapplication.ui.uploadingProofForCompletedStepUI.UploadingProofForCompletedStepFragment"
+        android:label="fragment_uploading_proof_for_completed_step"
+        tools:layout="@layout/fragment_uploading_proof_for_completed_step" />
 </navigation>
