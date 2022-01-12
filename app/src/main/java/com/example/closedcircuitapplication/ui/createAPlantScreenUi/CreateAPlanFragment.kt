@@ -72,7 +72,8 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanFragment  {
             val _uri = uri.toString()
             if (_sector != null && _category != null){
                 Log.d("CREATE_PLAN", "SECTOR=====> $_sector  CATEGORY====> $_category URI====> ")
-               // findNavController().navigate(R.id.uploadingProofForCompletedStepFragment)
+
+              //  findNavController().navigate(R.id.uploadingProofForCompletedStepFragment)
                 val action = CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(_category,_sector,_uri,"NGN")
                 findNavController().navigate(action)
             }
