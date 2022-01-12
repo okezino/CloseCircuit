@@ -76,6 +76,7 @@ class CreatePlanBudgetFragment : Fragment(), ClickListener {
         budgetsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         budgetsRecyclerView.adapter = budgetsAdapter
         budgetsRecyclerView.visibility = View.VISIBLE
+        binding.noBudgetYetTextView.visibility = View.GONE
     }
 
     override fun onDestroy() {

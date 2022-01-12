@@ -39,6 +39,7 @@ class MyBudgetFragment : Fragment() {
         binding.myBudgetAmountRaisedAmountTextView.text = budgetData.totalFundsRaised
         binding.myBudgetNoSponsorsYetTextView.visibility = View.GONE
         binding.myBudgetRecyclerView.visibility = View.VISIBLE
+        binding.myBudgetSponsorsTextView.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
