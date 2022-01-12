@@ -46,6 +46,10 @@
         <argument
             android:name="businessSector"
             app:argType="string" />
+        <argument
+            android:name="imageUri"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/createPlanBudgetFragment"
