@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.closedcircuitapplication.dashboard.interfaces.ClickListener
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.dashboard.adapter.StepsBudgetsAdapter
 import com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanStepsBinding
 
-class CreatePlanStepsFragment : Fragment() {
+class CreatePlanStepsFragment : Fragment(), ClickListener {
 
     private var _binding: FragmentCreatePlanStepsBinding? = null
     private val binding get() = _binding!!
@@ -72,8 +74,8 @@ class CreatePlanStepsFragment : Fragment() {
 
     private fun getProjectSteps() {
         val projectSteps = ArrayList<StepsBudgetItem>()
-        projectSteps.add(StepsBudgetItem("Design a website", "NGN 0.00", "NGN 0.00"))
-        projectSteps.add(StepsBudgetItem("Marketing the product", "NGN 0.00", "NGN 0.00"))
+        projectSteps.add(StepsBudgetItem("Design a website", "NGN 500000.00", "NGN 0.00"))
+        projectSteps.add(StepsBudgetItem("Marketing the product", "NGN 200000.00", "NGN 200000.00"))
 
         val noStepsTextView = binding.noStepsYet
         if (projectSteps.isEmpty()) {
@@ -84,7 +86,7 @@ class CreatePlanStepsFragment : Fragment() {
             noStepsTextView.visibility = View.GONE
         }
 
-        stepsAdapter = StepsBudgetsAdapter(projectSteps)
+        stepsAdapter = StepsBudgetsAdapter(projectSteps, this)
 
         stepsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         stepsRecyclerView.adapter = stepsAdapter
@@ -93,5 +95,13 @@ class CreatePlanStepsFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onClick(budgetDate: StepsBudgetItem) {
+        val navHost = requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
+        var controller = navHost.navController
+        val bundle = Bundle()
+        bundle.putParcelable("budgetData", budgetDate)
+        controller.navigate(R.id.myStepFragment, bundle)
     }
 }

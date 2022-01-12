@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -15,6 +16,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
@@ -30,6 +32,7 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanFragment  {
     lateinit var sector: String
     lateinit var category: String
     private  var image_data = 0
+    private   var uri: Uri? = null
     private val args: CreateAPlanFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -51,7 +54,6 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanFragment  {
         val selectplanCategory = resources.getStringArray(R.array.selectPlanCategory)
         val selectPlanCategoryArrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, selectplanCategory)
         binding.selectPlanCategoryDropdown.setAdapter(selectPlanCategoryArrayAdapter)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -65,6 +67,14 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanFragment  {
         binding.createPlanBtn.setOnClickListener {
             sector = binding.selectPlanCategoryDropdown.text.toString()
             category = binding.dropdownMenu.text.toString()
+            val _category = category
+            val _sector = sector
+            val _uri = uri.toString()
+            if (_sector != null && _category != null){
+                Log.d("CREATE_PLAN", "SECTOR=====> $_sector  CATEGORY====> $_category URI====> ")
+                val action = CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(_category,_sector,_uri,"NGN")
+                findNavController().navigate(action)
+            }
 
             Log.d("TEST", "SECTOR=====> $sector and CATEGORY====> $category ")
         }
@@ -98,8 +108,9 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanFragment  {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_IMAGE_PICKER) {
             binding.uploadImageIV.setImageURI(data!!.data)
+            uri = data!!.data
         }
-
+        // upload image using camera
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == CAMERA_REQUEST_CODE) {
                 val pictureBitmap = data!!.getParcelableExtra<Bitmap>("data")

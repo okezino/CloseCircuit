@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication
+package com.example.closedcircuitapplication.ui.createSteps
 
 import android.os.Bundle
 import android.view.ContextThemeWrapper
@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentCreateStepsBinding
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipDrawable
@@ -38,11 +39,11 @@ class CreateStepsFragment : Fragment() {
         }
         addChips()
         binding.createStepsSaveAndContinueButton.setOnClickListener {
-            findNavController().navigate(R.id.createPlanFragment)
+            findNavController().navigate(R.id.createAPlanFragment2)
         }
 
         binding.createStepSaveAndAddNewStepsButton.setOnClickListener {
-            findNavController().navigate(R.id.createStepsFragment)
+            findNavController().navigate(R.id.createPlanFragment)
         }
     }
 
@@ -50,35 +51,26 @@ class CreateStepsFragment : Fragment() {
         val contextThemeWrapper = ContextThemeWrapper(context, R.style.Widget_App_Chip)
         val travellingChip = Chip(contextThemeWrapper)
         val engineeringChip = Chip(contextThemeWrapper)
-        val chipDrawable = ChipDrawable.createFromAttributes(requireContext(), null, 0, R.style.Widget_App_Chip)
-        travellingChip.apply {
-            text = "Travelling"
-            textSize = 15F
-            setChipDrawable(chipDrawable)
-            height = 70
-            closeIcon =
-                ResourcesCompat.getDrawable(requireActivity().resources, R.drawable.ic_chip_close, null)
-            setOnCloseIconClickListener {
-                binding.createStepSelectBudgetForStepsTextInputLayout.removeView(travellingChip)
+        val chipsArray = arrayListOf<Chip>(travellingChip, engineeringChip)
+        val chipDrawable = ChipDrawable.createFromAttributes(requireContext(), null, 0,
+            R.style.Widget_App_Chip
+        )
+
+        for (i in chipsArray) {
+            i.apply {
+                text = if (i == chipsArray[0]) "Travelling" else  "Engineering"
+                textSize = 15F
+                setChipDrawable(chipDrawable)
+                height = 70
+                closeIconStartPadding = 15F
+                closeIcon =
+                    ResourcesCompat.getDrawable(requireActivity().resources,
+                        R.drawable.ic_chip_close, null)
+                setOnCloseIconClickListener {
+                    binding.createStepSelectBudgetForStepsTextInputLayout.removeView(travellingChip)
+                }
             }
-        }
-        engineeringChip.apply {
-            text = "Engineering"
-            isCheckable = false
-            textSize = 15F
-            setChipDrawable(chipDrawable)
-            height = 70
-            chipEndPadding = 10F
-            closeIcon =
-                ResourcesCompat.getDrawable(requireActivity().resources, R.drawable.ic_chip_close, null)
-            setOnCloseIconClickListener {
-                binding.createStepSelectBudgetForStepsTextInputLayout.removeView(engineeringChip)
-            }
-            setLayoutParams(ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
-        }
-        binding.createStepSelectBudgetForStepsTextInputLayout.apply {
-            addView(travellingChip)
-            addView(engineeringChip)
+            binding.createStepSelectBudgetForStepsTextInputLayout.addView(i)
         }
     }
 

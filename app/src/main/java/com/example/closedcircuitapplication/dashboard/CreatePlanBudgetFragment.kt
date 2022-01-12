@@ -9,12 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.closedcircuitapplication.dashboard.interfaces.ClickListener
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.dashboard.adapter.StepsBudgetsAdapter
 import com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanBudgetBinding
 
-class CreatePlanBudgetFragment : Fragment() {
+class CreatePlanBudgetFragment : Fragment(), ClickListener {
     private var _binding: FragmentCreatePlanBudgetBinding? = null
     private val binding get() = _binding!!
 
@@ -70,7 +71,7 @@ class CreatePlanBudgetFragment : Fragment() {
         budgetSteps.add(StepsBudgetItem("UI/UX Design", "NGN 0.00", "NGN 0.00"))
         budgetSteps.add(StepsBudgetItem("Backend Development", "NGN 0.00", "NGN 0.00"))
 
-        budgetsAdapter = StepsBudgetsAdapter(budgetSteps)
+        budgetsAdapter = StepsBudgetsAdapter(budgetSteps, this)
 
         budgetsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         budgetsRecyclerView.adapter = budgetsAdapter
@@ -79,5 +80,9 @@ class CreatePlanBudgetFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onClick(budgetDate: StepsBudgetItem) {
+        TODO("Not yet implemented")
     }
 }

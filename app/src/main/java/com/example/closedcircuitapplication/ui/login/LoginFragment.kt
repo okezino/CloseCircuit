@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.login
+package com.example.closedcircuitapplication.ui.login
 
 import android.app.AlertDialog
 import android.content.Intent

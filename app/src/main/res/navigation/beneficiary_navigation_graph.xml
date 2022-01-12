@@ -29,7 +29,24 @@
         android:id="@+id/createPlanFragment"
         android:name="com.example.closedcircuitapplication.dashboard.ProjectSummaryFragment"
         android:label="fragment_create_plan"
-        tools:layout="@layout/fragment_create_plan" />
+        tools:layout="@layout/fragment_create_plan">
+
+        <argument
+            android:name="planDuration"
+            app:argType="string" />
+        <argument
+            android:name="planDescription"
+            app:argType="string" />
+        <argument
+            android:name="businessName"
+            app:argType="string" />
+        <argument
+            android:name="planCategory"
+            app:argType="string" />
+        <argument
+            android:name="businessSector"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/createPlanBudgetFragment"
         android:name="com.example.closedcircuitapplication.dashboard.CreatePlanBudgetFragment"
@@ -39,16 +56,20 @@
         android:id="@+id/createPlanStepsFragment"
         android:name="com.example.closedcircuitapplication.dashboard.CreatePlanStepsFragment"
         android:label="CreatePlanStepsFragment"
-        tools:layout="@layout/fragment_create_plan_steps"/>
+        tools:layout="@layout/fragment_create_plan_steps">
+        <action
+            android:id="@+id/action_createPlanStepsFragment_to_myStepFragment"
+            app:destination="@id/myStepFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/createStepsFragment"
-        android:name="com.example.closedcircuitapplication.CreateStepsFragment"
+        android:name="com.example.closedcircuitapplication.ui.createSteps.CreateStepsFragment"
         android:label="fragment_create_steps"
         tools:layout="@layout/fragment_create_steps" />
     <fragment
         android:id="@+id/createBudgetFragment"
-        android:name="com.example.closedcircuitapplication.CreateBudgetFragment"
+        android:name="com.example.closedcircuitapplication.ui.createBudget.CreateBudgetFragment"
         android:label="fragment_create_budget"
         tools:layout="@layout/fragment_create_budget" />
     <fragment
@@ -82,7 +103,7 @@
     </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment"
-        android:name="com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectSummary.CreatePlanSummaryFragment"
         android:label="fragment_create_plan_summary"
         tools:layout="@layout/fragment_create_plan_summary" />
 
@@ -91,23 +112,21 @@
         android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.CreateAPlanFragment"
         android:label="fragment_create_a_plan"
         tools:layout="@layout/fragment_create_a_plan" >
+        <argument
+            android:name="sector"
+            app:argType="string" />
+        <argument
+            android:name="category"
+            app:argType="string" />
+        <argument
+            android:name="uri" />
         <action
             android:id="@+id/action_createAPlanFragment2_to_createPlanSummaryFragment2"
             app:destination="@id/createPlanSummaryFragment2" />
-        <action
-            android:id="@+id/action_createAPlanFragment2_to_uploadImageBottomSheetFragment2"
-            app:destination="@id/uploadImageBottomSheetFragment2" />
-        <argument
-            android:name="image_uri"
-            app:argType="integer" /><![CDATA[
-            android:name="sector"
-            app:argType="string" />
-
-        ]]>
     </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment2"
-        android:name="com.example.closedcircuitapplication.projectSummary.CreatePlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.ui.projectSummary.CreatePlanSummaryFragment"
         android:label="fragment_create_plan_summary"
         tools:layout="@layout/fragment_create_plan_summary" >
         <action
@@ -121,6 +140,15 @@
             app:argType="string" />
         <argument
             android:name="uri" />
+        <argument
+            android:name="currency_type"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_createPlanSummaryFragment2_to_currencyTypeFragment"
+            app:destination="@id/currencyTypeFragment" />
+        <action
+            android:id="@+id/action_createPlanSummaryFragment2_to_createAPlanFragment2"
+            app:destination="@id/createAPlanFragment2" />
     </fragment>
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment2"
@@ -141,4 +169,48 @@
             android:id="@+id/action_uploadImageBottomSheetFragment2_to_createAPlanFragment2"
             app:destination="@id/createAPlanFragment2" />
     </dialog>
+    <fragment
+        android:id="@+id/myStepFragment"
+        android:name="com.example.closedcircuitapplication.ui.myStep.MyStepFragment"
+        android:label="fragment_my_step"
+        tools:layout="@layout/fragment_my_step" >
+        <argument
+            android:name="BudgetDetails"
+            app:argType="com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/myBudgetFragment"
+        android:name="com.example.closedcircuitapplication.ui.myBudget.MyBudgetFragment"
+        android:label="fragment_my_budget"
+        tools:layout="@layout/fragment_my_budget" />
+
+    <fragment
+        android:id="@+id/sendFundsSummaryFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.SendFundsSummaryFragment"
+        android:label="SendFundsSummaryFragment"
+        tools:layout="@layout/fragment_send_funds_summary"/>
+    <fragment
+        android:id="@+id/currencyTypeFragment"
+        android:name="com.example.closedcircuitapplication.ui.currencyType.CurrencyTypeFragment"
+        android:label="fragment_currency_type"
+        tools:layout="@layout/fragment_currency_type" >
+        <action
+            android:id="@+id/action_currencyTypeFragment_to_createPlanSummaryFragment2"
+            app:destination="@id/createPlanSummaryFragment2" />
+        <argument
+            android:name="currency_type"
+            app:argType="string" />
+        <argument
+            android:name="sector"
+            app:argType="string" />
+        <argument
+            android:name="category"
+            app:argType="string" />
+        <argument android:name="uri" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestVerificationSuccessfullFragment"
+        android:name="com.example.closedcircuitapplication.ui.uploadingProofForCompletedStepUI.RequestVerificationSuccessfullFragment"
+        android:label="fragment_request_verification_successfull"
+        tools:layout="@layout/fragment_request_verification_successfull" />
 </navigation>

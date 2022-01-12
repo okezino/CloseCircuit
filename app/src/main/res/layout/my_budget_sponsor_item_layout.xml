@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/my_budget_sponsor_circleImageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:src="@drawable/placeholder_sponsor_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/my_budget_sponsor_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/helvetica"
+        android:text="Marvin McKinney"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_15sp"
+        app:layout_constraintStart_toEndOf="@+id/my_budget_sponsor_circleImageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/my_budget_sponsor_amount_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:fontFamily="@font/helvetica"
+        android:text="Amount:"
+        android:textSize="@dimen/textSize_15sp"
+        app:layout_constraintStart_toStartOf="@+id/my_budget_sponsor_name_textView"
+        app:layout_constraintTop_toBottomOf="@+id/my_budget_sponsor_name_textView" />
+
+    <TextView
+        android:id="@+id/my_budget_sponsor_amount_value_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:fontFamily="@font/helvetica"
+        android:text="NGN 10,000.00"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/my_budget_sponsor_amount_textView"
+        app:layout_constraintStart_toEndOf="@+id/my_budget_sponsor_amount_textView"
+        app:layout_constraintTop_toTopOf="@+id/my_budget_sponsor_amount_textView" />
+
+    <TextView
+        android:id="@+id/my_budget_sponsor_loan_or_donation_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/helvetica"
+        android:text="Loan"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/my_budget_sponsor_name_textView" />
+
+    <TextView
+        android:id="@+id/my_budget_sponsor_eligible_approver_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/helvetica"
+        android:text="Eligible Approver"
+        android:textColor="#259F46"
+        android:textSize="@dimen/textSize_10sp"
+        app:layout_constraintEnd_toEndOf="@+id/my_budget_sponsor_loan_or_donation_textView"
+        app:layout_constraintTop_toTopOf="@+id/my_budget_sponsor_amount_value_textView" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="12dp"
+        android:background="#EBEFF2"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/my_budget_sponsor_eligible_approver_textView"
+        app:layout_constraintStart_toEndOf="@+id/my_budget_sponsor_circleImageView"
+        app:layout_constraintTop_toBottomOf="@+id/my_budget_sponsor_amount_value_textView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

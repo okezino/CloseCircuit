@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication
+package com.example.closedcircuitapplication.ui.createBudget
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -30,6 +30,9 @@ class CreateBudgetFragment : Fragment() {
                 picker.dismiss()
             }
             picker.show(requireActivity().supportFragmentManager, "CURRENCY_PICKER")
+        }
+        binding.createBudgetSaveAndContinueButton.setOnClickListener {
+//            find
         }
     }
 

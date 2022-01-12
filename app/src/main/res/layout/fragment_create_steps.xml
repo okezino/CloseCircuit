@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".CreateStepsFragment">
+    tools:context=".ui.createSteps.CreateStepsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -265,11 +265,6 @@
             app:layout_constraintEnd_toEndOf="@+id/create_step_save_and_add_new_steps_button"
             app:layout_constraintStart_toStartOf="@+id/create_step_save_and_add_new_steps_button"
             app:layout_constraintTop_toBottomOf="@id/create_step_save_and_add_new_steps_button" />
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.core.widget.NestedScrollView>

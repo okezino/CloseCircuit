@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fundSentSuccessfully.FundSentSuccessfullyFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/fragment_fund_sent_fund_sent_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Funds sent Sucessfully"
+                android:textColor="#0B0B0B"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fragment_fund_sent_congratulations_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="33dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Congratulations"
+                android:textColor="#24500F"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_fund_sent_fund_sent_tv" />
+
+            <ImageView
+                android:id="@+id/fragment_fund_sent_congratulationIcon_Iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/congrate_emoji"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_fund_sent_congratulations_tv"
+                app:layout_constraintStart_toEndOf="@+id/fragment_fund_sent_congratulations_tv"
+                app:layout_constraintTop_toTopOf="@+id/fragment_fund_sent_congratulations_tv" />
+
+            <ImageView
+                android:id="@+id/fragment_fund_sent_successfullIcon_Iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="178dp"
+                android:layout_marginBottom="80dp"
+                android:src="@drawable/successfull"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_fund_sent_congratulationIcon_Iv" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_fund_sent_cancel_btn"
+                android:layout_width="match_parent"
+                android:layout_marginTop="179dp"
+                android:layout_height="54dp"
+                android:layout_marginBottom="49dp"
+                android:background="@drawable/rectangle_button"
+                android:fontFamily="@font/helvetica"
+                android:paddingVertical="10dp"
+                android:text="Cancel"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_fund_sent_successfullIcon_Iv"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
