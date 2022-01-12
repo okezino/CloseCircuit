@@ -55,6 +55,7 @@ class UploadingProofForCompletedStepFragment : Fragment() {
         binding.saveAndAddNewProofBtn.setOnClickListener {
             findNavController().navigate(R.id.requestVerificationSuccessfullFragment)
         }
+        // open the image picker when the start icon is clicked
         binding.uploadimageInputlayout.setStartIconOnClickListener {
             openImageChooser()
             readStorage()
