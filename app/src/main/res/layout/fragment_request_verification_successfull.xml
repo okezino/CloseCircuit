@@ -64,14 +64,12 @@
 
         <ImageView
             android:id="@+id/successfullIcon_Iv"
-            android:layout_marginBottom="60dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:src="@drawable/successfull"
             app:layout_constraintBottom_toTopOf="@+id/proceed_btn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/proceedToLogin_Tv" />
 
@@ -88,8 +86,6 @@
             android:textSize="16sp"
             app:backgroundTint="#24500F"
             app:cornerRadius="10dp"
-            android:layout_marginBottom="60dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
