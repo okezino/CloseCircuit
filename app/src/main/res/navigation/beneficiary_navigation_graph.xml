@@ -85,7 +85,11 @@
         android:id="@+id/projectScreenFragment"
         android:name="com.example.closedcircuitapplication.ui.projectScreens.ProjectScreenFragment"
         android:label="fragment_project_screen"
-        tools:layout="@layout/fragment_project_screen" />
+        tools:layout="@layout/fragment_project_screen" >
+        <action
+            android:id="@+id/action_projectScreenFragment_to_createPlanFragment"
+            app:destination="@id/createPlanFragment" />
+    </fragment>
     <fragment
         android:id="@+id/emailVerificationFragment"
         android:name="com.example.closedcircuitapplication.ui.projectScreens.EmailVerificationFragment"
