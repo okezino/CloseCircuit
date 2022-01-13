@@ -47,7 +47,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                 "A plan to raise school fees for the first semester of my first year of Mechanical Engineering",
                 "10",
                 "60",
-                "8 months",
+                "8",
                 "Projects"
             )
         )
@@ -57,7 +57,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                 "To build a mega catfish farm in a viable area within the city of Lagos, Nigeria",
                 "4",
                 "10",
-                "5 months",
+                "5",
                 "Business"
             )
         )
@@ -67,7 +67,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                 "A passion project to launch a new book on the effects of the COVID-19 on modern workplace culture",
                 "5",
                 "20",
-                "2 months",
+                "2",
                 "Project"
             )
         )

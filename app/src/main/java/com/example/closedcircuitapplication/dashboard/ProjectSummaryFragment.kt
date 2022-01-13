@@ -39,7 +39,7 @@ class ProjectSummaryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.projectTitle.text = args.businessName
-        binding.projectDuration.text = args.planDuration
+        binding.projectDuration.text = "${args.planDuration} months"
         binding.projectDescriptionTextView.text = args.planDescription
         binding.projectBusinessSector.text = "${args.businessSector} (${args.planCategory})"
         if (args.imageUri != null) {
