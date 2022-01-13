@@ -43,7 +43,7 @@ class CreateStepsFragment : Fragment() {
         }
 
         binding.createStepSaveAndAddNewStepsButton.setOnClickListener {
-            findNavController().navigate(R.id.createPlanFragment)
+            findNavController().navigate(R.id.createStepsFragment)
         }
     }
 
@@ -52,20 +52,23 @@ class CreateStepsFragment : Fragment() {
         val travellingChip = Chip(contextThemeWrapper)
         val engineeringChip = Chip(contextThemeWrapper)
         val chipsArray = arrayListOf<Chip>(travellingChip, engineeringChip)
-        val chipDrawable = ChipDrawable.createFromAttributes(requireContext(), null, 0,
+        val chipDrawable = ChipDrawable.createFromAttributes(
+            requireContext(), null, 0,
             R.style.Widget_App_Chip
         )
 
         for (i in chipsArray) {
             i.apply {
-                text = if (i == chipsArray[0]) "Travelling" else  "Engineering"
+                text = if (i == chipsArray[0]) "Travelling" else "Engineering"
                 textSize = 15F
                 setChipDrawable(chipDrawable)
                 height = 70
                 closeIconStartPadding = 15F
                 closeIcon =
-                    ResourcesCompat.getDrawable(requireActivity().resources,
-                        R.drawable.ic_chip_close, null)
+                    ResourcesCompat.getDrawable(
+                        requireActivity().resources,
+                        R.drawable.ic_chip_close, null
+                    )
                 setOnCloseIconClickListener {
                     binding.createStepSelectBudgetForStepsTextInputLayout.removeView(travellingChip)
                 }
