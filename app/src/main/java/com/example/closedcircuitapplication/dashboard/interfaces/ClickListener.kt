@@ -1,7 +1,6 @@
 package com.example.closedcircuitapplication.dashboard.interfaces
 
-import androidx.navigation.NavController
-import com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem
+import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
 
 interface ClickListener {
 
