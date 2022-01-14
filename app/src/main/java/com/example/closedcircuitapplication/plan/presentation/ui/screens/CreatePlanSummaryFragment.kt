@@ -210,14 +210,8 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
                 binding.supportFieldCannotBeEmpty.visibility = View.GONE
                 binding.supportFieldCannotBeEmpty.isFocusable = false
             }
-            val action =
-                CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCreatePlanFragment(
-                    planDuration,
-                    planDescription,
-                    businessName,
-                    planCategory,
-                    businessType
-                )
+
+            val action = CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCreatePlanFragment(planDuration, planDescription, businessName, planCategory, businessType, uriArgs)
             findNavController().navigate(action)
         }
     }

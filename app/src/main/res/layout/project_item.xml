@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_16dp"
+    android:background="@drawable/background_sponsors">
+
+    <TextView
+        android:id="@+id/plan_name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="@dimen/margin_16dp"
+        android:text="School Fees"
+        android:textColor="@color/green_700"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/plan_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat bfdhubr ibhbvufbe bdbvubbv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plan_name_text_view" />
+
+
+    <ProgressBar
+        android:id="@+id/funds_raised_progress_bar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="16dp"
+        android:max="100"
+        android:progress="40"
+        android:progressDrawable="@drawable/progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plan_description" />
+
+    <TextView
+        android:id="@+id/funds_raised_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="40% Funds raised"
+        android:textSize="12sp"
+        android:textColor="@color/green_500"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/funds_raised_progress_bar" />
+
+    <ProgressBar
+        android:id="@+id/tasks_completed_progress_bar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="16dp"
+        android:max="100"
+        android:progress="10"
+        android:progressDrawable="@drawable/progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/funds_raised_text_view" />
+
+    <TextView
+        android:id="@+id/tasks_completed_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10% Tasks Completed"
+        android:textSize="12sp"
+        android:textColor="@color/green_500"
+        android:padding="4dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tasks_completed_progress_bar" />
+
+    <TextView
+        android:id="@+id/share_link_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="share link"
+        android:textColor="@color/blue_500"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="@dimen/margin_16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tasks_completed_text_view" />
+
+    <TextView
+        android:id="@+id/plan_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="https://cc.com/seFJRSms"
+        android:textColor="@color/blue_500"
+        android:layout_marginHorizontal="@dimen/margin_16dp"
+        app:layout_constraintBottom_toBottomOf="@id/share_link_title"
+        app:layout_constraintStart_toEndOf="@+id/share_link_title"
+        app:layout_constraintTop_toTopOf="@+id/share_link_title" />
+
+    <ImageView
+        android:id="@+id/copy_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_copy"
+        android:layout_margin="@dimen/margin_16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tasks_completed_text_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
