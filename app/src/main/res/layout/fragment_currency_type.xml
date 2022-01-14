@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.currencyType.CurrencyTypeFragment">
+    tools:context=".plan.presentation.ui.screens.CurrencyTypeFragment">
 
     <ScrollView
         android:layout_width="match_parent"

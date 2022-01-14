@@ -5,6 +5,7 @@ import androidx.fragment.app.testing.launchFragment
 import androidx.lifecycle.Lifecycle
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.authentication.presentation.ui.screens.LoginFragment
 import junit.framework.TestCase
 import org.junit.Before
 import org.junit.runner.RunWith
