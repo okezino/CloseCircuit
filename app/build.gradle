@@ -1,3 +1,5 @@
+import dependencies.*
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -9,16 +11,16 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk Versions.compilesdk
 
     defaultConfig {
-        applicationId "com.example.closedcircuitapplication"
-        minSdk 21
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        applicationId Application.id
+        minSdk Versions.minsdk
+        targetSdk Versions.targetsdk
+        versionCode Application.version_code
+        versionName Application.version_name
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner AndroidTestDependencies.instrumentation_runner
     }
 
     buildTypes {
@@ -27,13 +29,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility Java.java_version
+        targetCompatibility Java.java_version
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         viewBinding true
     }
@@ -41,58 +46,57 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    // Circle Image View
-    implementation "de.hdodenhof:circleimageview:3.1.0"
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //Kotlin
+    implementation Dependencies.kotlin_standard_library
+    implementation Dependencies.kotlin_reflect
+    implementation Dependencies.core_ktx
 
-    //OtpView dependency
-    implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.2'
-    // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1'
+    //Support
+    implementation SupportDependencies.appcompat
+    implementation SupportDependencies.material_design
+    implementation SupportDependencies.swipe_refresh_layout
+    implementation SupportDependencies.constraintlayout
+    implementation SupportDependencies.legacy_support
 
-    // Coroutine Lifecycle Scopes
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
-
-    //Dagger - Hilt
-    implementation "com.google.dagger:hilt-android:2.38.1"
-    kapt "com.google.dagger:hilt-android-compiler:2.37"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
-    kapt "androidx.hilt:hilt-compiler:1.0.0"
-    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-alpha03'
+    //Dependencies
+    implementation Dependencies.circle_image_view
+    implementation Dependencies.lifecycle_runtime
+    implementation Dependencies.lifecycle_viewmodel
+    implementation Dependencies.kotlin_coroutines_core
+    implementation Dependencies.kotlin_coroutines_android
+    implementation Dependencies.navigation_fragment_ktx
+    implementation Dependencies.navigation_ui_ktx
+    implementation Dependencies.otp_pin_view
+    implementation Dependencies.leung_pinview
+    implementation Dependencies.phone_picker_ccp
+    implementation Dependencies.currency_picker_android
+    implementation Dependencies.viewpagerindicator
 
     // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.2"
-    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
+    implementation Dependencies.retrofit
+    implementation Dependencies.retrofit_gson
+    implementation Dependencies.okhttp
+    implementation Dependencies.okhttp_logging
 
-    // pin view
-    implementation 'io.github.chaosleung:pinview:1.4.4'
-    //phoneNumber picker
-    implementation "com.hbb20:ccp:2.2.2"
+    //Dagger - Hilt
+    implementation Dependencies.hilt_android
+    implementation Dependencies.hilt_life_cycle
+    implementation Dependencies.hilt_navigation_compose
 
-    //espresso rule and runner
-    androidTestImplementation('androidx.test:runner:1.4.0')
-    androidTestImplementation('androidx.test:rules:1.4.0')
+    //Annotation Dependencies
+    kapt AnnotationDependencies.hilt_android_compiler
+    kapt AnnotationDependencies.hilt_compiler
 
-    //espresso Fragment navigation test
-    androidTestImplementation("androidx.navigation:navigation-testing:2.3.5")
-    //Truth Library
-    testImplementation "com.google.truth:truth:1.1.3"
+    //Android test dependencies
+    androidTestImplementation AndroidTestDependencies.ext_junit
+    androidTestImplementation AndroidTestDependencies.espresso_core
+    androidTestImplementation AndroidTestDependencies.test_runner
+    androidTestImplementation AndroidTestDependencies.test_rules
+    androidTestImplementation AndroidTestDependencies.navigation_testing
 
-    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
+    //Test Dependencies
+    testImplementation TestDependencies.junit4
+    testImplementation TestDependencies.truth
 
-    //currency picker
-    implementation 'com.github.midorikocak:currency-picker-android:1.2.1'
+
 }

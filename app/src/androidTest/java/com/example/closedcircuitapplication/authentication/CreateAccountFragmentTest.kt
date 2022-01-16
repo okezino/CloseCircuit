@@ -9,7 +9,6 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.closedcircuitapplication.R
 import junit.framework.TestCase
-import kotlinx.coroutines.withTimeout
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,11 +18,12 @@ class CreateAccountFragmentTest : TestCase() {
     lateinit var scenario: FragmentScenario<CreateAccountFragment>
 
     @Before
-     fun setup() {
-         scenario = launchFragmentInContainer(themeResId = R.style.Theme_ClosedCircuitApplication)
+    fun setup() {
+        scenario = launchFragmentInContainer(themeResId = R.style.Theme_ClosedCircuitApplication)
     }
+
     @Test
-    fun check_if_UiViews_are_Visible(){
+    fun check_if_UiViews_are_Visible() {
         onView(withId(R.id.createAccount_tv)).check(matches(isDisplayed()))
         onView(withId(R.id.fullNameTextInputLayout)).check(matches(isDisplayed()))
         onView(withId(R.id.emailTextInputLayout)).check(matches(isDisplayed()))
@@ -34,19 +34,20 @@ class CreateAccountFragmentTest : TestCase() {
         onView(withId(R.id.createAccount_btn)).perform(scrollTo())
         onView(withId(R.id.createAccount_btn)).check(matches(isDisplayed()))
         onView(withId(R.id.alreadyHaveAnAccount_Tv)).perform(scrollTo())
-       onView(withId(R.id.alreadyHaveAnAccount_Tv)).check(matches(isDisplayed()))
-       onView(withId(R.id.registerUsingGoogle_btn)).perform(scrollTo())
+        onView(withId(R.id.alreadyHaveAnAccount_Tv)).check(matches(isDisplayed()))
+        onView(withId(R.id.registerUsingGoogle_btn)).perform(scrollTo())
         onView(withId(R.id.registerUsingGoogle_btn)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun check_if_bottons_are_responsive(){
+    fun check_if_bottons_are_responsive() {
         onView(withId(R.id.createAccount_btn)).perform(scrollTo())
         onView((withId(R.id.createAccount_btn))).perform(click())
         onView(withId(R.id.registerUsingGoogle_btn)).perform(scrollTo())
     }
+
     @Test
-    fun check_if_input_data_is_valide(){
+    fun check_if_input_data_is_valide() {
         onView(withId(R.id.fullNameTextInput)).perform(typeText("benjamin"), closeSoftKeyboard())
 
     }
