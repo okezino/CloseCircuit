@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment"
-        android:name="com.example.closedcircuitapplication.authentication.EmailVerificationSuccessfulFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.EmailVerificationSuccessfulFragment"
         android:label="fragment_email_verification_successful"
         tools:layout="@layout/fragment_email_verification_successful" />
     <fragment
         android:id="@+id/splashScreen"
-        android:name="com.example.closedcircuitapplication.ui.splashScreen.SplashScreenFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.example.closedcircuitapplication.ui.onBoardingScreen.ViewPagerFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.ViewPagerFragment"
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/verifyEmailFragment"
-        android:name="com.example.closedcircuitapplication.authentication.VerifyEmailFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.VerifyEmailFragment"
         android:label="fragment_verify_email"
         tools:layout="@layout/fragment_verify_email">
         <action
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeScreenFragment"
-        android:name="com.example.closedcircuitapplication.authentication.WelcomeScreenFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.WelcomeScreenFragment"
         android:label="fragment_welcome_screen"
         tools:layout="@layout/fragment_welcome_screen">
         <action
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
-        android:name="com.example.closedcircuitapplication.authentication.CreateAccountFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.CreateAccountFragment"
         android:label="fragment_create_account"
         tools:layout="@layout/fragment_create_account">
         <action
@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.closedcircuitapplication.ui.login.LoginFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -88,7 +88,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.example.closedcircuitapplication.authentication.ForgotPasswordFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.ForgotPasswordFragment"
         android:label="fragment_forgot_password"
         tools:layout="@layout/fragment_forgot_password" >
         <action
@@ -97,7 +97,7 @@
     </fragment>
     <fragment
         android:id="@+id/recoverPasswordOtpFragment"
-        android:name="com.example.closedcircuitapplication.authentication.RecoverPasswordOtpFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.RecoverPasswordOtpFragment"
         android:label="fragment_recover_password_otp"
         tools:layout="@layout/fragment_recover_password_otp" >
         <action
@@ -106,7 +106,7 @@
     </fragment>
     <fragment
         android:id="@+id/resetYourPasswordFragment"
-        android:name="com.example.closedcircuitapplication.authentication.ResetYourPasswordFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.ResetYourPasswordFragment"
         android:label="fragment_reset_your_password"
         tools:layout="@layout/fragment_reset_your_password" >
         <action
@@ -115,7 +115,7 @@
     </fragment>
     <fragment
         android:id="@+id/passwordRecoverySuccessfulFragment"
-        android:name="com.example.closedcircuitapplication.authentication.PasswordRecoverySuccessfulFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.PasswordRecoverySuccessfulFragment"
         android:label="fragment_password_recovery_successful"
         tools:layout="@layout/fragment_password_recovery_successful" >
         <action
@@ -124,12 +124,12 @@
     </fragment>
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.MessageFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.ProfileFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -138,7 +138,7 @@
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.AccountFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" >
         <action
@@ -147,17 +147,17 @@
     </fragment>
     <fragment
         android:id="@+id/createAPlanFragment"
-        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.CreateAPlanFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreateAPlanFragment"
         android:label="fragment_create_a_plan"
         tools:layout="@layout/fragment_create_a_plan" />
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.closedcircuitapplication.MainActivity"
+        android:name="com.example.closedcircuitapplication.common.presentation.ui.MainActivity"
         android:label="app_bar_dashboard"
         tools:layout="@layout/app_bar_dashboard" />
     <fragment
         android:id="@+id/createPlanSummaryFragment"
-        android:name="com.example.closedcircuitapplication.ui.projectSummary.CreatePlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanSummaryFragment"
         android:label="fragment_create_plan_summary"
         tools:layout="@layout/fragment_create_plan_summary" />
 

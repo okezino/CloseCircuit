@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.DashboardFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.DashboardFragment"
         android:label="DashboardFragment"
         tools:layout="@layout/fragment_dashboard"/>
     <fragment
         android:id="@+id/accountFragment2"
-        android:name="com.example.closedcircuitapplication.dashboard.AccountFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.MessageFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.ProfileFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/createPlanFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.ProjectSummaryFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.ProjectSummaryFragment"
         android:label="fragment_create_plan"
         tools:layout="@layout/fragment_create_plan">
 
@@ -46,15 +46,19 @@
         <argument
             android:name="businessSector"
             app:argType="string" />
+        <argument
+            android:name="imageUri"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/createPlanBudgetFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.CreatePlanBudgetFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanBudgetFragment"
         android:label="CreatePlanBudgetFragment"
         tools:layout="@layout/fragment_create_plan_budget"/>
     <fragment
         android:id="@+id/createPlanStepsFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.CreatePlanStepsFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanStepsFragment"
         android:label="CreatePlanStepsFragment"
         tools:layout="@layout/fragment_create_plan_steps">
         <action
@@ -64,37 +68,41 @@
 
     <fragment
         android:id="@+id/createStepsFragment"
-        android:name="com.example.closedcircuitapplication.ui.createSteps.CreateStepsFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreateStepsFragment"
         android:label="fragment_create_steps"
         tools:layout="@layout/fragment_create_steps" />
     <fragment
         android:id="@+id/createBudgetFragment"
-        android:name="com.example.closedcircuitapplication.ui.createBudget.CreateBudgetFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreateBudgetFragment"
         android:label="fragment_create_budget"
         tools:layout="@layout/fragment_create_budget" />
     <fragment
         android:id="@+id/notificationScreenFragment"
-        android:name="com.example.closedcircuitapplication.ui.notification.NotificationScreenFragment"
+        android:name="com.example.closedcircuitapplication.notification.presentation.ui.screens.NotificationScreenFragment"
         android:label="fragment_notification_screen"
         tools:layout="@layout/fragment_notification_screen" />
     <fragment
         android:id="@+id/projectScreenFragment"
-        android:name="com.example.closedcircuitapplication.ui.projectScreens.ProjectScreenFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.ProjectScreenFragment"
         android:label="fragment_project_screen"
-        tools:layout="@layout/fragment_project_screen" />
+        tools:layout="@layout/fragment_project_screen" >
+        <action
+            android:id="@+id/action_projectScreenFragment_to_createPlanFragment"
+            app:destination="@id/createPlanFragment" />
+    </fragment>
     <fragment
         android:id="@+id/emailVerificationFragment"
-        android:name="com.example.closedcircuitapplication.ui.projectScreens.EmailVerificationFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.EmailVerificationFragment"
         android:label="fragment_email_verification"
         tools:layout="@layout/fragment_email_verification"/>
     <fragment
         android:id="@+id/editEmailVerificationScreenFragment"
-        android:name="com.example.closedcircuitapplication.ui.projectScreens.EditEmailVerificationScreenFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.EditEmailVerificationScreenFragment"
         android:label="EditEmailVerificationScreenFragment"
         tools:layout="@layout/fragment_edit_email_verification_screen"/>
     <fragment
         android:id="@+id/successfulEmailVerificationScreenFragment"
-        android:name="com.example.closedcircuitapplication.ui.projectScreens.SuccessfulEmailVerificationScreenFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.SuccessfulEmailVerificationScreenFragment"
         android:label="fragment_successful_email_verification_screen"
         tools:layout="@layout/fragment_successful_email_verification_screen">
         <action
@@ -103,13 +111,13 @@
     </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment"
-        android:name="com.example.closedcircuitapplication.ui.projectSummary.CreatePlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanSummaryFragment"
         android:label="fragment_create_plan_summary"
         tools:layout="@layout/fragment_create_plan_summary" />
 
     <fragment
         android:id="@+id/createAPlanFragment2"
-        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.CreateAPlanFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreateAPlanFragment"
         android:label="fragment_create_a_plan"
         tools:layout="@layout/fragment_create_a_plan" >
         <action
@@ -127,7 +135,7 @@
     </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment2"
-        android:name="com.example.closedcircuitapplication.ui.projectSummary.CreatePlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanSummaryFragment"
         android:label="fragment_create_plan_summary"
         tools:layout="@layout/fragment_create_plan_summary" >
         <action
@@ -150,32 +158,32 @@
     </fragment>
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment2"
-        android:name="com.example.closedcircuitapplication.authentication.EmailVerificationSuccessfulFragment"
+        android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.EmailVerificationSuccessfulFragment"
         android:label="fragment_email_verification_successful"
         tools:layout="@layout/fragment_email_verification_successful" />
     <fragment
         android:id="@+id/myStepFragment"
-        android:name="com.example.closedcircuitapplication.ui.myStep.MyStepFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.MyStepFragment"
         android:label="fragment_my_step"
         tools:layout="@layout/fragment_my_step" >
         <argument
             android:name="BudgetDetails"
-            app:argType="com.example.closedcircuitapplication.dashboard.models.StepsBudgetItem" />
+            app:argType="com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem" />
     </fragment>
     <fragment
         android:id="@+id/myBudgetFragment"
-        android:name="com.example.closedcircuitapplication.ui.myBudget.MyBudgetFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.MyBudgetFragment"
         android:label="fragment_my_budget"
         tools:layout="@layout/fragment_my_budget" />
 
     <fragment
         android:id="@+id/sendFundsSummaryFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.SendFundsSummaryFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.SendFundsSummaryFragment"
         android:label="SendFundsSummaryFragment"
         tools:layout="@layout/fragment_send_funds_summary"/>
     <fragment
         android:id="@+id/currencyTypeFragment"
-        android:name="com.example.closedcircuitapplication.ui.currencyType.CurrencyTypeFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CurrencyTypeFragment"
         android:label="fragment_currency_type"
         tools:layout="@layout/fragment_currency_type" >
         <action
