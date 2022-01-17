@@ -4,24 +4,27 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.closedcircuitapplication.authentication.domain.models.Posts
-import com.example.closedcircuitapplication.authentication.domain.usecases.AuthenticationUseCase
+import com.example.closedcircuitapplication.authentication.domain.models.Post
+import com.example.closedcircuitapplication.authentication.domain.usecases.LoginUseCase
 import com.example.closedcircuitapplication.common.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 @HiltViewModel
-class PostsViewModel @Inject constructor(private val  useCase: AuthenticationUseCase): ViewModel() {
-    private var _postState = MutableLiveData<Resource<MutableList<Posts>>>()
-    val postState: LiveData<Resource<MutableList<Posts>>> get() = _postState
+class PostsViewModel @Inject constructor(
+    private val loginUseCase: LoginUseCase,
+) : ViewModel() {
+    private var _postState = MutableLiveData<Resource<List<Post>>>()
+    val postState: LiveData<Resource<List<Post>>> get() = _postState
 
-    init {
-        getPosts()
-    }
 
-   private fun getPosts() {
+    fun getPosts() {
         viewModelScope.launch {
-            _postState.value = useCase.invoke()
+            loginUseCase().collect {
+                _postState.value = it
+            }
         }
 
     }

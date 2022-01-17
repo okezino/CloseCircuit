@@ -6,7 +6,7 @@ object Versions {
     val compilesdk = 31
     val minsdk = 21
     val targetsdk = 30
-    val kotlin = "1.5.20"
+    val kotlin = "1.5.21"
     val ktx = "1.7.0"
     val hilt = "2.38.1"
     val hilt_android_gradle_plugin = "2.38.1"

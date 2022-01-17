@@ -1,19 +1,18 @@
 package com.example.closedcircuitapplication.authentication.data.mappers
 
-import com.example.closedcircuitapplication.authentication.domain.models.Posts
+import com.example.closedcircuitapplication.authentication.domain.models.Post
 import com.example.closedcircuitapplication.common.data.network.models.PostsDto
+import com.example.closedcircuitapplication.common.utils.IDomainMapper
 import javax.inject.Inject
 
-class DomainPostMapper () {
+class DomainPostMapper @Inject constructor() : IDomainMapper<PostsDto, Post> {
 
-        fun mapToDomain(entity: PostsDto): Posts {
-            return Posts(
-                entity.userId,
-                entity.id,
-                entity.title,
-                entity.body
-            )
-        }
-
-
+    override fun mapToDomain(entity: PostsDto): Post {
+        return Post(
+            entity.userId,
+            entity.id,
+            entity.title,
+            entity.body
+        )
+    }
 }

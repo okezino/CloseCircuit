@@ -50,9 +50,11 @@ class CreateAccountFragment : Fragment() {
             // create a user account
             createAcount( fullName, phoneNumber, password, email, comfirmPassword, view)
         }
+
         binding.countrycode.setOnCountryChangeListener {
             countryCode = binding.countrycode.selectedCountryCodeWithPlus
         }
+
         binding.fullNameTextInput.addTextChangedListener {
             fullName = binding.fullNameTextInput.text.toString().trim()
             onFullNameTExtInputChangeListener(fullName)
@@ -106,6 +108,7 @@ class CreateAccountFragment : Fragment() {
     }
 
     fun onFullNameTExtInputChangeListener(fullName:String){
+
         if (fullName.isNotEmpty() && fullName.isDigitsOnly()){
            binding.fullNameTextInput.error = "Can't be numbers"
         }else if (fullName.isNotEmpty() &&fullName[0].isDigit()){
