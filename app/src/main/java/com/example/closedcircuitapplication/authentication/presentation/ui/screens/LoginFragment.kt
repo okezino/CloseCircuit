@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -60,15 +60,20 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 when (resource) {
                     is Resource.Loading -> {
                         //TODO(Show Progress bar)
+                        Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                     }
                     is Resource.Success -> {
                         //TODO(Move to Dashboard)
-                        Log.d("postList", "${resource.data}")
+                        Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+//                        Log.d("postList", "${resource.data}")
                     }
 
                     is Resource.Error -> {
                         //TODO(Display error message and dismiss progress bar)
-                        Log.d("postsError", "${resource.message}")
+                        Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
+                            .show()
+
+//                        Log.d("postsError", "${resource.message}")
                     }
                 }
 
