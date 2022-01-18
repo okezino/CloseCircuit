@@ -20,19 +20,15 @@ class AuthenticationRepository @Inject constructor(
 
     override suspend fun getPosts(): Flow<Resource<List<Post>>> {
 
-        flow {
+        return flow {
             emit(Resource.Loading(null))
-        }
-
-        return try {
-            val result = api.getPosts().map { mapper.mapToDomain(it) }
-            flow {
+            try {
+                val result = api.getPosts().map { mapper.mapToDomain(it) }
                 emit(Success(result))
-            }.flowOn(IO)
-        } catch (throwable: Throwable) {
-            flow {
+            } catch (throwable: Throwable) {
                 emit(Error(throwable.message!!, null))
-            }.flowOn(IO)
-        }
+            }
+        }.flowOn(IO)
+
     }
 }
