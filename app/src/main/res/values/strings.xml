@@ -204,4 +204,12 @@
     <string name="budget_description_text">Budget Description</string>
     <string name="sponsors_text">Sponsors</string>
     <string name="no_sponsors_yet_text">No Sponsors yet</string>
+    <string name="sponsors">Sponsors</string>
+    <string name="no_sponsors">No Sponsors</string>
+    <string name="no_sponsors2">Patience, you currently do not have any Sponsors. Share your link to family and friends.</string>
+    <string name="share_link_sponsor_screen">Share link</string>
+    <string name="oops_alart_tv">Oops!</string>
+    <string name="create_a_budget_btn_Text">Create a budget</string>
+    <string name="noticed_you_havent_created_budget_tv">We noticed you haven’t created a budget and an action step. Please create a budget to share link.</string>
+    <string name="copy_link">Copy link</string>
 </resources>
