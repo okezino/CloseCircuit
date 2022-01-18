@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface Api {
 
-    @GET("postsi")
+    @GET("posts")
     suspend fun getPosts(): List<PostsDto>
 }

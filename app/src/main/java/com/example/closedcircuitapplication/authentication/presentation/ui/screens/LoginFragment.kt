@@ -65,7 +65,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     is Resource.Success -> {
                         //TODO(Move to Dashboard)
                         Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
-//                        Log.d("postList", "${resource.data}")
                     }
 
                     is Resource.Error -> {
@@ -73,7 +72,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
                             .show()
 
-//                        Log.d("postsError", "${resource.message}")
                     }
                 }
 
