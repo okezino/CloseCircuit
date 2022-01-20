@@ -26,10 +26,10 @@ class CreateAccountFragment : Fragment() {
     lateinit var countryCode: String
     lateinit var password:String
     lateinit var email : String
-    lateinit var fullName :String
+    private lateinit var fullName :String
     lateinit var phoneNumber:String
-    lateinit var comfirmPassword: String
-    private val viewModel: AuthenticationViewModel by viewModels()
+    private lateinit var confirmPassword: String
+    private val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
 
 
 
@@ -43,6 +43,8 @@ class CreateAccountFragment : Fragment() {
     }
 
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //navigate back to  welcome screen from create account screen
@@ -54,12 +56,13 @@ class CreateAccountFragment : Fragment() {
              phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
              email = binding.emailTextInput.text.toString().trim()
             password = binding.passwordTextInput.text.toString().trim()
-             comfirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
+             confirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
 
-            viewModel.register(RegisterRequest(email, fullName, "Beneficiary",phoneNumber, password, comfirmPassword))
+
+            viewModel.register(RegisterRequest(email, fullName, "Beneficiary",phoneNumber, password, confirmPassword))
 
             // create a user account
-//            createAcount( fullName, phoneNumber, password, email, comfirmPassword, view)
+            createAcount( fullName, phoneNumber, password, email, confirmPassword, view)
         }
 
         binding.countrycode.setOnCountryChangeListener {
@@ -113,7 +116,10 @@ class CreateAccountFragment : Fragment() {
                  if (password.isEmpty() || password != comfirmPassword) {
                      binding.comfirmPasswordTextInput.error = "Password does not match"
                 } else {
-                    findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
+
+                    // TODO( this is where the viewModel is instantiated and made a network request)
+                     viewModel.register(RegisterRequest(email, fullName, "Beneficiary", phoneNumber, password, confirmPassword))
+
                 }
             }
     }
@@ -197,6 +203,7 @@ class CreateAccountFragment : Fragment() {
         })
 
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

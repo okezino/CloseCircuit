@@ -1,5 +1,6 @@
 package com.example.closedcircuitapplication.authentication.presentation.ui.screens
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -31,9 +32,13 @@ import kotlin.concurrent.schedule
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     @Inject
-    lateinit var preferences: Preferences
     private lateinit var binding: FragmentLoginBinding
+     lateinit var preferences: Preferences
     private val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
+    private lateinit var success_dialog: AlertDialog
+    lateinit var waitDialog:AlertDialog
+    private lateinit var incorrect_emailDialog:AlertDialog
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -69,13 +74,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             handler.postDelayed({
                 if (Validation.validateEmailPattern(email)) {
                     if (Validation.validatePasswordPattern(password)) {
-                        showLoginSuccessfulDialog()
-                        val intentBeneficiaryDashboard =
-                            Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
-                        startActivity(intentBeneficiaryDashboard)
+                        viewModel.login(LoginRequest(email, password))
+
                     } else {
                         // call for incorrect password here
-                        showAlertInfoAlert()
                         Snackbar.make(binding.root, "Invalid Password", Snackbar.LENGTH_LONG).show()
                     }
                 } else {
@@ -104,24 +106,23 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun showPleaseWaitAlertDialog() {
-        val waitDialog = showCustomViewDialog(
+         waitDialog = showCustomViewDialog(
             requireContext(), resources,
             R.layout.custom_login_wait_dialog
         )
 
         Timer().schedule(3000) {
-            waitDialog.dismiss()
         }
     }
 
     private fun showLoginSuccessfulDialog() {
 
-        val dialog = showCustomViewDialog(
+        success_dialog = showCustomViewDialog(
             requireContext(), resources, R.layout.cutom_login_successful_dialog
         )
 
         Timer().schedule(3000) {
-            dialog.dismiss()
+            success_dialog.dismiss()
         }
     }
 
@@ -130,30 +131,39 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         val view = View.inflate(context, R.layout.custom_alert_info_dialog, null)
 
-        val dialog = showCustomViewDialog(
+         incorrect_emailDialog = showCustomViewDialog(
             requireContext(), resources, R.layout.custom_alert_info_dialog
         )
 
         val btnCloseAlertInfo = view.findViewById<ImageView>(R.id.fragment_login_close_icon)
 
         btnCloseAlertInfo.setOnClickListener {
-            dialog.dismiss()
+            incorrect_emailDialog.dismiss()
         }
     }
 
-    private fun initObservers() {
+    private fun initObservers(){
         viewModel.loginResult.observe(viewLifecycleOwner, { resource ->
+
             when (resource) {
                 is Resource.Loading -> {
                     //TODO(Show Progress bar)
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+                    showPleaseWaitAlertDialog()
                 }
                 is Resource.Success -> {
                     //TODO(Move to Dashboard)
-                    Log.d("token", "msg: ${resource.data?.data?.token}")
-                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
-//                    resource.data?.data?.token?.let { saveToken(it)}
+                    waitDialog.dismiss()  // dismiss the waitDialog
+                    showLoginSuccessfulDialog()
+                    // this is used to insert the token into the shared preference
                     saveToken(resource.data?.data!!.token)
+
+                    val intentBeneficiaryDashboard =
+                        Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
+                    startActivity(intentBeneficiaryDashboard)
+                    // this is used to get the saved token from the shared preference
+                    val savedToken = preferences.getToken()
+                    Toast.makeText(requireContext(), savedToken, Toast.LENGTH_SHORT).show()
+
                 }
 
                 is Resource.Error -> {
@@ -169,4 +179,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun saveToken(token: String) = preferences.putToken(token)
 
+
+    override fun onDetach() {
+        super.onDetach()
+        success_dialog.dismiss()
+    }
 }

@@ -52,7 +52,7 @@ class RecoverPasswordOtpFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-// this function is sed to validate the otp
+// this function is used to validate the otp
     fun validateOtp(){
         val pin=binding.recoverPasswordOtpView.text
         binding.recoverPasswordOtpView.addTextChangedListener {

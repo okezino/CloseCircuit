@@ -131,11 +131,7 @@
         android:id="@+id/profileFragment"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_profileFragment_to_createAPlanFragment"
-            app:destination="@id/createAPlanFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.AccountFragment"
@@ -160,5 +156,10 @@
         android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanSummaryFragment"
         android:label="fragment_create_plan_summary"
         tools:layout="@layout/fragment_create_plan_summary" />
+    <fragment
+        android:id="@+id/uploadImageBottomSheetFragment"
+        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment"
+        android:label="fragment_upload_image_bottom_sheet"
+        tools:layout="@layout/fragment_upload_image_bottom_sheet" />
 
 </navigation>

@@ -1,9 +1,9 @@
 package com.example.closedcircuitapplication.common.data.repository
 
-import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto
-import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.data.mappers.DomainPostMapper
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
+import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto2
+import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.common.data.network.Api
 import com.example.closedcircuitapplication.common.data.network.models.Result
@@ -22,7 +22,7 @@ class AuthenticationRepository @Inject constructor(
     private val dispatcherProvider: DispatcherProvider
 ) : AuthRepository {
 
-    override suspend fun login(loginRequest: LoginRequest): Flow<Resource<Result<LoginResponseDto>>> =
+    override suspend fun login(loginRequest: LoginRequest): Flow<Resource<Result<LoginResponseDto2>>> =
         flow {
             emit(Loading())
             emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {
@@ -30,12 +30,12 @@ class AuthenticationRepository @Inject constructor(
             })
         }.flowOn(dispatcherProvider.io())
 
-    override suspend fun register(registerRequest: RegisterRequest): Flow<Resource<Result<RegisterResponseDto>>>  =
+    override suspend fun register(registerRequest: RegisterRequest): Flow<Resource<Result<RegisterResponseDto>>> =
         flow {
-        emit(Loading())
+            emit(Loading())
             emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {
                 api.register(registerRequest)
             })
-    }.flowOn(dispatcherProvider.io())
 
+        }
 }
