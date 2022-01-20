@@ -174,7 +174,7 @@ class CreateAccountFragment : Fragment() {
     }
 
     private fun initObservers(){
-        viewModel.registerResponse.observe(viewLifecycleOwner, { resource ->
+        viewModel.registerResult.observe(viewLifecycleOwner, { resource ->
             when (resource) {
                 is Resource.Loading -> {
                     //TODO(Show Progress bar)

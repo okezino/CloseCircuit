@@ -11,7 +11,7 @@ import com.example.closedcircuitapplication.authentication.domain.models.LoginRe
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.authentication.domain.usecases.LoginUseCase
 import com.example.closedcircuitapplication.authentication.domain.usecases.RegisterUseCase
-import com.example.closedcircuitapplication.common.data.network.models.Response
+import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,11 +26,11 @@ class AuthenticationViewModel @Inject constructor(
     private var preferences: Preferences
 ) : ViewModel() {
 
-    private var _loginResponse = MutableLiveData<Resource<Response<LoginResponseDto>>>()
-    val loginResponse: LiveData<Resource<Response<LoginResponseDto>>> get() = _loginResponse
+    private var _loginResponse = MutableLiveData<Resource<Result<LoginResponseDto>>>()
+    val loginResult: LiveData<Resource<Result<LoginResponseDto>>> get() = _loginResponse
 
-    private var _registerResponse = MutableLiveData<Resource<Response<RegisterResponseDto>>>()
-    val registerResponse: LiveData<Resource<Response<RegisterResponseDto>>> get() = _registerResponse
+    private var _registerResponse = MutableLiveData<Resource<Result<RegisterResponseDto>>>()
+    val registerResult: LiveData<Resource<Result<RegisterResponseDto>>> get() = _registerResponse
 
 
     fun login(loginRequest: LoginRequest) {

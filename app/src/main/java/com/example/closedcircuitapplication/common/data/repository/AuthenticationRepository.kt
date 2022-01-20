@@ -6,7 +6,7 @@ import com.example.closedcircuitapplication.authentication.data.mappers.DomainPo
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.common.data.network.Api
-import com.example.closedcircuitapplication.common.data.network.models.Response
+import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.domain.repository.AuthRepository
 import com.example.closedcircuitapplication.common.utils.DispatcherProvider
 import com.example.closedcircuitapplication.common.utils.Resource
@@ -22,7 +22,7 @@ class AuthenticationRepository @Inject constructor(
     private val dispatcherProvider: DispatcherProvider
 ) : AuthRepository {
 
-    override suspend fun login(loginRequest: LoginRequest): Flow<Resource<Response<LoginResponseDto>>> =
+    override suspend fun login(loginRequest: LoginRequest): Flow<Resource<Result<LoginResponseDto>>> =
         flow {
             emit(Loading())
             emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {
@@ -30,7 +30,7 @@ class AuthenticationRepository @Inject constructor(
             })
         }.flowOn(dispatcherProvider.io())
 
-    override suspend fun register(registerRequest: RegisterRequest): Flow<Resource<Response<RegisterResponseDto>>>  =
+    override suspend fun register(registerRequest: RegisterRequest): Flow<Resource<Result<RegisterResponseDto>>>  =
         flow {
         emit(Loading())
             emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {

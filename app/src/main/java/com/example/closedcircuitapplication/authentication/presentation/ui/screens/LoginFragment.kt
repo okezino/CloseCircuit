@@ -16,7 +16,6 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
-import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
@@ -143,7 +142,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun initObservers() {
-        viewModel.loginResponse.observe(viewLifecycleOwner, { resource ->
+        viewModel.loginResult.observe(viewLifecycleOwner, { resource ->
             when (resource) {
                 is Resource.Loading -> {
                     //TODO(Show Progress bar)
