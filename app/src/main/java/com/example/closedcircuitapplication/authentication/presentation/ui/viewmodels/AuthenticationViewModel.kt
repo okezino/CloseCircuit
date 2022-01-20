@@ -23,7 +23,6 @@ import javax.inject.Inject
 class AuthenticationViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase,
     private val registerUseCase: RegisterUseCase,
-    private var preferences: Preferences
 ) : ViewModel() {
 
     private var _loginResponse = MutableLiveData<Resource<Result<LoginResponseDto>>>()
