@@ -59,10 +59,9 @@ class CreateAccountFragment : Fragment() {
             password = binding.passwordTextInput.text.toString().trim()
              confirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
 
-            viewModel.register(RegisterRequest(email, fullName, "Beneficiary", phoneNumber, password, confirmPassword))
 
             // create a user account
-           // createAcount( fullName, phoneNumber, password, email, confirmPassword, view)
+            createAcount( fullName, phoneNumber, password, email, confirmPassword, view)
         }
 
         binding.countrycode.setOnCountryChangeListener {
@@ -116,7 +115,10 @@ class CreateAccountFragment : Fragment() {
                  if (password.isEmpty() || password != comfirmPassword) {
                      binding.comfirmPasswordTextInput.error = "Password does not match"
                 } else {
-                    findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
+
+                    // TODO( this is where the viewModel is instantiated and made a network request)
+                     viewModel.register(RegisterRequest(email, fullName, "Beneficiary", phoneNumber, password, confirmPassword))
+
                 }
             }
     }
