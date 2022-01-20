@@ -2,7 +2,7 @@ package com.example.closedcircuitapplication.common.data.repository
 
 import com.example.closedcircuitapplication.authentication.data.mappers.DomainPostMapper
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
-import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto2
+import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto
 import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto2
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.common.data.network.Api
@@ -22,7 +22,7 @@ class AuthenticationRepository @Inject constructor(
     private val dispatcherProvider: DispatcherProvider
 ) : AuthRepository {
 
-    override suspend fun login(loginRequest: LoginRequest): Flow<Resource<Result<LoginResponseDto2>>> =
+    override suspend fun login(loginRequest: LoginRequest): Flow<Resource<Result<LoginResponseDto>>> =
         flow {
             emit(Loading())
             emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {

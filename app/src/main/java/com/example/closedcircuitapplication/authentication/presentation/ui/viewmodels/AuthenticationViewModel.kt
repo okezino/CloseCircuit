@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto2
+import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto
 import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto2
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
@@ -24,8 +24,8 @@ class AuthenticationViewModel @Inject constructor(
     private val registerUseCase: RegisterUseCase,
 ) : ViewModel() {
 
-    private var _loginResponse = MutableLiveData<Resource<Result<LoginResponseDto2>>>()
-    val loginResult: LiveData<Resource<Result<LoginResponseDto2>>> get() = _loginResponse
+    private var _loginResponse = MutableLiveData<Resource<Result<LoginResponseDto>>>()
+    val loginResult: LiveData<Resource<Result<LoginResponseDto>>> get() = _loginResponse
 
     private var _registerResponse = MutableLiveData<Resource<Result<RegisterResponseDto2>>>()
     val registerResult: LiveData<Resource<Result<RegisterResponseDto2>>> get() = _registerResponse
