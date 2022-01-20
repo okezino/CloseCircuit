@@ -3,7 +3,7 @@ package com.example.closedcircuitapplication.common.data.repository
 import com.example.closedcircuitapplication.authentication.data.mappers.DomainPostMapper
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto2
-import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
+import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto2
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.common.data.network.Api
 import com.example.closedcircuitapplication.common.data.network.models.Result
@@ -30,7 +30,7 @@ class AuthenticationRepository @Inject constructor(
             })
         }.flowOn(dispatcherProvider.io())
 
-    override suspend fun register(registerRequest: RegisterRequest): Flow<Resource<Result<RegisterResponseDto>>> =
+    override suspend fun register(registerRequest: RegisterRequest): Flow<Resource<Result<RegisterResponseDto2>>> =
         flow {
             emit(Loading())
             emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {
