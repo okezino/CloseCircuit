@@ -6,7 +6,7 @@ import com.example.closedcircuitapplication.common.data.network.models.Result
 import retrofit2.http.Body
 import retrofit2.http.POST
 import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto
-import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto2
+import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
 
 interface Api {
 
@@ -14,5 +14,5 @@ interface Api {
     suspend fun login(@Body request: LoginRequest): Result<LoginResponseDto>
 
     @POST("register/")
-    suspend fun register(@Body request: RegisterRequest): Result<RegisterResponseDto2>
+    suspend fun register(@Body request: RegisterRequest): Result<RegisterResponseDto>
 }

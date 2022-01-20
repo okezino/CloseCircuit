@@ -2,7 +2,7 @@ package com.example.closedcircuitapplication.authentication.data.dataDto
 
 
 
-data class RegisterResponseDto2(
+data class RegisterResponseDto(
      val email : String,
      val name: String,
      val roles : String,
