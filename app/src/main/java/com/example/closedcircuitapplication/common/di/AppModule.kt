@@ -1,12 +1,14 @@
 package com.example.closedcircuitapplication.common.di
 
-import com.example.closedcircuitapplication.authentication.data.mappers.DomainPostMapper
+import android.content.Context
 import com.example.closedcircuitapplication.common.data.network.Api
 import com.example.closedcircuitapplication.common.data.network.NetworkConstants
-import com.example.closedcircuitapplication.common.data.repository.Repository
+import com.example.closedcircuitapplication.common.data.preferences.ClosedCircuitPreferences
+import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -36,7 +38,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideGsonConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
+    fun provideGsonConverterFactory(): GsonConverterFactory =
+        GsonConverterFactory.create()
 
     @Provides
     @Singleton
@@ -49,13 +52,13 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideJsonPlaceholderService(retrofit: Retrofit): Api = retrofit.create(Api::class.java)
+    fun provideJsonPlaceholderService(retrofit: Retrofit): Api =
+        retrofit.create(Api::class.java)
 
     @Provides
     @Singleton
-    fun provideRepository(api: Api, mapper: DomainPostMapper) = Repository(api, mapper)
+    fun providePreference(@ApplicationContext context: Context): Preferences {
+        return ClosedCircuitPreferences(context)
+    }
 
-    @Provides
-    @Singleton
-    fun provideDomainPostMapper() = DomainPostMapper()
 }

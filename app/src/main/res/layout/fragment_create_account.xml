@@ -412,8 +412,8 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="50dp"
-                android:paddingStart="36dp"
-                android:text="Register with Apple"
+                android:text="@string/register_with_apple"
+                android:drawableLeft="@drawable/apple_icon"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="10sp"
@@ -437,16 +437,7 @@
                 app:layout_constraintStart_toStartOf="@+id/registerUsingGoogle_btn"
                 app:layout_constraintTop_toTopOf="@+id/registerUsingGoogle_btn" />
 
-            <ImageView
-                android:layout_width="31dp"
-                android:layout_height="34dp"
-                android:layout_marginStart="4dp"
-                android:background="#000000"
-                android:elevation="20dp"
-                android:src="@drawable/apple_icon"
-                app:layout_constraintBottom_toBottomOf="@+id/registerUsingApple_btn"
-                app:layout_constraintStart_toStartOf="@+id/registerUsingApple_btn"
-                app:layout_constraintTop_toTopOf="@+id/registerUsingApple_btn" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    tools:context=".ui.createAPlantScreenUi.UploadImageBottomSheetFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/planImageCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bottomsheet_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="#FBFBFF">
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="78dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:background="@drawable/view_planimage_"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/helvetica"
+                android:text="@string/plan_image"
+                android:textColor="#24500F"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.511"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/galaryCardView"
+                android:layout_width="@dimen/margin_40dp"
+                android:layout_height="@dimen/margin_40dp"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginTop="93dp"
+                app:cardCornerRadius="@dimen/margin_40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_outline_photo_24" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/gallery_Tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/helvetica"
+                android:text="@string/gallery"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/galaryCardView"
+                app:layout_constraintStart_toEndOf="@+id/galaryCardView"
+                app:layout_constraintTop_toTopOf="@+id/galaryCardView" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cameraCardView"
+                android:layout_width="@dimen/margin_40dp"
+                android:layout_height="@dimen/margin_40dp"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginTop="31dp"
+                app:cardCornerRadius="@dimen/margin_40dp"
+                android:layout_marginBottom="@dimen/margin_20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/galaryCardView">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:src="@drawable/ic_photo_camera_24" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/camera_Tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/helvetica"
+                android:text="Camera"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSize_15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cameraCardView"
+                app:layout_constraintStart_toEndOf="@+id/cameraCardView"
+                app:layout_constraintTop_toTopOf="@+id/cameraCardView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

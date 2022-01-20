@@ -3,10 +3,12 @@ package com.example.closedcircuitapplication.plan.presentation.ui.screens
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,25 +16,24 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.authentication.CAMERA_REQUEST_CODE
-import com.example.closedcircuitapplication.authentication.REQUEST_CODE_IMAGE_PICKER
-import com.example.closedcircuitapplication.authentication.TO_READ_EXTERNAL_STORAGE
+import com.example.closedcircuitapplication.authentication.utils.CAMERA_REQUEST_CODE
+import com.example.closedcircuitapplication.authentication.utils.REQUEST_CODE_IMAGE_PICKER
+import com.example.closedcircuitapplication.authentication.utils.TO_READ_EXTERNAL_STORAGE
+import com.example.closedcircuitapplication.authentication.SendImage_UriToCreateAPlanInterface
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
+import com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment
 
-class CreateAPlanFragment : Fragment() {
+class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface  {
     private var _binding: FragmentCreateAPlanBinding? = null
     private val binding get() = _binding!!
-    private var uri: Uri? = null
-    private var sector: String? = null
-    private var category:String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    lateinit var sector: String
+    lateinit var category: String
+    private  var image_data = 0
+    private   var uri: Uri? = null
+    private val args: CreateAPlanFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,19 +59,11 @@ class CreateAPlanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // show the upoadimage bottomsheet when the upload image view is clicked
         binding.uploadImageIV.setOnClickListener {
-            binding.planImageCard.visibility = View.VISIBLE
-        }
-        binding.galaryCardView.setOnClickListener {
-            openImageChooser()
-            binding.planImageCard.visibility = View.GONE
-            readStorage()
+            showUploadImageBottomSheetDialog()
         }
 
-        binding.cameraCardView.setOnClickListener {
-            uploadImageWithCamera()
-            binding.planImageCard.visibility = View.GONE
-        }
         binding.createPlanBtn.setOnClickListener {
             sector = binding.selectPlanCategoryDropdown.text.toString()
             category = binding.dropdownMenu.text.toString()
@@ -91,21 +84,15 @@ class CreateAPlanFragment : Fragment() {
 
         }
     }
+    // show bottomsheet fragment holding the camera and uplaod image icon
+    private fun showUploadImageBottomSheetDialog() {
+        UploadImageBottomSheetFragment(this).show(requireActivity().supportFragmentManager,"uploadImageBottomSheet")
+    }
+
     // this method allow the user to pick image
     fun openImageChooser() {
         Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).also {
             startActivityForResult(it, REQUEST_CODE_IMAGE_PICKER)
-        }
-    }
-
-    private fun readStorage() {
-        if (ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE) !=
-            PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(), arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                TO_READ_EXTERNAL_STORAGE
-            )
         }
     }
 
@@ -124,17 +111,15 @@ class CreateAPlanFragment : Fragment() {
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (data != null) {
-            uri = data.data!!
-            binding.uploadImageIV.setImageURI(uri)
-            Log.d("IMAGE", "onActivityResult: $uri")
-
+        if (requestCode == REQUEST_CODE_IMAGE_PICKER) {
+            binding.uploadImageIV.setImageURI(data!!.data)
+            uri = data!!.data
         }
         // upload image using camera
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == CAMERA_REQUEST_CODE) {
-                val thumbNail = data!!.data!!
-                binding.uploadImageIV.setImageURI(thumbNail)
+                val pictureBitmap = data!!.getParcelableExtra<Bitmap>("data")
+                binding.uploadImageIV.setImageBitmap(pictureBitmap)
             }
         }
     }
@@ -152,6 +137,28 @@ class CreateAPlanFragment : Fragment() {
             } else {
                 Toast.makeText(context, "permission was denied,please grant permission", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    //  read external storage and  get the image from the galery
+    private fun readStorage() {
+        if (ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE) !=
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(), arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                TO_READ_EXTERNAL_STORAGE
+            )
+        }
+    }
+
+    override fun send_ImageUri(data: Int) {
+        image_data = data
+        if (image_data == 1){
+            openImageChooser()
+            readStorage()
+        }else if ( image_data == 2){
+            uploadImageWithCamera()
         }
     }
 }
