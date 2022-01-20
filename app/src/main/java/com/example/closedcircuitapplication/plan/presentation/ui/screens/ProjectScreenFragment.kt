@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.ui.projectScreens.Projects
-import com.example.closedcircuitapplication.plan.presentation.ui.adapters.ProjectsAdapter
+import com.example.closedcircuitapplication.ui.projectScreens.ProjectsAdapter
 
 class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
     private var _binding: FragmentProjectScreenBinding? = null

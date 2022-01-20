@@ -2,7 +2,6 @@ package com.example.closedcircuitapplication.authentication.presentation.ui.scre
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,33 +9,42 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.databinding.FragmentViewPagerBinding
 import com.example.closedcircuitapplication.authentication.presentation.ui.adapter.OnBoardingItemAdapter
 import com.example.closedcircuitapplication.authentication.presentation.ui.adapter.ViewPagerAdapter
+import com.example.closedcircuitapplication.common.data.preferences.Preferences
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.ONBOARDING
+import com.example.closedcircuitapplication.databinding.FragmentViewPagerBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
 
+    @Inject
+    lateinit var preferences: Preferences
     private var _binding: FragmentViewPagerBinding? = null
     private val binding get() = _binding!!
     private lateinit var onBoardingItemAdapter: OnBoardingItemAdapter
     private lateinit var viewPagerAdapter: ViewPagerAdapter
     private var globalContext: Context? = null
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View?{
+    ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentViewPagerBinding.inflate(layoutInflater, container, false)
 
         onBoardingItemAdapter = OnBoardingItemAdapter()
 
-        globalContext = this.getActivity()
+        globalContext = this.activity
 
-        val fragmentList = arrayListOf<Fragment>(
+        val fragmentList = arrayListOf(
             FirstScreenFragment(),
             SecondScreenFragment(),
             ThirdScreenFragment(),
@@ -49,7 +57,7 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
             lifecycle
         )
 
-        var fragmentManager: FragmentManager? = getFragmentManager()
+        val fragmentManager: FragmentManager? = getFragmentManager()
         fragmentManager!!.beginTransaction();
 
         viewPagerAdapter = ViewPagerAdapter(fragmentList, fragmentManager, lifecycle)
@@ -70,6 +78,8 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
 
 
     private fun setUpIndicator() {
+
+
         val indicators = arrayOfNulls<ImageView>(viewPagerAdapter.itemCount)
         val layoutParams: LinearLayout.LayoutParams =
             LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
@@ -79,7 +89,7 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
             indicators[i] = ImageView(globalContext)
             indicators[i].apply {
                 this?.setImageDrawable(
-                    globalContext?.let {
+                    requireContext().let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.indicator_inactive
@@ -91,6 +101,7 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
             binding.indicatorController.addView(indicators[i])
         }
     }
+
 
     fun isCurrentIndicator(position: Int) {
         val childCount = binding.indicatorController.childCount
@@ -113,11 +124,9 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
         }
     }
 
+    //TODO(Function will be used to do something.)
     private fun onBoardingFinished() {
-        val sharedPref = requireActivity().getSharedPreferences("onboarding",Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putBoolean("finished",true)
-        editor.apply()
+        preferences.putPrefBoolean(ONBOARDING, true)
     }
 
 }

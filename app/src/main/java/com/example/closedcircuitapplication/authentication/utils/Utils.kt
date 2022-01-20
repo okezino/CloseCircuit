@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.authentication
+package com.example.closedcircuitapplication.authentication.utils
 
 const val REQUEST_CODE_IMAGE_PICKER = 100
 

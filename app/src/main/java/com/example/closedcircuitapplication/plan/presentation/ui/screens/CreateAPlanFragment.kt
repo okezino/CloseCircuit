@@ -17,13 +17,12 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
-
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.authentication.CAMERA_REQUEST_CODE
-import com.example.closedcircuitapplication.authentication.REQUEST_CODE_IMAGE_PICKER
+import com.example.closedcircuitapplication.authentication.utils.CAMERA_REQUEST_CODE
+import com.example.closedcircuitapplication.authentication.utils.REQUEST_CODE_IMAGE_PICKER
+import com.example.closedcircuitapplication.authentication.utils.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.authentication.SendImage_UriToCreateAPlanInterface
-import com.example.closedcircuitapplication.authentication.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
 import com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment
 

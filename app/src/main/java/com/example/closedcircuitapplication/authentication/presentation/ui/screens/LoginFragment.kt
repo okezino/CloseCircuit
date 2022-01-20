@@ -1,6 +1,5 @@
 package com.example.closedcircuitapplication.authentication.presentation.ui.screens
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -9,11 +8,15 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.PostsViewModel
+import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
+import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
+import com.example.closedcircuitapplication.common.data.preferences.ClosedCircuitPreferences
+import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
 import com.example.closedcircuitapplication.dashboard.BeneficiaryDashboardActivity
@@ -27,11 +30,13 @@ import kotlin.concurrent.schedule
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var binding: FragmentLoginBinding
-    private val viewModel: PostsViewModel by viewModels<PostsViewModel>()
+    private val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
+
+        initObservers()
 
         // navigate to forgot password screen
         binding.fragmentLoginForgotPasswordTv.setOnClickListener {
@@ -53,36 +58,27 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val email = binding.emailTv.text.toString().trim()
             val password = binding.passwordTv.text.toString().trim()
 
-            showPleaseWaitAlertDialog()
-            viewModel.postState.observe(viewLifecycleOwner, { resource ->
-                when (resource) {
-                    is Resource.Success -> {
-                        Log.d("postList", "${resource.data}")
-                    }
-
-                    is Resource.Error -> {
-                        Log.d("postsError", "${resource.message}")
-                    }
-                }
 
 
-            })
+           // showPleaseWaitAlertDialog()
+
             val handler = Handler()
             handler.postDelayed({
                 if (Validation.validateEmailPattern(email)) {
                     if (Validation.validatePasswordPattern(password)) {
-                        showLoginSuccessfulDialog()
-                        val intentBeneficiaryDashboard =
-                            Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
-                        startActivity(intentBeneficiaryDashboard)
+                        viewModel.login(LoginRequest(email, password))
+                       // showLoginSuccessfulDialog()
+//                        val intentBeneficiaryDashboard =
+//                            Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
+//                        startActivity(intentBeneficiaryDashboard)
                     } else {
                         // call for incorrect password here
-                        showAlertInfoAlert()
+                        //showAlertInfoAlert()
                         Snackbar.make(binding.root, "Invalid Password", Snackbar.LENGTH_LONG).show()
                     }
                 } else {
                     // call for incorrect email here
-                    showAlertInfoAlert()
+                   // showAlertInfoAlert()
                     Snackbar.make(binding.root, "Invalid email address", Snackbar.LENGTH_LONG)
                         .show()
                 }
@@ -106,33 +102,21 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun showPleaseWaitAlertDialog() {
-        val view = View.inflate(context, R.layout.custom_login_wait_dialog, null)
-        val builder = AlertDialog.Builder(context)
-        builder.setView(view)
-
-        val dialog = builder.create()
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        val width = (resources.displayMetrics.widthPixels * 0.80).toInt()
-        val height = (resources.displayMetrics.heightPixels * 0.35).toInt()
-        dialog!!.window?.setLayout(width, height)
+        val waitDialog = showCustomViewDialog(
+            requireContext(), resources,
+            R.layout.custom_login_wait_dialog
+        )
 
         Timer().schedule(3000) {
-            dialog.dismiss()
+            waitDialog.dismiss()
         }
     }
 
     private fun showLoginSuccessfulDialog() {
-        val view = View.inflate(context, R.layout.cutom_login_successful_dialog, null)
-        val builder = AlertDialog.Builder(context)
-        builder.setView(view)
 
-        val dialog = builder.create()
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        val width = (resources.displayMetrics.widthPixels * 0.80).toInt()
-        val height = (resources.displayMetrics.heightPixels * 0.35).toInt()
-        dialog!!.window?.setLayout(width, height)
+        val dialog = showCustomViewDialog(
+            requireContext(), resources, R.layout.cutom_login_successful_dialog
+        )
 
         Timer().schedule(3000) {
             dialog.dismiss()
@@ -141,20 +125,50 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     // implement alert info for incorrect email and also for incorrect password
     private fun showAlertInfoAlert() {
-        val view = View.inflate(context, R.layout.custom_alert_info_dialog, null)
-        val builder = AlertDialog.Builder(context)
-        builder.setView(view)
 
-        val dialog = builder.create()
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        val width = (resources.displayMetrics.widthPixels * 0.80).toInt()
-        val height = (resources.displayMetrics.heightPixels * 0.35).toInt()
-        dialog!!.window?.setLayout(width, height)
+        val view = View.inflate(context, R.layout.custom_alert_info_dialog, null)
+
+        val dialog = showCustomViewDialog(
+            requireContext(), resources, R.layout.custom_alert_info_dialog
+        )
 
         val btnCloseAlertInfo = view.findViewById<ImageView>(R.id.fragment_login_close_icon)
+
         btnCloseAlertInfo.setOnClickListener {
             dialog.dismiss()
         }
+    }
+
+    private fun initObservers(){
+        viewModel.loginResponse.observe(viewLifecycleOwner, { resource ->
+
+            when (resource) {
+                is Resource.Loading -> {
+                    //TODO(Show Progress bar)
+                    showPleaseWaitAlertDialog()
+                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+                }
+                is Resource.Success -> {
+                    //TODO(Move to Dashboard)
+                    showLoginSuccessfulDialog()
+                    val intentBeneficiaryDashboard =
+                        Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
+                    startActivity(intentBeneficiaryDashboard)
+
+                    Log.d("token", "message ${resource.data?.data!!.token}")
+                    Toast.makeText(requireContext(), resource.data?.data!!.token, Toast.LENGTH_SHORT).show()
+                }
+
+                is Resource.Error -> {
+                    //TODO(Display error message and dismiss progress bar)
+                    showAlertInfoAlert()
+                    Snackbar.make(binding.root, "Invalid Password", Snackbar.LENGTH_LONG).show()
+
+                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
+                        .show()
+
+                }
+            }
+        })
     }
 }

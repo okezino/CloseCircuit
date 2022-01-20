@@ -13,8 +13,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.authentication.REQUEST_CODE_IMAGE_PICKER
-import com.example.closedcircuitapplication.authentication.TO_READ_EXTERNAL_STORAGE
+import com.example.closedcircuitapplication.authentication.utils.REQUEST_CODE_IMAGE_PICKER
+import com.example.closedcircuitapplication.authentication.utils.TO_READ_EXTERNAL_STORAGE
+
 import com.example.closedcircuitapplication.databinding.FragmentUploadingProofForCompletedStepBinding
 
 
