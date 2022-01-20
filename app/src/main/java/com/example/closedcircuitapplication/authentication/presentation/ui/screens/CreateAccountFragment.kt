@@ -5,14 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.text.isDigitsOnly
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
+import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
+import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
 import com.example.closedcircuitapplication.databinding.FragmentCreateAccountBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class CreateAccountFragment : Fragment() {
 
     private var _binding: FragmentCreateAccountBinding? = null
@@ -23,6 +29,7 @@ class CreateAccountFragment : Fragment() {
     lateinit var fullName :String
     lateinit var phoneNumber:String
     lateinit var comfirmPassword: String
+    private val viewModel: AuthenticationViewModel by viewModels()
 
 
 
@@ -40,6 +47,8 @@ class CreateAccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //navigate back to  welcome screen from create account screen
 
+        initObservers()
+
         binding.createAccountBtn.setOnClickListener {
              fullName = binding.fullNameTextInput.text.toString().trim()
              phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
@@ -47,8 +56,10 @@ class CreateAccountFragment : Fragment() {
             password = binding.passwordTextInput.text.toString().trim()
              comfirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
 
+            viewModel.register(RegisterRequest(email, fullName, "Beneficiary",phoneNumber, password, comfirmPassword))
+
             // create a user account
-            createAcount( fullName, phoneNumber, password, email, comfirmPassword, view)
+//            createAcount( fullName, phoneNumber, password, email, comfirmPassword, view)
         }
 
         binding.countrycode.setOnCountryChangeListener {
@@ -159,6 +170,31 @@ class CreateAccountFragment : Fragment() {
         } else {
             binding.spacialCharacterTv.setTextColor(resources.getColor(R.color.green_700))
         }
+
+    }
+
+    private fun initObservers(){
+        viewModel.registerResponse.observe(viewLifecycleOwner, { resource ->
+            when (resource) {
+                is Resource.Loading -> {
+                    //TODO(Show Progress bar)
+                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+                }
+                is Resource.Success -> {
+                    //TODO(Move to Dashboard)
+                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+                }
+
+                is Resource.Error -> {
+                    //TODO(Display error message and dismiss progress bar)
+                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
+                        .show()
+
+                }
+            }
+
+
+        })
 
     }
 

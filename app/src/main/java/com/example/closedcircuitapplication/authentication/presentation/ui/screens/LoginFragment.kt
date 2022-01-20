@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -12,7 +13,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.PostsViewModel
+import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
+import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
+import com.example.closedcircuitapplication.common.data.preferences.Preferences
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
@@ -21,17 +25,22 @@ import com.example.closedcircuitapplication.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
+import javax.inject.Inject
 import kotlin.concurrent.schedule
 
 @AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
+    @Inject
+    lateinit var preferences: Preferences
     private lateinit var binding: FragmentLoginBinding
-    private val viewModel: PostsViewModel by viewModels<PostsViewModel>()
+    private val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
+
+        initObservers()
 
         // navigate to forgot password screen
         binding.fragmentLoginForgotPasswordTv.setOnClickListener {
@@ -53,30 +62,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val email = binding.emailTv.text.toString().trim()
             val password = binding.passwordTv.text.toString().trim()
 
-            viewModel.getPosts()
+            viewModel.login(LoginRequest(email, password))
 
             showPleaseWaitAlertDialog()
-            viewModel.postState.observe(viewLifecycleOwner, { resource ->
-                when (resource) {
-                    is Resource.Loading -> {
-                        //TODO(Show Progress bar)
-                        Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
-                    }
-                    is Resource.Success -> {
-                        //TODO(Move to Dashboard)
-                        Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
-                    }
 
-                    is Resource.Error -> {
-                        //TODO(Display error message and dismiss progress bar)
-                        Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
-                            .show()
-
-                    }
-                }
-
-
-            })
             val handler = Handler()
             handler.postDelayed({
                 if (Validation.validateEmailPattern(email)) {
@@ -152,4 +141,33 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             dialog.dismiss()
         }
     }
+
+    private fun initObservers() {
+        viewModel.loginResponse.observe(viewLifecycleOwner, { resource ->
+            when (resource) {
+                is Resource.Loading -> {
+                    //TODO(Show Progress bar)
+                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+                }
+                is Resource.Success -> {
+                    //TODO(Move to Dashboard)
+                    Log.d("token", "msg: ${resource.data?.data?.token}")
+                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+//                    resource.data?.data?.token?.let { saveToken(it)}
+                    saveToken(resource.data?.data!!.token)
+                }
+
+                is Resource.Error -> {
+                    //TODO(Display error message and dismiss progress bar)
+                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
+                        .show()
+
+                }
+            }
+
+        })
+    }
+
+    private fun saveToken(token: String) = preferences.putToken(token)
+
 }
