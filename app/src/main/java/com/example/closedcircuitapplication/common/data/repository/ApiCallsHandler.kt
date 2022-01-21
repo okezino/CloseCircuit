@@ -1,7 +1,8 @@
 package com.example.closedcircuitapplication.common.data.repository
 
 import com.example.closedcircuitapplication.common.utils.Resource
-import com.example.closedcircuitapplication.common.utils.Resource.*
+import com.example.closedcircuitapplication.common.utils.Resource.Error
+import com.example.closedcircuitapplication.common.utils.Resource.Success
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import okhttp3.ResponseBody

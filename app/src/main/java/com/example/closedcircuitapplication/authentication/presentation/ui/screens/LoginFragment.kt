@@ -6,18 +6,15 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.compose.ui.res.painterResource
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
-import com.example.closedcircuitapplication.common.data.preferences.ClosedCircuitPreferences
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
@@ -154,7 +151,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     waitDialog.dismiss()  // dismiss the waitDialog
                     showLoginSuccessfulDialog()
                     // this is used to insert the token into the shared preference
-                    preferences.putToken(resource.data?.data!!.token)
+                    preferences.putToken(resource.datas?.data!!.token)
 
                     val intentBeneficiaryDashboard =
                         Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
