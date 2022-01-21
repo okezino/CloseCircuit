@@ -7,7 +7,6 @@ import com.example.closedcircuitapplication.common.domain.repository.AuthReposit
 import com.example.closedcircuitapplication.common.utils.DispatcherProvider
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Resource.Loading
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -22,8 +21,10 @@ class AuthenticationRepository @Inject constructor(
     override suspend fun getPosts(): Flow<Resource<List<Post>>> = flow {
         emit(Loading())
         emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {
-            api.getPosts().map { mapper.mapToDomain(it) }
+            api.getPosts().map {
+                mapper.mapToDomain(it)
+            }
         })
-    }.flowOn(IO)
+    }.flowOn(dispatcherProvider.io())
 
 }

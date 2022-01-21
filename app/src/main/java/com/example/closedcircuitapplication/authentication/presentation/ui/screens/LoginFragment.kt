@@ -50,6 +50,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.passwordTv.addTextChangedListener(loginButtonHandler)
 
         binding.loginBtn.setOnClickListener {
+
             val email = binding.emailTv.text.toString().trim()
             val password = binding.passwordTv.text.toString().trim()
 
@@ -108,8 +109,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             val userLoginEmail: String = binding.emailTv.text.toString().trim()
             val userLoginPassword: String = binding.passwordTv.text.toString().trim()
-            binding.loginBtn.isEnabled =
-                userLoginEmail.isNotEmpty() && userLoginPassword.isNotEmpty()
+            binding.loginBtn.isEnabled = Validation.validateEmailInput(userLoginEmail)
+                    && userLoginPassword.isNotEmpty()
         }
 
         override fun afterTextChanged(p0: Editable?) {}
