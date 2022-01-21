@@ -4,25 +4,33 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.text.isDigitsOnly
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
+import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
+import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
 import com.example.closedcircuitapplication.databinding.FragmentCreateAccountBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class CreateAccountFragment : Fragment() {
 
     private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
     lateinit var countryCode: String
+
     lateinit var password: String
     lateinit var email: String
     lateinit var fullName: String
     lateinit var phoneNumber: String
-    lateinit var comfirmPassword: String
+    lateinit var confirmPassword: String
+    private val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
 
 
     override fun onCreateView(
@@ -39,15 +47,19 @@ class CreateAccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //navigate back to  welcome screen from create account screen
 
+
+        initObserver()
+
         binding.createAccountBtn.setOnClickListener {
             fullName = binding.fullNameTextInput.text.toString().trim()
             phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
             email = binding.emailTextInput.text.toString().trim()
             password = binding.passwordTextInput.text.toString().trim()
-            comfirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
+
+            confirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
 
             // create a user account
-            createAcount(fullName, phoneNumber, password, email, comfirmPassword, view)
+            createAcount(fullName, phoneNumber, password, email, confirmPassword, view)
         }
 
         binding.countrycode.setOnCountryChangeListener {
@@ -100,7 +112,11 @@ class CreateAccountFragment : Fragment() {
             if (password.isEmpty() || password != comfirmPassword) {
                 binding.comfirmPasswordTextInput.error = "Password does not match"
             } else {
-                findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
+                viewModel.register(
+                    RegisterRequest(
+                        email, fullName, "Beneficiary", phoneNumber, password, confirmPassword
+                    )
+                )
             }
         }
     }
@@ -155,9 +171,33 @@ class CreateAccountFragment : Fragment() {
                 field.setTextColor(resources.getColor(R.color.green_700))
             }
         }
-
-
     }
+
+    fun initObserver() {
+        viewModel.registerResponse.observe(viewLifecycleOwner, { resource ->
+            when (resource) {
+                is Resource.Loading -> {
+                    //TODO(Show Progress bar)
+                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+                }
+                is Resource.Success -> {
+                    //TODO(Move to Dashboard)
+                    findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
+                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+                }
+
+                is Resource.Error -> {
+                    //TODO(Display error message and dismiss progress bar)
+                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
+                        .show()
+
+                }
+            }
+
+
+        })
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
