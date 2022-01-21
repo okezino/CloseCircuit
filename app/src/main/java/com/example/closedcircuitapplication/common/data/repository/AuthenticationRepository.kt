@@ -37,5 +37,5 @@ class AuthenticationRepository @Inject constructor(
                 api.register(registerRequest)
             })
 
-        }
+        }.flowOn(dispatcherProvider.io())
 }
