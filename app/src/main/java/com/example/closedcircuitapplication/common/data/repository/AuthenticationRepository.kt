@@ -30,12 +30,13 @@ class AuthenticationRepository @Inject constructor(
             })
         }.flowOn(dispatcherProvider.io())
 
+
+
     override suspend fun register(registerRequest: RegisterRequest): Flow<Resource<Result<RegisterResponseDto>>> =
         flow {
             emit(Loading())
             emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {
                 api.register(registerRequest)
             })
-
         }.flowOn(dispatcherProvider.io())
 }

@@ -34,7 +34,7 @@ class AuthenticationViewModel @Inject constructor(
     fun login(loginRequest: LoginRequest) {
         viewModelScope.launch {
             loginUseCase(loginRequest).collect {
-                Log.d("token2", "msg2: ${it.data?.data?.token}")
+                Log.d("token2", "msg2: ${it.datas?.data?.token}")
                 _loginResponse.value = it
             }
         }

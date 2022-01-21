@@ -1,9 +1,9 @@
 package com.example.closedcircuitapplication.common.utils
 
-sealed class Resource<out T>(val data: T? = null, val message: String? = null) {
+sealed class Resource<out T>(val datas: T? = null, val messages: String? = null) {
 
-    class Success<T>(data: T) : Resource<T>(data)
-    class Error<T>(message: String, data: T? = null) : Resource<T>(null, message)
-    class Loading<T>(data: T? = null) : Resource<T>(data)
+    data class Success<T>(val data: T) : Resource<T>(data)
+    data class Error<T>(val message: String, val data: T? = null) : Resource<T>(null, message)
+    data class Loading<T>(val data: T? = null) : Resource<T>(data)
 
 }

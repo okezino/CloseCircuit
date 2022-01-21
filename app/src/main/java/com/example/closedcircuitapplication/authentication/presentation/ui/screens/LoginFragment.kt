@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -63,6 +62,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.passwordTv.addTextChangedListener(loginButtonHandler)
 
         binding.loginBtn.setOnClickListener {
+
             val email = binding.emailTv.text.toString().trim()
             val password = binding.passwordTv.text.toString().trim()
 
@@ -98,8 +98,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             val userLoginEmail: String = binding.emailTv.text.toString().trim()
             val userLoginPassword: String = binding.passwordTv.text.toString().trim()
-            binding.loginBtn.isEnabled =
-                userLoginEmail.isNotEmpty() && userLoginPassword.isNotEmpty()
+            binding.loginBtn.isEnabled = Validation.validateEmailInput(userLoginEmail)
+                    && userLoginPassword.isNotEmpty()
         }
 
         override fun afterTextChanged(p0: Editable?) {}
@@ -155,7 +155,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     waitDialog.dismiss()  // dismiss the waitDialog
                     showLoginSuccessfulDialog()
                     // this is used to insert the token into the shared preference
+<<<<<<< HEAD
                     saveToken(resource.data?.data!!.token)
+=======
+                    preferences.putToken(resource.datas?.data!!.token)
+>>>>>>> 8d4de1b80defaef7e3a5cae143307cb28c055141
 
                     val intentBeneficiaryDashboard =
                         Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
