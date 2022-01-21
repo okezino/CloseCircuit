@@ -32,12 +32,12 @@ import kotlin.concurrent.schedule
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     @Inject
-    private lateinit var binding: FragmentLoginBinding
-     lateinit var preferences: Preferences
-    private val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
-    private lateinit var success_dialog: AlertDialog
+    lateinit var preferences: Preferences
+    lateinit var binding: FragmentLoginBinding
+    val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
+    lateinit var success_dialog: AlertDialog
     lateinit var waitDialog:AlertDialog
-    private lateinit var incorrect_emailDialog:AlertDialog
+    lateinit var incorrect_emailDialog:AlertDialog
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -19,6 +19,7 @@ import com.example.closedcircuitapplication.authentication.presentation.models.A
 import com.example.closedcircuitapplication.authentication.presentation.ui.adapter.OnBoardingItemAdapter
 import com.example.closedcircuitapplication.authentication.presentation.ui.adapter.ViewPagerAdapter
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.ONBOARDING
 import com.example.closedcircuitapplication.databinding.FragmentViewPagerBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,7 +33,6 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
     private var _binding: FragmentViewPagerBinding? = null
     private val binding get() = _binding!!
     private lateinit var onBoardingItemAdapter: OnBoardingItemAdapter
-//    private lateinit var viewPagerAdapter: OnBoardingItemAdapter
     private var globalContext: Context? = null
 
 
@@ -71,23 +71,6 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
 
         globalContext = this.activity
 
-//        val fragmentList = arrayListOf(
-//            FirstScreenFragment(),
-//            SecondScreenFragment(),
-//            ThirdScreenFragment(),
-//            FourthScreenFragment()
-//        )
-
-//        val adapter = ViewPagerAdapter(
-//            fragmentList,
-//            requireActivity().supportFragmentManager,
-//            lifecycle
-//        )
-
-//        val fragmentManager: FragmentManager? = getFragmentManager()
-//        fragmentManager!!.beginTransaction();
-//
-//        viewPagerAdapter = OnBoardingItemAdapter(onBoardingItemAdapter)
 
         binding.onBoardingViewPager.adapter = onBoardingItemAdapter
         setUpIndicator()
@@ -118,7 +101,8 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
         }
 
         binding.getStarted.setOnClickListener {
-            navigateToLoginFragment()
+//            navigateToLoginFragment()
+            findNavController().navigate(R.id.action_viewPagerFragment_to_welcomeScreenFragment2)
             onBoardingFinished()
         }
 
