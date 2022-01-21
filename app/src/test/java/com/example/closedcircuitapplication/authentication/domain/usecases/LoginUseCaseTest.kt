@@ -29,6 +29,7 @@ class LoginUseCaseTest {
     fun `Flow emits Loading Result first`() = runBlocking {
         val loginRequest = LoginRequest(email, password)
         val loginResponse = loginUseCase(loginRequest).first()
+
         assertThat(loginResponse).isEqualTo(Resource.Loading(null))
     }
 
@@ -37,6 +38,7 @@ class LoginUseCaseTest {
     fun `Login with Correct Details and Return Success`() = runBlocking {
         val loginRequest = LoginRequest(email, password)
         val loginResponse = loginUseCase(loginRequest).last()
+
         val loginResult = Result(
             fakeAuthRepository.resourceMessage,
             LoginResponseDto(fakeAuthRepository.token),
