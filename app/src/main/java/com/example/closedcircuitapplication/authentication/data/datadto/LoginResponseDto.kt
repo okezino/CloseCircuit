@@ -4,11 +4,5 @@ import com.example.closedcircuitapplication.authentication.domain.models.LoginRe
 
 data class LoginResponseDto(
     val token: String
-) {
-    fun mapToDomain(): LoginResponse {
-        return LoginResponse(
-            token = token
-        )
-    }
-}
+)
 

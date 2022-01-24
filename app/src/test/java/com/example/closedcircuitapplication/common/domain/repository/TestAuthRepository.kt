@@ -16,6 +16,13 @@ class TestAuthRepository : AuthRepository {
     var resourceMessage = ""
     var resourceError = ""
 
+    val registerResponse = listOf<String>("benjamin@sgmail.com", "benjamin", "Beneficiary", "07012345678")
+    val email = "benjamin@sgmail.com"
+    val name = "benjamin"
+    val roles = "Beneficiary"
+    val phone_number = "07012345678"
+
+
     override suspend fun login(loginRequest: LoginRequest): Flow<Resource<Result<LoginResponseDto>>> =
         flow {
             emit(Resource.Loading())
