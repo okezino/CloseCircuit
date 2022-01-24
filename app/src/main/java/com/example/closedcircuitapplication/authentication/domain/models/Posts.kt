@@ -1,6 +1,6 @@
 package com.example.closedcircuitapplication.authentication.domain.models
 
-data class Post(
+data class Posts(
     var userId: Long,
     var id: Long,
     var title: String,

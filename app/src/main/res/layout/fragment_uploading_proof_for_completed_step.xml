@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBFBFF"
+    tools:context=".plan.presentation.ui.screens.UploadingProofForCompletedStepFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/completeStep_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/complete_step"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:textSize="@dimen/textSize_24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/uploads_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_60dp"
+            android:fontFamily="@font/helvetica"
+            android:text="Uploads"
+            android:textColor="#24500F"
+            android:visibility="gone"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/completeStep_TV" />
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/uploads_inputlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_54dp"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:background="@drawable/spinner_background"
+            android:drawableEnd="@drawable/close_icon"
+            android:editable="false"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:text="Png medicals"
+            android:textColor="#C4C4C4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/uploads_TV" />
+
+
+        <TextView
+            android:id="@+id/SelectBudget_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="29dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/select_budget"
+            android:textColor="#24500F"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uploads_inputlayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/selectBudget_sp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            app:boxBackgroundColor="#EBEFF2"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
+            app:boxStrokeColor="#E5E5E5"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="dropdown_menu"
+            app:endIconTint="#24500F"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/SelectBudget_TV">
+
+            <AutoCompleteTextView
+                android:id="@+id/selectBudgetDropdown"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dropDownVerticalOffset="4dp"
+                android:dropDownSelector="#E5E5E5"
+                android:gravity="center_vertical"
+                android:inputType="none"
+                android:paddingTop="4dp"
+                android:scrollbars="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/uploadImage_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/upload_image"
+            android:textColor="#24500F"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectBudget_sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/uploadimage_inputlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:background="@drawable/spinner_background"
+            android:gravity="left"
+            android:paddingStart="@dimen/margin_10dp"
+            android:paddingTop="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/uploadImage_TV"
+            app:startIconCheckable="true"
+            app:startIconDrawable="@drawable/gallary_image_fill">
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/describeImage_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/describe_image"
+            android:textColor="#24500F"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uploadimage_inputlayout" />
+
+        <EditText
+            android:id="@+id/discribeImage_EditTV"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_161dp"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:background="@drawable/spinner_background"
+            android:ems="10"
+            android:outlineSpotShadowColor="@color/black"
+            android:padding="30dp"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/describeImage_TV" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="200 maximum words"
+            android:textColor="#C4C4C4"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/discribeImage_EditTV" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveAndAddNewProof_btn"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="58dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:text="@string/save_and_add_new_proof"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:backgroundTint="@color/button_background_color"
+            app:cornerRadius="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/discribeImage_EditTV" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveAndContinue_btn"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="53dp"
+            android:layout_marginBottom="56dp"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:text="@string/get_approval"
+            android:textAllCaps="false"
+            android:textColor="#24500F"
+            android:textSize="16sp"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/saveAndAddNewProof_btn"
+            app:strokeColor="#24500F"
+            app:strokeWidth="@dimen/width_1dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

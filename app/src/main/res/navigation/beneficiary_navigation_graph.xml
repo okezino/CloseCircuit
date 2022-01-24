@@ -120,9 +120,6 @@
         android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreateAPlanFragment"
         android:label="fragment_create_a_plan"
         tools:layout="@layout/fragment_create_a_plan" >
-        <action
-            android:id="@+id/action_createAPlanFragment2_to_createPlanSummaryFragment2"
-            app:destination="@id/createPlanSummaryFragment2" />
         <argument
             android:name="sector"
             app:argType="string" />
@@ -130,8 +127,10 @@
             android:name="category"
             app:argType="string" />
         <argument
-            android:name="uri"
-            app:argType="integer" />
+            android:name="uri" />
+        <action
+            android:id="@+id/action_createAPlanFragment2_to_createPlanSummaryFragment2"
+            app:destination="@id/createPlanSummaryFragment2" />
     </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment2"
@@ -155,12 +154,29 @@
         <action
             android:id="@+id/action_createPlanSummaryFragment2_to_currencyTypeFragment"
             app:destination="@id/currencyTypeFragment" />
+        <action
+            android:id="@+id/action_createPlanSummaryFragment2_to_createAPlanFragment2"
+            app:destination="@id/createAPlanFragment2" />
     </fragment>
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment2"
         android:name="com.example.closedcircuitapplication.authentication.presentation.ui.screens.EmailVerificationSuccessfulFragment"
         android:label="fragment_email_verification_successful"
         tools:layout="@layout/fragment_email_verification_successful" />
+    <dialog
+        android:id="@+id/uploadImageBottomSheetFragment2"
+        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment"
+        android:label="fragment_upload_image_bottom_sheet"
+        tools:layout="@layout/fragment_upload_image_bottom_sheet" >
+        <argument
+            android:name="image_uri"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+        <action
+            android:id="@+id/action_uploadImageBottomSheetFragment2_to_createAPlanFragment2"
+            app:destination="@id/createAPlanFragment2" />
+    </dialog>
     <fragment
         android:id="@+id/myStepFragment"
         android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.MyStepFragment"
@@ -200,4 +216,14 @@
             app:argType="string" />
         <argument android:name="uri" />
     </fragment>
+    <fragment
+        android:id="@+id/requestVerificationSuccessfullFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.RequestVerificationSuccessfullFragment"
+        android:label="fragment_request_verification_successfull"
+        tools:layout="@layout/fragment_request_verification_successfull" />
+    <fragment
+        android:id="@+id/uploadingProofForCompletedStepFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.UploadingProofForCompletedStepFragment"
+        android:label="fragment_uploading_proof_for_completed_step"
+        tools:layout="@layout/fragment_uploading_proof_for_completed_step" />
 </navigation>
