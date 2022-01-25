@@ -88,7 +88,13 @@ object Validation {
         return (support.isNotEmpty())
     }
 
+    // phone_number inputField validation
+    fun validatePhone_number(phone_number : String):Boolean{
+        return phone_number.length < 9
+    }
 
+
+    // passwordInputField validation
     fun validatePasswordErrors(
         password: String,
     ): List<String> {
