@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto
-import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
+import com.example.closedcircuitapplication.authentication.data.datadto.LoginResponseDto
+import com.example.closedcircuitapplication.authentication.data.datadto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.authentication.domain.usecases.LoginUseCase
@@ -34,7 +34,7 @@ class AuthenticationViewModel @Inject constructor(
     fun login(loginRequest: LoginRequest) {
         viewModelScope.launch {
             loginUseCase(loginRequest).collect {
-                Log.d("token2", "msg2: ${it.data?.data?.token}")
+                Log.d("token2", "msg2: ${it.datas?.data?.token}")
                 _loginResponse.value = it
             }
         }

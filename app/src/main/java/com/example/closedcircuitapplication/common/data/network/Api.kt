@@ -5,8 +5,8 @@ import com.example.closedcircuitapplication.authentication.domain.models.Registe
 import com.example.closedcircuitapplication.common.data.network.models.Result
 import retrofit2.http.Body
 import retrofit2.http.POST
-import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto
-import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
+import com.example.closedcircuitapplication.authentication.data.datadto.LoginResponseDto
+import com.example.closedcircuitapplication.authentication.data.datadto.RegisterResponseDto
 
 interface Api {
 
