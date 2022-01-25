@@ -15,13 +15,6 @@ class TestAuthRepository : AuthRepository {
     var token = "737f8kn)u38ewo"
     var resourceMessage = ""
     var resourceError = ""
-    var alreadyRegisteredUserEmail = "kunleabiodun@gmail.com"
-    var successData = RegisterResponseDto(
-        "abdul@gmail.com",
-        "Abdulqohar Salawu",
-        "Beneficiary",
-        "08017654387"
-    )
 
     override suspend fun login(loginRequest: LoginRequest): Flow<Resource<Result<LoginResponseDto>>> =
         flow {
@@ -47,28 +40,22 @@ class TestAuthRepository : AuthRepository {
         flow {
             emit(Resource.Loading())
 
-            when {
-                shouldReturnNetworkError -> {
-                    emit(Resource.Error(resourceError, null))
-                }
-                registerRequest.email == alreadyRegisteredUserEmail -> {
-                    emit(
-                        Resource.Error(
-                            resourceError,
-                            null
+            if (shouldReturnNetworkError) {
+                emit(Resource.Error(resourceError, null))
+            }
+            else {
+                emit(
+                    Resource.Success(
+                        Result(
+                            resourceMessage, RegisterResponseDto(
+                                registerRequest.email,
+                                registerRequest.name,
+                                "Beneficiary",
+                                registerRequest.phone_number
+                            ), resourceError
                         )
                     )
-                }
-                else -> {
-                    emit(
-                        Resource.Success(
-                            Result(
-                                resourceMessage,
-                                successData, resourceError
-                            )
-                        )
-                    )
-                }
+                )
             }
         }
 
