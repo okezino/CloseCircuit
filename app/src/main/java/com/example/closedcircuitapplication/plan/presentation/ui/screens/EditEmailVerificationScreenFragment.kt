@@ -23,7 +23,7 @@ class EditEmailVerificationScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val verifyEmailButton = view.findViewById<Button>(R.id.login_btn)
+        val verifyEmailButton = view.findViewById<Button>(R.id.fragment_login_login_btn)
         verifyEmailButton.setOnClickListener {
             findNavController().navigate(R.id.successfulEmailVerificationScreenFragment)
         }

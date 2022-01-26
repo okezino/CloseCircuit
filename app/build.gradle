@@ -20,7 +20,7 @@ android {
         versionCode Application.version_code
         versionName Application.version_name
 
-        testInstrumentationRunner AndroidTestDependencies.mock_test_runner
+        testInstrumentationRunner AndroidTestDependencies.hiltTestRunner
     }
 
     buildTypes {
@@ -35,6 +35,11 @@ android {
         targetCompatibility Java.java_version
     }
 
+    configurations.all {
+        resolutionStrategy {
+            force 'androidx.test:monitor:1.4.0'
+        }
+    }
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -42,6 +47,8 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+
 }
 
 dependencies {
@@ -87,6 +94,7 @@ dependencies {
     kapt AnnotationDependencies.hilt_android_compiler
     kapt AnnotationDependencies.hilt_compiler
 
+
     //Android test dependencies
     androidTestImplementation AndroidTestDependencies.ext_junit
     androidTestImplementation AndroidTestDependencies.espresso_core
@@ -96,13 +104,16 @@ dependencies {
     androidTestImplementation AndroidTestDependencies.hilt_android_testing
     androidTestImplementation AndroidTestDependencies.idling_resource
     androidTestImplementation AndroidTestDependencies.wharton_expresso_idling_resource
+    androidTestImplementation TestDependencies.mock_web_server
+    androidTestImplementation TestDependencies.mockito
 
     //Test Dependencies
     testImplementation TestDependencies.junit4
     testImplementation TestDependencies.truth
     testImplementation TestDependencies.mock_web_server
+    testImplementation TestDependencies.mockito
+
+    kaptAndroidTest  AnnotationDependencies.hilt_android_compiler
 
     debugImplementation DebugDependencies.fragment_testing
-
-
 }
