@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.text.isDigitsOnly
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -59,7 +58,7 @@ class CreateAccountFragment : Fragment() {
             confirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
 
             // create a user account
-            createAcount(fullName, phoneNumber, password, email, confirmPassword, view)
+            createAcount(fullName, phoneNumber, password, email, confirmPassword)
         }
 
         binding.countrycode.setOnCountryChangeListener {
@@ -68,7 +67,7 @@ class CreateAccountFragment : Fragment() {
 
         binding.fullNameTextInput.addTextChangedListener {
             fullName = binding.fullNameTextInput.text.toString().trim()
-            onFullNameTExtInputChangeListener(fullName)
+            fullNameTExtInputValidation(fullName)
         }
         binding.phoneNumberTextInput.addTextChangedListener {
             phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
@@ -95,42 +94,33 @@ class CreateAccountFragment : Fragment() {
         password: String,
         email: String,
         comfirmPassword: String,
-        view: View
     ) {
         // check if the full name is entered and is a valid name
-        if (Validation.validateFullNameInput(fullName)) {
-
-        }
-        if (!Validation.validateEmailInput(email)) {
-            binding.emailTextInput.error
-
-        } else if (phoneNumber.length < 9) {
-            binding.wrongEmailWorningTv.visibility = View.GONE
+        if(fullName.isBlank()){
+            binding.fullNameTextInput.error = "cant be empty"
+        }else if (!Validation.validateEmailInput(email) || email.isEmpty() ) {
+            binding.emailTextInput.error = "cant be empty"
+        } else if (Validation.validatePhone_number(phoneNumber)){
             binding.phoneNumberTextInput.error = "Incomplete number"
+        } else if (password.isEmpty() || password != comfirmPassword) {
+            binding.comfirmPasswordTextInput.error = "Password does not match"
         } else {
-            // check if the password provided is the same with the confirm password
-            if (password.isEmpty() || password != comfirmPassword) {
-                binding.comfirmPasswordTextInput.error = "Password does not match"
-            } else {
-                viewModel.register(
-                    RegisterRequest(
-                        email, fullName, "Beneficiary", phoneNumber, password, confirmPassword
-                    )
-                )
-            }
+
+            // TODO( this is where the viewModel is instantiated and made a network request)
+            viewModel.register(RegisterRequest(email, fullName, "Beneficiary", phoneNumber, password, confirmPassword))
+
         }
     }
 
-    fun onFullNameTExtInputChangeListener(fullName: String) {
-
-        if (fullName.isNotEmpty() && fullName.isDigitsOnly()) {
-            binding.fullNameTextInput.error = "Can't be numbers"
-        } else if (fullName.isNotEmpty() && fullName[0].isDigit()) {
-            binding.fullNameTextInput.error = "must not start with numbers"
-        } else if (fullName.isNotEmpty() && fullName.contains(Validation.SPECAILCHARAACTERS)) {
-            binding.fullNameTextInput.error = "must not contain special characters"
+    fun fullNameTExtInputValidation(fullName:String){
+        val errorsList = listOf(
+            "Can't start with numbers",
+            "must not contain special characters")
+        val result = Validation.validateFullNameInput(fullName)
+        for (error in result){
+            if (errorsList.contains(error))
+                binding.fullNameTextInput.error = error
         }
-
     }
 
     fun onEmailTextInputChangeListener(email: String) {

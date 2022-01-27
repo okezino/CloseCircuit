@@ -80,7 +80,7 @@ class ValidationTest {
 
     @Test
     fun validate_passwordWithoutSpecialCharacter_returns_Special_characters() {
-        val expected = listOf("* Special characters")
+        val expected = listOf("* Special characte")
         val actual = Validation.validatePasswordErrors(passwordWithoutSpecialCharacter)
         assertEquals(expected, actual)
     }
@@ -93,13 +93,13 @@ class ValidationTest {
 
     @Test
     fun validate_fullName_starts_with_digiit_returns_cannot_start_with_digit() {
-        val expected = "Can't start with numbers"
-        val actual = Validation.validateFullNameInput("1234")
+        val expected = listOf("Can't start with numbers")
+        val actual = Validation.validateFullNameInput("123gghh")
         assertEquals(expected, actual)
     }
     @Test
     fun validate_fullName_with_spacial_character() {
-        val expected = "must not contain special characters"
+        val expected = listOf("must not contain special characters")
         val actual = Validation.validateFullNameInput("ben@@##")
         assertEquals(expected, actual)
     }

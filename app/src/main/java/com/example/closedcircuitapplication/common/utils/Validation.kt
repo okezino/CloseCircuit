@@ -1,5 +1,7 @@
 package com.example.closedcircuitapplication.common.utils
 
+import androidx.core.text.isDigitsOnly
+
 object Validation {
     var EMAIL_PATTERN = Regex(
         "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
@@ -43,9 +45,16 @@ object Validation {
         return false
     }
 
-    fun validateFullNameInput(name: String): Boolean {
-        val regex = Regex("^([0-9]+([a-z|A-Z]+?)?|([!@#$%&*=|'+,./_-]+)|\\s+|\\+)")
-        return name.matches(regex) || name.isEmpty()
+    fun validateFullNameInput(name: String): List<String>{
+        val result = mutableListOf<String>()
+        if (name.contains(DIGITCHARACTER)){
+            result.add("Can't start with numbers")
+        }
+
+        if (name.contains(SPECAILCHARAACTERS)) {
+            result.add("must not contain special characters")
+        }
+        return  result
     }
 
     // validate Business name
