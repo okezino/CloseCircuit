@@ -6,6 +6,7 @@ object TestDependencies {
     val junit4 = "junit:junit:${Versions.junit_4_version}"
     val truth = "com.google.truth:truth:${Versions.truth_version}"
     val mock_web_server = "com.squareup.okhttp3:mockwebserver:${Versions.mockwebserver}"
+    val mockito = "org.mockito:mockito-core:${Versions.mockito}"
 
 
 }

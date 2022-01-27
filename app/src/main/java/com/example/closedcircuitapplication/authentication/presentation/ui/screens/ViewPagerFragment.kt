@@ -11,15 +11,12 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.authentication.presentation.models.AdapterModel
 import com.example.closedcircuitapplication.authentication.presentation.ui.adapter.OnBoardingItemAdapter
-import com.example.closedcircuitapplication.authentication.presentation.ui.adapter.ViewPagerAdapter
+import com.example.closedcircuitapplication.authentication.utils.DataFactory
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
-import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.ONBOARDING
 import com.example.closedcircuitapplication.databinding.FragmentViewPagerBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,31 +40,7 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
         // Inflate the layout for this fragment
         _binding = FragmentViewPagerBinding.inflate(layoutInflater, container, false)
 
-        onBoardingItemAdapter = OnBoardingItemAdapter(
-            listOf(
-                AdapterModel(
-                    onBoardingImage = R.drawable.ic_idea_illustration,
-                    title = "Easily raise funds for your business or project",
-                    description = "Start a business or project and get your family, friends or wellwishers to financially support from anywhere in the world."
-                ),
-                AdapterModel(
-                    onBoardingImage = R.drawable.ic_project_illustration,
-                    title = "Get guided execution. Create a budget and action steps",
-                    description = "Follow the guided steps on execution of your business or project to unlock funds and stay accountable to your sponsors."
-                ),
-                AdapterModel(
-                    onBoardingImage = R.drawable.ic_sponsor_illustration,
-                    title = "Support, incubate and mentor with your financial contributions",
-                    description = "Ensure your financial contributions are meaningfully used to establish success in the business or project funded."
-                ),
-                AdapterModel(
-                    onBoardingImage = R.drawable.ic_investment_illustration,
-                    title = "Discover diligently executed ideas to invest in",
-                    description = "Discover investment opportunities in star performing businesses or projects on the platform."
-                )
-
-            )
-        )
+        onBoardingItemAdapter = OnBoardingItemAdapter(DataFactory.onboardingData())
 
         globalContext = this.activity
 
@@ -86,10 +59,10 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
         val onBoardingVp = binding.onBoardingViewPager
 
         binding.nextBtn.setOnClickListener {
-            if (onBoardingVp.currentItem +1 < onBoardingItemAdapter.itemCount){
-                onBoardingVp.currentItem +=1
+            if (onBoardingVp.currentItem + 1 < onBoardingItemAdapter.itemCount) {
+                onBoardingVp.currentItem += 1
 
-            }else{
+            } else {
                 navigateToLoginFragment()
                 onBoardingFinished()
             }
@@ -114,14 +87,14 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
         onBoardingFinished()
     }
 
-    private fun buttonVisibility(){
-        binding.skipBtn.isVisible =  false
+    private fun buttonVisibility() {
+        binding.skipBtn.isVisible = false
         binding.nextBtn.isVisible = false
         binding.getStarted.isVisible = true
     }
 
-    private fun buttonVisibility2(){
-        binding.skipBtn.isVisible =  true
+    private fun buttonVisibility2() {
+        binding.skipBtn.isVisible = true
         binding.nextBtn.isVisible = true
         binding.getStarted.isVisible = false
     }
@@ -154,9 +127,9 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
     fun isCurrentIndicator(position: Int) {
         val childCount = binding.indicatorController.childCount
 
-        if(position == onBoardingItemAdapter.itemCount -1) {
+        if (position == onBoardingItemAdapter.itemCount - 1) {
             buttonVisibility()
-        }else{
+        } else {
             buttonVisibility2()
         }
 

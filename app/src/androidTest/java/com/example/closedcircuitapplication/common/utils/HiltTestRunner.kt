@@ -3,14 +3,18 @@ package com.example.closedcircuitapplication.common.utils
 import android.app.Application
 import android.content.Context
 import androidx.test.runner.AndroidJUnitRunner
-import com.example.closedcircuitapplication.ClosedCircuitApplication
+import dagger.hilt.android.testing.HiltTestApplication
 
-class MockTestRunner : AndroidJUnitRunner() {
+/**
+ * Custom  Hilt Test runner for android test implementation.
+ */
+class HiltTestRunner : AndroidJUnitRunner() {
 
     override fun newApplication(
         cl: ClassLoader?, className: String?,
         context: Context?
     ): Application {
-        return super.newApplication(cl, ClosedCircuitApplication::class.java.name, context)
+        return super.newApplication(cl, HiltTestApplication::class.java.name, context)
     }
+
 }
