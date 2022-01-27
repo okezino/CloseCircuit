@@ -46,9 +46,9 @@ class LoginFragmentTest : AndroidBaseTest() {
 
         //2 Test that it navigates to BeneficiaryDashboardActivity
 
-        //Check if there's
-//        onView(withText("otjekjfvkDvysfei8oe)n8rwdw")).inRoot(ToastMatcher())
-//            .check(matches(isDisplayed()))
+        //Checking for toast
+        //onView(withText("otjekjfvkDvysfei8oe)n8rwdw")).inRoot(ToastMatcher())
+        // .check(matches(isDisplayed()))
     }
 
 
@@ -96,6 +96,5 @@ class LoginFragmentTest : AndroidBaseTest() {
 
         //TODO( Test that a snackbar is shown saying invalid password)
 
-//        onView(w)
     }
 }

@@ -204,6 +204,8 @@
     <string name="budget_description_text">Budget Description</string>
     <string name="sponsors_text">Sponsors</string>
     <string name="no_sponsors_yet_text">No Sponsors yet</string>
+    <string name="arrow">Arrow</string>
+    <string name="illustration">illustration</string>
     <string name="uppercase_and_lowercase">* Uppercase and lowercase</string>
     <string name="sponsors">Sponsors</string>
     <string name="no_sponsors">No Sponsors</string>

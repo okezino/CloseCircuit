@@ -6,10 +6,8 @@ import com.example.closedcircuitapplication.authentication.domain.models.LoginRe
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.LOGIN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.REGISTER
-import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.SPONSORS
 import com.example.closedcircuitapplication.common.data.network.models.Result
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface Api {

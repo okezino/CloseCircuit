@@ -42,7 +42,8 @@ class TestAuthRepository : AuthRepository {
 
             if (shouldReturnNetworkError) {
                 emit(Resource.Error(resourceError, null))
-            } else {
+            }
+            else {
                 emit(
                     Resource.Success(
                         Result(

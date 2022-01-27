@@ -25,6 +25,7 @@ class CreateAccountFragment : Fragment() {
     private val binding get() = _binding!!
     lateinit var countryCode: String
 
+
     lateinit var password: String
     lateinit var email: String
     lateinit var fullName: String
@@ -47,8 +48,7 @@ class CreateAccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //navigate back to  welcome screen from create account screen
 
-
-        initObserver()
+        initObservers()
 
         binding.createAccountBtn.setOnClickListener {
             fullName = binding.fullNameTextInput.text.toString().trim()
@@ -57,6 +57,8 @@ class CreateAccountFragment : Fragment() {
             password = binding.passwordTextInput.text.toString().trim()
 
             confirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
+
+            viewModel.register(RegisterRequest(email, fullName, "Beneficiary",phoneNumber, password, confirmPassword))
 
             // create a user account
             createAcount(fullName, phoneNumber, password, email, confirmPassword, view)
@@ -173,8 +175,8 @@ class CreateAccountFragment : Fragment() {
         }
     }
 
-    fun initObserver() {
-        viewModel.registerResponse.observe(viewLifecycleOwner, { resource ->
+    private fun initObservers(){
+        viewModel.registerResult.observe(viewLifecycleOwner, { resource ->
             when (resource) {
                 is Resource.Loading -> {
                     //TODO(Show Progress bar)
@@ -196,6 +198,7 @@ class CreateAccountFragment : Fragment() {
 
 
         })
+
     }
 
 

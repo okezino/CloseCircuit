@@ -9,12 +9,13 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.presentation.ui.adapter.OnBoardingItemAdapter
-import com.example.closedcircuitapplication.authentication.presentation.ui.adapter.ViewPagerAdapter
+import com.example.closedcircuitapplication.authentication.utils.DataFactory
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.ONBOARDING
 import com.example.closedcircuitapplication.databinding.FragmentViewPagerBinding
@@ -29,7 +30,6 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
     private var _binding: FragmentViewPagerBinding? = null
     private val binding get() = _binding!!
     private lateinit var onBoardingItemAdapter: OnBoardingItemAdapter
-    private lateinit var viewPagerAdapter: ViewPagerAdapter
     private var globalContext: Context? = null
 
 
@@ -40,29 +40,12 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
         // Inflate the layout for this fragment
         _binding = FragmentViewPagerBinding.inflate(layoutInflater, container, false)
 
-        onBoardingItemAdapter = OnBoardingItemAdapter()
+        onBoardingItemAdapter = OnBoardingItemAdapter(DataFactory.onboardingData())
 
         globalContext = this.activity
 
-        val fragmentList = arrayListOf(
-            FirstScreenFragment(),
-            SecondScreenFragment(),
-            ThirdScreenFragment(),
-            FourthScreenFragment()
-        )
 
-        val adapter = ViewPagerAdapter(
-            fragmentList,
-            requireActivity().supportFragmentManager,
-            lifecycle
-        )
-
-        val fragmentManager: FragmentManager? = getFragmentManager()
-        fragmentManager!!.beginTransaction();
-
-        viewPagerAdapter = ViewPagerAdapter(fragmentList, fragmentManager, lifecycle)
-
-        binding.onBoardingViewPager.adapter = adapter
+        binding.onBoardingViewPager.adapter = onBoardingItemAdapter
         setUpIndicator()
         isCurrentIndicator(0)
         binding.onBoardingViewPager.registerOnPageChangeCallback(object :
@@ -73,14 +56,52 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
             }
         })
 
+        val onBoardingVp = binding.onBoardingViewPager
+
+        binding.nextBtn.setOnClickListener {
+            if (onBoardingVp.currentItem + 1 < onBoardingItemAdapter.itemCount) {
+                onBoardingVp.currentItem += 1
+
+            } else {
+                navigateToLoginFragment()
+                onBoardingFinished()
+            }
+        }
+
+        binding.skipBtn.setOnClickListener {
+            navigateToLoginFragment()
+            onBoardingFinished()
+        }
+
+        binding.getStarted.setOnClickListener {
+//            navigateToLoginFragment()
+            findNavController().navigate(R.id.action_viewPagerFragment_to_welcomeScreenFragment2)
+            onBoardingFinished()
+        }
+
         return binding.root
+    }
+
+    private fun navigateToLoginFragment() {
+        findNavController().navigate(R.id.loginFragment)
+        onBoardingFinished()
+    }
+
+    private fun buttonVisibility() {
+        binding.skipBtn.isVisible = false
+        binding.nextBtn.isVisible = false
+        binding.getStarted.isVisible = true
+    }
+
+    private fun buttonVisibility2() {
+        binding.skipBtn.isVisible = true
+        binding.nextBtn.isVisible = true
+        binding.getStarted.isVisible = false
     }
 
 
     private fun setUpIndicator() {
-
-
-        val indicators = arrayOfNulls<ImageView>(viewPagerAdapter.itemCount)
+        val indicators = arrayOfNulls<ImageView>(onBoardingItemAdapter.itemCount)
         val layoutParams: LinearLayout.LayoutParams =
             LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
         layoutParams.setMargins(8, 0, 8, 0)
@@ -105,6 +126,12 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
 
     fun isCurrentIndicator(position: Int) {
         val childCount = binding.indicatorController.childCount
+
+        if (position == onBoardingItemAdapter.itemCount - 1) {
+            buttonVisibility()
+        } else {
+            buttonVisibility2()
+        }
 
         for (spot in 0 until childCount) {
             val view = binding.indicatorController.getChildAt(spot) as ImageView
