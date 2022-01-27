@@ -9,19 +9,21 @@
 
 
     <Button
-        android:textColor="@color/text_color2"
-        android:elevation="400dp"
         android:id="@+id/skipBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginBottom="64dp"
         android:background="#00000000"
+        android:elevation="400dp"
         android:text="@string/skip"
         android:textAllCaps="false"
+        android:textColor="@color/text_color2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_bias="1.0" />
 
 
     <TextView
@@ -29,33 +31,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="150dp"
         android:text="@string/start_a_business_or_project_and_get_your_family_friends_or_wellwishers_to_financially_support_from_anywhere_in_the_world"
         android:textColor="@color/text_color2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:elevation="0dp"
         android:src="@drawable/ic_background_lines"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/onBoardImage"
-        android:layout_width="311dp"
-        android:layout_height="339dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:src="@drawable/ic_idea_illustration"
+        app:layout_constraintBottom_toTopOf="@id/title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/title"
@@ -67,6 +77,9 @@
         android:textColor="@color/text_color"
         android:textSize="28sp"
         android:textStyle="bold"
+        android:layout_marginBottom="210dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,14 +89,16 @@
         android:id="@+id/nextBtn"
         android:layout_width="159dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="56dp"
         android:background="@color/text_color"
         android:backgroundTint="@color/text_color"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.902"
-        app:layout_constraintStart_toEndOf="@+id/skipBtn">
+        app:layout_constraintStart_toEndOf="@+id/skipBtn"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_bias="0.110000014">
+
 
         <TextView
             android:layout_width="wrap_content"

@@ -1,22 +1,20 @@
 package com.example.closedcircuitapplication.common.data.repository
 
-import com.example.closedcircuitapplication.authentication.data.datadto.LoginResponseDto
-import com.example.closedcircuitapplication.authentication.data.datadto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.data.mappers.DomainPostMapper
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
-import com.example.closedcircuitapplication.authentication.domain.models.Post
+import com.example.closedcircuitapplication.authentication.data.datadto.LoginResponseDto
+import com.example.closedcircuitapplication.authentication.data.datadto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.common.data.network.Api
+import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.domain.repository.AuthRepository
 import com.example.closedcircuitapplication.common.utils.DispatcherProvider
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Resource.Loading
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
-import com.example.closedcircuitapplication.common.data.network.models.Result
 
 class AuthenticationRepository @Inject constructor(
     private val api: Api,
@@ -24,18 +22,20 @@ class AuthenticationRepository @Inject constructor(
     private val dispatcherProvider: DispatcherProvider
 ) : AuthRepository {
 
-    override suspend fun login(loginRequest: LoginRequest): Flow<Resource<Result<LoginResponseDto>>> = flow {
-        emit(Loading())
-        emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {
-            api.login(loginRequest)
-        })
-    }.flowOn(dispatcherProvider.io())
+    override suspend fun login(loginRequest: LoginRequest): Flow<Resource<Result<LoginResponseDto>>> =
+        flow {
+            emit(Loading())
+            emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {
+                api.login(loginRequest)
+            })
+        }.flowOn(dispatcherProvider.io())
 
-    override suspend fun register(registerRequest: RegisterRequest): Flow<Resource<Result<RegisterResponseDto>>> = flow {
-        emit( Loading())
-        emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
-            api.register(registerRequest)
-        })
-    }.flowOn(dispatcherProvider.io())
+    override suspend fun register(registerRequest: RegisterRequest): Flow<Resource<Result<RegisterResponseDto>>> =
+        flow {
+            emit(Loading())
+            emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {
+                api.register(registerRequest)
+            })
 
+        }
 }

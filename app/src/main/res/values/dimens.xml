@@ -54,4 +54,6 @@
     <dimen name="height_40dp">40dp</dimen>
     <dimen name="elevation_10dp">10dp</dimen>
     <dimen name="padding_7dp">7dp</dimen>
+    <dimen name="margin_25dp">25dp</dimen>
+    <dimen name="margin_4dp">4dp</dimen>
 </resources>

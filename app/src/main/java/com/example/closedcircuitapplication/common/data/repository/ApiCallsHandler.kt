@@ -1,6 +1,8 @@
 package com.example.closedcircuitapplication.common.data.repository
 
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.common.utils.Resource.Error
+import com.example.closedcircuitapplication.common.utils.Resource.Success
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import okhttp3.ResponseBody
@@ -19,19 +21,19 @@ object ApiCallsHandler {
     ): Resource<T> {
         return withContext(dispatcher) {
             try {
-                Resource.Success(apiCall.invoke())
+                Success(apiCall.invoke())
             } catch (exception: Exception) {
                 when (exception) {
-                    is IOException -> Resource.Error("IO Error! Could not Connect to the Internet")
+                    is IOException -> Error("IO Error! Could not Connect to the Internet")
                     is HttpException -> {
                         val code = exception.code()
                         val errorResponse = exception.response()?.errorBody()?.let {
                             getErrorMessage(it)
                         }
-                        Resource.Error("Error $code -> $errorResponse")
+                        Error("Error $code -> $errorResponse")
                     }
                     else -> {
-                        Resource.Error("An error has occurred", null)
+                        Error("An error has occurred", null)
                     }
                 }
             }

@@ -8,7 +8,7 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.presentation.models.AdapterModel
 import com.example.closedcircuitapplication.databinding.ViewPagerTemplateBinding
 
-class OnBoardingItemAdapter(): RecyclerView.Adapter<OnBoardingItemAdapter.OnBoardingItemViewHolder>() {
+class OnBoardingItemAdapter(private val onBoardingItem: List<AdapterModel>): RecyclerView.Adapter<OnBoardingItemAdapter.OnBoardingItemViewHolder>() {
 
     var onBoardingModel: MutableList<AdapterModel> = mutableListOf()
 
@@ -17,13 +17,13 @@ class OnBoardingItemAdapter(): RecyclerView.Adapter<OnBoardingItemAdapter.OnBoar
         private val binding: ViewPagerTemplateBinding = ViewPagerTemplateBinding.bind(view)
         private val image = binding.onBoardImage
         private val title = binding.title
-        private val description = binding.description
+        private val description = binding.title2
         val layout = binding.layoutViewPager
 
         fun bind(onBoardingItem: AdapterModel){
             image.setImageResource(onBoardingItem.onBoardingImage)
             title.text = onBoardingItem.title
-            description.text =onBoardingItem.description
+            description.text = onBoardingItem.description
         }
     }
 
@@ -38,10 +38,10 @@ class OnBoardingItemAdapter(): RecyclerView.Adapter<OnBoardingItemAdapter.OnBoar
     }
 
     override fun onBindViewHolder(holder: OnBoardingItemViewHolder, position: Int) {
-        holder.bind(onBoardingModel[position])
+        holder.bind(onBoardingItem[position])
     }
 
     override fun getItemCount(): Int {
-        return onBoardingModel.size
+        return onBoardingItem.size
     }
 }
