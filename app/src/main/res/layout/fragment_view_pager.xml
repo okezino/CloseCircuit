@@ -10,17 +10,9 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/onBoardingViewPager"
         android:layout_width="match_parent"
-<<<<<<< HEAD
         android:layout_height="match_parent" >
     </androidx.viewpager2.widget.ViewPager2>
 
-
-=======
-        android:layout_height="match_parent">
-
-    </androidx.viewpager2.widget.ViewPager2>
-
->>>>>>> 1c0f35693468e0d3605f540b34c0b1a4a6fc4ca9
     <LinearLayout
         android:id="@+id/indicatorController"
         android:layout_width="wrap_content"
