@@ -2,7 +2,6 @@ package com.example.closedcircuitapplication.common.di
 
 import android.content.Context
 import com.example.closedcircuitapplication.common.data.network.Api
-import com.example.closedcircuitapplication.common.data.network.NetworkConstants
 import com.example.closedcircuitapplication.common.data.preferences.ClosedCircuitPreferences
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import dagger.Module
@@ -41,14 +40,6 @@ object AppModule {
     fun provideGsonConverterFactory(): GsonConverterFactory =
         GsonConverterFactory.create()
 
-    @Provides
-    @Singleton
-    fun provideRetrofit(
-        gsonConverterFactory: GsonConverterFactory,
-        okHttpClient: OkHttpClient
-    ): Retrofit =
-        Retrofit.Builder().baseUrl(NetworkConstants.BASE_URL)
-            .addConverterFactory(gsonConverterFactory).client(okHttpClient).build()
 
     @Provides
     @Singleton

@@ -29,7 +29,6 @@ class CreateAccountFragment : Fragment() {
     private lateinit var fullName :String
     lateinit var phoneNumber:String
     private lateinit var confirmPassword: String
-
     private val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
 
 

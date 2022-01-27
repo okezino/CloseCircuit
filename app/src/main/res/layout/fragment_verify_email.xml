@@ -53,6 +53,7 @@
                 android:text="@string/shared_building_shared_prosperity"
                 android:textColor="#24500F"
                 android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -112,7 +113,7 @@
                 app:itemCount="4"
                 app:lineColor="#EBEFF2"
                 app:cursorColor="@color/green_700"
-                android:layout_marginTop="128dp"
+                android:layout_marginTop="50dp"
                 android:cursorVisible="true"
                 android:background="@color/white"
                 app:viewType="rectangle"

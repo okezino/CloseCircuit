@@ -1,8 +1,6 @@
 package com.example.closedcircuitapplication.authentication.domain.usecases
 
-import com.example.closedcircuitapplication.authentication.data.datadto.LoginResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
-import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.domain.repository.TestAuthRepository
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.google.common.truth.Truth.assertThat
@@ -33,20 +31,6 @@ class LoginUseCaseTest {
         assertThat(loginResponse).isEqualTo(Resource.Loading(null))
     }
 
-
-    @Test
-    fun `Login with Correct Details and Return Success`() = runBlocking {
-        val loginRequest = LoginRequest(email, password)
-        val loginResponse = loginUseCase(loginRequest).last()
-
-        val loginResult = Result(
-            fakeAuthRepository.resourceMessage,
-            LoginResponseDto(fakeAuthRepository.token),
-            fakeAuthRepository.resourceError
-        )
-
-        assertThat(loginResponse).isEqualTo(Resource.Success(loginResult))
-    }
 
     @Test
     fun `Login with Incorrect Details and Return Error`() = runBlocking {

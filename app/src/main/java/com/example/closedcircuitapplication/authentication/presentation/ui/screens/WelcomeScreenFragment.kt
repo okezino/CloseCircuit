@@ -27,7 +27,7 @@ class WelcomeScreenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // navigate from  welcome screen to login fragment
-        binding.loginBtn.setOnClickListener {
+        binding.fragmentWelcomeLoginBtn.setOnClickListener {
             findNavController().navigate(R.id.action_welcomeScreenFragment_to_loginFragment)
         }
         // navigate from  welcome screen to create an account

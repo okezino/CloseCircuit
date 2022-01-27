@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto
-import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
+import com.example.closedcircuitapplication.authentication.data.datadto.LoginResponseDto
+import com.example.closedcircuitapplication.authentication.data.datadto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.authentication.domain.usecases.LoginUseCase
