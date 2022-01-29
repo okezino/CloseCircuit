@@ -144,10 +144,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     waitDialog.dismiss()  // dismiss the waitDialog
                     showLoginSuccessfulDialog()
                     // this is used to insert the token into the shared preference
-                    saveToken(resource.data?.data!!.token)
+                    saveToken(resource.data.data!!.token)
                     preferences.putToken(resource.datas?.data!!.token)
-                    saveToken(resource.data?.data!!.token)
-                    preferences.putToken(resource.datas?.data!!.token)
+                    saveToken(resource.data.data.token)
+                    preferences.putToken(resource.datas.data.token)
 
                     val intentBeneficiaryDashboard =
                         Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
