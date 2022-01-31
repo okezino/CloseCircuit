@@ -2,7 +2,7 @@
 
 ## Contribution
 
-This Codebase is entirely developed by Decagon Insitute Developers in Training, Android Stack, Squad 07. 
+This Codebase is entirely developed by Decagon Insitute Developers.
 
 As an intending contributor, you need to thoroughly go through the guidelines before you start contributing. You will find all the Guidlines in thw Wiki Page. 
 
