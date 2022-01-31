@@ -1,9 +1,8 @@
 package com.example.closedcircuitapplication.authentication.presentation.ui.screens
 
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.closedcircuitapplication.R
@@ -11,19 +10,9 @@ import com.example.closedcircuitapplication.common.utils.AndroidBaseTest
 import com.example.closedcircuitapplication.common.utils.MockStatus
 import com.example.closedcircuitapplication.common.utils.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidTest
-import junit.runner.Version.id
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import org.hamcrest.CoreMatchers
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.util.regex.Pattern.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-
-import androidx.test.espresso.matcher.RootMatchers.withDecorView
-
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.matcher.RootMatchers
 
 
 @RunWith(AndroidJUnit4::class)
@@ -107,9 +96,6 @@ class LoginFragmentTest : AndroidBaseTest() {
 
 
         onView((withId(R.id.fragment_login_login_btn))).perform(click())
-
-        //TODO( Test that a snackbar is shown saying invalid password)
-        //Fixes the issue #62
         onView(withText("Invalid Password")).check(ViewAssertions.matches(isDisplayed()))
         onView(withText("Invalid Password"))
             .check(ViewAssertions.matches(withEffectiveVisibility(Visibility.VISIBLE)))
