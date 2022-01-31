@@ -110,10 +110,8 @@ class LoginFragmentTest : AndroidBaseTest() {
 
         //TODO( Test that a snackbar is shown saying invalid password)
         onView(withText("Invalid Password")).check(ViewAssertions.matches(isDisplayed()))
-
         onView(withText("Invalid Password"))
-            .check(ViewAssertions.matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
-
+            .check(ViewAssertions.matches(withEffectiveVisibility(Visibility.VISIBLE)))
 
 
     }
