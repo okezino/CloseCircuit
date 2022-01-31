@@ -33,20 +33,6 @@ class LoginUseCaseTest {
         assertThat(loginResponse).isEqualTo(Resource.Loading(null))
     }
 
-    @Test
-    fun `Login with Correct Details and Return Success`() = runBlocking {
-        val loginRequest = LoginRequest(email, password)
-        val loginResponse = loginUseCase(loginRequest).last()
-
-        val loginResult = Result(
-            fakeAuthRepository.resourceMessage,
-            LoginResponseDto(fakeAuthRepository.token),
-            fakeAuthRepository.resourceError
-        )
-
-        assertThat(loginResponse).isEqualTo(Resource.Success(loginResult))
-
-    }
 
 
     @Test
