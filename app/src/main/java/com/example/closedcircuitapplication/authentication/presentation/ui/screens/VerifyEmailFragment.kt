@@ -8,6 +8,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentVerifyEmailBinding
 
 class VerifyEmailFragment : Fragment() {
@@ -36,7 +37,8 @@ class VerifyEmailFragment : Fragment() {
             binding.wrongcodeTv.visibility = View.INVISIBLE
             if (pin.toString().length == 4) {
                 if (pin.toString() == "1234") {
-                    findNavController().navigate(R.id.action_verifyEmailFragment_to_emailVerificationSuccessfulFragment)
+                    findNavController().navigate(R.id.action_verifyEmailFragment_to_emailVerificationSuccessfulFragment, null,
+                        customNavAnimation().build())
                 } else {
                     binding.wrongcodeTv.visibility = View.VISIBLE
                     binding.pinView.setLineColor(resources.getColor(R.color.red))

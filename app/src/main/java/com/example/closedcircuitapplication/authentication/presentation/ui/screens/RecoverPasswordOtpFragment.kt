@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentRecoverPasswordOtpBinding
 
 
@@ -58,7 +59,8 @@ class RecoverPasswordOtpFragment : Fragment() {
         binding.recoverPasswordOtpView.addTextChangedListener {
         if (pin.toString().length == 4){
             if (pin.toString() == "1234"){
-                findNavController().navigate(R.id.action_recoverPasswordOtpFragment_to_resetYourPasswordFragment)
+                findNavController().navigate(R.id.action_recoverPasswordOtpFragment_to_resetYourPasswordFragment, null,
+                    customNavAnimation().build())
 
             }else{
                 binding.recoverPasswordOtpView.setLineColor( resources.getColor(R.color.red))

@@ -11,46 +11,76 @@
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_background_lines" />
+        android:src="@drawable/ic_background_lines"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="359dp"
+        android:contentDescription="@string/illustration" />
 
     <ImageView
         android:id="@+id/onBoardImage"
         android:layout_width="311dp"
         android:layout_height="339dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="100dp"
+        android:contentDescription="@string/illustration"
         android:src="@drawable/ic_idea_illustration"
+        app:layout_constraintBottom_toTopOf="@id/title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.00999999" />
 
     <TextView
-
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="71dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/onBoarding_title"
         android:textColor="@color/text_color"
         android:textSize="28sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/title2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/onBoardImage" />
 
     <TextView
-        android:id="@+id/description"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:id="@+id/title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="35dp"
+        android:maxWidth="320dp"
         android:text="@string/onBoarding_description"
-        android:textSize="17sp"
+        android:textColor="@color/body_text_color"
+        android:textSize="@dimen/textSize_17sp"
+        android:layout_marginBottom="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
+
+
+    <!--    <TextView-->
+<!--        android:id="@+id/description2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="71dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:elevation="100dp"-->
+<!--        android:text="@string/onBoarding_description"-->
+<!--        android:textSize="17sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/title"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

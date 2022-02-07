@@ -14,6 +14,7 @@ import com.example.closedcircuitapplication.authentication.domain.models.Registe
 import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentCreateAccountBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,6 +24,7 @@ class CreateAccountFragment : Fragment() {
     private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
     lateinit var countryCode: String
+
 
     lateinit var password: String
     lateinit var email: String
@@ -46,15 +48,13 @@ class CreateAccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //navigate back to  welcome screen from create account screen
 
-
-        initObserver()
+        initObservers()
 
         binding.createAccountBtn.setOnClickListener {
             fullName = binding.fullNameTextInput.text.toString().trim()
             phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
             email = binding.emailTextInput.text.toString().trim()
             password = binding.passwordTextInput.text.toString().trim()
-
             confirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
 
             // create a user account
@@ -83,7 +83,8 @@ class CreateAccountFragment : Fragment() {
             passwordInputValidationListener(password)
         }
         binding.loginTv.setOnClickListener {
-            findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment, null,
+                customNavAnimation().build())
         }
     }
 
@@ -106,7 +107,7 @@ class CreateAccountFragment : Fragment() {
             binding.comfirmPasswordTextInput.error = "Password does not match"
         } else {
 
-            // TODO( this is where the viewModel is instantiated and made a network request)
+            //  this is where the viewModel is instantiated and made a network request
             viewModel.register(RegisterRequest(email, fullName, "Beneficiary", phoneNumber, password, confirmPassword))
 
         }
@@ -136,7 +137,7 @@ class CreateAccountFragment : Fragment() {
     }
 
     fun onNumberTextInputChangeListener(number: String) {
-        if (number.length < 9) {
+        if (Validation.validatePhone_number(number)) {
             binding.wrongEmailWorningTv.visibility = View.GONE
             binding.phoneNumberTextInput.error = "Incomplete number"
         }
@@ -163,31 +164,29 @@ class CreateAccountFragment : Fragment() {
         }
     }
 
-    fun initObserver() {
-        viewModel.registerResponse.observe(viewLifecycleOwner, { resource ->
+    private fun initObservers(){
+        viewModel.registerResult.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-                    //TODO(Show Progress bar)
                     Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Success -> {
-                    //TODO(Move to Dashboard)
-                    findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
+                    findNavController().navigate(
+                        R.id.action_createAccountFragment_to_loginFragment, null,
+                        customNavAnimation().build()
+                    )
+
                     Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
                 }
 
                 is Resource.Error -> {
-                    //TODO(Display error message and dismiss progress bar)
                     Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
                         .show()
-
                 }
             }
+        }
 
-
-        })
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

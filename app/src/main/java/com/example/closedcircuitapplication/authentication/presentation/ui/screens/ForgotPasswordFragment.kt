@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.utils.Validation
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentForgotPasswordBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -57,7 +58,8 @@ class ForgotPasswordFragment : Fragment() {
 
             if(Validation.validateEmailPattern(email)){
                 findNavController().navigate(
-                    R.id.action_forgotPasswordFragment_to_recoverPasswordOtpFragment
+                    R.id.action_forgotPasswordFragment_to_recoverPasswordOtpFragment, null,
+                    customNavAnimation().build()
                 )
             }else{
                 Snackbar.make(

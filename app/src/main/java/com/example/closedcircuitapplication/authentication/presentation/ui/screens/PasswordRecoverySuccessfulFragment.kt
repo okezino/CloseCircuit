@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentPasswordRecoverySuccessfulBinding
 
 
@@ -31,7 +32,8 @@ class PasswordRecoverySuccessfulFragment : Fragment() {
 //            }
 //        }
         binding.passwordRecoverySuccessProceedButtpn.setOnClickListener {
-            findNavController().navigate(R.id.action_passwordRecoverySuccessfulFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_passwordRecoverySuccessfulFragment_to_loginFragment, null,
+                customNavAnimation().build())
         }
     }
 

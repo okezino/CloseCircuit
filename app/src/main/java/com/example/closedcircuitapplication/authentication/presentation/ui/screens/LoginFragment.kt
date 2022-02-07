@@ -3,12 +3,10 @@ package com.example.closedcircuitapplication.authentication.presentation.ui.scre
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -31,12 +29,12 @@ import kotlin.concurrent.schedule
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     @Inject
-     lateinit var preferences: Preferences
+    lateinit var preferences: Preferences
     private lateinit var binding: FragmentLoginBinding
-    private val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
+    private val viewModel: AuthenticationViewModel by viewModels()
     lateinit var success_dialog: AlertDialog
-    lateinit var waitDialog:AlertDialog
-    lateinit var incorrect_emailDialog:AlertDialog
+    lateinit var waitDialog: AlertDialog
+    lateinit var incorrect_emailDialog: AlertDialog
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,42 +45,39 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         // navigate to forgot password screen
         binding.fragmentLoginForgotPasswordTv.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
         }
 
         // navigate back to welcome screen from login screen
         binding.imageView.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_welcomeScreenFragment)
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeScreenFragment())
         }
         binding.fragmentLoginCreateAccountTv.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_createAccountFragment)
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToCreateAccountFragment())
         }
 
-        binding.emailTv.addTextChangedListener(loginButtonHandler)
-        binding.passwordTv.addTextChangedListener(loginButtonHandler)
+        binding.fragmentLoginEmailTv.addTextChangedListener(loginButtonHandler)
+        binding.fragmentLoginPasswordTv.addTextChangedListener(loginButtonHandler)
 
-        binding.loginBtn.setOnClickListener {
+        binding.fragmentLoginLoginBtn.setOnClickListener {
 
-            val email = binding.emailTv.text.toString().trim()
-            val password = binding.passwordTv.text.toString().trim()
+            val email = binding.fragmentLoginEmailTv.text.toString().trim()
+            val password = binding.fragmentLoginPasswordTv.text.toString().trim()
 
-            val handler = Handler()
-            handler.postDelayed({
-                if (Validation.validateEmailPattern(email)) {
-                    if (Validation.validatePasswordPattern(password)) {
-                        viewModel.login(LoginRequest(email, password))
+            if (Validation.validateEmailPattern(email)) {
+                if (Validation.validatePasswordPattern(password)) {
+                    viewModel.login(LoginRequest(email, password))
 
-                    } else {
-                        // call for incorrect password here
-                        Snackbar.make(binding.root, "Invalid Password", Snackbar.LENGTH_LONG).show()
-                    }
                 } else {
-                    // call for incorrect email here
-                    showAlertInfoAlert()
-                    Snackbar.make(binding.root, "Invalid email address", Snackbar.LENGTH_LONG)
-                        .show()
+                    // call for incorrect password here
+                    Snackbar.make(binding.root, "Invalid Password", Snackbar.LENGTH_LONG).show()
                 }
-            }, 1000)
+            } else {
+                // call for incorrect email here
+                showAlertInfoAlert()
+                Snackbar.make(binding.root, "Invalid email address", Snackbar.LENGTH_LONG)
+                    .show()
+            }
         }
     }
 
@@ -92,9 +87,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            val userLoginEmail: String = binding.emailTv.text.toString().trim()
-            val userLoginPassword: String = binding.passwordTv.text.toString().trim()
-            binding.loginBtn.isEnabled = Validation.validateEmailInput(userLoginEmail)
+            val userLoginEmail: String = binding.fragmentLoginEmailTv.text.toString().trim()
+            val userLoginPassword: String = binding.fragmentLoginPasswordTv.text.toString().trim()
+            binding.fragmentLoginLoginBtn.isEnabled = Validation.validateEmailInput(userLoginEmail)
                     && userLoginPassword.isNotEmpty()
         }
 
@@ -102,13 +97,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun showPleaseWaitAlertDialog() {
-         waitDialog = showCustomViewDialog(
+        waitDialog = showCustomViewDialog(
             requireContext(), resources,
             R.layout.custom_login_wait_dialog
         )
-
-        Timer().schedule(3000) {
-        }
     }
 
     private fun showLoginSuccessfulDialog() {
@@ -127,7 +119,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         val view = View.inflate(context, R.layout.custom_alert_info_dialog, null)
 
-         incorrect_emailDialog = showCustomViewDialog(
+        incorrect_emailDialog = showCustomViewDialog(
             requireContext(), resources, R.layout.custom_alert_info_dialog
         )
 
@@ -138,42 +130,49 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
-    private fun initObservers(){
-        viewModel.loginResponse.observe(viewLifecycleOwner, { resource ->
+    private fun initObservers() {
+        viewModel.loginResult.observe(viewLifecycleOwner) { resource ->
 
             when (resource) {
                 is Resource.Loading -> {
                     //TODO(Show Progress bar)
                     showPleaseWaitAlertDialog()
                 }
+
                 is Resource.Success -> {
-                    //TODO(Move to Dashboard)
                     waitDialog.dismiss()  // dismiss the waitDialog
                     showLoginSuccessfulDialog()
                     // this is used to insert the token into the shared preference
+                    saveToken(resource.data?.data!!.token)
                     preferences.putToken(resource.datas?.data!!.token)
 
                     val intentBeneficiaryDashboard =
                         Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
                     startActivity(intentBeneficiaryDashboard)
-                    // this is used to get the saved token from the shared preference
-                    val savedToken = preferences.getToken()
-                    Toast.makeText(requireContext(), savedToken, Toast.LENGTH_SHORT).show()
 
                 }
 
                 is Resource.Error -> {
                     //TODO(Display error message and dismiss progress bar)
+
                     waitDialog.dismiss()
-                    Snackbar.make(binding.root, "Error, something went wrong", Snackbar.LENGTH_LONG).show()
+
+                    Snackbar.make(binding.root, resource.message, Snackbar.LENGTH_LONG)
+                        .show()
                     showAlertInfoAlert()
                 }
             }
-        })
+
+        }
     }
+
+    private fun saveToken(token: String) = preferences.putToken(token)
+
 
     override fun onDetach() {
         super.onDetach()
-        success_dialog.dismiss()
+        if (::success_dialog.isInitialized) {
+            success_dialog.dismiss()
+        }
     }
 }

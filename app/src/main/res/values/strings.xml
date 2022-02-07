@@ -37,7 +37,6 @@
     <string name="password">Password</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="don_t_have_an_account">Don\'t have an account?<font color='#0386FF'>    Create an Account</font></string>
-    <string name="login">Login</string>
     <string name="create_an_account">Create an Account</string>
     <string name="to_login">to login</string>
     <string name="please_wait">Please wait…</string>
@@ -204,6 +203,8 @@
     <string name="budget_description_text">Budget Description</string>
     <string name="sponsors_text">Sponsors</string>
     <string name="no_sponsors_yet_text">No Sponsors yet</string>
+    <string name="arrow">Arrow</string>
+    <string name="illustration">illustration</string>
     <string name="uppercase_and_lowercase">* Uppercase and lowercase</string>
     <string name="sponsors">Sponsors</string>
     <string name="no_sponsors">No Sponsors</string>
@@ -213,4 +214,5 @@
     <string name="create_a_budget_btn_Text">Create a budget</string>
     <string name="noticed_you_havent_created_budget_tv">We noticed you haven’t created a budget and an action step. Please create a budget to share link.</string>
     <string name="copy_link">Copy link</string>
+    <string name="login">Login</string>
 </resources>

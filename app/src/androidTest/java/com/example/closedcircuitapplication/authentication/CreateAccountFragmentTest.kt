@@ -5,7 +5,8 @@ import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.presentation.ui.screens.CreateAccountFragment
@@ -50,7 +51,6 @@ class CreateAccountFragmentTest : TestCase() {
     @Test
     fun check_if_input_data_is_valide() {
         onView(withId(R.id.fullNameTextInput)).perform(typeText("benjamin"), closeSoftKeyboard())
-
     }
 
 }

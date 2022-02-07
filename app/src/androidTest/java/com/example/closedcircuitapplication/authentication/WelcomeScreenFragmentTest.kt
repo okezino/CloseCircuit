@@ -34,7 +34,7 @@ class WelcomeScreenFragmentTest : TestCase(){
     }
     @Test
     fun check_if_Botton_are_responsive(){
-        onView(withId(R.id.login_btn)).perform(click())
+        onView(withId(R.id.fragment_welcome_login_btn)).perform(click())
         onView(withId(R.id.welcomePageCreateAccount_btn)).perform(scrollTo())
         //onView(withId(R.id.wellcomePageCreateAccount_btn)).perform(click())
     }
