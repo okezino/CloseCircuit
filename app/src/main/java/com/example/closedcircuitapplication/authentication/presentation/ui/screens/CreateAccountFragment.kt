@@ -101,7 +101,6 @@ class CreateAccountFragment : Fragment() {
 
             //  this is where the viewModel is instantiated and made a network request
             viewModel.register(RegisterRequest(email, fullName, "Beneficiary", phone_number, password, comfirmPassword))
-
         }
     }
 
