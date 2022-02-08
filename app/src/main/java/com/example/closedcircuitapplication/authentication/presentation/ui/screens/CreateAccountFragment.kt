@@ -58,7 +58,7 @@ class CreateAccountFragment : Fragment() {
 
             confirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
 
-            viewModel.register(RegisterRequest(email, fullName, "Beneficiary",phoneNumber, password, confirmPassword))
+            viewModel.register(RegisterRequest(email, fullName, "Beneficiary","+234$phoneNumber", password, confirmPassword))
 
             // create a user account
             createAcount(fullName, phoneNumber, password, email, confirmPassword, view)

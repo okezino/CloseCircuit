@@ -34,9 +34,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     lateinit var preferences: Preferences
     lateinit var binding: FragmentLoginBinding
     val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
-    lateinit var success_dialog: AlertDialog
-    lateinit var waitDialog:AlertDialog
-    lateinit var incorrect_emailDialog:AlertDialog
+    private  var success_dialog: AlertDialog? = null
+    private var waitDialog:AlertDialog? = null
+    private  var incorrect_emailDialog:AlertDialog? = null
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -122,7 +122,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         )
 
         Timer().schedule(3000) {
-            success_dialog.dismiss()
+            success_dialog!!.dismiss()
         }
     }
 
@@ -138,7 +138,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val btnCloseAlertInfo = view.findViewById<ImageView>(R.id.fragment_login_close_icon)
 
         btnCloseAlertInfo.setOnClickListener {
-            incorrect_emailDialog.dismiss()
+            incorrect_emailDialog!!.dismiss()
         }
     }
 
@@ -152,7 +152,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 }
                 is Resource.Success -> {
                     //TODO(Move to Dashboard)
-                    waitDialog.dismiss()  // dismiss the waitDialog
+                    waitDialog?.dismiss()  // dismiss the waitDialog
                     showLoginSuccessfulDialog()
                     // this is used to insert the token into the shared preference
                     saveToken(resource.data?.data!!.token)
@@ -162,8 +162,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
                     startActivity(intentBeneficiaryDashboard)
                     // this is used to get the saved token from the shared preference
-                    val savedToken = preferences.getToken()
-                    Toast.makeText(requireContext(), savedToken, Toast.LENGTH_SHORT).show()
 
                 }
 
@@ -183,6 +181,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onDetach() {
         super.onDetach()
-        success_dialog.dismiss()
+        success_dialog?.dismiss()
     }
 }
