@@ -21,22 +21,6 @@ jobs:
       - name: Run test
         run: ./gradlew test
 
-#  ui_test_job:
-#    runs-on: macos-latest
-#    steps:
-#      - name: checkout
-#        uses: actions/checkout@v2
-#
-#      - name: run tests
-#        uses: reactivecircus/android-emulator-runner@v2
-#        with:
-#          api-level: 29
-#          arch: x86
-#          profile: Nexus 6
-#          avd-name: test
-#          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none
-#          disable-animations: true
-#          script: ./gradlew connectedCheck
 
   build:
     runs-on: ubuntu-latest
@@ -45,9 +29,4 @@ jobs:
       - name: Build project
         run: ./gradlew assemble
 
-#      - name: Upload Apk
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: apk
-#          path: app/build/outputs/apk/debug/**.apk
 

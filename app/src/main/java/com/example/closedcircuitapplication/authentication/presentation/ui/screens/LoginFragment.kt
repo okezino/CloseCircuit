@@ -3,12 +3,10 @@ package com.example.closedcircuitapplication.authentication.presentation.ui.scre
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -34,9 +32,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     lateinit var preferences: Preferences
     lateinit var binding: FragmentLoginBinding
     val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
-    private  var success_dialog: AlertDialog? = null
-    private var waitDialog:AlertDialog? = null
-    private  var incorrect_emailDialog:AlertDialog? = null
+    private var success_dialog: AlertDialog? = null
+    private var waitDialog: AlertDialog? = null
+    private var incorrect_emailDialog: AlertDialog? = null
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,35 +56,28 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             findNavController().navigate(R.id.action_loginFragment_to_createAccountFragment)
         }
 
-        binding.emailTv.addTextChangedListener(loginButtonHandler)
-        binding.passwordTv.addTextChangedListener(loginButtonHandler)
+        binding.fragmentLoginEmailTv.addTextChangedListener(loginButtonHandler)
+        binding.fragmentLoginPasswordTv.addTextChangedListener(loginButtonHandler)
 
-        binding.loginBtn.setOnClickListener {
+        binding.fragmentLoginLoginBtn.setOnClickListener {
 
-            val email = binding.emailTv.text.toString().trim()
-            val password = binding.passwordTv.text.toString().trim()
+            val email = binding.fragmentLoginEmailTv.text.toString().trim()
+            val password = binding.fragmentLoginPasswordTv.text.toString().trim()
 
-            viewModel.login(LoginRequest(email, password))
+            if (Validation.validateEmailPattern(email)) {
+                if (Validation.validatePasswordPattern(password)) {
+                    viewModel.login(LoginRequest(email, password))
 
-            showPleaseWaitAlertDialog()
-
-            val handler = Handler()
-            handler.postDelayed({
-                if (Validation.validateEmailPattern(email)) {
-                    if (Validation.validatePasswordPattern(password)) {
-                        viewModel.login(LoginRequest(email, password))
-
-                    } else {
-                        // call for incorrect password here
-                        Snackbar.make(binding.root, "Invalid Password", Snackbar.LENGTH_LONG).show()
-                    }
                 } else {
-                    // call for incorrect email here
-                    showAlertInfoAlert()
-                    Snackbar.make(binding.root, "Invalid email address", Snackbar.LENGTH_LONG)
-                        .show()
+                    // call for incorrect password here
+                    Snackbar.make(binding.root, "Invalid Password", Snackbar.LENGTH_LONG).show()
                 }
-            }, 1000)
+            } else {
+                // call for incorrect email here
+                showAlertInfoAlert()
+                Snackbar.make(binding.root, "Invalid email address", Snackbar.LENGTH_LONG)
+                    .show()
+            }
         }
     }
 
@@ -96,9 +87,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            val userLoginEmail: String = binding.emailTv.text.toString().trim()
-            val userLoginPassword: String = binding.passwordTv.text.toString().trim()
-            binding.loginBtn.isEnabled = Validation.validateEmailInput(userLoginEmail)
+            val userLoginEmail: String = binding.fragmentLoginEmailTv.text.toString().trim()
+            val userLoginPassword: String = binding.fragmentLoginPasswordTv.text.toString().trim()
+            binding.fragmentLoginLoginBtn.isEnabled = Validation.validateEmailInput(userLoginEmail)
                     && userLoginPassword.isNotEmpty()
         }
 
@@ -106,13 +97,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun showPleaseWaitAlertDialog() {
-         waitDialog = showCustomViewDialog(
+        waitDialog = showCustomViewDialog(
             requireContext(), resources,
             R.layout.custom_login_wait_dialog
         )
-
-        Timer().schedule(3000) {
-        }
     }
 
     private fun showLoginSuccessfulDialog() {
@@ -131,7 +119,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         val view = View.inflate(context, R.layout.custom_alert_info_dialog, null)
 
-         incorrect_emailDialog = showCustomViewDialog(
+        incorrect_emailDialog = showCustomViewDialog(
             requireContext(), resources, R.layout.custom_alert_info_dialog
         )
 
@@ -142,7 +130,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
-    private fun initObservers(){
+    private fun initObservers() {
         viewModel.loginResult.observe(viewLifecycleOwner, { resource ->
 
             when (resource) {
@@ -150,6 +138,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     //TODO(Show Progress bar)
                     showPleaseWaitAlertDialog()
                 }
+
                 is Resource.Success -> {
                     //TODO(Move to Dashboard)
                     waitDialog?.dismiss()  // dismiss the waitDialog
@@ -161,15 +150,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     val intentBeneficiaryDashboard =
                         Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
                     startActivity(intentBeneficiaryDashboard)
-                    // this is used to get the saved token from the shared preference
-
                 }
 
                 is Resource.Error -> {
                     //TODO(Display error message and dismiss progress bar)
-                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
-                        .show()
 
+                    waitDialog?.dismiss()
+
+                    Snackbar.make(binding.root, resource.message, Snackbar.LENGTH_LONG)
+                        .show()
+                    showAlertInfoAlert()
                 }
             }
 

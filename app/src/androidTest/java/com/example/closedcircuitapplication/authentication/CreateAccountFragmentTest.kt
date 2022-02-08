@@ -50,7 +50,6 @@ class CreateAccountFragmentTest : TestCase() {
     @Test
     fun check_if_input_data_is_valide() {
         onView(withId(R.id.fullNameTextInput)).perform(typeText("benjamin"), closeSoftKeyboard())
-
     }
 
 }
