@@ -34,22 +34,7 @@ class ForgotPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
-////        binding.forgotPasswordToolbar.apply {
-////            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-////            setNavigationOnClickListener {
-////                activity?.onBackPressed()
-////            }
-////        }
-//
-//        //navigate to password recovery screen
-//        binding.forgotPasswordButton.setOnClickListener {
-//            email = binding.forgotPasswordEmailTv.text.toString().trim()
-//            emailTextInputValidation(email)
-//        }
-//        binding.forgotPasswordEmailTv.addTextChangedListener {
-//            email = binding.forgotPasswordEmailTv.text.toString().trim()
-//            onEmailTextInputChangeListener(email)
-//        }
+
 
         binding.forgotPasswordEmailTv.addTextChangedListener(buttonHandler)
 
@@ -58,7 +43,7 @@ class ForgotPasswordFragment : Fragment() {
 
             if(Validation.validateEmailPattern(email)){
                 findNavController().navigate(
-                    R.id.action_forgotPasswordFragment_to_recoverPasswordOtpFragment, null,
+                    ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToRecoverPasswordOtpFragment(),
                     customNavAnimation().build()
                 )
             }else{
@@ -91,16 +76,6 @@ class ForgotPasswordFragment : Fragment() {
         spannableText.setSpan(foregroundBlue, 19, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.forgotPasswordRememberPasswordTextView.text = spannableText
     }
-//    fun emailTextInputValidation(email:String){
-//        if (Validation.validateEmailInput(email)){
-//            findNavController().navigate(R.id.action_forgotPasswordFragment_to_recoverPasswordOtpFragment)
-//        }
-//    }
-//    fun onEmailTextInputChangeListener(email:String){
-//        if (!Validation.validateEmailInput(email)) {
-//            binding.forgotPasswordEmailTv.error = "wrong email address"
-//        }
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

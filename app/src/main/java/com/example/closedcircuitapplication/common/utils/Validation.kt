@@ -102,6 +102,9 @@ object Validation {
         return phone_number.length < 9
     }
 
+    fun validatePassword_Equals_confirmPasswword(password: String, confirmPassword: String):Boolean{
+        return password!=confirmPassword || password.isEmpty()
+    }
 
     // passwordInputField validation
     fun validatePasswordErrors(

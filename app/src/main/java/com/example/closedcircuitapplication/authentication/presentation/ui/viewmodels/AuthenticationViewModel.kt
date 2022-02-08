@@ -43,13 +43,7 @@ class AuthenticationViewModel @Inject constructor(
     fun register(registerRequest: RegisterRequest) {
         viewModelScope.launch {
             registerUseCase(registerRequest).collect {
-                fun register(registerRequest: RegisterRequest) {
-                    viewModelScope.launch {
-                        registerUseCase(registerRequest).collect {
                             _registerResponse.value = it
-                        }
-                    }
-                }
             }
         }
     }

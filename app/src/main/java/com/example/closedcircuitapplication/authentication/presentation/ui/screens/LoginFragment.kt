@@ -17,6 +17,7 @@ import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.dashboard.BeneficiaryDashboardActivity
 import com.example.closedcircuitapplication.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
@@ -36,7 +37,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     lateinit var waitDialog: AlertDialog
     lateinit var incorrect_emailDialog: AlertDialog
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
@@ -45,15 +45,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         // navigate to forgot password screen
         binding.fragmentLoginForgotPasswordTv.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment(),customNavAnimation().build())
         }
 
         // navigate back to welcome screen from login screen
         binding.imageView.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeScreenFragment())
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeScreenFragment(),
+                customNavAnimation().build())
         }
         binding.fragmentLoginCreateAccountTv.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToCreateAccountFragment())
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToCreateAccountFragment(),customNavAnimation().build())
         }
 
         binding.fragmentLoginEmailTv.addTextChangedListener(loginButtonHandler)
@@ -135,7 +136,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             when (resource) {
                 is Resource.Loading -> {
-                    //TODO(Show Progress bar)
                     showPleaseWaitAlertDialog()
                 }
 
@@ -153,16 +153,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 }
 
                 is Resource.Error -> {
-                    //TODO(Display error message and dismiss progress bar)
-
                     waitDialog.dismiss()
-
                     Snackbar.make(binding.root, resource.message, Snackbar.LENGTH_LONG)
                         .show()
                     showAlertInfoAlert()
                 }
             }
-
         }
     }
 

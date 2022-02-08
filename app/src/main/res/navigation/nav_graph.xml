@@ -31,6 +31,9 @@
             app:destination="@id/welcomeScreenFragment"
             app:popUpTo="@id/viewPagerFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_viewPagerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/verifyEmailFragment"
@@ -85,6 +88,9 @@
         <action
             android:id="@+id/action_loginFragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment"/>
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment2"
+            app:destination="@id/dashboardFragment2" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -161,5 +167,9 @@
         android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment"
         android:label="fragment_upload_image_bottom_sheet"
         tools:layout="@layout/fragment_upload_image_bottom_sheet" />
+    <fragment
+        android:id="@+id/dashboardFragment2"
+        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.DashboardFragment"
+        android:label="DashboardFragment" />
 
 </navigation>

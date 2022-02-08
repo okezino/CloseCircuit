@@ -29,12 +29,12 @@ class WelcomeScreenFragment : Fragment() {
 
         // navigate from  welcome screen to login fragment
         binding.fragmentWelcomeLoginBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeScreenFragment_to_loginFragment, null,
+            findNavController().navigate(WelcomeScreenFragmentDirections.actionWelcomeScreenFragmentToLoginFragment(),
                 customNavAnimation().build())
         }
         // navigate from  welcome screen to create an account
         binding.welcomePageCreateAccountBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeScreenFragment_to_createAccountFragment, null,
+            findNavController().navigate(WelcomeScreenFragmentDirections.actionWelcomeScreenFragmentToCreateAccountFragment(),
                 customNavAnimation().build())
         }
     }

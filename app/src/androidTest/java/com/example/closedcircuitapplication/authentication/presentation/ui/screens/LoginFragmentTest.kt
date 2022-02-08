@@ -8,8 +8,10 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.AndroidBaseTest
 import com.example.closedcircuitapplication.common.utils.MockStatus
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -35,8 +37,12 @@ class LoginFragmentTest : AndroidBaseTest() {
     fun testSuccessLogin() {
 
         connectDispatcher(MockStatus.SUCCESS)
+
+        val mockNavController = mock(NavController::class.java)
         //Launch fragment in isolation
-        launchFragmentInHiltContainer<LoginFragment> {}
+        launchFragmentInHiltContainer<LoginFragment> {
+            Navigation.setViewNavController(requireView(), mockNavController)
+        }
 
         onView(withId(R.id.fragment_login_email_tv)).perform(
             typeText(email),
@@ -46,18 +52,7 @@ class LoginFragmentTest : AndroidBaseTest() {
             typeText(validPassword),
             closeSoftKeyboard()
         )
-
         onView((withId(R.id.fragment_login_login_btn))).perform(click())
-
-        //TODO
-
-        //1. Test that success dialog is shown
-
-        //2 Test that it navigates to BeneficiaryDashboardActivity
-
-        //Checking for toast
-        //onView(withText("otjekjfvkDvysfei8oe)n8rwdw")).inRoot(ToastMatcher())
-        // .check(matches(isDisplayed()))
     }
 
     @Test
@@ -71,7 +66,7 @@ class LoginFragmentTest : AndroidBaseTest() {
         }
         // Verify that performing a click prompts the correct Navigation action
         onView((withId(R.id.fragment_login_create_account_tv))).perform(click())
-        verify(mockNavController).navigate(LoginFragmentDirections.actionLoginFragmentToCreateAccountFragment())
+        verify(mockNavController).navigate(LoginFragmentDirections.actionLoginFragmentToCreateAccountFragment(),  customNavAnimation().build())
     }
 
 
@@ -86,7 +81,7 @@ class LoginFragmentTest : AndroidBaseTest() {
         }
         // Verify that performing a click prompts the correct Navigation action
         onView(withId(R.id.fragment_login_forgot_password_tv)).perform(click())
-        verify(navController).navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
+        verify(navController).navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment(), customNavAnimation().build())
     }
 
 
@@ -109,8 +104,6 @@ class LoginFragmentTest : AndroidBaseTest() {
 
         onView((withId(R.id.fragment_login_login_btn))).perform(click())
 
-        //TODO
-        // Test that the error dialog is shown
     }
 
 

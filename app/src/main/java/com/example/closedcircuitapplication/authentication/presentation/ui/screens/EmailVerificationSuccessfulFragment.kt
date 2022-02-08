@@ -28,7 +28,7 @@ class EmailVerificationSuccessfulFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.proceedBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_successfulEmailVerificationScreenFragment_to_createAPlanFragment22,null,
+            findNavController().navigate(R.id.action_successfulEmailVerificationScreenFragment_to_createAPlanFragment2,null,
                 customNavAnimation().build())
         }
     }

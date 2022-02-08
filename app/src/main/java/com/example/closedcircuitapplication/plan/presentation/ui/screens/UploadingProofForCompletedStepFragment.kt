@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.utils.REQUEST_CODE_IMAGE_PICKER
 import com.example.closedcircuitapplication.authentication.utils.TO_READ_EXTERNAL_STORAGE
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 
 import com.example.closedcircuitapplication.databinding.FragmentUploadingProofForCompletedStepBinding
 
@@ -52,7 +53,8 @@ class UploadingProofForCompletedStepFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.saveAndAddNewProofBtn.setOnClickListener {
-            findNavController().navigate(R.id.requestVerificationSuccessfullFragment)
+            findNavController().navigate(UploadingProofForCompletedStepFragmentDirections
+                .actionUploadingProofForCompletedStepFragmentToRequestVerificationSuccessfullFragment(), customNavAnimation().build())
         }
         // open the image picker when the start icon is clicked
         binding.uploadimageInputlayout.setStartIconOnClickListener {

@@ -37,7 +37,7 @@ class VerifyEmailFragment : Fragment() {
             binding.wrongcodeTv.visibility = View.INVISIBLE
             if (pin.toString().length == 4) {
                 if (pin.toString() == "1234") {
-                    findNavController().navigate(R.id.action_verifyEmailFragment_to_emailVerificationSuccessfulFragment, null,
+                    findNavController().navigate(VerifyEmailFragmentDirections.actionVerifyEmailFragmentToEmailVerificationSuccessfulFragment(),
                         customNavAnimation().build())
                 } else {
                     binding.wrongcodeTv.visibility = View.VISIBLE

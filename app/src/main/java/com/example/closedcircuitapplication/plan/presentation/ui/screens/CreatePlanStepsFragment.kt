@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.dashboard.interfaces.ClickListener
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.plan.presentation.ui.adapters.StepsBudgetsAdapter
 import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanStepsBinding
@@ -66,7 +67,7 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
         }
 
         createStepsButton.setOnClickListener {
-            findNavController().navigate(R.id.createStepsFragment)
+            findNavController().navigate(R.id.createStepsFragment, null, customNavAnimation().build())
         }
 
         getProjectSteps()

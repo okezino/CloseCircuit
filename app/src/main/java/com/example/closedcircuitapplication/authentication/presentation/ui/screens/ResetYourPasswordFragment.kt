@@ -52,7 +52,6 @@ class ResetYourPasswordFragment : Fragment() {
 
     }
 
-
     private fun resetPassword(){
         binding.resetBtn.setOnClickListener {
             val newPassword = binding.newPasswordTv.text.toString().trim()
@@ -61,7 +60,7 @@ class ResetYourPasswordFragment : Fragment() {
             if(Validation.validatePasswordPattern(newPassword)){
                 if (Validation.validatePasswordPattern(confirmPassword)){
                     if (newPassword == confirmPassword){
-                        findNavController().navigate(R.id.action_resetYourPasswordFragment_to_passwordRecoverySuccessfulFragment, null,
+                        findNavController().navigate(ResetYourPasswordFragmentDirections.actionResetYourPasswordFragmentToPasswordRecoverySuccessfulFragment(),
                             customNavAnimation().build())
                     }
                     else{

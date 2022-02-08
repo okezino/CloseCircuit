@@ -16,6 +16,7 @@ import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentCreateAccountBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,15 +25,12 @@ class CreateAccountFragment : Fragment() {
     private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
     lateinit var countryCode: String
-
-
     lateinit var password: String
     lateinit var email: String
     lateinit var fullName: String
-    lateinit var phoneNumber: String
+    lateinit var phone_number: String
     lateinit var confirmPassword: String
     private val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,26 +41,21 @@ class CreateAccountFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //navigate back to  welcome screen from create account screen
 
         initObservers()
-
         binding.createAccountBtn.setOnClickListener {
             fullName = binding.fullNameTextInput.text.toString().trim()
-            phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
+            phone_number = binding.phoneNumberTextInput.text.toString().trim()
             email = binding.emailTextInput.text.toString().trim()
             password = binding.passwordTextInput.text.toString().trim()
             confirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
+            countryCode = binding.fragmentCreateAccountCountrycodePicker.selectedCountryCodeWithPlus
 
             // create a user account
-            createAcount(fullName, phoneNumber, password, email, confirmPassword)
-        }
-
-        binding.countrycode.setOnCountryChangeListener {
-            countryCode = binding.countrycode.selectedCountryCodeWithPlus
+            createAcount(fullName, countryCode+phone_number, password, email, confirmPassword)
         }
 
         binding.fullNameTextInput.addTextChangedListener {
@@ -70,8 +63,8 @@ class CreateAccountFragment : Fragment() {
             fullNameTExtInputValidation(fullName)
         }
         binding.phoneNumberTextInput.addTextChangedListener {
-            phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
-            onNumberTextInputChangeListener(phoneNumber)
+            phone_number = binding.phoneNumberTextInput.text.toString().trim()
+            onNumberTextInputChangeListener(phone_number)
         }
 
         binding.emailTextInput.addTextChangedListener {
@@ -83,15 +76,14 @@ class CreateAccountFragment : Fragment() {
             passwordInputValidationListener(password)
         }
         binding.loginTv.setOnClickListener {
-            findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment, null,
+            findNavController().navigate(CreateAccountFragmentDirections.actionCreateAccountFragmentToLoginFragment(),
                 customNavAnimation().build())
         }
     }
 
-
     fun createAcount(
         fullName: String,
-        phoneNumber: String,
+        phone_number: String,
         password: String,
         email: String,
         comfirmPassword: String,
@@ -99,16 +91,16 @@ class CreateAccountFragment : Fragment() {
         // check if the full name is entered and is a valid name
         if(fullName.isBlank()){
             binding.fullNameTextInput.error = "cant be empty"
-        }else if (!Validation.validateEmailInput(email) || email.isEmpty() ) {
+        }else if (!Validation.validateEmailInput(email) ) {
             binding.emailTextInput.error = "cant be empty"
-        } else if (Validation.validatePhone_number(phoneNumber)){
+        } else if (Validation.validatePhone_number(phone_number)){
             binding.phoneNumberTextInput.error = "Incomplete number"
-        } else if (password.isEmpty() || password != comfirmPassword) {
+        } else if (Validation.validatePassword_Equals_confirmPasswword(password, comfirmPassword)) {
             binding.comfirmPasswordTextInput.error = "Password does not match"
         } else {
 
             //  this is where the viewModel is instantiated and made a network request
-            viewModel.register(RegisterRequest(email, fullName, "Beneficiary", phoneNumber, password, confirmPassword))
+            viewModel.register(RegisterRequest(email, fullName, "Beneficiary", phone_number, password, comfirmPassword))
 
         }
     }
@@ -172,20 +164,18 @@ class CreateAccountFragment : Fragment() {
                 }
                 is Resource.Success -> {
                     findNavController().navigate(
-                        R.id.action_createAccountFragment_to_loginFragment, null,
+                        CreateAccountFragmentDirections.actionCreateAccountFragmentToLoginFragment(),
                         customNavAnimation().build()
                     )
-
-                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, "Successfull", Snackbar.LENGTH_LONG)
+                        .show()
                 }
-
                 is Resource.Error -> {
-                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
+                    Snackbar.make(binding.root, resource.message, Snackbar.LENGTH_LONG)
                         .show()
                 }
             }
         }
-
     }
 
     override fun onDestroyView() {

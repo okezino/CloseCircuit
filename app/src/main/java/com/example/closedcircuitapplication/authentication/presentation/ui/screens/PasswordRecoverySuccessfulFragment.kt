@@ -25,14 +25,10 @@ class PasswordRecoverySuccessfulFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        binding.passwordRecoverySuccessToolbar.apply {
-//            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-//            setNavigationOnClickListener {
-//                activity?.onBackPressed()
-//            }
-//        }
+
         binding.passwordRecoverySuccessProceedButtpn.setOnClickListener {
-            findNavController().navigate(R.id.action_passwordRecoverySuccessfulFragment_to_loginFragment, null,
+            findNavController().navigate(
+                PasswordRecoverySuccessfulFragmentDirections.actionPasswordRecoverySuccessfulFragmentToLoginFragment(),
                 customNavAnimation().build())
         }
     }

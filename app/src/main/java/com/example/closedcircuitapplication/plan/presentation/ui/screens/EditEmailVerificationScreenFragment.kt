@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 
 class EditEmailVerificationScreenFragment : Fragment() {
 
@@ -25,7 +26,9 @@ class EditEmailVerificationScreenFragment : Fragment() {
 
         val verifyEmailButton = view.findViewById<Button>(R.id.fragment_login_login_btn)
         verifyEmailButton.setOnClickListener {
-            findNavController().navigate(R.id.successfulEmailVerificationScreenFragment)
+            findNavController().navigate(EditEmailVerificationScreenFragmentDirections
+                .actionEditEmailVerificationScreenFragmentToSuccessfulEmailVerificationScreenFragment(),
+                customNavAnimation().build())
         }
     }
 }
