@@ -80,7 +80,7 @@ class ValidationTest {
 
     @Test
     fun validate_passwordWithoutSpecialCharacter_returns_Special_characters() {
-        val expected = listOf("* Special characte")
+        val expected = listOf("* Special characters")
         val actual = Validation.validatePasswordErrors(passwordWithoutSpecialCharacter)
         assertEquals(expected, actual)
     }

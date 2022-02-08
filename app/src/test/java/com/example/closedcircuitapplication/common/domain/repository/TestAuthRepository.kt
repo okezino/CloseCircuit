@@ -56,7 +56,7 @@ class TestAuthRepository : AuthRepository {
                         Result(
                             resourceMessage, RegisterResponseDto(
                                 registerRequest.email,
-                                registerRequest.name,
+                                registerRequest.fullname,
                                 "Beneficiary",
                                 registerRequest.phone_number
                             ), resourceError
