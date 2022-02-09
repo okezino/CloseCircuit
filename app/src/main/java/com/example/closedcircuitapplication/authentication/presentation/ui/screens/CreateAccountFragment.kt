@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.text.isDigitsOnly
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -15,7 +14,9 @@ import com.example.closedcircuitapplication.authentication.domain.models.Registe
 import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentCreateAccountBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,13 +25,12 @@ class CreateAccountFragment : Fragment() {
     private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
     lateinit var countryCode: String
-    lateinit var password:String
-    lateinit var email : String
-    private lateinit var fullName :String
-    lateinit var phoneNumber:String
-    private lateinit var confirmPassword: String
+    lateinit var password: String
+    lateinit var email: String
+    lateinit var fullName: String
+    lateinit var phone_number: String
+    lateinit var confirmPassword: String
     private val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,38 +41,30 @@ class CreateAccountFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //navigate back to  welcome screen from create account screen
 
         initObservers()
-
         binding.createAccountBtn.setOnClickListener {
             fullName = binding.fullNameTextInput.text.toString().trim()
-            phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
+            phone_number = binding.phoneNumberTextInput.text.toString().trim()
             email = binding.emailTextInput.text.toString().trim()
             password = binding.passwordTextInput.text.toString().trim()
-
             confirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
-
-            viewModel.register(RegisterRequest(email, fullName, "Beneficiary",phoneNumber, password, confirmPassword))
+            countryCode = binding.fragmentCreateAccountCountrycodePicker.selectedCountryCodeWithPlus
 
             // create a user account
-            createAcount(fullName, phoneNumber, password, email, confirmPassword, view)
-        }
-
-        binding.countrycode.setOnCountryChangeListener {
-            countryCode = binding.countrycode.selectedCountryCodeWithPlus
+            createAcount(fullName, countryCode+phone_number, password, email, confirmPassword)
         }
 
         binding.fullNameTextInput.addTextChangedListener {
             fullName = binding.fullNameTextInput.text.toString().trim()
-            onFullNameTExtInputChangeListener(fullName)
+            fullNameTExtInputValidation(fullName)
         }
         binding.phoneNumberTextInput.addTextChangedListener {
-            phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
-            onNumberTextInputChangeListener(phoneNumber)
+            phone_number = binding.phoneNumberTextInput.text.toString().trim()
+            onNumberTextInputChangeListener(phone_number)
         }
 
         binding.emailTextInput.addTextChangedListener {
@@ -84,53 +76,43 @@ class CreateAccountFragment : Fragment() {
             passwordInputValidationListener(password)
         }
         binding.loginTv.setOnClickListener {
-            findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
+            findNavController().navigate(CreateAccountFragmentDirections.actionCreateAccountFragmentToLoginFragment(),
+                customNavAnimation().build())
         }
     }
-
 
     fun createAcount(
         fullName: String,
-        phoneNumber: String,
+        phone_number: String,
         password: String,
         email: String,
         comfirmPassword: String,
-        view: View
     ) {
         // check if the full name is entered and is a valid name
-        if (Validation.validateFullNameInput(fullName)) {
-
-        }
-        if (!Validation.validateEmailInput(email)) {
-            binding.emailTextInput.error
-
-        } else if (phoneNumber.length < 9) {
-            binding.wrongEmailWorningTv.visibility = View.GONE
+        if(fullName.isBlank()){
+            binding.fullNameTextInput.error = "cant be empty"
+        }else if (!Validation.validateEmailInput(email) ) {
+            binding.emailTextInput.error = "cant be empty"
+        } else if (Validation.validatePhone_number(phone_number)){
             binding.phoneNumberTextInput.error = "Incomplete number"
+        } else if (Validation.validatePassword_Equals_confirmPasswword(password, comfirmPassword)) {
+            binding.comfirmPasswordTextInput.error = "Password does not match"
         } else {
-            // check if the password provided is the same with the confirm password
-            if (password.isEmpty() || password != comfirmPassword) {
-                binding.comfirmPasswordTextInput.error = "Password does not match"
-            } else {
-                viewModel.register(
-                    RegisterRequest(
-                        email, fullName, "Beneficiary", phoneNumber, password, confirmPassword
-                    )
-                )
-            }
+
+            //  this is where the viewModel is instantiated and made a network request
+            viewModel.register(RegisterRequest(email, fullName, "Beneficiary", phone_number, password, comfirmPassword))
         }
     }
 
-    fun onFullNameTExtInputChangeListener(fullName: String) {
-
-        if (fullName.isNotEmpty() && fullName.isDigitsOnly()) {
-            binding.fullNameTextInput.error = "Can't be numbers"
-        } else if (fullName.isNotEmpty() && fullName[0].isDigit()) {
-            binding.fullNameTextInput.error = "must not start with numbers"
-        } else if (fullName.isNotEmpty() && fullName.contains(Validation.SPECAILCHARAACTERS)) {
-            binding.fullNameTextInput.error = "must not contain special characters"
+    fun fullNameTExtInputValidation(fullName:String){
+        val errorsList = listOf(
+            "Can't start with numbers",
+            "must not contain special characters")
+        val result = Validation.validateFullNameInput(fullName)
+        for (error in result){
+            if (errorsList.contains(error))
+                binding.fullNameTextInput.error = error
         }
-
     }
 
     fun onEmailTextInputChangeListener(email: String) {
@@ -146,7 +128,7 @@ class CreateAccountFragment : Fragment() {
     }
 
     fun onNumberTextInputChangeListener(number: String) {
-        if (number.length < 9) {
+        if (Validation.validatePhone_number(number)) {
             binding.wrongEmailWorningTv.visibility = View.GONE
             binding.phoneNumberTextInput.error = "Incomplete number"
         }
@@ -174,31 +156,26 @@ class CreateAccountFragment : Fragment() {
     }
 
     private fun initObservers(){
-        viewModel.registerResult.observe(viewLifecycleOwner, { resource ->
+        viewModel.registerResult.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-                    //TODO(Show Progress bar)
                     Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Success -> {
-                    //TODO(Move to Dashboard)
-                    findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
-                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
-                }
-
-                is Resource.Error -> {
-                    //TODO(Display error message and dismiss progress bar)
-                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
+                    findNavController().navigate(
+                        CreateAccountFragmentDirections.actionCreateAccountFragmentToLoginFragment(),
+                        customNavAnimation().build()
+                    )
+                    Snackbar.make(binding.root, "Successfull", Snackbar.LENGTH_LONG)
                         .show()
-
+                }
+                is Resource.Error -> {
+                    Snackbar.make(binding.root, resource.message, Snackbar.LENGTH_LONG)
+                        .show()
                 }
             }
-
-
-        })
-
+        }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

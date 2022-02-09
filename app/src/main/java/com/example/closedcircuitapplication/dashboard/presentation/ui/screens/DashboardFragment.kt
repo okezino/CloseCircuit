@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.dashboard.presentation.ui.adapter.PlansAdapter
 import com.example.closedcircuitapplication.dashboard.presentation.ui.adapter.RecentDonationsAdapter
 import com.example.closedcircuitapplication.dashboard.presentation.models.DonationItem
@@ -42,7 +43,9 @@ class DashboardFragment : Fragment() {
 
         /*TODO: Implement Create plan. For now this button displays an active user UI*/
         binding.createPlanButton.setOnClickListener {
-            findNavController().navigate(R.id.projectScreenFragment)
+            findNavController().navigate(DashboardFragmentDirections
+                .actionDashboardFragmentToProjectScreenFragment2(),
+                customNavAnimation().build())
             binding.newUserConstraint.visibility = View.GONE
             if (!binding.activeUserConstraint.activeUserConstraint.isVisible) {
                 binding.activeUserConstraint.activeUserConstraint.visibility = View.VISIBLE

@@ -9,6 +9,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentCurrencyTypeBinding
 
 
@@ -48,7 +49,7 @@ class CurrencyTypeFragment : Fragment(R.layout.fragment_currency_type) {
                         uriArgs,
                         selectedCurrency
                     )
-                findNavController().navigate(action)
+                findNavController().navigate(action, customNavAnimation().build())
             }
 
         }

@@ -9,6 +9,7 @@ class BaseDispatcher : Dispatcher() {
     override fun dispatch(request: RecordedRequest): MockResponse {
         return when (request.path) {
             "/${ClosedCircuitApiEndpoints.LOGIN}" -> MockResponse().setResponseCode(200)
+
             else -> MockResponse().setResponseCode(400)
         }
     }

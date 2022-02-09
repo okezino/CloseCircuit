@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.ui.projectScreens.Projects
 import com.example.closedcircuitapplication.ui.projectScreens.ProjectsAdapter
@@ -34,10 +35,12 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
         super.onViewCreated(view, savedInstanceState)
         fetchProjects()
         binding.textView4.setOnClickListener {
-            findNavController().navigate(R.id.emailVerificationFragment)
+            findNavController().navigate(ProjectScreenFragmentDirections
+                .actionProjectScreenFragmentToEmailVerificationFragment(), customNavAnimation().build())
         }
         binding.imageView3.setOnClickListener {
-            findNavController().navigate(R.id.emailVerificationFragment)
+            findNavController().navigate(ProjectScreenFragmentDirections
+                .actionProjectScreenFragmentToEmailVerificationFragment(), customNavAnimation().build())
         }
     }
 

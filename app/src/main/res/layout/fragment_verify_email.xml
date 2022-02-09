@@ -46,7 +46,7 @@
             app:layout_constraintTop_toTopOf="parent" >
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/fragment_create_account_sharedbuilding_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -71,7 +71,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_create_account_sharedbuilding_tv" />
             <TextView
                 android:id="@+id/verifyEmailAddress_tv"
                 android:layout_width="match_parent"

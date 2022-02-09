@@ -18,6 +18,7 @@ import com.example.closedcircuitapplication.authentication.presentation.ui.adapt
 import com.example.closedcircuitapplication.authentication.utils.DataFactory
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.ONBOARDING
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentViewPagerBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -75,7 +76,8 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
 
         binding.getStarted.setOnClickListener {
 //            navigateToLoginFragment()
-            findNavController().navigate(R.id.action_viewPagerFragment_to_welcomeScreenFragment2)
+            findNavController().navigate(ViewPagerFragmentDirections.actionViewPagerFragmentToWelcomeScreenFragment2(),
+                customNavAnimation().build())
             onBoardingFinished()
         }
 
@@ -83,7 +85,8 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
     }
 
     private fun navigateToLoginFragment() {
-        findNavController().navigate(R.id.loginFragment)
+        findNavController().navigate(ViewPagerFragmentDirections.actionViewPagerFragmentToLoginFragment(),
+            customNavAnimation().build())
         onBoardingFinished()
     }
 
@@ -98,7 +101,6 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
         binding.nextBtn.isVisible = true
         binding.getStarted.isVisible = false
     }
-
 
     private fun setUpIndicator() {
         val indicators = arrayOfNulls<ImageView>(onBoardingItemAdapter.itemCount)
@@ -122,7 +124,6 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
             binding.indicatorController.addView(indicators[i])
         }
     }
-
 
     fun isCurrentIndicator(position: Int) {
         val childCount = binding.indicatorController.childCount
@@ -151,7 +152,6 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
         }
     }
 
-    //TODO(Function will be used to do something.)
     private fun onBoardingFinished() {
         preferences.putPrefBoolean(ONBOARDING, true)
     }
