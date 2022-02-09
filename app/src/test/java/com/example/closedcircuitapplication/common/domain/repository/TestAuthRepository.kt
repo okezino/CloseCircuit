@@ -2,9 +2,11 @@ package com.example.closedcircuitapplication.common.domain.repository
 
 import com.example.closedcircuitapplication.authentication.data.datadto.LoginResponseDto
 import com.example.closedcircuitapplication.authentication.data.datadto.RegisterResponseDto
-import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
-import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
+import com.example.closedcircuitapplication.authentication.domain.models.*
+import com.example.closedcircuitapplication.common.data.network.models.GenerateOtpDto
+import com.example.closedcircuitapplication.common.data.network.models.ResetPasswordDto
 import com.example.closedcircuitapplication.common.data.network.models.Result
+import com.example.closedcircuitapplication.common.data.network.models.VerifyOtpDto
 import com.example.closedcircuitapplication.common.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -65,6 +67,18 @@ class TestAuthRepository : AuthRepository {
                 )
             }
         }
+
+    override suspend fun generateOtp(generateOtpRequest: GenerateOtpRequest): Flow<Resource<Result<GenerateOtpDto>>> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun verifyOtp(verifyOtpRequest: VerifyOtpRequest): Flow<Resource<Result<VerifyOtpDto>>> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun resetPassword(resetPasswordRequest: ResetPasswordRequest): Flow<Resource<Result<ResetPasswordDto>>> {
+        TODO("Not yet implemented")
+    }
 
     fun shouldReturnError(value: Boolean, errorMessage: String) {
         shouldReturnNetworkError = value

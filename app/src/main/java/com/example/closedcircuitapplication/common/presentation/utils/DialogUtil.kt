@@ -10,11 +10,12 @@ fun showCustomViewDialog(
     context: Context,
     resources: Resources,
     layout: Int,
+    cancelable: Boolean = true
 ): AlertDialog {
     val view = View.inflate(context, layout, null)
     val builder = AlertDialog.Builder(context)
     builder.setView(view)
-
+    builder.setCancelable(cancelable)
     val dialog = builder.create()
     dialog.show()
     dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
