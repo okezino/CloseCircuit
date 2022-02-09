@@ -53,10 +53,14 @@
         tools:layout="@layout/fragment_welcome_screen">
         <action
             android:id="@+id/action_welcomeScreenFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_welcomeScreenFragment_to_createAccountFragment"
-            app:destination="@id/createAccountFragment" />
+            app:destination="@id/createAccountFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
 
     </fragment>
     <fragment
@@ -93,7 +97,9 @@
         tools:layout="@layout/fragment_forgot_password" >
         <action
             android:id="@+id/action_forgotPasswordFragment_to_recoverPasswordOtpFragment"
-            app:destination="@id/recoverPasswordOtpFragment"/>
+            app:destination="@id/recoverPasswordOtpFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/recoverPasswordOtpFragment"
@@ -102,7 +108,12 @@
         tools:layout="@layout/fragment_recover_password_otp" >
         <action
             android:id="@+id/action_recoverPasswordOtpFragment_to_resetYourPasswordFragment"
-            app:destination="@id/resetYourPasswordFragment" />
+            app:destination="@id/resetYourPasswordFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+        <argument
+            android:name="userEmail"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/resetYourPasswordFragment"
@@ -111,7 +122,15 @@
         tools:layout="@layout/fragment_reset_your_password" >
         <action
             android:id="@+id/action_resetYourPasswordFragment_to_passwordRecoverySuccessfulFragment"
-            app:destination="@id/passwordRecoverySuccessfulFragment" />
+            app:destination="@id/passwordRecoverySuccessfulFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+        <argument
+            android:name="userEmail"
+            app:argType="string" />
+        <argument
+            android:name="otp"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/passwordRecoverySuccessfulFragment"
@@ -120,7 +139,9 @@
         tools:layout="@layout/fragment_password_recovery_successful" >
         <action
             android:id="@+id/action_passwordRecoverySuccessfulFragment_to_loginFragment"
-            app:destination="@id/loginFragment"/>
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/messageFragment"

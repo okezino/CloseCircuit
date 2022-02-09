@@ -30,11 +30,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     @Inject
     lateinit var preferences: Preferences
-    private lateinit var binding: FragmentLoginBinding
-    private val viewModel: AuthenticationViewModel by viewModels()
-    lateinit var success_dialog: AlertDialog
-    lateinit var waitDialog: AlertDialog
-    lateinit var incorrect_emailDialog: AlertDialog
+    lateinit var binding: FragmentLoginBinding
+    val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
+    private var success_dialog: AlertDialog? = null
+    private var waitDialog: AlertDialog? = null
+    private var incorrect_emailDialog: AlertDialog? = null
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -110,7 +110,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         )
 
         Timer().schedule(3000) {
-            success_dialog.dismiss()
+            success_dialog!!.dismiss()
         }
     }
 
@@ -126,7 +126,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val btnCloseAlertInfo = view.findViewById<ImageView>(R.id.fragment_login_close_icon)
 
         btnCloseAlertInfo.setOnClickListener {
-            incorrect_emailDialog.dismiss()
+            incorrect_emailDialog!!.dismiss()
         }
     }
 
@@ -141,7 +141,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
                 is Resource.Success -> {
                     //TODO(Move to Dashboard)
-                    waitDialog.dismiss()  // dismiss the waitDialog
+                    waitDialog?.dismiss()  // dismiss the waitDialog
                     showLoginSuccessfulDialog()
                     // this is used to insert the token into the shared preference
                     saveToken(resource.data?.data!!.token)
@@ -150,13 +150,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     val intentBeneficiaryDashboard =
                         Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
                     startActivity(intentBeneficiaryDashboard)
-
                 }
 
                 is Resource.Error -> {
                     //TODO(Display error message and dismiss progress bar)
 
-                    waitDialog.dismiss()
+                    waitDialog?.dismiss()
 
                     Snackbar.make(binding.root, resource.message, Snackbar.LENGTH_LONG)
                         .show()
@@ -172,8 +171,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onDetach() {
         super.onDetach()
-        if (::success_dialog.isInitialized) {
-            success_dialog.dismiss()
-        }
+        success_dialog?.dismiss()
     }
 }
