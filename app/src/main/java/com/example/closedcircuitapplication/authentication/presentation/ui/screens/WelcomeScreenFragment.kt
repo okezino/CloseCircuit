@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentWelcomeScreenBinding
 
 class WelcomeScreenFragment : Fragment() {
@@ -28,11 +29,13 @@ class WelcomeScreenFragment : Fragment() {
 
         // navigate from  welcome screen to login fragment
         binding.fragmentWelcomeLoginBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeScreenFragment_to_loginFragment)
+            findNavController().navigate(WelcomeScreenFragmentDirections.actionWelcomeScreenFragmentToLoginFragment(),
+                customNavAnimation().build())
         }
         // navigate from  welcome screen to create an account
         binding.welcomePageCreateAccountBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeScreenFragment_to_createAccountFragment)
+            findNavController().navigate(WelcomeScreenFragmentDirections.actionWelcomeScreenFragmentToCreateAccountFragment(),
+                customNavAnimation().build())
         }
     }
 

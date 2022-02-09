@@ -1,16 +1,23 @@
 package com.example.closedcircuitapplication.common.utils
 
 import org.junit.After
+import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
 class ValidationTest {
 
-    var email = "sirqhostarus@gmil.com"
-    var password = "Password124#"
-    var confirmPassword = "Password124#"
-    var phoneNumber = "07012345678"
+    val email = "sirqhostarus@gmil.com"
+    val password = "Password124#"
+    val confirmPassword = "Password124#"
+    val passwordWithoutSpecialCharacter = "Password124"
+    val passwordWithoutUpperCase = "password124#"
+    val passwordWithoutNumber = "Password#"
+    val passwordLessThan8character = "Pas1#"
+
+    val phoneNumber = "07012345678"
+    val phone_numberLeasThan9 = "070123"
 
     @Before
     fun setUp() {
@@ -50,46 +57,50 @@ class ValidationTest {
     }
 
     @Test
-    fun validateEmailPattern() {
+    fun validate_Password_input_lessThan_8_returns_Minimum_of_8_characters() {
+
+        val expected = listOf("* Minimum of 8 characters")
+        val actual = Validation.validatePasswordErrors(passwordLessThan8character)
+        assertEquals(expected, actual)
     }
 
     @Test
-    fun validatePasswordPattern() {
+    fun validate_passwordWithoutNumber_Numbers() {
+        val expected = listOf("* Numbers")
+        val actual = Validation.validatePasswordErrors(passwordWithoutNumber)
+        assertEquals(expected, actual)
     }
 
     @Test
-    fun validateFullNameInput() {
+    fun validate_passwordWithoutUpperCase_returns_Uppercase_and_lowercase() {
+        val expected = listOf("* Uppercase and lowercase")
+        val actual = Validation.validatePasswordErrors(passwordWithoutUpperCase)
+        assertEquals(expected, actual)
     }
 
     @Test
-    fun validateBusinessType() {
+    fun validate_passwordWithoutSpecialCharacter_returns_Special_characters() {
+        val expected = listOf("* Special characters")
+        val actual = Validation.validatePasswordErrors(passwordWithoutSpecialCharacter)
+        assertEquals(expected, actual)
     }
 
     @Test
-    fun validateBusinessName() {
+    fun validate_phone_numberLessThan_9_digits_returns_true() {
+        val actual = Validation.validatePhone_number(phone_numberLeasThan9)
+        Assert.assertTrue(actual)
     }
 
     @Test
-    fun validatePlanDuration() {
+    fun validate_fullName_starts_with_digiit_returns_cannot_start_with_digit() {
+        val expected = listOf("Can't start with numbers")
+        val actual = Validation.validateFullNameInput("123gghh")
+        assertEquals(expected, actual)
     }
-
     @Test
-    fun validateMinimumLoan() {
-    }
-
-    @Test
-    fun validateMaximumLoan() {
-    }
-
-    @Test
-    fun validateNumberOfLenders() {
-    }
-
-    @Test
-    fun validateDescription() {
-    }
-
-    @Test
-    fun validateSupport() {
+    fun validate_fullName_with_spacial_character() {
+        val expected = listOf("must not contain special characters")
+        val actual = Validation.validateFullNameInput("ben@@##")
+        assertEquals(expected, actual)
     }
 }

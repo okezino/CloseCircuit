@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.utils.Validation
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanSummaryBinding
 
 class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary) {
@@ -103,7 +104,7 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
                     categoryArgs,
                     uriArgs
                 )
-            findNavController().navigate(action)
+            findNavController().navigate(action, customNavAnimation().build())
         }
 
         // To set the maximum number of characters to be entered when a user types in the description box.
@@ -212,7 +213,7 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
             }
 
             val action = CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCreatePlanFragment(planDuration, planDescription, businessName, planCategory, businessType, uriArgs)
-            findNavController().navigate(action)
+            findNavController().navigate(action, customNavAnimation().build())
         }
     }
 }

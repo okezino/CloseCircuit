@@ -10,6 +10,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentCreateStepsBinding
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipDrawable
@@ -39,11 +40,11 @@ class CreateStepsFragment : Fragment() {
         }
         addChips()
         binding.createStepsSaveAndContinueButton.setOnClickListener {
-            findNavController().navigate(R.id.createAPlanFragment2)
+            findNavController().navigate(R.id.createAPlanFragment2, null, customNavAnimation().build())
         }
 
         binding.createStepSaveAndAddNewStepsButton.setOnClickListener {
-            findNavController().navigate(R.id.createStepsFragment)
+            findNavController().navigate(R.id.createStepsFragment, null, customNavAnimation().build())
         }
     }
 

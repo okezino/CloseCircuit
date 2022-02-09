@@ -23,6 +23,7 @@ import com.example.closedcircuitapplication.authentication.utils.CAMERA_REQUEST_
 import com.example.closedcircuitapplication.authentication.utils.REQUEST_CODE_IMAGE_PICKER
 import com.example.closedcircuitapplication.authentication.utils.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.authentication.SendImage_UriToCreateAPlanInterface
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
 import com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment
 
@@ -79,7 +80,7 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface  {
                         _uri,
                         "NGN"
                     )
-                findNavController().navigate(action)
+                findNavController().navigate(action, customNavAnimation().build())
             }
 
         }

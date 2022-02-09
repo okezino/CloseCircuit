@@ -15,6 +15,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.authentication.domain.models.VerifyOtpRequest
 import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
@@ -43,17 +44,8 @@ class RecoverPasswordOtpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
-        validateOtp()
-//
-//        binding.recoverPasswordOtpToolbar.apply {
-//            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-//            setNavigationOnClickListener {
-//                activity?.onBackPressed()
-//            }
-//        }
-        //navigate from recover password screen with otp to reset password screen
+      validateOtp()
 
-        initObservers()
     }
 
     private fun setUpSpannableText() {

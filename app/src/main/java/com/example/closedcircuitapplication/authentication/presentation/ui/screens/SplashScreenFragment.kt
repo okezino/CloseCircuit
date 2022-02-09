@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentSplashScreenBinding
 
 class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
@@ -45,12 +46,11 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
         val splashScreenTimeout = 3500
         Handler(Looper.getMainLooper()).postDelayed({
             if (onBoardingFinished()) {
-                findNavController().navigate(R.id.action_splashScreen_to_viewPagerFragment)
+                findNavController().navigate(SplashScreenFragmentDirections.actionSplashScreenToViewPagerFragment(),
+                    customNavAnimation().build())
             } else {
                 findNavController().navigate(
-                    R.id.action_splashScreen_to_viewPagerFragment, null,
-                    NavOptions.Builder()
-                        .setPopUpTo(R.id.splashScreen, true).build()
+                    SplashScreenFragmentDirections.actionSplashScreenToViewPagerFragment(), customNavAnimation().build()
                 )
             }
         }, splashScreenTimeout.toLong())

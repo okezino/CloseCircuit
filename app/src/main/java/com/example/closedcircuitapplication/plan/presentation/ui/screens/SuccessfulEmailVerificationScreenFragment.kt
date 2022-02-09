@@ -26,7 +26,7 @@ class SuccessfulEmailVerificationScreenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val proceedButton = view.findViewById<Button>(R.id.proceed_btn)
         proceedButton.setOnClickListener {
-            findNavController().navigate(R.id.action_successfulEmailVerificationScreenFragment_to_createAPlanFragment22)
+            findNavController().navigate(R.id.action_successfulEmailVerificationScreenFragment_to_createAPlanFragment2)
         }
     }
 }

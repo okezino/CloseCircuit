@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 
 class EmailVerificationFragment : Fragment() {
 
@@ -27,10 +28,13 @@ class EmailVerificationFragment : Fragment() {
         val editEmailAddress = view.findViewById<TextView>(R.id.not_your_email_message_tv)
         val verificationSuccessful = view.findViewById<ImageView>(R.id.envelope_iv)
         editEmailAddress.setOnClickListener {
-            findNavController().navigate(R.id.editEmailVerificationScreenFragment)
+            findNavController().navigate(EmailVerificationFragmentDirections
+                .actionEmailVerificationFragmentToEditEmailVerificationScreenFragment(),
+                 customNavAnimation().build())
         }
         verificationSuccessful.setOnClickListener {
-            findNavController().navigate(R.id.successfulEmailVerificationScreenFragment)
+            findNavController().navigate(EmailVerificationFragmentDirections
+                .actionEmailVerificationFragmentToSuccessfulEmailVerificationScreenFragment(), customNavAnimation().build())
         }
     }
 }

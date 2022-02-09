@@ -20,6 +20,7 @@ import com.example.closedcircuitapplication.authentication.presentation.ui.viewm
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentForgotPasswordBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,22 +48,7 @@ class ForgotPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
-////        binding.forgotPasswordToolbar.apply {
-////            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-////            setNavigationOnClickListener {
-////                activity?.onBackPressed()
-////            }
-////        }
-//
-//        //navigate to password recovery screen
-//        binding.forgotPasswordButton.setOnClickListener {
-//            email = binding.forgotPasswordEmailTv.text.toString().trim()
-//            emailTextInputValidation(email)
-//        }
-//        binding.forgotPasswordEmailTv.addTextChangedListener {
-//            email = binding.forgotPasswordEmailTv.text.toString().trim()
-//            onEmailTextInputChangeListener(email)
-//        }
+
 
         initObservers()
 
@@ -75,6 +61,10 @@ class ForgotPasswordFragment : Fragment() {
                 viewModel.generateOtp(GenerateOtpRequest(email))
                 userEmail = email
 
+                findNavController().navigate(
+                    ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToRecoverPasswordOtpFragment(userEmail),
+                    customNavAnimation().build()
+                )
             }else{
                 Snackbar.make(
                     binding.root,
@@ -105,19 +95,9 @@ class ForgotPasswordFragment : Fragment() {
         spannableText.setSpan(foregroundBlue, 19, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.forgotPasswordRememberPasswordTextView.text = spannableText
     }
-//    fun emailTextInputValidation(email:String){
-//        if (Validation.validateEmailInput(email)){
-//            findNavController().navigate(R.id.action_forgotPasswordFragment_to_recoverPasswordOtpFragment)
-//        }
-//    }
-//    fun onEmailTextInputChangeListener(email:String){
-//        if (!Validation.validateEmailInput(email)) {
-//            binding.forgotPasswordEmailTv.error = "wrong email address"
-//        }
-//    }
 
     private fun initObservers(){
-        viewModel.generateOtpRequest.observe(viewLifecycleOwner, { resource ->
+        viewModel.generateOtpRequest.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
                     //TODO(Show Progress bar)
@@ -127,9 +107,12 @@ class ForgotPasswordFragment : Fragment() {
                 is Resource.Success -> {
                     //TODO(Move to Dashboard)
                     showPleaseWaitAlertDialog().dismiss()
-                    val action = ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToRecoverPasswordOtpFragment(userEmail)
+                    val action =
+                        ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToRecoverPasswordOtpFragment(
+                            userEmail
+                        )
                     findNavController().navigate(
-                       action
+                        action
                     )
                     Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
                 }
@@ -144,7 +127,7 @@ class ForgotPasswordFragment : Fragment() {
             }
 
 
-        })
+        }
 
     }
 

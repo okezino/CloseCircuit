@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentAccountBinding
 
 class AccountFragment : Fragment() {
@@ -30,7 +31,9 @@ class AccountFragment : Fragment() {
 
     fun navigateToForgetPasswordFragment() {
         binding.accountTv.setOnClickListener {
-            findNavController().navigate(R.id.action_accountFragment_to_forgotPasswordFragment)
+            findNavController().navigate(AccountFragmentDirections
+                .actionAccountFragmentToForgotPasswordFragment(),
+                customNavAnimation().build())
         }
     }
 }

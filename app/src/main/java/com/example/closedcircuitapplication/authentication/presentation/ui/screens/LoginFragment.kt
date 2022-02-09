@@ -17,6 +17,7 @@ import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.dashboard.BeneficiaryDashboardActivity
 import com.example.closedcircuitapplication.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
@@ -36,7 +37,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private var waitDialog: AlertDialog? = null
     private var incorrect_emailDialog: AlertDialog? = null
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
@@ -45,15 +45,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         // navigate to forgot password screen
         binding.fragmentLoginForgotPasswordTv.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment(),customNavAnimation().build())
         }
 
         // navigate back to welcome screen from login screen
         binding.imageView.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_welcomeScreenFragment)
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeScreenFragment(),
+                customNavAnimation().build())
         }
         binding.fragmentLoginCreateAccountTv.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_createAccountFragment)
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToCreateAccountFragment(),customNavAnimation().build())
         }
 
         binding.fragmentLoginEmailTv.addTextChangedListener(loginButtonHandler)
@@ -131,17 +132,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun initObservers() {
-        viewModel.loginResult.observe(viewLifecycleOwner, { resource ->
+        viewModel.loginResult.observe(viewLifecycleOwner) { resource ->
 
             when (resource) {
                 is Resource.Loading -> {
-                    //TODO(Show Progress bar)
                     showPleaseWaitAlertDialog()
                 }
 
                 is Resource.Success -> {
-                    //TODO(Move to Dashboard)
-                    waitDialog?.dismiss()  // dismiss the waitDialog
+                    waitDialog!!.dismiss()  // dismiss the waitDialog
                     showLoginSuccessfulDialog()
                     // this is used to insert the token into the shared preference
                     saveToken(resource.data?.data!!.token)
@@ -153,6 +152,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 }
 
                 is Resource.Error -> {
+                    waitDialog!!.dismiss()
                     //TODO(Display error message and dismiss progress bar)
 
                     waitDialog?.dismiss()
@@ -162,8 +162,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     showAlertInfoAlert()
                 }
             }
-
-        })
+        }
     }
 
     private fun saveToken(token: String) = preferences.putToken(token)
