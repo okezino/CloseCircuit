@@ -38,13 +38,6 @@ class ProjectSummaryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.projectTitle.text = args.businessName
-        binding.projectDuration.text = "${args.planDuration} months"
-        binding.projectDescriptionTextView.text = args.planDescription
-        binding.projectBusinessSector.text = "${args.businessSector} (${args.planCategory})"
-        if (args.imageUri != null) {
-            binding.projectSummaryImageView.setImageURI(Uri.parse(args.imageUri))
-        }
 
         binding.planLink.setOnClickListener {
             findNavController().navigate(R.id.sendFundsSummaryFragment)

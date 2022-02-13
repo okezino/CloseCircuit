@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".plan.presentation.ui.screens.CreatePlanStepThreeFragment">
+
+    <TextView
+        android:id="@+id/create_plan_step_three_create_plan_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:fontFamily="@font/helvetica"
+        android:text="Create a Plan"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/create_plan_step_three_means_of_support_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/height_40dp"
+        android:fontFamily="@font/helvetica"
+        android:text="Select your preferred means of support"
+        android:textColor="@color/closed_circuit_dark_green"
+        android:textSize="@dimen/textSize_15sp"
+        app:layout_constraintStart_toStartOf="@+id/create_plan_step_three_create_plan_textView"
+        app:layout_constraintTop_toBottomOf="@+id/create_plan_step_three_create_plan_textView" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/create_plan_step_three_select_business_type_textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_width="@dimen/width_0dp"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="#E5E5E5"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:boxStrokeColor="#E5E5E5"
+        app:boxStrokeWidth="0dp"
+        app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
+        app:endIconMode="dropdown_menu"
+        app:endIconTint="#24500F"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:layout_marginEnd="@dimen/margin_20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/create_plan_step_three_means_of_support_textView"
+        app:layout_constraintTop_toBottomOf="@+id/create_plan_step_three_means_of_support_textView">
+
+        <AutoCompleteTextView
+            android:id="@+id/create_plan_means_of_support_autocompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/create_plan_step_three_create_plan_button"
+        style="@style/Fragment_CreateAccount_Button_style"
+        android:layout_width="@dimen/width_0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="@dimen/margin_98dp"
+        android:text="Create Plan"
+        app:backgroundTint="#C4C4C4"
+        app:cornerRadius="10dp"
+        android:enabled="false"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/create_plan_step_three_select_business_type_textInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/create_plan_step_three_select_business_type_textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/create_plan_step_three_select_business_type_textInputLayout" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

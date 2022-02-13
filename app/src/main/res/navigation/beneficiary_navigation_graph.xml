@@ -50,10 +50,6 @@
         <argument
             android:name="businessSector"
             app:argType="string" />
-        <argument
-            android:name="imageUri"
-            app:argType="string"
-            app:nullable="true" />
         <action
             android:id="@+id/action_createPlanFragment_to_sendFundsSummaryFragment"
             app:destination="@id/sendFundsSummaryFragment" />
@@ -190,6 +186,9 @@
         <action
             android:id="@+id/action_createPlanSummaryFragment2_to_createAPlanFragment2"
             app:destination="@id/createAPlanFragment2" />
+        <action
+            android:id="@+id/action_createPlanSummaryFragment2_to_createPlanStepThreeFragment"
+            app:destination="@id/createPlanStepThreeFragment" />
     </fragment>
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment2"
@@ -262,5 +261,14 @@
         <action
             android:id="@+id/action_uploadingProofForCompletedStepFragment_to_requestVerificationSuccessfullFragment"
             app:destination="@id/requestVerificationSuccessfullFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPlanStepThreeFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanStepThreeFragment"
+        android:label="fragment_create_plan_step_three"
+        tools:layout="@layout/fragment_create_plan_step_three" >
+        <action
+            android:id="@+id/action_createPlanStepThreeFragment_to_createPlanFragment"
+            app:destination="@id/createPlanFragment" />
     </fragment>
 </navigation>

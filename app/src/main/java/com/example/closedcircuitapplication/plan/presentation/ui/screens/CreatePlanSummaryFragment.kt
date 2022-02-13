@@ -95,17 +95,13 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
         binding.frgamentSummaryMaximumTv.text = currencyTypeArgs
 
         //navigating to the select currency screen
-        binding.fragmentSummaryChangeCurrencyType.setOnClickListener {
-            val currencyType = binding.frgamentSummaryMinimumTv.text.toString()
-            val action =
-                CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCurrencyTypeFragment(
-                    currencyType,
-                    sectorArgs,
-                    categoryArgs,
-                    uriArgs
-                )
-            findNavController().navigate(action, customNavAnimation().build())
-        }
+//        binding.fragmentSummaryChangeCurrencyType.setOnClickListener {
+//            val currencyType = binding.frgamentSummaryMinimumTv.text.toString()
+//            val action =
+//                CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragmentToSendFundsSummaryFragment(
+//                )
+//            findNavController().navigate(action, customNavAnimation().build())
+//        }
 
         // To set the maximum number of characters to be entered when a user types in the description box.
         binding.fragmentSummaryDescribePlanEt.addTextChangedListener(object : TextWatcher {
@@ -212,8 +208,18 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
                 binding.supportFieldCannotBeEmpty.isFocusable = false
             }
 
-            val action = CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCreatePlanFragment(planDuration, planDescription, businessName, planCategory, businessType, uriArgs)
-            findNavController().navigate(action, customNavAnimation().build())
+            findNavController().navigate(R.id.createPlanStepThreeFragment)
+
+//            val action =
+//                CreatePlanSummaryFragmentDirections  .actionCreatePlanSummaryFragment2ToCreatePlanFragment(
+//                    planDuration,
+//                    planDescription,
+//                    businessName,
+//                    planCategory,
+//                    businessType,
+//                    uriArgs
+//                )
+//            findNavController().navigate(action, customNavAnimation().build())
         }
     }
 }
