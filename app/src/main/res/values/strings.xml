@@ -215,4 +215,15 @@
     <string name="noticed_you_havent_created_budget_tv">We noticed you haven’t created a budget and an action step. Please create a budget to share link.</string>
     <string name="copy_link">Copy link</string>
     <string name="login">Login</string>
+    <string name="enter_business_name">Enter business Name</string>
+    <string name="create_business_plan">Create Business Plan</string>
+    <string name="what_s_your_estimated_selling_price">What’s your estimated selling price?</string>
+    <string name="minimum">minimum</string>
+    <string name="this_field_cannot_be_empty">This field cannot be empty</string>
+    <string name="maximum">maximum</string>
+    <string name="what_s_your_estimated_cost_price">What’s your estimated cost price?</string>
+    <string name="next">Next</string>
+    <string name="_200_maximum_words">200 maximum words</string>
+    <string name="you_have_exceeded_the_maximum_number_of_words_200">You have exceeded the maximum number of words (200)</string>
+    <string name="this_field_cannot_be_empty">This field cannot be empty</string>
 </resources>

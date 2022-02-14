@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".plan.presentation.ui.screens.CreatePlanStep2Fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="20dp">
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:textStyle="bold"
+            android:textSize="@dimen/textSize_24sp"
+            android:text="@string/create_a_plan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/enter_business_name"
+            android:textColor="#24500F"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/fragment_summary_enter_business_name_et"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/text_input_background_5dp"
+            android:fontFamily="@font/helvetica"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:paddingStart="10dp"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="Describe your plan"
+            android:textColor="#24500F"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/business_name_field_cannot_be_empty"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica"
+            android:text="This field cannot be empty"
+            android:textColor="#FF0000"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:id="@+id/fragment_summary_describe_plan_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/text_input_background_5dp"
+            android:fontFamily="@font/helvetica"
+            android:gravity="start"
+            android:minHeight="161dp"
+            android:padding="10dp"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/describe_plan_field_cannot_be_empty"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/this_field_cannot_be_empty"
+            android:textColor="#FF0000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:gravity="end"
+            android:id="@+id/fragment_plan_summary_200_max_words_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/_200_maximum_words"
+            android:textColor="#C4C4C4"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/fragment_plan_summary_exceeded_200_max_words_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/you_have_exceeded_the_maximum_number_of_words_200"
+            android:textColor="#FF0000"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:id="@+id/textView31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica"
+            android:text="Enter plan duration"
+            android:textColor="#24500F"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/frgament_summary_month_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica"
+            android:text="Month"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/fragment_summary_month_duration"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@drawable/text_input_background_5dp"
+            android:fontFamily="@font/helvetica"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/what_s_your_estimated_selling_price"
+            android:textColor="#24500F"
+            android:textSize="15sp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/frgament_summary_minimum_tv"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/helvetica"
+                    android:text="NGN"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+
+                <EditText
+                    android:id="@+id/fragment_summary_minimum_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_input_background_5dp"
+                    android:fontFamily="@font/helvetica"
+                    android:gravity="center_vertical|end"
+                    android:hint="@string/minimum"
+                    android:foregroundGravity="left"
+                    android:maxLines="1"
+                    android:paddingEnd="18dp"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="#C4C4C4"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        <TextView
+            android:id="@+id/minimum_field_cannot_be_empty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginStart="52dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/this_field_cannot_be_empty"
+            android:textColor="#FF0000"
+            android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/frgament_summary_loan_range_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/helvetica"
+                android:text="@string/what_s_your_estimated_cost_price"
+                android:textColor="#24500F"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fragment_summary_maximum_tv"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/helvetica"
+                    android:text="NGN"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+
+                <EditText
+                    android:id="@+id/fragment_summary_maximum_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_input_background_5dp"
+                    android:fontFamily="@font/helvetica"
+                    android:gravity="center_vertical|end"
+                    android:hint="@string/minimum"
+                    android:foregroundGravity="left"
+                    android:maxLines="1"
+                    android:paddingEnd="18dp"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="#C4C4C4"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_summary_create_plan_btn"
+                android:layout_width="match_parent"
+                android:layout_marginTop="80dp"
+                android:layout_height="54dp"
+                android:layout_marginBottom="190dp"
+                android:background="@drawable/rectangle_button"
+                android:fontFamily="@font/helvetica"
+                android:paddingVertical="10dp"
+                android:text="@string/next"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+

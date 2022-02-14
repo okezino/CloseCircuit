@@ -62,6 +62,8 @@
         <entry key="app/src/main/res/layout/fragment_create_budget.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_create_plan.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_create_plan_budget.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/fragment_create_plan_step2.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_create_plan_steps.xml" value="0.1390625" />
         <entry key="app/src/main/res/layout/fragment_create_plan_summary.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1234375" />
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.18704710144927536" />
