@@ -68,7 +68,7 @@
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
             app:boxStrokeColor="#E5E5E5"
-            app:boxStrokeWidth="@dimen/width_0dp"
+            app:boxStrokeWidth="@dimen/margin_0dp"
             app:endIconMode="dropdown_menu"
             app:endIconTint="@color/closed_circuit_dark_green"
             app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
@@ -117,7 +117,7 @@
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
             app:boxStrokeColor="#E5E5E5"
-            app:boxStrokeWidth="@dimen/width_0dp"
+            app:boxStrokeWidth="@dimen/margin_0dp"
             app:endIconMode="dropdown_menu"
             app:endIconTint="@color/design_default_color_primary_dark"
             app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
@@ -141,10 +141,13 @@
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/useTemplateSwitch"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="@dimen/margin_20dp"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_10dp"
+            tools:checked="true"
+            android:enabled="false"
+            app:theme="@style/Color1SwitchStyle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/choosePlanSectorSpinner" />
 
@@ -177,7 +180,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/create_plan_step_one_select_business_type_textInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="wrap_content"
             app:boxBackgroundColor="#E5E5E5"
             app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
@@ -185,7 +188,7 @@
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
             app:boxStrokeColor="#E5E5E5"
-            app:boxStrokeWidth="@dimen/width_0dp"
+            app:boxStrokeWidth="@dimen/margin_0dp"
             app:endIconMode="dropdown_menu"
             app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
             app:endIconTint="@color/closed_circuit_dark_green"
@@ -203,7 +206,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/createPlan_btn"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="@dimen/height_54dp"
             android:layout_marginTop="@dimen/margin_50dp"
             android:layout_marginBottom="@dimen/margin_80dp"

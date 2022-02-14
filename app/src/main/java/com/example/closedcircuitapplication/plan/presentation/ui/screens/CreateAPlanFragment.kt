@@ -217,7 +217,6 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
             binding.createPlanBtn.apply {
                 isEnabled = true
                 setBackgroundColor(resources.getColor(R.color.closed_circuit_dark_green))
-                Toast.makeText(requireContext(), "All selected", Toast.LENGTH_SHORT).show()
             }
         }
         else {

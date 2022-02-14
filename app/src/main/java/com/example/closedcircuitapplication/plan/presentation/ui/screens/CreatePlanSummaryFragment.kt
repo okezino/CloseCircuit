@@ -1,5 +1,6 @@
 package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
@@ -95,13 +96,13 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
         binding.frgamentSummaryMaximumTv.text = currencyTypeArgs
 
         //navigating to the select currency screen
-//        binding.fragmentSummaryChangeCurrencyType.setOnClickListener {
-//            val currencyType = binding.frgamentSummaryMinimumTv.text.toString()
-//            val action =
-//                CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragmentToSendFundsSummaryFragment(
-//                )
-//            findNavController().navigate(action, customNavAnimation().build())
-//        }
+        binding.fragmentSummaryChangeCurrencyType.setOnClickListener {
+            val currencyType = binding.frgamentSummaryMinimumTv.text.toString()
+            val action =
+                CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToSendFundsSummaryFragment(
+                )
+            findNavController().navigate(action, customNavAnimation().build())
+        }
 
         // To set the maximum number of characters to be entered when a user types in the description box.
         binding.fragmentSummaryDescribePlanEt.addTextChangedListener(object : TextWatcher {
@@ -115,7 +116,7 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
                     binding.fragmentPlanSummary200MaxWordsTv.visibility = View.GONE
                     binding.fragmentPlanSummaryExceeded200MaxWordsTv.visibility = View.VISIBLE
                 } else {
-//                    binding.fragmentPlanSummary200MaxWordsTv.setTextColor(Color.parseColor("#C4C4C4"))
+                    binding.fragmentPlanSummary200MaxWordsTv.setTextColor(Color.parseColor("#C4C4C4"))
                     binding.fragmentPlanSummary200MaxWordsTv.visibility = View.VISIBLE
                     binding.fragmentPlanSummaryExceeded200MaxWordsTv.visibility = View.GONE
                 }
@@ -208,18 +209,11 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
                 binding.supportFieldCannotBeEmpty.isFocusable = false
             }
 
-            findNavController().navigate(R.id.createPlanStepThreeFragment)
-
-//            val action =
-//                CreatePlanSummaryFragmentDirections  .actionCreatePlanSummaryFragment2ToCreatePlanFragment(
-//                    planDuration,
-//                    planDescription,
-//                    businessName,
-//                    planCategory,
-//                    businessType,
-//                    uriArgs
-//                )
-//            findNavController().navigate(action, customNavAnimation().build())
+            findNavController().navigate(
+                CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCreatePlanStepThreeFragment(),
+                customNavAnimation().build()
+            )
+            
         }
     }
 }

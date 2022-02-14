@@ -13,7 +13,7 @@
         android:layout_marginStart="@dimen/margin_20dp"
         android:layout_marginTop="@dimen/margin_20dp"
         android:fontFamily="@font/helvetica"
-        android:text="Create a Plan"
+        android:text="@string/create_a_plan"
         android:textColor="@color/black"
         android:textSize="@dimen/textSize_24sp"
         android:textStyle="bold"
@@ -35,18 +35,18 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/create_plan_step_three_select_business_type_textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-        android:layout_width="@dimen/width_0dp"
+        android:layout_width="@dimen/margin_0dp"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="#E5E5E5"
-        app:boxCornerRadiusBottomEnd="5dp"
-        app:boxCornerRadiusBottomStart="5dp"
-        app:boxCornerRadiusTopEnd="5dp"
-        app:boxCornerRadiusTopStart="5dp"
-        app:boxStrokeColor="#E5E5E5"
-        app:boxStrokeWidth="0dp"
+        app:boxBackgroundColor="@color/grey_box_background"
+        app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
+        app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
+        app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
+        app:boxCornerRadiusTopStart="@dimen/radius_5dp"
+        app:boxStrokeColor="@color/grey_box_background"
+        app:boxStrokeWidth="@dimen/margin_0dp"
         app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
         app:endIconMode="dropdown_menu"
-        app:endIconTint="#24500F"
+        app:endIconTint="@color/closed_circuit_dark_green"
         android:layout_marginTop="@dimen/margin_10dp"
         android:layout_marginEnd="@dimen/margin_20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,15 +56,15 @@
         <AutoCompleteTextView
             android:id="@+id/create_plan_means_of_support_autocompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="@dimen/margin_50dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/create_plan_step_three_create_plan_button"
         style="@style/Fragment_CreateAccount_Button_style"
-        android:layout_width="@dimen/width_0dp"
-        android:layout_marginStart="0dp"
+        android:layout_width="@dimen/margin_0dp"
+        android:layout_marginStart="@dimen/margin_0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginTop="@dimen/margin_98dp"
         android:text="Create Plan"

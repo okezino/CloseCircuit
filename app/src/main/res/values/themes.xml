@@ -89,4 +89,7 @@
         <item name="android:textAllCaps">false</item>
         <item name="cornerRadius">@dimen/boxCornerRadius_10dp</item>
     </style>
-</resources>
+
+    <style name="Color1SwitchStyle">
+        <item name="colorControlActivated">@color/light_green_500</item>
+    </style></resources>

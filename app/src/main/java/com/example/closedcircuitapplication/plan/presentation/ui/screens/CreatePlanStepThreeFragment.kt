@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.navigation.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanStepThreeBinding
 
 
@@ -43,7 +44,7 @@ class CreatePlanStepThreeFragment : Fragment() {
                     context.getString(R.string.placeholder_plan_category),
                     context.getString(R.string.placeholder_business_sector)
                 )
-                findNavController().navigate(R.id.action_createPlanStepThreeFragment_to_createPlanFragment)
+                findNavController().navigate(action, customNavAnimation().build())
             }
         }
 

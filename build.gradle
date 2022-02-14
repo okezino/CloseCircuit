@@ -16,7 +16,6 @@ buildscript {
         classpath Build.kotlinter
         classpath Build.hilt_android_gradle
         classpath Build.nav_safe_args
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
     }
 }
 

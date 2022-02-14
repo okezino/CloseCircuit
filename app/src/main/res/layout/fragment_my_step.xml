@@ -145,7 +145,7 @@
 
             <TextView
                 android:id="@+id/my_step_step_description_description_textView"
-                android:layout_width="@dimen/width_0dp"
+                android:layout_width="@dimen/margin_0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10dp"
                 android:layout_marginEnd="@dimen/margin_20dp"
