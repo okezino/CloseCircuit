@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
             android:id="@+id/createPlan_Tv"
             android:layout_width="match_parent"

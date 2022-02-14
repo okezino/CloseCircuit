@@ -72,7 +72,6 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
 
         // show the upoadimage bottomsheet when the upload image view is clicked
         binding.uploadImageIV.setOnClickListener {
-            showUploadImageBottomSheetDialog()
         }
         setUpAutoTextViewTextChangedListener()
 
