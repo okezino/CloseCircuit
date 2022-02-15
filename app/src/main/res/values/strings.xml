@@ -111,7 +111,6 @@
     <string name="not_started_a_plan">Patience, you have not started any plan yet. Please start a plan to view plans.</string>
     <string name="choose_plan_sector">Choose plan sector</string>
     <string name="use_template">Use template</string>
-    <string name="create_plan">Create plan</string>
     <string name="gallery">Gallery</string>
 
     <string-array name="Choose_business_Sector">
@@ -131,6 +130,15 @@
     <string-array name="selectPlanCategory">
         <item>Business</item>
         <item>Project</item>
+    </string-array>
+    <string-array name="business_type">
+        <item>Clothing</item>
+        <item>Electronics</item>
+    </string-array>
+    <string-array name="means_of_support">
+        <item>Donations(cash gifts)</item>
+        <item>Loans</item>
+        <item>Both(loans and donations)</item>
     </string-array>
     <string name="copy_plan_link"><link><font color="#0000ff">copy plan link</font></link></string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -217,7 +225,6 @@
     <string name="create_business_plan">Create Business Plan</string>
     <string name="what_s_your_estimated_selling_price">What’s your estimated selling price?</string>
     <string name="minimum">minimum</string>
-    <string name="this_field_cannot_be_empty">This field cannot be empty</string>
     <string name="maximum">maximum</string>
     <string name="what_s_your_estimated_cost_price">What’s your estimated cost price?</string>
     <string name="next">Next</string>
@@ -230,4 +237,14 @@
     <string name="ngn">NGN</string>
     <string name="create_plan">Create plan</string>
     <string name="let_s_create_your_plan">Let’s create your plan</string>
+=======
+    <string name="placeholder_number">6</string>
+    <string name="placeholder_plan_description">To be the number one distributor of shoes</string>
+    <string name="placeholder_business_name">Salawu\'s Shoes</string>
+    <string name="placeholder_plan_category">Business</string>
+    <string name="placeholder_business_sector">E-Commerce</string>
+    <string name="select_plan_category_text">Select plan category</string>
+    <string name="choose_plan_sector_text">Choose plan sector</string>
+    <string name="select_business_type_test">Select business type</string>
+>>>>>>> 46d7cf903a65b39aaa8ecca8f0371c72f7ff850f
 </resources>

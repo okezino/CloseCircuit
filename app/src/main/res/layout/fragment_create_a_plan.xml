@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
             android:id="@+id/createPlan_Tv"
             android:layout_width="match_parent"
@@ -34,6 +33,7 @@
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_30dp"
             android:scaleType="fitXY"
+            android:clickable="false"
             android:src="@drawable/upload_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/createPlan_Tv" />
@@ -44,8 +44,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_34dp"
-            android:text="Select plan category"
-            android:textColor="#24500F"
+            android:text="@string/select_plan_category_text"
+            android:textColor="@color/closed_circuit_dark_green"
             android:textSize="@dimen/textSize_15sp"
             android:textStyle="normal"
             android:fontFamily="@font/helvetica"
@@ -57,19 +57,20 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:paddingTop="@dimen/margin_16dp"
+            android:paddingBottom="@dimen/margin_16dp"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginEnd="@dimen/margin_20dp"
             app:boxBackgroundColor="#E5E5E5"
-            app:boxCornerRadiusBottomEnd="5dp"
-            app:boxCornerRadiusBottomStart="5dp"
-            app:boxCornerRadiusTopEnd="5dp"
-            app:boxCornerRadiusTopStart="5dp"
+            app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
+            app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusTopStart="@dimen/radius_5dp"
             app:boxStrokeColor="#E5E5E5"
-            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidth="@dimen/margin_0dp"
             app:endIconMode="dropdown_menu"
-            app:endIconTint="#24500F"
+            app:endIconTint="@color/closed_circuit_dark_green"
+            app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/selectPlanCategory"            >
@@ -78,11 +79,11 @@
                 android:id="@+id/selectPlanCategoryDropdown"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:dropDownVerticalOffset="4dp"
+                android:dropDownVerticalOffset="@dimen/offset_4dp"
                 android:dropDownSelector="#E5E5E5"
                 android:gravity="center_vertical"
                 android:inputType="none"
-                android:paddingTop="4dp"
+                android:paddingTop="@dimen/padding_4dp"
                 android:scrollbars="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_34dp"
-            android:text="Choose plan sector"
+            android:text="@string/choose_plan_sector_text"
             android:textColor="#24500F"
             android:textSize="@dimen/textSize_15sp"
             android:fontFamily="@font/helvetica"
@@ -107,17 +108,18 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:paddingTop="@dimen/padding_16dp"
+            android:paddingBottom="@dimen/padding_16dp"
             app:boxBackgroundColor="#E5E5E5"
-            app:boxCornerRadiusBottomEnd="5dp"
-            app:boxCornerRadiusBottomStart="5dp"
-            app:boxCornerRadiusTopEnd="5dp"
-            app:boxCornerRadiusTopStart="5dp"
+            app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
+            app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusTopStart="@dimen/radius_5dp"
             app:boxStrokeColor="#E5E5E5"
-            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidth="@dimen/margin_0dp"
             app:endIconMode="dropdown_menu"
-            app:endIconTint="#24500F"
+            app:endIconTint="@color/design_default_color_primary_dark"
+            app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginEnd="@dimen/margin_20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -128,20 +130,23 @@
                 android:id="@+id/dropdown_menu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:dropDownVerticalOffset="4dp"
+                android:dropDownVerticalOffset="@dimen/offset_4dp"
                 android:dropDownSelector="#E5E5E5"
                 android:gravity="center_vertical"
-                android:paddingTop="4dp"
+                android:paddingTop="@dimen/padding_4dp"
                 android:scrollbars="horizontal" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/useTemplateSwitch"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="@dimen/margin_20dp"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_10dp"
+            tools:checked="true"
+            android:enabled="false"
+            app:theme="@style/Color1SwitchStyle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/choosePlanSectorSpinner" />
 
@@ -149,7 +154,7 @@
             android:id="@+id/useTemplate_Tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25.5dp"
+            android:layout_marginStart="@dimen/margin_25dp"
             android:text="@string/use_template"
             android:textColor="#9DC333"
             android:textSize="@dimen/textSize_15sp"
@@ -159,20 +164,64 @@
             app:layout_constraintStart_toEndOf="@+id/useTemplateSwitch"
             app:layout_constraintTop_toTopOf="@+id/useTemplateSwitch" />
 
+        <TextView
+            android:id="@+id/create_a_plan_step_three_business_type_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_21dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/select_business_type_test"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintStart_toStartOf="@+id/useTemplateSwitch"
+            app:layout_constraintTop_toBottomOf="@+id/useTemplate_Tv" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/create_plan_step_one_select_business_type_textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="@dimen/margin_0dp"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="#E5E5E5"
+            app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
+            app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
+            app:boxCornerRadiusTopStart="@dimen/radius_5dp"
+            app:boxStrokeColor="#E5E5E5"
+            app:boxStrokeWidth="@dimen/margin_0dp"
+            app:endIconMode="dropdown_menu"
+            app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
+            app:endIconTint="@color/closed_circuit_dark_green"
+            android:layout_marginTop="@dimen/margin_10dp"
+            app:layout_constraintEnd_toEndOf="@+id/choosePlanSectorSpinner"
+            app:layout_constraintStart_toStartOf="@+id/useTemplateSwitch"
+            app:layout_constraintTop_toBottomOf="@+id/create_a_plan_step_three_business_type_textView">
+
+            <AutoCompleteTextView
+                android:id="@+id/create_plan_select_business_type_autocompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_50dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/createPlan_btn"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_marginTop="81dp"
+            android:layout_width="@dimen/margin_0dp"
+            android:layout_height="@dimen/height_54dp"
+            android:layout_marginTop="@dimen/margin_50dp"
+            android:layout_marginBottom="@dimen/margin_80dp"
             android:text="@string/create_plan"
             android:textAllCaps="false"
-            android:layout_marginStart="@dimen/margin_20dp"
-            android:layout_marginEnd="@dimen/margin_20dp"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="@dimen/textSize_16sp"
+            android:insetTop="@dimen/inset_0dp"
+            android:insetBottom="@dimen/inset_0dp"
             app:backgroundTint="#C4C4C4"
-            app:cornerRadius="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/useTemplateSwitch" />
+            app:cornerRadius="@dimen/radius_10dp"
+            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/create_plan_step_one_select_business_type_textInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/create_plan_step_one_select_business_type_textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/create_plan_step_one_select_business_type_textInputLayout" />
 
 
 
