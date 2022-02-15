@@ -61,9 +61,10 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         validateOtp()
         initObservers()
         initObserversResendOtp()
-        binding.notYourEmailMessageTv.setOnClickListener {
-            findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToEditEmailVerificationScreenFragment(), customNavAnimation().build())
-        }
+        //TODO("TO CHANGE EMAIL ADDRESS OF USER")
+//        binding.notYourEmailMessageTv.setOnClickListener {
+//            findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToEditEmailVerificationScreenFragment(), customNavAnimation().build())
+//        }
         binding.closeIcon.setOnClickListener {
             findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToProjectScreenFragment(), customNavAnimation().build())
         }

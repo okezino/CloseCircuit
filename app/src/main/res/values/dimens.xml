@@ -75,4 +75,11 @@
     <dimen name="height_0dp">0dp</dimen>
     <dimen name="width_focused_2dp">2dp</dimen>
     <dimen name="padding_20dp">20dp</dimen>
+    <dimen name="offset_4dp">4dp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="height_50dp">50dp</dimen>
+    <dimen name="margin_70dp">70dp</dimen>
+    <dimen name="inset_0dp">0dp</dimen>
+    <dimen name="margin_0dp">0</dimen>
 </resources>

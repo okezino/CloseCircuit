@@ -89,6 +89,7 @@ dependencies {
     implementation Dependencies.hilt_android
     implementation Dependencies.hilt_life_cycle
     implementation Dependencies.hilt_navigation_compose
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     //Annotation Dependencies
     kapt AnnotationDependencies.hilt_android_compiler

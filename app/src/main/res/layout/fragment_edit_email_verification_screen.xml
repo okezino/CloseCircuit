@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10dp"
                 android:fontFamily="@font/helvetica"
-                android:text="@string/email_has_been_sent_to_pat_gmail_com_please_click_on_the_link_sent_to_you_to_verify"
+                android:text="@string/please_enter_your_email_address_to_continue_verification_process"
                 android:textColor="#8A8A8E"
                 android:textSize="@dimen/textSize_15sp"
                 app:layout_constraintStart_toStartOf="parent"

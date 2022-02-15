@@ -29,7 +29,9 @@ class EditEmailVerificationScreenFragment : Fragment(R.layout.fragment_edit_emai
         super.onViewCreated(view, savedInstanceState)
         binding.fragmentLoginLoginBtn.setOnClickListener {
             findNavController().navigate(EditEmailVerificationScreenFragmentDirections.actionEditEmailVerificationScreenFragmentToEmailVerificationFragment(), customNavAnimation().build())
-
+        }
+        binding.closeIcon.setOnClickListener {
+            findNavController().navigate(EditEmailVerificationScreenFragmentDirections.actionEditEmailVerificationScreenFragmentToEmailVerificationFragment(),customNavAnimation().build())
         }
     }
 }

@@ -43,7 +43,7 @@
             android:text="@string/ngn_400_000_00"
             android:textColor="@color/closed_circuit_dark_green"
             android:layout_marginTop="@dimen/margin_5dp"
-            android:padding="@dimen/width_0dp"
+            android:padding="@dimen/margin_0dp"
             android:textSize="@dimen/textSize_22sp"
             android:textStyle="bold"
             android:includeFontPadding="false"
@@ -76,7 +76,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/create_step_step_name_textInputLayout"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="@dimen/height_54dp"
             android:layout_marginEnd="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_10dp"
@@ -85,8 +85,8 @@
             app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
-            app:boxStrokeWidth="@dimen/width_0dp"
-            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:boxStrokeWidth="@dimen/margin_0dp"
+            app:boxStrokeWidthFocused="@dimen/margin_0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/create_steps_step_name_textView"
             app:layout_constraintTop_toBottomOf="@+id/create_steps_step_name_textView">
@@ -116,7 +116,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/create_step_edit_step_description_textInputLayout"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_marginTop="@dimen/margin_10dp"
             android:layout_height="@dimen/height_161dp"
             android:backgroundTint="#EBEFF2"
@@ -126,8 +126,8 @@
             app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
-            app:boxStrokeWidth="@dimen/width_0dp"
-            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:boxStrokeWidth="@dimen/margin_0dp"
+            app:boxStrokeWidthFocused="@dimen/margin_0dp"
             app:layout_constraintEnd_toEndOf="@+id/create_step_step_name_textInputLayout"
             app:layout_constraintStart_toStartOf="@+id/create_steps_edit_step_description_textView"
             app:layout_constraintTop_toBottomOf="@+id/create_steps_edit_step_description_textView">
@@ -181,7 +181,7 @@
         <Spinner
             android:id="@+id/create_step_autoCompleteTextView"
             style="@style/SpinnerTheme"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="@dimen/height_54dp"
             android:layout_marginStart="@dimen/margin_9dp"
             android:paddingEnd="@dimen/padding_15dp"
@@ -205,7 +205,7 @@
 
         <TextView
             android:id="@+id/create_steps_not_have_a_budget_textView"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_20dp"
             android:fontFamily="@font/helvetica"
@@ -222,11 +222,11 @@
         <com.google.android.material.chip.ChipGroup
             style="@style/Widget.MaterialComponents.ChipGroup"
             android:id="@+id/create_step_select_budget_for_steps_textInputLayout"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="@dimen/height_140dp"
             android:layout_marginTop="@dimen/margin_10dp"
             android:background="@drawable/chip_group_background"
-            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:boxStrokeWidthFocused="@dimen/margin_0dp"
             app:layout_constraintEnd_toEndOf="@+id/create_steps_not_have_a_budget_textView"
             app:layout_constraintStart_toStartOf="@+id/create_steps_select_budgets_for_steps_textView"
             app:layout_constraintTop_toBottomOf="@+id/create_steps_not_have_a_budget_textView">
@@ -235,7 +235,7 @@
 
         <Button
             android:id="@+id/create_step_save_and_add_new_steps_button"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/all_button_background"
             android:text="@string/save_and_add_new_step_text"
@@ -250,7 +250,7 @@
 
         <Button
             android:id="@+id/create_steps_save_and_continue_button"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_53dp"
             android:layout_marginBottom="@dimen/margin_125dp"

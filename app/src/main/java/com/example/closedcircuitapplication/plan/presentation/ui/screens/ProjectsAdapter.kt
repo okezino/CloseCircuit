@@ -46,7 +46,6 @@ class ProjectsAdapter(private val projects: MutableList<Projects>) : RecyclerVie
                         project.projectName,
                         project.planCategory,
                         project.planCategory,
-                        ""
                     )
                 it.findNavController().navigate(action)
             }

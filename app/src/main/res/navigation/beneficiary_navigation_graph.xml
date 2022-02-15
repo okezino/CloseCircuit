@@ -12,7 +12,10 @@
         tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_dashboardFragment_to_projectScreenFragment2"
-            app:destination="@id/projectScreenFragment" />
+            app:destination="@id/projectScreenFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/accountFragment2"
@@ -50,10 +53,6 @@
         <argument
             android:name="businessSector"
             app:argType="string" />
-        <argument
-            android:name="imageUri"
-            app:argType="string"
-            app:nullable="true" />
         <action
             android:id="@+id/action_createPlanFragment_to_sendFundsSummaryFragment"
             app:destination="@id/sendFundsSummaryFragment" />
@@ -115,13 +114,22 @@
         tools:layout="@layout/fragment_email_verification">
         <action
             android:id="@+id/action_emailVerificationFragment_to_editEmailVerificationScreenFragment"
-            app:destination="@id/editEmailVerificationScreenFragment" />
+            app:destination="@id/editEmailVerificationScreenFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true"
+            />
         <action
             android:id="@+id/action_emailVerificationFragment_to_successfulEmailVerificationScreenFragment"
-            app:destination="@id/successfulEmailVerificationScreenFragment" />
+            app:destination="@id/successfulEmailVerificationScreenFragment"
+            app:popUpTo="@id/emailVerificationFragment"
+            app:popUpToInclusive="true"
+            />
         <action
             android:id="@+id/action_emailVerificationFragment_to_projectScreenFragment"
-            app:destination="@id/projectScreenFragment" />
+            app:destination="@id/projectScreenFragment"
+            app:popUpTo="@id/projectScreenFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/editEmailVerificationScreenFragment"
@@ -130,7 +138,10 @@
         tools:layout="@layout/fragment_edit_email_verification_screen">
         <action
             android:id="@+id/action_editEmailVerificationScreenFragment_to_emailVerificationFragment"
-            app:destination="@id/emailVerificationFragment" />
+            app:destination="@id/emailVerificationFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/successfulEmailVerificationScreenFragment"
@@ -139,16 +150,9 @@
         tools:layout="@layout/fragment_successful_email_verification_screen">
         <action
             android:id="@+id/action_successfulEmailVerificationScreenFragment_to_createAPlanFragment2"
-            app:destination="@id/createAPlanFragment2" />
-    </fragment>
-    <fragment
-        android:id="@+id/createPlanSummaryFragment"
-        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanSummaryFragment"
-        android:label="fragment_create_plan_summary"
-        tools:layout="@layout/fragment_create_plan_summary" >
-        <action
-            android:id="@+id/action_createPlanSummaryFragment_to_sendFundsSummaryFragment"
-            app:destination="@id/sendFundsSummaryFragment" />
+            app:destination="@id/createAPlanFragment2"
+            app:popUpTo="@id/emailVerificationFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
@@ -173,9 +177,6 @@
         android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanSummaryFragment"
         android:label="fragment_create_plan_summary"
         tools:layout="@layout/fragment_create_plan_summary" >
-        <action
-            android:id="@+id/action_createPlanSummaryFragment2_to_createPlanFragment"
-            app:destination="@id/createPlanFragment" />
         <argument
             android:name="sector"
             app:argType="string" />
@@ -188,11 +189,11 @@
             android:name="currency_type"
             app:argType="string" />
         <action
-            android:id="@+id/action_createPlanSummaryFragment2_to_currencyTypeFragment"
-            app:destination="@id/currencyTypeFragment" />
+            android:id="@+id/action_createPlanSummaryFragment2_to_createPlanStepThreeFragment"
+            app:destination="@id/createPlanStepThreeFragment" />
         <action
-            android:id="@+id/action_createPlanSummaryFragment2_to_createAPlanFragment2"
-            app:destination="@id/createAPlanFragment2" />
+            android:id="@+id/action_createPlanSummaryFragment2_to_sendFundsSummaryFragment"
+            app:destination="@id/sendFundsSummaryFragment" />
     </fragment>
     <fragment
         android:id="@+id/emailVerificationSuccessfulFragment2"
@@ -265,5 +266,14 @@
         <action
             android:id="@+id/action_uploadingProofForCompletedStepFragment_to_requestVerificationSuccessfullFragment"
             app:destination="@id/requestVerificationSuccessfullFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPlanStepThreeFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanStepThreeFragment"
+        android:label="fragment_create_plan_step_three"
+        tools:layout="@layout/fragment_create_plan_step_three" >
+        <action
+            android:id="@+id/action_createPlanStepThreeFragment_to_createPlanFragment"
+            app:destination="@id/createPlanFragment" />
     </fragment>
 </navigation>

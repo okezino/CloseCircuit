@@ -47,4 +47,6 @@
     <color name="text_color_black">#0B0B0B</color>
     <color name="text_color_light_blue">#0000ff</color>
     <color name="error_text_color_red">#ff0000</color>
+    <color name="view_disabled_background_color">#C4C4C4</color>
+    <color name="grey_box_background">#E5E5E5</color>
 </resources>
