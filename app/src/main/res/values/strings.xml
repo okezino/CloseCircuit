@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Closed CircuitApplication</string>
     <string name="action_settings">Settings</string>
-    <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -88,7 +87,6 @@
     <string name="target_amount_text">Target Amount</string>
     <string name="step_name_text">Step Name</string>
     <string name="edit_step_description_text">Edit step description</string>
-    <string name="_200_maximum_words">200 maximum words</string>
     <string name="enter_step_duration_text">Enter step duration</string>
     <string name="weeks_text">Weeks</string>
     <string name="select_budgets_for_this_step_text">Select Budgets for this step</string>
@@ -225,5 +223,11 @@
     <string name="next">Next</string>
     <string name="_200_maximum_words">200 maximum words</string>
     <string name="you_have_exceeded_the_maximum_number_of_words_200">You have exceeded the maximum number of words (200)</string>
+    <string name="describe_your_plan">Describe your plan</string>
     <string name="this_field_cannot_be_empty">This field cannot be empty</string>
+    <string name="enter_plan_duration">Enter plan duration</string>
+    <string name="month">Month</string>
+    <string name="ngn">NGN</string>
+    <string name="create_plan">Create plan</string>
+    <string name="let_s_create_your_plan">Let’s create your plan</string>
 </resources>

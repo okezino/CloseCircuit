@@ -16,12 +16,12 @@
             android:layout_marginTop="@dimen/margin_20dp"
             android:textStyle="bold"
             android:textSize="@dimen/textSize_24sp"
-            android:text="@string/create_a_plan"
+            android:text="@string/let_s_create_your_plan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:id="@+id/textView30"
+            android:id="@+id/business_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -31,7 +31,7 @@
             android:textSize="15sp" />
 
         <EditText
-            android:id="@+id/fragment_summary_enter_business_name_et"
+            android:id="@+id/fragment_lets_create_your_plan_business_name_et"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginTop="10dp"
@@ -39,18 +39,17 @@
             android:fontFamily="@font/helvetica"
             android:gravity="center_vertical"
             android:maxLines="2"
-            android:paddingStart="10dp"
             android:inputType="text"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/describe_your_plan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/helvetica"
-            android:text="Describe your plan"
+            android:text="@string/describe_your_plan"
             android:textColor="#24500F"
             android:textSize="15sp" />
 
@@ -60,12 +59,12 @@
             android:visibility="gone"
             android:layout_height="wrap_content"
             android:fontFamily="@font/helvetica"
-            android:text="This field cannot be empty"
+            android:text="@string/this_field_cannot_be_empty"
             android:textColor="#FF0000"
             android:textSize="15sp"/>
 
         <EditText
-            android:id="@+id/fragment_summary_describe_plan_et"
+            android:id="@+id/fragment_lets_create_your_plan_describe_your_plan_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -76,7 +75,8 @@
             android:padding="10dp"
             android:inputType="text"
             android:textColor="@color/black"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:importantForAutofill="no" />
 
         <TextView
             android:id="@+id/describe_plan_field_cannot_be_empty"
@@ -115,32 +115,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/helvetica"
-            android:text="Enter plan duration"
+            android:text="@string/enter_plan_duration"
             android:textColor="#24500F"
             android:textSize="15sp" />
 
 
-        <TextView
-            android:id="@+id/frgament_summary_month_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/helvetica"
-            android:text="Month"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/fragment_summary_month_duration"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:background="@drawable/text_input_background_5dp"
-            android:fontFamily="@font/helvetica"
-            android:gravity="center_vertical"
-            android:maxLines="1"
-            android:paddingLeft="10dp"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/frgament_summary_month_tv"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/helvetica"
+                    android:text="@string/month"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/fragment_lets_create_your_plan_month_duration_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="@drawable/text_input_background_5dp"
+                    android:fontFamily="@font/helvetica"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"/>
+
+
+            </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -162,22 +171,20 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/helvetica"
-                    android:text="NGN"
+                    android:text="@string/ngn"
                     android:textColor="@color/black"
                     android:textSize="16sp"/>
 
 
                 <EditText
-                    android:id="@+id/fragment_summary_minimum_et"
+                    android:id="@+id/fragment_lets_create_your_plan_selling_price_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_background_5dp"
                     android:fontFamily="@font/helvetica"
                     android:gravity="center_vertical|end"
-                    android:hint="@string/minimum"
                     android:foregroundGravity="left"
                     android:maxLines="1"
-                    android:paddingEnd="18dp"
                     android:inputType="text"
                     android:textColor="@color/black"
                     android:textColorHint="#C4C4C4"
@@ -197,7 +204,7 @@
             android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/frgament_summary_loan_range_tv"
+                android:id="@+id/fragment_summary_loan_range_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
@@ -224,16 +231,14 @@
 
 
                 <EditText
-                    android:id="@+id/fragment_summary_maximum_et"
+                    android:id="@+id/fragment_lets_create_your_plan_cost_price_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_background_5dp"
                     android:fontFamily="@font/helvetica"
                     android:gravity="center_vertical|end"
-                    android:hint="@string/minimum"
                     android:foregroundGravity="left"
                     android:maxLines="1"
-                    android:paddingEnd="18dp"
                     android:inputType="text"
                     android:textColor="@color/black"
                     android:textColorHint="#C4C4C4"
@@ -243,7 +248,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/fragment_summary_create_plan_btn"
+                android:id="@+id/fragment_lets_create_your_plan_create_plan_btn"
                 android:layout_width="match_parent"
                 android:layout_marginTop="80dp"
                 android:layout_height="54dp"
@@ -251,7 +256,7 @@
                 android:background="@drawable/rectangle_button"
                 android:fontFamily="@font/helvetica"
                 android:paddingVertical="10dp"
-                android:text="@string/next"
+                android:text="@string/create_plan"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/white"

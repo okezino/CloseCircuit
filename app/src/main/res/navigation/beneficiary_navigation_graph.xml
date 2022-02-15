@@ -138,15 +138,6 @@
             android:id="@+id/action_successfulEmailVerificationScreenFragment_to_createAPlanFragment2"
             app:destination="@id/createAPlanFragment2" />
     </fragment>
-    <fragment
-        android:id="@+id/createPlanSummaryFragment"
-        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanSummaryFragment"
-        android:label="fragment_create_plan_summary"
-        tools:layout="@layout/fragment_create_plan_summary" >
-        <action
-            android:id="@+id/action_createPlanSummaryFragment_to_sendFundsSummaryFragment"
-            app:destination="@id/sendFundsSummaryFragment" />
-    </fragment>
 
     <fragment
         android:id="@+id/createAPlanFragment2"
