@@ -36,6 +36,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private var success_dialog: AlertDialog? = null
     private var waitDialog: AlertDialog? = null
     private var incorrect_emailDialog: AlertDialog? = null
+    var _email: String = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -68,7 +69,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             if (Validation.validateEmailPattern(email)) {
                 if (Validation.validatePasswordPattern(password)) {
                     viewModel.login(LoginRequest(email, password))
-
+                    _email = email
                 } else {
                     // call for incorrect password here
                     Snackbar.make(binding.root, "Invalid Password", Snackbar.LENGTH_LONG).show()
@@ -145,9 +146,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     // this is used to insert the token into the shared preference
                     saveToken(resource.data?.data!!.token)
                     preferences.putToken(resource.datas?.data!!.token)
+                    //this is used to save the user email address
+                    saveEmail(_email)
+                    preferences.saveEmail(_email)
 
-                    val intentBeneficiaryDashboard =
-                        Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
+                    val intentBeneficiaryDashboard = Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
                     startActivity(intentBeneficiaryDashboard)
                 }
 
@@ -166,6 +169,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun saveToken(token: String) = preferences.putToken(token)
+    private fun saveEmail(email: String) = preferences.saveEmail(email)
 
 
     override fun onDetach() {

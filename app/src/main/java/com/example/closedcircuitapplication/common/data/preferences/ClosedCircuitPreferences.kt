@@ -2,6 +2,7 @@ package com.example.closedcircuitapplication.common.data.preferences
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.KEY_EMAIL
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.KEY_TOKEN
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.KEY_TOKEN_EXPIRATION_TIME
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.KEY_TOKEN_TYPE
@@ -58,5 +59,13 @@ class ClosedCircuitPreferences @Inject constructor(
 
     override fun putPrefBoolean(keyType: String, boolean: Boolean) {
         edit { putBoolean(keyType, boolean) }
+    }
+
+    override fun saveEmail(email: String) {
+        edit { putString(KEY_EMAIL, email) }
+    }
+
+    override fun getEmail(): String {
+        return preferences.getString(KEY_EMAIL, "").orEmpty()
     }
 }

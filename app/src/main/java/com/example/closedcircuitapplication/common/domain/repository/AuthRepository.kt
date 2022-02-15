@@ -8,6 +8,8 @@ import com.example.closedcircuitapplication.common.data.network.models.GenerateO
 import com.example.closedcircuitapplication.common.data.network.models.ResetPasswordDto
 import com.example.closedcircuitapplication.common.data.network.models.VerifyOtpDto
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
+import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {

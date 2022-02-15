@@ -13,6 +13,8 @@ import com.example.closedcircuitapplication.common.domain.repository.AuthReposit
 import com.example.closedcircuitapplication.common.utils.DispatcherProvider
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Resource.Loading
+import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
+import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn

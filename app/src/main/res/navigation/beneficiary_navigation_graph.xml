@@ -119,6 +119,9 @@
         <action
             android:id="@+id/action_emailVerificationFragment_to_successfulEmailVerificationScreenFragment"
             app:destination="@id/successfulEmailVerificationScreenFragment" />
+        <action
+            android:id="@+id/action_emailVerificationFragment_to_projectScreenFragment"
+            app:destination="@id/projectScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/editEmailVerificationScreenFragment"
@@ -126,8 +129,8 @@
         android:label="EditEmailVerificationScreenFragment"
         tools:layout="@layout/fragment_edit_email_verification_screen">
         <action
-            android:id="@+id/action_editEmailVerificationScreenFragment_to_successfulEmailVerificationScreenFragment"
-            app:destination="@id/successfulEmailVerificationScreenFragment" />
+            android:id="@+id/action_editEmailVerificationScreenFragment_to_emailVerificationFragment"
+            app:destination="@id/emailVerificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/successfulEmailVerificationScreenFragment"
