@@ -1,5 +1,6 @@
 package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
@@ -98,11 +99,7 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
         binding.fragmentSummaryChangeCurrencyType.setOnClickListener {
             val currencyType = binding.frgamentSummaryMinimumTv.text.toString()
             val action =
-                CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCurrencyTypeFragment(
-                    currencyType,
-                    sectorArgs,
-                    categoryArgs,
-                    uriArgs
+                CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToSendFundsSummaryFragment(
                 )
             findNavController().navigate(action, customNavAnimation().build())
         }
@@ -119,7 +116,7 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
                     binding.fragmentPlanSummary200MaxWordsTv.visibility = View.GONE
                     binding.fragmentPlanSummaryExceeded200MaxWordsTv.visibility = View.VISIBLE
                 } else {
-//                    binding.fragmentPlanSummary200MaxWordsTv.setTextColor(Color.parseColor("#C4C4C4"))
+                    binding.fragmentPlanSummary200MaxWordsTv.setTextColor(Color.parseColor("#C4C4C4"))
                     binding.fragmentPlanSummary200MaxWordsTv.visibility = View.VISIBLE
                     binding.fragmentPlanSummaryExceeded200MaxWordsTv.visibility = View.GONE
                 }
@@ -212,8 +209,11 @@ class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary
                 binding.supportFieldCannotBeEmpty.isFocusable = false
             }
 
-            val action = CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCreatePlanFragment(planDuration, planDescription, businessName, planCategory, businessType, uriArgs)
-            findNavController().navigate(action, customNavAnimation().build())
+            findNavController().navigate(
+                CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCreatePlanStepThreeFragment(),
+                customNavAnimation().build()
+            )
+            
         }
     }
 }

@@ -134,6 +134,15 @@
         <item>Business</item>
         <item>Project</item>
     </string-array>
+    <string-array name="business_type">
+        <item>Clothing</item>
+        <item>Electronics</item>
+    </string-array>
+    <string-array name="means_of_support">
+        <item>Donations(cash gifts)</item>
+        <item>Loans</item>
+        <item>Both(loans and donations)</item>
+    </string-array>
     <string name="copy_plan_link"><link><font color="#0000ff">copy plan link</font></link></string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_budget">Add Budget</string>
@@ -215,4 +224,12 @@
     <string name="noticed_you_havent_created_budget_tv">We noticed you haven’t created a budget and an action step. Please create a budget to share link.</string>
     <string name="copy_link">Copy link</string>
     <string name="login">Login</string>
+    <string name="placeholder_number">6</string>
+    <string name="placeholder_plan_description">To be the number one distributor of shoes</string>
+    <string name="placeholder_business_name">Salawu\'s Shoes</string>
+    <string name="placeholder_plan_category">Business</string>
+    <string name="placeholder_business_sector">E-Commerce</string>
+    <string name="select_plan_category_text">Select plan category</string>
+    <string name="choose_plan_sector_text">Choose plan sector</string>
+    <string name="select_business_type_test">Select business type</string>
 </resources>

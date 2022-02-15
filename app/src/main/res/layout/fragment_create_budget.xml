@@ -39,7 +39,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/create_budget_enter_budget_name_textInputLayout"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="@dimen/height_54dp"
             android:layout_marginTop="@dimen/margin_10dp"
             android:layout_marginEnd="@dimen/margin_20dp"
@@ -48,8 +48,8 @@
             app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
-            app:boxStrokeWidth="@dimen/width_0dp"
-            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:boxStrokeWidth="@dimen/margin_0dp"
+            app:boxStrokeWidthFocused="@dimen/margin_0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/create_budget_enter_budget_name_textView"
             app:layout_constraintTop_toBottomOf="@+id/create_budget_enter_budget_name_textView">
@@ -75,7 +75,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/create_budget_cost_textInputLayout"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="@dimen/height_54dp"
             android:layout_marginTop="@dimen/margin_10dp"
             android:backgroundTint="#EBEFF2"
@@ -83,8 +83,8 @@
             app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
-            app:boxStrokeWidth="@dimen/width_0dp"
-            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:boxStrokeWidth="@dimen/margin_0dp"
+            app:boxStrokeWidthFocused="@dimen/margin_0dp"
             app:layout_constraintEnd_toEndOf="@+id/create_budget_enter_budget_name_textInputLayout"
             app:layout_constraintStart_toStartOf="@+id/create_budget_enter_budget_cost_textView"
             app:layout_constraintTop_toBottomOf="@+id/create_budget_enter_budget_cost_textView">
@@ -100,7 +100,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/create_budget_currency_picker_layout"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/width_0dp"
+            android:layout_height="@dimen/margin_0dp"
             app:layout_constraintBottom_toBottomOf="@+id/create_budget_cost_textInputLayout"
             app:layout_constraintStart_toStartOf="@+id/create_budget_cost_textInputLayout"
             app:layout_constraintTop_toTopOf="@+id/create_budget_cost_textInputLayout">
@@ -151,7 +151,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/describe_this_budget_textInputLayout"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="@dimen/height_161dp"
             android:layout_marginTop="@dimen/margin_10dp"
             android:backgroundTint="#EBEFF2"
@@ -161,8 +161,8 @@
             app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
-            app:boxStrokeWidth="@dimen/width_0dp"
-            app:boxStrokeWidthFocused="@dimen/width_0dp"
+            app:boxStrokeWidth="@dimen/margin_0dp"
+            app:boxStrokeWidthFocused="@dimen/margin_0dp"
             app:layout_constraintEnd_toEndOf="@+id/create_budget_cost_textInputLayout"
             app:layout_constraintStart_toStartOf="@+id/create_budget__describe_this_budget_textView"
             app:layout_constraintTop_toBottomOf="@+id/create_budget__describe_this_budget_textView">
@@ -190,7 +190,7 @@
 
         <Button
             android:id="@+id/create_budget_save_and_add_new_budget_button"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_60dp"
             android:background="@drawable/all_button_background"
@@ -207,7 +207,7 @@
 
         <Button
             android:id="@+id/create_budget_save_and_continue_button"
-            android:layout_width="@dimen/width_0dp"
+            android:layout_width="@dimen/margin_0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_20dp"
             android:padding="@dimen/padding_9dp"

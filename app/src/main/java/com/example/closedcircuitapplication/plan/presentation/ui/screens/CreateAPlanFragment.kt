@@ -3,12 +3,12 @@ package com.example.closedcircuitapplication.plan.presentation.ui.screens
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,24 +16,26 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.authentication.SendImage_UriToCreateAPlanInterface
 import com.example.closedcircuitapplication.authentication.utils.CAMERA_REQUEST_CODE
 import com.example.closedcircuitapplication.authentication.utils.REQUEST_CODE_IMAGE_PICKER
 import com.example.closedcircuitapplication.authentication.utils.TO_READ_EXTERNAL_STORAGE
-import com.example.closedcircuitapplication.authentication.SendImage_UriToCreateAPlanInterface
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
 import com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment
 
-class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface  {
+class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
     private var _binding: FragmentCreateAPlanBinding? = null
     private val binding get() = _binding!!
     lateinit var sector: String
     lateinit var category: String
-    private  var image_data = 0
-    private   var uri: Uri? = null
+    private var image_data = 0
+    private var uri: Uri? = null
     private val args: CreateAPlanFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -53,8 +55,16 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface  {
         binding.dropdownMenu.setAdapter(arrayAdapter)
 
         val selectplanCategory = resources.getStringArray(R.array.selectPlanCategory)
-        val selectPlanCategoryArrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, selectplanCategory)
+        val selectPlanCategoryArrayAdapter =
+            ArrayAdapter(requireContext(), R.layout.dropdown_item, selectplanCategory)
         binding.selectPlanCategoryDropdown.setAdapter(selectPlanCategoryArrayAdapter)
+
+        val selectBusinessType = resources.getStringArray(R.array.business_type)
+        val selectBusinessTypeArrayAdapter =
+            ArrayAdapter(requireContext(), R.layout.dropdown_item, selectBusinessType)
+        binding.createPlanSelectBusinessTypeAutocompleteTextView.setAdapter(
+            selectBusinessTypeArrayAdapter
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,8 +72,8 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface  {
 
         // show the upoadimage bottomsheet when the upload image view is clicked
         binding.uploadImageIV.setOnClickListener {
-            showUploadImageBottomSheetDialog()
         }
+        setUpAutoTextViewTextChangedListener()
 
         binding.createPlanBtn.setOnClickListener {
             sector = binding.selectPlanCategoryDropdown.text.toString()
@@ -71,8 +81,11 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface  {
             val _category = category
             val _sector = sector
             val _uri = uri.toString()
-            if (_sector != null && _category != null){
-                Log.d("CREATE_PLAN", "SECTOR=====> $_sector  CATEGORY====> $_category URI====> $_uri ")
+            if (_sector != null && _category != null) {
+                Log.d(
+                    "CREATE_PLAN",
+                    "SECTOR=====> $_sector  CATEGORY====> $_category URI====> $_uri "
+                )
                 val action =
                     CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(
                         _category,
@@ -85,9 +98,13 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface  {
 
         }
     }
+
     // show bottomsheet fragment holding the camera and uplaod image icon
     private fun showUploadImageBottomSheetDialog() {
-        UploadImageBottomSheetFragment(this).show(requireActivity().supportFragmentManager,"uploadImageBottomSheet")
+        UploadImageBottomSheetFragment(this).show(
+            requireActivity().supportFragmentManager,
+            "uploadImageBottomSheet"
+        )
     }
 
     // this method allow the user to pick image
@@ -98,11 +115,18 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface  {
     }
 
     fun uploadImageWithCamera() {
-        if (ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.CAMERA) !=
+        if (ContextCompat.checkSelfPermission(
+                requireActivity(),
+                android.Manifest.permission.CAMERA
+            ) !=
             PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
-                requireActivity(), arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                requireActivity(),
+                arrayOf(
+                    android.Manifest.permission.CAMERA,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ),
                 TO_READ_EXTERNAL_STORAGE
             )
         } else {
@@ -110,6 +134,7 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface  {
             startActivityForResult(intent, CAMERA_REQUEST_CODE)
         }
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_IMAGE_PICKER) {
@@ -136,18 +161,29 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface  {
                 val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(intent, CAMERA_REQUEST_CODE)
             } else {
-                Toast.makeText(context, "permission was denied,please grant permission", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    "permission was denied,please grant permission",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
 
     //  read external storage and  get the image from the galery
     private fun readStorage() {
-        if (ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE) !=
+        if (ContextCompat.checkSelfPermission(
+                requireActivity(),
+                android.Manifest.permission.READ_EXTERNAL_STORAGE
+            ) !=
             PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
-                requireActivity(), arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                requireActivity(),
+                arrayOf(
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ),
                 TO_READ_EXTERNAL_STORAGE
             )
         }
@@ -155,11 +191,39 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface  {
 
     override fun send_ImageUri(data: Int) {
         image_data = data
-        if (image_data == 1){
+        if (image_data == 1) {
             openImageChooser()
             readStorage()
-        }else if ( image_data == 2){
+        } else if (image_data == 2) {
             uploadImageWithCamera()
         }
     }
+    //Function to determine when a view has been selected in any of the autoTextViews
+    private fun setUpAutoTextViewTextChangedListener() {
+        binding.dropdownMenu.setOnItemClickListener { parent, view, position, id ->
+            enableCreatePlanButton()
+        }
+        binding.selectPlanCategoryDropdown.setOnItemClickListener { parent, view, position, id ->
+            enableCreatePlanButton()
+        }
+        binding.createPlanSelectBusinessTypeAutocompleteTextView.setOnItemClickListener { parent, view, position, id ->
+            enableCreatePlanButton()
+        }
+    }
+    //Function to enable create plan button when all the autoTextView have been filled
+    private fun enableCreatePlanButton() {
+        if (binding.dropdownMenu.text.isNotEmpty() && binding.selectPlanCategoryDropdown.text.isNotEmpty() && binding.createPlanSelectBusinessTypeAutocompleteTextView.text.isNotEmpty()) {
+            binding.createPlanBtn.apply {
+                isEnabled = true
+                setBackgroundColor(resources.getColor(R.color.closed_circuit_dark_green))
+            }
+        }
+        else {
+            binding.createPlanBtn.apply {
+                isEnabled = false
+                setBackgroundColor(resources.getColor(R.color.view_disabled_background_color))
+            }
+        }
+    }
+
 }
