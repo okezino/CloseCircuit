@@ -1,6 +1,6 @@
 package com.example.closedcircuitapplication.authentication.domain.usecases
 
-import com.example.closedcircuitapplication.authentication.domain.models.GenerateOtpRequest
+import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.common.data.network.models.GenerateOtpDto
 import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.data.repository.AuthenticationRepository

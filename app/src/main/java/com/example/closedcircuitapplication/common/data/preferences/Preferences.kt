@@ -18,4 +18,8 @@ interface Preferences {
 
     fun putPrefBoolean(keyType: String, boolean: Boolean)
 
+    fun saveEmail(email: String)
+
+    fun getEmail(): String
+
 }

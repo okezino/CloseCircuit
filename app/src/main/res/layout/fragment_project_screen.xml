@@ -11,7 +11,7 @@
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="116dp"
+        android:layout_marginEnd="@dimen/margin_116dp"
         android:src="@drawable/ic_notification_bell"
         app:layout_constraintBottom_toBottomOf="@+id/project_Tv"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,9 +19,9 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="30dp"
+        android:layout_width="@dimen/width_30dp"
         android:layout_height="@dimen/margin_30dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="@dimen/margin_68dp"
         app:cardCornerRadius="@dimen/margin_30dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/height_40dp"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
             android:src="@drawable/girl"
@@ -54,43 +54,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView4"
+    <LinearLayout
+        android:id="@+id/fragment_project_screen_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="12dp"
-        android:fontFamily="@font/helvetica"
-        android:text="@string/start_a_plan"
-        android:textColor="#B7E143"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="37dp"
-        android:layout_height="30dp"
+        android:layout_marginTop="@dimen/margin_20dp"
         android:layout_marginEnd="@dimen/margin_20dp"
-        android:foregroundGravity="center"
-        android:src="@drawable/ic_add_circle_icon"
-        app:backgroundTint="#B7E143"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView6">
+
+        <TextView
+            android:id="@+id/fragment_project_start_a_plan_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_12dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/start_a_plan"
+            android:textColor="#B7E143"
+            android:textSize="@dimen/textSize_17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_project_start_a_plan_iv"
+            tools:layout_editor_absoluteY="72dp" />
+
+        <ImageView
+            android:id="@+id/fragment_project_start_a_plan_iv"
+            android:layout_width="@dimen/width_37dp"
+            android:layout_height="@dimen/height_30dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_add_circle_icon"
+            app:backgroundTint="#B7E143"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_project_start_a_plan_tv"
+            app:layout_constraintTop_toTopOf="@+id/fragment_project_start_a_plan_tv"
+            tools:layout_editor_absoluteX="354dp" />
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/empty_project"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.4">
+        app:layout_constraintTop_toBottomOf="@+id/fragment_project_screen_layout">
 
         <ImageView
             android:id="@+id/no_project_ilustartion_Tv"
@@ -109,7 +116,7 @@
             android:fontFamily="@font/helvetica"
             android:text="@string/no_plans"
             android:textColor="@color/black"
-            android:textSize="17sp"
+            android:textSize="@dimen/textSize_17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -121,8 +128,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_20dp"
-            android:layout_marginEnd="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:fontFamily="@font/helvetica"
             android:text="@string/not_started_a_plan"
             android:textAlignment="center"
@@ -138,11 +145,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/projects_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="100dp"
+        android:layout_height="@dimen/height_0dp"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/margin_100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_project_screen_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/project_item"/>
 

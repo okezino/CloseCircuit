@@ -221,6 +221,7 @@
     <string name="noticed_you_havent_created_budget_tv">We noticed you haven’t created a budget and an action step. Please create a budget to share link.</string>
     <string name="copy_link">Copy link</string>
     <string name="login">Login</string>
+    <string name="proceed">Proceed</string>
     <string name="enter_business_name">Enter business Name</string>
     <string name="create_business_plan">Create Business Plan</string>
     <string name="what_s_your_estimated_selling_price">What’s your estimated selling price?</string>
@@ -237,7 +238,6 @@
     <string name="ngn">NGN</string>
     <string name="create_plan">Create plan</string>
     <string name="let_s_create_your_plan">Let’s create your plan</string>
-    =======
     <string name="placeholder_number">6</string>
     <string name="placeholder_plan_description">To be the number one distributor of shoes</string>
     <string name="placeholder_business_name">Salawu\'s Shoes</string>
@@ -246,7 +246,8 @@
     <string name="select_plan_category_text">Select plan category</string>
     <string name="choose_plan_sector_text">Choose plan sector</string>
     <string name="select_business_type_test">Select business type</string>
+    <string name="please_enter_your_email_address_to_continue_verification_process">Please enter your email address to continue verification process.</string>
+
     <string name="plan_created_successfully">Plan created Successfully</string>
-    <string name="proceed">Proceed</string>
-    >>>>>>> 46d7cf903a65b39aaa8ecca8f0371c72f7ff850f
+
 </resources>
