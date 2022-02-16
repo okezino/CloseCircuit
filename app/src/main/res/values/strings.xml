@@ -117,12 +117,16 @@
     <string name="gallery">Gallery</string>
 
     <string-array name="Choose_business_Sector">
-        <item>E-commerce.</item>
+        <item>Technology.</item>
         <item>Agriculture.</item>
-        <item>Aviation.</item>
-        <item>Commercial/ Retail.</item>
-        <item>Education and Training.</item>
-        <item>Fashion.</item>
+        <item>Professional Services.</item>
+        <item>Retail.</item>
+        <item>Artisan.</item>
+        <item>Hair and Beauty.</item>
+        <item>Financial services.</item>
+        <item>Health care.</item>
+        <item>Catering.</item>
+        <item>Hospitality.</item>
         <item>Others.</item>
     </string-array>
     <string-array name="Select_Budget">
@@ -135,8 +139,9 @@
         <item>Project</item>
     </string-array>
     <string-array name="business_type">
-        <item>Clothing</item>
-        <item>Electronics</item>
+        <item>Service</item>
+        <item>Physical product</item>
+        <item>Others</item>
     </string-array>
     <string-array name="means_of_support">
         <item>Donations(cash gifts)</item>
@@ -232,4 +237,5 @@
     <string name="select_plan_category_text">Select plan category</string>
     <string name="choose_plan_sector_text">Choose plan sector</string>
     <string name="select_business_type_test">Select business type</string>
+    <string name="let_s_create_your_plan_text">Let’s create your plan</string>
 </resources>

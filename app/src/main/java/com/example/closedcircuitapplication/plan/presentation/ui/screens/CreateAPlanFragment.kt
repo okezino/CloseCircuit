@@ -3,7 +3,6 @@ package com.example.closedcircuitapplication.plan.presentation.ui.screens
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.res.Resources
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -16,7 +15,6 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -198,32 +196,62 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
             uploadImageWithCamera()
         }
     }
+
     //Function to determine when a view has been selected in any of the autoTextViews
     private fun setUpAutoTextViewTextChangedListener() {
         binding.dropdownMenu.setOnItemClickListener { parent, view, position, id ->
             enableCreatePlanButton()
         }
         binding.selectPlanCategoryDropdown.setOnItemClickListener { parent, view, position, id ->
+            if (position == 0) {
+                binding.apply {
+                    createAPlanStepThreeBusinessTypeTextView.visibility = View.VISIBLE
+                    createPlanStepOneSelectBusinessTypeTextInputLayout.visibility = View.VISIBLE
+                    createPlanSelectBusinessTypeAutocompleteTextView.visibility = View.VISIBLE
+                }
+            } else {
+                binding.apply {
+                    createAPlanStepThreeBusinessTypeTextView.visibility = View.GONE
+                    createPlanStepOneSelectBusinessTypeTextInputLayout.visibility = View.GONE
+                    createPlanSelectBusinessTypeAutocompleteTextView.visibility = View.GONE
+                }
+            }
             enableCreatePlanButton()
         }
         binding.createPlanSelectBusinessTypeAutocompleteTextView.setOnItemClickListener { parent, view, position, id ->
             enableCreatePlanButton()
         }
     }
+
     //Function to enable create plan button when all the autoTextView have been filled
     private fun enableCreatePlanButton() {
-        if (binding.dropdownMenu.text.isNotEmpty() && binding.selectPlanCategoryDropdown.text.isNotEmpty() && binding.createPlanSelectBusinessTypeAutocompleteTextView.text.isNotEmpty()) {
-            binding.createPlanBtn.apply {
-                isEnabled = true
-                setBackgroundColor(resources.getColor(R.color.closed_circuit_dark_green))
+        if (binding.createPlanSelectBusinessTypeAutocompleteTextView.visibility == View.VISIBLE){
+            if (binding.dropdownMenu.text.isNotEmpty() && binding.selectPlanCategoryDropdown.text.isNotEmpty() && binding.createPlanSelectBusinessTypeAutocompleteTextView.text.isNotEmpty()) {
+                binding.createPlanBtn.apply {
+                    isEnabled = true
+                    setBackgroundColor(resources.getColor(R.color.closed_circuit_dark_green))
+                }
+            } else {
+                binding.createPlanBtn.apply {
+                    isEnabled = false
+                    setBackgroundColor(resources.getColor(R.color.view_disabled_background_color))
+                }
             }
         }
         else {
-            binding.createPlanBtn.apply {
-                isEnabled = false
-                setBackgroundColor(resources.getColor(R.color.view_disabled_background_color))
+            if (binding.dropdownMenu.text.isNotEmpty() && binding.selectPlanCategoryDropdown.text.isNotEmpty()) {
+                binding.createPlanBtn.apply {
+                    isEnabled = true
+                    setBackgroundColor(resources.getColor(R.color.closed_circuit_dark_green))
+                }
+            } else {
+                binding.createPlanBtn.apply {
+                    isEnabled = false
+                    setBackgroundColor(resources.getColor(R.color.view_disabled_background_color))
+                }
             }
         }
+
     }
 
 }
