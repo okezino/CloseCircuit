@@ -15,8 +15,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.common.utils.customNavAnimation
-import com.example.closedcircuitapplication.authentication.domain.models.VerifyOtpRequest
+import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource

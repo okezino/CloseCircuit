@@ -1,6 +1,7 @@
 package com.example.closedcircuitapplication.dashboard
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -11,10 +12,16 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.data.preferences.Preferences
+import com.example.closedcircuitapplication.dashboard.presentation.ui.screens.DashboardFragment
 import com.example.closedcircuitapplication.databinding.ActivityBeneficiaryDashboardBinding
+import com.example.closedcircuitapplication.plan.presentation.ui.screens.ProjectScreenFragment
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class BeneficiaryDashboardActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration

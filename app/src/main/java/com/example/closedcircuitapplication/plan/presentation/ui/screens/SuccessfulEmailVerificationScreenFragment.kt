@@ -8,24 +8,27 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
-class SuccessfulEmailVerificationScreenFragment : Fragment() {
+import com.example.closedcircuitapplication.databinding.FragmentEmailVerificationBinding
+import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
+import com.example.closedcircuitapplication.databinding.FragmentSuccessfulEmailVerificationScreenBinding
+
+class SuccessfulEmailVerificationScreenFragment : Fragment(R.layout.fragment_successful_email_verification_screen) {
+    private var _binding: FragmentSuccessfulEmailVerificationScreenBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(
-            R.layout.fragment_successful_email_verification_screen,
-            container,
-            false
-        )
+        _binding = FragmentSuccessfulEmailVerificationScreenBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val proceedButton = view.findViewById<Button>(R.id.proceed_btn)
-        proceedButton.setOnClickListener {
+
+        binding.proceedBtn.setOnClickListener {
             findNavController().navigate(R.id.action_successfulEmailVerificationScreenFragment_to_createAPlanFragment2)
         }
     }

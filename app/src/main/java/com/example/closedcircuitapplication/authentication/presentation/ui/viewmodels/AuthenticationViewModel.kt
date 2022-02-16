@@ -14,6 +14,8 @@ import com.example.closedcircuitapplication.common.data.network.models.ResetPass
 import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.data.network.models.VerifyOtpDto
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
+import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
