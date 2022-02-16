@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBFBFF"
     tools:context=".plan.presentation.ui.screens.CreateAPlanFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +13,7 @@
 
         <ProgressBar
             style="@android:style/Widget.ProgressBar.Horizontal"
-            android:id="@+id/linearProgressIndicator"
+            android:id="@+id/create_plan_step_one_fragment_linearProgressIndicator"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_15dp"
             android:progress="50"
@@ -39,8 +38,8 @@
             android:textColor="@color/black"
             android:textSize="@dimen/textSize_24sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/linearProgressIndicator"
-            app:layout_constraintTop_toBottomOf="@+id/linearProgressIndicator" />
+            app:layout_constraintStart_toStartOf="@+id/create_plan_step_one_fragment_linearProgressIndicator"
+            app:layout_constraintTop_toBottomOf="@+id/create_plan_step_one_fragment_linearProgressIndicator" />
 
         <ImageView
             android:id="@+id/uploadImage_IV"
@@ -78,12 +77,12 @@
             android:paddingBottom="@dimen/margin_16dp"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginEnd="@dimen/margin_20dp"
-            app:boxBackgroundColor="#E5E5E5"
+            app:boxBackgroundColor="@color/grey_box_background"
             app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
             app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
-            app:boxStrokeColor="#E5E5E5"
+            app:boxStrokeColor="@color/grey_box_background"
             app:boxStrokeWidth="@dimen/margin_0dp"
             app:endIconMode="dropdown_menu"
             app:endIconTint="@color/closed_circuit_dark_green"
@@ -112,7 +111,7 @@
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_15dp"
             android:text="@string/choose_plan_sector_text"
-            android:textColor="#24500F"
+            android:textColor="@color/closed_circuit_dark_green"
             android:textSize="@dimen/textSize_15sp"
             android:fontFamily="@font/helvetica"
             android:textStyle="normal"
@@ -126,12 +125,12 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/padding_16dp"
             android:paddingBottom="@dimen/padding_16dp"
-            app:boxBackgroundColor="#E5E5E5"
+            app:boxBackgroundColor="@color/grey_box_background"
             app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
             app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
-            app:boxStrokeColor="#E5E5E5"
+            app:boxStrokeColor="@color/grey_box_background"
             app:boxStrokeWidth="@dimen/margin_0dp"
             app:endIconMode="dropdown_menu"
             app:endIconTint="@color/closed_circuit_dark_green"
@@ -172,12 +171,12 @@
             android:layout_width="@dimen/margin_0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_10dp"
-            app:boxBackgroundColor="#E5E5E5"
+            app:boxBackgroundColor="@color/grey_box_background"
             app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
             app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
-            app:boxStrokeColor="#E5E5E5"
+            app:boxStrokeColor="@color/grey_box_background"
             app:boxStrokeWidth="@dimen/margin_0dp"
             app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
             app:endIconMode="dropdown_menu"

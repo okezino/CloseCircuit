@@ -84,14 +84,10 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                     "CREATE_PLAN",
                     "SECTOR=====> $_sector  CATEGORY====> $_category URI====> $_uri "
                 )
-                val action =
-                    CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanSummaryFragment2(
-                        _category,
-                        _sector,
-                        _uri,
-                        "NGN"
-                    )
-                findNavController().navigate(action, customNavAnimation().build())
+                findNavController().navigate(
+                    CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanStep2Fragment(),
+                    customNavAnimation().build()
+                )
             }
 
         }
@@ -225,7 +221,7 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
 
     //Function to enable create plan button when all the autoTextView have been filled
     private fun enableCreatePlanButton() {
-        if (binding.createPlanSelectBusinessTypeAutocompleteTextView.visibility == View.VISIBLE){
+        if (binding.createPlanSelectBusinessTypeAutocompleteTextView.visibility == View.VISIBLE) {
             if (binding.dropdownMenu.text.isNotEmpty() && binding.selectPlanCategoryDropdown.text.isNotEmpty() && binding.createPlanSelectBusinessTypeAutocompleteTextView.text.isNotEmpty()) {
                 binding.createPlanBtn.apply {
                     isEnabled = true
@@ -237,8 +233,7 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                     setBackgroundColor(resources.getColor(R.color.view_disabled_background_color))
                 }
             }
-        }
-        else {
+        } else {
             if (binding.dropdownMenu.text.isNotEmpty() && binding.selectPlanCategoryDropdown.text.isNotEmpty()) {
                 binding.createPlanBtn.apply {
                     isEnabled = true

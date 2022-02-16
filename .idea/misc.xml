@@ -65,6 +65,7 @@
         <entry key="app/src/main/res/layout/fragment_create_budget.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_create_plan.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_create_plan_budget.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/fragment_create_plan_step2.xml" value="0.21" />
         <entry key="app/src/main/res/layout/fragment_create_plan_step_three.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_create_plan_summary.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1234375" />
@@ -82,6 +83,7 @@
         <entry key="app/src/main/res/layout/fragment_my_step.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/fragment_notification_screen.xml" value="0.188433837890625" />
         <entry key="app/src/main/res/layout/fragment_password_recovery_successful.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/fragment_plan_created_sucessfully.xml" value="0.23229166666666667" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.13768115942028986" />
         <entry key="app/src/main/res/layout/fragment_project_screen.xml" value="0.13768115942028986" />
         <entry key="app/src/main/res/layout/fragment_recover_password_otp.xml" value="0.25" />
