@@ -129,7 +129,16 @@ object Validation {
         }
 
         return result
+    }
 
+
+    fun validateUserEditProfileTextInputField(
+        fullName : String,
+        username :String,
+        emailAddress:String,
+        phone_number: String
+    ):Boolean{
+        return (fullName.isEmpty()|| username.isEmpty() || validatePhone_number(phone_number) || !validateEmailInput(emailAddress))
     }
 }
 
