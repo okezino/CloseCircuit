@@ -134,32 +134,10 @@
         android:label="fragment_successful_email_verification_screen"
         tools:layout="@layout/fragment_successful_email_verification_screen">
         <action
-            android:id="@+id/action_successfulEmailVerificationScreenFragment_to_createAPlanFragment2"
-            app:destination="@id/createAPlanFragment2"
-            app:popUpTo="@id/emailVerificationFragment"
-            app:popUpToInclusive="true"/>
+            android:id="@+id/action_successfulEmailVerificationScreenFragment_to_createAPlanFragment"
+            app:destination="@id/createAPlanFragment2" />
     </fragment>
 
-    <fragment
-        android:id="@+id/createAPlanFragment2"
-        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreateAPlanFragment"
-        android:label="fragment_create_a_plan"
-        tools:layout="@layout/fragment_create_a_plan" >
-        <argument
-            android:name="sector"
-            app:argType="string" />
-        <argument
-            android:name="category"
-            app:argType="string" />
-        <argument
-            android:name="uri" />
-        <action
-            android:id="@+id/action_createAPlanFragment2_to_createPlanSummaryFragment2"
-            app:destination="@id/createPlanSummaryFragment2" />
-        <action
-            android:id="@+id/action_createAPlanFragment2_to_createPlanStep2Fragment"
-            app:destination="@id/createPlanStep2Fragment" />
-    </fragment>
     <fragment
         android:id="@+id/createPlanSummaryFragment2"
         android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanSummaryFragment"
@@ -198,9 +176,6 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="null" />
-        <action
-            android:id="@+id/action_uploadImageBottomSheetFragment2_to_createAPlanFragment2"
-            app:destination="@id/createAPlanFragment2" />
     </dialog>
     <fragment
         android:id="@+id/myStepFragment"
@@ -282,4 +257,18 @@
             android:id="@+id/action_planCreatedSuccessfullyFragment_to_createPlanFragment"
             app:destination="@id/createPlanFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/createAPlanFragment2"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreateAPlanFragment"
+        android:label="fragment_create_a_plan"
+        tools:layout="@layout/fragment_create_a_plan" >
+        <action
+            android:id="@+id/action_createAPlanFragment2_to_createPlanStep2Fragment"
+            app:destination="@id/createPlanStep2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/creatPlanStepOneFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatPlanStepOneFragment"
+        android:label="fragment_creat_plan_step_one"
+        tools:layout="@layout/fragment_creat_plan_step_one" />
 </navigation>

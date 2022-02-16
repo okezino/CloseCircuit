@@ -17,7 +17,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.SendImage_UriToCreateAPlanInterface
 import com.example.closedcircuitapplication.authentication.utils.CAMERA_REQUEST_CODE
@@ -34,7 +33,6 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
     lateinit var category: String
     private var image_data = 0
     private var uri: Uri? = null
-    private val args: CreateAPlanFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -68,9 +66,7 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // show the upoadimage bottomsheet when the upload image view is clicked
-        binding.uploadImageIV.setOnClickListener {
-        }
+        // show the uploadImage bottomSheet when the upload image view is clicked
         setUpAutoTextViewTextChangedListener()
 
         binding.createPlanBtn.setOnClickListener {
