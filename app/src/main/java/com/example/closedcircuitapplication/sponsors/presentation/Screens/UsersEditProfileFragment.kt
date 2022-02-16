@@ -19,6 +19,8 @@ class UsersEditProfileFragment : Fragment() {
     private lateinit var username :String
     private lateinit var emailAddress : String
     private lateinit var phone_number : String
+    lateinit var countryCode: String
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,8 +40,10 @@ class UsersEditProfileFragment : Fragment() {
             emailAddress = binding.fragmentUserEditProfileEmailAddressEditText.text.toString()
             phone_number = binding.fragmentEditProfilePhoneNumberEditText.text.toString()
 
+            countryCode = binding.fragmentUserEditProfileCountryCodePicker.selectedCountryCodeWithPlus
+
             if (Validation.validateUserEditProfileTextInputField(
-                    fullName, username, emailAddress, phone_number)
+                    fullName, username, emailAddress, countryCode+phone_number)
             ) {
                 Toast.makeText(requireContext(), " fill all the require fields", Toast.LENGTH_SHORT).show()
             } else{

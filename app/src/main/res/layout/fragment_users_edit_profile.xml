@@ -125,11 +125,12 @@ tools:context=".sponsors.presentation.Screens.UsersEditProfileFragment">
             android:orientation="horizontal">
 
             <com.hbb20.CountryCodePicker
+                android:id="@+id/fragment_userEditProfile_CountryCodePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="56dp"
                 android:layout_marginStart="@dimen/margin_20dp"
                 android:layout_marginTop="18dp"
-                android:background="@color/text_input_color" />
+                android:background="@color/grey_box_background" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Fragment_usersEditProfile_TextInputLayout_style"
