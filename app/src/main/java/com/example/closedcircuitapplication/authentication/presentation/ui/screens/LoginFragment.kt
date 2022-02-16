@@ -149,6 +149,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     //this is used to save the user email address
                     saveEmail(_email)
                     preferences.saveEmail(_email)
+//                    saveToken(resource.data.data!!.token)
+
+                    resource.data.data.let { token ->
+                        token?.let { saveToken(it.token) }
+                    }
+
+                    resource.data.data?.let { preferences.putToken(it.token) }
+                    saveToken(resource.data.data!!.token)
+                    resource.datas?.data?.let { preferences.putToken(it.token) }
+
 
                     val intentBeneficiaryDashboard = Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
                     startActivity(intentBeneficiaryDashboard)

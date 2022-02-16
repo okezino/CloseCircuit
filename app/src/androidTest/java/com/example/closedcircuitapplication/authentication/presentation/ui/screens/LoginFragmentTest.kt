@@ -4,7 +4,8 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.example.closedcircuitapplication.R
@@ -20,8 +21,11 @@ import org.junit.runner.RunWith
 import org.mockito.Mockito.*
 
 
+<<<<<<< HEAD
+=======
 
 @MediumTest
+>>>>>>> 19da1f1968156e2107db429f76d29519763971d4
 @RunWith(AndroidJUnit4::class)
 @ExperimentalCoroutinesApi
 @HiltAndroidTest
@@ -123,9 +127,12 @@ class LoginFragmentTest : AndroidBaseTest() {
             closeSoftKeyboard()
         )
 
-        onView((withId(R.id.fragment_login_login_btn))).perform(click())
 
-        //TODO( Test that a snackbar is shown saying invalid password)
+        onView((withId(R.id.fragment_login_login_btn))).perform(click())
+        onView(withText("Invalid Password")).check(ViewAssertions.matches(isDisplayed()))
+        onView(withText("Invalid Password"))
+            .check(ViewAssertions.matches(withEffectiveVisibility(Visibility.VISIBLE)))
+
 
     }
 }
