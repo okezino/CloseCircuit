@@ -29,7 +29,7 @@ class SuccessfulEmailVerificationScreenFragment : Fragment(R.layout.fragment_suc
         super.onViewCreated(view, savedInstanceState)
 
         binding.proceedBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_successfulEmailVerificationScreenFragment_to_createAPlanFragment2)
+            findNavController().navigate(SuccessfulEmailVerificationScreenFragmentDirections.actionSuccessfulEmailVerificationScreenFragmentToCreateAPlanFragment())
         }
     }
 }

@@ -1,11 +1,11 @@
 package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
@@ -33,17 +33,13 @@ class CreatePlanStepThreeFragment : Fragment() {
 
     private fun setUpUi() {
         val meansOfSupportArray = resources.getStringArray(R.array.means_of_support)
-        val meansOfSupportAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, meansOfSupportArray)
+        val meansOfSupportAdapter =
+            ArrayAdapter(requireContext(), R.layout.dropdown_item, meansOfSupportArray)
         binding.createPlanMeansOfSupportAutocompleteTextView.apply {
             setAdapter(meansOfSupportAdapter)
             binding.createPlanStepThreeCreatePlanButton.setOnClickListener {
-                val action = CreatePlanStepThreeFragmentDirections.actionCreatePlanStepThreeFragmentToCreatePlanFragment(
-                    context.getString(R.string.placeholder_number),
-                    context.getString(R.string.placeholder_plan_description),
-                    context.getString(R.string.placeholder_business_name),
-                    context.getString(R.string.placeholder_plan_category),
-                    context.getString(R.string.placeholder_business_sector)
-                )
+                val action =
+                    CreatePlanStepThreeFragmentDirections.actionCreatePlanStepThreeFragmentToCreatePlanFragment()
                 findNavController().navigate(action, customNavAnimation().build())
             }
         }
