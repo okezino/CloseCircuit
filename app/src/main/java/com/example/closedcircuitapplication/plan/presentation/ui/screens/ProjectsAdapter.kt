@@ -41,11 +41,6 @@ class ProjectsAdapter(private val projects: MutableList<Projects>) : RecyclerVie
             item.setOnClickListener {
                 val action = ProjectScreenFragmentDirections
                     .actionProjectScreenFragmentToCreatePlanFragment(
-                        project.planDuration,
-                        project.projectDescription,
-                        project.projectName,
-                        project.planCategory,
-                        project.planCategory,
                     )
                 it.findNavController().navigate(action)
             }

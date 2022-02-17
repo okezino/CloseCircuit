@@ -81,5 +81,7 @@
     <dimen name="height_50dp">50dp</dimen>
     <dimen name="margin_70dp">70dp</dimen>
     <dimen name="inset_0dp">0dp</dimen>
-    <dimen name="margin_0dp">0</dimen>
+    <dimen name="height_15dp">15dp</dimen>
+    <dimen name="width_150dp">150dp</dimen>
+    <dimen name="margin_0dp">0dp</dimen>
 </resources>

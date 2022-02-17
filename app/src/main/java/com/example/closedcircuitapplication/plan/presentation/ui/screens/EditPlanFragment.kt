@@ -19,7 +19,7 @@ import com.example.closedcircuitapplication.common.utils.Validation
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanSummaryBinding
 
-class CreatePlanSummaryFragment : Fragment(R.layout.fragment_create_plan_summary) {
+class EditPlanFragment : Fragment(R.layout.fragment_create_plan_summary) {
 
     private lateinit var binding: FragmentCreatePlanSummaryBinding
     private lateinit var description: String

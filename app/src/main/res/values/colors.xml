@@ -49,4 +49,5 @@
     <color name="error_text_color_red">#ff0000</color>
     <color name="view_disabled_background_color">#C4C4C4</color>
     <color name="grey_box_background">#E5E5E5</color>
+    <color name="closed_circuit_progress_background_tint">#F1F5FF</color>
 </resources>

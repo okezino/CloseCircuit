@@ -1,39 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBFBFF"
     tools:context=".plan.presentation.ui.screens.CreateAPlanFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/createPlan_Tv"
+        <ProgressBar
+            android:id="@+id/create_plan_step_one_fragment_linearProgressIndicator"
+            style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/height_15dp"
             android:layout_marginStart="@dimen/margin_20dp"
-            android:fontFamily="@font/helvetica"
-            android:text="@string/create_a_planTv"
-            android:textSize="@dimen/textSize_24sp"
-            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:indeterminate="false"
+            android:progress="50"
+            android:progressBackgroundTint="@color/closed_circuit_progress_background_tint"
+            android:progressTint="@color/light_green_500"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+        <TextView
+            android:id="@+id/createPlan_Tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/let_s_create_your_plan_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/create_plan_step_one_fragment_linearProgressIndicator"
+            app:layout_constraintTop_toBottomOf="@+id/create_plan_step_one_fragment_linearProgressIndicator" />
+
         <ImageView
             android:id="@+id/uploadImage_IV"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/margin_40dp"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_30dp"
-            android:scaleType="fitXY"
             android:clickable="false"
+            android:maxWidth="@dimen/width_150dp"
+            android:scaleType="fitXY"
             android:src="@drawable/upload_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/createPlan_Tv" />
@@ -44,11 +59,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_34dp"
+            android:fontFamily="@font/helvetica"
             android:text="@string/select_plan_category_text"
             android:textColor="@color/closed_circuit_dark_green"
             android:textSize="@dimen/textSize_15sp"
             android:textStyle="normal"
-            android:fontFamily="@font/helvetica"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/uploadImage_IV" />
 
@@ -57,30 +72,29 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/margin_16dp"
-            android:paddingBottom="@dimen/margin_16dp"
             android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginEnd="@dimen/margin_20dp"
-            app:boxBackgroundColor="#E5E5E5"
+            android:paddingTop="@dimen/margin_16dp"
+            android:paddingBottom="@dimen/margin_16dp"
+            app:boxBackgroundColor="@color/grey_box_background"
             app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
             app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
-            app:boxStrokeColor="#E5E5E5"
+            app:boxStrokeColor="@color/grey_box_background"
             app:boxStrokeWidth="@dimen/margin_0dp"
+            app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
             app:endIconMode="dropdown_menu"
             app:endIconTint="@color/closed_circuit_dark_green"
-            app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/selectPlanCategory"            >
+            app:layout_constraintTop_toBottomOf="@id/selectPlanCategory">
 
             <AutoCompleteTextView
                 android:id="@+id/selectPlanCategoryDropdown"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:dropDownVerticalOffset="@dimen/offset_4dp"
-                android:dropDownSelector="#E5E5E5"
                 android:gravity="center_vertical"
                 android:inputType="none"
                 android:paddingTop="@dimen/padding_4dp"
@@ -88,17 +102,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-
         <TextView
             android:id="@+id/choosePlanSector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_20dp"
-            android:layout_marginTop="@dimen/margin_34dp"
-            android:text="@string/choose_plan_sector_text"
-            android:textColor="#24500F"
-            android:textSize="@dimen/textSize_15sp"
+            android:layout_marginTop="@dimen/margin_15dp"
             android:fontFamily="@font/helvetica"
+            android:text="@string/choose_plan_sector_text"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="@dimen/textSize_15sp"
             android:textStyle="normal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/SelectPlanCategory_sp" />
@@ -108,20 +121,20 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:paddingTop="@dimen/padding_16dp"
             android:paddingBottom="@dimen/padding_16dp"
-            app:boxBackgroundColor="#E5E5E5"
+            app:boxBackgroundColor="@color/grey_box_background"
             app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
             app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
-            app:boxStrokeColor="#E5E5E5"
+            app:boxStrokeColor="@color/grey_box_background"
             app:boxStrokeWidth="@dimen/margin_0dp"
-            app:endIconMode="dropdown_menu"
-            app:endIconTint="@color/design_default_color_primary_dark"
             app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
-            android:layout_marginStart="@dimen/margin_20dp"
-            android:layout_marginEnd="@dimen/margin_20dp"
+            app:endIconMode="dropdown_menu"
+            app:endIconTint="@color/closed_circuit_dark_green"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/choosePlanSector">
@@ -131,75 +144,51 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:dropDownVerticalOffset="@dimen/offset_4dp"
-                android:dropDownSelector="#E5E5E5"
                 android:gravity="center_vertical"
                 android:paddingTop="@dimen/padding_4dp"
                 android:scrollbars="horizontal" />
-                </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/useTemplateSwitch"
-            android:layout_width="@dimen/margin_0dp"
-            android:layout_height="@dimen/margin_20dp"
-            android:layout_marginStart="@dimen/margin_20dp"
-            android:layout_marginTop="@dimen/margin_10dp"
-            tools:checked="true"
-            android:enabled="false"
-            app:theme="@style/Color1SwitchStyle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/choosePlanSectorSpinner" />
-
-        <TextView
-            android:id="@+id/useTemplate_Tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_25dp"
-            android:text="@string/use_template"
-            android:textColor="#9DC333"
-            android:textSize="@dimen/textSize_15sp"
-            android:textStyle="normal"
-            android:fontFamily="@font/helvetica"
-            app:layout_constraintBottom_toBottomOf="@+id/useTemplateSwitch"
-            app:layout_constraintStart_toEndOf="@+id/useTemplateSwitch"
-            app:layout_constraintTop_toTopOf="@+id/useTemplateSwitch" />
 
         <TextView
             android:id="@+id/create_a_plan_step_three_business_type_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_21dp"
+            android:layout_marginTop="@dimen/margin_15dp"
             android:fontFamily="@font/helvetica"
             android:text="@string/select_business_type_test"
             android:textColor="@color/closed_circuit_dark_green"
             android:textSize="@dimen/textSize_15sp"
-            app:layout_constraintStart_toStartOf="@+id/useTemplateSwitch"
-            app:layout_constraintTop_toBottomOf="@+id/useTemplate_Tv" />
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/choosePlanSectorSpinner"
+            app:layout_constraintTop_toBottomOf="@+id/choosePlanSectorSpinner" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/create_plan_step_one_select_business_type_textInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_width="@dimen/margin_0dp"
             android:layout_height="wrap_content"
-            app:boxBackgroundColor="#E5E5E5"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:visibility="gone"
+            app:boxBackgroundColor="@color/grey_box_background"
             app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
             app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
             app:boxCornerRadiusTopStart="@dimen/radius_5dp"
-            app:boxStrokeColor="#E5E5E5"
+            app:boxStrokeColor="@color/grey_box_background"
             app:boxStrokeWidth="@dimen/margin_0dp"
-            app:endIconMode="dropdown_menu"
             app:endIconDrawable="@drawable/end_icon_dropdown_drawable"
+            app:endIconMode="dropdown_menu"
             app:endIconTint="@color/closed_circuit_dark_green"
-            android:layout_marginTop="@dimen/margin_10dp"
             app:layout_constraintEnd_toEndOf="@+id/choosePlanSectorSpinner"
-            app:layout_constraintStart_toStartOf="@+id/useTemplateSwitch"
+            app:layout_constraintStart_toStartOf="@+id/create_a_plan_step_three_business_type_textView"
             app:layout_constraintTop_toBottomOf="@+id/create_a_plan_step_three_business_type_textView">
 
             <AutoCompleteTextView
                 android:id="@+id/create_plan_select_business_type_autocompleteTextView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height_50dp" />
+                android:layout_height="@dimen/height_50dp"
+                android:visibility="gone" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -209,21 +198,19 @@
             android:layout_height="@dimen/height_54dp"
             android:layout_marginTop="@dimen/margin_50dp"
             android:layout_marginBottom="@dimen/margin_80dp"
+            android:enabled="false"
+            android:insetTop="@dimen/inset_0dp"
+            android:insetBottom="@dimen/inset_0dp"
             android:text="@string/create_plan"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/textSize_16sp"
-            android:insetTop="@dimen/inset_0dp"
-            android:insetBottom="@dimen/inset_0dp"
             app:backgroundTint="#C4C4C4"
             app:cornerRadius="@dimen/radius_10dp"
-            android:enabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/create_plan_step_one_select_business_type_textInputLayout"
-            app:layout_constraintStart_toStartOf="@+id/create_plan_step_one_select_business_type_textInputLayout"
+            app:layout_constraintEnd_toEndOf="@+id/choosePlanSectorSpinner"
+            app:layout_constraintStart_toStartOf="@+id/choosePlanSectorSpinner"
             app:layout_constraintTop_toBottomOf="@+id/create_plan_step_one_select_business_type_textInputLayout" />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

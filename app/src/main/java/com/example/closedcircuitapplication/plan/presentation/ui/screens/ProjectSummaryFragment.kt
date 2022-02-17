@@ -19,7 +19,6 @@ class ProjectSummaryFragment : Fragment() {
 
     private var _binding: FragmentCreatePlanBinding? = null
     private val binding get() = _binding!!
-    private val args: ProjectSummaryFragmentArgs by navArgs()
     private lateinit var viewPagerAdapter: CreateStepsBudgetsFragmentAdapter
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
