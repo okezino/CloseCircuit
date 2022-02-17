@@ -132,20 +132,14 @@ object Validation {
     }
 
 
-    fun validateUserEditProfileTextInputField(
-        fullName : String,
-        username :String,
-        emailAddress:String,
-        phone_number: String
-    ):Boolean{
-        return (fullName.isEmpty()|| username.isEmpty() || validatePhone_number(phone_number) || !validateEmailInput(emailAddress))
+    fun validateUserProfileInput(user:UserInput):Boolean{
+        return (user.fullName.isEmpty()|| user.username.isEmpty() || validatePhone_number(user.phone_number) || !validateEmailInput(user.emailAddress))
     }
 }
 
-data class ValidateCreateAccount(
-    val fullName: Boolean = false,
-    val email: Boolean = false,
-    val phoneNumber: Boolean = false,
-    val password: Boolean = false,
-    val confirmPassword: Boolean = false
+data class UserInput(
+    val fullName : String,
+    val username :String,
+    val emailAddress:String,
+    val phone_number: String
 )

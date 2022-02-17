@@ -109,9 +109,9 @@ class ValidationTest {
     val emailAddress= "realben@gmail.com"
     val phone_number = "+2347056"
     @Test
-    fun validateUserEditProfileTextInputField_wrongInput_returns_true(){
+    fun  test_validateUserInput_wrongInput_returns_true(){
         val expected = true
-        val actual = Validation.validateUserEditProfileTextInputField(fullName, username, emailAddress, phone_number)
+        val actual = Validation.validateUserProfileInput(UserInput(fullName, username, emailAddress, phone_number))
         assertEquals(expected, actual)
     }
 }

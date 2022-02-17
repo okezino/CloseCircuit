@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.UserInput
 import com.example.closedcircuitapplication.common.utils.Validation
 import com.example.closedcircuitapplication.databinding.FragmentUsersEditProfileBinding
 
@@ -41,18 +41,14 @@ class UsersEditProfileFragment : Fragment() {
             phone_number = binding.fragmentEditProfilePhoneNumberEditText.text.toString()
 
             countryCode = binding.fragmentUserEditProfileCountryCodePicker.selectedCountryCodeWithPlus
+            val user = UserInput( fullName, username, emailAddress, countryCode+phone_number)
 
-            if (Validation.validateUserEditProfileTextInputField(
-                    fullName, username, emailAddress, countryCode+phone_number)
+            if (Validation.validateUserProfileInput(user)
             ) {
                 Toast.makeText(requireContext(), " fill all the require fields", Toast.LENGTH_SHORT).show()
             } else{
                 //TODO (NAVIGATE)
             }
-
         }
     }
-
-
-
 }
