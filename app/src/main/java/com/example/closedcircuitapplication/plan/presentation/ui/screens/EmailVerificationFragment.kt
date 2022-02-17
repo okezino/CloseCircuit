@@ -19,6 +19,7 @@ import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentEmailVerificationBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
+import com.example.closedcircuitapplication.plan.utils.PlanUtils
 import com.example.closedcircuitapplication.plan.viewModel.PlanViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -49,13 +50,8 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         val prefEmail = preferences.getEmail()
         userEmail = prefEmail
 
-        val userSubEmail = userEmail.substring(0,3)
-        val userEmailSplit = userEmail.split("@")
-        val userEmailEnd = userEmailSplit[1]
-        val displayEmail = "$userSubEmail****@$userEmailEnd"
-        _displayEmail = displayEmail
-
-        binding.verifyEmailNotificationMessage.text = "Email has been sent to $_displayEmail, Please click on the link sent to you to verify."
+        val displayEmail = PlanUtils.userEmailDisplayText(userEmail)
+        binding.verifyEmailNotificationMessage.text = "Email has been sent to $displayEmail, Please click on the link sent to you to verify."
 
         setUpSpannableText()
         validateOtp()
