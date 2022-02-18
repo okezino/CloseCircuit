@@ -254,4 +254,9 @@
     <string name="let_s_create_your_plan_text">Let’s create your plan</string>
     <string name="please_enter_your_email_address_to_continue_verification_process">Please enter your email address to continue verification process.</string>
     <string name="plan_created_successfully">Plan created Successfully</string>
+    <string name="edit_profile_text_string_user_name">Username</string>
+    <string name="edit_profile_text_string_full_name">Full name</string>
+    <string name="fragmentUserEditProfile_click_to_edit_tv">Click to edit</string>
+    <string name="user_edit_profile_phone_number">Phone number</string>
+    <string name="user_edit_profile_email_address">Email address</string>
 </resources>
