@@ -49,6 +49,7 @@
             android:background="@drawable/text_input_background_5dp"
             android:fontFamily="@font/helvetica"
             android:gravity="center_vertical"
+            android:importantForAccessibility="no"
             android:inputType="text"
             android:maxLines="2"
             android:textColor="@color/black"
