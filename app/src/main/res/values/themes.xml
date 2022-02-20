@@ -92,4 +92,53 @@
 
     <style name="Color1SwitchStyle">
         <item name="colorControlActivated">@color/light_green_500</item>
-    </style></resources>
+    </style>
+
+
+    <style name="Fragment_user_edit_profile_linear_layout_style" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Fragment_usersEditProfile_TextInputLayout_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_20dp</item>
+        <item name="android:layout_marginEnd">@dimen/margin_20dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="boxBackgroundColor">#EBEFF2</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/boxCornerRadius_16dp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/boxCornerRadius_16dp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/boxCornerRadius_16dp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/boxCornerRadius_16dp</item>
+        <item name="boxStrokeColor">@color/green_500</item>
+        <item name="boxStrokeWidth">@dimen/margin_0dp</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="Fragment_usersEditProfile_TextInputEditText_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="boxBackgroundColor">#EBEFF2</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/boxCornerRadius_16dp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/boxCornerRadius_16dp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/boxCornerRadius_16dp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/boxCornerRadius_16dp</item>
+    </style>
+
+
+    <style name= "UserEditProfile_textView_style" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_20dp</item>
+        <item name="android:layout_marginEnd">@dimen/margin_20dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/textSize_18sp</item>
+        <item name="android:textColor">#8B8989</item>
+        <item name="android:layout_gravity">left</item>
+    </style>
+
+</resources>

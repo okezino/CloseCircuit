@@ -84,4 +84,5 @@
     <dimen name="height_15dp">15dp</dimen>
     <dimen name="width_150dp">150dp</dimen>
     <dimen name="margin_0dp">0dp</dimen>
+    <dimen name="boxCornerRadius_16dp">16dp</dimen>
 </resources>
