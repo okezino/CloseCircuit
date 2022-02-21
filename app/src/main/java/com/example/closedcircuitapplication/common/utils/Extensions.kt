@@ -1,17 +1,12 @@
 package com.example.closedcircuitapplication.common.utils
 
 import android.app.Activity
-import android.app.Dialog
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.text.Editable
 import android.text.TextUtils
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
-import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
@@ -20,6 +15,7 @@ import com.example.closedcircuitapplication.R
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 
 fun String.toEditable() = Editable.Factory.getInstance().newEditable(this)
 
@@ -96,12 +92,4 @@ fun Activity.manipulateToolbar() {
 
 fun String.isValidEmail() =
     !TextUtils.isEmpty(this) && Patterns.EMAIL_ADDRESS.matcher(this).matches()
-
-// this is used for navigation animation
-fun Fragment.customNavAnimation(): NavOptions.Builder {
-    val navBuilder: NavOptions.Builder = NavOptions.Builder()
-    navBuilder.setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left)
-        .setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right)
-    return navBuilder
-}
 

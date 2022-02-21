@@ -21,8 +21,7 @@ import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.plan.presentation.ui.adapters.MyStepsBudgetAdapter
 import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.FragmentMyStepBinding
-import com.example.closedcircuitapplication.plan.domain.models.DeletePlanRequest
-import com.example.closedcircuitapplication.plan.viewModel.PlanViewModel
+import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import com.example.closedcircuitapplication.utils.budgetList
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -70,7 +69,7 @@ class MyStepFragment : Fragment() {
         deleteDialog!!.setCancelable(true)
         deleteDialog!!.window?.setBackgroundDrawable(resources.getDrawable(R.drawable.dailog_bg_color))
 
-        val planId  = "12ec1984-bb33-4773-a6b4-e0fbcea71daf"
+        val planId  = "e153d4fc-3377-4855-959b-736818e49f3b"
         val toke = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ1NTQwMzMyLCJqdGkiOiI2OTBhNDk1NTc3YjA0MzY3YmM5YTVmMDk0MDJkN2QxZSIsInVzZXJfaWQiOiI1ZjE5MjQwZi1iM2Y2LTQyMTYtYTIwNC1iODBjOGNkZTFlYjQifQ.ZTu-vXOLtU-P00Wxc0j47YDrNU1glja_xEynk2SPppA"
         val token = preferences.getToken()
 
@@ -89,7 +88,7 @@ class MyStepFragment : Fragment() {
         // delete the plan when the yes button is clicked on the dialog
         yesButton.setOnClickListener {
             Log.d("token" ,"$token")
-            viewModel.deletePlan(planId, "Bearer $toke")
+            viewModel.deletePlan(planId, "Bearer ${preferences.getToken()}")
             deleteDialog!!.dismiss()
         }
         noButton.setOnClickListener {
