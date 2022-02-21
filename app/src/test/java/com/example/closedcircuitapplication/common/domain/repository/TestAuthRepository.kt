@@ -17,6 +17,7 @@ class TestAuthRepository : AuthRepository {
 
     private var shouldReturnNetworkError = false
     var token = "737f8kn)u38ewo"
+    var userId = "32ehykd7893j"
     var resourceMessage = ""
     var resourceError = ""
 
@@ -38,7 +39,7 @@ class TestAuthRepository : AuthRepository {
                     Resource.Success(
                         Result(
                             resourceMessage,
-                            LoginResponseDto(token),
+                            LoginResponseDto(token, userId),
                             resourceError
                         )
                     )
