@@ -93,14 +93,3 @@ fun Activity.manipulateToolbar() {
 fun String.isValidEmail() =
     !TextUtils.isEmpty(this) && Patterns.EMAIL_ADDRESS.matcher(this).matches()
 
-// this is used for navigation animation
-fun Fragment.customNavAnimation(): NavOptions.Builder {
-    val navBuilder: NavOptions.Builder = NavOptions.Builder()
-    navBuilder.setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left)
-        .setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right)
-    return navBuilder
-}
-
-fun Fragment.makeSnackBar(message: String, view: View) {
-    Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
-}
