@@ -7,5 +7,6 @@ object PreferencesConstants {
     const val KEY_TOKEN_TYPE = "tokenType"
     const val ONBOARDING = "finished"
     const val KEY_EMAIL = "email"
+    const val USER_ID = "userId"
 
 }

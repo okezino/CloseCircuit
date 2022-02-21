@@ -16,4 +16,6 @@ interface PlanRepository {
     suspend fun verifyOtp(verifyOtpRequest: VerifyOtpRequest): Flow<Resource<Result<VerifyOtpDto>>>
 
     suspend fun createPlan(createPlanRequest: CreatePlanRequest, authHeader: String): Flow<Resource<Result<CreatePlanDto>>>
+
+    suspend fun getPlan(planId: String, authHeader: String): Flow<Resource<Result<CreatePlanDto>>>
 }

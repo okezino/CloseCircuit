@@ -13,6 +13,7 @@ import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpReques
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import com.example.closedcircuitapplication.plan.domain.usecases.CreatePlanUseCase
 import com.example.closedcircuitapplication.plan.domain.usecases.GenerateOtpUseCase
+import com.example.closedcircuitapplication.plan.domain.usecases.GetPlanUseCase
 import com.example.closedcircuitapplication.plan.domain.usecases.VerifyOtpUseCase
 import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,7 +25,8 @@ import javax.inject.Inject
 class PlanViewModel @Inject constructor(
     private val generateOtpUseCase: GenerateOtpUseCase,
     private val verifyOtpUseCase: VerifyOtpUseCase,
-    private val createPlanUseCase: CreatePlanUseCase
+    private val createPlanUseCase: CreatePlanUseCase,
+    private val getPlanUseCase: GetPlanUseCase
 ): ViewModel() {
     private var _generateOtpResponse = MutableLiveData<Resource<Result<GenerateOtpDto>>>()
     val generateOtpResponse: LiveData<Resource<Result<GenerateOtpDto>>> get() = _generateOtpResponse
@@ -34,6 +36,9 @@ class PlanViewModel @Inject constructor(
 
     private var _createPlanResponse = MutableLiveData<Resource<Result<CreatePlanDto>>>()
     val createPlanResponse: LiveData<Resource<Result<CreatePlanDto>>> get() = _createPlanResponse
+
+    private var _getPlanResponse = MutableLiveData<Resource<Result<CreatePlanDto>>>()
+    val getPlanResponse: LiveData<Resource<Result<CreatePlanDto>>> get() = _getPlanResponse
 
     fun generateOtp(generateOtpRequest: GenerateOtpRequest) {
         viewModelScope.launch {
@@ -55,6 +60,14 @@ class PlanViewModel @Inject constructor(
         viewModelScope.launch {
             createPlanUseCase(createPlanRequest, authHeader).collect {
                 _createPlanResponse.value = it
+            }
+        }
+    }
+
+    fun getPlan(planId: String, authHeader: String){
+        viewModelScope.launch {
+            getPlanUseCase(planId, authHeader).collect{
+                _getPlanResponse.value = it
             }
         }
     }

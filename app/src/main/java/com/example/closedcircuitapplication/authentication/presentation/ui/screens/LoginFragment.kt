@@ -149,7 +149,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     //this is used to save the user email address
                     saveEmail(_email)
                     preferences.saveEmail(_email)
-//                    saveToken(resource.data.data!!.token)
+                    //this is used to save the userId address
+//                    saveUserId(resource.data.data.userId)
+//                    preferences.putUserId(resource.datas.data.userId)
 
                     resource.data.data.let { token ->
                         token?.let { saveToken(it.token) }
@@ -180,6 +182,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun saveToken(token: String) = preferences.putToken(token)
     private fun saveEmail(email: String) = preferences.saveEmail(email)
+    private fun saveUserId(userId: String) = preferences.putUserId(userId)
 
 
     override fun onDetach() {

@@ -1,7 +1,7 @@
 package com.example.closedcircuitapplication.common.domain.repository
 
-import com.example.closedcircuitapplication.authentication.data.datadto.LoginResponseDto
-import com.example.closedcircuitapplication.authentication.data.datadto.RegisterResponseDto
+import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto
+import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.*
 import com.example.closedcircuitapplication.common.data.network.models.GenerateOtpDto
 import com.example.closedcircuitapplication.common.data.network.models.ResetPasswordDto
@@ -17,6 +17,7 @@ class TestAuthRepository : AuthRepository {
 
     private var shouldReturnNetworkError = false
     var token = "737f8kn)u38ewo"
+    var userId = "32ehykd7893j"
     var resourceMessage = ""
     var resourceError = ""
 
@@ -38,7 +39,7 @@ class TestAuthRepository : AuthRepository {
                     Resource.Success(
                         Result(
                             resourceMessage,
-                            LoginResponseDto(token),
+                            LoginResponseDto(token, userId),
                             resourceError
                         )
                     )
