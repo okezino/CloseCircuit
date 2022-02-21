@@ -40,10 +40,9 @@ class ProjectsAdapter(private val projects: MutableList<Projects>) : RecyclerVie
             tasksCompletedProgress.progress = project.tasksCompleted.toInt()
             fundsRaisedProgress.progress = project.fundsRaised.toInt()
             item.setOnClickListener {
-                val action = ProjectScreenFragmentDirections
-                    .actionProjectScreenFragmentToCreatePlanFragment(
-                    )
-                it.findNavController().navigate(action)
+//                val action = ProjectScreenFragmentDirections
+//                    .actionProjectScreenFragmentToCreatePlanFragment()
+//                it.findNavController().navigate(action)
             }
         }
     }

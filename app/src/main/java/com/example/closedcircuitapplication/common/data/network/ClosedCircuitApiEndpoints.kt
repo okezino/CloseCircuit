@@ -4,5 +4,5 @@ object ClosedCircuitApiEndpoints {
     const val LOGIN = "login/"
     const val REGISTER = "register/"
     const val SPONSORS = "sponsors/"
-    const val PLANS = "plans/"
+    const val PLANS = "plans/{userId}"
 }

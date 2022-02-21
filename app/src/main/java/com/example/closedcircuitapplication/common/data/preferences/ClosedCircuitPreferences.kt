@@ -6,6 +6,7 @@ import com.example.closedcircuitapplication.common.data.preferences.PreferencesC
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.KEY_TOKEN
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.KEY_TOKEN_EXPIRATION_TIME
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.KEY_TOKEN_TYPE
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_ID
 import javax.inject.Inject
 
 class ClosedCircuitPreferences @Inject constructor(
@@ -68,4 +69,7 @@ class ClosedCircuitPreferences @Inject constructor(
     override fun getEmail(): String {
         return preferences.getString(KEY_EMAIL, "").orEmpty()
     }
+
+    override fun putUserId(userId: String) = edit { {putString(USER_ID, userId)} }
+
 }

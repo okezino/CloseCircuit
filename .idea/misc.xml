@@ -26,10 +26,13 @@
         <entry key="app/src/main/res/drawable/ic__menu_icon.xml" value="0.121875" />
         <entry key="app/src/main/res/drawable/ic_accounts.xml" value="0.2522982635342186" />
         <entry key="app/src/main/res/drawable/ic_apple_icon.xml" value="0.2522982635342186" />
+        <entry key="app/src/main/res/drawable/ic_blurred_trash.xml" value="0.2962962962962963" />
         <entry key="app/src/main/res/drawable/ic_briefcase.xml" value="0.24814814814814815" />
         <entry key="app/src/main/res/drawable/ic_calendar.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/ic_card.xml" value="0.2522982635342186" />
         <entry key="app/src/main/res/drawable/ic_copy.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.25" />
+        <entry key="app/src/main/res/drawable/ic_edit_square.xml" value="0.3140625" />
         <entry key="app/src/main/res/drawable/ic_funds.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/ic_group.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/ic_group_32.xml" value="0.2703125" />
@@ -64,7 +67,7 @@
         <entry key="app/src/main/res/layout/fragment_create_a_plan.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_create_budget.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_create_plan.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_create_plan.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_create_plan_budget.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_create_plan_step2.xml" value="0.21" />
         <entry key="app/src/main/res/layout/fragment_create_plan_step_three.xml" value="0.25" />

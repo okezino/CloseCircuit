@@ -38,9 +38,9 @@ class CreatePlanStepThreeFragment : Fragment() {
         binding.createPlanMeansOfSupportAutocompleteTextView.apply {
             setAdapter(meansOfSupportAdapter)
             binding.createPlanStepThreeCreatePlanButton.setOnClickListener {
-                val action =
-                    CreatePlanStepThreeFragmentDirections.actionCreatePlanStepThreeFragmentToCreatePlanFragment()
-                findNavController().navigate(action, customNavAnimation().build())
+//                val action =
+//                    CreatePlanStepThreeFragmentDirections.actionCreatePlanStepThreeFragmentToCreatePlanFragment()
+//                findNavController().navigate(action, customNavAnimation().build())
             }
         }
 

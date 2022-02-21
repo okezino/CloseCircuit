@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView"
+            android:id="@+id/planImageView"
             android:layout_width="@dimen/height_40dp"
             android:layout_height="@dimen/height_40dp"
             android:layout_marginBottom="8dp"
@@ -22,15 +22,15 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/plan_name"
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/marvin_ltd"
             app:layout_constraintEnd_toEndOf="@+id/project_title"
             app:layout_constraintHorizontal_bias="0.048"
-            app:layout_constraintStart_toEndOf="@+id/circleImageView"
-            app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+            app:layout_constraintStart_toEndOf="@+id/planImageView"
+            app:layout_constraintTop_toTopOf="@+id/planImageView" />
 
         <ImageView
             android:visibility="visible"
@@ -42,7 +42,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/project_title"
             app:layout_constraintEnd_toEndOf="@+id/project_title"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView3" />
+            app:layout_constraintStart_toEndOf="@+id/plan_name" />
 
         <ImageView
             android:visibility="gone"
@@ -54,7 +54,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/project_title"
             app:layout_constraintEnd_toEndOf="@+id/project_title"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView3" />
+            app:layout_constraintStart_toEndOf="@+id/plan_name" />
 
         <TextView
             android:id="@+id/project_title"

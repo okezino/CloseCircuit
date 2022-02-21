@@ -1,7 +1,7 @@
 package com.example.closedcircuitapplication.common.data.repository
 
 import com.example.closedcircuitapplication.authentication.data.mappers.DomainPostMapper
-import com.example.closedcircuitapplication.authentication.data.datadto.LoginResponseDto
+import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto
 import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.*
 import com.example.closedcircuitapplication.common.data.network.Api

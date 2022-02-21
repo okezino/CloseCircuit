@@ -41,6 +41,9 @@
         <action
             android:id="@+id/action_createPlanFragment_to_sendFundsSummaryFragment"
             app:destination="@id/sendFundsSummaryFragment" />
+        <argument
+            android:name="planId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/createPlanBudgetFragment"
@@ -273,6 +276,9 @@
             android:id="@+id/action_planCreatedSuccessfullyFragment_to_createPlanFragment"
             app:destination="@id/createPlanFragment"
             app:popUpTo="@id/projectScreenFragment"/>
+        <argument
+            android:name="planId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/createAPlanFragment2"

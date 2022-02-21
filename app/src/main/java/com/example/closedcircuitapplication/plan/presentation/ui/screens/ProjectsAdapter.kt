@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.projectScreens
+package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.databinding.ProjectItemBinding
-import com.example.closedcircuitapplication.plan.presentation.ui.screens.ProjectScreenFragmentDirections
+import com.example.closedcircuitapplication.ui.projectScreens.Projects
 
 class ProjectsAdapter(private val projects: MutableList<Projects>) : RecyclerView.Adapter<ProjectsAdapter.ViewHolder>() {
 
@@ -38,12 +38,12 @@ class ProjectsAdapter(private val projects: MutableList<Projects>) : RecyclerVie
             planDescription.text = project.projectDescription
             tasksCompletedProgress.progress = project.tasksCompleted.toInt()
             fundsRaisedProgress.progress = project.fundsRaised.toInt()
-            item.setOnClickListener {
-                val action = ProjectScreenFragmentDirections
-                    .actionProjectScreenFragmentToCreatePlanFragment(
-                    )
-                it.findNavController().navigate(action)
-            }
+//            item.setOnClickListener {
+//                val action = ProjectScreenFragmentDirections
+//                    .actionProjectScreenFragmentToCreatePlanFragment(
+//                    )
+//                it.findNavController().navigate(action)
+//            }
         }
     }
 }
