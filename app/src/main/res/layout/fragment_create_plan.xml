@@ -10,6 +10,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="@dimen/height_40dp"
+            android:layout_height="@dimen/height_40dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/diane_russell"
+            app:layout_constraintBottom_toTopOf="@+id/project_summary_layout"
+            app:layout_constraintEnd_toEndOf="@+id/project_title"
+            app:layout_constraintHorizontal_bias="0.045"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/marvin_ltd"
+            app:layout_constraintEnd_toEndOf="@+id/project_title"
+            app:layout_constraintHorizontal_bias="0.048"
+            app:layout_constraintStart_toEndOf="@+id/circleImageView"
+            app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+
+        <ImageView
+            android:id="@+id/project_summary_more_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_baseline_more_vert_24"
+            app:layout_constraintBottom_toBottomOf="@+id/project_title"
+            app:layout_constraintEnd_toEndOf="@+id/project_title"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textView3" />
+
         <TextView
             android:id="@+id/project_title"
             android:layout_width="match_parent"
@@ -81,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.55" />
+                app:layout_constraintGuide_end="185dp" />
 
             <ImageView
                 android:id="@+id/project_duration_image_view"
@@ -215,77 +248,77 @@
                     android:textSize="10sp" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/project_summary_image_view"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_margin="16dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/project_summary_image"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/project_target_amount_image_view" />
+<!--            <ImageView-->
+<!--                android:id="@+id/project_summary_image_view"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="160dp"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                android:src="@drawable/project_summary_image"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="1.0"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/project_target_amount_image_view" />-->
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/add_image_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:src="@drawable/ic_camera"
-                app:backgroundTint="@color/white"
-                app:tint="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/project_summary_image_view"
-                app:layout_constraintEnd_toEndOf="@+id/project_summary_image_view"
-                android:contentDescription="Add Image" />
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/add_image_fab"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="8dp"-->
+<!--                android:src="@drawable/ic_camera"-->
+<!--                app:backgroundTint="@color/white"-->
+<!--                app:tint="@color/black"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/project_summary_image_view"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/project_summary_image_view"-->
+<!--                android:contentDescription="Add Image" />-->
 
-            <TextView
-                android:id="@+id/project_description_title_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Plan Description"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_margin="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/project_summary_image_view" />
+<!--            <TextView-->
+<!--                android:id="@+id/project_description_title_text_view"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Plan Description"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_margin="16dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/project_summary_image_view" />-->
 
-            <TextView
-                android:id="@+id/project_description_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:text="A small scale business selling mobile phones and other electronic devices. "
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/project_description_title_text_view" />
+<!--            <TextView-->
+<!--                android:id="@+id/project_description_text_view"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="16dp"-->
+<!--                android:text="A small scale business selling mobile phones and other electronic devices. "-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/project_description_title_text_view" />-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/project_description_text_view">
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="16dp"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/project_description_text_view">-->
 
-                <TextView
-                    android:id="@+id/plan_link"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="4dp"
-                    android:text="@string/copy_plan_link"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/project_description_text_view" />
+<!--                <TextView-->
+<!--                    android:id="@+id/plan_link"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginHorizontal="4dp"-->
+<!--                    android:text="@string/copy_plan_link"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/project_description_text_view" />-->
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_copy" />
-            </LinearLayout>
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--&lt;!&ndash;                    android:src="@drawable/ic_copy" />&ndash;&gt;-->
+<!--            </LinearLayout>-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

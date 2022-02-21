@@ -3,8 +3,11 @@ package com.example.closedcircuitapplication.plan.presentation.ui.screens
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -37,10 +40,29 @@ class ProjectSummaryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        binding.planLink.setOnClickListener {
-            findNavController().navigate(R.id.sendFundsSummaryFragment)
+        binding.projectSummaryMoreOptions.setOnClickListener {
+            val popMenu = PopupMenu(requireContext(), it)
+            popMenu.setOnMenuItemClickListener {
+                when (it.itemId){
+                    R.id.edit_plan -> {
+                        Toast.makeText(requireContext(), "Showing Toast", Toast.LENGTH_LONG).show()
+                        true
+                    }
+                    R.id.delete_plan -> {
+                        Toast.makeText(requireContext(), "Showing Delete", Toast.LENGTH_LONG).show()
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popMenu.inflate(R.menu.plan_menu)
+            popMenu.show()
         }
+
+
+//        binding.planLink.setOnClickListener {
+//            findNavController().navigate(R.id.sendFundsSummaryFragment)
+//        }
 
         viewPagerAdapter = CreateStepsBudgetsFragmentAdapter(this)
         viewPager.adapter = viewPagerAdapter
