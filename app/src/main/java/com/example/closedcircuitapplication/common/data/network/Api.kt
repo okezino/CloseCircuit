@@ -4,6 +4,9 @@ import com.example.closedcircuitapplication.authentication.data.datadto.LoginRes
 import com.example.closedcircuitapplication.authentication.data.datadto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.*
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GENERATE_OTP
+import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
+import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
+import com.example.closedcircuitapplication.authentication.domain.models.ResetPasswordRequest
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.LOGIN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.REGISTER
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.RESET_PASSWORD
@@ -15,9 +18,14 @@ import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.data.network.models.VerifyOtpDto
 import com.example.closedcircuitapplication.plan.data.datadto.UpdatePlanResponseDto
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
+import com.example.closedcircuitapplication.common.data.network.models.*
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import retrofit2.http.*
+import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
+import retrofit2.http.Body
+import retrofit2.http.Header
+import retrofit2.http.POST
 
 
 interface Api {
@@ -43,5 +51,11 @@ interface Api {
         @Path("id") planId: String,
         @Header("Authorization") token: String
     ): Result<UpdatePlanResponseDto>
+
+    @POST("plans/")
+    suspend fun createPlan(
+        @Body createPlanRequest: CreatePlanRequest,
+        @Header("Authorization") authHeader: String
+    ): Result<CreatePlanDto>
 
 }

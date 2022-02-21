@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".sponsors.presentation.Screens.UsersEditProfileFragment">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Toolbar
+        android:id="@+id/fragmentUserEditProfile_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/fragmentusereditProfile_backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Edit profile"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_24sp"
+            android:textStyle="bold" />
+    </Toolbar>
+
+    <TextView
+        android:id="@+id/fragment_edit_profile_clickToEdit_tv"
+        style="@style/UserEditProfile_textView_style"
+        android:text="@string/fragmentUserEditProfile_click_to_edit_tv"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragmentUserEditProfile_toolbar" />
+
+    <LinearLayout
+        android:id="@+id/fragment_user_edit_profile_linear_layout"
+        style="@style/Fragment_user_edit_profile_linear_layout_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_edit_profile_clickToEdit_tv">
+
+        <TextView
+            android:id="@+id/fragment_edit_profile_full_name_tv"
+            style="@style/UserEditProfile_textView_style"
+            android:text="@string/edit_profile_text_string_full_name" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Fragment_usersEditProfile_TextInputLayout_style">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fragment_edit_profile_Fullname_EditText"
+                style="@style/Fragment_usersEditProfile_TextInputEditText_style" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment_user_edit_profile_linear_layout2"
+        style="@style/Fragment_user_edit_profile_linear_layout_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_user_edit_profile_linear_layout">
+
+        <TextView
+            android:id="@+id/fragment_edit_profile_Username_tv"
+            style="@style/UserEditProfile_textView_style"
+            android:text="@string/edit_profile_text_string_user_name" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Fragment_usersEditProfile_TextInputLayout_style">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fragment_edit_profile_Username_EditText"
+                style="@style/Fragment_usersEditProfile_TextInputEditText_style" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment_user_edit_profile_linear_layout3"
+        style="@style/Fragment_user_edit_profile_linear_layout_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_user_edit_profile_linear_layout2">
+
+        <TextView
+            android:id="@+id/fragment_user_edit_profile_emailAddress_tv"
+            style="@style/UserEditProfile_textView_style"
+            android:text="@string/user_edit_profile_email_address" />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Fragment_usersEditProfile_TextInputLayout_style">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fragment_user_edit_profile_emailAddress_EditText"
+                style="@style/Fragment_usersEditProfile_TextInputEditText_style" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment_user_edit_profile_linear_layout4"
+        style="@style/Fragment_user_edit_profile_linear_layout_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_user_edit_profile_linear_layout3">
+
+        <TextView
+            android:id="@+id/fragment_edit_profile_Phone_number_tv"
+            style="@style/UserEditProfile_textView_style"
+            android:text="@string/user_edit_profile_phone_number" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/fragment_userEditProfile_CountryCodePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginTop="18dp"
+                android:background="@color/grey_box_background" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Fragment_usersEditProfile_TextInputLayout_style"
+                android:layout_marginStart="@dimen/margin_0dp"
+                app:boxCornerRadiusBottomStart="@dimen/margin_0dp"
+                app:boxCornerRadiusTopStart="@dimen/margin_0dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_edit_profile_Phone_number_EditText"
+                    style="@style/Fragment_usersEditProfile_TextInputEditText_style" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/fragment_userEditProfile_saveChanges_btn"
+        style="@style/Fragment_CreateAccount_Button_style"
+        android:layout_marginTop="@dimen/margin_98dp"
+        android:text="Save changes"
+        android:layout_marginBottom="@dimen/margin_48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_user_edit_profile_linear_layout4" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

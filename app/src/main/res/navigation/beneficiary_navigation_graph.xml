@@ -103,7 +103,7 @@
         <action
             android:id="@+id/action_emailVerificationFragment_to_editEmailVerificationScreenFragment"
             app:destination="@id/editEmailVerificationScreenFragment"
-            app:popUpTo="@id/dashboardFragment"
+            app:popUpTo="@id/projectScreenFragment"
             app:popUpToInclusive="true"
             />
         <action
@@ -127,7 +127,7 @@
         <action
             android:id="@+id/action_editEmailVerificationScreenFragment_to_emailVerificationFragment"
             app:destination="@id/emailVerificationFragment"
-            app:popUpTo="@id/dashboardFragment"
+            app:popUpTo="@id/projectScreenFragment"
             app:popUpToInclusive="true"
             />
     </fragment>
@@ -138,7 +138,8 @@
         tools:layout="@layout/fragment_successful_email_verification_screen">
         <action
             android:id="@+id/action_successfulEmailVerificationScreenFragment_to_createAPlanFragment"
-            app:destination="@id/createAPlanFragment2" />
+            app:destination="@id/createAPlanFragment2"
+            app:popUpTo="@id/projectScreenFragment"/>
     </fragment>
 
     <fragment
@@ -207,7 +208,22 @@
         tools:layout="@layout/fragment_create_plan_step2" >
         <action
             android:id="@+id/action_createPlanStep2Fragment_to_planCreatedSuccessfullyFragment"
-            app:destination="@id/planCreatedSuccessfullyFragment" />
+            app:destination="@id/planCreatedSuccessfullyFragment"
+            app:popUpTo="@id/projectScreenFragment"/>
+        <argument
+            android:name="planSector"
+            app:argType="string" />
+        <argument
+            android:name="planCategory"
+            app:argType="string" />
+        <argument
+            android:name="businessType"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="planAvatar"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/planCreatedSuccessfullyFragment"
@@ -216,7 +232,8 @@
         tools:layout="@layout/fragment_plan_created_sucessfully" >
         <action
             android:id="@+id/action_planCreatedSuccessfullyFragment_to_createPlanFragment"
-            app:destination="@id/createPlanFragment" />
+            app:destination="@id/createPlanFragment"
+            app:popUpTo="@id/projectScreenFragment"/>
     </fragment>
     <fragment
         android:id="@+id/createAPlanFragment2"
@@ -227,14 +244,15 @@
             android:id="@+id/action_createAPlanFragment2_to_createPlanStep2Fragment"
             app:destination="@id/createPlanStep2Fragment" />
     </fragment>
-    <fragment
-        android:id="@+id/creatPlanStepOneFragment"
-        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatPlanStepOneFragment"
-        android:label="fragment_creat_plan_step_one"
-        tools:layout="@layout/fragment_creat_plan_step_one" />
+<!--    <fragment-->
+<!--        android:id="@+id/creatPlanStepOneFragment"-->
+<!--        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatPlanStepOneFragment"-->
+<!--        android:label="fragment_creat_plan_step_one"-->
+<!--        tools:layout="@layout/fragment_creat_plan_step_one" />-->
     <fragment
         android:id="@+id/editPlanFragment"
         android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.EditPlanFragment"
         android:label="fragment_edit_plan"
         tools:layout="@layout/fragment_edit_plan" />
+
 </navigation>

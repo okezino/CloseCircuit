@@ -95,4 +95,5 @@
     <dimen name="verticalOffset_4dp">4dp</dimen>
     <dimen name="margin_22dp">22dp</dimen>
     <dimen name="width_50dp">50dp</dimen>
+    <dimen name="boxCornerRadius_16dp">16dp</dimen>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
+import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -13,8 +14,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
+import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
+import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.databinding.FragmentEditPlanBinding
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
 import com.example.closedcircuitapplication.plan.presentation.viewModel.PlanViewModel
@@ -29,6 +32,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
     private val viewModel: PlanViewModel by viewModels()
     @Inject
     lateinit var preferences: Preferences
+    private var pleaseWaitDialog: AlertDialog? = null
 
 //    private val args: FragmentEditPlanBinding by navArgs()
 
@@ -106,7 +110,6 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 return@setOnClickListener
             } else {
                 binding.fragmentEditPlanEmptySellingPriceTv.visibility = View.GONE
-//                binding.fragmentLetsCreateYourPlanSellingPriceEt.isFocusable = false
             }
 
             if (!Validation.validatePlanName(planName)) {
@@ -149,15 +152,27 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
         viewModel.updatePlanResponse.observe(viewLifecycleOwner){resource ->
             when(resource){
                 is Resource.Loading -> {
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_LONG).show()
+                    showPleaseWaitAlertDialog()
                 }
                 is Resource.Success -> {
-                    Toast.makeText(requireContext(), "${resource.data.data?.id}", Toast.LENGTH_LONG).show()
+                    showPleaseWaitAlertDialog().dismiss()
                 }
                 is Resource.Error -> {
-                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_LONG).show()
+                    showPleaseWaitAlertDialog().dismiss()
+                    makeSnackBar("${resource.data?.message}", requireView())
                 }
             }
         }
+    }
+
+    private fun showPleaseWaitAlertDialog(): AlertDialog {
+        if(pleaseWaitDialog == null) {
+            pleaseWaitDialog = showCustomViewDialog(
+                requireContext(), resources,
+                R.layout.custom_login_wait_dialog,
+                false
+            )
+        }
+        return pleaseWaitDialog as AlertDialog
     }
 }

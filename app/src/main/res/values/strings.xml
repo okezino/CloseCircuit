@@ -114,17 +114,17 @@
     <string name="gallery">Gallery</string>
 
     <string-array name="Choose_business_Sector">
-        <item>Technology.</item>
-        <item>Agriculture.</item>
-        <item>Professional Services.</item>
-        <item>Retail.</item>
-        <item>Artisan.</item>
-        <item>Hair and Beauty.</item>
-        <item>Financial services.</item>
-        <item>Health care.</item>
-        <item>Catering.</item>
-        <item>Hospitality.</item>
-        <item>Others.</item>
+        <item>Technology</item>
+        <item>Agriculture</item>
+        <item>Professional Services</item>
+        <item>Retail</item>
+        <item>Artisan</item>
+        <item>Hair and Beauty</item>
+        <item>Financial Services</item>
+        <item>Health Care</item>
+        <item>Catering</item>
+        <item>Hospitality</item>
+        <item>Others</item>
     </string-array>
     <string-array name="Select_Budget">
         <item>School card</item>
@@ -137,7 +137,7 @@
     </string-array>
     <string-array name="business_type">
         <item>Service</item>
-        <item>Physical product</item>
+        <item>Physical Product</item>
         <item>Others</item>
     </string-array>
     <string-array name="means_of_support">
@@ -257,4 +257,9 @@
     <string name="select_plan_sector">Select plan Sector</string>
     <string name="enter_plan_name">Enter plan name</string>
     <string name="save_changes">Save changes</string>
+    <string name="edit_profile_text_string_user_name">Username</string>
+    <string name="edit_profile_text_string_full_name">Full name</string>
+    <string name="fragmentUserEditProfile_click_to_edit_tv">Click to edit</string>
+    <string name="user_edit_profile_phone_number">Phone number</string>
+    <string name="user_edit_profile_email_address">Email address</string>
 </resources>
