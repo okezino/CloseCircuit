@@ -100,6 +100,7 @@
         <entry key="app/src/main/res/layout/fragment_unsuccessful_email_screen.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/fragment_upload_image_bottom_sheet.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_uploading_proof_for_completed_step.xml" value="0.23076923076923078" />
+        <entry key="app/src/main/res/layout/fragment_users_edit_profile.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_view_pager.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.1" />

@@ -1,7 +1,7 @@
 package com.example.closedcircuitapplication.common.data.network
 
 import com.example.closedcircuitapplication.authentication.data.datadto.LoginResponseDto
-import com.example.closedcircuitapplication.authentication.data.datadto.RegisterResponseDto
+import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.*
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.LOGIN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.REGISTER
@@ -31,5 +31,8 @@ interface Api {
 
     @POST("reset-password/")
     suspend fun resetPassword(@Body resetPasswordRequest: ResetPasswordRequest): Result<ResetPasswordDto>
+
+//    @GET(PLANS)
+//    suspend fun getPlans(): Result<>
 
 }

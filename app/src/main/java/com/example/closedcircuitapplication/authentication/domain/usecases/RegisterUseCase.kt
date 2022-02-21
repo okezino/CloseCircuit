@@ -1,7 +1,7 @@
 package com.example.closedcircuitapplication.authentication.domain.usecases
 
 
-import com.example.closedcircuitapplication.authentication.data.datadto.RegisterResponseDto
+import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.domain.repository.AuthRepository
