@@ -180,9 +180,9 @@
         tools:layout="@layout/app_bar_dashboard" />
     <fragment
         android:id="@+id/createPlanSummaryFragment"
-        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatePlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.EditPlanFragment"
         android:label="fragment_create_plan_summary"
-        tools:layout="@layout/fragment_create_plan_summary" />
+        tools:layout="@layout/fragment_edit_plan" />
     <fragment
         android:id="@+id/uploadImageBottomSheetFragment"
         android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment"
@@ -192,10 +192,10 @@
         android:id="@+id/dashboardFragment2"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.DashboardFragment"
         android:label="DashboardFragment" />
-    <fragment
-        android:id="@+id/creatPlanStepOneFragment2"
-        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatPlanStepOneFragment"
-        android:label="fragment_creat_plan_step_one"
-        tools:layout="@layout/fragment_creat_plan_step_one" />
+<!--    <fragment-->
+<!--        android:id="@+id/creatPlanStepOneFragment2"-->
+<!--        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatPlanStepOneFragment"-->
+<!--        android:label="fragment_creat_plan_step_one"-->
+<!--        tools:layout="@layout/fragment_creat_plan_step_one" />-->
 
 </navigation>

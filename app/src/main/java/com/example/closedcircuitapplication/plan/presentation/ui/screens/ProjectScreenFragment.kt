@@ -16,7 +16,7 @@ import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
-import com.example.closedcircuitapplication.plan.viewModel.PlanViewModel
+import com.example.closedcircuitapplication.plan.presentation.viewModel.PlanViewModel
 import com.example.closedcircuitapplication.ui.projectScreens.Projects
 import com.example.closedcircuitapplication.ui.projectScreens.ProjectsAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,6 +52,9 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
 
         initObservers()
         fetchProjects()
+        binding.noPlansTv.setOnClickListener {
+            findNavController().navigate(R.id.editPlanFragment)
+        }
 
         binding.fragmentProjectScreenLayout.setOnClickListener {
             val email: String = prefEmail

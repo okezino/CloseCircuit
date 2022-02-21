@@ -2,8 +2,8 @@ package com.example.closedcircuitapplication.plan.di
 
 import com.example.closedcircuitapplication.authentication.data.mappers.DomainPostMapper
 import com.example.closedcircuitapplication.common.data.network.Api
-import com.example.closedcircuitapplication.common.data.repository.PlanRepositoryImpl
-import com.example.closedcircuitapplication.common.domain.repository.PlanRepository
+import com.example.closedcircuitapplication.common.data.repository.PlanRepository
+import com.example.closedcircuitapplication.common.domain.repository.PlanRepositoryInterface
 import com.example.closedcircuitapplication.common.utils.DispatcherProvider
 import dagger.Module
 import dagger.Provides
@@ -19,7 +19,7 @@ object PlanModule {
         api: Api,
         mapper: DomainPostMapper,
         dispatcherProvider: DispatcherProvider
-    ): PlanRepository{
-        return PlanRepositoryImpl(api, mapper, dispatcherProvider)
+    ): PlanRepositoryInterface{
+        return PlanRepository(api, mapper, dispatcherProvider)
     }
 }

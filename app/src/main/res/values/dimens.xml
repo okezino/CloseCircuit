@@ -84,4 +84,15 @@
     <dimen name="height_15dp">15dp</dimen>
     <dimen name="width_150dp">150dp</dimen>
     <dimen name="margin_0dp">0dp</dimen>
+    <dimen name="minHeight_161dp">161dp</dimen>
+    <dimen name="width_115dp">115dp</dimen>
+    <dimen name="height_42dp">42dp</dimen>
+    <dimen name="margin_2dp">2dp</dimen>
+    <dimen name="margin_51dp">51dp</dimen>
+    <dimen name="strokeWidth_1dp">1dp</dimen>
+    <dimen name="padding_11dp">11dp</dimen>
+    <dimen name="strokeWidth_0dp">0dp</dimen>
+    <dimen name="verticalOffset_4dp">4dp</dimen>
+    <dimen name="margin_22dp">22dp</dimen>
+    <dimen name="width_50dp">50dp</dimen>
 </resources>

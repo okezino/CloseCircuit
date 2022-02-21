@@ -58,33 +58,19 @@ object Validation {
     }
 
     // validate Business name
-    fun validateBusinessType(businessType: String): Boolean {
-        return (businessType.isNotEmpty())
+    fun validatePlanCategory(planCategory: String): Boolean {
+        return (planCategory.isNotEmpty())
     }
 
     //validate Business name
-    fun validateBusinessName(businessName: String): Boolean {
-        return (businessName.isNotEmpty())
+
+    fun validatePlanSector(planSector: String): Boolean {
+        return (planSector.isNotEmpty())
     }
 
     //validate plan duration
-    fun validatePlanDuration(planDuration: String): Boolean {
-        return (planDuration.isNotEmpty())
-    }
-
-    //validate minimum loan range
-    fun validateMinimumLoan(minimumRange: String): Boolean {
-        return (minimumRange.isNotEmpty())
-    }
-
-    //validate maximum loan range
-    fun validateMaximumLoan(maximumRange: String): Boolean {
-        return (maximumRange.isNotEmpty())
-    }
-
-    // validate maximum number of lenders
-    fun validateNumberOfLenders(numberOfLenders: String): Boolean {
-        return (numberOfLenders.isNotEmpty())
+    fun validatePlanName(planName: String): Boolean {
+        return (planName.isNotEmpty())
     }
 
     //validate description
@@ -93,9 +79,18 @@ object Validation {
     }
 
     //validate support
-    fun validateSupport(support: String): Boolean {
-        return (support.isNotEmpty())
+    fun validatePlanDuration(planDuration: String): Boolean {
+        return (planDuration.isNotEmpty())
     }
+    //validate selling price
+    fun validateSellingPrice(sellingPrice: String): Boolean {
+        return (sellingPrice.isNotEmpty())
+    }
+    //validate cost price
+    fun validateCostPrice(costPrice: String): Boolean {
+        return (costPrice.isNotEmpty())
+    }
+
 
     // phone_number inputField validation
     fun validatePhone_number(phone_number : String):Boolean{

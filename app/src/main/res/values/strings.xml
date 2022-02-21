@@ -254,4 +254,7 @@
     <string name="let_s_create_your_plan_text">Let’s create your plan</string>
     <string name="please_enter_your_email_address_to_continue_verification_process">Please enter your email address to continue verification process.</string>
     <string name="plan_created_successfully">Plan created Successfully</string>
+    <string name="select_plan_sector">Select plan Sector</string>
+    <string name="enter_plan_name">Enter plan name</string>
+    <string name="save_changes">Save changes</string>
 </resources>

@@ -135,8 +135,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-
             <TextView
                 android:id="@+id/frgament_summary_month_tv"
                 android:layout_width="50dp"
@@ -157,10 +155,7 @@
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
-
-
         </LinearLayout>
-
 
         <TextView
             android:layout_width="match_parent"
@@ -256,8 +251,6 @@
                 android:textSize="15sp" />
 
         </LinearLayout>
-
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/fragment_lets_create_your_plan_create_plan_btn"
             android:layout_width="match_parent"

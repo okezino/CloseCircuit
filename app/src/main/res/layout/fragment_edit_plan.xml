@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,33 +11,33 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp">
+            android:layout_marginHorizontal="@dimen/margin_20dp">
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardView"
-                android:layout_width="115dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="51dp"
+                android:layout_width="@dimen/width_115dp"
+                android:layout_height="@dimen/height_42dp"
+                android:layout_marginStart="@dimen/margin_2dp"
+                android:layout_marginTop="@dimen/margin_20dp"
                 android:background="@drawable/upload_image_button"
                 app:cardBackgroundColor="@color/primary_color"
-                app:cardCornerRadius="5dp"
+                app:cardCornerRadius="@dimen/radius_5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:strokeColor="@color/upload_image_button_color"
-                app:strokeWidth="1dp">
+                app:strokeWidth="@dimen/strokeWidth_1dp">
 
                 <TextView
                     android:id="@+id/upload_image_tv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:paddingStart="10dp"
-                    android:paddingTop="11dp"
-                    android:paddingEnd="9dp"
-                    android:paddingBottom="12dp"
+                    android:paddingStart="@dimen/padding_10dp"
+                    android:paddingTop="@dimen/padding_11dp"
+                    android:paddingEnd="@dimen/padding_9dp"
+                    android:paddingBottom="@dimen/margin_12dp"
                     android:textColor="@color/upload_image_button_color"
-                    android:textSize="15sp"
+                    android:textSize="@dimen/textSize_15sp"
                     android:visibility="gone" />
 
                 <ImageView
@@ -49,237 +50,162 @@
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
-                android:id="@+id/textView19"
-                android:layout_width="0dp"
+                android:id="@+id/fragment_edit_plan_select_plan_tv"
+                android:layout_width="@dimen/width_0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="34dp"
                 android:fontFamily="@font/helvetica"
-                android:text="Select plan category"
+                android:text="@string/select_plan_category_text"
                 android:textColor="#24500F"
-                android:textSize="15sp"
+                android:textSize="@dimen/textSize_15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/fragment_currency_type_dropdown_layout"
+                android:id="@+id/fragment_edit_plan_plan_category_dropdown_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
+                android:paddingTop="@dimen/padding_16dp"
+                android:paddingBottom="@dimen/padding_16dp"
                 app:boxBackgroundColor="#E5E5E5"
-                app:boxCornerRadiusBottomEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusTopStart="5dp"
+                app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
+                app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
+                app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
+                app:boxCornerRadiusTopStart="@dimen/radius_5dp"
                 app:boxStrokeColor="#E5E5E5"
-                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidth="@dimen/strokeWidth_0dp"
                 app:endIconDrawable="@drawable/chevron_down"
                 app:endIconMode="dropdown_menu"
                 app:endIconTint="#24500F"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView19">
+                app:layout_constraintTop_toBottomOf="@+id/fragment_edit_plan_select_plan_tv">
 
                 <AutoCompleteTextView
-                    android:id="@+id/dropdown_menu_category"
+                    android:id="@+id/dropdown_menu_plan_category"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:dropDownVerticalOffset="4dp"
+                    android:dropDownVerticalOffset="@dimen/verticalOffset_4dp"
                     android:dropDownSelector="#E5E5E5"
                     android:gravity="center_vertical"
                     android:inputType="none"
-                    android:paddingTop="4dp"
+                    android:paddingTop="@dimen/padding_4dp"
                     android:scrollbars="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
             <TextView
-                android:id="@+id/fragment_summary_business_sector"
-                android:layout_width="0dp"
+                android:id="@+id/fragment_edit_plan_business_sector"
+                android:layout_width="@dimen/width_0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helvetica"
-                android:text="Choose business Sector"
+                android:text="@string/select_plan_sector"
                 android:textColor="#24500F"
-                android:textSize="15sp"
+                android:textSize="@dimen/textSize_15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_currency_type_dropdown_layout" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_edit_plan_plan_category_dropdown_layout" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/fragment_summary_plan_sector_dropdown_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
+                android:paddingTop="@dimen/padding_16dp"
+                android:paddingBottom="@dimen/padding_16dp"
                 app:boxBackgroundColor="#E5E5E5"
-                app:boxCornerRadiusBottomEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusTopStart="5dp"
+                app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"
+                app:boxCornerRadiusBottomStart="@dimen/radius_5dp"
+                app:boxCornerRadiusTopEnd="@dimen/radius_5dp"
+                app:boxCornerRadiusTopStart="@dimen/radius_5dp"
                 app:boxStrokeColor="#E5E5E5"
-                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidth="@dimen/strokeWidth_0dp"
                 app:endIconDrawable="@drawable/chevron_down"
                 app:endIconMode="dropdown_menu"
                 app:endIconTint="#24500F"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_business_sector">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_edit_plan_business_sector">
 
                 <AutoCompleteTextView
-                    android:id="@+id/dropdown_menu_sector"
+                    android:id="@+id/dropdown_menu_plan_sector"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:dropDownVerticalOffset="4dp"
+                    android:dropDownVerticalOffset="@dimen/verticalOffset_4dp"
                     android:dropDownSelector="#E5E5E5"
                     android:gravity="center_vertical"
                     android:inputType="none"
-                    android:paddingTop="4dp"
+                    android:paddingTop="@dimen/padding_4dp"
                     android:scrollIndicators="none"
                     android:scrollbars="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Switch
-                android:id="@+id/fragment_create_plan_template_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_plan_sector_dropdown_layout"
-                tools:ignore="UseSwitchCompatOrMaterialXml" />
-
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/fragment_edit_plan_plan_name_tv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helvetica"
-                android:text="Use template"
-                android:textColor="#C4C4C4"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_create_plan_template_switch"
-                app:layout_constraintLeft_toRightOf="@id/fragment_create_plan_template_switch"
-                app:layout_constraintTop_toTopOf="@+id/fragment_create_plan_template_switch" />
-
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:fontFamily="@font/helvetica"
-                android:text="Enter Business type"
+                android:text="@string/enter_plan_name"
                 android:textColor="#24500F"
-                android:textSize="15sp"
+                android:textSize="@dimen/textSize_15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_create_plan_template_switch" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_plan_sector_dropdown_layout" />
 
             <EditText
-                android:id="@+id/fragment_summary_business_type"
+                android:id="@+id/fragment_edit_plan_business_type_et"
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="@dimen/height_54dp"
+                android:layout_marginTop="@dimen/margin_10dp"
                 android:background="@drawable/text_input_background_5dp"
                 android:fontFamily="@font/helvetica"
                 android:gravity="center_vertical"
                 android:maxLines="2"
-                android:paddingStart="10dp"
+                android:paddingStart="@dimen/padding_10dp"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="@dimen/textSize_15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView27" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_edit_plan_plan_name_tv" />
 
             <TextView
-                android:id="@+id/business_type_field_cannot_be_empty"
+                android:id="@+id/plan_name_field_cannot_be_empty"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                 android:fontFamily="@font/helvetica"
-                android:text="This field cannot be empty"
+                android:text="@string/this_field_cannot_be_empty"
                 android:textColor="#FF0000"
-                android:textSize="15sp"
+                android:textSize="@dimen/textSize_15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_business_type" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_edit_plan_business_type_et" />
 
             <TextView
-                android:id="@+id/textView28"
+                android:id="@+id/fragment_edit_plan_describe_plan_tv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:fontFamily="@font/helvetica"
-                android:text="Describe your plan"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:text="@string/describe_your_plan"
                 android:textColor="#24500F"
-                android:textSize="15sp"
+                android:textSize="@dimen/textSize_15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/business_name_field_cannot_be_empty" />
-
-            <TextView
-                android:id="@+id/textView29"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/helvetica_bold"
-                android:text="@string/create_business_plan"
-                android:textColor="#24500F"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/business_type_field_cannot_be_empty"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="501dp" />
-
-            <TextView
-                android:id="@+id/textView30"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/helvetica"
-                android:text="@string/enter_business_name"
-                android:textColor="#24500F"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView29" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_edit_plan_business_type_et" />
 
             <EditText
-                android:id="@+id/fragment_summary_enter_business_name_et"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/text_input_background_5dp"
-                android:fontFamily="@font/helvetica"
-                android:gravity="center_vertical"
-                android:maxLines="2"
-                android:paddingLeft="10dp"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView30" />
-
-            <TextView
-                android:id="@+id/business_name_field_cannot_be_empty"
-                android:layout_width="0dp"
-                android:visibility="gone"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/helvetica"
-                android:text="This field cannot be empty"
-                android:textColor="#FF0000"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_enter_business_name_et" />
-
-            <EditText
-                android:id="@+id/fragment_summary_describe_plan_et"
+                android:id="@+id/fragment_edit_plan_describe_plan_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/text_input_background_5dp"
                 android:fontFamily="@font/helvetica"
                 android:gravity="start"
-                android:minHeight="161dp"
-                android:padding="10dp"
                 android:inputType="text"
+                android:minHeight="@dimen/minHeight_161dp"
+                android:padding="@dimen/padding_10dp"
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="@dimen/textSize_15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_edit_plan_describe_plan_tv" />
 
             <TextView
                 android:id="@+id/describe_plan_field_cannot_be_empty"
@@ -287,11 +213,11 @@
                 android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helvetica"
-                android:text="This field cannot be empty"
+                android:text="@string/this_field_cannot_be_empty"
                 android:textColor="#FF0000"
-                android:textSize="15sp"
+                android:textSize="@dimen/textSize_15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_describe_plan_et" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_edit_plan_describe_plan_et" />
 
             <TextView
                 android:id="@+id/fragment_plan_summary_200_max_words_tv"
@@ -299,11 +225,11 @@
                 android:layout_height="wrap_content"
                 android:visibility="visible"
                 android:fontFamily="@font/helvetica"
-                android:text="200 maximum words"
+                android:text="@string/_200_maximum_words"
                 android:textColor="#C4C4C4"
-                android:textSize="15sp"
+                android:textSize="@dimen/textSize_15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_describe_plan_et" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_edit_plan_describe_plan_et" />
 
             <TextView
                 android:id="@+id/fragment_plan_summary_exceeded_200_max_words_tv"
@@ -311,321 +237,152 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                 android:fontFamily="@font/helvetica"
-                android:text="You have exceeded the maximum number of words (200)"
+                android:text="@string/you_have_exceeded_the_maximum_number_of_words_200"
                 android:textColor="#FF0000"
-                android:textSize="15sp"
+                android:textSize="@dimen/textSize_15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_describe_plan_et" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_edit_plan_describe_plan_et" />
 
-            <TextView
-                android:id="@+id/textView31"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/helvetica"
-                android:text="Enter plan duration"
-                android:textColor="#24500F"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/describe_plan_field_cannot_be_empty" />
-
-            <TextView
-                android:id="@+id/frgament_summary_month_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="27dp"
-                android:fontFamily="@font/helvetica"
-                android:text="Month"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView31" />
-
-
-            <EditText
-                android:id="@+id/fragment_summary_month_duration"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginStart="52dp"
-                android:background="@drawable/text_input_background_5dp"
-                android:fontFamily="@font/helvetica"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:inputType="number"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@id/frgament_summary_month_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/frgament_summary_month_tv" />
-
-            <TextView
-                android:id="@+id/plan_duration_field_cannot_be_empty"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_marginStart="52dp"
-                android:fontFamily="@font/helvetica"
-                android:text="This field cannot be empty"
-                android:textColor="#FF0000"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_month_duration" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/fragment_summary_plan_support_dropdown_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            <LinearLayout
+                android:id="@+id/fragment_edit_plan_layout_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                app:boxBackgroundColor="#E5E5E5"
-                app:boxCornerRadiusBottomEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusTopStart="5dp"
-                app:boxStrokeColor="#E5E5E5"
-                app:boxStrokeWidth="0dp"
-                app:endIconDrawable="@drawable/chevron_down"
-                app:endIconMode="dropdown_menu"
-                app:endIconTint="#24500F"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_preffered_support_tv">
-
-                <AutoCompleteTextView
-                    android:id="@+id/dropdown_menu_support"
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_plan_summary_200_max_words_tv"
+                >
+                <TextView
+                    android:id="@+id/fragment_edit_plan_plan_duration_tv"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:dropDownVerticalOffset="4dp"
-                    android:dropDownSelector="#E5E5E5"
-                    android:gravity="center_vertical"
-                    android:inputType="none"
-                    android:paddingTop="4dp"
-                    android:scrollIndicators="none"
-                    android:scrollbars="none" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/support_field_cannot_be_empty"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:fontFamily="@font/helvetica"
-                android:text="Please select an option"
-                android:textColor="#FF0000"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_plan_support_dropdown_layout" />
-
-            <TextView
-                android:id="@+id/fragment_summary_preffered_support_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:fontFamily="@font/helvetica"
-                android:text="Select your preferred means of support"
-                android:textColor="#24500F"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_month_duration" />
-
-
-            <TextView
-                android:id="@+id/fragment_summary_change_currency_type"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/helvetica"
-                android:text="change currency type"
-                android:textColor="#9DC333"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/frgament_summary_loan_range_tv"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/frgament_summary_loan_range_tv" />
-
-            <TextView
-                android:id="@+id/frgament_summary_loan_range_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:fontFamily="@font/helvetica"
-                android:text="What’s your loan range"
-                android:textColor="#24500F"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_plan_support_dropdown_layout" />
-
-            <TextView
-                android:id="@+id/frgament_summary_minimum_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:fontFamily="@font/helvetica"
-                android:text="NGN"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frgament_summary_loan_range_tv" />
-
-
-            <EditText
-                android:id="@+id/fragment_summary_minimum_et"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginStart="52dp"
-                android:background="@drawable/text_input_background_5dp"
-                android:fontFamily="@font/helvetica"
-                android:gravity="center_vertical|end"
-                android:hint="minimum"
-                android:foregroundGravity="left"
-                android:maxLines="1"
-                android:paddingRight="18dp"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textColorHint="#C4C4C4"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@id/frgament_summary_minimum_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="@id/frgament_summary_minimum_tv" />
-
-            <TextView
-                android:id="@+id/minimum_field_cannot_be_empty"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_marginStart="52dp"
-                android:fontFamily="@font/helvetica"
-                android:text="This field cannot be empty"
-                android:textColor="#FF0000"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_minimum_et" />
-
-
-
-            <TextView
-                android:id="@+id/frgament_summary_maximum_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="27dp"
-                android:fontFamily="@font/helvetica"
-                android:text="NGN"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_minimum_et" />
-
-
-            <EditText
-                android:id="@+id/fragment_summary_maximum_et"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/text_input_background_5dp"
-                android:fontFamily="@font/helvetica"
-                android:gravity="center_vertical|end"
-                android:hint="maximum"
-                android:maxLines="1"
-                android:inputType="text"
-                android:paddingRight="18dp"
-                android:textColor="@color/black"
-                android:textColorHint="#C4C4C4"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@+id/frgament_summary_maximum_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/frgament_summary_maximum_tv" />
-
-            <TextView
-                android:id="@+id/maximum_field_cannot_be_empty"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_marginStart="52dp"
-                android:fontFamily="@font/helvetica"
-                android:text="This field cannot be empty"
-                android:textColor="#FF0000"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_maximum_et" />
-
-            <TextView
-                android:id="@+id/fragment_summary_max_lenders_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:fontFamily="@font/helvetica"
-                android:text="Select Maximum number of lenders"
-                android:textColor="#24500F"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_maximum_et" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/fragment_summary_plan_lenders_dropdown_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                app:boxBackgroundColor="#E5E5E5"
-                app:boxCornerRadiusBottomEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusTopStart="5dp"
-                app:boxStrokeColor="#E5E5E5"
-                app:boxStrokeWidth="0dp"
-                app:endIconDrawable="@drawable/chevron_down"
-                app:endIconMode="dropdown_menu"
-                app:endIconTint="#24500F"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_max_lenders_tv">
-
-                <AutoCompleteTextView
-                    android:id="@+id/dropdown_menu_lenders"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15dp"
+                    android:fontFamily="@font/helvetica"
+                    android:text="@string/enter_plan_duration"
+                    android:textColor="#24500F"
+                    android:textSize="@dimen/textSize_15sp" />
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:dropDownVerticalOffset="4dp"
-                    android:dropDownSelector="#E5E5E5"
-                    android:gravity="center_vertical"
-                    android:inputType="none"
-                    android:scrollbars="none" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/fragment_edit_plan_month_tv"
+                        android:layout_width="@dimen/margin_50dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/helvetica"
+                        android:text="@string/month"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize_16sp" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/fragment_edit_plan_plan_duration_et"
+                        style="@style/FragmentEditPlan_EditTextStyle"
+                         />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/fragment_edit_plan_empty_plan_duration_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:visibility="gone"
+                    android:textColor="#FF0000"
+                    android:text="@string/this_field_cannot_be_empty"
+                    />
 
-            <TextView
-                android:id="@+id/lenders_field_cannot_be_empty"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:fontFamily="@font/helvetica"
-                android:text="Please select an option"
-                android:textColor="#FF0000"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_plan_lenders_dropdown_layout" />
+                <TextView
+                    android:id="@+id/fragment_edit_plan_selling_price_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_22dp"
+                    android:fontFamily="@font/helvetica"
+                    android:text="@string/what_s_your_estimated_selling_price"
+                    android:textColor="#24500F"
+                    android:textSize="@dimen/textSize_15sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fragment_edit_plan_cost_price_ngn_tv"
+                        android:layout_width="@dimen/width_50dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/margin_15dp"
+                        android:fontFamily="@font/helvetica"
+                        android:text="@string/ngn"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize_16sp" />
+                    <EditText
+                        android:id="@+id/fragment_lets_create_your_plan_selling_price_et"
+                        style="@style/FragmentEditPlan_EditTextStyle" />
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/fragment_edit_plan_empty_selling_price_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="#FF0000"
+                    android:visibility="gone"
+                    android:text="@string/this_field_cannot_be_empty"
+                    />
+                <TextView
+                    android:id="@+id/fragment_edit_plan_estimated_cost_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_22dp"
+                    android:fontFamily="@font/helvetica"
+                    android:text="@string/what_s_your_estimated_cost_price"
+                    android:textColor="#24500F"
+                    android:textSize="@dimen/textSize_15sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fragment_edit_plan_estimated_cost_ngn_tv"
+                        android:layout_width="@dimen/width_50dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/margin_15dp"
+                        android:fontFamily="@font/helvetica"
+                        android:text="@string/ngn"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize_16sp" />
+                    <EditText
+                        android:id="@+id/fragment_edit_plan_cost_price_et"
+                        style="@style/FragmentEditPlan_EditTextStyle" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/fragment_edit_plan_empty_cost_price_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:visibility="gone"
+                    android:textColor="#FF0000"
+                    android:text="@string/this_field_cannot_be_empty"
+                    />
+            </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/fragment_summary_create_plan_btn"
+                android:id="@+id/fragment_edit_plan_update_plan_btn"
                 android:layout_width="match_parent"
-                android:layout_marginTop="80dp"
                 android:layout_height="54dp"
-                android:layout_marginBottom="190dp"
+                android:layout_marginBottom="@dimen/margin_80dp"
+                android:layout_marginTop="@dimen/margin_80dp"
                 android:background="@drawable/rectangle_button"
                 android:fontFamily="@font/helvetica"
                 android:paddingVertical="10dp"
-                android:text="Create plan"
+                android:text="@string/save_changes"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="normal"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_summary_plan_lenders_dropdown_layout"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_edit_plan_layout_container" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.core.widget.NestedScrollView>
+</ScrollView>

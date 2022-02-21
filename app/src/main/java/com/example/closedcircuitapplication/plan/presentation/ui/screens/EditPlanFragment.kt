@@ -1,39 +1,45 @@
 package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.graphics.Color
-import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
+import androidx.fragment.app.viewModels
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.data.preferences.Preferences
+import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
-import com.example.closedcircuitapplication.common.utils.customNavAnimation
-import com.example.closedcircuitapplication.databinding.FragmentCreatePlanSummaryBinding
+import com.example.closedcircuitapplication.databinding.FragmentEditPlanBinding
+import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
+import com.example.closedcircuitapplication.plan.presentation.viewModel.PlanViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class EditPlanFragment : Fragment(R.layout.fragment_create_plan_summary) {
+@AndroidEntryPoint
+class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
 
-    private lateinit var binding: FragmentCreatePlanSummaryBinding
+    private lateinit var binding: FragmentEditPlanBinding
     private lateinit var description: String
+    private val viewModel: PlanViewModel by viewModels()
+    @Inject
+    lateinit var preferences: Preferences
 
-    private val args: CreatePlanSummaryFragmentArgs by navArgs()
+//    private val args: FragmentEditPlanBinding by navArgs()
 
     override fun onResume() {
         super.onResume()
 
-        // select your preferred means of support
-        val options = resources.getStringArray(R.array.support_means)
+        // select your preferred plan category
+        val options = resources.getStringArray(R.array.select_plan_category)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, options)
-        binding.dropdownMenuSupport.setAdapter(arrayAdapter)
-        binding.dropdownMenuSupport.setDropDownBackgroundDrawable(
+        binding.dropdownMenuPlanCategory.setAdapter(arrayAdapter)
+        binding.dropdownMenuPlanCategory.setDropDownBackgroundDrawable(
             ResourcesCompat.getDrawable(
                 resources,
                 R.drawable.text_input_background_dropdown,
@@ -41,75 +47,34 @@ class EditPlanFragment : Fragment(R.layout.fragment_create_plan_summary) {
             )
         )
 
-        // select maximum number of lenders
-        val lenderOption = resources.getStringArray(R.array.number_of_lenders)
+        // select your preferred plan sector
+        val lenderOption = resources.getStringArray(R.array.Choose_business_Sector)
         val arrayAdapterLender =
             ArrayAdapter(requireContext(), R.layout.dropdown_item, lenderOption)
-        binding.dropdownMenuLenders.setAdapter(arrayAdapterLender)
-        binding.dropdownMenuLenders.setDropDownBackgroundDrawable(
+        binding.dropdownMenuPlanSector.setAdapter(arrayAdapterLender)
+        binding.dropdownMenuPlanSector.setDropDownBackgroundDrawable(
             ResourcesCompat.getDrawable(
                 resources,
                 R.drawable.text_input_background_dropdown,
                 null
             )
         )
-
-        // To mark checked when an item is selected
-        binding.dropdownMenuSupport.onItemClickListener = object : AdapterView.OnItemClickListener {
-            override fun onItemClick(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                val selectedItem = options[position].toString()
-                if (selectedItem != "") {
-                    val icon: Drawable =
-                        binding.dropdownMenuSupport.context.resources.getDrawable(R.drawable.ic_done)
-                    binding.dropdownMenuSupport.setCompoundDrawablesWithIntrinsicBounds(
-                        null,
-                        null,
-                        icon,
-                        null
-                    )
-                }
-            }
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentCreatePlanSummaryBinding.bind(view)
-        val createPlanButton = binding.fragmentSummaryCreatePlanBtn
+        binding = FragmentEditPlanBinding.bind(view)
 
-        val categoryArgs = args.category
-        val sectorArgs = args.sector
-        val uriArgs = args.uri
-        val currencyTypeArgs = args.currencyType
-        val myUri = Uri.parse(uriArgs)
-
-        Log.d(
-            "CREATE_PLAN_SUMMARY",
-            "SECTOR=====> $sectorArgs  CATEGORY====> $categoryArgs URI====> $myUri "
-        )
-        binding.dropdownMenuCategory.setText(categoryArgs)
-        binding.dropdownMenuSector.setText(sectorArgs)
-        binding.uploadImageHolderIv.setImageURI(myUri)
-
-        //setting dates from the currency type screen
-        binding.frgamentSummaryMinimumTv.text = currencyTypeArgs
-        binding.frgamentSummaryMaximumTv.text = currencyTypeArgs
-
-        //navigating to the select currency screen
-        binding.fragmentSummaryChangeCurrencyType.setOnClickListener {
-            val currencyType = binding.frgamentSummaryMinimumTv.text.toString()
-            val action =
-                CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToSendFundsSummaryFragment(
-                )
-            findNavController().navigate(action, customNavAnimation().build())
-        }
+        val planId = "97aa0fc8-95c6-4420-8db0-56b03bd22b0f"
+        val token = preferences.getToken()
+        updatePlanInitObserver()
 
         // To set the maximum number of characters to be entered when a user types in the description box.
-        binding.fragmentSummaryDescribePlanEt.addTextChangedListener(object : TextWatcher {
+        binding.fragmentEditPlanDescribePlanEt.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                description = binding.fragmentSummaryDescribePlanEt.text.toString()
+                description = binding.fragmentEditPlanDescribePlanEt.text.toString()
                 description = description.replace("\n", " ")
                 val descriptionText: List<String> = description.split(" ")
                 if (descriptionText.size >= 201) {
@@ -125,95 +90,74 @@ class EditPlanFragment : Fragment(R.layout.fragment_create_plan_summary) {
             override fun afterTextChanged(p0: Editable?) {}
         })
 
-        createPlanButton.setOnClickListener {
+        binding.fragmentEditPlanUpdatePlanBtn.setOnClickListener {
 
-            val businessType = binding.fragmentSummaryBusinessType.text.toString()
-            val businessName = binding.fragmentSummaryEnterBusinessNameEt.text.toString()
-            val planDescription = binding.fragmentSummaryDescribePlanEt.text.toString()
-            val planCategory = binding.dropdownMenuCategory.text.toString()
-            val planDuration = binding.fragmentSummaryMonthDuration.text.toString()
-            val support = binding.dropdownMenuSupport.text.toString()
-            val minimum = binding.fragmentSummaryMinimumEt.text.toString()
-            val maximum = binding.fragmentSummaryMaximumEt.text.toString()
-            val lenders = binding.dropdownMenuLenders.text.toString()
+            val planSector = binding.dropdownMenuPlanSector.text.toString()
+            val planName = binding.fragmentEditPlanBusinessTypeEt.text.toString()
+            val planDescription = binding.fragmentEditPlanDescribePlanEt.text.toString()
+            val planCategory = binding.dropdownMenuPlanCategory.text.toString()
+            val planDuration = binding.fragmentEditPlanPlanDurationEt.text.toString()
+            val sellingPrice = binding.fragmentLetsCreateYourPlanSellingPriceEt.text.toString()
+            val costPrice = binding.fragmentEditPlanCostPriceEt.text.toString()
 
-            if (!Validation.validateBusinessType(businessType)) {
-                binding.businessTypeFieldCannotBeEmpty.visibility = View.VISIBLE
-                binding.businessTypeFieldCannotBeEmpty.isFocusable
+            if (!Validation.validateSellingPrice(sellingPrice)) {
+                binding.fragmentEditPlanEmptySellingPriceTv.visibility = View.VISIBLE
+                binding.fragmentLetsCreateYourPlanSellingPriceEt.isFocusable = true
                 return@setOnClickListener
             } else {
-                binding.businessTypeFieldCannotBeEmpty.visibility = View.GONE
-                binding.businessTypeFieldCannotBeEmpty.isFocusable = false
+                binding.fragmentEditPlanEmptySellingPriceTv.visibility = View.GONE
+//                binding.fragmentLetsCreateYourPlanSellingPriceEt.isFocusable = false
             }
 
-            if (!Validation.validateBusinessName(businessName)) {
-                binding.businessNameFieldCannotBeEmpty.visibility = View.VISIBLE
-                binding.businessTypeFieldCannotBeEmpty.isFocusable
+            if (!Validation.validatePlanName(planName)) {
+                binding.planNameFieldCannotBeEmpty.visibility = View.VISIBLE
+                binding.fragmentEditPlanBusinessTypeEt.isFocusable = true
                 return@setOnClickListener
             } else {
-                binding.businessNameFieldCannotBeEmpty.visibility = View.GONE
-                binding.businessTypeFieldCannotBeEmpty.isFocusable = false
+                binding.planNameFieldCannotBeEmpty.visibility = View.GONE
             }
 
             if (!Validation.validatePlanDuration(planDuration)) {
-                binding.planDurationFieldCannotBeEmpty.visibility = View.VISIBLE
-                binding.planDurationFieldCannotBeEmpty.isFocusable
+                binding.fragmentEditPlanEmptyPlanDurationTv.visibility = View.VISIBLE
+                binding.fragmentEditPlanPlanDurationEt.isFocusable = true
                 return@setOnClickListener
             } else {
-                binding.planDurationFieldCannotBeEmpty.visibility = View.GONE
-                binding.planDurationFieldCannotBeEmpty.isFocusable = false
-            }
-
-            if (!Validation.validateMinimumLoan(minimum)) {
-                binding.minimumFieldCannotBeEmpty.visibility = View.VISIBLE
-                binding.minimumFieldCannotBeEmpty.isFocusable
-                return@setOnClickListener
-            } else {
-                binding.minimumFieldCannotBeEmpty.visibility = View.GONE
-                binding.minimumFieldCannotBeEmpty.isFocusable = false
-            }
-
-            if (!Validation.validateMaximumLoan(maximum)) {
-                binding.maximumFieldCannotBeEmpty.visibility = View.VISIBLE
-                binding.maximumFieldCannotBeEmpty.isFocusable
-                return@setOnClickListener
-            } else {
-                binding.maximumFieldCannotBeEmpty.visibility = View.GONE
-                binding.maximumFieldCannotBeEmpty.isFocusable = false
-            }
-
-            if (!Validation.validateNumberOfLenders(lenders)) {
-                binding.lendersFieldCannotBeEmpty.visibility = View.VISIBLE
-                binding.lendersFieldCannotBeEmpty.isFocusable
-                return@setOnClickListener
-            } else {
-                binding.describePlanFieldCannotBeEmpty.visibility = View.GONE
-                binding.lendersFieldCannotBeEmpty.isFocusable = false
+                binding.fragmentEditPlanEmptyPlanDurationTv.visibility = View.GONE
             }
 
             if (!Validation.validateDescription(planDescription)) {
                 binding.describePlanFieldCannotBeEmpty.visibility = View.VISIBLE
-                binding.describePlanFieldCannotBeEmpty.isFocusable
+                binding.fragmentEditPlanDescribePlanEt.isFocusable = true
                 return@setOnClickListener
             } else {
-                binding.supportFieldCannotBeEmpty.visibility = View.GONE
-                binding.describePlanFieldCannotBeEmpty.isFocusable = false
+                binding.describePlanFieldCannotBeEmpty.visibility = View.GONE
             }
-
-            if (!Validation.validateSupport(support)) {
-                binding.supportFieldCannotBeEmpty.visibility = View.VISIBLE
-                binding.supportFieldCannotBeEmpty.isFocusable
+            if (!Validation.validateCostPrice(costPrice)){
+                binding.fragmentEditPlanEmptyCostPriceTv.visibility = View.VISIBLE
+                binding.fragmentEditPlanCostPriceEt.isFocusable = true
                 return@setOnClickListener
-            } else {
-                binding.supportFieldCannotBeEmpty.visibility = View.GONE
-                binding.supportFieldCannotBeEmpty.isFocusable = false
+            }else{
+                binding.fragmentEditPlanEmptyCostPriceTv.visibility = View.GONE
             }
 
-            findNavController().navigate(
-                CreatePlanSummaryFragmentDirections.actionCreatePlanSummaryFragment2ToCreatePlanStepThreeFragment(),
-                customNavAnimation().build()
-            )
-            
+            viewModel.updateUserPlan(UpdatePlanRequest(
+                "emmi",planName,costPrice,sellingPrice,planCategory,planDescription,planDuration,planSector, "Physical Product"), planId, "Bearer $token")
+        }
+    }
+
+    private fun updatePlanInitObserver(){
+        viewModel.updatePlanResponse.observe(viewLifecycleOwner){resource ->
+            when(resource){
+                is Resource.Loading -> {
+                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_LONG).show()
+                }
+                is Resource.Success -> {
+                    Toast.makeText(requireContext(), "${resource.data.data?.id}", Toast.LENGTH_LONG).show()
+                }
+                is Resource.Error -> {
+                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 }

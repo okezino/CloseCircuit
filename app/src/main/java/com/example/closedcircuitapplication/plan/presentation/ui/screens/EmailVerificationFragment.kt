@@ -20,7 +20,7 @@ import com.example.closedcircuitapplication.databinding.FragmentEmailVerificatio
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import com.example.closedcircuitapplication.plan.utils.PlanUtils
-import com.example.closedcircuitapplication.plan.viewModel.PlanViewModel
+import com.example.closedcircuitapplication.plan.presentation.viewModel.PlanViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
