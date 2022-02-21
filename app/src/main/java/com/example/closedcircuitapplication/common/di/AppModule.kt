@@ -9,6 +9,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -25,10 +26,22 @@ object AppModule {
     fun provideLogger(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
+    @Provides
+    @Singleton
+    fun provideHeaderInterceptor(sharedPreferences: Preferences): Interceptor {
+        return Interceptor { chain ->
+            val request = chain.request().newBuilder()
+
+            request.addHeader("Authorization", "Bearer ${sharedPreferences.getToken()}")
+
+            chain.proceed(request.build())
+        }
+    }
+
 
     @Provides
     @Singleton
-    fun providesOkhttp(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+    fun providesOkhttp(loggingInterceptor: HttpLoggingInterceptor, headerAuthorization: Interceptor): OkHttpClient =
         OkHttpClient.Builder()
             .connectTimeout(30L, TimeUnit.SECONDS)
             .readTimeout(30L, TimeUnit.SECONDS)

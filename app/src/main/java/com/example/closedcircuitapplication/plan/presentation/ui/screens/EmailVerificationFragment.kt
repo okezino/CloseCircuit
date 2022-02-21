@@ -19,7 +19,7 @@ import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentEmailVerificationBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
-import com.example.closedcircuitapplication.plan.viewModel.PlanViewModel
+import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

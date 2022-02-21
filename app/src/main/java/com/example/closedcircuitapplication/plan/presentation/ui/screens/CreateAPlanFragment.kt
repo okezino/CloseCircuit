@@ -31,6 +31,7 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
     private val binding get() = _binding!!
     lateinit var sector: String
     lateinit var category: String
+    lateinit var businessType: String
     private var image_data = 0
     private var uri: Uri? = null
 
@@ -66,12 +67,18 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         // show the uploadImage bottomSheet when the upload image view is clicked
         setUpAutoTextViewTextChangedListener()
+        binding.uploadImageIV.setOnClickListener {
+            showUploadImageBottomSheetDialog()
+        }
 
         binding.createPlanBtn.setOnClickListener {
-            sector = binding.selectPlanCategoryDropdown.text.toString()
-            category = binding.dropdownMenu.text.toString()
+            sector = binding.dropdownMenu.text.toString()
+            category = binding.selectPlanCategoryDropdown.text.toString()
+            businessType =
+                if (binding.createPlanSelectBusinessTypeAutocompleteTextView.visibility == View.VISIBLE) binding.createPlanSelectBusinessTypeAutocompleteTextView.text.toString() else ""
             val _category = category
             val _sector = sector
             val _uri = uri.toString()
@@ -81,7 +88,10 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                     "SECTOR=====> $_sector  CATEGORY====> $_category URI====> $_uri "
                 )
                 findNavController().navigate(
-                    CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanStep2Fragment(),
+                    CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanStep2Fragment(
+                        sector, category, businessType,
+                        uri.toString()
+                    ),
                     customNavAnimation().build()
                 )
             }
@@ -104,15 +114,14 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
         }
     }
 
-    fun uploadImageWithCamera() {
+    private fun uploadImageWithCamera() {
         if (ContextCompat.checkSelfPermission(
                 requireActivity(),
                 android.Manifest.permission.CAMERA
             ) !=
             PackageManager.PERMISSION_GRANTED
         ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
+            requestPermissions(
                 arrayOf(
                     android.Manifest.permission.CAMERA,
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE
