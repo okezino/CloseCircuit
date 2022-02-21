@@ -8,8 +8,11 @@ import com.example.closedcircuitapplication.common.data.network.models.GenerateO
 import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.data.network.models.VerifyOtpDto
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
+import com.example.closedcircuitapplication.plan.domain.models.DeletePlanRequest
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
+import com.example.closedcircuitapplication.plan.domain.usecases.DeletePlanUseCaases
 import com.example.closedcircuitapplication.plan.domain.usecases.GenerateOtpUseCase
 import com.example.closedcircuitapplication.plan.domain.usecases.VerifyOtpUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,13 +23,17 @@ import javax.inject.Inject
 @HiltViewModel
 class PlanViewModel @Inject constructor(
     private val generateOtpUseCase: GenerateOtpUseCase,
-    private val verifyOtpUseCase: VerifyOtpUseCase
+    private val verifyOtpUseCase: VerifyOtpUseCase,
+    private val  deletePlanUseCaases: DeletePlanUseCaases
 ): ViewModel() {
     private var _generateOtpResponse = MutableLiveData<Resource<Result<GenerateOtpDto>>>()
     val generateOtpResponse: LiveData<Resource<Result<GenerateOtpDto>>> get() = _generateOtpResponse
 
     private var _verifyOtpResponse = MutableLiveData<Resource<Result<VerifyOtpDto>>>()
     val verifyOtpResponse: LiveData<Resource<Result<VerifyOtpDto>>> get() = _verifyOtpResponse
+
+    private var _deletePlanResponse = MutableLiveData<Resource<Result<DeletePlanResponseDto>>>()
+    val deletePlanResponse :LiveData<Resource<Result<DeletePlanResponseDto>>> get() = _deletePlanResponse
 
     fun generateOtp(generateOtpRequest: GenerateOtpRequest) {
         viewModelScope.launch {
@@ -40,6 +47,14 @@ class PlanViewModel @Inject constructor(
         viewModelScope.launch {
             verifyOtpUseCase(verifyOtpRequest).collect {
                 _verifyOtpResponse.value = it
+            }
+        }
+    }
+
+    fun deletePlan(id: String, token:String){
+        viewModelScope.launch {
+            deletePlanUseCaases(id, token).collect {
+                _deletePlanResponse.value = it
             }
         }
     }

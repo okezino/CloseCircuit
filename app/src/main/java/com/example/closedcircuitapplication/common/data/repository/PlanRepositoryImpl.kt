@@ -10,8 +10,11 @@ import com.example.closedcircuitapplication.common.data.network.models.VerifyOtp
 import com.example.closedcircuitapplication.common.domain.repository.PlanRepository
 import com.example.closedcircuitapplication.common.utils.DispatcherProvider
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
+import com.example.closedcircuitapplication.plan.domain.models.DeletePlanRequest
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class PlanRepositoryImpl @Inject constructor(
@@ -25,7 +28,7 @@ class PlanRepositoryImpl @Inject constructor(
         emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
             api.generateOtp(generateOtpRequest)
         })
-    }
+    }.flowOn(dispatcherProvider.io())
 
     override suspend fun verifyOtp(verifyOtpRequest: VerifyOtpRequest): Flow<Resource<Result<VerifyOtpDto>>> =flow {
         emit(Resource.Loading())
@@ -34,6 +37,15 @@ class PlanRepositoryImpl @Inject constructor(
                 api.verifyOtp(verifyOtpRequest)
             }
         )
-    }
+    }.flowOn(dispatcherProvider.io())
 
+    override suspend fun deletePlan(id: String, token : String): Flow<Resource<Result<DeletePlanResponseDto>>> =
+        flow{
+            emit(Resource.Loading())
+            emit(
+                ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+                    api.deletePlan(id, token)
+                }
+            )
+        }.flowOn(dispatcherProvider.io())
 }

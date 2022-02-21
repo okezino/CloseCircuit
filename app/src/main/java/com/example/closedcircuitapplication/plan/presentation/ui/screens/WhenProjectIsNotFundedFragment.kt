@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.dashboard.presentation.ui.frame13
+package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.os.Bundle
 import android.view.View
@@ -14,6 +14,9 @@ class WhenProjectIsNotFundedFragment : Fragment(R.layout.fragment_when_project_i
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentWhenProjectIsNotFundedBinding.bind(view)
+
+
+
     }
 
     override fun onDestroy() {
