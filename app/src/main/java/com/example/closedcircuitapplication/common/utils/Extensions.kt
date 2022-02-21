@@ -15,6 +15,7 @@ import com.example.closedcircuitapplication.R
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 
 fun String.toEditable() = Editable.Factory.getInstance().newEditable(this)
 
@@ -98,4 +99,8 @@ fun Fragment.customNavAnimation(): NavOptions.Builder {
     navBuilder.setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left)
         .setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right)
     return navBuilder
+}
+
+fun Fragment.makeSnackBar(message: String, view: View) {
+    Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
 }

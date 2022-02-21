@@ -114,17 +114,17 @@
     <string name="gallery">Gallery</string>
 
     <string-array name="Choose_business_Sector">
-        <item>Technology.</item>
-        <item>Agriculture.</item>
-        <item>Professional Services.</item>
-        <item>Retail.</item>
-        <item>Artisan.</item>
-        <item>Hair and Beauty.</item>
-        <item>Financial services.</item>
-        <item>Health care.</item>
-        <item>Catering.</item>
-        <item>Hospitality.</item>
-        <item>Others.</item>
+        <item>Technology</item>
+        <item>Agriculture</item>
+        <item>Professional Services</item>
+        <item>Retail</item>
+        <item>Artisan</item>
+        <item>Hair and Beauty</item>
+        <item>Financial Services</item>
+        <item>Health Care</item>
+        <item>Catering</item>
+        <item>Hospitality</item>
+        <item>Others</item>
     </string-array>
     <string-array name="Select_Budget">
         <item>School card</item>
@@ -137,7 +137,7 @@
     </string-array>
     <string-array name="business_type">
         <item>Service</item>
-        <item>Physical product</item>
+        <item>Physical Product</item>
         <item>Others</item>
     </string-array>
     <string-array name="means_of_support">
