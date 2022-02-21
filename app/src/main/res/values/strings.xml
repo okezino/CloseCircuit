@@ -262,4 +262,7 @@
     <string name="no_btn">No</string>
     <string name="yes_btn">Yes</string>
     <string name="deletePlan_dialog_message">Do you want to delete %1$s plan?</string>
+    <string name="marvin_ltd">Marvin LTD</string>
+    <string name="edit_plan">Edit Plan</string>
+    <string name="delete_plan">Delete Plan</string>
 </resources>

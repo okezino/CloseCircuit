@@ -1,8 +1,9 @@
-package com.example.closedcircuitapplication.authentication.data.datadto
+package com.example.closedcircuitapplication.authentication.data.dataDto
 
 
 data class LoginResponseDto(
-    val token: String
+    val token: String,
+    val userId: String
 )
 
 

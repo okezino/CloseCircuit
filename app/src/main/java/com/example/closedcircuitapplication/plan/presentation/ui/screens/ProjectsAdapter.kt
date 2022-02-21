@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.projectScreens
+package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -39,12 +39,12 @@ class ProjectsAdapter(private val projects: MutableList<Projects>) : RecyclerVie
             planDescription.text = project.projectDescription
             tasksCompletedProgress.progress = project.tasksCompleted.toInt()
             fundsRaisedProgress.progress = project.fundsRaised.toInt()
-            item.setOnClickListener {
-                val action = ProjectScreenFragmentDirections
-                    .actionProjectScreenFragmentToCreatePlanFragment(
-                    )
-                it.findNavController().navigate(action)
-            }
+//            item.setOnClickListener {
+//                val action = ProjectScreenFragmentDirections
+//                    .actionProjectScreenFragmentToCreatePlanFragment(
+//                    )
+//                it.findNavController().navigate(action)
+//            }
         }
     }
 }

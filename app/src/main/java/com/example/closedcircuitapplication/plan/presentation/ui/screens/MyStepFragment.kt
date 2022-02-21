@@ -67,11 +67,10 @@ class MyStepFragment : Fragment() {
         deleteDialog = Dialog(requireContext())
         deleteDialog!!.setContentView(dialogBinding)
         deleteDialog!!.setCancelable(true)
-        deleteDialog!!.window?.setBackgroundDrawable(resources.getDrawable(R.drawable.dailog_bg_color))
+        deleteDialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        val planId  = "e153d4fc-3377-4855-959b-736818e49f3b"
-        val toke = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ1NTQwMzMyLCJqdGkiOiI2OTBhNDk1NTc3YjA0MzY3YmM5YTVmMDk0MDJkN2QxZSIsInVzZXJfaWQiOiI1ZjE5MjQwZi1iM2Y2LTQyMTYtYTIwNC1iODBjOGNkZTFlYjQifQ.ZTu-vXOLtU-P00Wxc0j47YDrNU1glja_xEynk2SPppA"
-        val token = preferences.getToken()
+        val planId  = "f0b55516-7a52-44c5-a5df-8e81a129633c"
+        val authHeader = preferences.getToken()
 
         budgetAdapter.submitList(budgetList)
         manageUiView()
@@ -87,7 +86,7 @@ class MyStepFragment : Fragment() {
 
         // delete the plan when the yes button is clicked on the dialog
         yesButton.setOnClickListener {
-            Log.d("token" ,"$token")
+            Log.d("token" ,"$authHeader")
             viewModel.deletePlan(planId, "Bearer ${preferences.getToken()}")
             deleteDialog!!.dismiss()
         }
@@ -119,10 +118,10 @@ class MyStepFragment : Fragment() {
                     Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Success ->{
-                    Toast.makeText(requireContext(), "Plan has been deleted", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "${resources.data!!.message}", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Error ->{
-                    Snackbar.make( binding.root, resources.message, Snackbar.LENGTH_LONG).show()
+                    Snackbar.make( binding.root, "${resources.data!!.errors}", Snackbar.LENGTH_LONG).show()
                 }
             }
         }

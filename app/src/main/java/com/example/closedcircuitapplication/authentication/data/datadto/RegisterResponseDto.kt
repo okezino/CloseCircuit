@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.authentication.data.datadto
+package com.example.closedcircuitapplication.authentication.data.dataDto
 
 
 

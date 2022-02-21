@@ -2,6 +2,7 @@ package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,6 +41,7 @@ class CreatePlanStep2Fragment : Fragment() {
     private lateinit var planSector: String
     private lateinit var businessType: String
     private var pleaseWaitDialog: AlertDialog? = null
+    private lateinit var planId: String
 
 
     override fun onCreateView(
@@ -134,10 +136,14 @@ class CreatePlanStep2Fragment : Fragment() {
                 }
 
                 is Resource.Success -> {
+//                    planId = it.data.data?.id.toString()
+                    val planId = it.datas?.data!!.id
                     findNavController().navigate(
-                        CreatePlanStep2FragmentDirections.actionCreatePlanStep2FragmentToPlanCreatedSuccessfullyFragment(),
+                        CreatePlanStep2FragmentDirections.actionCreatePlanStep2FragmentToPlanCreatedSuccessfullyFragment(planId),
                         customNavAnimation().build()
                     )
+                    Log.e("PlanId Test2", "${it.data.data?.id}")
+                    Log.e("PlanId Test", "${it.datas?.data!!.id}")
                     showPleaseWaitAlertDialog().dismiss()
                 }
 
