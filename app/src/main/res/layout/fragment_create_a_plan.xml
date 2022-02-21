@@ -201,7 +201,7 @@
             android:enabled="false"
             android:insetTop="@dimen/inset_0dp"
             android:insetBottom="@dimen/inset_0dp"
-            android:text="@string/create_plan"
+            android:text="@string/next"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/textSize_16sp"
