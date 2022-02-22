@@ -11,6 +11,8 @@ import com.example.closedcircuitapplication.common.data.network.models.VerifyOtp
 import com.example.closedcircuitapplication.common.domain.repository.PlanRepositoryInterface
 import com.example.closedcircuitapplication.common.utils.DispatcherProvider
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
+import com.example.closedcircuitapplication.plan.domain.models.DeletePlanRequest
 import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
 import com.example.closedcircuitapplication.plan.data.datadto.UpdatePlanResponseDto
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
@@ -30,7 +32,7 @@ class PlanRepository @Inject constructor(
         emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
             api.generateOtp(generateOtpRequest)
         })
-    }
+    }.flowOn(dispatcherProvider.io())
 
     override suspend fun verifyOtp(verifyOtpRequest: VerifyOtpRequest): Flow<Resource<Result<VerifyOtpDto>>> =flow {
         emit(Resource.Loading())
@@ -39,7 +41,7 @@ class PlanRepository @Inject constructor(
                 api.verifyOtp(verifyOtpRequest)
             }
         )
-    }
+    }.flowOn(dispatcherProvider.io())
 
     override suspend fun updateUserPlan(updatePlanRequest: UpdatePlanRequest, planId: String, token: String): Flow<Resource<Result<UpdatePlanResponseDto>>> = flow {
         emit(Resource.Loading())
@@ -69,4 +71,13 @@ class PlanRepository @Inject constructor(
     }
 
 
+    override suspend fun deletePlan(id: String, token : String): Flow<Resource<Result<DeletePlanResponseDto>>> =
+        flow{
+            emit(Resource.Loading())
+            emit(
+                ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+                    api.deletePlan(id, token)
+                }
+            )
+        }.flowOn(dispatcherProvider.io())
 }

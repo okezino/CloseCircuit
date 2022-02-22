@@ -9,6 +9,8 @@ import com.example.closedcircuitapplication.common.data.network.models.VerifyOtp
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.plan.data.datadto.UpdatePlanResponseDto
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
+import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
+import com.example.closedcircuitapplication.plan.domain.models.DeletePlanRequest
 import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
 import kotlinx.coroutines.flow.Flow
 
@@ -22,4 +24,7 @@ interface PlanRepositoryInterface {
     suspend fun updateUserPlan(updatePlanRequest: UpdatePlanRequest, planId: String, token: String): Flow<Resource<Result<UpdatePlanResponseDto>>>
 
     suspend fun getPlan(planId: String, authHeader: String): Flow<Resource<Result<CreatePlanDto>>>
+
+    suspend fun deletePlan(id: String, token :String) : Flow<Resource<Result<DeletePlanResponseDto>>>
+
 }

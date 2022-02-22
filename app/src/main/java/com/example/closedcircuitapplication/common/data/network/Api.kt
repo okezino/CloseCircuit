@@ -1,6 +1,8 @@
 package com.example.closedcircuitapplication.common.data.network
 
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GENERATE_OTP
+
+import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.DELETE_PLAN
 import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto
 import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
@@ -18,6 +20,7 @@ import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.data.network.models.VerifyOtpDto
 import com.example.closedcircuitapplication.plan.data.datadto.UpdatePlanResponseDto
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
+import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
 import com.example.closedcircuitapplication.common.data.network.models.*
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
@@ -58,6 +61,13 @@ interface Api {
 
     @GET(PLANS)
     suspend fun getPlans(@Path("userId") userId: String, @Header("Authorization")authHeader: String): Result<CreatePlanDto>
+
+
+    @DELETE(DELETE_PLAN)
+    suspend fun deletePlan(
+        @Path("id") id:String,
+        @Header("Authorization")authHeader : String
+    ) : Result<DeletePlanResponseDto>
 
 
 }

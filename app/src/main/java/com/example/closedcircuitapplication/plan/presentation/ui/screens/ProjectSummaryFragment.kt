@@ -1,5 +1,8 @@
 package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -52,6 +56,11 @@ class ProjectSummaryFragment : Fragment() {
     private lateinit var _planSellingPrice: String
     private lateinit var _planCostPrice: String
 
+    private lateinit var yesButton : TextView
+    private lateinit var  noButton : TextView
+    private lateinit var  dialogMessage : TextView
+    private  var   deleteDialog : Dialog? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,9 +76,33 @@ class ProjectSummaryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initObservers()
         planName = binding.planName
-        planDuration = binding.projectDuration
         planId = args.planId
+
+        val dialogBinding = layoutInflater.inflate(R.layout.delete_plan_dialog, null)
+        yesButton = dialogBinding.findViewById(R.id.delete_plan_yes_btn)
+        noButton = dialogBinding.findViewById(R.id.delete_plan_No_btn)
+        dialogMessage = dialogBinding.findViewById(R.id.delete_dialog_tv)
+        deleteDialog = Dialog(requireContext())
+        deleteDialog!!.apply {
+            setContentView(dialogBinding)
+             setCancelable(true)
+             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        }
+
+        // delete the plan when the yes button is clicked on the dialog
+        yesButton.setOnClickListener {
+            viewModel.deletePlan(planId, "Bearer ${preferences.getToken()}")
+            deleteDialog!!.dismiss()
+        }
+        noButton.setOnClickListener {
+            Toast.makeText(requireContext(), " action declined", Toast.LENGTH_SHORT).show()
+            deleteDialog!!.dismiss()
+        }
+
+
+        planDuration = binding.projectDuration
         planImage = binding.planImageView
         sector = binding.projectBusinessSector
 
@@ -95,6 +128,10 @@ class ProjectSummaryFragment : Fragment() {
                         true
                     }
                     R.id.delete_plan -> {
+                        planName = binding.planName
+                        dialogMessage.setText(getString(R.string.deletePlan_dialog_message, planName.text.toString()))
+                        deleteDialog!!.show()
+                        Toast.makeText(requireContext(), "Showing Delete", Toast.LENGTH_LONG).show()
                         true
                     }
                     else -> false
@@ -131,6 +168,22 @@ class ProjectSummaryFragment : Fragment() {
                 1 -> tab.text = "Budgets"
             }
         }.attach()
+    }
+
+    private fun initObservers() {
+        viewModel.deletePlanResponse.observe(viewLifecycleOwner){ resources ->
+            when(resources){
+               is Resource.Loading ->{
+                Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+               }
+                is Resource.Success ->{
+                    Toast.makeText(requireContext(), "Plan deleted ${resources.data!!.message}", Toast.LENGTH_SHORT).show()
+                }
+                is Resource.Error ->{
+                    Toast.makeText(requireContext(), "${resources.data!!.errors}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     private fun initPagerAdapter() {
