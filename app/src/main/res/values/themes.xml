@@ -141,4 +141,26 @@
         <item name="android:layout_gravity">left</item>
     </style>
 
+
+    <style name= "DeletePlanDialog_Button_style" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/margin_20dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/textSize_24sp</item>
+        <item name="background">@drawable/custom_dialog_rectangle</item>
+    </style>
+
+    <style name= "DeletePlanDialog_textView_style" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_20dp</item>
+        <item name="android:layout_marginEnd">@dimen/margin_20dp</item>
+        <item name="android:layout_marginTop">@dimen/margin_20dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/textSize_24sp</item>
+    </style>
+
 </resources>

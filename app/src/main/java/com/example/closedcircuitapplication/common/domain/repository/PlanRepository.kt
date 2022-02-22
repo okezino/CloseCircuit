@@ -7,6 +7,8 @@ import com.example.closedcircuitapplication.common.data.network.models.GenerateO
 import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.data.network.models.VerifyOtpDto
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
+import com.example.closedcircuitapplication.plan.domain.models.DeletePlanRequest
 import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
 import kotlinx.coroutines.flow.Flow
 
@@ -18,4 +20,7 @@ interface PlanRepository {
     suspend fun createPlan(createPlanRequest: CreatePlanRequest, authHeader: String): Flow<Resource<Result<CreatePlanDto>>>
 
     suspend fun getPlan(planId: String, authHeader: String): Flow<Resource<Result<CreatePlanDto>>>
+
+    suspend fun deletePlan(id: String, token :String) : Flow<Resource<Result<DeletePlanResponseDto>>>
+
 }

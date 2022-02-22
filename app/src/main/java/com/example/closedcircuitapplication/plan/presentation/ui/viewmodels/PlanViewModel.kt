@@ -9,8 +9,11 @@ import com.example.closedcircuitapplication.common.data.network.models.GenerateO
 import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.data.network.models.VerifyOtpDto
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
+import com.example.closedcircuitapplication.plan.domain.models.DeletePlanRequest
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
+import com.example.closedcircuitapplication.plan.domain.usecases.DeletePlanUseCaases
 import com.example.closedcircuitapplication.plan.domain.usecases.CreatePlanUseCase
 import com.example.closedcircuitapplication.plan.domain.usecases.GenerateOtpUseCase
 import com.example.closedcircuitapplication.plan.domain.usecases.GetPlanUseCase
@@ -25,6 +28,7 @@ import javax.inject.Inject
 class PlanViewModel @Inject constructor(
     private val generateOtpUseCase: GenerateOtpUseCase,
     private val verifyOtpUseCase: VerifyOtpUseCase,
+    private val  deletePlanUseCaases: DeletePlanUseCaases,
     private val createPlanUseCase: CreatePlanUseCase,
     private val getPlanUseCase: GetPlanUseCase
 ): ViewModel() {
@@ -39,6 +43,9 @@ class PlanViewModel @Inject constructor(
 
     private var _getPlanResponse = MutableLiveData<Resource<Result<CreatePlanDto>>>()
     val getPlanResponse: LiveData<Resource<Result<CreatePlanDto>>> get() = _getPlanResponse
+
+    private var _deletePlanResponse = MutableLiveData<Resource<Result<DeletePlanResponseDto>>>()
+    val deletePlanResponse :LiveData<Resource<Result<DeletePlanResponseDto>>> get() = _deletePlanResponse
 
     fun generateOtp(generateOtpRequest: GenerateOtpRequest) {
         viewModelScope.launch {
@@ -68,6 +75,14 @@ class PlanViewModel @Inject constructor(
         viewModelScope.launch {
             getPlanUseCase(planId, authHeader).collect{
                 _getPlanResponse.value = it
+            }
+        }
+    }
+
+    fun deletePlan(id: String, authHeader:String){
+        viewModelScope.launch {
+            deletePlanUseCaases(id, authHeader).collect {
+                _deletePlanResponse.value = it
             }
         }
     }
