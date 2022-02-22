@@ -1,13 +1,13 @@
 package com.example.closedcircuitapplication.common.data.network
 
-import com.example.closedcircuitapplication.authentication.data.datadto.LoginResponseDto
-import com.example.closedcircuitapplication.authentication.data.datadto.RegisterResponseDto
-import com.example.closedcircuitapplication.authentication.domain.models.*
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GENERATE_OTP
+import com.example.closedcircuitapplication.authentication.data.dataDto.LoginResponseDto
+import com.example.closedcircuitapplication.authentication.data.dataDto.RegisterResponseDto
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.authentication.domain.models.ResetPasswordRequest
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.LOGIN
+import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.PLANS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.REGISTER
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.RESET_PASSWORD
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.UPDATE_PLAN
@@ -53,9 +53,11 @@ interface Api {
     ): Result<UpdatePlanResponseDto>
 
     @POST("plans/")
-    suspend fun createPlan(
-        @Body createPlanRequest: CreatePlanRequest,
-        @Header("Authorization") authHeader: String
-    ): Result<CreatePlanDto>
+    suspend fun createPlan(@Body createPlanRequest: CreatePlanRequest,
+        @Header("Authorization") authHeader: String): Result<CreatePlanDto>
+
+    @GET(PLANS)
+    suspend fun getPlans(@Path("userId") userId: String, @Header("Authorization")authHeader: String): Result<CreatePlanDto>
+
 
 }

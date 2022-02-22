@@ -21,11 +21,9 @@ import org.junit.runner.RunWith
 import org.mockito.Mockito.*
 
 
-<<<<<<< HEAD
-=======
+
 
 @MediumTest
->>>>>>> 19da1f1968156e2107db429f76d29519763971d4
 @RunWith(AndroidJUnit4::class)
 @ExperimentalCoroutinesApi
 @HiltAndroidTest

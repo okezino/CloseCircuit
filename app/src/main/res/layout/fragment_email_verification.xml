@@ -64,24 +64,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fragment_verify_email_title_tv" />
 
-            <TextView
-                android:id="@+id/not_your_email_message_tv"
-                android:layout_width="@dimen/width_0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10dp"
-                android:fontFamily="@font/helvetica"
-                android:text="@string/not_your_email_change_email_address"
-                android:textColor="#8A8A8E"
-                android:textSize="@dimen/textSize_15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/verify_email_notification_message" />
-
             <com.chaos.view.PinView
                 android:id="@+id/fragment_email_verification_recover_email_otpView"
                 style="@style/PinWidget.PinView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_80dp"
+                android:layout_marginTop="@dimen/margin_120dp"
                 android:background="@color/white"
                 android:cursorVisible="true"
                 android:hint="0"
@@ -96,7 +84,7 @@
                 app:itemSpacing="@dimen/spacing_3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/not_your_email_message_tv"
+                app:layout_constraintTop_toBottomOf="@+id/verify_email_notification_message"
                 app:lineColor="#EBEFF2"
                 app:viewType="rectangle" />
 

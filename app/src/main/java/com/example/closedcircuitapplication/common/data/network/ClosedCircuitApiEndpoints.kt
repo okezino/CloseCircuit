@@ -8,4 +8,5 @@ object ClosedCircuitApiEndpoints {
     const val VERIFY_OTP = "verify-otp/"
     const val RESET_PASSWORD = "reset-password/"
     const val UPDATE_PLAN = "plans/{id}/"
+    const val PLANS = "plans/{userId}"
 }

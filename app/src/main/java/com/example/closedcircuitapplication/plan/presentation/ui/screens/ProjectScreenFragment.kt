@@ -14,11 +14,11 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
+import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import com.example.closedcircuitapplication.ui.projectScreens.Projects
-import com.example.closedcircuitapplication.ui.projectScreens.ProjectsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -52,9 +52,6 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
 
         initObservers()
         fetchProjects()
-        binding.noPlansTv.setOnClickListener {
-            findNavController().navigate(R.id.editPlanFragment)
-        }
 
         binding.fragmentProjectScreenLayout.setOnClickListener {
             val email: String = prefEmail
@@ -105,16 +102,15 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
         viewModel.generateOtpResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-                    Toast.makeText(requireContext(), "Otp sent to $userEmail", Toast.LENGTH_LONG).show()
+                    makeSnackBar("Loading...", requireView())
                 }
                 is Resource.Success -> {
                     findNavController().navigate(ProjectScreenFragmentDirections
                         .actionProjectScreenFragmentToEmailVerificationFragment(), customNavAnimation().build())
-                    Toast.makeText(requireContext(), "Otp sent to $userEmail", Toast.LENGTH_SHORT).show()
+                    makeSnackBar("Otp sent to $userEmail", requireView())
                 }
                 is Resource.Error -> {
-                    //TODO(Display error message and dismiss progress bar)
-                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT).show()
+                    makeSnackBar("${resource.data?.message}",requireView())
                 }
             }
         }

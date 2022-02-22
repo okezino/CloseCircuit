@@ -59,4 +59,14 @@ class PlanRepository @Inject constructor(
         )
     }
 
+    override suspend fun getPlan(planId: String, authHeader: String): Flow<Resource<Result<CreatePlanDto>>> = flow {
+        emit((Resource.Loading()))
+        emit(
+            ApiCallsHandler.safeApiCall((dispatcherProvider.io())){
+                api.getPlans(planId, authHeader)
+            }
+        )
+    }
+
+
 }

@@ -41,6 +41,12 @@
         <action
             android:id="@+id/action_createPlanFragment_to_sendFundsSummaryFragment"
             app:destination="@id/sendFundsSummaryFragment" />
+        <argument
+            android:name="planId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_createPlanFragment_to_editPlanFragment"
+            app:destination="@id/editPlanFragment" />
     </fragment>
     <fragment
         android:id="@+id/createPlanBudgetFragment"
@@ -91,9 +97,6 @@
         <action
             android:id="@+id/action_projectScreenFragment_to_emailVerificationFragment"
             app:destination="@id/emailVerificationFragment" />
-        <action
-            android:id="@+id/action_projectScreenFragment_to_editPlanFragment"
-            app:destination="@id/editPlanFragment" />
     </fragment>
     <fragment
         android:id="@+id/emailVerificationFragment"
@@ -234,6 +237,9 @@
             android:id="@+id/action_planCreatedSuccessfullyFragment_to_createPlanFragment"
             app:destination="@id/createPlanFragment"
             app:popUpTo="@id/projectScreenFragment"/>
+        <argument
+            android:name="planId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/createAPlanFragment2"
@@ -253,6 +259,34 @@
         android:id="@+id/editPlanFragment"
         android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.EditPlanFragment"
         android:label="fragment_edit_plan"
-        tools:layout="@layout/fragment_edit_plan" />
+        tools:layout="@layout/fragment_edit_plan" >
+        <argument
+            android:name="planId"
+            app:argType="string" />
+        <argument
+            android:name="planName"
+            app:argType="string" />
+        <argument
+            android:name="planSector"
+            app:argType="string" />
+        <argument
+            android:name="planDuration"
+            app:argType="string" />
+        <argument
+            android:name="planDescription"
+            app:argType="string" />
+        <argument
+            android:name="planCategory"
+            app:argType="string" />
+        <argument
+            android:name="planSellingPrice"
+            app:argType="string" />
+        <argument
+            android:name="planCostPrice"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_editPlanFragment_to_createPlanFragment"
+            app:destination="@id/createPlanFragment" />
+    </fragment>
 
 </navigation>

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentPlanCreatedSucessfullyBinding
 
@@ -13,6 +14,8 @@ class PlanCreatedSuccessfullyFragment : Fragment() {
 
     private var _binding: FragmentPlanCreatedSucessfullyBinding? = null
     private val binding get() = _binding!!
+    private val args: PlanCreatedSuccessfullyFragmentArgs by navArgs()
+    private lateinit var planId: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,9 +28,10 @@ class PlanCreatedSuccessfullyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        planId = args.planId
         binding.planSuccessfullyCreatedProceedBtn.setOnClickListener {
             findNavController().navigate(
-                PlanCreatedSuccessfullyFragmentDirections.actionPlanCreatedSuccessfullyFragmentToCreatePlanFragment(),
+                PlanCreatedSuccessfullyFragmentDirections.actionPlanCreatedSuccessfullyFragmentToCreatePlanFragment(planId),
                 customNavAnimation().build()
             )
         }

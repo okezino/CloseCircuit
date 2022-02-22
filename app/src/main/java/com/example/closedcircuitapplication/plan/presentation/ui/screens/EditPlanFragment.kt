@@ -8,15 +8,17 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.databinding.FragmentEditPlanBinding
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
@@ -33,8 +35,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
     @Inject
     lateinit var preferences: Preferences
     private var pleaseWaitDialog: AlertDialog? = null
-
-//    private val args: FragmentEditPlanBinding by navArgs()
+    private val args: EditPlanFragmentArgs by navArgs()
 
     override fun onResume() {
         super.onResume()
@@ -69,8 +70,16 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentEditPlanBinding.bind(view)
 
-        val planId = "97aa0fc8-95c6-4420-8db0-56b03bd22b0f"
+        val planId = args.planId
         val token = preferences.getToken()
+        binding.dropdownMenuPlanSector.setText(args.planSector)
+        binding.fragmentEditPlanBusinessTypeEt.setText(args.planName)
+        binding.fragmentEditPlanDescribePlanEt.setText(args.planDescription)
+        binding.dropdownMenuPlanCategory.setText(args.planCategory)
+        binding.fragmentEditPlanPlanDurationEt.setText(args.planDuration)
+        binding.fragmentLetsCreateYourPlanSellingPriceEt.setText(args.planSellingPrice)
+        binding.fragmentEditPlanCostPriceEt.setText(args.planCostPrice)
+
         updatePlanInitObserver()
 
         // To set the maximum number of characters to be entered when a user types in the description box.
@@ -144,7 +153,17 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
             }
 
             viewModel.updateUserPlan(UpdatePlanRequest(
-                "emmi",planName,costPrice,sellingPrice,planCategory,planDescription,planDuration,planSector, "Physical Product"), planId, "Bearer $token")
+                "",
+                planName,
+                costPrice,
+                sellingPrice,
+                planCategory,
+                planDescription,
+                planDuration,
+                planSector,
+                "Physical Product"),
+                planId, "Bearer $token"
+            )
         }
     }
 
@@ -156,6 +175,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 }
                 is Resource.Success -> {
                     showPleaseWaitAlertDialog().dismiss()
+                    findNavController().navigate(EditPlanFragmentDirections.actionEditPlanFragmentToCreatePlanFragment(args.planId), customNavAnimation().build())
                 }
                 is Resource.Error -> {
                     showPleaseWaitAlertDialog().dismiss()

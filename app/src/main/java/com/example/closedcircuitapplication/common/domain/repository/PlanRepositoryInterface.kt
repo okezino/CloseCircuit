@@ -20,4 +20,6 @@ interface PlanRepositoryInterface {
     suspend fun createPlan(createPlanRequest: CreatePlanRequest, authHeader: String): Flow<Resource<Result<CreatePlanDto>>>
 
     suspend fun updateUserPlan(updatePlanRequest: UpdatePlanRequest, planId: String, token: String): Flow<Resource<Result<UpdatePlanResponseDto>>>
+
+    suspend fun getPlan(planId: String, authHeader: String): Flow<Resource<Result<CreatePlanDto>>>
 }
