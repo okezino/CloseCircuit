@@ -16,10 +16,13 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
+import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.databinding.FragmentEmailVerificationBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
+import com.example.closedcircuitapplication.plan.utils.PlanUtils
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
+import com.example.closedcircuitapplication.plan.utils.PlanConstants
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -31,7 +34,6 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
     @Inject
     lateinit var preferences: Preferences
     private var userEmail: String = ""
-    private var _displayEmail:String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,22 +51,13 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         val prefEmail = preferences.getEmail()
         userEmail = prefEmail
 
-        val userSubEmail = userEmail.substring(0,3)
-        val userEmailSplit = userEmail.split("@")
-        val userEmailEnd = userEmailSplit[1]
-        val displayEmail = "$userSubEmail****@$userEmailEnd"
-        _displayEmail = displayEmail
+        val displayEmail = PlanUtils.userEmailDisplayText(userEmail)
+        (PlanConstants.DISPLAY_TEXT_START+displayEmail+PlanConstants.DISPLAY_TEXT_END).also { binding.verifyEmailNotificationMessage.text = it }
 
-        binding.verifyEmailNotificationMessage.text = "Email has been sent to $_displayEmail, Please click on the link sent to you to verify."
-
-        setUpSpannableText()
         validateOtp()
         initObservers()
         initObserversResendOtp()
-        //TODO("TO CHANGE EMAIL ADDRESS OF USER")
-//        binding.notYourEmailMessageTv.setOnClickListener {
-//            findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToEditEmailVerificationScreenFragment(), customNavAnimation().build())
-//        }
+
         binding.closeIcon.setOnClickListener {
             findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToProjectScreenFragment(), customNavAnimation().build())
         }
@@ -86,27 +79,19 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
 
         }
     }
-    private fun setUpSpannableText() {
-        val text = "Didn’t recieve email? resend"
-        val spannableText = SpannableString(text)
-        val foregroundBlue = ForegroundColorSpan(requireActivity().resources.getColor(R.color.spannableBlue))
-        spannableText.setSpan(foregroundBlue, 22, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        binding.recoverPasswordOtpDidntReceiveEmailTextView.text = spannableText
-    }
 
     private fun initObservers(){
         viewModel.verifyOtpResponse.observe(viewLifecycleOwner, { resource ->
             when (resource) {
                 is Resource.Loading -> {
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_LONG).show()
+                    makeSnackBar("Loading",requireView())
                 }
                 is Resource.Success -> {
                     findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToSuccessfulEmailVerificationScreenFragment())
-                    Toast.makeText(requireContext(), "Email verification successful", Toast.LENGTH_LONG).show()
+                    makeSnackBar("Email verification successful",requireView())
                 }
                 is Resource.Error -> {
-                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_LONG)
-                        .show()
+                    makeSnackBar("${resource.data?.message}",requireView())
                 }
             }
         })

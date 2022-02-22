@@ -14,11 +14,13 @@ import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.plan.presentation.ui.adapters.CreateStepsBudgetsFragmentAdapter
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanBinding
@@ -46,6 +48,13 @@ class ProjectSummaryFragment : Fragment() {
     private lateinit var sector: TextView
     private val args: ProjectSummaryFragmentArgs by navArgs()
     private lateinit var planId: String
+    private lateinit var _planName: String
+    private lateinit var _planSector: String
+    private lateinit var _planDuration: String
+    private lateinit var _planDescription: String
+    private lateinit var _planCategory: String
+    private lateinit var _planSellingPrice: String
+    private lateinit var _planCostPrice: String
 
     private lateinit var yesButton : TextView
     private lateinit var  noButton : TextView
@@ -106,7 +115,16 @@ class ProjectSummaryFragment : Fragment() {
             popMenu.setOnMenuItemClickListener {
                 when (it.itemId){
                     R.id.edit_plan -> {
-                        Toast.makeText(requireContext(), "Showing Toast", Toast.LENGTH_LONG).show()
+                        findNavController().navigate(ProjectSummaryFragmentDirections.actionCreatePlanFragmentToEditPlanFragment(
+                            planId,
+                            _planName,
+                            _planSector,
+                            _planDuration,
+                            _planDescription,
+                            _planCategory,
+                            _planSellingPrice,
+                            _planCostPrice
+                        ),customNavAnimation().build() )
                         true
                     }
                     R.id.delete_plan -> {
@@ -188,6 +206,13 @@ class ProjectSummaryFragment : Fragment() {
                     planDuration.text = it.data.data?.plan_duration
 //                    planImage.setImageResource(it.data.data?.avatar!!.toInt())
                     sector.text = it.data.data?.plan_sector
+                    _planDuration = it.data.data?.plan_duration.toString()
+                    _planName = it.data.data?.business_name.toString()
+                    _planSector = it.data.data?.plan_sector.toString()
+                    _planDescription = it.data.data?.plan_description.toString()
+                    _planCategory = it.data.data?.plan_category.toString()
+                    _planCostPrice = it.data.data?.estimated_cost_price.toString()
+                    _planSellingPrice = it.data.data?.estimated_selling_price.toString()
                     Log.e("testing", "${it.data.data?.plan_duration}")
 //                    findNavController().navigate(
 //                        CreatePlanStep2FragmentDirections.actionCreatePlanStep2FragmentToPlanCreatedSuccessfullyFragment(),

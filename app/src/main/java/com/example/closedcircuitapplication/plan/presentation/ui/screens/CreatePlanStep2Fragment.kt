@@ -142,8 +142,6 @@ class CreatePlanStep2Fragment : Fragment() {
                         CreatePlanStep2FragmentDirections.actionCreatePlanStep2FragmentToPlanCreatedSuccessfullyFragment(planId),
                         customNavAnimation().build()
                     )
-                    Log.e("PlanId Test2", "${it.data.data?.id}")
-                    Log.e("PlanId Test", "${it.datas?.data!!.id}")
                     showPleaseWaitAlertDialog().dismiss()
                 }
 
