@@ -161,7 +161,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     saveToken(resource.data.data!!.token)
                     resource.datas?.data?.let { preferences.putToken(it.token) }
 
-
                     val intentBeneficiaryDashboard = Intent(requireContext(), BeneficiaryDashboardActivity::class.java)
                     startActivity(intentBeneficiaryDashboard)
                 }
