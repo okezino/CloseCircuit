@@ -259,6 +259,9 @@
     <string name="fragmentUserEditProfile_click_to_edit_tv">Click to edit</string>
     <string name="user_edit_profile_phone_number">Phone number</string>
     <string name="user_edit_profile_email_address">Email address</string>
+    <string name="no_btn">No</string>
+    <string name="yes_btn">Yes</string>
+    <string name="deletePlan_dialog_message">Do you want to delete %1$s plan?</string>
     <string name="marvin_ltd">Marvin LTD</string>
     <string name="edit_plan">Edit Plan</string>
     <string name="delete_plan">Delete Plan</string>

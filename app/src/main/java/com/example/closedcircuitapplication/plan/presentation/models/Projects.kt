@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.projectScreens
+package com.example.closedcircuitapplication.plan.presentation.models
 
 data class Projects(
     val projectName: String,

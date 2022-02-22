@@ -7,7 +7,8 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.databinding.ProjectItemBinding
-import com.example.closedcircuitapplication.ui.projectScreens.Projects
+import com.example.closedcircuitapplication.plan.presentation.models.Projects
+import com.example.closedcircuitapplication.plan.presentation.ui.screens.ProjectScreenFragmentDirections
 
 class ProjectsAdapter(private val projects: MutableList<Projects>) : RecyclerView.Adapter<ProjectsAdapter.ViewHolder>() {
 

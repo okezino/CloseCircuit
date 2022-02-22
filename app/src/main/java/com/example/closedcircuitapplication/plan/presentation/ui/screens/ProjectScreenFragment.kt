@@ -16,8 +16,9 @@ import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
+import com.example.closedcircuitapplication.plan.presentation.models.Projects
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
-import com.example.closedcircuitapplication.ui.projectScreens.Projects
+
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
