@@ -6,19 +6,19 @@ data class CreatePlanRequest(
     @SerializedName("avatar")
     var avatar: String,
     @SerializedName("plan_category")
-    var plan_category: String,
+    var planCategory: String,
     @SerializedName("plan_sector")
-    var plan_sector: String,
+    var planSector: String,
     @SerializedName("plan_type")
-    var plan_type: String,
+    var planType: String?,
     @SerializedName("business_name")
-    var business_name: String,
+    var businessName: String,
     @SerializedName("plan_description")
-    var plan_description: String,
+    var planDescription: String,
     @SerializedName("plan_duration")
-    var plan_duration: String,
+    var planDuration: String,
     @SerializedName("estimated_selling_price")
-    var estimated_selling_price: String,
+    var estimatedSellingPrice: String,
     @SerializedName("estimated_cost_price")
-    var estimated_cost_price: String
+    var estimatedCostPrice: String
 )
