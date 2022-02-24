@@ -7,7 +7,6 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +30,7 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
     private val binding get() = _binding!!
     lateinit var sector: String
     lateinit var category: String
-    lateinit var businessType: String
+    private var businessType: String? = null
     private var image_data = 0
     private var uri: Uri? = null
 
@@ -78,15 +77,11 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
             sector = binding.dropdownMenu.text.toString()
             category = binding.selectPlanCategoryDropdown.text.toString()
             businessType =
-                if (binding.createPlanSelectBusinessTypeAutocompleteTextView.visibility == View.VISIBLE) binding.createPlanSelectBusinessTypeAutocompleteTextView.text.toString() else ""
+                if (binding.createPlanSelectBusinessTypeAutocompleteTextView.visibility == View.VISIBLE) binding.createPlanSelectBusinessTypeAutocompleteTextView.text.toString() else null
             val _category = category
             val _sector = sector
             val _uri = uri.toString()
             if (_sector != null && _category != null) {
-                Log.d(
-                    "CREATE_PLAN",
-                    "SECTOR=====> $_sector  CATEGORY====> $_category URI====> $_uri "
-                )
                 findNavController().navigate(
                     CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanStep2Fragment(
                         sector, category, businessType,

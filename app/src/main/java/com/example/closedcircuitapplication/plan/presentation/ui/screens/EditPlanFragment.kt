@@ -175,6 +175,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 }
                 is Resource.Success -> {
                     showPleaseWaitAlertDialog().dismiss()
+                    makeSnackBar("${resource.data.message}", requireView())
                     findNavController().navigate(EditPlanFragmentDirections.actionEditPlanFragmentToCreatePlanFragment(args.planId), customNavAnimation().build())
                 }
                 is Resource.Error -> {

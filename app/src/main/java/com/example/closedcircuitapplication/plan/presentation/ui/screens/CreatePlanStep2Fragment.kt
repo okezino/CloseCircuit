@@ -39,7 +39,7 @@ class CreatePlanStep2Fragment : Fragment() {
     private lateinit var planAvatar: String
     private lateinit var planCategory: String
     private lateinit var planSector: String
-    private lateinit var businessType: String
+    private  var businessType: String? = null
     private var pleaseWaitDialog: AlertDialog? = null
     private lateinit var planId: String
 
@@ -63,7 +63,7 @@ class CreatePlanStep2Fragment : Fragment() {
         planAvatar = if (args.planAvatar != null) args.planAvatar!! else ""
         planCategory = args.planCategory
         planSector = args.planSector
-        businessType = args.businessType!!
+        businessType = args.businessType
 
 
         binding.fragmentLetsCreateYourPlanCreatePlanBtn.setOnClickListener {
