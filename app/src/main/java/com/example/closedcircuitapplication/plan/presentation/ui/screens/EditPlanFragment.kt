@@ -16,10 +16,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
-import com.example.closedcircuitapplication.common.utils.Resource
-import com.example.closedcircuitapplication.common.utils.Validation
-import com.example.closedcircuitapplication.common.utils.customNavAnimation
-import com.example.closedcircuitapplication.common.utils.makeSnackBar
+import com.example.closedcircuitapplication.common.utils.*
 import com.example.closedcircuitapplication.databinding.FragmentEditPlanBinding
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
 import com.example.closedcircuitapplication.plan.presentation.viewModel.PlanViewModel
@@ -106,7 +103,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
         binding.fragmentEditPlanUpdatePlanBtn.setOnClickListener {
 
             val planSector = binding.dropdownMenuPlanSector.text.toString()
-            val planName = binding.fragmentEditPlanBusinessTypeEt.text.toString()
+            val planName = capitalizeWords(binding.fragmentEditPlanBusinessTypeEt.text.toString())
             val planDescription = binding.fragmentEditPlanDescribePlanEt.text.toString()
             val planCategory = binding.dropdownMenuPlanCategory.text.toString()
             val planDuration = binding.fragmentEditPlanPlanDurationEt.text.toString()

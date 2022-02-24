@@ -7,15 +7,15 @@ import android.text.TextUtils
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.compose.ui.text.toLowerCase
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavOptions
-import com.example.closedcircuitapplication.common.presentation.ui.MainActivity
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.presentation.ui.MainActivity
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.snackbar.Snackbar
+import java.util.*
 
 fun String.toEditable() = Editable.Factory.getInstance().newEditable(this)
 
@@ -93,3 +93,14 @@ fun Activity.manipulateToolbar() {
 fun String.isValidEmail() =
     !TextUtils.isEmpty(this) && Patterns.EMAIL_ADDRESS.matcher(this).matches()
 
+
+fun Fragment.capitalizeWords(stringInput: String): String {
+    val stringInputArray = stringInput.split(" ").toMutableList()
+    var result = ""
+    for (word in stringInputArray) {
+        val lowercaseString = word.lowercase(Locale.getDefault())
+        result += "${lowercaseString.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }} "
+    }
+
+    return result.trim()
+}

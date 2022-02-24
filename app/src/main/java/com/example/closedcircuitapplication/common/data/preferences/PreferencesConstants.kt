@@ -8,5 +8,6 @@ object PreferencesConstants {
     const val ONBOARDING = "finished"
     const val KEY_EMAIL = "email"
     const val USER_ID = "userId"
+    const val USER_VERIFIED = "userVerified"
 
 }

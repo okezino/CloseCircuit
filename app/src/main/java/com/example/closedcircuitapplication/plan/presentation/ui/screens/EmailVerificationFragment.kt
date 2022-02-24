@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
@@ -86,6 +87,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
                 is Resource.Success -> {
                     findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToSuccessfulEmailVerificationScreenFragment())
                     makeSnackBar("Email verification successful",requireView())
+                    preferences.putUserVerified(true, PreferencesConstants.USER_VERIFIED)
                 }
                 is Resource.Error -> {
                     makeSnackBar("${resource.data?.message}",requireView())

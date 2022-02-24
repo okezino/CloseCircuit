@@ -97,6 +97,9 @@
         <action
             android:id="@+id/action_projectScreenFragment_to_emailVerificationFragment"
             app:destination="@id/emailVerificationFragment" />
+        <action
+            android:id="@+id/action_projectScreenFragment_to_createAPlanFragment2"
+            app:destination="@id/createAPlanFragment2" />
     </fragment>
     <fragment
         android:id="@+id/emailVerificationFragment"
