@@ -70,6 +70,14 @@ class ClosedCircuitPreferences @Inject constructor(
         return preferences.getString(KEY_EMAIL, "").orEmpty()
     }
 
-    override fun putUserId(userId: String) = edit { {putString(USER_ID, userId)} }
+    override fun putUserId(userId: String) {
+        edit { putString(USER_ID, userId) }
+    }
+
+    override fun getUserId(): String {
+        return preferences.getString(USER_ID, "").orEmpty()
+    }
+
+//    override fun putUserId(userId: String) = edit { {putString(USER_ID, userId)} }
 
 }

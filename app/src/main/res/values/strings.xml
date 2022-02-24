@@ -268,4 +268,5 @@
     <string name="marvin_ltd">Marvin LTD</string>
     <string name="edit_plan">Edit Plan</string>
     <string name="delete_plan">Delete Plan</string>
+    <string name="welcome_patience">Welcome %1$s</string>
 </resources>

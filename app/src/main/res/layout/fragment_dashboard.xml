@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="24dp"
-                android:text="Welcome Patience"
+                android:text="@string/welcome_patience"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold"
