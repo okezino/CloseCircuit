@@ -10,7 +10,6 @@ import com.example.closedcircuitapplication.common.data.network.models.VerifyOtp
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.plan.data.datadto.UpdatePlanResponseDto
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
-import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import com.example.closedcircuitapplication.plan.domain.usecases.GenerateOtpUseCase
 import com.example.closedcircuitapplication.plan.domain.usecases.UpdatePlanUseCase
@@ -24,7 +23,7 @@ import javax.inject.Inject
 class PlanViewModel @Inject constructor(
     private val generateOtpUseCase: GenerateOtpUseCase,
     private val verifyOtpUseCase: VerifyOtpUseCase,
-    private val updatePlanUseCase: UpdatePlanUseCase
+    private val updatePlanUseCase: UpdatePlanUseCase,
 ): ViewModel() {
     private var _generateOtpResponse = MutableLiveData<Resource<Result<GenerateOtpDto>>>()
     val generateOtpResponse: LiveData<Resource<Result<GenerateOtpDto>>> get() = _generateOtpResponse
@@ -51,11 +50,11 @@ class PlanViewModel @Inject constructor(
         }
     }
 
-    fun updateUserPlan(updatePlanRequest: UpdatePlanRequest, planId: String, token: String){
-        viewModelScope.launch {
-            updatePlanUseCase(updatePlanRequest, planId, token).collect {
-                _updatePlanResponse.value = it
-            }
-        }
-    }
+//    fun updateUserPlan(updatePlanRequest: UpdatePlanRequest, planId: String, token: String){
+//        viewModelScope.launch {
+//            updatePlanUseCase(updatePlanRequest, planId, token).collect {
+//                _updatePlanResponse.value = it
+//            }
+//        }
+//    }
 }
