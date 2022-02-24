@@ -45,7 +45,6 @@ class TestAuthRepository : AuthRepository {
                     )
                 )
             }
-
         }
 
     override suspend fun register(registerRequest: RegisterRequest): Flow<Resource<Result<RegisterResponseDto>>> =

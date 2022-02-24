@@ -15,5 +15,8 @@ fun Fragment.customNavAnimation(): NavOptions.Builder {
 }
 
 fun Fragment.makeSnackBar(message: String, view: View) {
-    Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
+    Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+        .setBackgroundTint(resources.getColor(R.color.text_color))
+        .setTextColor(resources.getColor(R.color.white))
+        .show()
 }

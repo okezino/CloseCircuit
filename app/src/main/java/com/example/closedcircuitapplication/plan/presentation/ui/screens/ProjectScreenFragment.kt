@@ -1,6 +1,7 @@
 package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,18 +18,20 @@ import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
+import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
+import com.example.closedcircuitapplication.plan.presentation.models.Plan
 import com.example.closedcircuitapplication.plan.presentation.models.Projects
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
+class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), ProjectsAdapter.SetItemClickListener {
     private var _binding: FragmentProjectScreenBinding? = null
     private val binding get() = _binding!!
     private lateinit var projectsAdapter: ProjectsAdapter
     private lateinit var projectsRecyclerView: RecyclerView
-
+    private var myPlansList =  mutableListOf<Plan>()
     @Inject
     lateinit var preferences: Preferences
     private val viewModel: PlanViewModel by viewModels()
@@ -51,10 +54,15 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
 
         val prefEmail = preferences.getEmail()
         userEmail = prefEmail
+        myPlansList = ArrayList<Plan>()
+
 
         initObservers()
         fetchProjects()
         isUserVerified = preferences.getUserVerifiedValue(PreferencesConstants.USER_VERIFIED)
+        initObserversMyPlans()
+
+        viewModel.getMyPlans(100, 0, "Bearer ${preferences.getToken()}")
 
         binding.fragmentProjectScreenLayout.setOnClickListener {
             val email: String = prefEmail
@@ -108,11 +116,15 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                 "Project"
             )
         )
-        projectsAdapter = ProjectsAdapter(projects)
+        projectsAdapter = ProjectsAdapter(myPlansList)
 
         projectsRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         projectsRecyclerView.adapter = projectsAdapter
+//        projectsAdapter = ProjectsAdapter(projects)
+//
+//        projectsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+//        projectsRecyclerView.adapter = projectsAdapter
     }
 
     private fun initObservers() {
@@ -134,5 +146,45 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                 }
             }
         }
+    }
+
+    private fun initObserversMyPlans(){
+        viewModel.getMyPlansResponse.observe(viewLifecycleOwner) { resource ->
+            when (resource) {
+                is Resource.Loading -> {
+                    makeSnackBar("Loading...", requireView())
+                }
+                is Resource.Success -> {
+                    resource.data.data?.plans
+                    var res = resource.datas?.data!!.plans[0].business_name
+                    Log.d("listofplans", "$res")
+                    Log.d("listofplans2", "${resource.datas.data.plans}")
+
+                    projectsAdapter = ProjectsAdapter(resource.data.data!!.plans, )
+
+                    projectsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+                    resource.data.data.plans.let {
+                        projectsAdapter.submitList(resource.data.data.plans)
+                        projectsAdapter.notifyDataSetChanged()
+                        projectsRecyclerView.adapter = projectsAdapter
+                    }
+
+                    if (resource.data.data?.plans == null){
+                        binding.emptyProject.visibility = View.VISIBLE
+                    }else{
+                        binding.projectsRecyclerView.visibility = View.VISIBLE
+                        binding.emptyProject.visibility = View.GONE
+                    }
+                }
+                is Resource.Error -> {
+                    makeSnackBar("${resource.data?.message}",requireView())
+                }
+            }
+        }
+    }
+
+    override fun allPlansItemClicked(position: Int) {
+        makeSnackBar("clicked...", requireView())
     }
 }

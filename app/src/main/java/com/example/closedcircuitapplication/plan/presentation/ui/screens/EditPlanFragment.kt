@@ -19,7 +19,7 @@ import com.example.closedcircuitapplication.common.presentation.utils.showCustom
 import com.example.closedcircuitapplication.common.utils.*
 import com.example.closedcircuitapplication.databinding.FragmentEditPlanBinding
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
-import com.example.closedcircuitapplication.plan.presentation.viewModel.PlanViewModel
+import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -172,6 +172,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 }
                 is Resource.Success -> {
                     showPleaseWaitAlertDialog().dismiss()
+                    makeSnackBar("${resource.data.message}", requireView())
                     findNavController().navigate(EditPlanFragmentDirections.actionEditPlanFragmentToCreatePlanFragment(args.planId), customNavAnimation().build())
                 }
                 is Resource.Error -> {
