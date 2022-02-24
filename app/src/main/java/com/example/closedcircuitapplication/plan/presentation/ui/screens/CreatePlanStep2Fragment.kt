@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.compose.ui.text.capitalize
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -15,6 +16,7 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.common.utils.capitalizeWords
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanStep2Binding
@@ -81,7 +83,7 @@ class CreatePlanStep2Fragment : Fragment() {
                         planCategory,
                         planSector,
                         businessType,
-                        businessNameEditText.text.toString(),
+                        capitalizeWords(businessNameEditText.text.toString()),
                         planDescriptionEditText.text.toString(),
                         planDuration.text.toString(),
                         estimatedSellingPrice.text.toString(),
