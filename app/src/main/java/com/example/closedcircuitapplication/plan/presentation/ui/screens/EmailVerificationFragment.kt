@@ -1,9 +1,6 @@
 package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,7 +56,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         initObserversResendOtp()
 
         binding.closeIcon.setOnClickListener {
-            findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToProjectScreenFragment(), customNavAnimation().build())
+            activity?.onBackPressed()
         }
         binding.recoverPasswordOtpDidntReceiveEmailTextView.setOnClickListener {
             val email: String = prefEmail
