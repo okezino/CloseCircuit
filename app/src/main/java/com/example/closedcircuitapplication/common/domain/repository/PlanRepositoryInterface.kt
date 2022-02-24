@@ -1,17 +1,15 @@
 package com.example.closedcircuitapplication.common.domain.repository
 
-import com.example.closedcircuitapplication.common.data.network.models.CreatePlanDto
+import com.example.closedcircuitapplication.common.data.network.models.*
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
-import com.example.closedcircuitapplication.common.data.network.models.GenerateOtpDto
-import com.example.closedcircuitapplication.common.data.network.models.Result
-import com.example.closedcircuitapplication.common.data.network.models.VerifyOtpDto
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.plan.data.datadto.UpdatePlanResponseDto
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
 import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
-import com.example.closedcircuitapplication.plan.domain.models.DeletePlanRequest
 import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
+import com.example.closedcircuitapplication.common.data.network.models.GenerateOtpDto
+import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import kotlinx.coroutines.flow.Flow
 
 interface PlanRepositoryInterface {
@@ -26,5 +24,7 @@ interface PlanRepositoryInterface {
     suspend fun getPlan(planId: String, authHeader: String): Flow<Resource<Result<CreatePlanDto>>>
 
     suspend fun deletePlan(id: String, token :String) : Flow<Resource<Result<DeletePlanResponseDto>>>
+
+    suspend fun getMyPlans(limit: Int, offset: Int, authHeader: String): Flow<Resource<Result<GetMyPlansDto>>>
 
 }

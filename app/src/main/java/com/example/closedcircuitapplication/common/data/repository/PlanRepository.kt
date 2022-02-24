@@ -4,18 +4,16 @@ import com.example.closedcircuitapplication.authentication.data.mappers.DomainPo
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import com.example.closedcircuitapplication.common.data.network.Api
-import com.example.closedcircuitapplication.common.data.network.models.CreatePlanDto
-import com.example.closedcircuitapplication.common.data.network.models.GenerateOtpDto
-import com.example.closedcircuitapplication.common.data.network.models.Result
-import com.example.closedcircuitapplication.common.data.network.models.VerifyOtpDto
+import com.example.closedcircuitapplication.common.data.network.models.*
 import com.example.closedcircuitapplication.common.domain.repository.PlanRepositoryInterface
 import com.example.closedcircuitapplication.common.utils.DispatcherProvider
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
-import com.example.closedcircuitapplication.plan.domain.models.DeletePlanRequest
 import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
 import com.example.closedcircuitapplication.plan.data.datadto.UpdatePlanResponseDto
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
+import com.example.closedcircuitapplication.common.data.network.models.GenerateOtpDto
+import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -80,4 +78,17 @@ class PlanRepository @Inject constructor(
                 }
             )
         }.flowOn(dispatcherProvider.io())
+
+    override suspend fun getMyPlans(
+        limit: Int,
+        offset: Int,
+        authHeader: String
+    ): Flow<Resource<Result<GetMyPlansDto>>> = flow {
+        emit((Resource.Loading()))
+        emit(
+            ApiCallsHandler.safeApiCall((dispatcherProvider.io())){
+                api.getAllPlans(limit, offset, authHeader)
+            }
+        )
+    }.flowOn(dispatcherProvider.io())
 }

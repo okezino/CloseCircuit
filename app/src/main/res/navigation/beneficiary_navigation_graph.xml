@@ -47,6 +47,9 @@
         <action
             android:id="@+id/action_createPlanFragment_to_editPlanFragment"
             app:destination="@id/editPlanFragment" />
+        <action
+            android:id="@+id/action_createPlanFragment_to_projectScreenFragment"
+            app:destination="@id/projectScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/createPlanBudgetFragment"

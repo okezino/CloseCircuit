@@ -54,6 +54,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         val displayEmail = PlanUtils.userEmailDisplayText(userEmail)
         (PlanConstants.DISPLAY_TEXT_START+displayEmail+PlanConstants.DISPLAY_TEXT_END).also { binding.verifyEmailNotificationMessage.text = it }
 
+        setUpSpannableText()
         validateOtp()
         initObservers()
         initObserversResendOtp()
@@ -65,6 +66,13 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
             val email: String = prefEmail
             viewModel.generateOtp(GenerateOtpRequest(email))
         }
+
+        binding.recoverPasswordOtpDidntReceiveEmailTextView.setOnClickListener {
+            val email: String = prefEmail
+            viewModel.generateOtp(GenerateOtpRequest(email))
+        }
+
+
 
     }
     private fun validateOtp() {
@@ -110,5 +118,14 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
                 }
             }
         }
+    }
+
+    private fun setUpSpannableText() {
+        val text = "Didn’t recieve email? resend"
+        val spannableText = SpannableString(text)
+        val foregroundBlue =
+            ForegroundColorSpan(requireActivity().resources.getColor(R.color.spannableBlue))
+        spannableText.setSpan(foregroundBlue, 22, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        binding.recoverPasswordOtpDidntReceiveEmailTextView.text = spannableText
     }
 }
