@@ -23,6 +23,10 @@ interface Preferences {
     fun getEmail(): String
 
     fun putUserId(userId: String)
+    fun getUserId(): String
+
+    fun putUserFirstName(firstName:String)
+    fun getUserFirstName(): String
 
     fun getUserId(userIdKey: String): String
 

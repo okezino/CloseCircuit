@@ -95,8 +95,6 @@ class ProjectSummaryFragment : Fragment() {
         yesButton.setOnClickListener {
             viewModel.deletePlan(planId, "Bearer ${preferences.getToken()}")
             deleteDialog!!.dismiss()
-
-//            Toast.makeText(requireContext(), "Plan delete ${resources.data!!.message}full", Toast.LENGTH_SHORT).show()
         }
         noButton.setOnClickListener {
             Toast.makeText(requireContext(), " action declined", Toast.LENGTH_SHORT).show()
@@ -153,8 +151,6 @@ class ProjectSummaryFragment : Fragment() {
                 popMenu.show()
             }
         }
-
-
 //        binding.planLink.setOnClickListener {
 //            findNavController().navigate(R.id.sendFundsSummaryFragment)
 //        }
@@ -179,7 +175,7 @@ class ProjectSummaryFragment : Fragment() {
                 Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                }
                 is Resource.Success ->{
-                    findNavController().navigate(ProjectSummaryFragmentDirections.actionCreatePlanFragmentToProjectScreenFragment())
+                    findNavController().navigate(ProjectSummaryFragmentDirections.actionCreatePlanFragmentToProjectScreenFragment(), customNavAnimation().build())
                     Toast.makeText(requireContext(), "Plan deleted ${resources.data!!.message}", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Error ->{
