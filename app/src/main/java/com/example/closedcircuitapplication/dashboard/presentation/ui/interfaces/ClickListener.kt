@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.dashboard.interfaces
+package com.example.closedcircuitapplication.dashboard.presentation.ui.interfaces
 
 import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
 
