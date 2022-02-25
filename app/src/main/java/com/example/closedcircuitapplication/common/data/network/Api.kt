@@ -8,6 +8,7 @@ import com.example.closedcircuitapplication.authentication.data.dataDto.Register
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.authentication.domain.models.ResetPasswordRequest
+import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GET_MY_PLANS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.LOGIN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.PLANS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.REGISTER
@@ -28,6 +29,7 @@ import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpReques
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import retrofit2.http.*
 import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
+import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import retrofit2.http.Body
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -63,6 +65,9 @@ interface Api {
 
     @GET(PLANS)
     suspend fun getPlans(@Path("userId") userId: String, @Header("Authorization")authHeader: String): Result<CreatePlanDto>
+
+    @GET(GET_MY_PLANS)
+    suspend fun getAllPlans(@Query("limit")limit: Int, @Query("offset")offSet: Int, @Header("Authorization")authHeader: String): Result<GetMyPlansDto>
 
 
     @DELETE(DELETE_PLAN)

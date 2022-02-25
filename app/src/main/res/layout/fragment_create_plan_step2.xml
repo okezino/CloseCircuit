@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/helvetica"
-            android:text="@string/enter_business_name"
+            android:text="@string/enter_plan_name"
             android:textColor="#24500F"
             android:textSize="15sp" />
 
@@ -193,7 +193,7 @@
                 android:fontFamily="@font/helvetica"
                 android:foregroundGravity="left"
                 android:gravity="center_vertical"
-                android:inputType="text"
+                android:inputType="number"
                 android:paddingStart="10dp"
                 android:maxLines="1"
                 android:textColor="@color/black"
@@ -248,7 +248,7 @@
                 android:fontFamily="@font/helvetica"
                 android:foregroundGravity="left"
                 android:gravity="center_vertical"
-                android:inputType="text"
+                android:inputType="number"
                 android:maxLines="1"
                 android:paddingStart="10dp"
                 android:textColor="@color/black"

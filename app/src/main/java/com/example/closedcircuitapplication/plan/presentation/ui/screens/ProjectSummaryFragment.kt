@@ -95,6 +95,8 @@ class ProjectSummaryFragment : Fragment() {
         yesButton.setOnClickListener {
             viewModel.deletePlan(planId, "Bearer ${preferences.getToken()}")
             deleteDialog!!.dismiss()
+
+//            Toast.makeText(requireContext(), "Plan delete ${resources.data!!.message}full", Toast.LENGTH_SHORT).show()
         }
         noButton.setOnClickListener {
             Toast.makeText(requireContext(), " action declined", Toast.LENGTH_SHORT).show()
@@ -177,6 +179,7 @@ class ProjectSummaryFragment : Fragment() {
                 Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                }
                 is Resource.Success ->{
+                    findNavController().navigate(ProjectSummaryFragmentDirections.actionCreatePlanFragmentToProjectScreenFragment(), customNavAnimation().build())
                     Toast.makeText(requireContext(), "Plan deleted ${resources.data!!.message}", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Error ->{
@@ -204,7 +207,6 @@ class ProjectSummaryFragment : Fragment() {
                 is Resource.Success -> {
                     planName.text =  it.data.data?.business_name
                     planDuration.text = it.data.data?.plan_duration
-//                    planImage.setImageResource(it.data.data?.avatar!!.toInt())
                     sector.text = it.data.data?.plan_sector
                     _planDuration = it.data.data?.plan_duration.toString()
                     _planName = it.data.data?.business_name.toString()

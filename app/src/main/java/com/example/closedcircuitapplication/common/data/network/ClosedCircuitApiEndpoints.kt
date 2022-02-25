@@ -11,4 +11,5 @@ object ClosedCircuitApiEndpoints {
     const val UPDATE_PLAN = "plans/{id}/"
     const val PLANS = "plans/{userId}"
     const val USER_DETAILS = "manage-user/{id}/"
+    const val GET_MY_PLANS = "plans/get-plans/"
 }

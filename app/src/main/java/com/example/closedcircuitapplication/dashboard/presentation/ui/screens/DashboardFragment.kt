@@ -1,7 +1,6 @@
 package com.example.closedcircuitapplication.dashboard.presentation.ui.screens
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
@@ -21,7 +21,7 @@ import com.example.closedcircuitapplication.dashboard.presentation.ui.adapter.Re
 import com.example.closedcircuitapplication.dashboard.presentation.models.DonationItem
 import com.example.closedcircuitapplication.dashboard.presentation.models.PlanItems
 import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
-import com.example.closedcircuitapplication.dashboard.utils.DashboardUtils
+import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
 import com.example.closedcircuitapplication.databinding.FragmentDashboardBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -105,10 +105,14 @@ class DashboardFragment : Fragment() {
                 }
                 is Resource.Success ->{
                     val fullName = it.data.data?.fullName.toString()
-                    val firstName = DashboardUtils.userFullName(fullName)
+                    val firstName = UserNameSplitterUtils.userFullName(fullName)
                     binding.welcomeTitle.text = getString(R.string.welcome_patience, firstName)
                     // saving email to sharedPreference
                     it.data.data?.let { email -> saveEmail(email.email) }
+                    //save verification status to sharedPreference
+                    it.data.data?.isVerified?.let { status -> saveEmailStatus(status) }
+                    // save user first name to sharedPreference
+                    it.data.data?.fullName?.let { name -> saveUserFirstName(name) }
                 }
                 is Resource.Error ->{
                     makeSnackBar("${it.data?.message}", requireView())
@@ -121,6 +125,8 @@ class DashboardFragment : Fragment() {
         viewModel.getUserDetails(preferences.getUserId(), "Bearer ${preferences.getToken()}")
     }
     private fun saveEmail(email: String) = preferences.saveEmail(email)
+    private fun saveEmailStatus(status: Boolean) = preferences.putUserVerified(status, PreferencesConstants.USER_VERIFIED)
+    private fun saveUserFirstName(firstName: String) = preferences.putUserFirstName(firstName)
 
     override fun onDestroyView() {
         super.onDestroyView()
