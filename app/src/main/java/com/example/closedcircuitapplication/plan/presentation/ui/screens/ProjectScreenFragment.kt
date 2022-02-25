@@ -16,10 +16,11 @@ import com.example.closedcircuitapplication.common.data.preferences.PreferencesC
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
+import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
-import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
+import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import com.example.closedcircuitapplication.plan.presentation.models.Projects
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,7 +37,6 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
     lateinit var preferences: Preferences
     private val viewModel: PlanViewModel by viewModels()
     private var userEmail: String = ""
-    private var isUserVerified: Boolean? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,13 +53,13 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
         super.onViewCreated(view, savedInstanceState)
 
         val prefEmail = preferences.getEmail()
+        val firstName = preferences.getUserFirstName()
         userEmail = prefEmail
         myPlansList = ArrayList<Plan>()
-
+        binding.notStartedAPlanTv.text = getString(R.string.user_name, UserNameSplitterUtils.userFullName(firstName))
 
         initObservers()
         fetchProjects()
-        isUserVerified = preferences.getUserVerifiedValue(PreferencesConstants.USER_VERIFIED)
         initObserversMyPlans()
 
         viewModel.getMyPlans(100, 0, "Bearer ${preferences.getToken()}")
@@ -67,7 +67,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
         binding.fragmentProjectScreenLayout.setOnClickListener {
             val email: String = prefEmail
 
-            if (isUserVerified == false) {
+            if (!preferences.getUserVerifiedValue(PreferencesConstants.USER_VERIFIED)) {
                 viewModel.generateOtp(GenerateOtpRequest(email))
                 findNavController().navigate(
                     ProjectScreenFragmentDirections
@@ -121,10 +121,6 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
         projectsRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         projectsRecyclerView.adapter = projectsAdapter
-//        projectsAdapter = ProjectsAdapter(projects)
-//
-//        projectsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-//        projectsRecyclerView.adapter = projectsAdapter
     }
 
     private fun initObservers() {
@@ -156,8 +152,8 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                 }
                 is Resource.Success -> {
                     resource.data.data?.plans
-                    var res = resource.datas?.data!!.plans[0].business_name
-                    Log.d("listofplans", "$res")
+                    val res = resource.datas?.data!!.plans[0].business_name
+                    Log.d("listofplans", res)
                     Log.d("listofplans2", "${resource.datas.data.plans}")
 
                     projectsAdapter = ProjectsAdapter(resource.data.data!!.plans, )
@@ -186,7 +182,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                     }
                 }
                 is Resource.Error -> {
-                    makeSnackBar("${resource.data?.message}",requireView())
+//                    makeSnackBar("${resource.data?.message}",requireView())
                 }
             }
         }

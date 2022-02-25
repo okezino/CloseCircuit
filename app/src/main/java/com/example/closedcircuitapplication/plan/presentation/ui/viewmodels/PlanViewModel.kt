@@ -104,7 +104,6 @@ class PlanViewModel @Inject constructor(
         viewModelScope.launch {
             getMyPlansUseCase(limit, offset, authHeader).collect {
                 _getMyPlansResponse.value = it
-                Log.d("dataview", "$it")
             }
         }
 
