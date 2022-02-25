@@ -79,7 +79,9 @@
         <entry key="app/src/main/res/layout/fragment_create_plan_summary.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_create_steps.xml" value="0.21875" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1234375" />
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.18704710144927536" />
+        <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_edit_plan.xml" value="0.2606541129831516" />
         <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.5" />

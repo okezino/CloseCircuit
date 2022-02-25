@@ -71,6 +71,21 @@ class ClosedCircuitPreferences @Inject constructor(
         return preferences.getString(KEY_EMAIL, "").orEmpty()
     }
 
+    override fun getUserId(userIdKey: String): String {
+        return preferences.getString(userIdKey, "").orEmpty()
+    }
+
+
+    override fun putUserPhoneNumber(key: String, phoneNumber: String) {
+        edit {
+            putString(key, phoneNumber)
+        }
+    }
+
+    override fun getUserPhoneNumber(key: String): String {
+        return preferences.getString(key, "").orEmpty()
+    }
+
     override fun putUserId(userId: String) {
         edit { putString(USER_ID, userId) }
     }
@@ -83,6 +98,7 @@ class ClosedCircuitPreferences @Inject constructor(
             putBoolean(keyType, verifiedValue)
         }
     }
+
 
     override fun getUserVerifiedValue(key: String): Boolean {
         return preferences.getBoolean(key, false)

@@ -269,4 +269,10 @@
     <string name="edit_plan">Edit Plan</string>
     <string name="delete_plan">Delete Plan</string>
     <string name="welcome_patience">Welcome %1$s</string>
+    <string name="Plan_name_must_not_be_empty_text">Business name must not be empty</string>
+    <string name="Plan_description_must_not_be_empty_text">Plan description must not be empty</string>
+    <string name="Plan_duraton_must_not_be_empty_text">Plan duration must not be empty</string>
+    <string name="Estimated_selling_price_must_not_be_empty_text">Estimated selling price must not be empty</string>
+    <string name="Estimated_cost_must_not_be_empty_text">Estimated cost price must not be empty</string>
+    <string name="Cost_price_cannot_be_greater_text">Cost price cannot be greater than selling price</string>
 </resources>

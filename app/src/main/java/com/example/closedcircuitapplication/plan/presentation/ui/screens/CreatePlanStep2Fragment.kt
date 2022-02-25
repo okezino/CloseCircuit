@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_PHONE_NUMBER
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.capitalizeWords
@@ -57,6 +58,20 @@ class CreatePlanStep2Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val phoneNumber = preferences.getUserPhoneNumber(USER_PHONE_NUMBER)
+        Log.d("NUMBER", "PHONE_NUMBER $phoneNumber")
+        if (phoneNumber.startsWith("+234")){
+            binding.apply {
+                fragmentSummaryMaximumTv.text = "NGN"
+                frgamentSummaryMinimumTv.text = "NGN"
+            }
+        }
+        else if (phoneNumber.startsWith("+27")){
+            binding.apply {
+                fragmentSummaryMaximumTv.text = "ZAR"
+                frgamentSummaryMinimumTv.text = "ZAR"
+            }
+        }
         businessNameEditText = binding.fragmentLetsCreateYourPlanBusinessNameEt
         planDescriptionEditText = binding.fragmentLetsCreateYourPlanDescribeYourPlanEt
         planDuration = binding.fragmentLetsCreateYourPlanMonthDurationEt
@@ -104,27 +119,32 @@ class CreatePlanStep2Fragment : Fragment() {
         costPrice: EditText
     ): Boolean {
         if (businessName.text.toString().isEmpty()) {
-            makeSnackBar("Business name must not be empty", requireView())
+            makeSnackBar(getString(R.string.Plan_name_must_not_be_empty_text), requireView())
             return false
         }
 
         if (planDescription.text.toString().isEmpty()) {
-            makeSnackBar("Plan description must not be empty", requireView())
+            makeSnackBar(getString(R.string.Plan_description_must_not_be_empty_text), requireView())
             return false
         }
 
         if (planDuration.text.toString().isEmpty()) {
-            makeSnackBar("Plan duration must not be empty", requireView())
+            makeSnackBar(getString(R.string.Plan_duraton_must_not_be_empty_text), requireView())
             return false
         }
 
         if (sellingPrice.text.toString().isEmpty()) {
-            makeSnackBar("Estimated selling price must not be empty", requireView())
+            makeSnackBar(getString(R.string.Estimated_selling_price_must_not_be_empty_text), requireView())
             return false
         }
 
         if (costPrice.text.toString().isEmpty()) {
-            makeSnackBar("Estimated cost price must not be empty", requireView())
+            makeSnackBar(getString(R.string.Estimated_cost_must_not_be_empty_text), requireView())
+            return false
+        }
+
+        if (costPrice.text.toString().toFloat() > sellingPrice.text.toString().toFloat()) {
+            makeSnackBar(getString(R.string.Cost_price_cannot_be_greater_text),requireView())
             return false
         }
         return true

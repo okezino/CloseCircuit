@@ -20,6 +20,7 @@ import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
+import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import com.example.closedcircuitapplication.plan.presentation.models.Projects
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,7 +37,6 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
     lateinit var preferences: Preferences
     private val viewModel: PlanViewModel by viewModels()
     private var userEmail: String = ""
-    private var isUserVerified: Boolean? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,7 +60,6 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
 
         initObservers()
         fetchProjects()
-        isUserVerified = preferences.getUserVerifiedValue(PreferencesConstants.USER_VERIFIED)
         initObserversMyPlans()
 
         viewModel.getMyPlans(100, 0, "Bearer ${preferences.getToken()}")
@@ -122,10 +121,6 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
         projectsRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         projectsRecyclerView.adapter = projectsAdapter
-//        projectsAdapter = ProjectsAdapter(projects)
-//
-//        projectsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-//        projectsRecyclerView.adapter = projectsAdapter
     }
 
     private fun initObservers() {
