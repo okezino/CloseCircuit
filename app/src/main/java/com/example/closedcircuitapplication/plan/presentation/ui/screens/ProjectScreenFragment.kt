@@ -166,7 +166,6 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                         projectsRecyclerView.adapter = projectsAdapter
                         projectsAdapter.setOnItemClickListener(object : ProjectsAdapter.onItemClickListener{
                             override fun allPlansItemClicked(position: Int) {
-                                makeSnackBar("$position",requireView())
                                 findNavController().navigate(ProjectScreenFragmentDirections.actionProjectScreenFragmentToCreatePlanFragment(
                                     resource.data.data.plans[position].id))
                             }
