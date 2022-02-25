@@ -75,4 +75,9 @@ interface Api {
     ) : Result<DeletePlanResponseDto>
 
 
+    @GET("manage-user/{id}/")
+    suspend fun getUserDetails(
+        @Path("id") id: String,
+        @Header("Authorization") header: String
+    ): Result<GetUserDetailsDto>
 }
