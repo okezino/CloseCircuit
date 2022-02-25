@@ -9,5 +9,6 @@ object PreferencesConstants {
     const val KEY_EMAIL = "email"
     const val USER_ID = "userId"
     const val USER_VERIFIED = "userVerified"
+    const val USER_PHONE_NUMBER = "userPhoneNumber"
 
 }

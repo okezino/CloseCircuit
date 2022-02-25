@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
@@ -150,8 +151,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     saveEmail(_email)
                     preferences.saveEmail(_email)
                     //this is used to save the userId address
-//                    saveUserId(resource.data.data.userId)
-//                    preferences.putUserId(resource.datas.data.userId)
+                    preferences.putUserId(resource.datas.data.userId)
+                    Log.d("myUserId", resource.datas.data.userId)
 
                     resource.data.data.let { token ->
                         token?.let { saveToken(it.token) }
