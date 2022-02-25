@@ -16,7 +16,18 @@ import com.example.closedcircuitapplication.plan.presentation.models.Projects
 
 class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Adapter<ProjectsAdapter.ViewHolder>() {
 
-//     lateinit var listener :SetItemClickListener
+     lateinit var mListener: onItemClickListener
+
+
+    interface onItemClickListener {
+        fun allPlansItemClicked(position: Int)
+        //        fun setOnItemClick(position: Int,myView: View?)
+//        fun toggleSaveItemToWishList(position: Int, saveItemTextBox: TextView, saveItemImage: ImageView, item: TopDealAndHotelData)
+    }
+
+    fun setOnItemClickListener(listener : onItemClickListener){
+        mListener = listener
+    }
 
 
     private val differCallBack = object : DiffUtil.ItemCallback<Plan>() {
@@ -32,7 +43,7 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Ad
     val differ = AsyncListDiffer(this, differCallBack)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ProjectItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding)
+        return ViewHolder(binding, mListener)
     }
 
     fun submitList(list: List<Plan>) = differ.submitList(list)
@@ -49,7 +60,7 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Ad
     }
 
     // listener : SetItemClickListener
-    class ViewHolder(binding: ProjectItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(binding: ProjectItemBinding, listener:onItemClickListener) : RecyclerView.ViewHolder(binding.root) {
         private val planName: TextView = binding.planNameTextView
         private val fundsRaised: TextView = binding.fundsRaisedTextView
         private val tasksCompleted: TextView = binding.tasksCompletedTextView
@@ -57,6 +68,17 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Ad
         private val tasksCompletedProgress: ProgressBar = binding.tasksCompletedProgressBar
         private val fundsRaisedProgress: ProgressBar = binding.fundsRaisedProgressBar
         val item = binding.root
+
+        init {
+
+            item.setOnClickListener {
+
+                listener.allPlansItemClicked( adapterPosition)
+
+
+            }
+
+        }
 
         fun bindView(project: Plan) {
             planName.text = project.business_name
@@ -72,16 +94,6 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Ad
 ////            }
 //            }
         }
-    }
-
-    fun setOnItemClickListener(itemListener : SetItemClickListener){
-//        listener = itemListener
-    }
-
-    interface SetItemClickListener{
-        fun allPlansItemClicked(position: Int)
-        //        fun setOnItemClick(position: Int,myView: View?)
-//        fun toggleSaveItemToWishList(position: Int, saveItemTextBox: TextView, saveItemImage: ImageView, item: TopDealAndHotelData)
     }
 }
 

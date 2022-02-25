@@ -26,7 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), ProjectsAdapter.SetItemClickListener {
+class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
     private var _binding: FragmentProjectScreenBinding? = null
     private val binding get() = _binding!!
     private lateinit var projectsAdapter: ProjectsAdapter
@@ -168,6 +168,14 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
                         projectsAdapter.submitList(resource.data.data.plans)
                         projectsAdapter.notifyDataSetChanged()
                         projectsRecyclerView.adapter = projectsAdapter
+                        projectsAdapter.setOnItemClickListener(object : ProjectsAdapter.onItemClickListener{
+                            override fun allPlansItemClicked(position: Int) {
+                                makeSnackBar("$position",requireView())
+                                findNavController().navigate(ProjectScreenFragmentDirections.actionProjectScreenFragmentToCreatePlanFragment(
+                                    resource.data.data.plans[position].id))
+                            }
+
+                        })
                     }
 
                     if (resource.data.data?.plans == null){
@@ -184,7 +192,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
         }
     }
 
-    override fun allPlansItemClicked(position: Int) {
-        makeSnackBar("clicked...", requireView())
-    }
+//    override fun allPlansItemClicked(position: Int) {
+//        makeSnackBar("clicked...", requireView())
+//    }
 }
