@@ -23,9 +23,19 @@ interface Preferences {
     fun getEmail(): String
 
     fun putUserId(userId: String)
+    fun getUserId(): String
+
+    fun putUserFirstName(firstName:String)
+    fun getUserFirstName(): String
+
+    fun getUserId(userIdKey: String): String
 
     fun putUserVerified(verifiedValue: Boolean, keyType: String)
 
     fun getUserVerifiedValue(key: String): Boolean
+
+    fun putUserPhoneNumber(key: String, phoneNumber: String)
+
+    fun getUserPhoneNumber(key: String): String
 
 }

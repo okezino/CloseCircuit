@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.dashboard.models
+package com.example.closedcircuitapplication.dashboard.presentation.models
 
 data class BudgetItem(
     val itemName: String,

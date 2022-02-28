@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,8 +18,10 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
+import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentEmailVerificationBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
@@ -32,6 +36,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
     private var _binding: FragmentEmailVerificationBinding? = null
     private val binding get() = _binding!!
     private val viewModel: PlanViewModel by viewModels()
+    private  val viewModelDashboard: DashboardViewModel by viewModels()
     @Inject
     lateinit var preferences: Preferences
     private var userEmail: String = ""
@@ -41,6 +46,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
         // Inflate the layout for this fragment
         _binding = FragmentEmailVerificationBinding.inflate(inflater, container, false)
         return binding.root
@@ -59,9 +65,14 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         validateOtp()
         initObservers()
         initObserversResendOtp()
+        userDetailsInitObserver()
+        getUserDetails()
 
+//        binding.closeIcon.setOnClickListener {
+//            activity?.onBackPressed()
+//        }
         binding.closeIcon.setOnClickListener {
-            activity?.onBackPressed()
+            findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToProjectScreenFragment())
         }
         binding.recoverPasswordOtpDidntReceiveEmailTextView.setOnClickListener {
             val email: String = prefEmail
@@ -72,8 +83,6 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
             val email: String = prefEmail
             viewModel.generateOtp(GenerateOtpRequest(email))
         }
-
-
 
     }
     private fun validateOtp() {
@@ -97,11 +106,11 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
                 }
                 is Resource.Success -> {
                     findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToSuccessfulEmailVerificationScreenFragment())
-                    makeSnackBar("Email verification successful", requireView())
-                    preferences.putUserVerified(true, PreferencesConstants.USER_VERIFIED)
+                    makeSnackBar("Email verification successful",requireView())
+//                    preferences.putUserVerified(true, PreferencesConstants.USER_VERIFIED)
                 }
                 is Resource.Error -> {
-                    makeSnackBar("${resource.data?.message}", requireView())
+                    makeSnackBar("${resource.data?.message}",requireView())
                 }
             }
         }
@@ -110,16 +119,36 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         viewModel.generateOtpResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_LONG).show()
+                    makeSnackBar("Loading", requireView())
                 }
                 is Resource.Success -> {
-                    Toast.makeText(requireContext(), "Otp sent to $userEmail", Toast.LENGTH_SHORT).show()
+                    makeSnackBar("Otp sent to $userEmail", requireView())
                 }
                 is Resource.Error -> {
-                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT).show()
+                    resource.data?.message?.let { makeSnackBar(it,requireView()) }
                 }
             }
         }
+    }
+
+    private fun userDetailsInitObserver(){
+        viewModelDashboard.userDetailsResponse.observe(viewLifecycleOwner){
+            when(it){
+                is Resource.Loading ->{
+                }
+                is Resource.Success ->{
+                    //save verification status to sharedPreference
+                    it.data.data?.isVerified?.let { status -> saveEmailStatus(status) }
+                }
+                is Resource.Error ->{
+                    makeSnackBar("${it.data?.message}", requireView())
+                }
+            }
+        }
+    }
+
+    private fun getUserDetails(){
+        viewModelDashboard.getUserDetails(preferences.getUserId(), "Bearer ${preferences.getToken()}")
     }
 
     private fun setUpSpannableText() {
@@ -130,4 +159,5 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         spannableText.setSpan(foregroundBlue, 22, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.recoverPasswordOtpDidntReceiveEmailTextView.text = spannableText
     }
+    private fun saveEmailStatus(status: Boolean) = preferences.putUserVerified(status, PreferencesConstants.USER_VERIFIED)
 }

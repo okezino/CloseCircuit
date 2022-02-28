@@ -180,7 +180,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/helvetica"
-                android:text="@string/ngn"
+                tools:text="@string/ngn"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -235,7 +235,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/helvetica"
-                android:text="NGN"
+                tools:text="NGN"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 

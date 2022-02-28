@@ -176,7 +176,7 @@
 
     <string name="notifications">Notifications</string>
     <string name="no_notifications">No Notifications</string>
-    <string name="patience_you_currently_do_not_have_any_notifications">Patience, you currently do not have any notifications.</string>
+    <string name="user_name">%1$s, you currently do not have any notifications.</string>
     <string name="start_a_plan">Start a Plan</string>
     <string name="no_plans">No Plans</string>
     <string name="not_your_email_change_email_address">Not your email? <font color='#0386FF'> change email address</font></string>
@@ -268,4 +268,11 @@
     <string name="marvin_ltd">Marvin LTD</string>
     <string name="edit_plan">Edit Plan</string>
     <string name="delete_plan">Delete Plan</string>
+    <string name="welcome_patience">Welcome %1$s</string>
+    <string name="Plan_name_must_not_be_empty_text">Business name must not be empty</string>
+    <string name="Plan_description_must_not_be_empty_text">Plan description must not be empty</string>
+    <string name="Plan_duraton_must_not_be_empty_text">Plan duration must not be empty</string>
+    <string name="Estimated_selling_price_must_not_be_empty_text">Estimated selling price must not be empty</string>
+    <string name="Estimated_cost_must_not_be_empty_text">Estimated cost price must not be empty</string>
+    <string name="Cost_price_cannot_be_greater_text">Cost price cannot be greater than selling price</string>
 </resources>

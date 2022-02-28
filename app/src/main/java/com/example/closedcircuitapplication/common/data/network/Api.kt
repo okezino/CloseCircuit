@@ -14,6 +14,7 @@ import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApi
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.REGISTER
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.RESET_PASSWORD
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.UPDATE_PLAN
+import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.USER_DETAILS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.VERIFY_OTP
 import com.example.closedcircuitapplication.common.data.network.models.GenerateOtpDto
 import com.example.closedcircuitapplication.common.data.network.models.ResetPasswordDto
@@ -23,6 +24,7 @@ import com.example.closedcircuitapplication.plan.data.datadto.UpdatePlanResponse
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
 import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
 import com.example.closedcircuitapplication.common.data.network.models.*
+import com.example.closedcircuitapplication.dashboard.data.datadto.UserDetailsResponseDto
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import retrofit2.http.*
@@ -74,5 +76,9 @@ interface Api {
         @Header("Authorization")authHeader : String
     ) : Result<DeletePlanResponseDto>
 
-
+    @GET(USER_DETAILS)
+    suspend fun getUserDetails(
+        @Path("id") userId: String,
+        @Header("Authorization") authHeader: String
+    ): Result<UserDetailsResponseDto>
 }
