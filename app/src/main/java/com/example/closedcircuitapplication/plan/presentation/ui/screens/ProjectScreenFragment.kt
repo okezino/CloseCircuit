@@ -80,7 +80,6 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
                     customNavAnimation().build()
                 )
             }
-
         }
     }
 
@@ -121,6 +120,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
         projectsRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         projectsRecyclerView.adapter = projectsAdapter
+
 //        projectsAdapter = ProjectsAdapter(projects)
 //
 //        projectsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -185,6 +185,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
     }
 
     override fun allPlansItemClicked(position: Int) {
+
         makeSnackBar("clicked...", requireView())
     }
 }

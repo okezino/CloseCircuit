@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.compose.ui.text.resolveDefaults
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
@@ -40,6 +41,7 @@ class MyStepFragment : Fragment() {
     private lateinit var  dialogMessage : TextView
     private  var   deleteDialog : Dialog? = null
     private val viewModel: PlanViewModel by viewModels<PlanViewModel>()
+    private val args: MyStepFragmentArgs by navArgs<MyStepFragmentArgs>()
 
     @Inject
     lateinit var preferences : Preferences
@@ -93,10 +95,7 @@ class MyStepFragment : Fragment() {
         noButton.setOnClickListener {
             Toast.makeText(requireContext(), " action declined", Toast.LENGTH_SHORT).show()
             deleteDialog!!.dismiss()
-        }
-    }
-
-
+        }}
 
     private fun manageUiView() {
         if (budgetData != null) {

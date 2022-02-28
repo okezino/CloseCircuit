@@ -90,21 +90,21 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
     }
 
     private fun initObservers(){
-        viewModel.verifyOtpResponse.observe(viewLifecycleOwner, { resource ->
+        viewModel.verifyOtpResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-                    makeSnackBar("Loading",requireView())
+                    makeSnackBar("Loading", requireView())
                 }
                 is Resource.Success -> {
                     findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToSuccessfulEmailVerificationScreenFragment())
-                    makeSnackBar("Email verification successful",requireView())
+                    makeSnackBar("Email verification successful", requireView())
                     preferences.putUserVerified(true, PreferencesConstants.USER_VERIFIED)
                 }
                 is Resource.Error -> {
-                    makeSnackBar("${resource.data?.message}",requireView())
+                    makeSnackBar("${resource.data?.message}", requireView())
                 }
             }
-        })
+        }
     }
     private fun initObserversResendOtp(){
         viewModel.generateOtpResponse.observe(viewLifecycleOwner) { resource ->

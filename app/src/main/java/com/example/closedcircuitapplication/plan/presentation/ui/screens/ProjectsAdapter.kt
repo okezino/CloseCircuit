@@ -1,6 +1,7 @@
 package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -9,14 +10,16 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.closedcircuitapplication.dashboard.interfaces.ClickListener
 import com.example.closedcircuitapplication.databinding.ProjectItemBinding
 import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
 import com.example.closedcircuitapplication.plan.presentation.models.Projects
+import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
 
 class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Adapter<ProjectsAdapter.ViewHolder>() {
 
-//     lateinit var listener :SetItemClickListener
+     lateinit var listener :SetItemClickListener
 
 
     private val differCallBack = object : DiffUtil.ItemCallback<Plan>() {
@@ -42,9 +45,9 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Ad
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindView(projects[position])
 
-//        holder.item.setOnClickListener{
-//            listener.allPlansItemClicked(position)
-//        }
+        holder.item.setOnClickListener{
+            listener.allPlansItemClicked(position)
+        }
 
     }
 
@@ -65,22 +68,22 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Ad
 //            tasksCompleted.text = "${project.tasksCompleted}% Tasks Completed"
 //            tasksCompletedProgress.progress = project.tasksCompleted.toInt()
 //            fundsRaisedProgress.progress = project.fundsRaised.toInt()
-//            item.setOnClickListener {
-//                val action = ProjectScreenFragmentDirections
-//                    .actionProjectScreenFragmentToCreatePlanFragment()
-//                it.findNavController().navigate(action)
-////            }
-//            }
-        }
+            item.setOnClickListener {
+                val action = ProjectScreenFragmentDirections
+                    .actionProjectScreenFragmentToMyStepFragment(StepsBudgetItem(planName.toString(), "30000", "30000"))
+                it.findNavController().navigate(action)
+            }
+           }
+        //}
     }
 
     fun setOnItemClickListener(itemListener : SetItemClickListener){
-//        listener = itemListener
+        listener = itemListener
     }
 
     interface SetItemClickListener{
         fun allPlansItemClicked(position: Int)
-        //        fun setOnItemClick(position: Int,myView: View?)
+//                fun setOnItemClick(position: Int,myView: View?)
 //        fun toggleSaveItemToWishList(position: Int, saveItemTextBox: TextView, saveItemImage: ImageView, item: TopDealAndHotelData)
     }
 }
