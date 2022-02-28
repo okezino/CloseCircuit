@@ -274,4 +274,8 @@
     <string name="Estimated_selling_price_must_not_be_empty_text">Estimated selling price must not be empty</string>
     <string name="Estimated_cost_must_not_be_empty_text">Estimated cost price must not be empty</string>
     <string name="Cost_price_cannot_be_greater_text">Cost price cannot be greater than selling price</string>
+    <string name="nigerian_country_code">+234</string>
+    <string name="nigerian_currency_code">NGN</string>
+    <string name="south_african_country_code">+27</string>
+    <string name="south_african_currency_code">ZAR</string>
 </resources>

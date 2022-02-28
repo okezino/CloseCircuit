@@ -1,6 +1,10 @@
 package com.example.closedcircuitapplication.common.utils
 
+import android.content.Context
+import android.widget.EditText
 import androidx.core.text.isDigitsOnly
+import androidx.fragment.app.Fragment
+import com.example.closedcircuitapplication.R
 
 object Validation {
     var EMAIL_PATTERN = Regex(
@@ -130,6 +134,46 @@ object Validation {
     fun validateUserProfileInput(user:UserInput):Boolean{
         return (user.fullName.isEmpty()|| user.username.isEmpty() || validatePhone_number(user.phone_number) || !validateEmailInput(user.emailAddress))
     }
+}
+
+fun validateCreatePlanFields(
+    businessName: EditText,
+    planDescription: EditText,
+    planDuration: EditText,
+    sellingPrice: EditText,
+    costPrice: EditText,
+    context: Fragment
+): Boolean {
+    if (businessName.text.toString().isEmpty()) {
+        context.makeSnackBar(context.getString(R.string.Plan_name_must_not_be_empty_text), context.requireView())
+        return false
+    }
+
+    if (planDescription.text.toString().isEmpty()) {
+        context.makeSnackBar(context.getString(R.string.Plan_description_must_not_be_empty_text), context.requireView())
+        return false
+    }
+
+    if (planDuration.text.toString().isEmpty()) {
+        context.makeSnackBar(context.getString(R.string.Plan_duraton_must_not_be_empty_text), context.requireView())
+        return false
+    }
+
+    if (sellingPrice.text.toString().isEmpty()) {
+        context.makeSnackBar(context.getString(R.string.Estimated_selling_price_must_not_be_empty_text), context.requireView())
+        return false
+    }
+
+    if (costPrice.text.toString().isEmpty()) {
+        context.makeSnackBar(context.getString(R.string.Estimated_cost_must_not_be_empty_text), context.requireView())
+        return false
+    }
+
+    if (costPrice.text.toString().toFloat() > sellingPrice.text.toString().toFloat()) {
+        context.makeSnackBar(context.getString(R.string.Cost_price_cannot_be_greater_text), context.requireView())
+        return false
+    }
+    return true
 }
 
 data class UserInput(
