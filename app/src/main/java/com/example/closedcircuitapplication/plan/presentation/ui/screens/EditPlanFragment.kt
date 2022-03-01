@@ -102,15 +102,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
 
         binding.fragmentEditPlanUpdatePlanBtn.setOnClickListener {
 
-            val planSector = binding.dropdownMenuPlanSector.text.toString()
-            val planName = capitalizeWords(binding.fragmentEditPlanBusinessTypeEt.text.toString())
-            val planDescription = binding.fragmentEditPlanDescribePlanEt.text.toString()
-            val planCategory = binding.dropdownMenuPlanCategory.text.toString()
-            val planDuration = binding.fragmentEditPlanPlanDurationEt.text.toString()
-            val sellingPrice = binding.fragmentLetsCreateYourPlanSellingPriceEt.text.toString()
-            val costPrice = binding.fragmentEditPlanCostPriceEt.text.toString()
-
-            if (!Validation.validateSellingPrice(sellingPrice)) {
+            if (!Validation.validateSellingPrice(binding.fragmentLetsCreateYourPlanSellingPriceEt.text.toString())) {
                 binding.fragmentEditPlanEmptySellingPriceTv.visibility = View.VISIBLE
                 binding.fragmentLetsCreateYourPlanSellingPriceEt.isFocusable = true
                 return@setOnClickListener
@@ -118,7 +110,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 binding.fragmentEditPlanEmptySellingPriceTv.visibility = View.GONE
             }
 
-            if (!Validation.validatePlanName(planName)) {
+            if (!Validation.validatePlanName(capitalizeWords(binding.fragmentEditPlanBusinessTypeEt.text.toString()))) {
                 binding.planNameFieldCannotBeEmpty.visibility = View.VISIBLE
                 binding.fragmentEditPlanBusinessTypeEt.isFocusable = true
                 return@setOnClickListener
@@ -126,7 +118,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 binding.planNameFieldCannotBeEmpty.visibility = View.GONE
             }
 
-            if (!Validation.validatePlanDuration(planDuration)) {
+            if (!Validation.validatePlanDuration(binding.fragmentEditPlanPlanDurationEt.text.toString())) {
                 binding.fragmentEditPlanEmptyPlanDurationTv.visibility = View.VISIBLE
                 binding.fragmentEditPlanPlanDurationEt.isFocusable = true
                 return@setOnClickListener
@@ -134,14 +126,14 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 binding.fragmentEditPlanEmptyPlanDurationTv.visibility = View.GONE
             }
 
-            if (!Validation.validateDescription(planDescription)) {
+            if (!Validation.validateDescription(binding.fragmentEditPlanDescribePlanEt.text.toString())) {
                 binding.describePlanFieldCannotBeEmpty.visibility = View.VISIBLE
                 binding.fragmentEditPlanDescribePlanEt.isFocusable = true
                 return@setOnClickListener
             } else {
                 binding.describePlanFieldCannotBeEmpty.visibility = View.GONE
             }
-            if (!Validation.validateCostPrice(costPrice)){
+            if (!Validation.validateCostPrice(binding.fragmentEditPlanCostPriceEt.text.toString())){
                 binding.fragmentEditPlanEmptyCostPriceTv.visibility = View.VISIBLE
                 binding.fragmentEditPlanCostPriceEt.isFocusable = true
                 return@setOnClickListener
@@ -151,13 +143,13 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
 
             viewModel.updateUserPlan(UpdatePlanRequest(
                 "",
-                planName,
-                costPrice,
-                sellingPrice,
-                planCategory,
-                planDescription,
-                planDuration,
-                planSector,
+                capitalizeWords(binding.fragmentEditPlanBusinessTypeEt.text.toString()),
+                binding.fragmentEditPlanCostPriceEt.text.toString(),
+                binding.fragmentLetsCreateYourPlanSellingPriceEt.text.toString(),
+                binding.dropdownMenuPlanCategory.text.toString(),
+                binding.fragmentEditPlanDescribePlanEt.text.toString(),
+                binding.fragmentEditPlanPlanDurationEt.text.toString(),
+                binding.dropdownMenuPlanSector.text.toString(),
                 "Physical Product"),
                 planId, "Bearer $token"
             )
