@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -18,8 +17,6 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.utils.Resource
-import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
-import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentEmailVerificationBinding
@@ -28,6 +25,10 @@ import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import com.example.closedcircuitapplication.plan.utils.PlanUtils
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import com.example.closedcircuitapplication.plan.utils.PlanConstants
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.LOADING
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.OTP_MESSAGE
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.VERIFICATION_MESSAGE
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.text
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -39,15 +40,13 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
     private  val viewModelDashboard: DashboardViewModel by viewModels()
     @Inject
     lateinit var preferences: Preferences
-    private var userEmail: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
-        // Inflate the layout for this fragment
         _binding = FragmentEmailVerificationBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -55,10 +54,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val prefEmail = preferences.getEmail()
-        userEmail = prefEmail
-
-        val displayEmail = PlanUtils.userEmailDisplayText(userEmail)
+        val displayEmail = PlanUtils.userEmailDisplayText(preferences.getEmail())
         (PlanConstants.DISPLAY_TEXT_START+displayEmail+PlanConstants.DISPLAY_TEXT_END).also { binding.verifyEmailNotificationMessage.text = it }
 
         setUpSpannableText()
@@ -68,20 +64,15 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         userDetailsInitObserver()
         getUserDetails()
 
-//        binding.closeIcon.setOnClickListener {
-//            activity?.onBackPressed()
-//        }
         binding.closeIcon.setOnClickListener {
             findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToProjectScreenFragment())
         }
         binding.recoverPasswordOtpDidntReceiveEmailTextView.setOnClickListener {
-            val email: String = prefEmail
-            viewModel.generateOtp(GenerateOtpRequest(email))
+            viewModel.generateOtp(GenerateOtpRequest(preferences.getEmail()))
         }
 
         binding.recoverPasswordOtpDidntReceiveEmailTextView.setOnClickListener {
-            val email: String = prefEmail
-            viewModel.generateOtp(GenerateOtpRequest(email))
+            viewModel.generateOtp(GenerateOtpRequest(preferences.getEmail()))
         }
 
     }
@@ -89,10 +80,12 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         binding.fragmentEmailVerificationRecoverEmailOtpView.addTextChangedListener {
             val pin = binding.fragmentEmailVerificationRecoverEmailOtpView.text.toString().trim()
             if (pin.length == 6) {
-                viewModel.verifyOtp(VerifyOtpRequest(pin,userEmail))
+                viewModel.verifyOtp(VerifyOtpRequest(pin,preferences.getEmail()))
             } else {
-                binding.fragmentEmailVerificationRecoverEmailOtpView.setLineColor(resources.getColor(R.color.red))
-                binding.fragmentEmailVerificationRecoverEmailOtpView.setTextColor(resources.getColor(R.color.red))
+                with(binding){
+                    fragmentEmailVerificationRecoverEmailOtpView.setLineColor(ContextCompat.getColor(requireContext(),R.color.red))
+                    fragmentEmailVerificationRecoverEmailOtpView.setTextColor(ContextCompat.getColor(requireContext(),R.color.red))
+                }
             }
 
         }
@@ -102,12 +95,11 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         viewModel.verifyOtpResponse.observe(viewLifecycleOwner, { resource ->
             when (resource) {
                 is Resource.Loading -> {
-                    makeSnackBar("Loading",requireView())
+                    makeSnackBar(LOADING,requireView())
                 }
                 is Resource.Success -> {
                     findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToSuccessfulEmailVerificationScreenFragment())
-                    makeSnackBar("Email verification successful",requireView())
-//                    preferences.putUserVerified(true, PreferencesConstants.USER_VERIFIED)
+                    makeSnackBar(VERIFICATION_MESSAGE,requireView())
                 }
                 is Resource.Error -> {
                     makeSnackBar("${resource.data?.message}",requireView())
@@ -119,10 +111,10 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         viewModel.generateOtpResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-                    makeSnackBar("Loading", requireView())
+                    makeSnackBar(LOADING, requireView())
                 }
                 is Resource.Success -> {
-                    makeSnackBar("Otp sent to $userEmail", requireView())
+                    makeSnackBar("$OTP_MESSAGE ${preferences.getEmail()}", requireView())
                 }
                 is Resource.Error -> {
                     resource.data?.message?.let { makeSnackBar(it,requireView()) }
@@ -137,7 +129,6 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
                 is Resource.Loading ->{
                 }
                 is Resource.Success ->{
-                    //save verification status to sharedPreference
                     it.data.data?.isVerified?.let { status -> saveEmailStatus(status) }
                 }
                 is Resource.Error ->{
@@ -152,10 +143,8 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
     }
 
     private fun setUpSpannableText() {
-        val text = "Didn’t recieve email? resend"
         val spannableText = SpannableString(text)
-        val foregroundBlue =
-            ForegroundColorSpan(requireActivity().resources.getColor(R.color.spannableBlue))
+        val foregroundBlue = ForegroundColorSpan(ContextCompat.getColor(requireActivity(),R.color.spannableBlue))
         spannableText.setSpan(foregroundBlue, 22, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.recoverPasswordOtpDidntReceiveEmailTextView.text = spannableText
     }
