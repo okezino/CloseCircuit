@@ -4,23 +4,22 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.domain.models.ResetPasswordRequest
 import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
-import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
-import com.example.closedcircuitapplication.common.utils.Validation
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
+import com.example.closedcircuitapplication.common.utils.showPleaseWaitAlertDialog
+import com.example.closedcircuitapplication.common.utils.validateResetPassword
 import com.example.closedcircuitapplication.databinding.FragmentResetYourPasswordBinding
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,16 +35,15 @@ class ResetYourPasswordFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentResetYourPasswordBinding.inflate( inflater, container, false)
+        _binding = FragmentResetYourPasswordBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        pleaseWaitDialog = showPleaseWaitAlertDialog()
         binding.newPasswordTv.addTextChangedListener(buttonHandler)
         binding.confirmPasswordTv.addTextChangedListener(buttonHandler)
-
         resetPassword()
         initObservers()
 
@@ -65,87 +63,44 @@ class ResetYourPasswordFragment : Fragment() {
 
     }
 
-    private fun resetPassword(){
+    private fun resetPassword() {
         binding.resetBtn.setOnClickListener {
             val newPassword = binding.newPasswordTv.text.toString().trim()
             val confirmPassword = binding.confirmPasswordTv.text.toString().trim()
-
-            if(Validation.validatePasswordPattern(newPassword)){
-                if (Validation.validatePasswordPattern(confirmPassword)){
-                    if (newPassword == confirmPassword){
-                        findNavController().navigate(ResetYourPasswordFragmentDirections.actionResetYourPasswordFragmentToPasswordRecoverySuccessfulFragment(),
-                            customNavAnimation().build())
-                        viewModel.resetPassword(ResetPasswordRequest(args.userEmail,args.otp, newPassword, confirmPassword
-                        ))
-                    }
-                    else{
-                        Snackbar.make(
-                            binding.root,
-                            "Passwords must match",
-                            Snackbar.LENGTH_LONG
-                        ).show()
-                    }
-                }
-                else{
-                    Snackbar.make(
-                        binding.root,
-                        "Invalid password",
-                        Snackbar.LENGTH_LONG
-                    ).show()
-                }
+            if (validateResetPassword(newPassword, confirmPassword)) {
+                viewModel.resetPassword(
+                    ResetPasswordRequest(
+                        args.userEmail, args.otp, newPassword, confirmPassword
+                    )
+                )
             }
-            else{
-                Snackbar.make(
-                    binding.root,
-                    "Invalid password",
-                    Snackbar.LENGTH_LONG
-                ).show()
-            }
-
-
         }
-
     }
 
-    private fun initObservers(){
-        viewModel.resetPasswordResponse.observe(viewLifecycleOwner, { resource ->
+    private fun initObservers() {
+        viewModel.resetPasswordResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-                    showPleaseWaitAlertDialog()
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+                    pleaseWaitDialog?.show()
+                    Toast.makeText(requireContext(), getString(R.string.loading_text), Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Success -> {
-                    showPleaseWaitAlertDialog().dismiss()
+                    pleaseWaitDialog?.dismiss()
                     findNavController().navigate(
-                        R.id.passwordRecoverySuccessfulFragment
+                        ResetYourPasswordFragmentDirections.actionResetYourPasswordFragmentToPasswordRecoverySuccessfulFragment(),
+                        customNavAnimation().build()
                     )
-                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.success_text), Toast.LENGTH_SHORT).show()
                 }
-
                 is Resource.Error -> {
-                    //TODO(Display error message and dismiss progress bar)
-                    showPleaseWaitAlertDialog().dismiss()
+                    pleaseWaitDialog?.dismiss()
                     Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
                         .show()
-
                 }
             }
-
-
-        })
-
-    }
-
-    private fun showPleaseWaitAlertDialog(): AlertDialog {
-        if(pleaseWaitDialog == null) {
-            pleaseWaitDialog = showCustomViewDialog(
-                requireContext(), resources,
-                R.layout.custom_login_wait_dialog,
-                false
-            )
         }
-        return pleaseWaitDialog as AlertDialog
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

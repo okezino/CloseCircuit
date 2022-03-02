@@ -22,7 +22,6 @@ import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.
 import com.example.closedcircuitapplication.databinding.FragmentEmailVerificationBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
-import com.example.closedcircuitapplication.plan.utils.PlanUtils
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import com.example.closedcircuitapplication.plan.utils.PlanConstants
 import com.example.closedcircuitapplication.plan.utils.PlanConstants.BEARER
@@ -30,8 +29,10 @@ import com.example.closedcircuitapplication.plan.utils.PlanConstants.LOADING
 import com.example.closedcircuitapplication.plan.utils.PlanConstants.OTP_MESSAGE
 import com.example.closedcircuitapplication.plan.utils.PlanConstants.VERIFICATION_MESSAGE
 import com.example.closedcircuitapplication.plan.utils.PlanConstants.text
+import com.example.closedcircuitapplication.plan.utils.PlanUtils
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification) {
@@ -47,7 +48,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+        
         _binding = FragmentEmailVerificationBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -75,8 +76,8 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         binding.recoverPasswordOtpDidntReceiveEmailTextView.setOnClickListener {
             viewModel.generateOtp(GenerateOtpRequest(preferences.getEmail()))
         }
-
     }
+
     private fun validateOtp() {
         binding.fragmentEmailVerificationRecoverEmailOtpView.addTextChangedListener {
             val pin = binding.fragmentEmailVerificationRecoverEmailOtpView.text.toString().trim()
@@ -92,7 +93,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         }
     }
 
-    private fun initObservers(){
+    private fun initObservers() {
         viewModel.verifyOtpResponse.observe(viewLifecycleOwner, { resource ->
             when (resource) {
                 is Resource.Loading -> {
@@ -101,14 +102,16 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
                 is Resource.Success -> {
                     findNavController().navigate(EmailVerificationFragmentDirections.actionEmailVerificationFragmentToSuccessfulEmailVerificationScreenFragment())
                     makeSnackBar(VERIFICATION_MESSAGE,requireView())
+
                 }
                 is Resource.Error -> {
-                    makeSnackBar("${resource.data?.message}",requireView())
+                    makeSnackBar("${resource.data?.message}", requireView())
                 }
             }
         })
     }
-    private fun initObserversResendOtp(){
+
+    private fun initObserversResendOtp() {
         viewModel.generateOtpResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
@@ -149,6 +152,16 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         val foregroundBlue = ForegroundColorSpan(ContextCompat.getColor(requireActivity(),R.color.spannableBlue))
         spannableText.setSpan(foregroundBlue, 22, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.recoverPasswordOtpDidntReceiveEmailTextView.text = spannableText
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
     private fun saveEmailStatus(status: Boolean) = preferences.putUserVerified(status, PreferencesConstants.USER_VERIFIED)
 }

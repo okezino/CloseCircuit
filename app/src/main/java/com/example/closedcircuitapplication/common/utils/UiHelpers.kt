@@ -1,7 +1,8 @@
 package com.example.closedcircuitapplication.common.utils
 
 import android.app.AlertDialog
-
+import android.content.Context
+import android.content.res.Resources
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
@@ -25,5 +26,30 @@ fun Fragment.makeSnackBar(message: String, view: View) {
 }
 
 fun Fragment.showPleaseWaitAlertDialog(): AlertDialog {
-    return showCustomViewDialog(requireContext(), resources, R.layout.custom_login_wait_dialog, false)
+
+    return showCustomDialog(
+        requireContext(), resources,
+        R.layout.custom_login_wait_dialog,
+        false
+    )
 }
+
+fun showCustomDialog(
+    context: Context,
+    resources: Resources,
+    layout: Int,
+    cancelable: Boolean = true
+): AlertDialog {
+    val view = View.inflate(context, layout, null)
+    val builder = AlertDialog.Builder(context)
+    builder.setView(view)
+    builder.setCancelable(cancelable)
+    val dialog = builder.create()
+    dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+    val width = (resources.displayMetrics.widthPixels * 0.80).toInt()
+    val height = (resources.displayMetrics.heightPixels * 0.35).toInt()
+    dialog!!.window?.setLayout(width, height)
+
+    return dialog
+}
+

@@ -13,8 +13,6 @@
         <action
             android:id="@+id/action_dashboardFragment_to_projectScreenFragment2"
             app:destination="@id/projectScreenFragment"
-            app:popUpTo="@id/dashboardFragment"
-            app:popUpToInclusive="true"
             />
     </fragment>
     <fragment
@@ -112,18 +110,20 @@
         <action
             android:id="@+id/action_emailVerificationFragment_to_editEmailVerificationScreenFragment"
             app:destination="@id/editEmailVerificationScreenFragment"
+            app:popUpTo="@id/projectScreenFragment"
+            app:popUpToInclusive="false"
             />
         <action
             android:id="@+id/action_emailVerificationFragment_to_successfulEmailVerificationScreenFragment"
             app:destination="@id/successfulEmailVerificationScreenFragment"
-            app:popUpTo="@id/emailVerificationFragment"
-            app:popUpToInclusive="true"
+            app:popUpTo="@id/projectScreenFragment"
+            app:popUpToInclusive="false"
             />
         <action
             android:id="@+id/action_emailVerificationFragment_to_projectScreenFragment"
             app:destination="@id/projectScreenFragment"
             app:popUpTo="@id/projectScreenFragment"
-            app:popUpToInclusive="true"
+            app:popUpToInclusive="false"
             />
     </fragment>
     <fragment
@@ -134,6 +134,8 @@
         <action
             android:id="@+id/action_editEmailVerificationScreenFragment_to_emailVerificationFragment"
             app:destination="@id/emailVerificationFragment"
+            app:popUpTo="@id/projectScreenFragment"
+            app:popUpToInclusive="false"
             />
     </fragment>
     <fragment
@@ -245,6 +247,8 @@
         <action
             android:id="@+id/action_planCreatedSuccessfullyFragment_to_createPlanFragment"
             app:destination="@id/createPlanFragment"
+            app:popUpTo="@id/projectScreenFragment"
+            app:popUpToInclusive="false"
             />
         <argument
             android:name="planId"
