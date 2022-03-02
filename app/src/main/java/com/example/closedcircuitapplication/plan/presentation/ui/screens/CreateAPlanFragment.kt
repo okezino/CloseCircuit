@@ -90,7 +90,6 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                     customNavAnimation().build()
                 )
             }
-
         }
     }
 
@@ -246,7 +245,5 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                 }
             }
         }
-
     }
-
 }
