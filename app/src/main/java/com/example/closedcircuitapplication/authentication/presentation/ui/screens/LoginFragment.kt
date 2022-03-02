@@ -19,6 +19,7 @@ import com.example.closedcircuitapplication.common.presentation.utils.showCustom
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
+import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.dashboard.BeneficiaryDashboardActivity
 import com.example.closedcircuitapplication.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
@@ -37,7 +38,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private var success_dialog: AlertDialog? = null
     private var waitDialog: AlertDialog? = null
     private var incorrect_emailDialog: AlertDialog? = null
-    var _email: String = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -70,7 +70,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             if (Validation.validateEmailPattern(email)) {
                 if (Validation.validatePasswordPattern(password)) {
                     viewModel.login(LoginRequest(email, password))
-                    _email = email
                 } else {
                     // call for incorrect password here
                     Snackbar.make(binding.root, "Invalid Password", Snackbar.LENGTH_LONG).show()
@@ -147,12 +146,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     // this is used to insert the token into the shared preference
                     saveToken(resource.data?.data!!.token)
                     preferences.putToken(resource.datas?.data!!.token)
-                    //this is used to save the user email address
-                    saveEmail(_email)
-                    preferences.saveEmail(_email)
+
                     //this is used to save the userId address
-                    preferences.putUserId(resource.datas.data.userId)
-                    Log.d("myUserId", resource.datas.data.userId)
+                    saveUserId(resource.data.data.user_id)
+                    preferences.putUserId(resource.data.data.user_id)
 
                     resource.data.data.let { token ->
                         token?.let { saveToken(it.token) }
@@ -181,7 +178,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun saveToken(token: String) = preferences.putToken(token)
-    private fun saveEmail(email: String) = preferences.saveEmail(email)
     private fun saveUserId(userId: String) = preferences.putUserId(userId)
 
 

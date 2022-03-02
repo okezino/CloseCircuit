@@ -13,11 +13,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.compose.ui.text.resolveDefaults
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.plan.presentation.ui.adapters.MyStepsBudgetAdapter
 import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.FragmentMyStepBinding
@@ -118,7 +120,8 @@ class MyStepFragment : Fragment() {
                     Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Success ->{
-                    Toast.makeText(requireContext(), "${resources.data!!.message}", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(MyStepFragmentDirections.actionMyStepFragmentToProjectScreenFragment(), customNavAnimation().build())
+                    Toast.makeText(requireContext(), "Plan delete ${resources.data!!.message}full", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Error ->{
                     Snackbar.make( binding.root, "${resources.data!!.errors}", Snackbar.LENGTH_LONG).show()

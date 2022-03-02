@@ -175,6 +175,9 @@
         <argument
             android:name="BudgetDetails"
             app:argType="com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem" />
+        <action
+            android:id="@+id/action_myStepFragment_to_projectScreenFragment"
+            app:destination="@id/projectScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/myBudgetFragment"

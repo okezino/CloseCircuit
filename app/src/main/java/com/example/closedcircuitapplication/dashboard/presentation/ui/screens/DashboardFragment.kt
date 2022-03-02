@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,34 +12,34 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.authentication.presentation.ui.screens.CreateAccountFragmentDirections
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
+import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_ID
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_PHONE_NUMBER
-import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.dashboard.presentation.ui.adapter.PlansAdapter
 import com.example.closedcircuitapplication.dashboard.presentation.ui.adapter.RecentDonationsAdapter
 import com.example.closedcircuitapplication.dashboard.presentation.models.DonationItem
 import com.example.closedcircuitapplication.dashboard.presentation.models.PlanItems
-import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodels.DashboardViewmodel
+import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
+import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentDashboardBinding
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class DashboardFragment : Fragment() {
-    @Inject
-    lateinit var preferences: Preferences
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
     private lateinit var plansAdapter: PlansAdapter
     private lateinit var plansRecyclerView: RecyclerView
     private lateinit var recentDonationsAdapter: RecentDonationsAdapter
     private lateinit var recentDonationsRecyclerView: RecyclerView
-    private val viewModel: DashboardViewmodel by viewModels()
+    private  val viewModel: DashboardViewModel by viewModels()
+    @Inject
+    lateinit var preferences: Preferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,9 +55,10 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getUserDetails(preferences.getUserId(USER_ID),"Bearer ${preferences.getToken()}")
-        initObservers()
 
 
+        userDetailsInitObserver()
+        getUserDetails()
         /*TODO: Implement Create plan. For now this button displays an active user UI*/
         binding.createPlanButton.setOnClickListener {
             findNavController().navigate(DashboardFragmentDirections
@@ -101,23 +101,40 @@ class DashboardFragment : Fragment() {
         recentDonationsRecyclerView.adapter = recentDonationsAdapter
     }
 
-    private fun initObservers(){
-        viewModel.getUserDetailsResponse.observe(viewLifecycleOwner) { resource ->
-            when (resource) {
-                is Resource.Loading -> {
+    private fun userDetailsInitObserver(){
+        viewModel.userDetailsResponse.observe(viewLifecycleOwner){
+            when(it){
+                is Resource.Loading ->{
                 }
-                is Resource.Success -> {
-                    resource.data.data?.phoneNumber?.let {
-                        preferences.putUserPhoneNumber(USER_PHONE_NUMBER,
-                            it
-                        )
-                    }
+                is Resource.Success ->{
+                    val fullName = it.data.data?.fullName.toString()
+                    val firstName = UserNameSplitterUtils.userFullName(fullName)
+                    binding.welcomeTitle.text = getString(R.string.welcome_patience, firstName)
+                    // saving email to sharedPreference
+                    it.data.data?.let { email -> saveEmail(email.email) }
+                    //save verification status to sharedPreference
+                    it.data.data?.isVerified?.let { status -> saveEmailStatus(status) }
+                    // save user first name to sharedPreference
+                    it.data.data?.fullName?.let { name -> saveUserFirstName(name) }
+                    // save user phone number to sharedPreference
+                    it.data.data?.phoneNumber?.let { number -> saveUserPhoneNumber(number)}
+                    Log.d("NUMBER", "PHONE_NUMBER ${it.data.data?.phoneNumber}")
                 }
-                is Resource.Error -> {
+                is Resource.Error ->{
+                    makeSnackBar("${it.data?.message}", requireView())
                 }
             }
         }
     }
+
+    private fun getUserDetails(){
+        viewModel.getUserDetails(preferences.getUserId(), "Bearer ${preferences.getToken()}")
+    }
+    private fun saveEmail(email: String) = preferences.saveEmail(email)
+    private fun saveEmailStatus(status: Boolean) = preferences.putUserVerified(status, PreferencesConstants.USER_VERIFIED)
+    private fun saveUserPhoneNumber(phoneNumber: String) = preferences.putUserPhoneNumber(
+        USER_PHONE_NUMBER,phoneNumber)
+    private fun saveUserFirstName(firstName: String) = preferences.putUserFirstName(firstName)
 
     override fun onDestroyView() {
         super.onDestroyView()
