@@ -8,4 +8,5 @@ object PlanConstants {
     const val VERIFICATION_MESSAGE = "Email verification successful"
     const val OTP_MESSAGE = "Otp sent to"
     const val PLAN_UPDATE_SUCCESS = "Plan updated successfully"
+    const val BEARER = "Bearer"
 }

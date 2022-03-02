@@ -25,6 +25,7 @@ import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import com.example.closedcircuitapplication.plan.utils.PlanUtils
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import com.example.closedcircuitapplication.plan.utils.PlanConstants
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.BEARER
 import com.example.closedcircuitapplication.plan.utils.PlanConstants.LOADING
 import com.example.closedcircuitapplication.plan.utils.PlanConstants.OTP_MESSAGE
 import com.example.closedcircuitapplication.plan.utils.PlanConstants.VERIFICATION_MESSAGE
@@ -115,6 +116,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
                 }
                 is Resource.Success -> {
                     makeSnackBar("$OTP_MESSAGE ${preferences.getEmail()}", requireView())
+                    preferences.putUserVerified(true, PreferencesConstants.USER_VERIFIED)
                 }
                 is Resource.Error -> {
                     resource.data?.message?.let { makeSnackBar(it,requireView()) }
@@ -139,7 +141,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
     }
 
     private fun getUserDetails(){
-        viewModelDashboard.getUserDetails(preferences.getUserId(), "Bearer ${preferences.getToken()}")
+        viewModelDashboard.getUserDetails(preferences.getUserId(), "$BEARER ${preferences.getToken()}")
     }
 
     private fun setUpSpannableText() {
