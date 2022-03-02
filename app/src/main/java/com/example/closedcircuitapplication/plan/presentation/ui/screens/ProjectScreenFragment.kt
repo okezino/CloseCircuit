@@ -20,7 +20,6 @@ import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
-import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import com.example.closedcircuitapplication.plan.presentation.models.Projects
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import com.example.closedcircuitapplication.plan.utils.PlanConstants.LOADING
@@ -148,10 +147,10 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
                     makeSnackBar("Loading...", requireView())
                 }
                 is Resource.Success -> {
-//                    resource.data.data?.plans
-//                    val res = resource.datas?.data!!.plans[0].business_name
-//                    Log.d("listofplans", res)
-//                    Log.d("listofplans2", "${resource.datas.data.plans}")
+                    resource.data.data?.plans
+                    val res = resource.datas?.data!!.plans[0].business_name
+                    Log.d("listofplans", res)
+                    Log.d("listofplans2", "${resource.datas.data.plans}")
 
                     projectsAdapter = ProjectsAdapter(resource.data.data!!.plans, )
 
