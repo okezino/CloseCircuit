@@ -151,10 +151,10 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
                     makeSnackBar("Loading...", requireView())
                 }
                 is Resource.Success -> {
-                    resource.data.data?.plans
-                    val res = resource.datas?.data!!.plans[0].business_name
-                    Log.d("listofplans", res)
-                    Log.d("listofplans2", "${resource.datas.data.plans}")
+//                    resource.data.data?.plans
+//                    val res = resource.datas?.data!!.plans[0].business_name
+//                    Log.d("listofplans", res)
+//                    Log.d("listofplans2", "${resource.datas.data.plans}")
 
                     projectsAdapter = ProjectsAdapter(resource.data.data!!.plans, )
 

@@ -18,6 +18,7 @@ import com.example.closedcircuitapplication.common.utils.*
 import com.example.closedcircuitapplication.databinding.FragmentEditPlanBinding
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.PLAN_UPDATE_SUCCESS
 import com.example.closedcircuitapplication.plan.utils.PlanUtils
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -54,8 +55,6 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentEditPlanBinding.bind(view)
 
-        val planId = args.planId
-        val token = preferences.getToken()
         with(binding){
             dropdownMenuPlanSector.setText(args.planSector)
             fragmentEditPlanBusinessTypeEt.setText(args.planName)
@@ -136,7 +135,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 binding.fragmentEditPlanPlanDurationEt.text.toString(),
                 binding.dropdownMenuPlanSector.text.toString(),
                 "Physical Product"),
-                planId, "Bearer $token"
+                args.planId, "Bearer ${preferences.getToken()}"
             )
         }
     }
@@ -149,7 +148,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 }
                 is Resource.Success -> {
                     pleaseWaitDialog?.dismiss()
-                    makeSnackBar("${resource.data.message}", requireView())
+                    makeSnackBar(PLAN_UPDATE_SUCCESS, requireView())
                     findNavController().navigate(EditPlanFragmentDirections.actionEditPlanFragmentToCreatePlanFragment(args.planId), customNavAnimation().build())
                 }
                 is Resource.Error -> {
