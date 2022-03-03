@@ -44,15 +44,13 @@ class RecoverPasswordOtpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
-<<<<<<< HEAD
+
 
         initObservers()
         validateOtp()
-=======
         validateOtp()
         initObservers()
         pleaseWaitDialog = showPleaseWaitAlertDialog()
->>>>>>> 3fd5edb0566ca0f5a87bea058920ea0d1fba158e
 
     }
 
