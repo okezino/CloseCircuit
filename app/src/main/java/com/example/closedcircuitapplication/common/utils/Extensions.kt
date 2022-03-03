@@ -104,3 +104,4 @@ fun Fragment.capitalizeWords(stringInput: String): String {
 
     return result.trim()
 }
+

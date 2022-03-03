@@ -22,7 +22,12 @@ import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpReques
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
 import com.example.closedcircuitapplication.plan.presentation.models.Projects
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
+<<<<<<< HEAD
 import com.example.closedcircuitapplication.plan.utils.onItemClickListener
+=======
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.LOADING
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.OTP_MESSAGE
+>>>>>>> 3fd5edb0566ca0f5a87bea058920ea0d1fba158e
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -36,7 +41,6 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
     @Inject
     lateinit var preferences: Preferences
     private val viewModel: PlanViewModel by viewModels()
-    private var userEmail: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,11 +56,8 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val prefEmail = preferences.getEmail()
-        val firstName = preferences.getUserFirstName()
-        userEmail = prefEmail
         myPlansList = ArrayList<Plan>()
-        binding.notStartedAPlanTv.text = getString(R.string.user_name, UserNameSplitterUtils.userFullName(firstName))
+        binding.notStartedAPlanTv.text = getString(R.string.user_name, UserNameSplitterUtils.userFullName(preferences.getUserFirstName()))
 
         initObservers()
         fetchProjects()
@@ -65,10 +66,9 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
         viewModel.getMyPlans(100, 0, "Bearer ${preferences.getToken()}")
 
         binding.fragmentProjectScreenLayout.setOnClickListener {
-            val email: String = prefEmail
 
             if (!preferences.getUserVerifiedValue(PreferencesConstants.USER_VERIFIED)) {
-                viewModel.generateOtp(GenerateOtpRequest(email))
+                viewModel.generateOtp(GenerateOtpRequest(preferences.getEmail()))
                 findNavController().navigate(
                     ProjectScreenFragmentDirections
                         .actionProjectScreenFragmentToEmailVerificationFragment(),
@@ -127,7 +127,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
         viewModel.generateOtpResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-                    makeSnackBar("Loading...", requireView())
+                    makeSnackBar(LOADING, requireView())
                 }
                 is Resource.Success -> {
                     findNavController().navigate(
@@ -135,7 +135,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                             .actionProjectScreenFragmentToEmailVerificationFragment(),
                         customNavAnimation().build()
                     )
-                    makeSnackBar("Otp sent to $userEmail", requireView())
+                    makeSnackBar("$OTP_MESSAGE ${preferences.getEmail()}", requireView())
                 }
                 is Resource.Error -> {
                     makeSnackBar("${resource.data?.message}", requireView())
@@ -181,6 +181,10 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                     }
                 }
                 is Resource.Error -> {
+<<<<<<< HEAD
+=======
+                    makeSnackBar("${resource.data?.message}",requireView())
+>>>>>>> 3fd5edb0566ca0f5a87bea058920ea0d1fba158e
                 }
             }
         }

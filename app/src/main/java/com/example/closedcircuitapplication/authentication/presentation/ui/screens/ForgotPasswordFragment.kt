@@ -7,21 +7,21 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
-import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.Validation
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
+import com.example.closedcircuitapplication.common.utils.showPleaseWaitAlertDialog
 import com.example.closedcircuitapplication.databinding.FragmentForgotPasswordBinding
+import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +29,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ForgotPasswordFragment : Fragment() {
     private var _binding: FragmentForgotPasswordBinding? = null
     private val binding get() = _binding!!
-    lateinit var email:String
+    lateinit var email: String
     private val viewModel: AuthenticationViewModel by viewModels()
     private var userEmail: String = ""
     private var pleaseWaitDialog: AlertDialog? = null
@@ -46,32 +46,25 @@ class ForgotPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
-
-
         initObservers()
+        pleaseWaitDialog = showPleaseWaitAlertDialog()
 
         binding.forgotPasswordEmailTv.addTextChangedListener(buttonHandler)
 
         binding.forgotPasswordButton.setOnClickListener {
             val email = binding.forgotPasswordEmailTv.text.toString().trim()
 
-            if(Validation.validateEmailPattern(email)){
+            if (Validation.validateEmailPattern(email)) {
                 viewModel.generateOtp(GenerateOtpRequest(email))
                 userEmail = email
-
-                findNavController().navigate(
-                    ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToRecoverPasswordOtpFragment(userEmail),
-                    customNavAnimation().build()
-                )
-            }else{
+            } else {
                 Snackbar.make(
                     binding.root,
-                    "Invalid email address",
+                    getString(R.string.invalid_email_address_text),
                     Snackbar.LENGTH_LONG
                 ).show()
             }
         }
-
     }
 
     private val buttonHandler: TextWatcher = object : TextWatcher {
@@ -82,62 +75,48 @@ class ForgotPasswordFragment : Fragment() {
             binding.forgotPasswordButton.isEnabled =
                 email.isNotEmpty()
         }
+
         override fun afterTextChanged(p0: Editable?) {}
 
     }
-//
+
     private fun setUpSpannableText() {
-        val text ="Remember password? Login"
+        val text = getString(R.string.remember_password_text)
         val spannableText = SpannableString(text)
-        val foregroundBlue = ForegroundColorSpan(requireActivity().resources.getColor(R.color.spannableBlue))
+        val foregroundBlue =
+            ForegroundColorSpan(requireActivity().resources.getColor(R.color.spannableBlue))
         spannableText.setSpan(foregroundBlue, 19, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.forgotPasswordRememberPasswordTextView.text = spannableText
     }
 
-    private fun initObservers(){
+    private fun initObservers() {
         viewModel.generateOtpRequest.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
+<<<<<<< HEAD
                     //TODO(Show Progress bar)
                     showPleaseWaitAlertDialog().dismiss()
                     Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+=======
+                    pleaseWaitDialog?.show()
+>>>>>>> 3fd5edb0566ca0f5a87bea058920ea0d1fba158e
                 }
                 is Resource.Success -> {
-                    //TODO(Move to Dashboard)
-                    showPleaseWaitAlertDialog().dismiss()
-                    val action =
+                    pleaseWaitDialog?.dismiss()
+                    findNavController().navigate(
                         ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToRecoverPasswordOtpFragment(
                             userEmail
-                        )
-                    findNavController().navigate(
-                        action
+                        ), customNavAnimation().build()
                     )
-                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getText(R.string.success_text), Toast.LENGTH_SHORT).show()
                 }
-
                 is Resource.Error -> {
-                    showPleaseWaitAlertDialog().dismiss()
-                    //TODO(Display error message and dismiss progress bar)
+                    pleaseWaitDialog?.dismiss()
                     Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
                         .show()
-
                 }
             }
-
-
         }
-
-    }
-
-    private fun showPleaseWaitAlertDialog(): AlertDialog {
-        if(pleaseWaitDialog == null) {
-            pleaseWaitDialog = showCustomViewDialog(
-                requireContext(), resources,
-                R.layout.custom_login_wait_dialog,
-                false
-            )
-        }
-       return pleaseWaitDialog as AlertDialog
     }
 
     override fun onDestroyView() {

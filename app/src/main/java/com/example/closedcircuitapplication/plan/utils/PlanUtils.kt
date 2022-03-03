@@ -33,4 +33,10 @@ object PlanUtils {
         }
         return displayEmail
     }
+
+    fun planDescriptionMaxWords(description: String): Int {
+        val maxWords: String = description.replace("\n", " ")
+        val descriptionText: List<String> = maxWords.split(" ")
+        return descriptionText.size
+    }
 }
