@@ -22,12 +22,9 @@ import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpReques
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
 import com.example.closedcircuitapplication.plan.presentation.models.Projects
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
-<<<<<<< HEAD
 import com.example.closedcircuitapplication.plan.utils.onItemClickListener
-=======
 import com.example.closedcircuitapplication.plan.utils.PlanConstants.LOADING
 import com.example.closedcircuitapplication.plan.utils.PlanConstants.OTP_MESSAGE
->>>>>>> 3fd5edb0566ca0f5a87bea058920ea0d1fba158e
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -181,10 +178,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                     }
                 }
                 is Resource.Error -> {
-<<<<<<< HEAD
-=======
                     makeSnackBar("${resource.data?.message}",requireView())
->>>>>>> 3fd5edb0566ca0f5a87bea058920ea0d1fba158e
                 }
             }
         }
