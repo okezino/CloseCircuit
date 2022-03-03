@@ -30,7 +30,7 @@ class RecoverPasswordOtpFragment : Fragment() {
     private val args: RecoverPasswordOtpFragmentArgs by navArgs()
     private var email: String = ""
     private var otp: String = ""
-    private var pleaseWaitDialog:AlertDialog? = null
+    private var pleaseWaitDialog: AlertDialog? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,7 +43,9 @@ class RecoverPasswordOtpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
-      validateOtp()
+
+        initObservers()
+        validateOtp()
 
     }
 

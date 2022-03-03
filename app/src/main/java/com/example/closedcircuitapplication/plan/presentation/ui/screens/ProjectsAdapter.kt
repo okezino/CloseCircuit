@@ -13,22 +13,20 @@ import com.example.closedcircuitapplication.databinding.ProjectItemBinding
 import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
 import com.example.closedcircuitapplication.plan.presentation.models.Projects
+import com.example.closedcircuitapplication.plan.utils.onItemClickListener
 
-class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Adapter<ProjectsAdapter.ViewHolder>() {
+class ProjectsAdapter(private val projects: MutableList<Plan>) :
+    RecyclerView.Adapter<ProjectsAdapter.ViewHolder>() {
 
-     lateinit var mListener: onItemClickListener
+    lateinit var mListener: onItemClickListener
 
+//    interface onItemClickListener {
+//        fun allPlansItemClicked(position: Int)
+//    }
 
-    interface onItemClickListener {
-        fun allPlansItemClicked(position: Int)
-        //        fun setOnItemClick(position: Int,myView: View?)
-//        fun toggleSaveItemToWishList(position: Int, saveItemTextBox: TextView, saveItemImage: ImageView, item: TopDealAndHotelData)
-    }
-
-    fun setOnItemClickListener(listener : onItemClickListener){
+    fun setOnItemClickListener(listener: onItemClickListener) {
         mListener = listener
     }
-
 
     private val differCallBack = object : DiffUtil.ItemCallback<Plan>() {
         override fun areItemsTheSame(oldItem: Plan, newItem: Plan): Boolean {
@@ -52,15 +50,11 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindView(projects[position])
-
-//        holder.item.setOnClickListener{
-//            listener.allPlansItemClicked(position)
-//        }
-
     }
 
     // listener : SetItemClickListener
-    class ViewHolder(binding: ProjectItemBinding, listener:onItemClickListener) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(binding: ProjectItemBinding, listener: onItemClickListener) :
+        RecyclerView.ViewHolder(binding.root) {
         private val planName: TextView = binding.planNameTextView
         private val fundsRaised: TextView = binding.fundsRaisedTextView
         private val tasksCompleted: TextView = binding.tasksCompletedTextView
@@ -73,26 +67,13 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Ad
 
             item.setOnClickListener {
 
-                listener.allPlansItemClicked( adapterPosition)
-
-
+                listener.allPlansItemClicked(adapterPosition)
             }
-
         }
 
         fun bindView(project: Plan) {
             planName.text = project.business_name
             planDescription.text = project.plan_description
-//            fundsRaised.text = "${project.fundsRaised}% Funds Raised"
-//            tasksCompleted.text = "${project.tasksCompleted}% Tasks Completed"
-//            tasksCompletedProgress.progress = project.tasksCompleted.toInt()
-//            fundsRaisedProgress.progress = project.fundsRaised.toInt()
-//            item.setOnClickListener {
-//                val action = ProjectScreenFragmentDirections
-//                    .actionProjectScreenFragmentToCreatePlanFragment()
-//                it.findNavController().navigate(action)
-////            }
-//            }
         }
     }
 }

@@ -20,9 +20,9 @@ import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
-import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import com.example.closedcircuitapplication.plan.presentation.models.Projects
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
+import com.example.closedcircuitapplication.plan.utils.onItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -164,7 +164,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                         projectsAdapter.submitList(resource.data.data.plans)
                         projectsAdapter.notifyDataSetChanged()
                         projectsRecyclerView.adapter = projectsAdapter
-                        projectsAdapter.setOnItemClickListener(object : ProjectsAdapter.onItemClickListener{
+                        projectsAdapter.setOnItemClickListener(object : onItemClickListener {
                             override fun allPlansItemClicked(position: Int) {
                                 findNavController().navigate(ProjectScreenFragmentDirections.actionProjectScreenFragmentToCreatePlanFragment(
                                     resource.data.data.plans[position].id))
@@ -181,13 +181,8 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                     }
                 }
                 is Resource.Error -> {
-//                    makeSnackBar("${resource.data?.message}",requireView())
                 }
             }
         }
     }
-
-//    override fun allPlansItemClicked(position: Int) {
-//        makeSnackBar("clicked...", requireView())
-//    }
 }

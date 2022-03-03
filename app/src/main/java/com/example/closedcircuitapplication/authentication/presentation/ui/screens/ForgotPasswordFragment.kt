@@ -99,7 +99,7 @@ class ForgotPasswordFragment : Fragment() {
             when (resource) {
                 is Resource.Loading -> {
                     //TODO(Show Progress bar)
-                    showPleaseWaitAlertDialog()
+                    showPleaseWaitAlertDialog().dismiss()
                     Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Success -> {
