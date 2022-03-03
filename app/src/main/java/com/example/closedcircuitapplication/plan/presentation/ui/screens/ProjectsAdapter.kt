@@ -20,10 +20,6 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) :
 
     lateinit var mListener: onItemClickListener
 
-//    interface onItemClickListener {
-//        fun allPlansItemClicked(position: Int)
-//    }
-
     fun setOnItemClickListener(listener: onItemClickListener) {
         mListener = listener
     }
