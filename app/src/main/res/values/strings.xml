@@ -286,4 +286,17 @@
     <string name="success_text">Success</string>
     <string name="remember_password_text">Remember password? Login</string>
     <string name="invalid_email_address_text">Invalid email address</string>
+    <string name="my_profile">My Profile</string>
+    <string name="change_profile_image">Change profile image</string>
+    <string name="_0">0</string>
+    <string name="total_number_of_plans">Total Number of Plans</string>
+    <string name="completed_plans2">Completed Plans</string>
+    <string name="full_name2">Full name:</string>
+    <string name="none">None</string>
+    <string name="emailpat_gmail_com">emailpat@gmail.com</string>
+    <string name="email2">Email:</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="_234_8168888888">(+234) 8168888888</string>
+    <string name="nationality">Nationality:</string>
+    <string name="nigerian">Nigerian</string>
 </resources>

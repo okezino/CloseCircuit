@@ -1,27 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".dashboard.presentation.ui.screens.ProfileFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/uploadImage_Tv"
-        android:gravity="center"
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="upload Image"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:background="@color/background1"
+        tools:context=".dashboard.presentation.ui.screens.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/my_profile"
+        android:textSize="@dimen/textSize_24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/girl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-        />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/change_profile_image"
+        android:textColor="@color/change_profile_text_color"
+        android:textSize="@dimen/textSize_15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:text="@string/_0"
+            android:textSize="@dimen/textSize_15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="190dp"
+            android:text="@string/_0"
+            android:textSize="@dimen/textSize_15sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:text="@string/total_number_of_plans"
+                android:textSize="@dimen/textSize_15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_50dp"
+                android:text="@string/completed_plans2"
+                android:textSize="@dimen/textSize_15sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginStart="@dimen/margin_21dp"
+            android:layout_marginTop="@dimen/margin_50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            tools:layout_editor_absoluteX="28dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/full_name2"
+                android:textSize="@dimen/textSize_15sp"
+                android:textColor="@color/profile_text_color"/>
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/none"
+                android:textSize="@dimen/textSize_17sp"
+                android:textStyle="bold"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/margin_20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:cardBackgroundColor="#8A8A8E"/>
+
+
+
+            <TextView
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email2"
+                android:textSize="@dimen/textSize_15sp"
+                android:textColor="@color/profile_text_color"/>
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/emailpat_gmail_com"
+                android:textSize="@dimen/textSize_17sp"
+                android:textStyle="bold"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/margin_20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:cardBackgroundColor="#8A8A8E"/>
+
+
+
+            <TextView
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_number"
+                android:textSize="@dimen/textSize_15sp"
+                android:textColor="@color/profile_text_color"/>
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_234_8168888888"
+                android:textSize="@dimen/textSize_17sp"
+                android:textStyle="bold"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/margin_20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:cardBackgroundColor="#8A8A8E"/>
+
+
+
+            <TextView
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nationality"
+                android:textSize="@dimen/textSize_15sp"
+                android:textColor="@color/profile_text_color"/>
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nigerian"
+                android:textSize="@dimen/textSize_17sp"
+                android:textStyle="bold"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/margin_20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:cardBackgroundColor="#8A8A8E"/>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
