@@ -7,11 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.authentication.presentation.ui.screens.CreateAccountFragmentDirections
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentProfileBinding
@@ -43,6 +47,10 @@ class ProfileFragment : Fragment() {
 
 
         binding.profileEditButton.setOnClickListener {
+
+            findNavController().navigate(
+                ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(),
+                customNavAnimation().build())
 
         }
 
