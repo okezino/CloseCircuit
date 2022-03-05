@@ -6,7 +6,7 @@
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/profileFragment2"
+            android:id="@+id/profileFragment"
             android:icon="@drawable/ic_accounts"
             android:title="@string/menu_profile" />
         <item

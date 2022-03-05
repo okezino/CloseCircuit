@@ -299,4 +299,7 @@
     <string name="_234_8168888888">(+234) 8168888888</string>
     <string name="nationality">Nationality:</string>
     <string name="nigerian">Nigerian</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="click_to_edit">Click to edit.</string>
+    <string name="account_page">Account page</string>
 </resources>
