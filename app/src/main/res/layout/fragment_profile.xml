@@ -61,6 +61,7 @@
             tools:layout_editor_absoluteX="0dp">
 
             <TextView
+                android:id="@+id/plansTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_10dp"

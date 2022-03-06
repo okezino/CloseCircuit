@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.presentation.ui.screens.CreateAccountFragmentDirections
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
@@ -19,6 +20,10 @@ import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentProfileBinding
+import com.example.closedcircuitapplication.plan.presentation.ui.screens.ProjectScreenFragmentDirections
+import com.example.closedcircuitapplication.plan.presentation.ui.screens.ProjectsAdapter
+import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
+import com.example.closedcircuitapplication.plan.utils.onItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -28,6 +33,11 @@ class ProfileFragment : Fragment() {
     private  var _binding:FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private  val viewModel: DashboardViewModel by viewModels()
+    private val _viewModel: PlanViewModel by viewModels()
+
+    private lateinit var fullName: String
+    private lateinit var phoneNumber: String
+    private lateinit var nationality: String
 
     @Inject
     lateinit var preferences: Preferences
@@ -45,19 +55,11 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        binding.profileEditButton.setOnClickListener {
-
-            findNavController().navigate(
-                ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(),
-                customNavAnimation().build())
-
-        }
-
         getUserDetails()
         userDetailsInitObserver()
+        initObserversMyPlansTotal()
 
-
+        _viewModel.getMyPlans(100, 0, "Bearer ${preferences.getToken()}")
        }
 
     private fun userDetailsInitObserver(){
@@ -66,12 +68,23 @@ class ProfileFragment : Fragment() {
                 is Resource.Loading ->{
                 }
                 is Resource.Success ->{
-                    val fullName = it.data.data?.fullName.toString()
+                    fullName = it.data.data?.fullName.toString()
                     val firstName = UserNameSplitterUtils.userFullName(fullName)
                     binding.profileName.text = fullName
                     binding.profileEmail.text = it.data.data?.email
+                    phoneNumber = it.data.data?.phoneNumber.toString()
+                    nationality = it.data.data?.country.toString()
                     binding.profileNumber.text = it.data.data?.phoneNumber
                     binding.profileNationality.text = it.data.data?.country
+
+                    binding.profileEditButton.setOnClickListener {
+
+                        findNavController().navigate(
+                            ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(fullName,phoneNumber, nationality ),
+                            customNavAnimation().build())
+
+                    }
+
                     // saving email to sharedPreference
 //                    it.data.data?.let { email -> saveEmail(email.email) }
                     //save verification status to sharedPreference
@@ -84,6 +97,23 @@ class ProfileFragment : Fragment() {
                 }
                 is Resource.Error ->{
                     makeSnackBar("${it.data?.message}", requireView())
+                }
+            }
+        }
+    }
+
+    private fun initObserversMyPlansTotal(){
+        _viewModel.getMyPlansResponse.observe(viewLifecycleOwner) { resource ->
+            when (resource) {
+                is Resource.Loading -> {
+                    makeSnackBar("Loading...", requireView())
+                }
+                is Resource.Success -> {
+                    resource.data.data?.plans
+                    binding.plansTotal.text =  resource.data.data?.plans?.size.toString()
+                }
+                is Resource.Error -> {
+                    makeSnackBar("${resource.data?.message}",requireView())
                 }
             }
         }

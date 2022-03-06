@@ -34,7 +34,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -53,16 +53,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/fragment_create_account_sharedbuilding_tv"-->
-<!--                style="@style/CreateAccountFragmentTextView_style"-->
-<!--                android:text="@string/shared_building_shared_prosperity"-->
-<!--                android:textSize="@dimen/text_size_17sp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.5"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-
             <TextView
                 android:id="@+id/createAccount_tv"
                 style="@style/CreateAccountFragmentTextView_style"
@@ -76,6 +66,18 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/full_name"
+                android:textColor="@color/main"
+                android:textSize="@dimen/textSize_15sp"
+                app:layout_constraintBottom_toTopOf="@+id/fullNameTextInputLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createAccount_tv"
+                app:layout_constraintVertical_bias="1.0" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/fullNameTextInputLayout"
                 style="@style/Fragment_CreateAccount_TextInputLayout_style"
@@ -88,10 +90,21 @@
                     android:id="@+id/fullNameTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/full_name"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/phone_number"
+                android:textColor="@color/main"
+                android:textSize="@dimen/textSize_15sp"
+                app:layout_constraintBottom_toTopOf="@+id/phoneNumberTextInputLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fullNameTextInputLayout"
+                app:layout_constraintVertical_bias="1.0" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phoneNumberTextInputLayout"
@@ -126,6 +139,78 @@
                 app:layout_constraintTop_toTopOf="@+id/phoneNumberTextInputLayout" />
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/nationality"
+                android:textColor="@color/main"
+                android:textSize="@dimen/textSize_15sp"
+                app:layout_constraintBottom_toTopOf="@+id/nationalityTextInputLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextInputLayout"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nationalityTextInputLayout"
+                style="@style/Fragment_EditProfile_Dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginEnd="@dimen/margin_20dp"
+                android:layout_marginTop="@dimen/margin_50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phoneNumberTextInputLayout">
+
+                <AutoCompleteTextView
+                    android:id="@+id/selectCountryCategoryDropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:dropDownVerticalOffset="@dimen/offset_4dp"
+                    android:gravity="center_vertical"
+                    android:inputType="none"
+                    android:paddingTop="@dimen/padding_4dp"
+                    android:scrollbars="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/SelectPlanCategory_sp"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/margin_20dp"-->
+<!--                android:layout_marginEnd="@dimen/margin_20dp"-->
+<!--                android:paddingTop="@dimen/margin_16dp"-->
+<!--                android:paddingBottom="@dimen/margin_16dp"-->
+<!--                app:boxBackgroundColor="@color/grey_box_background"-->
+<!--                app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"-->
+<!--                app:boxCornerRadiusBottomStart="@dimen/radius_5dp"-->
+<!--                app:boxCornerRadiusTopEnd="@dimen/radius_5dp"-->
+<!--                app:boxCornerRadiusTopStart="@dimen/radius_5dp"-->
+<!--                app:boxStrokeColor="@color/grey_box_background"-->
+<!--                app:boxStrokeWidth="@dimen/margin_0dp"-->
+<!--                app:endIconDrawable="@drawable/end_icon_dropdown_drawable"-->
+<!--                app:endIconMode="dropdown_menu"-->
+<!--                app:endIconTint="@color/closed_circuit_dark_green"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextInputLayout">-->
+
+<!--                <AutoCompleteTextView-->
+<!--                    android:id="@+id/selectPlanCategoryDropdown"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:dropDownVerticalOffset="@dimen/offset_4dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:inputType="none"-->
+<!--                    android:paddingTop="@dimen/padding_4dp"-->
+<!--                    android:scrollbars="none" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/createAccount_btn"
@@ -137,7 +222,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextInputLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/nationalityTextInputLayout" />
 
 
 

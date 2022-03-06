@@ -307,6 +307,16 @@
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.EditProfileFragment"
-        android:label="EditProfileFragment" />
+        android:label="EditProfileFragment" >
+        <argument
+            android:name="fullName"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+        <argument
+            android:name="nationality"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

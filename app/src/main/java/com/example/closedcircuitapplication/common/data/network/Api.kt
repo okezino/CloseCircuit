@@ -69,7 +69,6 @@ interface Api {
     @GET(GET_MY_PLANS)
     suspend fun getAllPlans(@Query("limit")limit: Int, @Query("offset")offSet: Int, @Header("Authorization")authHeader: String): Result<GetMyPlansDto>
 
-
     @DELETE(DELETE_PLAN)
     suspend fun deletePlan(
         @Path("id") id:String,

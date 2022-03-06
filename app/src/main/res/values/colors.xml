@@ -53,6 +53,7 @@
     <color name="closed_circuit_progress_background_tint">#F1F5FF</color>
     <color name="change_profile_text_color">#B7E143</color>
     <color name="profile_text_color">#C4C4C4</color>
+    <color name="box_background">#EBEFF2</color>
 
 
 </resources>
