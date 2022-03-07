@@ -1,6 +1,7 @@
 package com.example.closedcircuitapplication.common.utils
 
-import androidx.core.text.isDigitsOnly
+import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
+
 
 object Validation {
     var EMAIL_PATTERN = Regex(
@@ -94,7 +95,7 @@ object Validation {
 
     // phone_number inputField validation
     fun validatePhone_number(phone_number : String):Boolean{
-        return phone_number.length < 9
+        return phone_number.length < 10
     }
 
     fun validatePassword_Equals_confirmPasswword(password: String, confirmPassword: String):Boolean{
@@ -130,8 +131,32 @@ object Validation {
     fun validateUserProfileInput(user:UserInput):Boolean{
         return (user.fullName.isEmpty()|| user.username.isEmpty() || validatePhone_number(user.phone_number) || !validateEmailInput(user.emailAddress))
     }
+
+ fun validateAccountData(accountData: RegisterRequest):List<String>{
+    val result = mutableListOf<String>()
+    val splitName = accountData.fullname.split(" ")
+    // check if the full name is entered and is a valid name
+        if(splitName.size <2 || splitName.size >3){
+            result.add("Enter your full name")
+        }else if (!validateEmailInput(accountData.email) ) {
+            result.add("cant be empty")
+        } else if ( validatePhone_number(accountData.phone_number)){
+            result.add("Incomplete number")
+        } else if ( validatePassword_Equals_confirmPasswword(accountData.password, accountData.confirm_password)) {
+            result.add("Password does not match")
+        }
+    return result
+    }
+
 }
 
+data class AccountData (
+    val fullName: String,
+    val phone_number: String,
+    val password: String,
+    val email: String,
+    val confirmPassword: String,
+        )
 data class UserInput(
     val fullName : String,
     val username :String,

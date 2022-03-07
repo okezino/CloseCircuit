@@ -10,7 +10,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.closedcircuitapplication.dashboard.interfaces.ClickListener
 import com.example.closedcircuitapplication.databinding.ProjectItemBinding
 import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
@@ -20,8 +19,6 @@ import com.example.closedcircuitapplication.plan.presentation.models.StepsBudget
 class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Adapter<ProjectsAdapter.ViewHolder>() {
 
      lateinit var listener :SetItemClickListener
-
-
     private val differCallBack = object : DiffUtil.ItemCallback<Plan>() {
         override fun areItemsTheSame(oldItem: Plan, newItem: Plan): Boolean {
             return oldItem.id == newItem.id
@@ -31,7 +28,6 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Ad
             return oldItem == newItem
         }
     }
-
     val differ = AsyncListDiffer(this, differCallBack)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ProjectItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -69,8 +65,9 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) : RecyclerView.Ad
 //            tasksCompletedProgress.progress = project.tasksCompleted.toInt()
 //            fundsRaisedProgress.progress = project.fundsRaised.toInt()
             item.setOnClickListener {
+                //TODO(pass the planId to the navigation)
                 val action = ProjectScreenFragmentDirections
-                    .actionProjectScreenFragmentToMyStepFragment(StepsBudgetItem(planName.toString(), "30000", "30000"))
+                    .actionProjectScreenFragmentToMyStepFragment(StepsBudgetItem(planName.toString(), "30000", "30000"),"stepId")
                 it.findNavController().navigate(action)
             }
            }

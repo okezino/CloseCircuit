@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.children
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -13,6 +14,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
+import com.example.closedcircuitapplication.common.utils.hide
 import com.example.closedcircuitapplication.dashboard.presentation.ui.screens.DashboardFragment
 import com.example.closedcircuitapplication.databinding.ActivityBeneficiaryDashboardBinding
 import com.example.closedcircuitapplication.plan.presentation.ui.screens.ProjectScreenFragment
@@ -76,10 +78,17 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
                         binding.appBarDashboard.contentMain.fab.visibility = View.VISIBLE
                         binding.appBarDashboard.notificationImageView.visibility = View.VISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.VISIBLE
+                        binding.appBarDashboard.toolbarHeaderTitleTv.visibility=View.INVISIBLE
+                    }
+                    R.id.supportFragment->{
+                        binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
+                        binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
+                        binding.appBarDashboard.toolbarHeaderTitleTv.visibility=View.VISIBLE
                     }
                     else -> {
                         binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
+                        binding.appBarDashboard.toolbarHeaderTitleTv.visibility=View.INVISIBLE
                     }
                 }
             }

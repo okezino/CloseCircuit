@@ -108,7 +108,7 @@ class ResetYourPasswordFragment : Fragment() {
     }
 
     private fun initObservers(){
-        viewModel.resetPasswordResponse.observe(viewLifecycleOwner, { resource ->
+        viewModel.resetPasswordResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
                     showPleaseWaitAlertDialog()
@@ -132,7 +132,7 @@ class ResetYourPasswordFragment : Fragment() {
             }
 
 
-        })
+        }
 
     }
 

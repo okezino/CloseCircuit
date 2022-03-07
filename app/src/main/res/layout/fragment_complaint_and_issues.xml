@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/background1"
+tools:context=".support.ui.screen.ComplaintAndIssuesFragment">
+
+
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/fragment_complaint_and_issues_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    android:paddingLeft="@dimen/margin_10dp"
+    android:paddingRight="@dimen/margin_10dp"
+    app:elevation="@dimen/margin_10dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_button" />
+
+</androidx.appcompat.widget.Toolbar>
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/fragment_complaint_and_issues_toolbar">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        >
+
+        <TextView
+            android:id="@+id/complaint_and_issues_screen_tv"
+            style="@style/ParagraphTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:text="@string/complaint_and_issues"
+            android:textSize="@dimen/textSize_18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/how_to_request_change_Linearlayout"
+            style="@style/LinearLayout_style"
+            android:layout_marginTop="@dimen/margin_34dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/complaint_and_issues_screen_tv">
+
+            <TextView
+                android:id="@+id/request_for_change_tv"
+                style="@style/SupportFragmentTextStyle"
+                android:layout_weight="1.8"
+                android:paddingVertical="@dimen/margin_20dp"
+                android:text="@string/request_for_change" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:paddingVertical="@dimen/margin_20dp"
+                android:src="@drawable/ic_arrow_forward" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/width_1dp"
+            android:layout_marginHorizontal="@dimen/margin_20dp"
+            android:background="@color/view_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_to_request_change_Linearlayout" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/did_not_receive_repayment_linearLayout"
+            style="@style/LinearLayout_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_to_request_change_Linearlayout">
+
+            <TextView
+                android:id="@+id/did_not_receive_repayment_tv"
+                style="@style/SupportFragmentTextStyle"
+                android:layout_weight="1.8"
+                android:paddingVertical="20dp"
+                android:text="@string/didnt_receive_repayment" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:paddingVertical="20dp"
+                android:src="@drawable/ic_arrow_forward" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/width_1dp"
+            android:layout_marginHorizontal="@dimen/margin_20dp"
+            android:background="@color/view_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/did_not_receive_repayment_linearLayout" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/unable_to_request_withdrawal_linearLayout"
+            style="@style/LinearLayout_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/did_not_receive_repayment_linearLayout">
+
+            <TextView
+                android:id="@+id/unable_to_request_withdrawal_tv"
+                style="@style/SupportFragmentTextStyle"
+                android:layout_weight="1.8"
+                android:paddingVertical="@dimen/margin_20dp"
+                android:text="@string/unable_to_request" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:paddingVertical="@dimen/margin_20dp"
+                android:src="@drawable/ic_arrow_forward" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/width_1dp"
+            android:layout_marginHorizontal="@dimen/margin_20dp"
+            android:background="@color/view_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/unable_to_request_withdrawal_linearLayout" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/speak_to_customer_care_linearLayout"
+            style="@style/LinearLayout_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/unable_to_request_withdrawal_linearLayout">
+
+            <TextView
+                android:id="@+id/speak_to_customer_care_tv"
+                style="@style/SupportFragmentTextStyle"
+                android:layout_weight="1.8"
+                android:paddingVertical="@dimen/margin_20dp"
+                android:text="@string/speak_to_customer_care" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:paddingVertical="@dimen/margin_20dp"
+                android:src="@drawable/ic_arrow_forward" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/width_1dp"
+            android:layout_marginHorizontal="@dimen/margin_20dp"
+            android:background="@color/view_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/speak_to_customer_care_linearLayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

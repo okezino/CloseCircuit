@@ -192,7 +192,7 @@
         android:id="@+id/dashboardFragment2"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.DashboardFragment"
         android:label="DashboardFragment" />
-<!--    <fragment-->
+    <!--    <fragment-->
 <!--        android:id="@+id/creatPlanStepOneFragment2"-->
 <!--        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatPlanStepOneFragment"-->
 <!--        android:label="fragment_creat_plan_step_one"-->

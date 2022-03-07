@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/background1"
+tools:context=".support.ui.screen.PaymentsSupportFragment">
+
+
+<com.google.android.material.appbar.AppBarLayout
+    android:id="@+id/fragment_payments_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:visibility="gone"
+    android:paddingRight="10dp"
+    app:elevation="4dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_button" />
+
+</com.google.android.material.appbar.AppBarLayout>
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/fragment_payments_toolbar">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/fragment_payments_header_tv"
+            style="@style/ParagraphTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:text="@string/payments"
+            android:textSize="@dimen/textSize_18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/how_do_i_pay_Linearlayout"
+            style="@style/LinearLayout_style"
+            android:layout_marginTop="@dimen/margin_34dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_payments_header_tv">
+
+            <TextView
+                android:id="@+id/how_to_pay_tv"
+                style="@style/SupportFragmentTextStyle"
+                android:layout_weight="1.8"
+                android:paddingVertical="20dp"
+                android:text="@string/how_do_i_pay" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:paddingVertical="20dp"
+                android:src="@drawable/ic_arrow_forward" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="#F5F5F5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_do_i_pay_Linearlayout" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/how_to_send_payment_linearLayout"
+            style="@style/LinearLayout_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_do_i_pay_Linearlayout">
+
+            <TextView
+                android:id="@+id/how_to_send_payment_tv"
+                style="@style/SupportFragmentTextStyle"
+                android:layout_weight="1.8"
+                android:paddingVertical="20dp"
+                android:text="@string/how_do_i_send" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:paddingVertical="20dp"
+                android:src="@drawable/ic_arrow_forward" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="#F5F5F5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_to_send_payment_linearLayout" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/how_to_withdraw_fund_linearLayout"
+            style="@style/LinearLayout_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_to_send_payment_linearLayout">
+
+            <TextView
+                android:id="@+id/how_to_withdraw_fund_tv"
+                style="@style/SupportFragmentTextStyle"
+                android:layout_weight="1.8"
+                android:paddingVertical="20dp"
+                android:text="@string/how_do_i_withdraw" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:paddingVertical="20dp"
+                android:src="@drawable/ic_arrow_forward" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="#F5F5F5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_to_withdraw_fund_linearLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true">
+        app:menu="@menu/menu_main"
+        android:clickable="true"
+        android:fitsSystemWindows="true"
+        android:focusable="true">
 
     </com.google.android.material.navigation.NavigationView>
 

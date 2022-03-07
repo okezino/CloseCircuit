@@ -44,6 +44,7 @@ class RecoverPasswordOtpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpSpannableText()
       validateOtp()
+        initObservers()
 
     }
 
@@ -79,7 +80,7 @@ class RecoverPasswordOtpFragment : Fragment() {
     }
 
     private fun initObservers(){
-        viewModel.verifyOtpResponse.observe(viewLifecycleOwner, { resource ->
+        viewModel.verifyOtpResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
                     showPleaseWaitAlertDialog()
@@ -87,7 +88,11 @@ class RecoverPasswordOtpFragment : Fragment() {
                 }
                 is Resource.Success -> {
                     showPleaseWaitAlertDialog().dismiss()
-                    val action = RecoverPasswordOtpFragmentDirections.actionRecoverPasswordOtpFragmentToResetYourPasswordFragment(email, otp)
+                    val action =
+                        RecoverPasswordOtpFragmentDirections.actionRecoverPasswordOtpFragmentToResetYourPasswordFragment(
+                            email,
+                            otp
+                        )
                     findNavController().navigate(
                         action
                     )
@@ -104,7 +109,7 @@ class RecoverPasswordOtpFragment : Fragment() {
             }
 
 
-        })
+        }
 
     }
 

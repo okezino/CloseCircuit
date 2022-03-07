@@ -179,6 +179,9 @@
         <action
             android:id="@+id/action_myStepFragment_to_projectScreenFragment"
             app:destination="@id/projectScreenFragment" />
+        <argument
+            android:name="planId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/myBudgetFragment"
@@ -296,5 +299,53 @@
             android:id="@+id/action_editPlanFragment_to_createPlanFragment"
             app:destination="@id/createPlanFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/complaintAndIssuesFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.ComplaintAndIssuesFragment"
+        android:label="fragment_complaint_and_issues"
+        tools:layout="@layout/fragment_complaint_and_issues" >
+        <action
+            android:id="@+id/action_complaintAndIssuesFragment_to_customerCareFragment"
+            app:destination="@id/customerCareFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/howToUseSupportFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.HowToUseSupportFragment"
+        android:label="fragment_how_to_use_suport"
+        tools:layout="@layout/fragment_how_to_use_suport" >
+        <action
+            android:id="@+id/action_howToUseSupportFragment_to_whatIsTheClosedCircuitFragment"
+            app:destination="@id/whatIsTheClosedCircuitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentsSupportFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.PaymentsSupportFragment"
+        android:label="fragment_payments_support"
+        tools:layout="@layout/fragment_payments_support" />
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.SupportFragment"
+        android:label="fragment_support"
+        tools:layout="@layout/fragment_support" >
+        <action
+            android:id="@+id/action_supportFragment_to_howToUseSupportFragment"
+            app:destination="@id/howToUseSupportFragment" />
+        <action
+            android:id="@+id/action_supportFragment_to_complaintAndIssuesFragment"
+            app:destination="@id/complaintAndIssuesFragment" />
+        <action
+            android:id="@+id/action_supportFragment_to_paymentsSupportFragment"
+            app:destination="@id/paymentsSupportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/whatIsTheClosedCircuitFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.WhatIsTheClosedCircuitFragment"
+        android:label="fragment_whatis_the_closed_circuit"
+        tools:layout="@layout/fragment_whatis_the_closed_circuit" />
+    <fragment
+        android:id="@+id/customerCareFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.CustomerCareFragment"
+        android:label="fragment_customer_care"
+        tools:layout="@layout/fragment_customer_care" />
 
 </navigation>

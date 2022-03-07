@@ -1,17 +1,25 @@
 package com.example.closedcircuitapplication.common.utils
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.text.Editable
 import android.text.TextUtils
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
+import android.widget.Toast
 import androidx.compose.ui.text.toLowerCase
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.presentation.ui.MainActivity
+import com.example.closedcircuitapplication.databinding.DeletePlanDialogBinding
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -103,4 +111,21 @@ fun Fragment.capitalizeWords(stringInput: String): String {
     }
 
     return result.trim()
+}
+fun Fragment.deletePlanAlertDialog(dialogBinding:DeletePlanDialogBinding, planName:TextView, deletePlan:()-> Unit):Dialog {
+    val dialog = Dialog(requireContext()).apply {
+        setContentView(dialogBinding.root)
+        setCancelable(true)
+        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    }
+    dialogBinding.deleteDialogTv.text = getString(R.string.deletePlan_dialog_message, planName.text.toString())
+
+    dialogBinding.deletePlanNoBtn.setOnClickListener {
+        Toast.makeText(requireContext(), "Action declined", Toast.LENGTH_SHORT).show()
+        dialog.dismiss()
+    }
+    dialogBinding.deletePlanYesBtn.setOnClickListener { deletePlan.invoke()
+        dialog.dismiss()
+    }
+    return dialog
 }
