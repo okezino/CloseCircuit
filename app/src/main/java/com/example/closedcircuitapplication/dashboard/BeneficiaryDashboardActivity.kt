@@ -1,8 +1,11 @@
 package com.example.closedcircuitapplication.dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -13,9 +16,17 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
-import com.example.closedcircuitapplication.dashboard.presentation.ui.screens.DashboardFragment
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_FULL_NAME
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_PHONE_NUMBER
+import com.example.closedcircuitapplication.common.presentation.ui.MainActivity
+import com.example.closedcircuitapplication.common.utils.FROM_LOGOUT
+import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
+import com.example.closedcircuitapplication.common.utils.makeSnackBar
+import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.ActivityBeneficiaryDashboardBinding
-import com.example.closedcircuitapplication.plan.presentation.ui.screens.ProjectScreenFragment
+import com.example.closedcircuitapplication.databinding.DrawerHeaderLayoutBinding
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,11 +40,17 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var bottomAppBar: BottomAppBar
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var drawerHeaderLayoutBinding: DrawerHeaderLayoutBinding
+    private  val viewModel: DashboardViewModel by viewModels()
+
+    @Inject
+    lateinit var preferences: Preferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBeneficiaryDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModel.getUserDetails(preferences.getUserId(PreferencesConstants.USER_ID),"Bearer ${preferences.getToken()}")
 
         bottomNavigationView = binding.appBarDashboard.contentMain.bottomNavigationView
         bottomNavigationView.background = null
@@ -52,16 +69,43 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
             findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.notificationScreenFragment)
         }
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
-//        bottomNavigationView.setupWithNavController(navController)
-//        appBarConfiguration = AppBarConfiguration(
-//            topLevelDestinationIds = setOf(
-//                R.id.dashboardFragment
-//            ),
-//            drawerLayout
-//        )
+        drawerHeaderLayoutBinding = DrawerHeaderLayoutBinding.bind(binding.drawerNavView.getHeaderView(0))
+        drawerHeaderLayoutBinding.drawerHeaderCloseIconImageView.setOnClickListener {
+            binding.drawerLayout.close()
+        }
+
+       userLogOut()
+
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         onDestinationChangedListener()
+        userDetailsInitObserver()
+        setUpNavigationDestinations()
+    }
+
+    private fun userLogOut() {
+        binding.drawerLogoutConstraintLayout.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra(FROM_LOGOUT, true)
+            startActivity(intent)
+            this.finish()
+        }
+    }
+
+
+    private fun setUpNavigationDestinations() {
+        binding.drawerNavView.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.notificationScreenFragment -> {
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.notificationScreenFragment)
+                    binding.drawerLayout.closeDrawer(Gravity.LEFT)
+                    return@setNavigationItemSelectedListener true
+                }
+                else -> {
+                    return@setNavigationItemSelectedListener false
+                }
+            }
+        }
     }
 
     private fun onDestinationChangedListener() {
@@ -88,13 +132,37 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
         }
     }
 
-//    fun showAppBar() {
-//        binding.appBarDashboard.contentMain.fab.visibility = View.GONE
-//        bottomAppBar.visibility = View.GONE
-//        binding.appBarDashboard.appBarLayout.visibility = View.VISIBLE
-//        binding.appBarDashboard.notificationImageView.visibility = View.GONE
-//        binding.appBarDashboard.profileImageView.visibility = View.GONE
-//    }
+    private fun userDetailsInitObserver(){
+        viewModel.userDetailsResponse.observe(this){
+            when(it){
+                is Resource.Loading ->{
+                }
+                is Resource.Success ->{
+                    val fullName = it.data.data?.fullName.toString()
+                    val firstName = UserNameSplitterUtils.userFullName(fullName)
+                    it.data.data?.fullName.let { fullName ->
+                        if (fullName != null) {
+                            preferences.putUserFullName(
+                                USER_FULL_NAME, fullName)
+                        }
+                    }
+                    drawerHeaderLayoutBinding.drawerHeaderUserFullNameTextView.text = fullName
+                    // saving email to sharedPreference
+                    it.data.data?.let { email -> preferences.saveEmail(email.email) }
+                    //save verification status to sharedPreference
+                    it.data.data?.isVerified?.let { status -> preferences.putUserVerified(status, PreferencesConstants.USER_VERIFIED) }
+                    // save user first name to sharedPreference
+                    firstName.let { name -> preferences.putUserFirstName(name) }
+                    // save user phone number to sharedPreference
+                    it.data.data?.phoneNumber?.let { number -> preferences.putUserPhoneNumber(USER_PHONE_NUMBER, number)}
+                }
+                is Resource.Error ->{
+                }
+            }
+        }
+    }
+
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)

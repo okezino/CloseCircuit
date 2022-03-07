@@ -2,6 +2,8 @@ package com.example.closedcircuitapplication.common.data.preferences
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.KEY_EMAIL
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.KEY_TOKEN
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.KEY_TOKEN_EXPIRATION_TIME
@@ -84,6 +86,16 @@ class ClosedCircuitPreferences @Inject constructor(
 
     override fun getUserPhoneNumber(key: String): String {
         return preferences.getString(key, "").orEmpty()
+    }
+
+    override fun putUserFullName(key: String, fullName: String) {
+        edit {
+            putString(key, fullName)
+        }
+    }
+
+    override fun getUserFullName(key: String): LiveData<String?> {
+        return MutableLiveData<String>(preferences.getString(key, null))
     }
 
     override fun putUserId(userId: String) {
