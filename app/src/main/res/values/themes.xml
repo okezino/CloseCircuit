@@ -175,4 +175,9 @@
         <item name="android:textSize">@dimen/textSize_24sp</item>
     </style>
 
+    <style name="Drawer_Text_Style" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textSize">@dimen/textSize_15sp</item>
+    </style>
+
 </resources>

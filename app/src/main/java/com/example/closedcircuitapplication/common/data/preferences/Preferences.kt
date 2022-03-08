@@ -1,5 +1,7 @@
 package com.example.closedcircuitapplication.common.data.preferences
 
+import androidx.lifecycle.LiveData
+
 interface Preferences {
 
     fun putToken(token: String)
@@ -37,5 +39,9 @@ interface Preferences {
     fun putUserPhoneNumber(key: String, phoneNumber: String)
 
     fun getUserPhoneNumber(key: String): String
+
+    fun putUserFullName(key: String, fullName: String)
+
+    fun getUserFullName(key: String): LiveData<String?>
 
 }
