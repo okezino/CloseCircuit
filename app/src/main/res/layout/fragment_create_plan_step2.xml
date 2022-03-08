@@ -51,7 +51,7 @@
             android:fontFamily="@font/helvetica"
             android:gravity="center_vertical"
             android:importantForAccessibility="no"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             android:maxLines="2"
             android:textColor="@color/black"
             android:textSize="15sp" />
@@ -85,7 +85,7 @@
             android:fontFamily="@font/helvetica"
             android:gravity="start"
             android:importantForAutofill="no"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             android:minHeight="161dp"
             android:padding="10dp"
             android:textColor="@color/black"

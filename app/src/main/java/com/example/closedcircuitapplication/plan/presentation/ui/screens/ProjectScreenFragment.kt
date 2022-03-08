@@ -20,14 +20,16 @@ import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
-import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import com.example.closedcircuitapplication.plan.presentation.models.Projects
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
+import com.example.closedcircuitapplication.plan.utils.onItemClickListener
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.LOADING
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.OTP_MESSAGE
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), ProjectsAdapter.SetItemClickListener {
+class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
     private var _binding: FragmentProjectScreenBinding? = null
     private val binding get() = _binding!!
     private lateinit var projectsAdapter: ProjectsAdapter
@@ -36,7 +38,6 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
     @Inject
     lateinit var preferences: Preferences
     private val viewModel: PlanViewModel by viewModels()
-    private var userEmail: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,11 +53,8 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val prefEmail = preferences.getEmail()
-        val firstName = preferences.getUserFirstName()
-        userEmail = prefEmail
         myPlansList = ArrayList<Plan>()
-        binding.notStartedAPlanTv.text = getString(R.string.user_name, UserNameSplitterUtils.userFullName(firstName))
+        binding.notStartedAPlanTv.text = getString(R.string.user_name, UserNameSplitterUtils.userFullName(preferences.getUserFirstName()))
 
         initObservers()
         fetchProjects()
@@ -65,10 +63,9 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
         viewModel.getMyPlans(100, 0, "Bearer ${preferences.getToken()}")
 
         binding.fragmentProjectScreenLayout.setOnClickListener {
-            val email: String = prefEmail
 
             if (!preferences.getUserVerifiedValue(PreferencesConstants.USER_VERIFIED)) {
-                viewModel.generateOtp(GenerateOtpRequest(email))
+                viewModel.generateOtp(GenerateOtpRequest(preferences.getEmail()))
                 findNavController().navigate(
                     ProjectScreenFragmentDirections
                         .actionProjectScreenFragmentToEmailVerificationFragment(),
@@ -127,7 +124,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
         viewModel.generateOtpResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-                    makeSnackBar("Loading...", requireView())
+                    makeSnackBar(LOADING, requireView())
                 }
                 is Resource.Success -> {
                     findNavController().navigate(
@@ -135,7 +132,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
                             .actionProjectScreenFragmentToEmailVerificationFragment(),
                         customNavAnimation().build()
                     )
-                    makeSnackBar("Otp sent to $userEmail", requireView())
+                    makeSnackBar("$OTP_MESSAGE ${preferences.getEmail()}", requireView())
                 }
                 is Resource.Error -> {
                     makeSnackBar("${resource.data?.message}", requireView())
@@ -164,6 +161,13 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
                         projectsAdapter.submitList(resource.data.data.plans)
                         projectsAdapter.notifyDataSetChanged()
                         projectsRecyclerView.adapter = projectsAdapter
+                        projectsAdapter.setOnItemClickListener(object : onItemClickListener {
+                            override fun allPlansItemClicked(position: Int) {
+                                findNavController().navigate(ProjectScreenFragmentDirections.actionProjectScreenFragmentToCreatePlanFragment(
+                                    resource.data.data.plans[position].id))
+                            }
+
+                        })
                     }
 
                     if (resource.data.data?.plans == null){
@@ -174,13 +178,9 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen), Projec
                     }
                 }
                 is Resource.Error -> {
-//                    makeSnackBar("${resource.data?.message}",requireView())
+                    makeSnackBar("${resource.data?.message}",requireView())
                 }
             }
         }
-    }
-
-    override fun allPlansItemClicked(position: Int) {
-        makeSnackBar("clicked...", requireView())
     }
 }

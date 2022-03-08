@@ -93,6 +93,8 @@ class ForgotPasswordFragment : Fragment() {
         viewModel.generateOtpRequest.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
+                    showPleaseWaitAlertDialog().dismiss()
+                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                     pleaseWaitDialog?.show()
                 }
                 is Resource.Success -> {

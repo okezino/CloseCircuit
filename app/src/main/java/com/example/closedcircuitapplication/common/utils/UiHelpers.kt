@@ -25,6 +25,7 @@ fun Fragment.makeSnackBar(message: String, view: View) {
         .setTextColor(resources.getColor(R.color.white))
         .show()
 }
+
 fun Fragment.showPleaseWaitAlertDialog(): AlertDialog {
 
     return showCustomDialog(
