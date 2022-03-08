@@ -7,14 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.closedcircuitapplication.databinding.FragmentWhatisTheClosedCircuitBinding
+import com.example.closedcircuitapplication.databinding.FragmentLearnAboutUsBinding
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ui.StyledPlayerView
 
-class WhatIsTheClosedCircuitFragment : Fragment() {
+class LearnAboutUsFragment : Fragment() {
 
-    private var _binding: FragmentWhatisTheClosedCircuitBinding? =null
+    private var _binding: FragmentLearnAboutUsBinding? =null
     private val binding get() = _binding!!
     private lateinit var closeCircuitVideo : StyledPlayerView
     private lateinit var  videoPlayer : SimpleExoPlayer
@@ -24,7 +24,7 @@ class WhatIsTheClosedCircuitFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentWhatisTheClosedCircuitBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentLearnAboutUsBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

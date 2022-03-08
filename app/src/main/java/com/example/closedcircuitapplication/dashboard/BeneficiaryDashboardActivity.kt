@@ -7,7 +7,6 @@ import android.view.View
 import androidx.activity.viewModels
 import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.children
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -17,8 +16,6 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
-import com.example.closedcircuitapplication.common.utils.hide
-import com.example.closedcircuitapplication.dashboard.presentation.ui.screens.DashboardFragment
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_FULL_NAME
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_PHONE_NUMBER
@@ -103,6 +100,16 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.notificationScreenFragment -> {
                     findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.notificationScreenFragment)
+                    binding.drawerLayout.closeDrawer(Gravity.LEFT)
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.supportFragment ->{
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.supportFragment)
+                    binding.drawerLayout.closeDrawer(Gravity.LEFT)
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.drawer_about_us ->{
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.LearnAboutUsFragment)
                     binding.drawerLayout.closeDrawer(Gravity.LEFT)
                     return@setNavigationItemSelectedListener true
                 }

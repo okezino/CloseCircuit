@@ -72,10 +72,6 @@ class DashboardFragment : Fragment() {
         }
         createPlans()
         getRecentDonations()
-
-        binding.welcomeImage.setOnClickListener {
-            findNavController().navigate(R.id.supportFragment)
-        }
     }
 
     private fun createPlans() {

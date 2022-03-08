@@ -322,7 +322,7 @@
         tools:layout="@layout/fragment_how_to_use_suport" >
         <action
             android:id="@+id/action_howToUseSupportFragment_to_whatIsTheClosedCircuitFragment"
-            app:destination="@id/whatIsTheClosedCircuitFragment" />
+            app:destination="@id/LearnAboutUsFragment" />
     </fragment>
     <fragment
         android:id="@+id/paymentsSupportFragment"
@@ -345,10 +345,10 @@
             app:destination="@id/paymentsSupportFragment" />
     </fragment>
     <fragment
-        android:id="@+id/whatIsTheClosedCircuitFragment"
-        android:name="com.example.closedcircuitapplication.support.ui.screen.WhatIsTheClosedCircuitFragment"
+        android:id="@+id/LearnAboutUsFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.LearnAboutUsFragment"
         android:label="fragment_whatis_the_closed_circuit"
-        tools:layout="@layout/fragment_whatis_the_closed_circuit" />
+        tools:layout="@layout/fragment_learn_about_us" />
     <fragment
         android:id="@+id/customerCareFragment"
         android:name="com.example.closedcircuitapplication.support.ui.screen.CustomerCareFragment"

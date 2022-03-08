@@ -20,12 +20,12 @@ import org.mockito.Mockito
 @HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
 @ExperimentalCoroutinesApi
-class WhatIsTheClosedCircuitFragmentTest : AndroidBaseTest(){
+class LearnAboutUsFragmentTest : AndroidBaseTest(){
     private val mockNavController:NavController = Mockito.mock(NavController::class.java)
 
     @Test
     fun check_if_UiViews_are_Visible() {
-        launchFragmentInHiltContainer<WhatIsTheClosedCircuitFragment> {
+        launchFragmentInHiltContainer<LearnAboutUsFragment> {
             Navigation.setViewNavController(requireView(), mockNavController)
         }
         onView(withId(R.id.what_is_the_closed_circuit_header_tv)).check(matches(isDisplayed()))

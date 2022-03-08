@@ -14,7 +14,7 @@
        />
 
     <item
-        android:id="@+id/drawer_support"
+        android:id="@+id/supportFragment"
         android:title="@string/support"
         android:checkable="true"
         android:icon="@drawable/ic_drawer_support"/>
