@@ -313,4 +313,13 @@
     <string name="send_btn">send_btn</string>
     <string name="attach_a_file">attach a file</string>
     <string name="message">message</string>
+    <string name="placeholder_name_text">Patience Tyav</string>
+    <string name="view_profile_text">View Profile</string>
+    <string name="settings">Settings</string>
+    <string name="support">Support</string>
+    <string name="about_us">About Us</string>
+    <string name="logout">Logout</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout</string>
 </resources>

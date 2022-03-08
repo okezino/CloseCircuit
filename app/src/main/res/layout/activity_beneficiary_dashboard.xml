@@ -16,15 +16,59 @@
         android:layout_height="match_parent" />
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/drawer_nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/menu_main"
-        android:clickable="true"
-        android:fitsSystemWindows="true"
+        app:itemTextAppearance="@style/Drawer_Text_Style"
+        app:itemBackground="@drawable/drawer_item_background_color"
+        app:itemIconTint="@color/drawer_item_color_state"
+        app:itemTextColor="@color/drawer_item_color_state"
+        app:menu="@menu/drawer_navigation_menu"
+        app:headerLayout="@layout/drawer_header_layout"
+        android:fitsSystemWindows="false"
         android:focusable="true">
 
-    </com.google.android.material.navigation.NavigationView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/drawer_logout_constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/drawer_primary_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/drawer_logout_icon_imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_20dp"
+                    android:layout_marginTop="@dimen/margin_15dp"
+                    android:layout_marginBottom="@dimen/margin_15dp"
+                    android:src="@drawable/ic_log_out"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/drawer_logout_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_20dp"
+                    android:text="@string/logout"
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/drawer_text_emirate_green"
+                    android:textSize="@dimen/textSize_18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/drawer_logout_icon_imageView"
+                    app:layout_constraintStart_toEndOf="@+id/drawer_logout_icon_imageView"
+                    app:layout_constraintTop_toTopOf="@+id/drawer_logout_icon_imageView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>
