@@ -275,6 +275,17 @@
     <string name="Estimated_selling_price_must_not_be_empty_text">Estimated selling price must not be empty</string>
     <string name="Estimated_cost_must_not_be_empty_text">Estimated cost price must not be empty</string>
     <string name="Cost_price_cannot_be_greater_text">Cost price cannot be greater than selling price</string>
+    <string name="nigerian_country_code">+234</string>
+    <string name="nigerian_currency_code">NGN</string>
+    <string name="south_african_country_code">+27</string>
+    <string name="south_african_currency_code">ZAR</string>
+    <string name="did_not_receive_email_text">Didn’t recieve email? resend</string>
+    <string name="input_valid_password_text">Please Input a valid password</string>
+    <string name="passwords_do_not_match_text">Passwords do not match</string>
+    <string name="loading_text">Loading</string>
+    <string name="success_text">Success</string>
+    <string name="remember_password_text">Remember password? Login</string>
+    <string name="invalid_email_address_text">Invalid email address</string>
     <string name="phone_number">phone_number</string>
     <string name="support_str">Support</string>
     <string name="how_to_use">How to use</string>

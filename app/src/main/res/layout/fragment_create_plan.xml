@@ -26,7 +26,7 @@
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/marvin_ltd"
+            android:text=""
             app:layout_constraintEnd_toEndOf="@+id/project_title"
             app:layout_constraintHorizontal_bias="0.048"
             app:layout_constraintStart_toEndOf="@+id/planImageView"
@@ -206,7 +206,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:baselineAligned="false"
-                    android:text="NGN 100000"
+                    android:text="NGN 0"
                     android:textColor="@color/green_700"
                     android:textStyle="bold" />
 

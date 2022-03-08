@@ -2,6 +2,10 @@ package com.example.closedcircuitapplication.common.utils
 
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 
+import android.view.View
+import android.widget.EditText
+import androidx.fragment.app.Fragment
+import com.example.closedcircuitapplication.R
 
 object Validation {
     var EMAIL_PATTERN = Regex(
@@ -46,16 +50,16 @@ object Validation {
         return false
     }
 
-    fun validateFullNameInput(name: String): List<String>{
+    fun validateFullNameInput(name: String): List<String> {
         val result = mutableListOf<String>()
-        if (name.contains(DIGITCHARACTER)){
+        if (name.contains(DIGITCHARACTER)) {
             result.add("Can't start with numbers")
         }
 
         if (name.contains(SPECAILCHARAACTERS)) {
             result.add("must not contain special characters")
         }
-        return  result
+        return result
     }
 
     // validate Business name
@@ -98,8 +102,11 @@ object Validation {
         return phone_number.length < 10
     }
 
-    fun validatePassword_Equals_confirmPasswword(password: String, confirmPassword: String):Boolean{
-        return password!=confirmPassword || password.isEmpty()
+    fun validatePassword_Equals_confirmPasswword(
+        password: String,
+        confirmPassword: String
+    ): Boolean {
+        return password != confirmPassword || password.isEmpty()
     }
 
     // passwordInputField validation
@@ -128,14 +135,15 @@ object Validation {
     }
 
 
-    fun validateUserProfileInput(user:UserInput):Boolean{
-        return (user.fullName.isEmpty()|| user.username.isEmpty() || validatePhone_number(user.phone_number) || !validateEmailInput(user.emailAddress))
+    fun validateUserProfileInput(user: UserInput): Boolean {
+        return (user.fullName.isEmpty() || user.username.isEmpty() || validatePhone_number(user.phone_number) || !validateEmailInput(
+            user.emailAddress
+        ))
     }
-
- fun validateAccountData(accountData: RegisterRequest):List<String>{
-    val result = mutableListOf<String>()
-    val splitName = accountData.fullname.split(" ")
-    // check if the full name is entered and is a valid name
+    fun validateAccountData(accountData: RegisterRequest):List<String>{
+        val result = mutableListOf<String>()
+        val splitName = accountData.fullname.split(" ")
+        // check if the full name is entered and is a valid name
         if(splitName.size <2 || splitName.size >3){
             result.add("Enter your full name")
         }else if (!validateEmailInput(accountData.email) ) {
@@ -145,11 +153,88 @@ object Validation {
         } else if ( validatePassword_Equals_confirmPasswword(accountData.password, accountData.confirm_password)) {
             result.add("Password does not match")
         }
-    return result
+        return result
     }
 
-}
+fun Fragment.validateResetPassword(newPassword: String, confirmPassword: String): Boolean {
+    if (Validation.validatePasswordPattern(newPassword) && Validation.validatePasswordPattern(
+            confirmPassword
+        ) && confirmPassword == newPassword
+    ) {
+        return true
+    }
+    if (!Validation.validatePasswordPattern(newPassword)) {
+        makeSnackBar(getString(R.string.input_valid_password_text), requireView())
+        return false
+    }
 
+    if (newPassword != confirmPassword) {
+        makeSnackBar(getString(R.string.passwords_do_not_match_text), requireView())
+        return false
+    }
+    return false
+}
+}
+fun validateCreatePlanFields(
+    businessName: EditText,
+    planDescription: EditText,
+    planDuration: EditText,
+    sellingPrice: EditText,
+    costPrice: EditText,
+    context: Fragment
+): Boolean {
+    if (businessName.text.toString().isEmpty()) {
+        context.makeSnackBar(
+            context.getString(R.string.Plan_name_must_not_be_empty_text),
+            context.requireView()
+        )
+        return false
+    }
+
+    if (planDescription.text.toString().isEmpty()) {
+        context.makeSnackBar(
+            context.getString(R.string.Plan_description_must_not_be_empty_text),
+            context.requireView()
+        )
+        return false
+    }
+
+    if (planDuration.text.toString().isEmpty()) {
+        context.makeSnackBar(
+            context.getString(R.string.Plan_duraton_must_not_be_empty_text),
+            context.requireView()
+        )
+        return false
+    }
+
+
+
+
+    if (sellingPrice.text.toString().isEmpty()) {
+        context.makeSnackBar(
+            context.getString(R.string.Estimated_selling_price_must_not_be_empty_text),
+            context.requireView()
+        )
+        return false
+    }
+
+    if (costPrice.text.toString().isEmpty()) {
+        context.makeSnackBar(
+            context.getString(R.string.Estimated_cost_must_not_be_empty_text),
+            context.requireView()
+        )
+        return false
+    }
+
+    if (costPrice.text.toString().toFloat() > sellingPrice.text.toString().toFloat()) {
+        context.makeSnackBar(
+            context.getString(R.string.Cost_price_cannot_be_greater_text),
+            context.requireView()
+        )
+        return false
+    }
+    return true
+}
 data class AccountData (
     val fullName: String,
     val phone_number: String,
@@ -158,8 +243,8 @@ data class AccountData (
     val confirmPassword: String,
         )
 data class UserInput(
-    val fullName : String,
-    val username :String,
-    val emailAddress:String,
+    val fullName: String,
+    val username: String,
+    val emailAddress: String,
     val phone_number: String
 )

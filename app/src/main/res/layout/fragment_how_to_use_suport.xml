@@ -65,7 +65,7 @@ tools:context=".support.ui.screen.HowToUseSupportFragment">
             app:layout_constraintTop_toBottomOf="@+id/how_to_use_screen_tv">
 
             <TextView
-                android:id="@+id/how_to_use_tv"
+                android:id="@+id/whatIs_closedCircuit_tv"
                 style="@style/SupportFragmentTextStyle"
                 android:layout_weight="1.8"
                 android:paddingVertical="@dimen/margin_20dp"
@@ -97,7 +97,7 @@ tools:context=".support.ui.screen.HowToUseSupportFragment">
             app:layout_constraintTop_toBottomOf="@+id/what_is_Closed_circuit_Linearlayout">
 
             <TextView
-                android:id="@+id/payments_tv"
+                android:id="@+id/how_to_use_closeCircuit_tv"
                 style="@style/SupportFragmentTextStyle"
                 android:layout_weight="1.8"
                 android:paddingVertical="20dp"
