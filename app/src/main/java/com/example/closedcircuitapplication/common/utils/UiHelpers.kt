@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
+import com.example.closedcircuitapplication.databinding.LogoutDialogLayoutBinding
 import com.google.android.material.snackbar.Snackbar
 
 // this is used for navigation animation
@@ -49,6 +50,25 @@ fun showCustomDialog(
     val height = (resources.displayMetrics.heightPixels * 0.35).toInt()
     dialog!!.window?.setLayout(width, height)
 
+    return dialog
+}
+
+fun showLogOutDialog(context: Context, binding: LogoutDialogLayoutBinding, resources: Resources, logOutFunction: () -> Unit): AlertDialog {
+    val builder = AlertDialog.Builder(context)
+    builder.setView(binding.root)
+    builder.setCancelable(false)
+    val dialog = builder.create()
+    val width = (resources.displayMetrics.widthPixels * 0.80).toInt()
+    val height = (resources.displayMetrics.heightPixels * 0.35).toInt()
+    dialog!!.window?.setLayout(width, height)
+
+    binding.logoutDialogYesTextView.setOnClickListener {
+        logOutFunction.invoke()
+        dialog.dismiss()
+    }
+    binding.logoutDialogNoTextView.setOnClickListener {
+        dialog.dismiss()
+    }
     return dialog
 }
 

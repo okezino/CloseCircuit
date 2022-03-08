@@ -53,4 +53,5 @@
     <color name="closed_circuit_progress_background_tint">#F1F5FF</color>
     <color name="drawer_text_emirate_green">#9DC333</color>
     <color name="drawer_primary_color">#5CEAFFAE</color>
+    <color name="transparent">#0000FFFF</color>
 </resources>

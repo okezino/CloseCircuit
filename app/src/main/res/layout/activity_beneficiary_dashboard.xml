@@ -43,7 +43,7 @@
                 app:layout_constraintStart_toStartOf="parent">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/drawer_logout_icon_imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_20dp"
@@ -55,6 +55,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/drawer_logout_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_20dp"
@@ -62,9 +63,9 @@
                     android:fontFamily="@font/inter"
                     android:textColor="@color/drawer_text_emirate_green"
                     android:textSize="@dimen/textSize_18sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-                    app:layout_constraintStart_toEndOf="@+id/imageView3"
-                    app:layout_constraintTop_toTopOf="@+id/imageView3" />
+                    app:layout_constraintBottom_toBottomOf="@+id/drawer_logout_icon_imageView"
+                    app:layout_constraintStart_toEndOf="@+id/drawer_logout_icon_imageView"
+                    app:layout_constraintTop_toTopOf="@+id/drawer_logout_icon_imageView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -22,6 +22,7 @@
         <entry key="app/src/main/res/drawable/background_add_budget_item.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/drawable/background_sponsors.xml" value="0.14375" />
         <entry key="app/src/main/res/drawable/bottomsheet_background.xml" value="0.16880341880341881" />
+        <entry key="app/src/main/res/drawable/dialog_background_without_curves.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/drawer_base_background_drawable.xml" value="0.213" />
         <entry key="app/src/main/res/drawable/drawer_item_background_color.xml" value="0.213" />
         <entry key="app/src/main/res/drawable/drawer_item_color.xml" value="0.213" />
@@ -117,6 +118,7 @@
         <entry key="app/src/main/res/layout/fragment_view_pager.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.15" />
         <entry key="app/src/main/res/layout/fragment_when_project_is_not_funded.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/logout_dialog_layout.xml" value="0.23177083333333334" />
         <entry key="app/src/main/res/layout/plan_item.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/project_item.xml" value="0.26927083333333335" />
         <entry key="app/src/main/res/layout/sponsors_screen_copy_link_alart_dialog.xml" value="0.18704710144927536" />

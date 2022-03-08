@@ -2,10 +2,10 @@ package com.example.closedcircuitapplication.dashboard
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import androidx.activity.viewModels
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -20,13 +20,11 @@ import com.example.closedcircuitapplication.common.data.preferences.PreferencesC
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_FULL_NAME
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_PHONE_NUMBER
 import com.example.closedcircuitapplication.common.presentation.ui.MainActivity
-import com.example.closedcircuitapplication.common.utils.FROM_LOGOUT
-import com.example.closedcircuitapplication.common.utils.Resource
-import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
-import com.example.closedcircuitapplication.common.utils.makeSnackBar
+import com.example.closedcircuitapplication.common.utils.*
 import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.ActivityBeneficiaryDashboardBinding
 import com.example.closedcircuitapplication.databinding.DrawerHeaderLayoutBinding
+import com.example.closedcircuitapplication.databinding.LogoutDialogLayoutBinding
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,7 +39,9 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
     private lateinit var bottomAppBar: BottomAppBar
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var drawerHeaderLayoutBinding: DrawerHeaderLayoutBinding
+    private lateinit var logoutDialogLayoutBinding: LogoutDialogLayoutBinding
     private  val viewModel: DashboardViewModel by viewModels()
+    private lateinit var  logoutDialog: AlertDialog
 
     @Inject
     lateinit var preferences: Preferences
@@ -70,11 +70,15 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
         }
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
         drawerHeaderLayoutBinding = DrawerHeaderLayoutBinding.bind(binding.drawerNavView.getHeaderView(0))
+        logoutDialogLayoutBinding = LogoutDialogLayoutBinding.inflate(layoutInflater)
+        logoutDialog = showLogOutDialog(this, logoutDialogLayoutBinding,resources, {userLogOut()})
+
         drawerHeaderLayoutBinding.drawerHeaderCloseIconImageView.setOnClickListener {
             binding.drawerLayout.close()
         }
-
-       userLogOut()
+        binding.drawerLogoutConstraintLayout.setOnClickListener {
+            logoutDialog.show()
+        }
 
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -83,13 +87,11 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
         setUpNavigationDestinations()
     }
 
-    private fun userLogOut() {
-        binding.drawerLogoutConstraintLayout.setOnClickListener {
+    private fun userLogOut(): Unit {
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra(FROM_LOGOUT, true)
             startActivity(intent)
             this.finish()
-        }
     }
 
 

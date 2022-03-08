@@ -292,4 +292,7 @@
     <string name="support">Support</string>
     <string name="about_us">About Us</string>
     <string name="logout">Logout</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout</string>
 </resources>
