@@ -77,7 +77,6 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                     customNavAnimation().build()
                 )
             }
-
         }
     }
 

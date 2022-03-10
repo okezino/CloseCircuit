@@ -21,7 +21,9 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
+import com.example.closedcircuitapplication.common.utils.deletePlanAlertDialog
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
+import com.example.closedcircuitapplication.databinding.DeletePlanDialogBinding
 import com.example.closedcircuitapplication.plan.presentation.ui.adapters.CreateStepsBudgetsFragmentAdapter
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanBinding
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
@@ -43,7 +45,6 @@ class ProjectSummaryFragment : Fragment() {
     private val viewModel: PlanViewModel by viewModels()
     private lateinit var planName: TextView
     private lateinit var planDuration: TextView
-    private lateinit var planSector: TextView
     private lateinit var planImage: ImageView
     private lateinit var sector: TextView
     private val args: ProjectSummaryFragmentArgs by navArgs()
@@ -55,12 +56,6 @@ class ProjectSummaryFragment : Fragment() {
     private lateinit var _planCategory: String
     private lateinit var _planSellingPrice: String
     private lateinit var _planCostPrice: String
-
-    private lateinit var yesButton : TextView
-    private lateinit var  noButton : TextView
-    private lateinit var  dialogMessage : TextView
-    private  var   deleteDialog : Dialog? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -78,36 +73,16 @@ class ProjectSummaryFragment : Fragment() {
 
         initObservers()
         planName = binding.planName
+
         planId = args.planId
 
-        val dialogBinding = layoutInflater.inflate(R.layout.delete_plan_dialog, null)
-        yesButton = dialogBinding.findViewById(R.id.delete_plan_yes_btn)
-        noButton = dialogBinding.findViewById(R.id.delete_plan_No_btn)
-        dialogMessage = dialogBinding.findViewById(R.id.delete_dialog_tv)
-        deleteDialog = Dialog(requireContext())
-        deleteDialog!!.apply {
-            setContentView(dialogBinding)
-             setCancelable(true)
-             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        }
-
-        // delete the plan when the yes button is clicked on the dialog
-        yesButton.setOnClickListener {
-            viewModel.deletePlan(planId, "Bearer ${preferences.getToken()}")
-            deleteDialog!!.dismiss()
-        }
-        noButton.setOnClickListener {
-            Toast.makeText(requireContext(), " action declined", Toast.LENGTH_SHORT).show()
-            deleteDialog!!.dismiss()
-        }
-
+       val deletePlanDialogBinding = DeletePlanDialogBinding.inflate(layoutInflater)
 
         planDuration = binding.projectDuration
         planImage = binding.planImageView
         sector = binding.projectBusinessSector
 
         viewModel.getPlan(planId, "Bearer ${preferences.getToken()}")
-
         setUpObserver()
 
         binding.projectSummaryMoreOptions.setOnClickListener {
@@ -129,9 +104,7 @@ class ProjectSummaryFragment : Fragment() {
                     }
                     R.id.delete_plan -> {
                         planName = binding.planName
-                        dialogMessage.setText(getString(R.string.deletePlan_dialog_message, planName.text.toString()))
-                        deleteDialog!!.show()
-                        Toast.makeText(requireContext(), "Showing Delete", Toast.LENGTH_LONG).show()
+                        deletePlanAlertDialog(deletePlanDialogBinding, planName) { deletePlan() }.show()
                         true
                     }
                     else -> false
@@ -151,9 +124,7 @@ class ProjectSummaryFragment : Fragment() {
                 popMenu.show()
             }
         }
-//        binding.planLink.setOnClickListener {
-//            findNavController().navigate(R.id.sendFundsSummaryFragment)
-//        }
+
 
         viewPagerAdapter = CreateStepsBudgetsFragmentAdapter(this)
         viewPager.adapter = viewPagerAdapter
@@ -168,6 +139,9 @@ class ProjectSummaryFragment : Fragment() {
         }.attach()
     }
 
+    private fun deletePlan(){
+        viewModel.deletePlan(planId, "Bearer ${preferences.getToken()}")
+    }
     private fun initObservers() {
         viewModel.deletePlanResponse.observe(viewLifecycleOwner){ resources ->
             when(resources){
@@ -212,10 +186,6 @@ class ProjectSummaryFragment : Fragment() {
                     _planCostPrice = it.data.data?.estimated_cost_price.toString()
                     _planSellingPrice = it.data.data?.estimated_selling_price.toString()
                     Log.e("testing", "${it.data.data?.plan_duration}")
-//                    findNavController().navigate(
-//                        CreatePlanStep2FragmentDirections.actionCreatePlanStep2FragmentToPlanCreatedSuccessfullyFragment(),
-//                        customNavAnimation().build()
-//                    )
                 }
 
                 is Resource.Error -> {

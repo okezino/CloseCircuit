@@ -89,8 +89,8 @@
 
             <ImageView
                 android:id="@+id/welcome_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="32dp"
+                android:layout_height="34dp"
                 android:layout_margin="8dp"
                 android:src="@drawable/welcome_emoji"
                 app:layout_constraintBottom_toBottomOf="@+id/welcome_title"

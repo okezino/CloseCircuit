@@ -103,6 +103,16 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
                     binding.drawerLayout.closeDrawer(Gravity.LEFT)
                     return@setNavigationItemSelectedListener true
                 }
+                R.id.supportFragment ->{
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.supportFragment)
+                    binding.drawerLayout.closeDrawer(Gravity.LEFT)
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.drawer_about_us ->{
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.LearnAboutUsFragment)
+                    binding.drawerLayout.closeDrawer(Gravity.LEFT)
+                    return@setNavigationItemSelectedListener true
+                }
                 else -> {
                     return@setNavigationItemSelectedListener false
                 }
@@ -122,10 +132,17 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
                         binding.appBarDashboard.contentMain.fab.visibility = View.VISIBLE
                         binding.appBarDashboard.notificationImageView.visibility = View.VISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.VISIBLE
+                        binding.appBarDashboard.toolbarHeaderTitleTv.visibility=View.INVISIBLE
+                    }
+                    R.id.supportFragment->{
+                        binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
+                        binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
+                        binding.appBarDashboard.toolbarHeaderTitleTv.visibility=View.VISIBLE
                     }
                     else -> {
                         binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
                         binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
+                        binding.appBarDashboard.toolbarHeaderTitleTv.visibility=View.INVISIBLE
                     }
                 }
             }

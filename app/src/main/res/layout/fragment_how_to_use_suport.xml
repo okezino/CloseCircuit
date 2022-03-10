@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/background1"
+tools:context=".support.ui.screen.HowToUseSupportFragment">
+
+
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/fragment_how_to_use_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    android:paddingLeft="@dimen/margin_10dp"
+    android:paddingRight="@dimen/margin_10dp"
+    app:elevation="@dimen/margin_10dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_button" />
+
+</androidx.appcompat.widget.Toolbar>
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/fragment_how_to_use_toolbar">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        >
+
+        <TextView
+            android:id="@+id/how_to_use_screen_tv"
+            style="@style/ParagraphTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:text="@string/how_to_use"
+            android:textSize="@dimen/textSize_18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/what_is_Closed_circuit_Linearlayout"
+            style="@style/LinearLayout_style"
+            android:layout_marginTop="@dimen/margin_34dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_to_use_screen_tv">
+
+            <TextView
+                android:id="@+id/whatIs_closedCircuit_tv"
+                style="@style/SupportFragmentTextStyle"
+                android:layout_weight="1.8"
+                android:paddingVertical="@dimen/margin_20dp"
+                android:text="@string/what_is_the_closed_circuit" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:paddingVertical="@dimen/margin_20dp"
+                android:src="@drawable/ic_arrow_forward" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/width_1dp"
+            android:layout_marginHorizontal="@dimen/margin_20dp"
+            android:background="@color/view_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/what_is_Closed_circuit_Linearlayout" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/how_to_use_the_closed_circuit_linearLayout"
+            style="@style/LinearLayout_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/what_is_Closed_circuit_Linearlayout">
+
+            <TextView
+                android:id="@+id/how_to_use_closeCircuit_tv"
+                style="@style/SupportFragmentTextStyle"
+                android:layout_weight="1.8"
+                android:paddingVertical="20dp"
+                android:text="@string/how_to_use_the_closed_circuit_t" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:paddingVertical="20dp"
+                android:src="@drawable/ic_arrow_forward" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/width_1dp"
+            android:layout_marginHorizontal="@dimen/margin_20dp"
+            android:background="@color/view_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_to_use_the_closed_circuit_linearLayout" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/how_do_i_fund_a_plan_linearLayout"
+            style="@style/LinearLayout_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_to_use_the_closed_circuit_linearLayout">
+
+            <TextView
+                android:id="@+id/how_do_i_fund_a_plan_tv"
+                style="@style/SupportFragmentTextStyle"
+                android:layout_weight="1.8"
+                android:paddingVertical="@dimen/margin_20dp"
+                android:text="@string/how_do_i_fund_a_plan" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:paddingVertical="@dimen/margin_20dp"
+                android:src="@drawable/ic_arrow_forward" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/width_1dp"
+            android:layout_marginHorizontal="@dimen/margin_20dp"
+            android:background="@color/view_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_do_i_fund_a_plan_linearLayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

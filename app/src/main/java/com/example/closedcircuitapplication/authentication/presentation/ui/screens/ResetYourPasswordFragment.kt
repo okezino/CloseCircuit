@@ -16,9 +16,9 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.domain.models.ResetPasswordRequest
 import com.example.closedcircuitapplication.authentication.presentation.ui.viewmodels.AuthenticationViewModel
 import com.example.closedcircuitapplication.common.utils.Resource
+import com.example.closedcircuitapplication.common.utils.Validation.validateResetPassword
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.showPleaseWaitAlertDialog
-import com.example.closedcircuitapplication.common.utils.validateResetPassword
 import com.example.closedcircuitapplication.databinding.FragmentResetYourPasswordBinding
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -41,6 +41,7 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -116,37 +117,50 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailTextInputLayout" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <LinearLayout
                 android:id="@+id/phoneNumberTextInputLayout"
-                style="@style/Fragment_CreateAccount_TextInputLayout_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_10dp"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginEnd="@dimen/margin_20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/emailTextInputLayout">
+                app:layout_constraintTop_toBottomOf="@id/wrongEmailWorning_Tv">
+
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/fragment_create_account_countrycode_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin_50dp"
+                    android:background="@drawable/left_corner_input_background"
+                    android:clickable="true"
+                    android:gravity="center"
+                    app:ccpDialog_allowSearch="false"
+                    app:ccp_customMasterCountries="NG,ZA"
+                    app:ccp_defaultNameCode="NG"
+                    app:layout_constraintBottom_toBottomOf="@+id/phoneNumberTextInputLayout"
+                    app:layout_constraintStart_toStartOf="@+id/phoneNumberTextInputLayout"
+                    app:layout_constraintTop_toTopOf="@+id/phoneNumberTextInputLayout" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/text_color2" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phoneNumberTextInput"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_start_45dp"
+                    android:layout_height="@dimen/margin_50dp"
+                    android:background="@drawable/right_corner_input_background"
+                    android:ems="10"
+                    android:paddingStart="@dimen/margin_10dp"
+                    android:hint="@string/phone_number"
                     android:inputType="phone"
                     android:maxLength="11"
-                    android:paddingStart="35dp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                     />
 
-            <com.hbb20.CountryCodePicker
-                android:id="@+id/fragment_create_account_countrycode_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginTop="@dimen/radius_5dp"
-                android:background="@drawable/text_input_background"
-                android:clickable="true"
-                android:gravity="center"
-                app:ccpDialog_allowSearch="false"
-                app:ccp_customMasterCountries="NG,ZA"
-                app:ccp_defaultNameCode="NG"
-                app:layout_constraintBottom_toBottomOf="@+id/phoneNumberTextInputLayout"
-                app:layout_constraintStart_toStartOf="@+id/phoneNumberTextInputLayout"
-                app:layout_constraintTop_toTopOf="@+id/phoneNumberTextInputLayout" />
+            </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passwordTextInputLayout"
@@ -343,5 +357,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
