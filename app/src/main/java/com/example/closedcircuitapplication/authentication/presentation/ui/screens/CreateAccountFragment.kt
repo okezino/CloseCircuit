@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -24,18 +25,18 @@ class CreateAccountFragment : Fragment() {
 
     private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
-    lateinit var countryCode: String
+    private lateinit var countryCode: String
     lateinit var password: String
     lateinit var email: String
     lateinit var fullName: String
-    lateinit var phone_number: String
-    lateinit var confirmPassword: String
-    private val viewModel: AuthenticationViewModel by viewModels<AuthenticationViewModel>()
+    private lateinit var phoneNumber: String
+    private lateinit var confirmPassword: String
+    private val viewModel: AuthenticationViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentCreateAccountBinding.inflate(inflater, container, false)
         return binding.root
@@ -46,65 +47,61 @@ class CreateAccountFragment : Fragment() {
         //navigate back to  welcome screen from create account screen
 
         initObservers()
-        binding.createAccountBtn.setOnClickListener {
-            fullName = binding.fullNameTextInput.text.toString().trim()
-            phone_number = binding.phoneNumberTextInput.text.toString().trim()
-            email = binding.emailTextInput.text.toString().trim()
-            password = binding.passwordTextInput.text.toString().trim()
-            confirmPassword = binding.comfirmPasswordTextInput.text.toString().trim()
-            countryCode = binding.fragmentCreateAccountCountrycodePicker.selectedCountryCodeWithPlus
+        with(binding) {
+            createAccountBtn.setOnClickListener {
 
-            // create a user account
-            createAcount(fullName, countryCode+phone_number, password, email, confirmPassword)
-        }
+                fullName = fullNameTextInput.text.toString().trim()
+                phoneNumber = phoneNumberTextInput.text.toString().trim()
+                email = emailTextInput.text.toString().trim()
+                password = passwordTextInput.text.toString().trim()
+                confirmPassword = comfirmPasswordTextInput.text.toString().trim()
+                countryCode = fragmentCreateAccountCountrycodePicker.selectedCountryCodeWithPlus
 
-        binding.fullNameTextInput.addTextChangedListener {
-            fullName = binding.fullNameTextInput.text.toString().trim()
-            fullNameTExtInputValidation(fullName)
-        }
-        binding.phoneNumberTextInput.addTextChangedListener {
-            phone_number = binding.phoneNumberTextInput.text.toString().trim()
-            onNumberTextInputChangeListener(phone_number)
-        }
+                // create a user account
+                isAllFieldsValidated(RegisterRequest(email, fullName, "Beneficiary",countryCode + phoneNumber, password,  confirmPassword))
+            }
 
-        binding.emailTextInput.addTextChangedListener {
-            email = binding.emailTextInput.text.toString().trim()
-            onEmailTextInputChangeListener(email)
-        }
-        binding.passwordTextInput.addTextChangedListener {
-            password = binding.passwordTextInput.text.toString()
-            passwordInputValidationListener(password)
-        }
-        binding.loginTv.setOnClickListener {
-            findNavController().navigate(CreateAccountFragmentDirections.actionCreateAccountFragmentToLoginFragment(),
-                customNavAnimation().build())
+            fullNameTextInput.addTextChangedListener {
+                fullName = binding.fullNameTextInput.text.toString().trim()
+                fullNameTExtInputValidation(fullName)
+            }
+            phoneNumberTextInput.addTextChangedListener {
+                phoneNumber = binding.phoneNumberTextInput.text.toString().trim()
+                onNumberTextInputChangeListener(phoneNumber)
+            }
+
+            emailTextInput.addTextChangedListener {
+                email = binding.emailTextInput.text.toString().trim()
+                onEmailTextInputChangeListener(email)
+            }
+            passwordTextInput.addTextChangedListener {
+                password = binding.passwordTextInput.text.toString()
+                passwordInputValidationListener(password)
+            }
+            loginTv.setOnClickListener {
+                findNavController().navigate(
+                    CreateAccountFragmentDirections.actionCreateAccountFragmentToLoginFragment(),
+                    customNavAnimation().build()
+                )
+            }
         }
     }
 
-    fun createAcount(
-        fullName: String,
-        phone_number: String,
-        password: String,
-        email: String,
-        comfirmPassword: String,
-    ) {
-        // check if the full name is entered and is a valid name
-        if(fullName.isBlank()){
-            binding.fullNameTextInput.error = "cant be empty"
-        }else if (!Validation.validateEmailInput(email) ) {
-            binding.emailTextInput.error = "cant be empty"
-        } else if (Validation.validatePhone_number(phone_number)){
-            binding.phoneNumberTextInput.error = "Incomplete number"
-        } else if (Validation.validatePassword_Equals_confirmPasswword(password, comfirmPassword)) {
-            binding.comfirmPasswordTextInput.error = "Password does not match"
-        } else {
-
-            //  this is where the viewModel is instantiated and made a network request
-            viewModel.register(RegisterRequest(email, fullName, "Beneficiary", phone_number, password, comfirmPassword))
-        }
+    
+    private fun isAllFieldsValidated(accountData: RegisterRequest){
+        val errors = Validation.validateAccountData(accountData)
+        with(binding) {
+               when {
+                   errors.contains("Enter your full name") -> fullNameTextInput.error = "Enter your full name"
+                   errors.contains("cant be empty") -> emailTextInput.error
+                   errors.contains("Incomplete number") -> phoneNumberTextInput.error = "Incomplete number"
+                   errors.contains("Password does not match") -> comfirmPasswordTextInput.error = "Password does not match"
+                   else -> viewModel.register(accountData)
+               }
+       }
     }
 
-    fun fullNameTExtInputValidation(fullName:String){
+    private fun fullNameTExtInputValidation(fullName:String){
         val errorsList = listOf(
             "Can't start with numbers",
             "must not contain special characters")
@@ -115,19 +112,19 @@ class CreateAccountFragment : Fragment() {
         }
     }
 
-    fun onEmailTextInputChangeListener(email: String) {
+    private fun onEmailTextInputChangeListener(email: String) {
         if (!Validation.validateEmailInput(email)) {
             binding.emailTextInput.error
             binding.wrongEmailWorningTv.visibility = View.VISIBLE
             binding.wrongEmailWorningTv.setTextColor(
-                resources.getColor(R.color.red)
+                ContextCompat.getColor(requireContext(),R.color.red)
             )
         } else {
             binding.wrongEmailWorningTv.visibility = View.GONE
         }
     }
 
-    fun onNumberTextInputChangeListener(number: String) {
+    private fun onNumberTextInputChangeListener(number: String) {
         if (Validation.validatePhone_number(number)) {
             binding.wrongEmailWorningTv.visibility = View.GONE
             binding.phoneNumberTextInput.error = "Incomplete number"
@@ -135,7 +132,7 @@ class CreateAccountFragment : Fragment() {
     }
 
     // check the password input if it meet all the requirement
-    fun passwordInputValidationListener(password: String) {
+    private fun passwordInputValidationListener(password: String) {
 
         val validatePassword = Validation.validatePasswordErrors(password)
 
@@ -148,9 +145,9 @@ class CreateAccountFragment : Fragment() {
 
         for (field in fieldsArray) {
             if (validatePassword.contains(field.text)) {
-                field.setTextColor(resources.getColor(R.color.red))
+                field.setTextColor(ContextCompat.getColor(requireContext(), R.color.red))
             } else {
-                field.setTextColor(resources.getColor(R.color.green_700))
+                field.setTextColor(ContextCompat.getColor(requireContext(), R.color.green_700))
             }
         }
     }
@@ -166,7 +163,7 @@ class CreateAccountFragment : Fragment() {
                         CreateAccountFragmentDirections.actionCreateAccountFragmentToLoginFragment(),
                         customNavAnimation().build()
                     )
-                    Snackbar.make(binding.root, "Successfull", Snackbar.LENGTH_LONG)
+                    Snackbar.make(binding.root, "Successful", Snackbar.LENGTH_LONG)
                         .show()
                 }
                 is Resource.Error -> {

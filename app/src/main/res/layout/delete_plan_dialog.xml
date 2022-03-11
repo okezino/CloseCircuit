@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_10dp"
         android:layout_marginStart="@dimen/margin_10dp"
-        app:cardBackgroundColor="@color/backgound1"
+        app:cardBackgroundColor="@color/background1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

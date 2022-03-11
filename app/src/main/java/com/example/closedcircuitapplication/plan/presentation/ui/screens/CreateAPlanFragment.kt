@@ -163,7 +163,7 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
         }
     }
 
-    //  read external storage and  get the image from the galery
+    //  read external storage and  get the image from the gallery
     private fun readStorage() {
         if (ContextCompat.checkSelfPermission(
                 requireActivity(),

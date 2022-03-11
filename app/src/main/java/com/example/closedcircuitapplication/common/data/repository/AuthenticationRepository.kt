@@ -52,7 +52,7 @@ class AuthenticationRepository @Inject constructor(
             emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
                 api.generateOtp(generateOtpRequest)
             })
-        }
+        }.flowOn(dispatcherProvider.io())
 
     override suspend fun verifyOtp(verifyOtpRequest: VerifyOtpRequest): Flow<Resource<Result<VerifyOtpDto>>> =
         flow {
@@ -62,7 +62,7 @@ class AuthenticationRepository @Inject constructor(
                     api.verifyOtp(verifyOtpRequest)
                 }
             )
-        }
+        }.flowOn(dispatcherProvider.io())
 
     override suspend fun resetPassword(resetPasswordRequest: ResetPasswordRequest): Flow<Resource<Result<ResetPasswordDto>>> =
         flow {
@@ -72,6 +72,6 @@ class AuthenticationRepository @Inject constructor(
                     api.resetPassword(resetPasswordRequest)
                 }
             )
-        }
+        }.flowOn(dispatcherProvider.io())
 
 }

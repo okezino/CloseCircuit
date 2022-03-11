@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background1"
+    tools:context=".support.ui.screen.SupportFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/margin_20dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_20dp">
+
+            <TextView
+                android:id="@+id/support_screen_tv"
+                style="@style/ParagraphTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:text="@string/how_can_we_help_you"
+                android:textSize="@dimen/textSize_18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/how_to_use_Linearlayout"
+                style="@style/LinearLayout_style"
+                android:layout_marginTop="@dimen/margin_34dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/support_screen_tv">
+
+                <TextView
+                    android:id="@+id/how_to_use_tv"
+                    style="@style/SupportFragmentTextStyle"
+                    android:layout_weight="1.8"
+                    android:paddingVertical="20dp"
+                    android:text="@string/how_to_use" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:paddingVertical="20dp"
+                    android:src="@drawable/ic_arrow_forward" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="#F5F5F5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/how_to_use_Linearlayout" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/payments_linearLayout_support_fragment"
+                style="@style/LinearLayout_style"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/how_to_use_Linearlayout">
+
+                <TextView
+                    android:id="@+id/payments_tv"
+                    style="@style/SupportFragmentTextStyle"
+                    android:layout_weight="1.8"
+                    android:paddingVertical="20dp"
+                    android:text="@string/payments_support" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:paddingVertical="20dp"
+                    android:src="@drawable/ic_arrow_forward" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="#F5F5F5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/payments_linearLayout_support_fragment" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/complaints_linearLayout_support_fragment"
+                style="@style/LinearLayout_style"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/payments_linearLayout_support_fragment">
+
+                <TextView
+                    android:id="@+id/complaints_and_Issues_tv"
+                    style="@style/SupportFragmentTextStyle"
+                    android:layout_weight="1.8"
+                    android:paddingVertical="20dp"
+                    android:text="@string/complaints_and_issues" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:paddingVertical="20dp"
+                    android:src="@drawable/ic_arrow_forward" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/customerCare_linearLayout_support_fragment"
+                style="@style/LinearLayout_style"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/complaints_linearLayout_support_fragment">
+
+                <TextView
+                    android:id="@+id/customerCare_tv"
+                    style="@style/SupportFragmentTextStyle"
+                    android:layout_weight="1.8"
+                    android:paddingVertical="20dp"
+                    android:text="@string/customer_care" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:paddingVertical="20dp"
+                    android:src="@drawable/ic_arrow_forward" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="#F5F5F5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customerCare_linearLayout_support_fragment" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
