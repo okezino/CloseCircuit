@@ -126,6 +126,13 @@
         <item>Hospitality</item>
         <item>Others</item>
     </string-array>
+
+    <string-array name="Choose_country">
+        <item>Nigeria</item>
+        <item>South Africa</item>
+    </string-array>
+
+
     <string-array name="Select_Budget">
         <item>School card</item>
         <item>Medicals</item>

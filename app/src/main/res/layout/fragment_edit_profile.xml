@@ -98,6 +98,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:text="@string/email"
+                android:textColor="@color/main"
+                android:textSize="@dimen/textSize_15sp"
+                app:layout_constraintBottom_toTopOf="@+id/emailTextInputLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fullNameTextInputLayout"
+                app:layout_constraintVertical_bias="0.724" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailTextInputLayout"
+                style="@style/Fragment_CreateAccount_TextInputLayout_style"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fullNameTextInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailTextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:text="@string/phone_number"
                 android:textColor="@color/main"
                 android:textSize="@dimen/textSize_15sp"
@@ -111,7 +139,7 @@
                 style="@style/Fragment_CreateAccount_TextInputLayout_style"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fullNameTextInputLayout">
+                app:layout_constraintTop_toBottomOf="@id/emailTextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phoneNumberTextInput"
@@ -119,7 +147,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_start_45dp"
                     android:inputType="phone"
-                    android:maxLength="11"
+                    android:maxLength="16"
                     android:paddingStart="35dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -213,7 +241,7 @@
 
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/createAccount_btn"
+                android:id="@+id/edit_profile_button"
                 style="@style/Fragment_CreateAccount_Button_style"
                 android:textColor="@color/white"
                 app:backgroundTint="#24500F"

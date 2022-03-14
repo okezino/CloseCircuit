@@ -38,6 +38,8 @@ class ProfileFragment : Fragment() {
     private lateinit var fullName: String
     private lateinit var phoneNumber: String
     private lateinit var nationality: String
+    private lateinit var userId: String
+    private lateinit var email: String
 
     @Inject
     lateinit var preferences: Preferences
@@ -69,18 +71,20 @@ class ProfileFragment : Fragment() {
                 }
                 is Resource.Success ->{
                     fullName = it.data.data?.fullName.toString()
+                    userId = it.data.data?.id.toString()
                     val firstName = UserNameSplitterUtils.userFullName(fullName)
                     binding.profileName.text = fullName
                     binding.profileEmail.text = it.data.data?.email
                     phoneNumber = it.data.data?.phoneNumber.toString()
                     nationality = it.data.data?.country.toString()
+                    email = it.data.data?.email.toString()
                     binding.profileNumber.text = it.data.data?.phoneNumber
                     binding.profileNationality.text = it.data.data?.country
 
                     binding.profileEditButton.setOnClickListener {
 
                         findNavController().navigate(
-                            ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(fullName,phoneNumber, nationality ),
+                            ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(fullName,phoneNumber, nationality, userId, email),
                             customNavAnimation().build())
 
                     }
