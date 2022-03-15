@@ -171,7 +171,7 @@
     <string-array name="currency_type">
         <item>NGN</item>
         <item>USD</item>
-        <item>RAND</item>
+        <item>ZAR</item>
     </string-array>
 
     <string name="notifications">Notifications</string>
@@ -322,4 +322,38 @@
     <string name="no">No</string>
     <string name="yes">Yes</string>
     <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout</string>
+
+    <string-array name="select_profile">
+        <item>Beneficiary</item>
+        <item>Sponsor</item>
+    </string-array>
+
+    <string name="enable_touch_id_to_sign_in">Enable touch ID to sign in</string>
+    <string name="security">Security</string>
+    <string name="enable_auto_lock_security">Enable auto lock security</string>
+    <string name="_2_step_login">2-Step login</string>
+    <string name="change_password">Change password</string>
+    <string name="allow_notification">Allow notification</string>
+    <string name="email_notifications">Email notifications</string>
+    <string name="display">Display</string>
+    <string name="currency_ngn">Currency (NGN)</string>
+    <string name="theme_mode">Theme mode</string>
+    <string name="light_mode">Light mode</string>
+    <string name="user_profile">User profile</string>
+    <string name="beneficiary">Beneficiary</string>
+    <string name="lock_after_30mins">Lock after 30mins</string>
+    <string name="lock_after_1hour">Lock after 1hour</string>
+    <string name="sms">SMS</string>
+    <string name="never">Never</string>
+    <string name="please_reset_your_password">Please reset your password.</string>
+    <string name="enter_old_password">Enter old password</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="re_enter_password">Re-enter password</string>
+    <string name="reset_password">Reset password</string>
+    <string name="select_currency_type">Select currency type</string>
+    <string name="change_profile">Change profile</string>
+    <string name="select_profile">Select profile</string>
+    <string name="cancel">Cancel</string>
+    <string name="continue_btn">Continue</string>
+    <string name="change_password_error">Password must contain one special character, one uppercase, one number and min-length of 8.</string>
 </resources>

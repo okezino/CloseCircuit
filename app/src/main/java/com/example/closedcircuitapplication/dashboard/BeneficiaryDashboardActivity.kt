@@ -113,6 +113,11 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
                     binding.drawerLayout.closeDrawer(Gravity.LEFT)
                     return@setNavigationItemSelectedListener true
                 }
+                R.id.drawer_settings -> {
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.settingsFragment)
+                    binding.drawerLayout.closeDrawer(Gravity.LEFT)
+                    return@setNavigationItemSelectedListener true
+                }
                 else -> {
                     return@setNavigationItemSelectedListener false
                 }

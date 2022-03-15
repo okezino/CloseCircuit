@@ -355,4 +355,59 @@
         android:label="fragment_customer_care"
         tools:layout="@layout/fragment_customer_care" />
 
+    <fragment
+        android:id="@+id/selectCurrencyTypeFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SelectCurrencyTypeFragment"
+        android:label="fragment_change_currency_type"
+        tools:layout="@layout/fragment_change_currency_type" >
+        <action
+            android:id="@+id/action_selectCurrencyTypeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeProfileFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.ChangeProfileFragment"
+        android:label="fragment_change_profile"
+        tools:layout="@layout/fragment_change_profile" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_settingsAutoLockFragment"
+            app:destination="@id/settingsAutoLockFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_settingsStepsLoginFragment"
+            app:destination="@id/settingsStepsLoginFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_changeProfileFragment"
+            app:destination="@id/changeProfileFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_selectCurrencyTypeFragment"
+            app:destination="@id/selectCurrencyTypeFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_settingsResetPasswordFragment"
+            app:destination="@id/settingsResetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsAutoLockFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsAutoLockFragment"
+        android:label="fragment_settings_auto_lock"
+        tools:layout="@layout/fragment_settings_auto_lock" />
+    <fragment
+        android:id="@+id/settingsResetPasswordFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsResetPasswordFragment"
+        android:label="fragment_settings_reset_password"
+        tools:layout="@layout/fragment_settings_reset_password" >
+        <action
+            android:id="@+id/action_settingsResetPasswordFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsStepsLoginFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsStepsLoginFragment"
+        android:label="fragment_settings_steps_login"
+        tools:layout="@layout/fragment_settings_steps_login" />
+
 </navigation>
