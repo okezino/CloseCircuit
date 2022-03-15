@@ -21,7 +21,7 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -87,7 +87,7 @@
                 app:layout_constraintTop_toBottomOf="@id/createAccount_tv">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fullNameTextInput"
+                    android:id="@+id/editProfileFullNameTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -115,7 +115,7 @@
                 app:layout_constraintTop_toBottomOf="@id/fullNameTextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/emailTextInput"
+                    android:id="@+id/editProfileEmailTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -142,7 +142,7 @@
                 app:layout_constraintTop_toBottomOf="@id/emailTextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/phoneNumberTextInput"
+                    android:id="@+id/editProfilePhoneNumberTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_start_45dp"
@@ -152,7 +152,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.hbb20.CountryCodePicker
-                android:id="@+id/fragment_create_account_countrycode_picker"
+                android:id="@+id/fragment_edit_profile_countryCode_picker"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="@dimen/radius_5dp"
@@ -171,37 +171,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="@string/nationality"
                 android:textColor="@color/main"
                 android:textSize="@dimen/textSize_15sp"
-                app:layout_constraintBottom_toTopOf="@+id/nationalityTextInputLayout"
+                app:layout_constraintBottom_toTopOf="@+id/edit_profile_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextInputLayout"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/nationalityTextInputLayout"
-                style="@style/Fragment_EditProfile_Dropdown"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_20dp"
-                android:layout_marginEnd="@dimen/margin_20dp"
-                android:layout_marginTop="@dimen/margin_50dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/phoneNumberTextInputLayout">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/nationalityTextInputLayout"-->
+<!--                style="@style/Fragment_EditProfile_Dropdown"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/margin_20dp"-->
+<!--                android:layout_marginEnd="@dimen/margin_20dp"-->
+<!--                android:layout_marginTop="@dimen/margin_50dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.5"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/phoneNumberTextInputLayout">-->
 
-                <AutoCompleteTextView
-                    android:id="@+id/selectCountryCategoryDropdown"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:dropDownVerticalOffset="@dimen/offset_4dp"
-                    android:gravity="center_vertical"
-                    android:inputType="none"
-                    android:paddingTop="@dimen/padding_4dp"
-                    android:scrollbars="none" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--                <AutoCompleteTextView-->
+<!--                    android:id="@+id/selectCountryCategoryDropdown"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:dropDownVerticalOffset="@dimen/offset_4dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:inputType="none"-->
+<!--                    android:paddingTop="@dimen/padding_4dp"-->
+<!--                    android:scrollbars="none" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
 
 <!--            <com.google.android.material.textfield.TextInputLayout-->
@@ -240,6 +239,8 @@
 
 
 
+
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/edit_profile_button"
                 style="@style/Fragment_CreateAccount_Button_style"
@@ -250,10 +251,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nationalityTextInputLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextInputLayout" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_100dp"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/main"
+                android:textSize="@dimen/textSize_15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_profile_button"
+                app:layout_constraintVertical_bias="1.0" />
 
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

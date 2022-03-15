@@ -6,3 +6,10 @@ object UserNameSplitterUtils {
         return fullNameSplit[0]
     }
 }
+
+
+object PhoneNumberSplitter {
+    fun phoneNumberCode(phoneNumber: String): String {
+        return  phoneNumber.drop(4)
+    }
+}

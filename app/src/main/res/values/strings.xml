@@ -309,4 +309,5 @@
     <string name="edit_profile">Edit profile</string>
     <string name="click_to_edit">Click to edit.</string>
     <string name="account_page">Account page</string>
+    <string name="please_verify_your_email_address_to_complete_profile_setup">Please verify your email address to complete profile setup</string>
 </resources>

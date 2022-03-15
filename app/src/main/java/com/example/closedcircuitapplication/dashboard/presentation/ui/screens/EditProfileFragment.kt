@@ -27,6 +27,10 @@ class EditProfileFragment : Fragment() {
     private  var _binding: FragmentEditProfileBinding? = null
     private val binding get() = _binding!!
     private val args: EditProfileFragmentArgs by navArgs()
+    lateinit var email: String
+    lateinit var fullName: String
+    lateinit var phoneNumber: String
+    lateinit var countryCode: String
 
     private val viewModel: DashboardViewModel by viewModels()
     @Inject
@@ -46,7 +50,7 @@ class EditProfileFragment : Fragment() {
         super.onResume()
         val nationality = resources.getStringArray(R.array.Choose_country)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, nationality)
-        binding.selectCountryCategoryDropdown.setAdapter(arrayAdapter)
+//        binding.selectCountryCategoryDropdown.setAdapter(arrayAdapter)
 
         }
 
@@ -56,24 +60,41 @@ class EditProfileFragment : Fragment() {
         updateProfileInitObserver()
 
         with(binding){
-            fullNameTextInput.setText(args.fullName)
-            phoneNumberTextInput.setText(args.phoneNumber)
-            selectCountryCategoryDropdown.setText(args.nationality)
-            emailTextInput.setText(args.email)
+            editProfileFullNameTextInput.setText(args.fullName)
+            val phone = PhoneNumberSplitter.phoneNumberCode(args.phoneNumber)
+            editProfilePhoneNumberTextInput.setText(phone)
+//            selectCountryCategoryDropdown.setText(args.nationality)
+            editProfileEmailTextInput.setText(args.email)
         }
-//binding.fullNameTextInput.text.toString()
-        //binding.emailTextInput.text.toString()
-        //binding.phoneNumberTextInput.text.toString()
+
         binding.editProfileButton.setOnClickListener {
-            viewModel.updateUserProfile(UpdateProfileRequest(binding.fullNameTextInput.text.toString(),
-                binding.emailTextInput.text.toString(), binding.phoneNumberTextInput.text.toString()),
-            args.userId, "${PlanConstants.BEARER} ${preferences.getToken()}")
-            Log.d("request", "${binding.fullNameTextInput.text.toString()}")
-            Log.d("request", "${binding.emailTextInput.text.toString()}")
-            Log.d("request", "${binding.phoneNumberTextInput.text.toString()}")
-            Log.d("request", "${PlanConstants.BEARER}")
-            Log.d("request", "${preferences.getToken()}")
-            findNavController().navigate(EditProfileFragmentDirections.actionEditProfileFragmentToProfileFragment(), customNavAnimation().build())
+            fullName = binding.editProfileFullNameTextInput.text.toString()
+            email = binding.editProfileEmailTextInput.text.toString()
+            phoneNumber = binding.editProfilePhoneNumberTextInput.text.toString()
+            countryCode = binding.fragmentEditProfileCountryCodePicker.selectedCountryCodeWithPlus
+
+            if (fullName.isBlank()) {
+                binding.editProfileFullNameTextInput.error = "Full name can't be empty"
+            } else if (!Validation.validateEmailInput(email)) {
+                binding.editProfileEmailTextInput.error = "cant be empty"
+            } else if (Validation.validatePhone_number(phoneNumber)) {
+                binding.editProfilePhoneNumberTextInput.error = "Incomplete number"
+            } else {
+
+                viewModel.updateUserProfile(
+                    UpdateProfileRequest(
+                        binding.editProfileFullNameTextInput.text.toString(),
+                        binding.editProfileEmailTextInput.text.toString(),
+                        countryCode+phoneNumber),
+                    args.userId, "${PlanConstants.BEARER} ${preferences.getToken()}"
+                )
+
+                findNavController().navigate(
+                    EditProfileFragmentDirections.actionEditProfileFragmentToProfileFragment(),
+                    customNavAnimation().build()
+                )
+            }
+
         }
     }
 
@@ -81,14 +102,11 @@ class EditProfileFragment : Fragment() {
         viewModel.updateProfileResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-//                    pleaseWaitDialog = showPleaseWaitAlertDialog()
+
                 }
                 is Resource.Success -> {
-//                    pleaseWaitDialog?.dismiss()
-//                    makeSnackBar(PlanConstants.PLAN_UPDATE_SUCCESS, requireView())
                 }
                 is Resource.Error -> {
-//                    pleaseWaitDialog?.dismiss()
                     makeSnackBar("${resource.data?.message}", requireView())
                 }
             }

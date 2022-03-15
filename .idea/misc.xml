@@ -80,7 +80,7 @@
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/fragment_edit_plan.xml" value="0.2606541129831516" />
-        <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_email_verification_successful.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.26458333333333334" />
@@ -95,7 +95,7 @@
         <entry key="app/src/main/res/layout/fragment_notification_screen.xml" value="0.188433837890625" />
         <entry key="app/src/main/res/layout/fragment_password_recovery_successful.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_plan_created_sucessfully.xml" value="0.23229166666666667" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_project_screen.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_recover_password_otp.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_request_verification_successfull.xml" value="0.15555555555555556" />
@@ -135,7 +135,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.67" />
+        <option name="scale" value="0.2" />
       </ProjectState>
     </option>
   </component>
