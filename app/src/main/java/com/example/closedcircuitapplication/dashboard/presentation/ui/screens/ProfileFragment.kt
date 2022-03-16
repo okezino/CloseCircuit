@@ -175,7 +175,7 @@ class ProfileFragment : Fragment() {
                     confirmPassword = it.data.data?.password.toString()
                     binding.profileNumber.text = it.data.data?.phoneNumber
                     binding.profileNationality.text = it.data.data?.country
-                    mailStatus = it.data.data?.isVerified!!
+                    mailStatus = it.data.data?.isVerified!! == true
                     Log.d("boolean", "${mailStatus}")
 
 
