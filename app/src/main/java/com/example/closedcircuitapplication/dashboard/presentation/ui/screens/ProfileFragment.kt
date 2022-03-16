@@ -1,13 +1,20 @@
 package com.example.closedcircuitapplication.dashboard.presentation.ui.screens
 
+import android.Manifest
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.authentication.utils.IMAGE_REQUEST_CODE
@@ -20,15 +27,17 @@ import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentProfileBinding
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
+import com.theartofdev.edmodo.cropper.CropImage
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.InputStream
 import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
-    private  var _binding:FragmentProfileBinding? = null
+    private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private  val viewModel: DashboardViewModel by viewModels()
+    private val viewModel: DashboardViewModel by viewModels()
     private val _viewModel: PlanViewModel by viewModels()
 
     private lateinit var fullName: String
@@ -65,9 +74,55 @@ class ProfileFragment : Fragment() {
         _viewModel.getMyPlans(100, 0, "Bearer ${preferences.getToken()}")
 
         binding.changeProfilePic.setOnClickListener {
-            picImageGallery()
+            if (checkPermission()) {
+                requestPermission()
+            } else {
+                pickImage()
+//                picImageGallery()
+            }
         }
 
+
+    }
+
+    private fun pickImage() {
+        CropImage.activity()
+            .start(requireContext(), this);
+    }
+
+    private fun checkPermission(): Boolean {
+        val result1: Boolean = ContextCompat.checkSelfPermission(
+            requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE
+        ) != PackageManager.PERMISSION_GRANTED
+        val result2: Boolean = ContextCompat.checkSelfPermission(
+            requireContext(), Manifest.permission.CAMERA
+        ) != PackageManager.PERMISSION_GRANTED
+        return result1 && result2
+    }
+
+
+    private fun requestPermission() {
+        requestPermissions(
+            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA),
+            IMAGE_REQUEST_CODE
+        )
+    }
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            IMAGE_REQUEST_CODE -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(context, "PERMISSION GRANTED", Toast.LENGTH_SHORT).show()
+//                picImageGallery()
+            } else {
+                Toast.makeText(context, "PERMISSION DENIED", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun picImageGallery() {
@@ -76,19 +131,38 @@ class ProfileFragment : Fragment() {
         startActivityForResult(intent, IMAGE_REQUEST_CODE)
     }
 
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
+//            binding.profileImageView.setImageURI(data?.data)
+//        }
+//    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
-            binding.profileImageView.setImageURI(data?.data)
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            val result = CropImage.getActivityResult(data)
+            if (resultCode == RESULT_OK) {
+                val resultUri: Uri = result.uri
+                try {
+                    val stream: InputStream? = activity?.contentResolver?.openInputStream(resultUri)
+                    val bitmap: Bitmap = BitmapFactory.decodeStream(stream)
+                    binding.profileImageView.setImageBitmap(bitmap)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+
+                }
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                val error = result.error
+            }
         }
     }
 
-    private fun userDetailsInitObserver(){
-        viewModel.userDetailsResponse.observe(viewLifecycleOwner){
-            when(it){
-                is Resource.Loading ->{
+    private fun userDetailsInitObserver() {
+        viewModel.userDetailsResponse.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Loading -> {
                 }
-                is Resource.Success ->{
+                is Resource.Success -> {
                     fullName = it.data.data?.fullName.toString()
                     userId = it.data.data?.id.toString()
                     val firstName = UserNameSplitterUtils.userFullName(fullName)
@@ -102,20 +176,28 @@ class ProfileFragment : Fragment() {
                     binding.profileNumber.text = it.data.data?.phoneNumber
                     binding.profileNationality.text = it.data.data?.country
                     mailStatus = it.data.data?.isVerified!!
-                    Log.d("boolean" ,"${mailStatus}")
+                    Log.d("boolean", "${mailStatus}")
 
 
-                    if (mailStatus){
+                    if (mailStatus) {
                         binding.errorMessage.visibility = View.VISIBLE
-                    }else{
+                    } else {
                         binding.errorMessage.visibility = View.VISIBLE
                     }
-
                     binding.profileEditButton.setOnClickListener {
 
                         findNavController().navigate(
-                            ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(fullName,phoneNumber, nationality, userId, email, password, confirmPassword ),
-                            customNavAnimation().build())
+                            ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(
+                                fullName,
+                                phoneNumber,
+                                nationality,
+                                userId,
+                                email,
+                                password,
+                                confirmPassword
+                            ),
+                            customNavAnimation().build()
+                        )
 
                     }
 
@@ -126,14 +208,14 @@ class ProfileFragment : Fragment() {
                     // save user first name to sharedPreference
                     Log.d("NUMBER", "PHONE_NUMBER ${it.data.data.phoneNumber}")
                 }
-                is Resource.Error ->{
+                is Resource.Error -> {
                     makeSnackBar("${it.data?.message}", requireView())
                 }
             }
         }
     }
 
-    private fun initObserversMyPlansTotal(){
+    private fun initObserversMyPlansTotal() {
         _viewModel.getMyPlansResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
@@ -141,21 +223,22 @@ class ProfileFragment : Fragment() {
                 }
                 is Resource.Success -> {
                     resource.data.data?.plans
-                    binding.plansTotal.text =  resource.data.data?.plans?.size.toString()
+                    binding.plansTotal.text = resource.data.data?.plans?.size.toString()
                 }
                 is Resource.Error -> {
-                    makeSnackBar("${resource.data?.message}",requireView())
+                    makeSnackBar("${resource.data?.message}", requireView())
                 }
             }
         }
     }
 
-    private fun getUserDetails(){
+    private fun getUserDetails() {
         viewModel.getUserDetails(preferences.getUserId(), "Bearer ${preferences.getToken()}")
     }
 
     private fun saveEmail(email: String) = preferences.saveEmail(email)
-    private fun saveEmailStatus(status: Boolean) = preferences.putUserVerified(status, PreferencesConstants.USER_VERIFIED)
+    private fun saveEmailStatus(status: Boolean) =
+        preferences.putUserVerified(status, PreferencesConstants.USER_VERIFIED)
 
     override fun onDestroyView() {
         super.onDestroyView()

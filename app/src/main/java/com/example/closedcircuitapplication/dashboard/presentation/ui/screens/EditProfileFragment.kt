@@ -72,6 +72,7 @@ class EditProfileFragment : Fragment() {
             email = binding.editProfileEmailTextInput.text.toString()
             phoneNumber = binding.editProfilePhoneNumberTextInput.text.toString()
             countryCode = binding.fragmentEditProfileCountryCodePicker.selectedCountryCodeWithPlus
+            Log.d("phone", countryCode+phoneNumber)
 
             if (fullName.isBlank()) {
                 binding.editProfileFullNameTextInput.error = "Full name can't be empty"
