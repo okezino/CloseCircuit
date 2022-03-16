@@ -23,5 +23,7 @@ data class UserDetailsResponseDto(
     @SerializedName("phone_number")
     val phoneNumber: String,
     @SerializedName("updated_at")
-    val updatedAt: String
+    val updatedAt: String,
+    val password: String,
+    val confirm_password: String
 )

@@ -52,6 +52,9 @@
     <color name="grey_box_background">#E5E5E5</color>
     <color name="dialog_background">#8EA9B8</color>
     <color name="closed_circuit_progress_background_tint">#F1F5FF</color>
+    <color name="change_profile_text_color">#B7E143</color>
+    <color name="profile_text_color">#C4C4C4</color>
+    <color name="box_background">#EBEFF2</color>
     <color name="drawer_text_emirate_green">#9DC333</color>
     <color name="drawer_primary_color">#5CEAFFAE</color>
     <color name="transparent">#0000FFFF</color>
@@ -66,5 +69,4 @@
     <color name="line_color">#F5F5F5</color>
     <color name="hint_color">#8B8989</color>
     <color name="settings_icon_background">#F5FCE2</color>
-
 </resources>

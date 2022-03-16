@@ -15,6 +15,7 @@ import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApi
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.REGISTER
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.RESET_PASSWORD
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.UPDATE_PLAN
+import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.UPDATE_PROFILE
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.USER_DETAILS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.VERIFY_OTP
 import com.example.closedcircuitapplication.common.data.network.models.GenerateOtpDto
@@ -25,7 +26,10 @@ import com.example.closedcircuitapplication.plan.data.datadto.UpdatePlanResponse
 import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
 import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
 import com.example.closedcircuitapplication.common.data.network.models.*
+import com.example.closedcircuitapplication.dashboard.data.datadto.UpdateProfileResponseDto
 import com.example.closedcircuitapplication.dashboard.data.datadto.UserDetailsResponseDto
+import com.example.closedcircuitapplication.dashboard.data.datadto.UserEditProfileResponseDto
+import com.example.closedcircuitapplication.dashboard.domain.model.UpdateProfileRequest
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import retrofit2.http.*
@@ -62,6 +66,13 @@ interface Api {
         @Header("Authorization") token: String
     ): Result<UpdatePlanResponseDto>
 
+    @PUT(UPDATE_PROFILE)
+    suspend fun updateUserProfile(
+        @Body editProfileRequest: UpdateProfileRequest,
+        @Path("id") userId: String,
+        @Header("Authorization") token: String
+    ): Result<UserEditProfileResponseDto>
+
     @POST("plans/")
     suspend fun createPlan(@Body createPlanRequest: CreatePlanRequest,
         @Header("Authorization") authHeader: String): Result<CreatePlanDto>
@@ -71,7 +82,6 @@ interface Api {
 
     @GET(GET_MY_PLANS)
     suspend fun getAllPlans(@Query("limit")limit: Int, @Query("offset")offSet: Int, @Header("Authorization")authHeader: String): Result<GetMyPlansDto>
-
 
     @DELETE(DELETE_PLAN)
     suspend fun deletePlan(

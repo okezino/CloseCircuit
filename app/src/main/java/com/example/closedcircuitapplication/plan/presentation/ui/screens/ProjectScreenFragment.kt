@@ -114,6 +114,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
                 }
                 is Resource.Success -> {
                     resource.data.data?.plans
+                    resource.data.data?.plans?.size
                     val res = resource.datas?.data!!.plans[0].business_name
                     Log.d("listofplans", res)
                     Log.d("listofplans2", "${resource.datas.data.plans}")

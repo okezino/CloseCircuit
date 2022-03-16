@@ -29,7 +29,11 @@
         android:id="@+id/profileFragment"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createPlanFragment"
         android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.ProjectSummaryFragment"
@@ -307,6 +311,35 @@
             app:destination="@id/createPlanFragment" />
     </fragment>
     <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.EditProfileFragment"
+        android:label="EditProfileFragment" >
+        <argument
+            android:name="fullName"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+        <argument
+            android:name="nationality"
+            app:argType="string" />
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+        <argument
+            android:name="confirm_password"
+            app:argType="string" />
+    </fragment>
+<fragment
         android:id="@+id/complaintAndIssuesFragment"
         android:name="com.example.closedcircuitapplication.support.ui.screen.ComplaintAndIssuesFragment"
         android:label="fragment_complaint_and_issues"
