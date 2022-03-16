@@ -28,15 +28,26 @@ class ChangeProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        selectProfileAdapter()
+    }
+
+    private fun selectProfileAdapter(){
         val selectProfile = resources.getStringArray(R.array.select_profile)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, selectProfile)
-        binding.fragmentSettingsChangeProfileDropdown.setAdapter(arrayAdapter)
-        binding.fragmentSettingsChangeProfileDropdown.setDropDownBackgroundDrawable(
-            ResourcesCompat.getDrawable(
-                resources,
-                R.drawable.text_input_background_dropdown,
-                null
+        with(binding){
+            fragmentSettingsChangeProfileDropdown.setAdapter(arrayAdapter)
+            fragmentSettingsChangeProfileDropdown.setDropDownBackgroundDrawable(
+                ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.text_input_background_dropdown,
+                    null
+                )
             )
-        )
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

@@ -41,5 +41,9 @@ class SettingsFragment : Fragment() {
             findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToSelectCurrencyTypeFragment(), customNavAnimation().build())
         }
     }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 
 }

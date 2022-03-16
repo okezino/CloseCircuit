@@ -1,12 +1,10 @@
 package com.example.closedcircuitapplication.common.data.repository
 
 import com.example.closedcircuitapplication.common.data.network.Api
-import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.domain.repository.SettingsRepositoryInterface
+import com.example.closedcircuitapplication.common.utils.ChangePasswordResponseType
 import com.example.closedcircuitapplication.common.utils.DispatcherProvider
 import com.example.closedcircuitapplication.common.utils.Resource
-import com.example.closedcircuitapplication.settings.data.datadto.ChangePasswordResponseDto
-import com.example.closedcircuitapplication.settings.data.mapper.SettingsDtoToDomainMapper
 import com.example.closedcircuitapplication.settings.domain.models.ChangePasswordRequest
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -15,7 +13,6 @@ import javax.inject.Inject
 
 class SettingsRepository @Inject constructor(
     private val api: Api,
-    private val mapper: SettingsDtoToDomainMapper,
     private val dispatcherProvider: DispatcherProvider
 ): SettingsRepositoryInterface {
 
@@ -23,7 +20,7 @@ class SettingsRepository @Inject constructor(
         changePasswordRequest: ChangePasswordRequest,
         userId: String,
         token: String
-    ): Flow<Resource<Result<ChangePasswordResponseDto>>> = flow{
+    ): Flow<ChangePasswordResponseType> = flow{
         emit(Resource.Loading())
         emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
             api.changePassword(changePasswordRequest, userId, token)

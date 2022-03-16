@@ -77,29 +77,36 @@ class SettingsResetPasswordFragment : Fragment() {
     }
 
     private fun settingsResetPassword(){
-        val oldPassword = binding.fragmentSettingsResetPasswordEnterOldPasswordEt.text.toString().trim()
-        val password = binding.fragmentSettingsResetPasswordEnterNewPasswordEt.text.toString().trim()
-        val confirmPassword = binding.fragmentSettingsReEnterNewPasswordEt.text.toString().trim()
-        if (Validation.validatePasswordPattern(password)){
-            binding.fragmentSettingsChangePasswordErrorTv.visibility = View.GONE
-            binding.fragmentSettingsResetPasswordEnterNewPasswordLayout.error = ""
-            if (Validation.validatePasswordPattern(confirmPassword)){
-                binding.fragmentSettingsConfirmPasswordErrorTv.visibility = View.GONE
-                binding.fragmentSettingsReEnterNewPasswordLayout.error = ""
-                if (password == confirmPassword){
-                    viewModel.changePassword(ChangePasswordRequest(confirmPassword,oldPassword,password),preferences.getUserId(),"$BEARER ${preferences.getToken()}")
+        with(binding){
+            val oldPassword = fragmentSettingsResetPasswordEnterOldPasswordEt.text.toString().trim()
+            val password = fragmentSettingsResetPasswordEnterNewPasswordEt.text.toString().trim()
+            val confirmPassword = fragmentSettingsReEnterNewPasswordEt.text.toString().trim()
+            if (Validation.validatePasswordPattern(password)){
+                fragmentSettingsChangePasswordErrorTv.visibility = View.GONE
+                fragmentSettingsResetPasswordEnterNewPasswordLayout.error = ""
+                if (Validation.validatePasswordPattern(confirmPassword)){
+                    fragmentSettingsConfirmPasswordErrorTv.visibility = View.GONE
+                    fragmentSettingsReEnterNewPasswordLayout.error = ""
+                    if (password == confirmPassword){
+                        viewModel.changePassword(ChangePasswordRequest(confirmPassword,oldPassword,password),preferences.getUserId(),"$BEARER ${preferences.getToken()}")
+                    }else{
+                        makeSnackBar(SettingsConstants.PASSWORD_MATCH, requireView())
+                    }
                 }else{
-                    makeSnackBar(SettingsConstants.PASSWORD_MATCH, requireView())
+                    fragmentSettingsReEnterNewPasswordLayout.error = ContextCompat.getColor(requireContext(),R.color.red).toString()
+                    fragmentSettingsResetPasswordEnterNewPasswordLayout.errorIconDrawable = null
+                    fragmentSettingsConfirmPasswordErrorTv.visibility = View.VISIBLE
                 }
             }else{
-                binding.fragmentSettingsReEnterNewPasswordLayout.error = ContextCompat.getColor(requireContext(),R.color.red).toString()
-                binding.fragmentSettingsResetPasswordEnterNewPasswordLayout.errorIconDrawable = null
-                binding.fragmentSettingsConfirmPasswordErrorTv.visibility = View.VISIBLE
+                fragmentSettingsResetPasswordEnterNewPasswordLayout.error = ContextCompat.getColor(requireContext(),R.color.red).toString()
+                fragmentSettingsResetPasswordEnterNewPasswordLayout.errorIconDrawable = null
+                fragmentSettingsChangePasswordErrorTv.visibility = View.VISIBLE
             }
-        }else{
-            binding.fragmentSettingsResetPasswordEnterNewPasswordLayout.error = ContextCompat.getColor(requireContext(),R.color.red).toString()
-            binding.fragmentSettingsResetPasswordEnterNewPasswordLayout.errorIconDrawable = null
-            binding.fragmentSettingsChangePasswordErrorTv.visibility = View.VISIBLE
         }
+
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

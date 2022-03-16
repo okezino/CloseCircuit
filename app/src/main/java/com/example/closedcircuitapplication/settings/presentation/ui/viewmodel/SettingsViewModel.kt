@@ -4,9 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.closedcircuitapplication.common.data.network.models.Result
-import com.example.closedcircuitapplication.common.utils.Resource
-import com.example.closedcircuitapplication.settings.data.datadto.ChangePasswordResponseDto
+import com.example.closedcircuitapplication.common.utils.ChangePasswordResponseType
 import com.example.closedcircuitapplication.settings.domain.models.ChangePasswordRequest
 import com.example.closedcircuitapplication.settings.domain.usecases.ChangePasswordUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,8 +18,8 @@ class SettingsViewModel @Inject constructor(
 
 ): ViewModel() {
 
-    private var _changePasswordResponse = MutableLiveData<Resource<Result<ChangePasswordResponseDto>>>()
-    val changePasswordResponse: LiveData<Resource<Result<ChangePasswordResponseDto>>> get() = _changePasswordResponse
+    private var _changePasswordResponse = MutableLiveData<ChangePasswordResponseType>()
+    val changePasswordResponse: LiveData<ChangePasswordResponseType> get() = _changePasswordResponse
 
     fun changePassword(changePasswordRequest: ChangePasswordRequest, userId: String, token: String){
         viewModelScope.launch {

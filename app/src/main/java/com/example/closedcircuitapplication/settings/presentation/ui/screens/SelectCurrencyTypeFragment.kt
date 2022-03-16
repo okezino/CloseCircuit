@@ -27,15 +27,26 @@ class SelectCurrencyTypeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        currencyTypeAdapter()
+    }
+
+    private fun currencyTypeAdapter(){
         val currencyType = resources.getStringArray(R.array.currency_type)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, currencyType)
-        binding.fragmentSettingsCurrencyTypeDropdown.setAdapter(arrayAdapter)
-        binding.fragmentSettingsCurrencyTypeDropdown.setDropDownBackgroundDrawable(
-            ResourcesCompat.getDrawable(
-                resources,
-                R.drawable.text_input_background_dropdown,
-                null
+        with(binding){
+            fragmentSettingsCurrencyTypeDropdown.setAdapter(arrayAdapter)
+            fragmentSettingsCurrencyTypeDropdown.setDropDownBackgroundDrawable(
+                ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.text_input_background_dropdown,
+                    null
+                )
             )
-        )
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

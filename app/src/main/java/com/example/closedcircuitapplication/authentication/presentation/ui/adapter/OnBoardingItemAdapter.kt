@@ -10,9 +10,6 @@ import com.example.closedcircuitapplication.databinding.ViewPagerTemplateBinding
 
 class OnBoardingItemAdapter(private val onBoardingItem: List<AdapterModel>): RecyclerView.Adapter<OnBoardingItemAdapter.OnBoardingItemViewHolder>() {
 
-    var onBoardingModel: MutableList<AdapterModel> = mutableListOf()
-
-
     inner class OnBoardingItemViewHolder(view: View):RecyclerView.ViewHolder(view){
         private val binding: ViewPagerTemplateBinding = ViewPagerTemplateBinding.bind(view)
         private val image = binding.onBoardImage
