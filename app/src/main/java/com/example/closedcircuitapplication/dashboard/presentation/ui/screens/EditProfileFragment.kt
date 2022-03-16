@@ -50,7 +50,6 @@ class EditProfileFragment : Fragment() {
         super.onResume()
         val nationality = resources.getStringArray(R.array.Choose_country)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, nationality)
-//        binding.selectCountryCategoryDropdown.setAdapter(arrayAdapter)
 
         }
 
@@ -63,7 +62,6 @@ class EditProfileFragment : Fragment() {
             editProfileFullNameTextInput.setText(args.fullName)
             val phone = PhoneNumberSplitter.phoneNumberCode(args.phoneNumber)
             editProfilePhoneNumberTextInput.setText(phone)
-//            selectCountryCategoryDropdown.setText(args.nationality)
             editProfileEmailTextInput.setText(args.email)
         }
 

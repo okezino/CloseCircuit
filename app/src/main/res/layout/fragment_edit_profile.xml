@@ -178,67 +178,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextInputLayout"
                 app:layout_constraintVertical_bias="1.0" />
 
-<!--            <com.google.android.material.textfield.TextInputLayout-->
-<!--                android:id="@+id/nationalityTextInputLayout"-->
-<!--                style="@style/Fragment_EditProfile_Dropdown"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="@dimen/margin_20dp"-->
-<!--                android:layout_marginEnd="@dimen/margin_20dp"-->
-<!--                android:layout_marginTop="@dimen/margin_50dp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.5"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/phoneNumberTextInputLayout">-->
-
-<!--                <AutoCompleteTextView-->
-<!--                    android:id="@+id/selectCountryCategoryDropdown"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:dropDownVerticalOffset="@dimen/offset_4dp"-->
-<!--                    android:gravity="center_vertical"-->
-<!--                    android:inputType="none"-->
-<!--                    android:paddingTop="@dimen/padding_4dp"-->
-<!--                    android:scrollbars="none" />-->
-<!--            </com.google.android.material.textfield.TextInputLayout>-->
-
-
-<!--            <com.google.android.material.textfield.TextInputLayout-->
-<!--                android:id="@+id/SelectPlanCategory_sp"-->
-<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="@dimen/margin_20dp"-->
-<!--                android:layout_marginEnd="@dimen/margin_20dp"-->
-<!--                android:paddingTop="@dimen/margin_16dp"-->
-<!--                android:paddingBottom="@dimen/margin_16dp"-->
-<!--                app:boxBackgroundColor="@color/grey_box_background"-->
-<!--                app:boxCornerRadiusBottomEnd="@dimen/radius_5dp"-->
-<!--                app:boxCornerRadiusBottomStart="@dimen/radius_5dp"-->
-<!--                app:boxCornerRadiusTopEnd="@dimen/radius_5dp"-->
-<!--                app:boxCornerRadiusTopStart="@dimen/radius_5dp"-->
-<!--                app:boxStrokeColor="@color/grey_box_background"-->
-<!--                app:boxStrokeWidth="@dimen/margin_0dp"-->
-<!--                app:endIconDrawable="@drawable/end_icon_dropdown_drawable"-->
-<!--                app:endIconMode="dropdown_menu"-->
-<!--                app:endIconTint="@color/closed_circuit_dark_green"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextInputLayout">-->
-
-<!--                <AutoCompleteTextView-->
-<!--                    android:id="@+id/selectPlanCategoryDropdown"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:dropDownVerticalOffset="@dimen/offset_4dp"-->
-<!--                    android:gravity="center_vertical"-->
-<!--                    android:inputType="none"-->
-<!--                    android:paddingTop="@dimen/padding_4dp"-->
-<!--                    android:scrollbars="none" />-->
-<!--            </com.google.android.material.textfield.TextInputLayout>-->
-
-
-
 
 
             <com.google.android.material.button.MaterialButton

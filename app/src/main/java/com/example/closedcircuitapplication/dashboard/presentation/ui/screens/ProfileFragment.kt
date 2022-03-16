@@ -78,7 +78,6 @@ class ProfileFragment : Fragment() {
                 requestPermission()
             } else {
                 pickImage()
-//                picImageGallery()
             }
         }
 
@@ -118,7 +117,6 @@ class ProfileFragment : Fragment() {
         when (requestCode) {
             IMAGE_REQUEST_CODE -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(context, "PERMISSION GRANTED", Toast.LENGTH_SHORT).show()
-//                picImageGallery()
             } else {
                 Toast.makeText(context, "PERMISSION DENIED", Toast.LENGTH_SHORT).show()
             }
@@ -131,12 +129,6 @@ class ProfileFragment : Fragment() {
         startActivityForResult(intent, IMAGE_REQUEST_CODE)
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if (requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
-//            binding.profileImageView.setImageURI(data?.data)
-//        }
-//    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
