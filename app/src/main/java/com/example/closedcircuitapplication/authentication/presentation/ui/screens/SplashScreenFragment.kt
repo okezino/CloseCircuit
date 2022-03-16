@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.FROM_LOGOUT
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.databinding.FragmentSplashScreenBinding
 
@@ -19,6 +19,10 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
 
     private var _binding: FragmentSplashScreenBinding? = null
     private val binding get() = _binding!!
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,13 +30,22 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         _binding = FragmentSplashScreenBinding.inflate(layoutInflater, container, false)
-
-        setUpSplashScreen()
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val logOutExtra = activity?.intent?.extras?.getBoolean(FROM_LOGOUT)
+        if (logOutExtra == true) findNavController().navigate(
+            SplashScreenFragmentDirections.actionSplashScreenToLoginFragment(),
+            customNavAnimation().build()
+        )
+        else setUpSplashScreen()
+
     }
 
     private fun setUpSplashScreen() {
@@ -46,11 +59,14 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
         val splashScreenTimeout = 3500
         Handler(Looper.getMainLooper()).postDelayed({
             if (onBoardingFinished()) {
-                findNavController().navigate(SplashScreenFragmentDirections.actionSplashScreenToViewPagerFragment(),
-                    customNavAnimation().build())
+                findNavController().navigate(
+                    SplashScreenFragmentDirections.actionSplashScreenToViewPagerFragment(),
+                    customNavAnimation().build()
+                )
             } else {
                 findNavController().navigate(
-                    SplashScreenFragmentDirections.actionSplashScreenToViewPagerFragment(), customNavAnimation().build()
+                    SplashScreenFragmentDirections.actionSplashScreenToViewPagerFragment(),
+                    customNavAnimation().build()
                 )
             }
         }, splashScreenTimeout.toLong())

@@ -97,4 +97,16 @@
     <dimen name="width_50dp">50dp</dimen>
     <dimen name="boxCornerRadius_16dp">16dp</dimen>
     <dimen name="margin_120dp">120dp</dimen>
+    <dimen name="elevation_4dp">4dp</dimen>
+    <dimen name="margin_36dp">36dp</dimen>
+    <dimen name="margin_13dp">13dp</dimen>
+    <dimen name="margin_negative_37dp">-37dp</dimen>
+    <dimen name="margin_106dp">106dp</dimen>
+    <dimen name="height_32dp">32dp</dimen>
+    <dimen name="margin_6dp">6dp</dimen>
+    <dimen name="margin_negative_47dp">-47dp</dimen>
+    <dimen name="margin_41dp">41dp</dimen>
+    <dimen name="width_90dp">90dp</dimen>
+    <dimen name="margin_239dp">239dp</dimen>
+    <dimen name="margin_256">256dp</dimen>
 </resources>

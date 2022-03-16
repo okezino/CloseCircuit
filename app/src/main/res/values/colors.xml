@@ -39,6 +39,7 @@
     <color name="light_blue">#360386FF</color>
     <color name="blue_500">#FF0386FF</color>
     <color name="blue">#0000fF</color>
+    <color name="view_background_color">#F5F5F5</color>
     <color name="closed_circuit_dark_green">#24500F</color>
     <color name="background2">#FBFBFF</color>
     <color name="disabled_btn">#6e875c</color>
@@ -54,6 +55,18 @@
     <color name="change_profile_text_color">#B7E143</color>
     <color name="profile_text_color">#C4C4C4</color>
     <color name="box_background">#EBEFF2</color>
+    <color name="drawer_text_emirate_green">#9DC333</color>
+    <color name="drawer_primary_color">#5CEAFFAE</color>
+    <color name="transparent">#0000FFFF</color>
 
 
+
+    <color name="closed_circuit_text_blue">#0386FF</color>
+    <color name="closed_circuit_background">#E5E5E5</color>
+    <color name="closed_circuit_red">#D91D1D</color>
+    <color name="text_color_normal">#8A8A8E</color>
+    <color name="text_color_light_grey">#C4C4C4</color>
+    <color name="line_color">#F5F5F5</color>
+    <color name="hint_color">#8B8989</color>
+    <color name="settings_icon_background">#F5FCE2</color>
 </resources>

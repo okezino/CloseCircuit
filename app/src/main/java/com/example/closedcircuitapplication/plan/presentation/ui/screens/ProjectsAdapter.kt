@@ -1,6 +1,7 @@
 package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -14,6 +15,7 @@ import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansD
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
 import com.example.closedcircuitapplication.plan.presentation.models.Projects
 import com.example.closedcircuitapplication.plan.utils.onItemClickListener
+import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
 
 class ProjectsAdapter(private val projects: MutableList<Plan>) :
     RecyclerView.Adapter<ProjectsAdapter.ViewHolder>() {
@@ -33,8 +35,8 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) :
             return oldItem == newItem
         }
     }
-
     val differ = AsyncListDiffer(this, differCallBack)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ProjectItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding, mListener)
@@ -62,7 +64,6 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) :
         init {
 
             item.setOnClickListener {
-
                 listener.allPlansItemClicked(adapterPosition)
             }
         }

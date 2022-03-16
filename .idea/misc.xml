@@ -17,11 +17,19 @@
         <entry key="app/src/main/res/drawable-v24/circular_shape.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-v24/rectangle_button.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/drawable-v24/text_input_rectangle.xml" value="0.24316239316239316" />
+        <entry key="app/src/main/res/drawable-xxhdpi/custom_thumb.xml" value="0.29635416666666664" />
+        <entry key="app/src/main/res/drawable-xxhdpi/rectangle_button_outlined.xml" value="0.29635416666666664" />
+        <entry key="app/src/main/res/drawable-xxhdpi/settings_icon_container.xml" value="0.29635416666666664" />
+        <entry key="app/src/main/res/drawable-xxhdpi/text_input_background_16dp.xml" value="0.29635416666666664" />
         <entry key="app/src/main/res/drawable/all_button_background.xml" value="0.2522982635342186" />
         <entry key="app/src/main/res/drawable/apple_icon.xml" value="0.16880341880341881" />
         <entry key="app/src/main/res/drawable/background_add_budget_item.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/drawable/background_sponsors.xml" value="0.14375" />
         <entry key="app/src/main/res/drawable/bottomsheet_background.xml" value="0.16880341880341881" />
+        <entry key="app/src/main/res/drawable/chat_message_background.xml" value="0.1105" />
+        <entry key="app/src/main/res/drawable/chat_receiver_background.xml" value="0.1305" />
+        <entry key="app/src/main/res/drawable/chat_reciever_background.xml" value="0.1105" />
+        <entry key="app/src/main/res/drawable/dailog_bg_color.xml" value="0.1105" />
         <entry key="app/src/main/res/drawable/google_btn.xml" value="0.24316239316239316" />
         <entry key="app/src/main/res/drawable/ic__menu_icon.xml" value="0.121875" />
         <entry key="app/src/main/res/drawable/ic_accounts.xml" value="0.2522982635342186" />
@@ -44,16 +52,20 @@
         <entry key="app/src/main/res/drawable/ic_target_amount.xml" value="0.12135416666666667" />
         <entry key="app/src/main/res/drawable/image_view_circular_shape.xml" value="0.2522982635342186" />
         <entry key="app/src/main/res/drawable/image_view_circular_shape_blue.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/drawable/indicator_active.xml" value="0.18717105263157896" />
+        <entry key="app/src/main/res/drawable/indicator_inactive.xml" value="0.18717105263157896" />
+        <entry key="app/src/main/res/drawable/left_corner_input_background.xml" value="0.1105" />
         <entry key="app/src/main/res/drawable/on_boarding_button.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/drawable/otp_item_background.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/drawable/password_toggle_selector.xml" value="0.29635416666666664" />
         <entry key="app/src/main/res/drawable/progress_bar.xml" value="0.26506639427987744" />
+        <entry key="app/src/main/res/drawable/right_corner_input_background.xml" value="0.1105" />
         <entry key="app/src/main/res/drawable/tab_indicator.xml" value="0.21481481481481482" />
         <entry key="app/src/main/res/drawable/text_input_background.xml" value="0.2994791666666667" />
         <entry key="app/src/main/res/layout/active_user_dashboard.xml" value="0.27716389136984754" />
         <entry key="app/src/main/res/layout/activity_beneficiary_dashboard.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
-        <entry key="app/src/main/res/layout/app_bar_dashboard.xml" value="0.27608165954222885" />
+        <entry key="app/src/main/res/layout/app_bar_dashboard.xml" value="0.22" />
         <entry key="app/src/main/res/layout/budget_steps_item_layout.xml" value="0.18" />
         <entry key="app/src/main/res/layout/content_dashboard.xml" value="0.27434808593394083" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.18" />
@@ -62,13 +74,21 @@
         <entry key="app/src/main/res/layout/custom_item_info_dialog.xml" value="0.2520912545474485" />
         <entry key="app/src/main/res/layout/custom_login_wait_dialog.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/cutom_login_successful_dialog.xml" value="0.1585144927536232" />
+<<<<<<< HEAD
         <entry key="app/src/main/res/layout/delete_plan_dialog.xml" value="0.29791666666666666" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.21" />
+=======
+        <entry key="app/src/main/res/layout/delete_plan_dialog.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.13768115942028986" />
+>>>>>>> 3833e94989a12452aaec5fdcead36fbd36caa8ef
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.12735042735042734" />
         <entry key="app/src/main/res/layout/fragment_account_registration.xml" value="0.3338267949666913" />
+        <entry key="app/src/main/res/layout/fragment_change_currency_type.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_change_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_complaint_and_issues.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/fragment_creat_plan_step_one.xml" value="0.23229166666666667" />
         <entry key="app/src/main/res/layout/fragment_create_a_plan.xml" value="0.23697916666666666" />
-        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_create_budget.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_create_plan.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_create_plan_budget.xml" value="0.2953125" />
@@ -77,34 +97,56 @@
         <entry key="app/src/main/res/layout/fragment_create_plan_steps.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/fragment_create_plan_summary.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_create_steps.xml" value="0.21875" />
+<<<<<<< HEAD
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/fragment_edit_plan.xml" value="0.2606541129831516" />
         <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.5" />
+=======
+        <entry key="app/src/main/res/layout/fragment_customer_care.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1234375" />
+        <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.18704710144927536" />
+        <entry key="app/src/main/res/layout/fragment_edit_plan.xml" value="0.2606541129831516" />
+        <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.18704710144927536" />
+>>>>>>> 3833e94989a12452aaec5fdcead36fbd36caa8ef
         <entry key="app/src/main/res/layout/fragment_email_verification_successful.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/fragment_first_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.24230072463768115" />
         <entry key="app/src/main/res/layout/fragment_fourth_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_fund_sent_successfully.xml" value="0.28020833333333334" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_how_to_use_suport.xml" value="0.23125" />
+        <entry key="app/src/main/res/layout/fragment_learn_about_us.xml" value="0.23125" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.15" />
         <entry key="app/src/main/res/layout/fragment_message.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_my_budget.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_my_step.xml" value="0.15555555555555556" />
+        <entry key="app/src/main/res/layout/fragment_my_budget.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_my_step.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_notification_screen.xml" value="0.188433837890625" />
         <entry key="app/src/main/res/layout/fragment_password_recovery_successful.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/fragment_payments_support.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/fragment_plan_created_sucessfully.xml" value="0.23229166666666667" />
+<<<<<<< HEAD
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_project_screen.xml" value="0.22" />
+=======
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.13768115942028986" />
+        <entry key="app/src/main/res/layout/fragment_project_screen.xml" value="0.13768115942028986" />
+>>>>>>> 3833e94989a12452aaec5fdcead36fbd36caa8ef
         <entry key="app/src/main/res/layout/fragment_recover_password_otp.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_request_verification_successfull.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/fragment_reset_your_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/fragment_second_screen.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_send_funds_summary.xml" value="0.23125" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_settings_auto_lock.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_settings_reset_password.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_settings_steps_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_sponsors_screen.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/fragment_successful_email_verification_screen.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_support.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_unsuccessful_email_screen.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/fragment_upload_image_bottom_sheet.xml" value="0.25" />
@@ -112,13 +154,21 @@
         <entry key="app/src/main/res/layout/fragment_users_edit_profile.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/fragment_verify_email.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_view_pager.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.15" />
-        <entry key="app/src/main/res/layout/fragment_when_project_is_not_funded.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_whatis_the_closed_circuit.xml" value="0.204" />
+        <entry key="app/src/main/res/layout/fragment_when_project_is_not_funded.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/my_budget_sponsor_item_layout.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/plan_item.xml" value="0.1585144927536232" />
-        <entry key="app/src/main/res/layout/project_item.xml" value="0.26927083333333335" />
+        <entry key="app/src/main/res/layout/project_item.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/sponsors_screen_copy_link_alart_dialog.xml" value="0.18704710144927536" />
+<<<<<<< HEAD
         <entry key="app/src/main/res/layout/view_pager_template.xml" value="0.15" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.33" />
+=======
+        <entry key="app/src/main/res/layout/view_pager_template.xml" value="0.13729508196721313" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/drawer_navigation_menu.xml" value="0.23125" />
+>>>>>>> 3833e94989a12452aaec5fdcead36fbd36caa8ef
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.25" />
         <entry key="app/src/main/res/menu/plan_menu.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.165625" />

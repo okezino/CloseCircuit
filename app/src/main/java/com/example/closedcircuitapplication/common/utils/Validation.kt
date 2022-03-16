@@ -1,5 +1,7 @@
 package com.example.closedcircuitapplication.common.utils
 
+import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
+
 import android.view.View
 import android.widget.EditText
 import androidx.fragment.app.Fragment
@@ -85,12 +87,10 @@ object Validation {
     fun validatePlanDuration(planDuration: String): Boolean {
         return (planDuration.isNotEmpty())
     }
-
     //validate selling price
     fun validateSellingPrice(sellingPrice: String): Boolean {
         return (sellingPrice.isNotEmpty())
     }
-
     //validate cost price
     fun validateCostPrice(costPrice: String): Boolean {
         return (costPrice.isNotEmpty())
@@ -98,8 +98,8 @@ object Validation {
 
 
     // phone_number inputField validation
-    fun validatePhone_number(phone_number: String): Boolean {
-        return phone_number.length < 9
+    fun validatePhone_number(phone_number : String):Boolean{
+        return phone_number.length < 10
     }
 
     fun validatePassword_Equals_confirmPasswword(
@@ -140,8 +140,41 @@ object Validation {
             user.emailAddress
         ))
     }
-}
+    fun validateAccountData(accountData: RegisterRequest):List<String>{
+        val result = mutableListOf<String>()
+        val splitName = accountData.fullname.split(" ")
+        // check if the full name is entered and is a valid name
+        if(splitName.size <2 || splitName.size >3){
+            result.add("Enter your full name")
+        }else if (!validateEmailInput(accountData.email) ) {
+            result.add("cant be empty")
+        } else if ( validatePhone_number(accountData.phone_number)){
+            result.add("Incomplete number")
+        } else if ( validatePassword_Equals_confirmPasswword(accountData.password, accountData.confirm_password)) {
+            result.add("Password does not match")
+        }
+        return result
+    }
 
+fun Fragment.validateResetPassword(newPassword: String, confirmPassword: String): Boolean {
+    if (Validation.validatePasswordPattern(newPassword) && Validation.validatePasswordPattern(
+            confirmPassword
+        ) && confirmPassword == newPassword
+    ) {
+        return true
+    }
+    if (!Validation.validatePasswordPattern(newPassword)) {
+        makeSnackBar(getString(R.string.input_valid_password_text), requireView())
+        return false
+    }
+
+    if (newPassword != confirmPassword) {
+        makeSnackBar(getString(R.string.passwords_do_not_match_text), requireView())
+        return false
+    }
+    return false
+}
+}
 fun validateCreatePlanFields(
     businessName: EditText,
     planDescription: EditText,
@@ -174,6 +207,9 @@ fun validateCreatePlanFields(
         return false
     }
 
+
+
+
     if (sellingPrice.text.toString().isEmpty()) {
         context.makeSnackBar(
             context.getString(R.string.Estimated_selling_price_must_not_be_empty_text),
@@ -199,26 +235,13 @@ fun validateCreatePlanFields(
     }
     return true
 }
-
-fun Fragment.validateResetPassword(newPassword: String, confirmPassword: String): Boolean {
-    if (Validation.validatePasswordPattern(newPassword) && Validation.validatePasswordPattern(
-            confirmPassword
-        ) && confirmPassword == newPassword
-    ) {
-        return true
-    }
-    if (!Validation.validatePasswordPattern(newPassword)) {
-        makeSnackBar(getString(R.string.input_valid_password_text), requireView())
-        return false
-    }
-
-    if (newPassword != confirmPassword) {
-        makeSnackBar(getString(R.string.passwords_do_not_match_text), requireView())
-        return false
-    }
-    return false
-}
-
+data class AccountData (
+    val fullName: String,
+    val phone_number: String,
+    val password: String,
+    val email: String,
+    val confirmPassword: String,
+        )
 data class UserInput(
     val fullName: String,
     val username: String,

@@ -33,7 +33,6 @@ import com.example.closedcircuitapplication.plan.utils.PlanUtils
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-
 @AndroidEntryPoint
 class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification) {
     private var _binding: FragmentEmailVerificationBinding? = null
@@ -48,7 +47,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        
+
         _binding = FragmentEmailVerificationBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -93,8 +92,8 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
         }
     }
 
-    private fun initObservers() {
-        viewModel.verifyOtpResponse.observe(viewLifecycleOwner, { resource ->
+    private fun initObservers(){
+        viewModel.verifyOtpResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
                     makeSnackBar(LOADING,requireView())
@@ -108,7 +107,7 @@ class EmailVerificationFragment : Fragment(R.layout.fragment_email_verification)
                     makeSnackBar("${resource.data?.message}", requireView())
                 }
             }
-        })
+        }
     }
 
     private fun initObserversResendOtp() {

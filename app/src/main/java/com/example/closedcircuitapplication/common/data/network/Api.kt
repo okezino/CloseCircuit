@@ -8,6 +8,7 @@ import com.example.closedcircuitapplication.authentication.data.dataDto.Register
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.authentication.domain.models.ResetPasswordRequest
+import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.CHANGE_PASSWORD
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GET_MY_PLANS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.LOGIN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.PLANS
@@ -34,6 +35,8 @@ import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import retrofit2.http.*
 import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
 import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
+import com.example.closedcircuitapplication.settings.data.datadto.ChangePasswordResponseDto
+import com.example.closedcircuitapplication.settings.domain.models.ChangePasswordRequest
 import retrofit2.http.Body
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -91,4 +94,11 @@ interface Api {
         @Path("id") userId: String,
         @Header("Authorization") authHeader: String
     ): Result<UserDetailsResponseDto>
+
+    @PUT(CHANGE_PASSWORD)
+    suspend fun changePassword(
+        @Body changePasswordRequest: ChangePasswordRequest,
+        @Path("id") userId: String,
+        @Header("Authorization") token: String
+    ):Result<ChangePasswordResponseDto>
 }

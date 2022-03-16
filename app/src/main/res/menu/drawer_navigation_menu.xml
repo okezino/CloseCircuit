@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/notificationScreenFragment"
+        android:title="@string/notifications"
+        android:checkable="true"
+        android:icon="@drawable/ic_notification_bell"
+        />
+
+    <item android:id="@+id/drawer_settings"
+        android:checkable="true"
+        android:title="@string/settings" android:icon="@drawable/ic_drawer_setting"
+       />
+
+    <item
+        android:id="@+id/supportFragment"
+        android:title="@string/support"
+        android:checkable="true"
+        android:icon="@drawable/ic_drawer_support"/>
+
+    <item
+        android:id="@+id/drawer_about_us"
+        android:title="@string/about_us"
+        android:checkable="true"
+        android:icon="@drawable/ic_drawer_about_us"/>
+
+</menu>

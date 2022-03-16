@@ -108,6 +108,9 @@
         <action
             android:id="@+id/action_projectScreenFragment_to_createPlanFragment2"
             app:destination="@id/createPlanFragment" />
+        <action
+            android:id="@+id/action_projectScreenFragment_to_myStepFragment"
+            app:destination="@id/myStepFragment" />
     </fragment>
     <fragment
         android:id="@+id/emailVerificationFragment"
@@ -185,6 +188,9 @@
         <action
             android:id="@+id/action_myStepFragment_to_projectScreenFragment"
             app:destination="@id/projectScreenFragment" />
+        <argument
+            android:name="planId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/myBudgetFragment"
@@ -333,5 +339,108 @@
             android:name="confirm_password"
             app:argType="string" />
     </fragment>
+<fragment
+        android:id="@+id/complaintAndIssuesFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.ComplaintAndIssuesFragment"
+        android:label="fragment_complaint_and_issues"
+        tools:layout="@layout/fragment_complaint_and_issues" >
+        <action
+            android:id="@+id/action_complaintAndIssuesFragment_to_customerCareFragment"
+            app:destination="@id/customerCareFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/howToUseSupportFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.HowToUseSupportFragment"
+        android:label="fragment_how_to_use_suport"
+        tools:layout="@layout/fragment_how_to_use_suport" >
+        <action
+            android:id="@+id/action_howToUseSupportFragment_to_whatIsTheClosedCircuitFragment"
+            app:destination="@id/LearnAboutUsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentsSupportFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.PaymentsSupportFragment"
+        android:label="fragment_payments_support"
+        tools:layout="@layout/fragment_payments_support" />
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.SupportFragment"
+        android:label="fragment_support"
+        tools:layout="@layout/fragment_support" >
+        <action
+            android:id="@+id/action_supportFragment_to_howToUseSupportFragment"
+            app:destination="@id/howToUseSupportFragment" />
+        <action
+            android:id="@+id/action_supportFragment_to_complaintAndIssuesFragment"
+            app:destination="@id/complaintAndIssuesFragment" />
+        <action
+            android:id="@+id/action_supportFragment_to_paymentsSupportFragment"
+            app:destination="@id/paymentsSupportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/LearnAboutUsFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.LearnAboutUsFragment"
+        android:label="fragment_whatis_the_closed_circuit"
+        tools:layout="@layout/fragment_learn_about_us" />
+    <fragment
+        android:id="@+id/customerCareFragment"
+        android:name="com.example.closedcircuitapplication.support.ui.screen.CustomerCareFragment"
+        android:label="fragment_customer_care"
+        tools:layout="@layout/fragment_customer_care" />
+
+    <fragment
+        android:id="@+id/selectCurrencyTypeFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SelectCurrencyTypeFragment"
+        android:label="fragment_change_currency_type"
+        tools:layout="@layout/fragment_change_currency_type" >
+        <action
+            android:id="@+id/action_selectCurrencyTypeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeProfileFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.ChangeProfileFragment"
+        android:label="fragment_change_profile"
+        tools:layout="@layout/fragment_change_profile" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_settingsAutoLockFragment"
+            app:destination="@id/settingsAutoLockFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_settingsStepsLoginFragment"
+            app:destination="@id/settingsStepsLoginFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_changeProfileFragment"
+            app:destination="@id/changeProfileFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_selectCurrencyTypeFragment"
+            app:destination="@id/selectCurrencyTypeFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_settingsResetPasswordFragment"
+            app:destination="@id/settingsResetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsAutoLockFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsAutoLockFragment"
+        android:label="fragment_settings_auto_lock"
+        tools:layout="@layout/fragment_settings_auto_lock" />
+    <fragment
+        android:id="@+id/settingsResetPasswordFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsResetPasswordFragment"
+        android:label="fragment_settings_reset_password"
+        tools:layout="@layout/fragment_settings_reset_password" >
+        <action
+            android:id="@+id/action_settingsResetPasswordFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsStepsLoginFragment"
+        android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsStepsLoginFragment"
+        android:label="fragment_settings_steps_login"
+        tools:layout="@layout/fragment_settings_steps_login" />
 
 </navigation>

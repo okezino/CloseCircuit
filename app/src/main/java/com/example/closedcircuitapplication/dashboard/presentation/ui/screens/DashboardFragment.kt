@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
+import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_FULL_NAME
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_ID
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants.USER_PHONE_NUMBER
@@ -118,7 +119,6 @@ class DashboardFragment : Fragment() {
                     it.data.data?.fullName?.let { name -> saveUserFirstName(name) }
                     // save user phone number to sharedPreference
                     it.data.data?.phoneNumber?.let { number -> saveUserPhoneNumber(number)}
-                    Log.d("NUMBER", "PHONE_NUMBER ${it.data.data?.phoneNumber}")
                 }
                 is Resource.Error ->{
                     makeSnackBar("${it.data?.message}", requireView())
