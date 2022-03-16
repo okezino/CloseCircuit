@@ -20,7 +20,6 @@ import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
 import com.example.closedcircuitapplication.databinding.FragmentProjectScreenBinding
 import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.plan.presentation.models.Plan
-import com.example.closedcircuitapplication.plan.presentation.models.Projects
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import com.example.closedcircuitapplication.plan.utils.onItemClickListener
 import com.example.closedcircuitapplication.plan.utils.PlanConstants.LOADING
@@ -81,41 +80,8 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
     }
 
     private fun fetchProjects() {
-        val projects = ArrayList<Projects>()
-        projects.add(
-            Projects(
-                "School Fees",
-                "A plan to raise school fees for the first semester of my first year of Mechanical Engineering",
-                "10",
-                "60",
-                "8",
-                "Projects"
-            )
-        )
-        projects.add(
-            Projects(
-                "Fish Farming",
-                "To build a mega catfish farm in a viable area within the city of Lagos, Nigeria",
-                "4",
-                "10",
-                "5",
-                "Business"
-            )
-        )
-        projects.add(
-            Projects(
-                "Book Launch",
-                "A passion project to launch a new book on the effects of the COVID-19 on modern workplace culture",
-                "5",
-                "20",
-                "2",
-                "Project"
-            )
-        )
         projectsAdapter = ProjectsAdapter(myPlansList)
-
-        projectsRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        projectsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         projectsRecyclerView.adapter = projectsAdapter
     }
 

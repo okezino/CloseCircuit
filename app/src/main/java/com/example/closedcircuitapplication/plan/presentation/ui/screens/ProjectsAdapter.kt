@@ -35,8 +35,8 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) :
             return oldItem == newItem
         }
     }
-
     val differ = AsyncListDiffer(this, differCallBack)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ProjectItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding, mListener)
@@ -64,7 +64,6 @@ class ProjectsAdapter(private val projects: MutableList<Plan>) :
         init {
 
             item.setOnClickListener {
-
                 listener.allPlansItemClicked(adapterPosition)
             }
         }
