@@ -109,4 +109,6 @@
     <dimen name="width_90dp">90dp</dimen>
     <dimen name="margin_239dp">239dp</dimen>
     <dimen name="margin_256">256dp</dimen>
+    <dimen name="margin_55dp">55dp</dimen>
+    <dimen name="margin_32dp">32dp</dimen>
 </resources>
