@@ -56,9 +56,9 @@
             android:paddingHorizontal="16dp"
             android:paddingVertical="2dp"
             android:text="+0%"
-            android:textStyle="bold"
             android:textColor="@color/green_500"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         </RelativeLayout>
 
