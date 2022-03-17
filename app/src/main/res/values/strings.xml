@@ -379,4 +379,5 @@
     <string name="cancel">Cancel</string>
     <string name="continue_btn">Continue</string>
     <string name="change_password_error">Password must contain one special character, one uppercase, one number and min-length of 8.</string>
+    <string name="account">Account</string>
 </resources>

@@ -276,22 +276,22 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="SettingsHeaderTextStyle" parent="TextStyle">
+    <style name="TCCHeaderTextStyle" parent="TextStyle">
         <item name="android:textSize">@dimen/textSize_18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="SettingsTitleTextStyle" parent="TextStyle">
+    <style name="TCCTitleTextStyle" parent="TextStyle">
         <item name="android:textSize">@dimen/textSize_24sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="SettingsBodyText" parent="TextStyle">
+    <style name="TCCBodyText" parent="TextStyle">
         <item name="android:textSize">@dimen/textSize_16sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
-    <style name="SettingsHintTextStyle" parent="TextStyle">
+    <style name="TCCHintTextStyle" parent="TextStyle">
         <item name="android:textSize">@dimen/textSize_15sp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/hint_color</item>
