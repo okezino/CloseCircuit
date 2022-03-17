@@ -26,14 +26,10 @@ class AccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navigateToForgetPasswordFragment()
     }
 
-    fun navigateToForgetPasswordFragment() {
-        binding.accountTv.setOnClickListener {
-            findNavController().navigate(AccountFragmentDirections
-                .actionAccountFragmentToForgotPasswordFragment(),
-                customNavAnimation().build())
-        }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
