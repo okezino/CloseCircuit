@@ -95,5 +95,16 @@
                 android:textSize="@dimen/textSize_14sp" />
         </RelativeLayout>
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/fragment_user_account_tabLayout"
+            style="@style/TCCTabLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_88dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_user_account_fund_container"
+            android:layout_marginHorizontal="@dimen/margin_20dp"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

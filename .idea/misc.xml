@@ -71,6 +71,7 @@
         <entry key="app/src/main/res/layout/custom_alert_info_dialog.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/custom_item_info_dialog.xml" value="0.2520912545474485" />
         <entry key="app/src/main/res/layout/custom_login_wait_dialog.xml" value="0.1585144927536232" />
+        <entry key="app/src/main/res/layout/custom_tabs.xml" value="0.2" />
         <entry key="app/src/main/res/layout/cutom_login_successful_dialog.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/delete_plan_dialog.xml" value="0.18" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.13768115942028986" />

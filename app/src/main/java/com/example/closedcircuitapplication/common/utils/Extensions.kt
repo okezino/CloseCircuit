@@ -129,3 +129,7 @@ fun Fragment.deletePlanAlertDialog(dialogBinding:DeletePlanDialogBinding, planNa
     }
     return dialog
 }
+
+fun Fragment.popBackStack(){
+    findNavController().popBackStack()
+}

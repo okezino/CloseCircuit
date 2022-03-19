@@ -289,6 +289,7 @@
     <style name="TCCBodyText" parent="TextStyle">
         <item name="android:textSize">@dimen/textSize_16sp</item>
         <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="TCCHintTextStyle" parent="TextStyle">
@@ -366,6 +367,15 @@
         <item name="endIconDrawable">@drawable/end_icon_dropdown_drawable</item>
         <item name="endIconMode">dropdown_menu</item>
         <item name="endIconTint">@color/closed_circuit_dark_green</item>
+    </style>
+
+    <style name="TCCTabLayoutStyle" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/closed_circuit_progress_background_tint</item>
+        <item name="tabMode">scrollable</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabSelectedTextColor">@color/body_text_color</item>
+        <item name="tabTextColor">@color/body_text_color</item>
     </style>
 
 </resources>

@@ -111,4 +111,7 @@
     <dimen name="margin_256">256dp</dimen>
     <dimen name="margin_55dp">55dp</dimen>
     <dimen name="margin_32dp">32dp</dimen>
+    <dimen name="margin_88dp">88dp</dimen>
+    <dimen name="margin_14dp">14dp</dimen>
+    <dimen name="margin_28dp">28dp</dimen>
 </resources>

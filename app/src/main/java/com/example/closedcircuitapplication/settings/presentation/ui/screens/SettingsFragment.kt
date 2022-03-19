@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
+import com.example.closedcircuitapplication.common.utils.popBackStack
 import com.example.closedcircuitapplication.databinding.FragmentSettingsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,7 +33,7 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.fragmentSettingsBackArrowIv.setOnClickListener {
-            findNavController().popBackStack()
+             popBackStack()
         }
         binding.fragmentSettingsThermometerChevron.setOnClickListener {
             findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToSettingsResetPasswordFragment(), customNavAnimation().build())
