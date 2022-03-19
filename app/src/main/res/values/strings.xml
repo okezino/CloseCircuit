@@ -82,14 +82,14 @@
     <string name="_200_maximum_words_text">200 maximum words</string>
     <string name="save_budget_and_add_new_budget_text">Save budget and add new budget</string>
     <string name="save_and_continue_text">Save and continue</string>
-    <string name="create_step_text">Create Step</string>
+    <string name="create_step_text">Let\'s Create Your Step</string>
     <string name="ngn_400_000_00">NGN 400,000.00</string>
     <string name="target_amount_text">Target Amount</string>
-    <string name="step_name_text">Step Name</string>
+    <string name="step_name_text">Enter Step Name</string>
     <string name="edit_step_description_text">Edit step description</string>
     <string name="enter_step_duration_text">Enter step duration</string>
     <string name="weeks_text">Weeks</string>
-    <string name="select_budgets_for_this_step_text">Select Budgets for this step</string>
+    <string name="select_budgets_for_this_step_text">Add budgets to this step</string>
     <string name="do_not_have_a_budget_yet_create_new_budget_text">Do not have a budget yet? Create new budget</string>
     <string name="save_and_add_new_step_text">Save and add new step</string>
     <string-array name="weeks">

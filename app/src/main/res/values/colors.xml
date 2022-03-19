@@ -55,9 +55,7 @@
     <color name="drawer_text_emirate_green">#9DC333</color>
     <color name="drawer_primary_color">#5CEAFFAE</color>
     <color name="transparent">#0000FFFF</color>
-
-
-
+    <color name="closed_circuit_emirate_green">#E1FF8F</color>
     <color name="closed_circuit_text_blue">#0386FF</color>
     <color name="closed_circuit_background">#E5E5E5</color>
     <color name="closed_circuit_red">#D91D1D</color>

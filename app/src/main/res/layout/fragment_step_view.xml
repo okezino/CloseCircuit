@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".plan.presentation.ui.screens.StepViewFragment">
+
+    <Toolbar
+        android:id="@+id/step_view_fragment_"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:contentInsetStart="@dimen/margin_0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSize_22sp"
+                android:layout_marginStart="@dimen/margin_10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Conduct market research" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/my_step_step_details_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_15dp"
+        android:background="#F1F5FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_view_fragment_">
+
+        <TextView
+            android:id="@+id/my_step_step_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_9dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/design_a_website_placeholder_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/my_step_step_funded_check_mark_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:layout_marginStart="@dimen/margin_10dp"
+            android:src="@drawable/ic_step_funded_check_mark"
+            app:layout_constraintBottom_toBottomOf="@+id/my_step_step_name_textView"
+            app:layout_constraintStart_toEndOf="@+id/my_step_step_name_textView"
+            app:layout_constraintTop_toTopOf="@+id/my_step_step_name_textView" />
+
+        <ImageView
+            android:id="@+id/my_step_target_amount_icon_imageView"
+            android:layout_width="@dimen/width_35dp"
+            android:layout_height="@dimen/height_35dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:src="@drawable/ic_target_amount_2"
+            app:layout_constraintStart_toStartOf="@+id/my_step_step_name_textView"
+            app:layout_constraintTop_toBottomOf="@+id/my_step_step_name_textView" />
+
+        <TextView
+            android:id="@+id/my_step_target_amount_value_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_7dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/helvetica"
+            android:maxLines="1"
+            android:text="@string/ngn_500_000_00_placeholder_target_amount_text"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="@dimen/textSize_15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/my_step_target_amount_icon_imageView"
+            app:layout_constraintTop_toTopOf="@+id/my_step_target_amount_icon_imageView" />
+
+        <TextView
+            android:id="@+id/my_step_target_amount_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica"
+            android:text="Target Amount"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/my_step_target_amount_value_textView"
+            app:layout_constraintTop_toBottomOf="@+id/my_step_target_amount_value_textView" />
+
+        <ImageView
+            android:id="@+id/my_step_funds_raised_icon_imageView"
+            android:layout_width="@dimen/width_35dp"
+            android:layout_height="@dimen/height_35dp"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:src="@drawable/ic_funds_raised"
+            app:layout_constraintStart_toEndOf="@+id/my_step_target_amount_value_textView"
+            app:layout_constraintTop_toTopOf="@+id/my_step_target_amount_icon_imageView" />
+
+        <TextView
+            android:id="@+id/my_steps_funds_raised_value_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_7dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/helvetica"
+            android:maxLines="1"
+            android:text="@string/ngn_0_placeholder_text"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="@dimen/textSize_15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/my_step_funds_raised_icon_imageView"
+            app:layout_constraintTop_toTopOf="@+id/my_step_funds_raised_icon_imageView" />
+
+        <TextView
+            android:id="@+id/my_step_funds_raised_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/total_funds_raised"
+            android:textSize="@dimen/textSize_10sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/my_steps_funds_raised_value_textView"
+            app:layout_constraintTop_toBottomOf="@+id/my_steps_funds_raised_value_textView" />
+
+        <TextView
+            android:id="@+id/my_step_step_description_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_21dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/step_description"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/my_step_target_amount_icon_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/my_step_target_amount_icon_imageView" />
+
+        <TextView
+            android:id="@+id/my_step_step_description_description_textView"
+            android:layout_width="@dimen/margin_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/step_description_placeholder_text"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/my_step_step_description_textView"
+            app:layout_constraintTop_toBottomOf="@+id/my_step_step_description_textView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/my_step_step_duration_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/margin_31dp"
+        android:fontFamily="@font/helvetica"
+        android:text="@string/duration_text"
+        android:textSize="@dimen/textSize_17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_step_step_details_constraintLayout" />
+
+    <TextView
+        android:id="@+id/my_step_step_duration_value_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/helvetica"
+        android:text="@string/_6_weeks"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_17sp"
+        app:layout_constraintStart_toEndOf="@+id/my_step_step_duration_textView"
+        app:layout_constraintTop_toTopOf="@+id/my_step_step_duration_textView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_0dp"
+        tools:listitem="@layout/steps_budget_item_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_step_step_duration_value_textView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

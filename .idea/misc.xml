@@ -26,6 +26,7 @@
         <entry key="app/src/main/res/drawable/chat_receiver_background.xml" value="0.1305" />
         <entry key="app/src/main/res/drawable/chat_reciever_background.xml" value="0.1105" />
         <entry key="app/src/main/res/drawable/dailog_bg_color.xml" value="0.1105" />
+        <entry key="app/src/main/res/drawable/emirate_green_curved_corners_background.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/google_btn.xml" value="0.24316239316239316" />
         <entry key="app/src/main/res/drawable/ic__menu_icon.xml" value="0.121875" />
         <entry key="app/src/main/res/drawable/ic_accounts.xml" value="0.2522982635342186" />
@@ -53,11 +54,13 @@
         <entry key="app/src/main/res/drawable/password_toggle_selector.xml" value="0.29635416666666664" />
         <entry key="app/src/main/res/drawable/progress_bar.xml" value="0.26506639427987744" />
         <entry key="app/src/main/res/drawable/right_corner_input_background.xml" value="0.1105" />
+        <entry key="app/src/main/res/drawable/steps_background.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/tab_indicator.xml" value="0.21481481481481482" />
         <entry key="app/src/main/res/layout/active_user_dashboard.xml" value="0.27716389136984754" />
         <entry key="app/src/main/res/layout/activity_beneficiary_dashboard.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/app_bar_dashboard.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/budget_item_layout.xml" value="0.33" />
         <entry key="app/src/main/res/layout/budget_steps_item_layout.xml" value="0.18" />
         <entry key="app/src/main/res/layout/content_dashboard.xml" value="0.27434808593394083" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.18" />
@@ -81,7 +84,7 @@
         <entry key="app/src/main/res/layout/fragment_create_plan_step_three.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_create_plan_steps.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/fragment_create_plan_summary.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_create_steps.xml" value="0.21875" />
+        <entry key="app/src/main/res/layout/fragment_create_steps.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_customer_care.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1234375" />
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.18704710144927536" />
@@ -113,6 +116,7 @@
         <entry key="app/src/main/res/layout/fragment_send_funds_summary.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_sponsors_screen.xml" value="0.15555555555555556" />
+        <entry key="app/src/main/res/layout/fragment_step_view.xml" value="0.191025641025641" />
         <entry key="app/src/main/res/layout/fragment_successful_email_verification_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_support.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.1578125" />
@@ -129,10 +133,12 @@
         <entry key="app/src/main/res/layout/plan_item.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/project_item.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/sponsors_screen_copy_link_alart_dialog.xml" value="0.18704710144927536" />
+        <entry key="app/src/main/res/layout/steps_budget_recycler_item.xml" value="0.191025641025641" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/drawer_navigation_menu.xml" value="0.23125" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.25" />
         <entry key="app/src/main/res/menu/plan_menu.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/menu/step_manu.xml" value="0.191025641025641" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.165625" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.165625" />
       </map>
