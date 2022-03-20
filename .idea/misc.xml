@@ -49,6 +49,7 @@
         <entry key="app/src/main/res/drawable/ic_notification_bell.xml" value="0.12135416666666667" />
         <entry key="app/src/main/res/drawable/ic_plus_circle.xml" value="0.12135416666666667" />
         <entry key="app/src/main/res/drawable/ic_target_amount.xml" value="0.12135416666666667" />
+        <entry key="app/src/main/res/drawable/icon_circles_white.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/drawable/image_view_circular_shape.xml" value="0.2522982635342186" />
         <entry key="app/src/main/res/drawable/image_view_circular_shape_blue.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/indicator_active.xml" value="0.18717105263157896" />
@@ -60,6 +61,8 @@
         <entry key="app/src/main/res/drawable/progress_bar.xml" value="0.26506639427987744" />
         <entry key="app/src/main/res/drawable/right_corner_input_background.xml" value="0.1105" />
         <entry key="app/src/main/res/drawable/tab_indicator.xml" value="0.21481481481481482" />
+        <entry key="app/src/main/res/drawable/user_account_chevron_container.xml" value="0.19446254071661237" />
+        <entry key="app/src/main/res/drawable/user_account_loan_container.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/layout/active_user_dashboard.xml" value="0.27716389136984754" />
         <entry key="app/src/main/res/layout/activity_beneficiary_dashboard.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />

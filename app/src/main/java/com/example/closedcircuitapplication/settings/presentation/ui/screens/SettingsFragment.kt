@@ -32,9 +32,7 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.fragmentSettingsBackArrowIv.setOnClickListener {
-             popBackStack()
-        }
+        binding.fragmentSettingsBackArrowIv.setOnClickListener { popBackStack() }
         binding.fragmentSettingsThermometerChevron.setOnClickListener {
             findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToSettingsResetPasswordFragment(), customNavAnimation().build())
         }
