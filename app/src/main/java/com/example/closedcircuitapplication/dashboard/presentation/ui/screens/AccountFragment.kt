@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.popBackStack
 import com.example.closedcircuitapplication.databinding.FragmentAccountBinding
 import com.google.android.material.tabs.TabLayout
 
@@ -32,6 +33,7 @@ class AccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpCustomTabLayout()
+        binding.fragmentUserAccountBackArrowIv.setOnClickListener { popBackStack() }
     }
 
     private fun setUpCustomTabLayout(){
