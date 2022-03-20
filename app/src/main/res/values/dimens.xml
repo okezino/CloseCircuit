@@ -115,4 +115,6 @@
     <dimen name="margin_14dp">14dp</dimen>
     <dimen name="margin_28dp">28dp</dimen>
     <dimen name="width_64dp">64dp</dimen>
+    <dimen name="margin_17dp">17dp</dimen>
+    <dimen name="margin_18dp">18dp</dimen>
 </resources>

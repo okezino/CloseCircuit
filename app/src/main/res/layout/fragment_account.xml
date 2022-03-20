@@ -110,6 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/SettingsLinearLayoutStyle"
+            android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/fragment_user_account_tabLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -138,10 +139,10 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentBottom="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="17dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/margin_17dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_18dp"
+                    android:layout_marginBottom="@dimen/margin_12dp"
                     android:background="@drawable/ic_dollar_bag" />
 
                 <TextView
@@ -170,10 +171,59 @@
                     android:layout_alignTop="@+id/fragment_user_account_loan_chevron"
                     android:layout_alignEnd="@id/fragment_user_account_loan_chevron"
                     android:layout_alignBottom="@+id/fragment_user_account_loan_chevron"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="7dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="@dimen/margin_7dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:layout_marginEnd="@dimen/margin_7dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:src="@drawable/ic_chevron_right_green" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_user_account_Bank_RL"
+                android:layout_marginTop="@dimen/margin_20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_user_account_loans_RL"
+                >
+                <ImageView
+                    android:id="@+id/fragment_user_account_Bank_conatiner"
+                    android:layout_width="@dimen/width_64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/ic_bank" />
+
+                <TextView
+                    android:id="@+id/fragment_user_account_Bank_tv"
+                    style="@style/TCCTitleTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_40dp"
+                    android:layout_toEndOf="@+id/fragment_user_account_Bank_conatiner"
+                    android:text="@string/bank_details"
+                    android:textSize="@dimen/textSize_17sp" />
+
+                <View
+                    android:id="@+id/fragment_user_account_Bank_chevron"
+                    android:layout_width="@dimen/width_50dp"
+                    android:layout_height="@dimen/height_50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/user_account_chevron_container" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_24dp"
+                    android:layout_height="@dimen/height_24dp"
+                    android:layout_alignStart="@id/fragment_user_account_Bank_chevron"
+                    android:layout_alignTop="@+id/fragment_user_account_Bank_chevron"
+                    android:layout_alignEnd="@id/fragment_user_account_Bank_chevron"
+                    android:layout_alignBottom="@+id/fragment_user_account_Bank_chevron"
+                    android:layout_marginStart="@dimen/margin_7dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:layout_marginEnd="@dimen/margin_7dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
                     android:src="@drawable/ic_chevron_right_green" />
             </RelativeLayout>
 
