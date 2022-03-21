@@ -12,6 +12,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.compose.ui.text.toLowerCase
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.isVisible
@@ -132,4 +133,12 @@ fun Fragment.deletePlanAlertDialog(dialogBinding:DeletePlanDialogBinding, planNa
 
 fun Fragment.popBackStack(){
     findNavController().popBackStack()
+}
+
+fun Fragment.handleBackPress(){
+    activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true){
+        override fun handleOnBackPressed() {
+            popBackStack()
+        }
+    })
 }

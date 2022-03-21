@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.handleBackPress
 import com.example.closedcircuitapplication.common.utils.popBackStack
 import com.example.closedcircuitapplication.databinding.FragmentAccountBinding
 import com.google.android.material.tabs.TabLayout
@@ -32,6 +33,7 @@ class AccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        handleBackPress()
         setUpCustomTabLayout()
         binding.fragmentUserAccountBackArrowIv.setOnClickListener { popBackStack() }
     }
@@ -49,8 +51,8 @@ class AccountFragment : Fragment() {
             fragmentUserAccountTabLayout.addTab(fragmentUserAccountTabLayout.newTab().setCustomView(fundsWithheldTabItem))
             fragmentUserAccountTabLayout.addTab(fragmentUserAccountTabLayout.newTab().setCustomView(pendingRequestTabItem))
         }
-
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

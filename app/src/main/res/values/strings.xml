@@ -386,4 +386,6 @@
     <string name="pending_request">Pending request</string>
     <string name="loans">Loans</string>
     <string name="bank_details">Bank details</string>
+    <string name="card_details">Card details</string>
+    <string name="kyc">KYC</string>
 </resources>
