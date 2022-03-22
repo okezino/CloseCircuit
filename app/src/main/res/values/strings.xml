@@ -379,4 +379,13 @@
     <string name="cancel">Cancel</string>
     <string name="continue_btn">Continue</string>
     <string name="change_password_error">Password must contain one special character, one uppercase, one number and min-length of 8.</string>
+    <string name="account">Account</string>
+    <string name="_0__">+0%</string>
+    <string name="funds_released">Funds released</string>
+    <string name="funds_withheld">Funds Withheld</string>
+    <string name="pending_request">Pending request</string>
+    <string name="loans">Loans</string>
+    <string name="bank_details">Bank details</string>
+    <string name="card_details">Card details</string>
+    <string name="kyc">KYC</string>
 </resources>

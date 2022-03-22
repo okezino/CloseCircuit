@@ -30,7 +30,7 @@
 
     <TextView
         android:id="@+id/fragment_settings_steps_login_tv"
-        style="@style/SettingsHeaderTextStyle"
+        style="@style/TCCHeaderTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_20dp"
@@ -41,7 +41,7 @@
 
     <TextView
         android:id="@+id/fragment_settings_steps_login_email_tv"
-        style="@style/SettingsBodyText"
+        style="@style/TCCBodyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_20dp"
@@ -75,7 +75,7 @@
 
     <TextView
         android:id="@+id/fragment_settings_steps_login_sms_tv"
-        style="@style/SettingsBodyText"
+        style="@style/TCCBodyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_40dp"
@@ -109,7 +109,7 @@
 
     <TextView
         android:id="@+id/fragment_settings_steps_login_never_tv"
-        style="@style/SettingsBodyText"
+        style="@style/TCCBodyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_40dp"

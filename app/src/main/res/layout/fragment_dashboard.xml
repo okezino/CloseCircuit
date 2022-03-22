@@ -24,24 +24,27 @@
             android:id="@+id/total_funds_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
-            android:textSize="20sp"
+            android:layout_marginTop="@dimen/margin_55dp"
+            style="@style/TCCBodyText"
+            android:layout_centerHorizontal="true"
             android:text="@string/total_funds_raised"
             android:textColor="@color/white"
-            android:layout_centerHorizontal="true" />
+             />
 
         <TextView
             android:id="@+id/amount_raised"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="32dp"
             android:layout_below="@+id/total_funds_textview"
-            android:text="NGN 0"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/green_700"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
+            android:layout_centerInParent="true"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/ngn_0_placeholder_text"
+            android:textColor="@color/secondary_color"
+            android:textSize="@dimen/textSize_24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/percent_growth"
@@ -53,9 +56,9 @@
             android:paddingHorizontal="16dp"
             android:paddingVertical="2dp"
             android:text="+0%"
-            android:textStyle="bold"
             android:textColor="@color/green_500"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         </RelativeLayout>
 
