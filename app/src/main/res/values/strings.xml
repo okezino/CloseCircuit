@@ -444,7 +444,6 @@
     <string name="cancel">Cancel</string>
     <string name="continue_btn">Continue</string>
     <string name="change_password_error">Password must contain one special character, one uppercase, one number and min-length of 8.</string>
-    <string name="loans">Loans</string>
     <string name="ngn_30_000_00">NGN 30,000.00</string>
     <string name="loan_disbursed">Loan disbursed</string>
     <string name="loan_offers">Loan offers</string>
@@ -460,4 +459,15 @@
     <string name="select_grace_duration">Select grace duration</string>
     <string name="select_repayment_duration">Select repayment duration</string>
     <string name="select_loan_interest_rate">Select loan interest rate</string>
+=======
+    <string name="account">Account</string>
+    <string name="_0__">+0%</string>
+    <string name="funds_released">Funds released</string>
+    <string name="funds_withheld">Funds Withheld</string>
+    <string name="pending_request">Pending request</string>
+    <string name="loans">Loans</string>
+    <string name="bank_details">Bank details</string>
+    <string name="card_details">Card details</string>
+    <string name="kyc">KYC</string>
+>>>>>>> 241010ec70a54a99f37e43a18bbe7e8589e778fb
 </resources>

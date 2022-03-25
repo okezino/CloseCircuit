@@ -1,33 +1,322 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     tools:context=".dashboard.presentation.ui.screens.AccountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/account_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/recover_password_text"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-<TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/account_page"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_user_account_container_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!--    User Account toolbar-->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/fragment_user_account_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding_10dp"
+            android:paddingRight="@dimen/padding_10dp"
+            app:elevation="@dimen/elevation_4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/fragment_user_account_backArrow_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_button"
+                tools:ignore="ContentDescription"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/fragment_user_account_title_tv"
+            style="@style/TCCTitleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:text="@string/account"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_user_account_toolbar" />
+
+        <RelativeLayout
+            android:id="@+id/fragment_user_account_fund_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_40dp"
+            android:background="@drawable/ic_card"
+            android:layout_marginHorizontal="@dimen/margin_20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_user_account_title_tv">
+
+            <TextView
+                android:id="@+id/fragment_user_account_total_funds_tv"
+                style="@style/TCCBodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_55dp"
+                android:text="@string/total_funds_raised"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_20sp" />
+
+            <TextView
+                android:id="@+id/fragment_user_account_amount_raised_tv"
+                style="@style/TCCTitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fragment_user_account_total_funds_tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/margin_32dp"
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:layout_marginEnd="@dimen/margin_32dp"
+                android:text="@string/ngn_0_placeholder_text"
+                android:textColor="@color/secondary_color"
+                android:textSize="@dimen/textSize_24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/percent_growth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fragment_user_account_amount_raised_tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:background="@drawable/ic_background_growth"
+                android:paddingHorizontal="@dimen/margin_16dp"
+                android:text="@string/_0__"
+                android:textColor="@color/green_500"
+                android:textSize="@dimen/textSize_14sp" />
+        </RelativeLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/fragment_user_account_tabLayout"
+            style="@style/TCCTabLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_88dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_user_account_fund_container"
+            android:layout_marginHorizontal="@dimen/margin_20dp"
+            />
+
+        <LinearLayout
+            style="@style/SettingsLinearLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="@dimen/margin_80dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_user_account_tabLayout">
+
+            <RelativeLayout
+                android:id="@+id/fragment_user_account_loans_RL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_user_account_tabLayout">
+
+                <View
+                    android:id="@+id/fragment_user_account_loan_conatiner"
+                    android:layout_width="@dimen/width_64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/user_account_loan_container" />
+
+                <ImageView
+                    android:id="@+id/fragment_user_account_loan_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/fragment_user_account_loan_conatiner"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_17dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_18dp"
+                    android:layout_marginBottom="@dimen/margin_12dp"
+                    android:background="@drawable/ic_dollar_bag" />
+
+                <TextView
+                    android:id="@+id/fragment_user_account_loans_tv"
+                    style="@style/TCCTitleTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_40dp"
+                    android:layout_toEndOf="@+id/fragment_user_account_loan_conatiner"
+                    android:text="@string/loans"
+                    android:textSize="@dimen/textSize_17sp" />
+
+                <View
+                    android:id="@+id/fragment_user_account_loan_chevron"
+                    android:layout_width="@dimen/width_50dp"
+                    android:layout_height="@dimen/height_50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/user_account_chevron_container" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_24dp"
+                    android:layout_height="@dimen/height_24dp"
+                    android:layout_alignStart="@id/fragment_user_account_loan_chevron"
+                    android:layout_alignTop="@+id/fragment_user_account_loan_chevron"
+                    android:layout_alignEnd="@id/fragment_user_account_loan_chevron"
+                    android:layout_alignBottom="@+id/fragment_user_account_loan_chevron"
+                    android:layout_marginStart="@dimen/margin_7dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:layout_marginEnd="@dimen/margin_7dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:src="@drawable/ic_chevron_right_green" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_user_account_Bank_RL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20dp">
+
+                <ImageView
+                    android:id="@+id/fragment_user_account_Bank_conatiner"
+                    android:layout_width="@dimen/width_64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/ic_bank" />
+
+                <TextView
+                    android:id="@+id/fragment_user_account_Bank_tv"
+                    style="@style/TCCTitleTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_40dp"
+                    android:layout_toEndOf="@+id/fragment_user_account_Bank_conatiner"
+                    android:text="@string/bank_details"
+                    android:textSize="@dimen/textSize_17sp" />
+
+                <View
+                    android:id="@+id/fragment_user_account_Bank_chevron"
+                    android:layout_width="@dimen/width_50dp"
+                    android:layout_height="@dimen/height_50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/user_account_chevron_container" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_24dp"
+                    android:layout_height="@dimen/height_24dp"
+                    android:layout_alignStart="@id/fragment_user_account_Bank_chevron"
+                    android:layout_alignTop="@+id/fragment_user_account_Bank_chevron"
+                    android:layout_alignEnd="@id/fragment_user_account_Bank_chevron"
+                    android:layout_alignBottom="@+id/fragment_user_account_Bank_chevron"
+                    android:layout_marginStart="@dimen/margin_7dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:layout_marginEnd="@dimen/margin_7dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:src="@drawable/ic_chevron_right_green" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_user_account_card_RL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20dp">
+
+                <ImageView
+                    android:id="@+id/fragment_user_account_card_conatiner"
+                    android:layout_width="@dimen/width_64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/ic_bank_card" />
+
+                <TextView
+                    android:id="@+id/fragment_user_account_card_tv"
+                    style="@style/TCCTitleTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_40dp"
+                    android:layout_toEndOf="@+id/fragment_user_account_card_conatiner"
+                    android:text="@string/card_details"
+                    android:textSize="@dimen/textSize_17sp" />
+
+                <View
+                    android:id="@+id/fragment_user_account_card_chevron"
+                    android:layout_width="@dimen/width_50dp"
+                    android:layout_height="@dimen/height_50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/user_account_chevron_container" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_24dp"
+                    android:layout_height="@dimen/height_24dp"
+                    android:layout_alignStart="@id/fragment_user_account_card_chevron"
+                    android:layout_alignTop="@+id/fragment_user_account_card_chevron"
+                    android:layout_alignEnd="@id/fragment_user_account_card_chevron"
+                    android:layout_alignBottom="@+id/fragment_user_account_card_chevron"
+                    android:layout_marginStart="@dimen/margin_7dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:layout_marginEnd="@dimen/margin_7dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:src="@drawable/ic_chevron_right_green" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_user_account_kyc_RL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20dp">
+
+                <ImageView
+                    android:id="@+id/fragment_user_account_kyc_conatiner"
+                    android:layout_width="@dimen/width_64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/ic_kyc" />
+
+                <TextView
+                    android:id="@+id/fragment_user_account_kyc_tv"
+                    style="@style/TCCTitleTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_40dp"
+                    android:layout_toEndOf="@+id/fragment_user_account_kyc_conatiner"
+                    android:text="@string/kyc"
+                    android:textSize="@dimen/textSize_17sp" />
+
+                <View
+                    android:id="@+id/fragment_user_account_kyc_chevron"
+                    android:layout_width="@dimen/width_50dp"
+                    android:layout_height="@dimen/height_50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/user_account_chevron_container" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_24dp"
+                    android:layout_height="@dimen/height_24dp"
+                    android:layout_alignStart="@id/fragment_user_account_kyc_chevron"
+                    android:layout_alignTop="@+id/fragment_user_account_kyc_chevron"
+                    android:layout_alignEnd="@id/fragment_user_account_kyc_chevron"
+                    android:layout_alignBottom="@+id/fragment_user_account_kyc_chevron"
+                    android:layout_marginStart="@dimen/margin_7dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:layout_marginEnd="@dimen/margin_7dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:src="@drawable/ic_chevron_right_green" />
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

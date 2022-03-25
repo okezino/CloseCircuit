@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/fragment_user_account_funds_released_tabItem"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_0dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="start">
+
+        <TextView
+            android:id="@+id/fragment_user_account_funds_released_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ngn_0_placeholder_text"
+            android:textSize="@dimen/textSize_17sp"
+            android:textColor="@color/drawer_text_emirate_green"
+            style="@style/TCCBodyText" />
+        <TextView
+            android:id="@+id/fragment_user_account_funds_released_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pending_request"
+            android:textSize="@dimen/textSize_17sp"
+            android:textColor="@color/body_text_color"
+            style="@style/TCCBodyText" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/fragment_user_account_funds_withheld_tabItem"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_0dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="start">
+
+        <TextView
+            android:id="@+id/fragment_user_account_funds_withheld_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ngn_0_placeholder_text"
+            android:textSize="@dimen/textSize_17sp"
+            android:textColor="@color/drawer_text_emirate_green"
+            style="@style/TCCBodyText" />
+        <TextView
+            android:id="@+id/fragment_user_account_funds_withheld_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/funds_withheld"
+            android:textSize="@dimen/textSize_17sp"
+            android:textColor="@color/body_text_color"
+            style="@style/TCCBodyText" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/fragment_user_account_pending_funds_tabItem"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_0dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="start">
+
+        <TextView
+            android:id="@+id/fragment_user_account_pending_funds_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ngn_0_placeholder_text"
+            android:textSize="@dimen/textSize_17sp"
+            android:textColor="@color/drawer_text_emirate_green"
+            style="@style/TCCBodyText" />
+        <TextView
+            android:id="@+id/fragment_user_account_pending_funds_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pending_request"
+            android:textSize="@dimen/textSize_17sp"
+            android:textColor="@color/body_text_color"
+            style="@style/TCCBodyText" />
+    </LinearLayout>
+</LinearLayout>

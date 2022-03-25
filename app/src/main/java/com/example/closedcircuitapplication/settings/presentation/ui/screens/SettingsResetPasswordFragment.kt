@@ -47,7 +47,7 @@ class SettingsResetPasswordFragment : Fragment() {
 
         settingsResetPasswordInitObserver()
         binding.fragmentSettingsBackArrowIv.setOnClickListener {
-            findNavController().popBackStack()
+            popBackStack()
         }
         binding.fragmentSettingsResetPasswordBtn.setOnClickListener {
             settingsResetPassword()
