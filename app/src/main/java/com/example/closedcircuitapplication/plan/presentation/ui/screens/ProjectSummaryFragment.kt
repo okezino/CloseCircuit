@@ -75,6 +75,11 @@ class ProjectSummaryFragment : Fragment() {
         planName = binding.planName
 
         planId = args.planId
+        binding.projectSummaryAddStepsButton.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("planId", planId)
+            findNavController().navigate(R.id.createStepsFragment,bundle, customNavAnimation().build())
+        }
 
        val deletePlanDialogBinding = DeletePlanDialogBinding.inflate(layoutInflater)
 

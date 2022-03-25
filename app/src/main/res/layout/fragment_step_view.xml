@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".plan.presentation.ui.screens.StepViewFragment">
 
-    <Toolbar
-        android:id="@+id/step_view_fragment_"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/step_view_fragment_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:contentInsetStart="@dimen/margin_0dp"
@@ -33,7 +33,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/my_step_step_details_constraintLayout"
@@ -43,7 +43,7 @@
         android:background="#F1F5FF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_view_fragment_">
+        app:layout_constraintTop_toBottomOf="@+id/step_view_fragment_toolbar">
 
         <TextView
             android:id="@+id/my_step_step_name_textView"
@@ -195,9 +195,10 @@
         app:layout_constraintTop_toTopOf="@+id/my_step_step_duration_textView" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_step_budgets_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_0dp"
-        tools:listitem="@layout/steps_budget_item_layout"
+        tools:listitem="@layout/budget_item_recyclerview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

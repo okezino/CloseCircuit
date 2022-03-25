@@ -5,49 +5,49 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/budget_item_number_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_10dp"
         android:fontFamily="@font/helvetica"
-        android:text="Budget Item 1"
+        android:text="@string/budget_item_1"
         android:textColor="@color/closed_circuit_dark_green"
         android:textSize="@dimen/textSize_15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/budget_item_delete_budget_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_remove_budget_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
+        app:layout_constraintTop_toTopOf="@+id/budget_item_number_textView" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/budget_item_edit_budget_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_20dp"
         android:src="@drawable/ic_edit_budget"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
+        app:layout_constraintEnd_toStartOf="@+id/budget_item_delete_budget_imageView"
+        app:layout_constraintTop_toTopOf="@+id/budget_item_number_textView" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="@dimen/margin_5dp"
         android:background="@drawable/steps_background"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7">
+        app:layout_constraintTop_toBottomOf="@+id/budget_item_edit_budget_imageView">
 
         <TextView
-            android:id="@+id/textView22"
+            android:id="@+id/budget_item_budget_name_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/margin_8dp"
             android:layout_marginTop="@dimen/margin_15dp"
             android:layout_marginBottom="@dimen/margin_15dp"
-            android:text="Cost of data"
+            android:text="@string/cost_of_data"
             android:textColor="@color/black"
             android:textSize="@dimen/textSize_14sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -55,6 +55,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/budget_item_budget_cost_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/helvetica"
@@ -64,7 +65,7 @@
             android:textStyle="bold"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView22" />
+            app:layout_constraintTop_toTopOf="@+id/budget_item_budget_name_textView" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

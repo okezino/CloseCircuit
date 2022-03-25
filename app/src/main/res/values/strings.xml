@@ -93,7 +93,6 @@
     <string name="do_not_have_a_budget_yet_create_new_budget_text">Do not have a budget yet? Create new budget</string>
     <string name="save_and_add_new_step_text">Save and add new step</string>
     <string-array name="weeks">
-        <item></item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -126,6 +125,13 @@
         <item>Hospitality</item>
         <item>Others</item>
     </string-array>
+
+    <string-array name="Choose_country">
+        <item>Nigeria</item>
+        <item>South Africa</item>
+    </string-array>
+
+
     <string-array name="Select_Budget">
         <item>School card</item>
         <item>Medicals</item>
@@ -171,7 +177,7 @@
     <string-array name="currency_type">
         <item>NGN</item>
         <item>USD</item>
-        <item>RAND</item>
+        <item>ZAR</item>
     </string-array>
 
     <string name="notifications">Notifications</string>
@@ -286,6 +292,22 @@
     <string name="success_text">Success</string>
     <string name="remember_password_text">Remember password? Login</string>
     <string name="invalid_email_address_text">Invalid email address</string>
+    <string name="my_profile">My Profile</string>
+    <string name="change_profile_image">Change profile image</string>
+    <string name="_0">0</string>
+    <string name="total_number_of_plans">Total Number of Plans</string>
+    <string name="completed_plans2">Completed Plans</string>
+    <string name="full_name2">Full name:</string>
+    <string name="none">None</string>
+    <string name="emailpat_gmail_com">emailpat@gmail.com</string>
+    <string name="email2">Email:</string>
+    <string name="_234_8168888888">(+234) 8168888888</string>
+    <string name="nationality">Nationality:</string>
+    <string name="nigerian">Nigerian</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="click_to_edit">Click to edit.</string>
+    <string name="account_page">Account page</string>
+    <string name="please_verify_your_email_address_to_complete_profile_setup">Please verify your email address to complete profile setup</string>
     <string name="phone_number">phone_number</string>
     <string name="support_str">Support</string>
     <string name="how_to_use">How to use</string>
@@ -322,4 +344,49 @@
     <string name="no">No</string>
     <string name="yes">Yes</string>
     <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout</string>
+
+    <string-array name="select_profile">
+        <item>Beneficiary</item>
+        <item>Sponsor</item>
+    </string-array>
+
+    <string name="enable_touch_id_to_sign_in">Enable touch ID to sign in</string>
+    <string name="security">Security</string>
+    <string name="enable_auto_lock_security">Enable auto lock security</string>
+    <string name="_2_step_login">2-Step login</string>
+    <string name="change_password">Change password</string>
+    <string name="allow_notification">Allow notification</string>
+    <string name="email_notifications">Email notifications</string>
+    <string name="display">Display</string>
+    <string name="currency_ngn">Currency (NGN)</string>
+    <string name="theme_mode">Theme mode</string>
+    <string name="light_mode">Light mode</string>
+    <string name="user_profile">User profile</string>
+    <string name="beneficiary">Beneficiary</string>
+    <string name="lock_after_30mins">Lock after 30mins</string>
+    <string name="lock_after_1hour">Lock after 1hour</string>
+    <string name="sms">SMS</string>
+    <string name="never">Never</string>
+    <string name="please_reset_your_password">Please reset your password.</string>
+    <string name="enter_old_password">Enter old password</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="re_enter_password">Re-enter password</string>
+    <string name="reset_password">Reset password</string>
+    <string name="select_currency_type">Select currency type</string>
+    <string name="change_profile">Change profile</string>
+    <string name="select_profile">Select profile</string>
+    <string name="cancel">Cancel</string>
+    <string name="continue_btn">Continue</string>
+    <string name="change_password_error">Password must contain one special character, one uppercase, one number and min-length of 8.</string>
+    <string name="create_step_for_your_project">Create step for your project</string>
+    <string name="enter_budget_name">Enter budget name</string>
+    <string name="enter_budget_cost">Enter Budget cost</string>
+    <string name="save_budget">Save budget</string>
+    <string name="budget_item_1">Budget Item 1</string>
+    <string name="cost_of_data">Cost of data</string>
+    <string name="save_step">Save Step</string>
+    <string name="design_a_website">Design a website</string>
+    <string name="ngn_3_000_00">NGN 3,000.00</string>
+    <string name="funds_raised_progress">Funds Raised Progress</string>
+    <string name="ngn_0">NGN 0</string>
 </resources>

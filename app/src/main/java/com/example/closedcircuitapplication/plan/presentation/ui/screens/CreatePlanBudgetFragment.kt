@@ -14,12 +14,13 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.plan.presentation.ui.adapters.StepsBudgetsAdapter
 import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanBudgetBinding
+import com.example.closedcircuitapplication.plan.presentation.ui.adapters.BudgetsAdapter
 
 class CreatePlanBudgetFragment : Fragment(), ClickListener {
     private var _binding: FragmentCreatePlanBudgetBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var budgetsAdapter: StepsBudgetsAdapter
+    private lateinit var budgetsAdapter: BudgetsAdapter
     private lateinit var budgetsRecyclerView: RecyclerView
 
     override fun onCreateView(
@@ -71,12 +72,13 @@ class CreatePlanBudgetFragment : Fragment(), ClickListener {
         budgetSteps.add(StepsBudgetItem("UI/UX Design", "NGN 0.00", "NGN 0.00"))
         budgetSteps.add(StepsBudgetItem("Backend Development", "NGN 0.00", "NGN 0.00"))
 
-        budgetsAdapter = StepsBudgetsAdapter(budgetSteps, this)
+        budgetsAdapter = BudgetsAdapter()
 
         budgetsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         budgetsRecyclerView.adapter = budgetsAdapter
         budgetsRecyclerView.visibility = View.VISIBLE
         binding.noBudgetYetTextView.visibility = View.GONE
+        budgetsAdapter.submitList(budgetSteps)
     }
 
     override fun onDestroy() {

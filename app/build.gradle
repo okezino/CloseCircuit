@@ -126,4 +126,8 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:2.24.5'
     androidTestImplementation 'org.mockito:mockito-android:2.24.5'
     androidTestImplementation "androidx.navigation:navigation-testing:2.4.0"
+
+
+    //Android-Image-Cropper
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
 }

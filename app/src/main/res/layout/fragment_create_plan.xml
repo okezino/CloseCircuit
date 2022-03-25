@@ -3,12 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".plan.presentation.ui.screens.ProjectSummaryFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/project_summary_horizontal_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/planImageView"
@@ -361,6 +369,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+        <TextView
+            android:id="@+id/project_summary_add_steps_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/emirate_green_curved_corners_background"
+            android:drawablePadding="@dimen/padding_10dp"
+            android:elevation="@dimen/elevation_10dp"
+            android:fontFamily="@font/helvetica"
+            android:padding="@dimen/padding_10dp"
+            android:text="Add step"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_100dp"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textSize="@dimen/textSize_15sp"
+            app:drawableEndCompat="@drawable/ic_plus_circle"
+            app:layout_constraintEnd_toEndOf="@+id/tabLayout"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

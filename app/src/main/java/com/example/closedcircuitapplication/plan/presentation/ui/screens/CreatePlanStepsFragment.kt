@@ -103,6 +103,6 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
         var controller = navHost.navController
         val bundle = Bundle()
         bundle.putParcelable("budgetData", budgetDate)
-        controller.navigate(R.id.myStepFragment, bundle)
+        controller.navigate(R.id.stepViewFragment, bundle)
     }
 }
