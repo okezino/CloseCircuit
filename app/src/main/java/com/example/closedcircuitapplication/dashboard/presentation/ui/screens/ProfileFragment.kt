@@ -14,9 +14,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.closedcircuitapplication.authentication.utils.IMAGE_REQUEST_CODE
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
@@ -24,12 +27,23 @@ import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
+import com.example.closedcircuitapplication.dashboard.domain.model.UpdateProfileRequest
+import com.example.closedcircuitapplication.dashboard.presentation.ui.utils.Utils.getFileName
+import com.example.closedcircuitapplication.dashboard.presentation.ui.utils.Utils.snackbar
 import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentProfileBinding
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
+import com.example.closedcircuitapplication.plan.utils.PlanConstants
+import com.google.android.exoplayer2.upstream.ResolvingDataSource
 import com.theartofdev.edmodo.cropper.CropImage
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.HttpUrl.Companion.toHttpUrl
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 import java.io.InputStream
+import java.net.MalformedURLException
+import java.net.URL
 import javax.inject.Inject
 
 
@@ -48,6 +62,9 @@ class ProfileFragment : Fragment() {
     private lateinit var password: String
     private lateinit var confirmPassword: String
     private var mailStatus: Boolean = false
+    private lateinit var imageString: String
+    private lateinit var imageUrl: URL
+    private lateinit var selectedImage: Uri
 
 
     @Inject
@@ -78,16 +95,29 @@ class ProfileFragment : Fragment() {
                 requestPermission()
             } else {
                 pickImage()
+                uploadImage()
+
             }
         }
 
-
     }
 
-    private fun pickImage() {
-        CropImage.activity()
-            .start(requireContext(), this);
+    private fun uploadImage() {
+        if (selectedImage == null) {
+            binding.root.snackbar("Choose an image first")
+            return
+        }
+
+        val parcelFileDescriptor = requireActivity().contentResolver.openAssetFileDescriptor(selectedImage, "r", null)
+
+
+        var file = File(requireActivity().cacheDir, requireActivity().contentResolver.getFileName(selectedImage))
+        val inputStream = FileInputStream(parcelFileDescriptor?.fileDescriptor)
+        val outPutStream = FileOutputStream(file)
+
+        inputStream.copyTo(outPutStream)
     }
+
 
     private fun checkPermission(): Boolean {
         val result1: Boolean = ContextCompat.checkSelfPermission(
@@ -130,24 +160,6 @@ class ProfileFragment : Fragment() {
     }
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-            val result = CropImage.getActivityResult(data)
-            if (resultCode == RESULT_OK) {
-                val resultUri: Uri = result.uri
-                try {
-                    val stream: InputStream? = activity?.contentResolver?.openInputStream(resultUri)
-                    val bitmap: Bitmap = BitmapFactory.decodeStream(stream)
-                    binding.profileImageView.setImageBitmap(bitmap)
-                } catch (e: Exception) {
-                    e.printStackTrace()
-
-                }
-            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                val error = result.error
-            }
-        }
-    }
 
     private fun userDetailsInitObserver() {
         viewModel.userDetailsResponse.observe(viewLifecycleOwner) {
@@ -160,6 +172,10 @@ class ProfileFragment : Fragment() {
                     val firstName = UserNameSplitterUtils.userFullName(fullName)
                     binding.profileName.text = fullName
                     binding.profileEmail.text = it.data.data?.email
+                    Glide.with(this)
+                        .load(Uri.parse(it.data.data?.avatar))
+                        .apply(RequestOptions.circleCropTransform())
+                        .into(binding.profileImageView)
                     phoneNumber = it.data.data?.phoneNumber.toString()
                     nationality = it.data.data?.country.toString()
                     email = it.data.data?.email.toString()
@@ -170,12 +186,12 @@ class ProfileFragment : Fragment() {
                     mailStatus = it.data.data?.isVerified!! == true
                     Log.d("boolean", "${mailStatus}")
 
-
                     if (mailStatus) {
                         binding.errorMessage.visibility = View.VISIBLE
                     } else {
                         binding.errorMessage.visibility = View.VISIBLE
                     }
+
                     binding.profileEditButton.setOnClickListener {
 
                         findNavController().navigate(
@@ -192,7 +208,6 @@ class ProfileFragment : Fragment() {
                         )
 
                     }
-
 //                  saving email to sharedPreference
                     it.data.data.let { email -> saveEmail(email.email) }
 //                  save verification status to sharedPreference
@@ -206,6 +221,62 @@ class ProfileFragment : Fragment() {
             }
         }
     }
+
+    private fun pickImage() {
+        CropImage.activity()
+            .start(requireContext(), this)
+
+    }
+
+    @Throws(MalformedURLException::class)
+    fun convertFileToURL(filePath: String): URL? {
+        val file = File(filePath.trim { it <= ' ' })
+        return file.toURI().toURL()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            val result = CropImage.getActivityResult(data)
+            if (resultCode == RESULT_OK) {
+                selectedImage = result.uri
+
+                imageString = result.uri.toString()
+                imageUrl = convertFileToURL(imageString)!!
+                convertFileToURL(imageString)
+                Log.d("myImage", "$imageUrl")
+                Log.d("myImage2", "$selectedImage")
+
+                viewModel.updateUserProfile(
+                    UpdateProfileRequest(
+                        binding.profileName.text.toString(),
+                        binding.profileEmail.text.toString(),
+                        binding.profileNumber.text.toString(), imageUrl),
+                        preferences.getUserId(), "${PlanConstants.BEARER} ${preferences.getToken()}"
+                )
+                Log.d("check", binding.profileName.text.toString())
+                Log.d("check", binding.profileEmail.text.toString())
+                Log.d("check", binding.profileNumber.text.toString())
+                Log.d("check", preferences.getUserId())
+                Log.d("check", imageString)
+                Log.d("check", "${PlanConstants.BEARER} ${preferences.getToken()}")
+                try {
+                    val stream: InputStream? = activity?.contentResolver?.openInputStream(selectedImage)
+                    val bitmap: Bitmap = BitmapFactory.decodeStream(stream)
+                    binding.profileImageView.setImageBitmap(bitmap)
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+
+                }
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                val error = result.error
+            }
+        }
+    }
+
+
+
+
 
     private fun initObserversMyPlansTotal() {
         _viewModel.getMyPlansResponse.observe(viewLifecycleOwner) { resource ->
@@ -223,6 +294,7 @@ class ProfileFragment : Fragment() {
             }
         }
     }
+
 
     private fun getUserDetails() {
         viewModel.getUserDetails(preferences.getUserId(), "Bearer ${preferences.getToken()}")

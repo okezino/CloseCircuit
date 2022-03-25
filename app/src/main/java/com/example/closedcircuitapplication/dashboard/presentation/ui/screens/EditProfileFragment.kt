@@ -19,6 +19,8 @@ import com.example.closedcircuitapplication.databinding.FragmentEditProfileBindi
 import com.example.closedcircuitapplication.plan.presentation.ui.screens.EditPlanFragmentDirections
 import com.example.closedcircuitapplication.plan.utils.PlanConstants
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
+import java.net.URL
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -84,7 +86,8 @@ class EditProfileFragment : Fragment() {
                     UpdateProfileRequest(
                         binding.editProfileFullNameTextInput.text.toString(),
                         binding.editProfileEmailTextInput.text.toString(),
-                        countryCode+phoneNumber),
+                        countryCode+phoneNumber, URL("http://www.example.com/docs/resource1.html")
+                    ),
                     args.userId, "${PlanConstants.BEARER} ${preferences.getToken()}"
                 )
 
@@ -101,7 +104,6 @@ class EditProfileFragment : Fragment() {
         viewModel.updateProfileResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-
                 }
                 is Resource.Success -> {
                 }

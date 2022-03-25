@@ -442,5 +442,23 @@
         android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsStepsLoginFragment"
         android:label="fragment_settings_steps_login"
         tools:layout="@layout/fragment_settings_steps_login" />
+    <fragment
+        android:id="@+id/loansScreenFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoansScreenFragment"
+        android:label="fragment_loans_screen"
+        tools:layout="@layout/fragment_loans_screen" >
+        <action
+            android:id="@+id/action_loansScreenFragment_to_loanScheduleFragment"
+            app:destination="@id/loanScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanScheduleFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoanScheduleFragment"
+        android:label="fragment_loan_schedule"
+        tools:layout="@layout/fragment_loan_schedule" >
+        <action
+            android:id="@+id/action_loanScheduleFragment_to_loansScreenFragment"
+            app:destination="@id/loansScreenFragment" />
+    </fragment>
 
 </navigation>

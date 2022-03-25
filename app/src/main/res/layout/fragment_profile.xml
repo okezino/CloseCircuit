@@ -31,7 +31,6 @@
             android:layout_height="110dp"
             android:layout_gravity="center"
             android:layout_marginTop="56dp"
-            android:src="@drawable/girl"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -179,7 +178,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/none"
+                android:text=""
                 android:textSize="@dimen/textSize_17sp"
                 android:textStyle="bold" />
 
@@ -204,7 +203,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/emailpat_gmail_com"
+                android:text=""
                 android:textSize="@dimen/textSize_17sp"
                 android:textStyle="bold" />
 
@@ -229,7 +228,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/_234_8168888888"
+                android:text=""
                 android:textSize="@dimen/textSize_17sp"
                 android:textStyle="bold" />
 
@@ -254,7 +253,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/nigerian"
+                android:text=""
                 android:textSize="@dimen/textSize_17sp"
                 android:textStyle="bold" />
 
