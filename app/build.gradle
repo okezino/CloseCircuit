@@ -8,6 +8,7 @@ plugins {
     id "kotlin-parcelize"
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -90,6 +91,9 @@ dependencies {
     implementation Dependencies.hilt_life_cycle
     implementation Dependencies.hilt_navigation_compose
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
+    implementation 'com.google.firebase:firebase-storage:20.0.1'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.4'
 
     //Annotation Dependencies
     kapt AnnotationDependencies.hilt_android_compiler
@@ -126,6 +130,14 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:2.24.5'
     androidTestImplementation 'org.mockito:mockito-android:2.24.5'
     androidTestImplementation "androidx.navigation:navigation-testing:2.4.0"
+
+    // Import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:29.3.0')
+
+    // Declare the dependency for the Firebase SDK for Google Analytics
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 
 
     //Android-Image-Cropper

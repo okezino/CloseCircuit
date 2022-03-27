@@ -7,7 +7,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.common.presentation.utils.showCustomViewDialog
 import com.example.closedcircuitapplication.databinding.LogoutDialogLayoutBinding
 import com.google.android.material.snackbar.Snackbar
 

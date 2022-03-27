@@ -15,6 +15,7 @@ import com.example.closedcircuitapplication.common.utils.*
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanStep2Binding
 import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
+import com.example.closedcircuitapplication.plan.utils.PlanUtils
 import com.example.closedcircuitapplication.plan.utils.currencyChecker
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -46,9 +47,9 @@ class CreatePlanStep2Fragment : Fragment() {
         pleaseWaitDialog = showPleaseWaitAlertDialog()
 
         currencyChecker(phoneNumber, binding)
-        planAvatar = if (args.planAvatar != null) args.planAvatar!! else ""
-
+        planAvatar = PlanUtils.avatarUpload("${args.planAvatar}.jpeg")
         binding.fragmentLetsCreateYourPlanCreatePlanBtn.setOnClickListener {
+
             with(binding) {
                 if (validateCreatePlanFields(
                         fragmentLetsCreateYourPlanBusinessNameEt,
@@ -103,5 +104,7 @@ class CreatePlanStep2Fragment : Fragment() {
             }
         }
     }
-
 }
+
+
+

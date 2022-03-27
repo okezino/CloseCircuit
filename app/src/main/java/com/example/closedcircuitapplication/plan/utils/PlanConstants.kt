@@ -9,4 +9,6 @@ object PlanConstants {
     const val OTP_MESSAGE = "Otp sent to"
     const val PLAN_UPDATE_SUCCESS = "Plan updated successfully"
     const val BEARER = "Bearer"
+    const val IMAGE_UPLOAD = "Image uploaded successfully"
+    const val UPLOAD_MESSAGE = "Uploading.."
 }

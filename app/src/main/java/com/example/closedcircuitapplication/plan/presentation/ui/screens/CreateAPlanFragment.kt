@@ -22,8 +22,16 @@ import com.example.closedcircuitapplication.authentication.utils.CAMERA_REQUEST_
 import com.example.closedcircuitapplication.authentication.utils.REQUEST_CODE_IMAGE_PICKER
 import com.example.closedcircuitapplication.authentication.utils.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
+import com.example.closedcircuitapplication.common.utils.makeSnackBar
+import com.example.closedcircuitapplication.common.utils.setProgressDialog
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.IMAGE_UPLOAD
+import com.example.closedcircuitapplication.plan.utils.PlanConstants.UPLOAD_MESSAGE
+import com.example.closedcircuitapplication.plan.utils.PlanUtils
 import com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment
+import com.google.firebase.storage.FirebaseStorage
+import java.util.*
+
 
 class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
     private var _binding: FragmentCreateAPlanBinding? = null
@@ -33,6 +41,7 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
     private var businessType: String? = null
     private var image_data = 0
     private var uri: Uri? = null
+    private var avatar: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,26 +75,24 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         // show the uploadImage bottomSheet when the upload image view is clicked
         setUpAutoTextViewTextChangedListener()
         binding.uploadImageIV.setOnClickListener {
             showUploadImageBottomSheetDialog()
         }
-
         binding.createPlanBtn.setOnClickListener {
             sector = binding.dropdownMenu.text.toString()
             category = binding.selectPlanCategoryDropdown.text.toString()
-            businessType =
-                if (binding.createPlanSelectBusinessTypeAutocompleteTextView.visibility == View.VISIBLE) binding.createPlanSelectBusinessTypeAutocompleteTextView.text.toString() else null
+            businessType = if (binding.createPlanSelectBusinessTypeAutocompleteTextView.visibility == View.VISIBLE) binding.createPlanSelectBusinessTypeAutocompleteTextView.text.toString() else null
             val _category = category
             val _sector = sector
             val _uri = uri.toString()
-            if (_sector != null && _category != null) {
+
+            if (_sector != null && _category != null && _uri !=null) {
                 findNavController().navigate(
                     CreateAPlanFragmentDirections.actionCreateAPlanFragment2ToCreatePlanStep2Fragment(
                         sector, category, businessType,
-                        uri.toString()
+                        avatar
                     ),
                     customNavAnimation().build()
                 )
@@ -132,16 +139,20 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_IMAGE_PICKER) {
             binding.uploadImageIV.setImageURI(data!!.data)
-            uri = data!!.data
+            uri = data.data
+            uploadImageToFirebase(uri)
         }
         // upload image using camera
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == CAMERA_REQUEST_CODE) {
                 val pictureBitmap = data!!.getParcelableExtra<Bitmap>("data")
                 binding.uploadImageIV.setImageBitmap(pictureBitmap)
+                val uriImage = pictureBitmap?.let { PlanUtils.getImageUriFromBitmap(requireContext(), it) }
+                uploadImageToFirebase(uriImage)
             }
         }
     }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -160,6 +171,28 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
+    }
+    //FIREBASE IMAGE UPLOAD
+    private fun uploadImageToFirebase(fileUri: Uri?) {
+        if (fileUri != null) {
+            val fileName = UUID.randomUUID().toString() +".jpg"
+            val refStorage = FirebaseStorage.getInstance().reference.child("images/$fileName")
+            val dialog = setProgressDialog(requireContext(), UPLOAD_MESSAGE)
+            dialog.show()
+            refStorage.putFile(fileUri)
+                .addOnSuccessListener { taskSnapshot ->
+                    val result = taskSnapshot.metadata!!.reference!!.downloadUrl
+                    result.addOnSuccessListener { imageUrl->
+                        avatar = imageUrl.toString()
+                        dialog.dismiss()
+                        makeSnackBar(IMAGE_UPLOAD,requireView())
+                    }
+                }
+                .addOnFailureListener { e ->
+                    makeSnackBar("${e.message}", requireView())
+                    dialog.dismiss()
+                }
         }
     }
 
@@ -246,4 +279,5 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
             }
         }
     }
+
 }
