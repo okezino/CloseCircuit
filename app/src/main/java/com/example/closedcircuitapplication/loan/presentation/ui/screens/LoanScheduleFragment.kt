@@ -27,6 +27,11 @@ class LoanScheduleFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        initView()
+
+    }
+
+    private fun initView(){
         val meansOfSupport = resources.getStringArray(R.array.support_means)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, meansOfSupport)
         binding.meansOfSupportDropdown.setAdapter(arrayAdapter)

@@ -184,7 +184,6 @@ class ProfileFragment : Fragment() {
                     binding.profileNumber.text = it.data.data?.phoneNumber
                     binding.profileNationality.text = it.data.data?.country
                     mailStatus = it.data.data?.isVerified!! == true
-                    Log.d("boolean", "${mailStatus}")
 
                     if (mailStatus) {
                         binding.errorMessage.visibility = View.VISIBLE
@@ -213,7 +212,6 @@ class ProfileFragment : Fragment() {
 //                  save verification status to sharedPreference
                     it.data.data.isVerified?.let { status -> saveEmailStatus(status) }
                     // save user first name to sharedPreference
-                    Log.d("NUMBER", "PHONE_NUMBER ${it.data.data.phoneNumber}")
                 }
                 is Resource.Error -> {
                     makeSnackBar("${it.data?.message}", requireView())
@@ -243,8 +241,6 @@ class ProfileFragment : Fragment() {
                 imageString = result.uri.toString()
                 imageUrl = convertFileToURL(imageString)!!
                 convertFileToURL(imageString)
-                Log.d("myImage", "$imageUrl")
-                Log.d("myImage2", "$selectedImage")
 
                 viewModel.updateUserProfile(
                     UpdateProfileRequest(
@@ -253,30 +249,27 @@ class ProfileFragment : Fragment() {
                         binding.profileNumber.text.toString(), imageUrl),
                         preferences.getUserId(), "${PlanConstants.BEARER} ${preferences.getToken()}"
                 )
-                Log.d("check", binding.profileName.text.toString())
-                Log.d("check", binding.profileEmail.text.toString())
-                Log.d("check", binding.profileNumber.text.toString())
-                Log.d("check", preferences.getUserId())
-                Log.d("check", imageString)
-                Log.d("check", "${PlanConstants.BEARER} ${preferences.getToken()}")
-                try {
-                    val stream: InputStream? = activity?.contentResolver?.openInputStream(selectedImage)
-                    val bitmap: Bitmap = BitmapFactory.decodeStream(stream)
-                    binding.profileImageView.setImageBitmap(bitmap)
 
-                } catch (e: Exception) {
-                    e.printStackTrace()
+                setProfileImage()
 
-                }
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 val error = result.error
             }
         }
     }
 
+    private fun setProfileImage() {
+        try {
+            val stream: InputStream? = activity?.contentResolver?.openInputStream(selectedImage)
+            val bitmap: Bitmap = BitmapFactory.decodeStream(stream)
+            binding.profileImageView.setImageBitmap(bitmap)
 
+        } catch (e: Exception) {
+            e.printStackTrace()
 
+        }
 
+    }
 
     private fun initObserversMyPlansTotal() {
         _viewModel.getMyPlansResponse.observe(viewLifecycleOwner) { resource ->

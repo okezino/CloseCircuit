@@ -8,8 +8,8 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardViewPager"
-        android:layout_width="376dp"
-        android:layout_height="145dp"
+        android:layout_width="@dimen/card_width_376"
+        android:layout_height="@dimen/card_height_145"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -23,7 +23,7 @@
 
         <TextView
             android:id="@+id/loanAmount"
-            android:textColor="#24500F"
+            android:textColor="@color/loan_amount_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ngn_30_000_00"
@@ -34,7 +34,7 @@
         <TextView
             android:id="@+id/loanTitle"
             android:layout_marginTop="@dimen/margin_10dp"
-            android:layout_marginStart="140dp"
+            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/loan_disbursed"

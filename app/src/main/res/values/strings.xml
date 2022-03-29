@@ -459,7 +459,6 @@
     <string name="select_grace_duration">Select grace duration</string>
     <string name="select_repayment_duration">Select repayment duration</string>
     <string name="select_loan_interest_rate">Select loan interest rate</string>
-=======
     <string name="account">Account</string>
     <string name="_0__">+0%</string>
     <string name="funds_released">Funds released</string>
@@ -469,5 +468,4 @@
     <string name="bank_details">Bank details</string>
     <string name="card_details">Card details</string>
     <string name="kyc">KYC</string>
->>>>>>> 241010ec70a54a99f37e43a18bbe7e8589e778fb
 </resources>
