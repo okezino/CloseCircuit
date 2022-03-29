@@ -74,11 +74,11 @@ dependencies {
     implementation Dependencies.kotlin_coroutines_android
     implementation Dependencies.navigation_fragment_ktx
     implementation Dependencies.navigation_ui_ktx
-    implementation Dependencies.otp_pin_view
     implementation Dependencies.leung_pinview
     implementation Dependencies.phone_picker_ccp
     implementation Dependencies.currency_picker_android
     implementation Dependencies.viewpagerindicator
+    implementation Dependencies.otp_pin_view
 
     // Retrofit
     implementation Dependencies.retrofit

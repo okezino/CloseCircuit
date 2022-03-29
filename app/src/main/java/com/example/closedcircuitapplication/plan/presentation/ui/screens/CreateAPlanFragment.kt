@@ -22,15 +22,10 @@ import com.example.closedcircuitapplication.authentication.utils.CAMERA_REQUEST_
 import com.example.closedcircuitapplication.authentication.utils.REQUEST_CODE_IMAGE_PICKER
 import com.example.closedcircuitapplication.authentication.utils.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
-import com.example.closedcircuitapplication.common.utils.makeSnackBar
-import com.example.closedcircuitapplication.common.utils.setProgressDialog
+import com.example.closedcircuitapplication.common.utils.uploadImageToFirebase
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
-import com.example.closedcircuitapplication.plan.utils.PlanConstants.IMAGE_UPLOAD
-import com.example.closedcircuitapplication.plan.utils.PlanConstants.UPLOAD_MESSAGE
 import com.example.closedcircuitapplication.plan.utils.PlanUtils
 import com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment
-import com.google.firebase.storage.FirebaseStorage
-import java.util.*
 
 
 class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
@@ -140,7 +135,9 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
         if (requestCode == REQUEST_CODE_IMAGE_PICKER) {
             binding.uploadImageIV.setImageURI(data!!.data)
             uri = data.data
-            uploadImageToFirebase(uri)
+            uploadImageToFirebase(uri,this,requireContext()){
+                avatar = it
+            }
         }
         // upload image using camera
         if (resultCode == Activity.RESULT_OK) {
@@ -148,11 +145,12 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                 val pictureBitmap = data!!.getParcelableExtra<Bitmap>("data")
                 binding.uploadImageIV.setImageBitmap(pictureBitmap)
                 val uriImage = pictureBitmap?.let { PlanUtils.getImageUriFromBitmap(requireContext(), it) }
-                uploadImageToFirebase(uriImage)
+                uploadImageToFirebase(uriImage,this,requireContext()){
+                    avatar = it
+                }
             }
         }
     }
-
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -171,28 +169,6 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-        }
-    }
-    //FIREBASE IMAGE UPLOAD
-    private fun uploadImageToFirebase(fileUri: Uri?) {
-        if (fileUri != null) {
-            val fileName = UUID.randomUUID().toString() +".jpg"
-            val refStorage = FirebaseStorage.getInstance().reference.child("images/$fileName")
-            val dialog = setProgressDialog(requireContext(), UPLOAD_MESSAGE)
-            dialog.show()
-            refStorage.putFile(fileUri)
-                .addOnSuccessListener { taskSnapshot ->
-                    val result = taskSnapshot.metadata!!.reference!!.downloadUrl
-                    result.addOnSuccessListener { imageUrl->
-                        avatar = imageUrl.toString()
-                        dialog.dismiss()
-                        makeSnackBar(IMAGE_UPLOAD,requireView())
-                    }
-                }
-                .addOnFailureListener { e ->
-                    makeSnackBar("${e.message}", requireView())
-                    dialog.dismiss()
-                }
         }
     }
 
