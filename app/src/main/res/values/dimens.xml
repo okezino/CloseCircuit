@@ -22,7 +22,6 @@
     <dimen name="margin_100dp">100dp</dimen>
     <dimen name="margin_40dp">40dp</dimen>
     <dimen name="elevation_9dp">9dp</dimen>
-    <dimen name="margin_17dp">17dp</dimen>
     <dimen name="radius_5dp">5dp</dimen>
     <dimen name="padding_120dp">120dp</dimen>
     <dimen name="width_32dp">32dp</dimen>
@@ -114,4 +113,11 @@
     <dimen name="margin_8dp">8dp</dimen>
     <dimen name="height_5dp">5dp</dimen>
     <dimen name="margin_185dp">185dp</dimen>
+    <dimen name="margin_55dp">55dp</dimen>
+    <dimen name="margin_88dp">88dp</dimen>
+    <dimen name="margin_14dp">14dp</dimen>
+    <dimen name="margin_28dp">28dp</dimen>
+    <dimen name="width_64dp">64dp</dimen>
+    <dimen name="margin_17dp">17dp</dimen>
+    <dimen name="margin_18dp">18dp</dimen>
 </resources>

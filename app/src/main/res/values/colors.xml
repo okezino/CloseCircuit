@@ -67,4 +67,5 @@
     <color name="line_color">#F5F5F5</color>
     <color name="hint_color">#8B8989</color>
     <color name="settings_icon_background">#F5FCE2</color>
+    <color name="user_account_loan_container_color">#F7F0FF</color>
 </resources>

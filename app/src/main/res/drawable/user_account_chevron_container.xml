@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        drq
         <shape android:shape="rectangle">
-            <corners android:radius="5dp"/>
-            <solid android:color="@color/settings_icon_background"/>
+            <corners android:radius="10dp"/>
+            <solid android:color="@color/closed_circuit_progress_background_tint"/>
         </shape>
     </item>
 </selector>

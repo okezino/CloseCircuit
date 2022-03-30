@@ -61,4 +61,5 @@ object Versions {
     val kotlinter_gradle = "3.6.0"
     val leung_pinview = "1.4.4"
 
+
 }

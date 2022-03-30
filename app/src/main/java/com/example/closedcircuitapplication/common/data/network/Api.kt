@@ -11,6 +11,7 @@ import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApi
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GENERATE_OTP
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GET_MY_PLANS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.LOGIN
+import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.PLAN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.PLANS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.REGISTER
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.RESET_PASSWORD
@@ -64,7 +65,8 @@ interface Api {
         @Header("Authorization") token: String
     ): Result<UserEditProfileResponseDto>
 
-    @POST("plans/")
+
+    @POST(PLAN)
     suspend fun createPlan(
         @Body createPlanRequest: CreatePlanRequest,
         @Header("Authorization") authHeader: String
@@ -134,7 +136,7 @@ interface Api {
         @Header("Authorization") authHeader: String
     ): Result<String>
 
-    @HTTP(method = "DELETE", path = "budget/{id}/", hasBody = true )
+    @HTTP(method = "DELETE", path = "budget/{id}/", hasBody = true)
     suspend fun deleteBudget(
         @Path("id") id: String,
         @Header("Authorization") authHeader: String

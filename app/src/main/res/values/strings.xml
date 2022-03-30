@@ -410,4 +410,13 @@
     <string name="_4_months">4 Months</string>
     <string name="plan_duration">Plan Duration</string>
     <string name="target_amount">Target Amount</string>
+    <string name="account">Account</string>
+    <string name="_0__">+0%</string>
+    <string name="funds_released">Funds released</string>
+    <string name="funds_withheld">Funds Withheld</string>
+    <string name="pending_request">Pending request</string>
+    <string name="loans">Loans</string>
+    <string name="bank_details">Bank details</string>
+    <string name="card_details">Card details</string>
+    <string name="kyc">KYC</string>
 </resources>

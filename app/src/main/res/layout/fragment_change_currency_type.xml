@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            style="@style/SettingsTitleTextStyle"
+            style="@style/TCCTitleTextStyle"
             android:text="@string/select_currency_type"/>
 
     </androidx.appcompat.widget.Toolbar>
@@ -39,7 +39,7 @@
         android:id="@+id/fragment_settings_change_currency_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        style="@style/SettingsHintTextStyle"
+        style="@style/TCCHintTextStyle"
         android:layout_marginTop="@dimen/margin_60dp"
         android:layout_marginStart="@dimen/margin_20dp"
         android:text="@string/select_currency_type"

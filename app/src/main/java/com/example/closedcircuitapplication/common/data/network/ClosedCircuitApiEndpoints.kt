@@ -16,4 +16,5 @@ object ClosedCircuitApiEndpoints {
     const val CHANGE_PASSWORD = "change-password/{id}/"
     const val STEPS = "steps/"
     const val BUDGET = "budget/"
+    const val PLAN = "plans/"
 }
