@@ -113,4 +113,5 @@
     <dimen name="margin_32dp">32dp</dimen>
     <dimen name="margin_8dp">8dp</dimen>
     <dimen name="height_5dp">5dp</dimen>
+    <dimen name="margin_185dp">185dp</dimen>
 </resources>

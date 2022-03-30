@@ -54,7 +54,7 @@ class CreateStepsFragment : Fragment(), BudgetItemClicklistener {
             R.array.weeks,
             android.R.layout.simple_dropdown_item_1line
         )
-        planId = arguments?.getString("planId")!!
+        planId = arguments?.getString(getString(R.string.plan_id))!!
         binding.createStepStepDurationAutoCompleteTextView.apply {
             setAdapter(weekAdapter)
         }
@@ -84,7 +84,6 @@ class CreateStepsFragment : Fragment(), BudgetItemClicklistener {
         }
         setUpCreateStepObserver()
         observeBudgetList()
-        makeSnackBar("${binding.createStepsTargetAmountFigureTextView.text.toString().split(" ").get(1).toInt()}",requireView())
     }
 
     private fun createStep(stepName: String, stepDescription: String, stepDuration: String) {
@@ -143,7 +142,6 @@ class CreateStepsFragment : Fragment(), BudgetItemClicklistener {
             createStepSaveBudgetTextView.visibility = View.GONE
             createStepsEnterBudgetCostTextView.visibility = View.GONE
             createStepsEnterBudgetNameTextView.visibility = View.GONE
-            makeSnackBar("${viewModel.budgetListLiveData.value}", requireView())
         }
     }
 
@@ -154,13 +152,13 @@ class CreateStepsFragment : Fragment(), BudgetItemClicklistener {
                     pleaseWaitDialog.show()
                 }
                 is Resource.Success -> {
-                    makeSnackBar("Step successfully created", requireView())
-                    createBudget(it.data.data!!.steps.get(0).id)
+                    makeSnackBar(getString(R.string.Step_created_successfully), requireView())
+                    createBudget(it.data.data!!.id)
                     pleaseWaitDialog.dismiss()
                     findNavController().navigate(CreateStepsFragmentDirections.actionCreateStepsFragmentToCreatePlanFragment(planId), customNavAnimation().build())
                 }
                 is Resource.Error -> {
-                    makeSnackBar("Unable to create step", requireView())
+                    makeSnackBar(getString(R.string.Unable_to_create_step), requireView())
                     pleaseWaitDialog.dismiss()
                 }
             }
@@ -173,7 +171,7 @@ class CreateStepsFragment : Fragment(), BudgetItemClicklistener {
                 viewModel.createBudget(
                     CreateBudgetRequest(
                         budget.budgetName,
-                        "",
+                        budget.budgetName,
                         budget.budgetCost.toFloat(),
                         planId,
                         stepId

@@ -17,6 +17,7 @@ class CreateBudgetAdapter(private val listener: BudgetItemClicklistener): Recycl
         fun bind(addBudget: AddBudget) {
             binding.budgetItemBudgetNameTextView.text = addBudget.budgetName
             binding.budgetItemBudgetCostTextView.text = "NGN ${addBudget.budgetCost}"
+            binding.budgetItemNumberTextView.text = "Budget Item ${absoluteAdapterPosition + 1}"
         }
     }
 

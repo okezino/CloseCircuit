@@ -109,4 +109,65 @@ class PlanRepository @Inject constructor(
                 }
             )
         }
+
+    override suspend fun updateStep(
+        stepId: String,
+        authHeader: String,
+        updateStepRequest: UpdateStepRequest
+    ): Flow<Resource<Result<UpdateStepDto>>> =
+        flow {
+            emit(Resource.Loading())
+            emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+                api.updateStep(stepId, authHeader, updateStepRequest)
+            })
+        }
+
+    override suspend fun updateBudget(
+        budgetId: String,
+        authHeader: String,
+        updateBudgetRequest: UpdateBudgetRequest
+    ): Flow<Resource<Result<UpdateBudgetDto>>> = flow {
+        emit(Resource.Loading())
+        emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+            api.updateBudget(budgetId, authHeader, updateBudgetRequest)
+        })
+    }
+
+    override suspend fun deleteStep(
+        stepId: String,
+        authHeader: String
+    ): Flow<Resource<Result<String>>> =
+        flow {
+            emit(Resource.Loading())
+            emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+                api.deleteStep(stepId, authHeader)
+            })
+        }
+
+    override suspend fun deleteBudget(
+        budgetId: String,
+        authHeader: String
+    ): Flow<Resource<Unit>> =
+        flow {
+            emit(Resource.Loading())
+            emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+                api.deleteBudget(budgetId, authHeader)
+            })
+        }
+
+    override suspend fun getUserSteps(authHeader: String): Flow<Resource<Result<GetStepsDto>>> = flow {
+        emit(Resource.Loading())
+        emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+            api.getUserSteps(authHeader)
+        })
+    }
+
+    override suspend fun getUserBudgets(authHeader: String): Flow<Resource<Result<GetBudgetsDto>>> = flow {
+        emit(Resource.Loading())
+        emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+            api.getUserBudget(authHeader)
+        })
+    }
+
+
 }

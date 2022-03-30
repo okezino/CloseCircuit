@@ -389,4 +389,25 @@
     <string name="ngn_3_000_00">NGN 3,000.00</string>
     <string name="funds_raised_progress">Funds Raised Progress</string>
     <string name="ngn_0">NGN 0</string>
+    <string name="edit_step">Edit step</string>
+    <string name="step_name">Step name</string>
+    <string name="step_description_text">Step description</string>
+    <string name="step_duration">Step duration</string>
+    <string name="do_you_want_to_delete_nthis_step">Do you want to delete \nthis step?</string>
+    <string name="Step_created_successfully">Step successfully created</string>
+    <string name="Unable_to_create_step">Unable to create step</string>
+    <string name="budget_data">budgetData</string>
+    <string name="unable_to_update_budget">Unable to update budget</string>
+    <string name="successfully_edited">Successfully Edited</string>
+    <string name="do_you_want_to_delete_budget">\"Are you sure you want to delete this budget, \"</string>
+    <string name="plan_id">planId</string>
+    <string name="plan_deleted">\"Plan deleted \"</string>
+    <string name="step_name_must_be_filled">Step name must be filled</string>
+    <string name="description_must_be_filled">Step description must be filled</string>
+    <string name="step_duration_must_be_filled">Step duration must be filled</string>
+    <string name="business_electronics">Business (Electronics)</string>
+    <string name="business_sector">Business Sector</string>
+    <string name="_4_months">4 Months</string>
+    <string name="plan_duration">Plan Duration</string>
+    <string name="target_amount">Target Amount</string>
 </resources>

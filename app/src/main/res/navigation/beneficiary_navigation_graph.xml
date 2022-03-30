@@ -455,6 +455,25 @@
         <argument
             android:name="BudgetDetails"
             app:argType="com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem" />
+        <action
+            android:id="@+id/action_stepViewFragment_to_editStepFragment"
+            app:destination="@id/editStepFragment" />
+        <action
+            android:id="@+id/action_stepViewFragment_to_createPlanFragment"
+            app:popUpTo="@id/createPlanFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/editStepFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.EditStepFragment"
+        android:label="fragment_edit_step"
+        tools:layout="@layout/fragment_edit_step" >
+        <argument
+            android:name="Step"
+            app:argType="com.example.closedcircuitapplication.common.data.network.models.Step" />
+        <action
+            android:id="@+id/action_editStepFragment_to_createPlanFragment"
+            app:popUpTo="@id/createPlanFragment"/>
     </fragment>
 
 </navigation>

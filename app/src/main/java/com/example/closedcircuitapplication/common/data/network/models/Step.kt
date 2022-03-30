@@ -1,5 +1,9 @@
 package com.example.closedcircuitapplication.common.data.network.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Step(
     val id: String,
     val step_name: String,
@@ -9,4 +13,4 @@ data class Step(
     val total_funds_raised: String,
     val plan: String,
     val user: String
-)
+):Parcelable

@@ -6,84 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".plan.presentation.ui.screens.StepViewFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/step_view_fragment_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:contentInsetStart="@dimen/margin_0dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/my_step_step_name_textView"
+        android:layout_width="@dimen/width_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:ellipsize="end"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_24sp"
+        android:layout_marginEnd="@dimen/margin_20dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toStartOf="@+id/my_step_more_options_imageView"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Conduct market research" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/my_step_more_options_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_20dp"
+        android:src="@drawable/ic_more_horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/my_step_step_name_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/my_step_step_name_textView" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="@dimen/textSize_22sp"
-                android:layout_marginStart="@dimen/margin_10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Conduct market research" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/my_step_step_details_constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_15dp"
         android:background="#F1F5FF"
+        android:layout_marginTop="@dimen/margin_20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_view_fragment_toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/my_step_step_name_textView">
 
-        <TextView
-            android:id="@+id/my_step_step_name_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_20dp"
-            android:layout_marginTop="@dimen/margin_9dp"
-            android:fontFamily="@font/helvetica"
-            android:text="@string/design_a_website_placeholder_text"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textSize_20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/my_step_step_funded_check_mark_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            android:layout_marginStart="@dimen/margin_10dp"
-            android:src="@drawable/ic_step_funded_check_mark"
-            app:layout_constraintBottom_toBottomOf="@+id/my_step_step_name_textView"
-            app:layout_constraintStart_toEndOf="@+id/my_step_step_name_textView"
-            app:layout_constraintTop_toTopOf="@+id/my_step_step_name_textView" />
 
         <ImageView
             android:id="@+id/my_step_target_amount_icon_imageView"
             android:layout_width="@dimen/width_35dp"
             android:layout_height="@dimen/height_35dp"
+            android:layout_marginStart="@dimen/margin_20dp"
             android:layout_marginTop="@dimen/margin_20dp"
             android:src="@drawable/ic_target_amount_2"
-            app:layout_constraintStart_toStartOf="@+id/my_step_step_name_textView"
-            app:layout_constraintTop_toBottomOf="@+id/my_step_step_name_textView" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/my_step_target_amount_value_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_7dp"
+            android:layout_marginStart="4dp"
             android:ellipsize="end"
             android:fontFamily="@font/helvetica"
             android:maxLines="1"

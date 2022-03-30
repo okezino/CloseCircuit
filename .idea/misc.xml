@@ -22,6 +22,7 @@
         <entry key="app/src/main/res/drawable-xxhdpi/settings_icon_container.xml" value="0.29635416666666664" />
         <entry key="app/src/main/res/drawable-xxhdpi/text_input_background_16dp.xml" value="0.29635416666666664" />
         <entry key="app/src/main/res/drawable/all_button_background.xml" value="0.2522982635342186" />
+        <entry key="app/src/main/res/drawable/all_dialog_background.xml" value="0.1765" />
         <entry key="app/src/main/res/drawable/apple_icon.xml" value="0.16880341880341881" />
         <entry key="app/src/main/res/drawable/background_add_budget_item.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/drawable/background_sponsors.xml" value="0.14375" />
@@ -79,6 +80,7 @@
         <entry key="app/src/main/res/layout/custom_login_wait_dialog.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/cutom_login_successful_dialog.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/delete_plan_dialog.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/delete_step_dialog.xml" value="0.21920289855072464" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.13768115942028986" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.12735042735042734" />
         <entry key="app/src/main/res/layout/fragment_account_registration.xml" value="0.3338267949666913" />
@@ -89,7 +91,7 @@
         <entry key="app/src/main/res/layout/fragment_create_a_plan.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_create_budget.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_create_plan.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_create_plan.xml" value="0.4158878504672897" />
         <entry key="app/src/main/res/layout/fragment_create_plan_budget.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_create_plan_step2.xml" value="0.21" />
         <entry key="app/src/main/res/layout/fragment_create_plan_step_three.xml" value="0.25" />
@@ -101,6 +103,7 @@
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/fragment_edit_plan.xml" value="0.2606541129831516" />
         <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_edit_step.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/fragment_email_verification_successful.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.26458333333333334" />
@@ -156,6 +159,7 @@
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.25" />
         <entry key="app/src/main/res/menu/plan_menu.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/menu/step_manu.xml" value="0.191025641025641" />
+        <entry key="app/src/main/res/menu/step_menu.xml" value="0.23162393162393163" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.165625" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.165625" />
       </map>

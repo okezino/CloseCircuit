@@ -6,17 +6,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.closedcircuitapplication.dashboard.presentation.ui.interfaces.ClickListener
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.data.network.models.Step
+import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
-import com.example.closedcircuitapplication.plan.presentation.ui.adapters.StepsBudgetsAdapter
-import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
+import com.example.closedcircuitapplication.dashboard.presentation.ui.interfaces.ClickListener
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanStepsBinding
+import com.example.closedcircuitapplication.plan.FragmentLifecycle
+import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
+import com.example.closedcircuitapplication.plan.presentation.ui.adapters.StepsBudgetsAdapter
+import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.AllStepsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CreatePlanStepsFragment : Fragment(), ClickListener {
 
     private var _binding: FragmentCreatePlanStepsBinding? = null
@@ -24,6 +31,8 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
 
     private lateinit var stepsAdapter: StepsBudgetsAdapter
     private lateinit var stepsRecyclerView: RecyclerView
+    private val viewModel: AllStepsViewModel by activityViewModels()
+    private var currentStepList: ArrayList<Step> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +48,7 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
     override fun onResume() {
         super.onResume()
         getProjectSteps()
+        stepsAdapter.submitList(currentStepList)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -67,29 +77,39 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
         }
 
         createStepsButton.setOnClickListener {
-            findNavController().navigate(R.id.createStepsFragment, null, customNavAnimation().build())
+            findNavController().navigate(
+                R.id.createStepsFragment,
+                null,
+                customNavAnimation().build()
+            )
+        }
+        viewModel.getStepsResponse.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Success -> {
+                    val stepsForPlan = arrayListOf<Step>()
+                    for (step in viewModel.getStepsResponse.value?.datas?.data!!.steps) {
+                        if (step.plan == viewModel.planId) {
+                            stepsForPlan.add(step)
+                        }
+                    }
+                    currentStepList = stepsForPlan
+                    stepsAdapter.submitList(stepsForPlan)
+                    stepsAdapter.notifyDataSetChanged()
+                }
+                else -> {
+                }
+            }
         }
 
         getProjectSteps()
     }
 
+
     private fun getProjectSteps() {
-        val projectSteps = ArrayList<StepsBudgetItem>()
-        projectSteps.add(StepsBudgetItem("Design a website", "NGN 500000.00", "NGN 0.00"))
-        projectSteps.add(StepsBudgetItem("Marketing the product", "NGN 200000.00", "NGN 200000.00"))
+        stepsAdapter = StepsBudgetsAdapter(this)
 
-        val noStepsTextView = binding.noStepsYet
-        if (projectSteps.isEmpty()) {
-            noStepsTextView.visibility = View.VISIBLE
-            binding.stepsItemRecyclerView.visibility = View.GONE
-        } else {
-            binding.stepsItemRecyclerView.visibility = View.VISIBLE
-            noStepsTextView.visibility = View.GONE
-        }
-
-        stepsAdapter = StepsBudgetsAdapter(projectSteps, this)
-
-        stepsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        stepsRecyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         stepsRecyclerView.adapter = stepsAdapter
     }
 
@@ -98,11 +118,13 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
         _binding = null
     }
 
-    override fun onClick(budgetDate: StepsBudgetItem) {
-        val navHost = requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
-        var controller = navHost.navController
+    override fun onClick(budgetDate: Step) {
+        val navHost =
+            requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
+        val controller = navHost.navController
         val bundle = Bundle()
-        bundle.putParcelable("budgetData", budgetDate)
+        bundle.putParcelable(getString(R.string.budget_data), budgetDate)
         controller.navigate(R.id.stepViewFragment, bundle)
     }
+
 }

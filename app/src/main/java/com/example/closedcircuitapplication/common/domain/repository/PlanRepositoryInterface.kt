@@ -29,4 +29,16 @@ interface PlanRepositoryInterface {
 
     suspend fun createBudget(createBudgetRequest: CreateBudgetRequest, authHeader: String): Flow<Resource<Result<CreateBudgetDto>>>
 
+    suspend fun updateStep(stepId: String, authHeader: String, updateStepRequest: UpdateStepRequest): Flow<Resource<Result<UpdateStepDto>>>
+
+    suspend fun updateBudget(budgetId: String, authHeader: String, updateBudgetRequest: UpdateBudgetRequest): Flow<Resource<Result<UpdateBudgetDto>>>
+
+    suspend fun deleteStep(stepId: String, authHeader: String): Flow<Resource<Result<String>>>
+
+    suspend fun deleteBudget(budgetId: String, authHeader: String): Flow<Resource<Unit>>
+
+    suspend fun getUserSteps(authHeader: String): Flow<Resource<Result<GetStepsDto>>>
+
+    suspend fun getUserBudgets(authHeader: String): Flow<Resource<Result<GetBudgetsDto>>>
+
 }

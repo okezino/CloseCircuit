@@ -5,6 +5,7 @@ import com.example.closedcircuitapplication.authentication.data.dataDto.Register
 import com.example.closedcircuitapplication.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.authentication.domain.models.RegisterRequest
 import com.example.closedcircuitapplication.authentication.domain.models.ResetPasswordRequest
+import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.BUDGET
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.CHANGE_PASSWORD
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.DELETE_PLAN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GENERATE_OTP
@@ -13,6 +14,7 @@ import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApi
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.PLANS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.REGISTER
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.RESET_PASSWORD
+import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.STEPS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.UPDATE_PLAN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.UPDATE_PROFILE
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.USER_DETAILS
@@ -100,29 +102,47 @@ interface Api {
         @Header("Authorization") token: String
     ): Result<ChangePasswordResponseDto>
 
-    @POST("steps")
+    @POST(STEPS)
     suspend fun createStep(
         @Body createStepsRequest: CreateStepsRequest,
         @Header("Authorization") authHeader: String
     ): Result<CreateStepDto>
 
-    @POST("budget")
+    @POST(BUDGET)
     suspend fun createBudget(
         @Body createBudgetRequest: CreateBudgetRequest,
         @Header("Authorization") authHeader: String
     ): Result<CreateBudgetDto>
 
-    @PUT("steps/{id}")
+    @PUT("steps/{id}/")
     suspend fun updateStep(
         @Path("id") id: String,
         @Header("Authorization") authHeader: String,
         @Body updateStepRequest: UpdateStepRequest
     ): Result<UpdateStepDto>
 
-    @PUT("budget/{id}")
+    @PUT("budget/{id}/")
     suspend fun updateBudget(
         @Path("id") id: String,
         @Header("Authorization") authHeader: String,
         @Body updateBudgetRequest: UpdateBudgetRequest
     ): Result<UpdateBudgetDto>
+
+    @DELETE("steps/{id}/")
+    suspend fun deleteStep(
+        @Path("id") id: String,
+        @Header("Authorization") authHeader: String
+    ): Result<String>
+
+    @HTTP(method = "DELETE", path = "budget/{id}/", hasBody = true )
+    suspend fun deleteBudget(
+        @Path("id") id: String,
+        @Header("Authorization") authHeader: String
+    )
+
+    @GET("steps/")
+    suspend fun getUserSteps(@Header("Authorization") authHeader: String): Result<GetStepsDto>
+
+    @GET("budget/")
+    suspend fun getUserBudget(@Header("Authorization") authHeader: String): Result<GetBudgetsDto>
 }

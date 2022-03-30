@@ -1,8 +1,5 @@
 package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -24,13 +22,15 @@ import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.deletePlanAlertDialog
 import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.databinding.DeletePlanDialogBinding
-import com.example.closedcircuitapplication.plan.presentation.ui.adapters.CreateStepsBudgetsFragmentAdapter
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanBinding
+import com.example.closedcircuitapplication.plan.presentation.ui.adapters.CreateStepsBudgetsFragmentAdapter
+import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.AllStepsViewModel
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class ProjectSummaryFragment : Fragment() {
@@ -43,6 +43,7 @@ class ProjectSummaryFragment : Fragment() {
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
     private val viewModel: PlanViewModel by viewModels()
+    private val allStepsViewModel: AllStepsViewModel by activityViewModels()
     private lateinit var planName: TextView
     private lateinit var planDuration: TextView
     private lateinit var planImage: ImageView
@@ -75,11 +76,14 @@ class ProjectSummaryFragment : Fragment() {
         planName = binding.planName
 
         planId = args.planId
+        allStepsViewModel.planId = planId
         binding.projectSummaryAddStepsButton.setOnClickListener {
             val bundle = Bundle()
-            bundle.putString("planId", planId)
+            bundle.putString(getString(R.string.plan_id), planId)
             findNavController().navigate(R.id.createStepsFragment,bundle, customNavAnimation().build())
         }
+        allStepsViewModel.getUserSteps("Bearer ${preferences.getToken()}")
+        allStepsViewModel.getUserBudgets("Bearer ${preferences.getToken()}")
 
        val deletePlanDialogBinding = DeletePlanDialogBinding.inflate(layoutInflater)
 
@@ -133,6 +137,7 @@ class ProjectSummaryFragment : Fragment() {
 
         viewPagerAdapter = CreateStepsBudgetsFragmentAdapter(this)
         viewPager.adapter = viewPagerAdapter
+
         initPagerAdapter()
 
         tabLayout = binding.tabLayout
@@ -155,7 +160,8 @@ class ProjectSummaryFragment : Fragment() {
                }
                 is Resource.Success ->{
                     findNavController().navigate(ProjectSummaryFragmentDirections.actionCreatePlanFragmentToProjectScreenFragment(), customNavAnimation().build())
-                    Toast.makeText(requireContext(), "Plan deleted ${resources.data!!.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(),
+                        getString(R.string.plan_deleted) + resources.data!!.message, Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Error ->{
                     Toast.makeText(requireContext(), "${resources.data!!.errors}", Toast.LENGTH_SHORT).show()
@@ -190,7 +196,6 @@ class ProjectSummaryFragment : Fragment() {
                     _planCategory = it.data.data?.plan_category.toString()
                     _planCostPrice = it.data.data?.estimated_cost_price.toString()
                     _planSellingPrice = it.data.data?.estimated_selling_price.toString()
-                    Log.e("testing", "${it.data.data?.plan_duration}")
                 }
 
                 is Resource.Error -> {
