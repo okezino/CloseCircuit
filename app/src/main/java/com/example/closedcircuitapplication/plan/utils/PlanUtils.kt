@@ -1,5 +1,13 @@
 package com.example.closedcircuitapplication.plan.utils
 
+
+import android.content.Context
+import android.graphics.Bitmap
+import android.net.Uri
+import android.provider.MediaStore
+import com.example.closedcircuitapplication.common.utils.DEFAULT_IMAGE
+import java.io.ByteArrayOutputStream
+
 object PlanUtils {
     fun userEmailDisplayText(email: String): String {
         var displayEmail = ""
@@ -38,5 +46,16 @@ object PlanUtils {
         val maxWords: String = description.replace("\n", " ")
         val descriptionText: List<String> = maxWords.split(" ")
         return descriptionText.size
+    }
+    fun avatarUpload(avatar: String?): String{
+        var avatarValue = ""
+        avatarValue = if (avatar == null || !avatar.startsWith("http")){ DEFAULT_IMAGE }else{ avatar }
+        return avatarValue
+    }
+    fun getImageUriFromBitmap(context: Context, bitmap: Bitmap): Uri {
+        val bytes = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        val path = MediaStore.Images.Media.insertImage(context.contentResolver, bitmap, "Title", null)
+        return Uri.parse(path.toString())
     }
 }
