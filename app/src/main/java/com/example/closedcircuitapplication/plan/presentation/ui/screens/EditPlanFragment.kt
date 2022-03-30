@@ -127,7 +127,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 binding.fragmentEditPlanEmptyCostPriceTv.visibility = View.GONE
             }
             viewModel.updateUserPlan(UpdatePlanRequest(
-                "",
+                "https://www.whatsappimages.in/wp-content/uploads/2021/07/Top-HD-sad-quotes-for-whatsapp-status-in-hindi-Pics-Images-Download-Free.gif",
                 capitalizeWords(binding.fragmentEditPlanBusinessTypeEt.text.toString()),
                 binding.fragmentEditPlanCostPriceEt.text.toString(),
                 binding.fragmentLetsCreateYourPlanSellingPriceEt.text.toString(),

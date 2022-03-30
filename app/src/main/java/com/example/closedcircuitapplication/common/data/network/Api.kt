@@ -11,6 +11,7 @@ import com.example.closedcircuitapplication.authentication.domain.models.ResetPa
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.CHANGE_PASSWORD
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GET_MY_PLANS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.LOGIN
+import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.PLAN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.PLANS
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.REGISTER
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.RESET_PASSWORD
@@ -73,7 +74,7 @@ interface Api {
         @Header("Authorization") token: String
     ): Result<UserEditProfileResponseDto>
 
-    @POST("plans/")
+    @POST(PLAN)
     suspend fun createPlan(@Body createPlanRequest: CreatePlanRequest,
         @Header("Authorization") authHeader: String): Result<CreatePlanDto>
 
