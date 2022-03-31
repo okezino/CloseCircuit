@@ -1,8 +1,6 @@
 package com.example.closedcircuitapplication.common.data.repository
 
 import com.example.closedcircuitapplication.authentication.data.mappers.DomainPostMapper
-import com.example.closedcircuitapplication.plan.domain.models.GenerateOtpRequest
-import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import com.example.closedcircuitapplication.common.data.network.Api
 import com.example.closedcircuitapplication.common.data.network.models.*
 import com.example.closedcircuitapplication.common.domain.repository.PlanRepositoryInterface
@@ -11,8 +9,8 @@ import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.plan.data.datadto.DeletePlanResponseDto
 import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
 import com.example.closedcircuitapplication.plan.data.datadto.UpdatePlanResponseDto
-import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
 import com.example.closedcircuitapplication.common.data.network.models.GenerateOtpDto
+import com.example.closedcircuitapplication.plan.domain.models.*
 import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -90,4 +88,85 @@ class PlanRepository @Inject constructor(
             }
         )
     }.flowOn(dispatcherProvider.io())
+
+    override suspend fun createStep(createStepsRequest: CreateStepsRequest, authHeader: String): Flow<Resource<Result<CreateStepDto>>> =
+        flow {
+            emit(Resource.Loading())
+            emit(
+                ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+                    api.createStep(createStepsRequest, authHeader)
+                }
+            )
+        }
+
+    override suspend fun createBudget(createBudgetRequest: CreateBudgetRequest, authHeader: String): Flow<Resource<Result<CreateBudgetDto>>> =
+        flow {
+            emit(Resource.Loading())
+            emit(
+                ApiCallsHandler.safeApiCall(dispatcherProvider.io()) {
+                    api.createBudget(createBudgetRequest, authHeader)
+                }
+            )
+        }
+
+    override suspend fun updateStep(
+        stepId: String,
+        authHeader: String,
+        updateStepRequest: UpdateStepRequest
+    ): Flow<Resource<Result<UpdateStepDto>>> =
+        flow {
+            emit(Resource.Loading())
+            emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+                api.updateStep(stepId, authHeader, updateStepRequest)
+            })
+        }
+
+    override suspend fun updateBudget(
+        budgetId: String,
+        authHeader: String,
+        updateBudgetRequest: UpdateBudgetRequest
+    ): Flow<Resource<Result<UpdateBudgetDto>>> = flow {
+        emit(Resource.Loading())
+        emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+            api.updateBudget(budgetId, authHeader, updateBudgetRequest)
+        })
+    }
+
+    override suspend fun deleteStep(
+        stepId: String,
+        authHeader: String
+    ): Flow<Resource<Result<String>>> =
+        flow {
+            emit(Resource.Loading())
+            emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+                api.deleteStep(stepId, authHeader)
+            })
+        }
+
+    override suspend fun deleteBudget(
+        budgetId: String,
+        authHeader: String
+    ): Flow<Resource<Unit>> =
+        flow {
+            emit(Resource.Loading())
+            emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+                api.deleteBudget(budgetId, authHeader)
+            })
+        }
+
+    override suspend fun getUserSteps(authHeader: String): Flow<Resource<Result<GetStepsDto>>> = flow {
+        emit(Resource.Loading())
+        emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+            api.getUserSteps(authHeader)
+        })
+    }
+
+    override suspend fun getUserBudgets(authHeader: String): Flow<Resource<Result<GetBudgetsDto>>> = flow {
+        emit(Resource.Loading())
+        emit(ApiCallsHandler.safeApiCall(dispatcherProvider.io()){
+            api.getUserBudget(authHeader)
+        })
+    }
+
+
 }

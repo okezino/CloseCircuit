@@ -4,23 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.closedcircuitapplication.dashboard.presentation.ui.interfaces.ClickListener
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.plan.presentation.ui.adapters.StepsBudgetsAdapter
-import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
+import com.example.closedcircuitapplication.common.data.network.models.Budget
+import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanBudgetBinding
+import com.example.closedcircuitapplication.plan.FragmentLifecycle
+import com.example.closedcircuitapplication.plan.presentation.ui.adapters.BudgetsAdapter
+import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.AllStepsViewModel
 
-class CreatePlanBudgetFragment : Fragment(), ClickListener {
+class CreatePlanBudgetFragment : Fragment(){
     private var _binding: FragmentCreatePlanBudgetBinding? = null
     private val binding get() = _binding!!
-
-    private lateinit var budgetsAdapter: StepsBudgetsAdapter
+    private lateinit var budgetsAdapter: BudgetsAdapter
     private lateinit var budgetsRecyclerView: RecyclerView
+    private val allStepsViewModel: AllStepsViewModel by activityViewModels()
+    private var currentBudgetList: ArrayList<Budget> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,6 +40,7 @@ class CreatePlanBudgetFragment : Fragment(), ClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        budgetsAdapter = BudgetsAdapter()
 
         val infoButton = binding.contentInfo
         val stepsInfo = binding.infoDialogLayout
@@ -61,32 +67,45 @@ class CreatePlanBudgetFragment : Fragment(), ClickListener {
         createBudgetsButton.setOnClickListener {
             findNavController().navigate(R.id.createBudgetFragment)
         }
-
-        getProjectBudgets()
+        observeBudgetsList()
+        setUpBudgetsAdapter()
     }
 
-    private fun getProjectBudgets() {
-        val budgetSteps = ArrayList<StepsBudgetItem>()
-        budgetSteps.add(StepsBudgetItem("Frontend Development", "NGN 0.00", "NGN 0.00"))
-        budgetSteps.add(StepsBudgetItem("UI/UX Design", "NGN 0.00", "NGN 0.00"))
-        budgetSteps.add(StepsBudgetItem("Backend Development", "NGN 0.00", "NGN 0.00"))
+    override fun onResume() {
+        observeBudgetsList()
+        budgetsAdapter.submitList(currentBudgetList)
+        super.onResume()
+    }
 
-        budgetsAdapter = StepsBudgetsAdapter(budgetSteps, this)
-
+    private fun setUpBudgetsAdapter() {
+        budgetsAdapter = BudgetsAdapter()
         budgetsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         budgetsRecyclerView.adapter = budgetsAdapter
         budgetsRecyclerView.visibility = View.VISIBLE
         binding.noBudgetYetTextView.visibility = View.GONE
     }
 
+    fun observeBudgetsList() {
+        allStepsViewModel.getBudgetResponse.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Success -> {
+                    val budgetsForPlan = arrayListOf<Budget>()
+                    for (budget in allStepsViewModel.getBudgetResponse.value?.datas?.data!!.budgets) {
+                        if (budget.plan == allStepsViewModel.planId) {
+                            budgetsForPlan.add(budget)
+                        }
+                    }
+                    currentBudgetList = budgetsForPlan
+                    allStepsViewModel.budgetsForPlan = budgetsForPlan
+                    budgetsAdapter.submitList(budgetsForPlan)
+                    budgetsAdapter.notifyDataSetChanged()
+                }
+            }
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-    }
-
-    override fun onClick(budgetDate: StepsBudgetItem) {
-        val bundle = Bundle()
-        bundle.putParcelable("budgetData", budgetDate)
-        findNavController().navigate(R.id.myBudgetFragment, bundle)
     }
 }
