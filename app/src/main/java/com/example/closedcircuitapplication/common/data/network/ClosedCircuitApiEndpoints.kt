@@ -17,4 +17,5 @@ object ClosedCircuitApiEndpoints {
     const val STEPS = "steps/"
     const val BUDGET = "budget/"
     const val PLAN = "plans/"
+    const val GET_STEP = "steps/{id}/"
 }

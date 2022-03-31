@@ -10,6 +10,7 @@ import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApi
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.DELETE_PLAN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GENERATE_OTP
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GET_MY_PLANS
+import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.GET_STEP
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.LOGIN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.PLAN
 import com.example.closedcircuitapplication.common.data.network.ClosedCircuitApiEndpoints.PLANS
@@ -116,7 +117,7 @@ interface Api {
         @Header("Authorization") authHeader: String
     ): Result<CreateBudgetDto>
 
-    @PUT("steps/{id}/")
+    @PUT(GET_STEP)
     suspend fun updateStep(
         @Path("id") id: String,
         @Header("Authorization") authHeader: String,
