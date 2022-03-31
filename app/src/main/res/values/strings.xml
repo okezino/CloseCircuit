@@ -419,4 +419,5 @@
     <string name="bank_details">Bank details</string>
     <string name="card_details">Card details</string>
     <string name="kyc">KYC</string>
+    <string name="Unable_to_get_steps">Unable to get steps</string>
 </resources>

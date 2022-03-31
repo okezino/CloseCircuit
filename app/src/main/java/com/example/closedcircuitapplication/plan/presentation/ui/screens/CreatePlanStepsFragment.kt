@@ -15,6 +15,7 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.network.models.Step
 import com.example.closedcircuitapplication.common.utils.Resource
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
+import com.example.closedcircuitapplication.common.utils.makeSnackBar
 import com.example.closedcircuitapplication.dashboard.presentation.ui.interfaces.ClickListener
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanStepsBinding
 import com.example.closedcircuitapplication.plan.FragmentLifecycle
@@ -87,7 +88,7 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
             when (it) {
                 is Resource.Success -> {
                     val stepsForPlan = arrayListOf<Step>()
-                    for (step in viewModel.getStepsResponse.value?.datas?.data!!.steps) {
+                    for (step in it.datas?.data!!.steps) {
                         if (step.plan == viewModel.planId) {
                             stepsForPlan.add(step)
                         }
@@ -97,6 +98,7 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
                     stepsAdapter.notifyDataSetChanged()
                 }
                 else -> {
+                    makeSnackBar(getString(R.string.Unable_to_get_steps), requireView())
                 }
             }
         }

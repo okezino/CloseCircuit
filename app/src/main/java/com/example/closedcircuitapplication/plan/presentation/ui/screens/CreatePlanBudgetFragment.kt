@@ -19,7 +19,7 @@ import com.example.closedcircuitapplication.plan.FragmentLifecycle
 import com.example.closedcircuitapplication.plan.presentation.ui.adapters.BudgetsAdapter
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.AllStepsViewModel
 
-class CreatePlanBudgetFragment : Fragment(), FragmentLifecycle{
+class CreatePlanBudgetFragment : Fragment(){
     private var _binding: FragmentCreatePlanBudgetBinding? = null
     private val binding get() = _binding!!
     private lateinit var budgetsAdapter: BudgetsAdapter
@@ -107,13 +107,5 @@ class CreatePlanBudgetFragment : Fragment(), FragmentLifecycle{
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-    }
-
-    override fun fragmentToShow() {
-        TODO("Not yet implemented")
-    }
-
-    override fun fragmentToHide() {
-        TODO("Not yet implemented")
     }
 }
