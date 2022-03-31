@@ -1,6 +1,7 @@
 package com.example.closedcircuitapplication.dashboard.presentation.ui.screens
 
 import android.Manifest
+import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,39 +9,39 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.closedcircuitapplication.authentication.SendImage_UriToCreateAPlanInterface
+import com.example.closedcircuitapplication.authentication.utils.CAMERA_REQUEST_CODE
 import com.example.closedcircuitapplication.authentication.utils.IMAGE_REQUEST_CODE
+import com.example.closedcircuitapplication.authentication.utils.REQUEST_CODE_IMAGE_PICKER
+import com.example.closedcircuitapplication.authentication.utils.TO_READ_EXTERNAL_STORAGE
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.data.preferences.PreferencesConstants
-import com.example.closedcircuitapplication.common.utils.Resource
-import com.example.closedcircuitapplication.common.utils.UserNameSplitterUtils
-import com.example.closedcircuitapplication.common.utils.customNavAnimation
-import com.example.closedcircuitapplication.common.utils.makeSnackBar
+import com.example.closedcircuitapplication.common.utils.*
 import com.example.closedcircuitapplication.dashboard.domain.model.UpdateProfileRequest
-import com.example.closedcircuitapplication.dashboard.presentation.ui.utils.Utils.getFileName
-import com.example.closedcircuitapplication.dashboard.presentation.ui.utils.Utils.snackbar
 import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentProfileBinding
+import com.example.closedcircuitapplication.plan.presentation.ui.screens.UploadImageBottomSheetFragment
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import com.example.closedcircuitapplication.plan.utils.PlanConstants
-import com.google.android.exoplayer2.upstream.ResolvingDataSource
+import com.example.closedcircuitapplication.plan.utils.PlanUtils
+import com.google.firebase.auth.FirebaseAuth
 import com.theartofdev.edmodo.cropper.CropImage
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.HttpUrl.Companion.toHttpUrl
 import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
 import java.io.InputStream
 import java.net.MalformedURLException
 import java.net.URL
@@ -48,7 +49,7 @@ import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private val viewModel: DashboardViewModel by viewModels()
@@ -63,8 +64,12 @@ class ProfileFragment : Fragment() {
     private lateinit var confirmPassword: String
     private var mailStatus: Boolean = false
     private lateinit var imageString: String
-    private lateinit var imageUrl: URL
-    private lateinit var selectedImage: Uri
+    private lateinit var avatar1: String
+    private lateinit var avatar2: String
+    private var selectedImage: Uri? = null
+    private var image_data = 0
+
+    var mAuth = FirebaseAuth.getInstance()
 
 
     @Inject
@@ -75,6 +80,8 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
@@ -88,36 +95,71 @@ class ProfileFragment : Fragment() {
         userDetailsInitObserver()
         initObserversMyPlansTotal()
 
+        handleBackPress()
+        binding.fragmentProfileScreenToolbarBackArrowIv.setOnClickListener { popBackStack() }
+
         _viewModel.getMyPlans(100, 0, "Bearer ${preferences.getToken()}")
 
         binding.changeProfilePic.setOnClickListener {
             if (checkPermission()) {
                 requestPermission()
             } else {
-                pickImage()
-                uploadImage()
-
+                showUploadImageBottomSheetDialog()
             }
         }
-
     }
 
-    private fun uploadImage() {
-        if (selectedImage == null) {
-            binding.root.snackbar("Choose an image first")
-            return
+    private fun showUploadImageBottomSheetDialog() {
+        UploadImageBottomSheetFragment(this).show(
+            requireActivity().supportFragmentManager,
+            "uploadImageBottomSheet"
+        )
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val user = mAuth.currentUser
+        if (user != null) {
+            // do your stuff
+        } else {
+            signInAnonymously()
         }
-
-        val parcelFileDescriptor = requireActivity().contentResolver.openAssetFileDescriptor(selectedImage, "r", null)
-
-
-        var file = File(requireActivity().cacheDir, requireActivity().contentResolver.getFileName(selectedImage))
-        val inputStream = FileInputStream(parcelFileDescriptor?.fileDescriptor)
-        val outPutStream = FileOutputStream(file)
-
-        inputStream.copyTo(outPutStream)
     }
 
+    private fun openImageChooser() {
+        Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).also {
+            startActivityForResult(it, REQUEST_CODE_IMAGE_PICKER)
+        }
+    }
+
+    private fun signInAnonymously() {
+        mAuth.signInAnonymously().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val user = mAuth.currentUser
+            }
+        }
+    }
+
+
+    private fun uploadImageWithCamera() {
+        if (ContextCompat.checkSelfPermission(
+                requireActivity(),
+                android.Manifest.permission.CAMERA
+            ) !=
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissions(
+                arrayOf(
+                    android.Manifest.permission.CAMERA,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ),
+                TO_READ_EXTERNAL_STORAGE
+            )
+        } else {
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent, CAMERA_REQUEST_CODE)
+        }
+    }
 
     private fun checkPermission(): Boolean {
         val result1: Boolean = ContextCompat.checkSelfPermission(
@@ -137,7 +179,6 @@ class ProfileFragment : Fragment() {
         )
     }
 
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -153,12 +194,29 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    private fun readStorage() {
+        if (ContextCompat.checkSelfPermission(
+                requireActivity(),
+                android.Manifest.permission.READ_EXTERNAL_STORAGE
+            ) !=
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ),
+                TO_READ_EXTERNAL_STORAGE
+            )
+        }
+    }
+
     private fun picImageGallery() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_REQUEST_CODE)
     }
-
 
 
     private fun userDetailsInitObserver() {
@@ -184,11 +242,12 @@ class ProfileFragment : Fragment() {
                     binding.profileNumber.text = it.data.data?.phoneNumber
                     binding.profileNationality.text = it.data.data?.country
                     mailStatus = it.data.data?.isVerified!! == true
+                    avatar1 = it.data.data.avatar
 
                     if (mailStatus) {
-                        binding.errorMessage.visibility = View.VISIBLE
+                        binding.errorMessage.visibility = View.INVISIBLE
                     } else {
-                        binding.errorMessage.visibility = View.VISIBLE
+                        binding.errorMessage.visibility = View.INVISIBLE
                     }
 
                     binding.profileEditButton.setOnClickListener {
@@ -201,7 +260,8 @@ class ProfileFragment : Fragment() {
                                 userId,
                                 email,
                                 password,
-                                confirmPassword
+                                confirmPassword,
+                                avatar1
                             ),
                             customNavAnimation().build()
                         )
@@ -232,43 +292,48 @@ class ProfileFragment : Fragment() {
         return file.toURI().toURL()
     }
 
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-            val result = CropImage.getActivityResult(data)
-            if (resultCode == RESULT_OK) {
-                selectedImage = result.uri
-
-                imageString = result.uri.toString()
-                imageUrl = convertFileToURL(imageString)!!
-                convertFileToURL(imageString)
-
-                viewModel.updateUserProfile(
-                    UpdateProfileRequest(
-                        binding.profileName.text.toString(),
-                        binding.profileEmail.text.toString(),
-                        binding.profileNumber.text.toString(), imageUrl),
-                        preferences.getUserId(), "${PlanConstants.BEARER} ${preferences.getToken()}"
-                )
-
-                setProfileImage()
-
-            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                val error = result.error
-            }
-        }
-    }
-
-    private fun setProfileImage() {
+        super.onActivityResult(requestCode, resultCode, data)
         try {
-            val stream: InputStream? = activity?.contentResolver?.openInputStream(selectedImage)
-            val bitmap: Bitmap = BitmapFactory.decodeStream(stream)
-            binding.profileImageView.setImageBitmap(bitmap)
-
-        } catch (e: Exception) {
+            if (requestCode == REQUEST_CODE_IMAGE_PICKER) {
+                binding.profileImageView.setImageURI(data!!.data)
+                selectedImage = data.data
+                uploadImageToFirebase(selectedImage, this, requireContext()) {
+                    avatar2 = it
+                    Log.d("myUri", avatar2)
+                    viewModel.updateUserProfile(
+                        UpdateProfileRequest(fullName, email, phoneNumber, "${avatar2}.jpeg"),
+                        preferences.getUserId(), "${PlanConstants.BEARER} ${preferences.getToken()}"
+                    )
+                }
+            }
+        }catch (e: Exception){
             e.printStackTrace()
-
         }
 
+        // upload image using camera
+        try {
+            if (resultCode == Activity.RESULT_OK) {
+                if (requestCode == CAMERA_REQUEST_CODE) {
+                    val pictureBitmap = data!!.getParcelableExtra<Bitmap>("data")
+                    binding.profileImageView.setImageBitmap(pictureBitmap)
+                    val uriImage =
+                        pictureBitmap?.let { PlanUtils.getImageUriFromBitmap(requireContext(), it) }
+                    uploadImageToFirebase(uriImage, this, requireContext()) {
+                        avatar2 = it
+                        Log.d("myUri", avatar2)
+                        viewModel.updateUserProfile(
+                            UpdateProfileRequest(fullName, email, phoneNumber, "${avatar2}.jpeg"),
+                            preferences.getUserId(), "${PlanConstants.BEARER} ${preferences.getToken()}"
+                        )
+
+                    }
+                }
+            }
+        }catch (e: Exception){
+            e.printStackTrace()
+        }
     }
 
     private fun initObserversMyPlansTotal() {
@@ -288,7 +353,6 @@ class ProfileFragment : Fragment() {
         }
     }
 
-
     private fun getUserDetails() {
         viewModel.getUserDetails(preferences.getUserId(), "Bearer ${preferences.getToken()}")
     }
@@ -300,6 +364,16 @@ class ProfileFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun send_ImageUri(data: Int) {
+        image_data = data
+        if (image_data == 1) {
+            openImageChooser()
+            readStorage()
+        } else if (image_data == 2) {
+            uploadImageWithCamera()
+        }
     }
 
 }

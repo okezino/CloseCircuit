@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -43,6 +44,8 @@ class EditProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
         // Inflate the layout for this fragment
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         return binding.root
@@ -65,6 +68,9 @@ class EditProfileFragment : Fragment() {
             val phone = PhoneNumberSplitter.phoneNumberCode(args.phoneNumber)
             editProfilePhoneNumberTextInput.setText(phone)
             editProfileEmailTextInput.setText(args.email)
+
+            handleBackPress()
+            binding.fragmentEditProfileToolbarBackArrowIv.setOnClickListener { popBackStack() }
         }
 
         binding.editProfileButton.setOnClickListener {
@@ -86,7 +92,7 @@ class EditProfileFragment : Fragment() {
                     UpdateProfileRequest(
                         binding.editProfileFullNameTextInput.text.toString(),
                         binding.editProfileEmailTextInput.text.toString(),
-                        countryCode+phoneNumber, URL("http://www.example.com/docs/resource1.html")
+                        countryCode+phoneNumber, args.avatar
                     ),
                     args.userId, "${PlanConstants.BEARER} ${preferences.getToken()}"
                 )

@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.handleBackPress
+import com.example.closedcircuitapplication.common.utils.popBackStack
 import com.example.closedcircuitapplication.databinding.FragmentLoanScheduleBinding
 import com.example.closedcircuitapplication.databinding.FragmentLoansScreenBinding
 
@@ -20,9 +23,17 @@ class LoanScheduleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
         _binding = FragmentLoanScheduleBinding.inflate(inflater, container, false)
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        handleBackPress()
+        binding.fragmentLoanScheduleToolbarBackArrowIv.setOnClickListener { popBackStack() }
     }
 
     override fun onResume() {

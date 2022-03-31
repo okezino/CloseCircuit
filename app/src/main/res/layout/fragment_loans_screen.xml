@@ -7,6 +7,22 @@
     android:background="@color/white"
     tools:context=".loan.presentation.ui.screens.LoansScreenFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/fragment_loan_screen_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_10dp"
+        android:paddingRight="@dimen/padding_10dp">
+
+        <ImageView
+            android:id="@+id/fragment_loan_screen_toolbar_backArrow_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_button"
+            tools:ignore="ContentDescription"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -7,6 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".loan.presentation.ui.screens.LoanScheduleFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/fragment_loan_schedule_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_10dp"
+        android:paddingRight="@dimen/padding_10dp"
+        app:elevation="@dimen/elevation_4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/fragment_loan_schedule_toolbar_backArrow_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_button"
+            tools:ignore="ContentDescription"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -125,13 +145,13 @@
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
-                    android:fontFamily="@font/helvetica"
-                    tools:text="@string/ngn"
+                    android:text="@string/ngn"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
 
                 <EditText
+                    android:paddingStart="@dimen/margin_10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_background_5dp"
@@ -160,12 +180,13 @@
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
-                    tools:text="@string/ngn"
+                    android:text="@string/ngn"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
 
                 <EditText
+                    android:paddingStart="@dimen/margin_10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_background_5dp"

@@ -168,7 +168,7 @@
         tools:layout="@layout/fragment_email_verification_successful" />
     <dialog
         android:id="@+id/uploadImageBottomSheetFragment2"
-        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.UploadImageBottomSheetFragment"
         android:label="fragment_upload_image_bottom_sheet"
         tools:layout="@layout/fragment_upload_image_bottom_sheet" >
         <argument
@@ -337,6 +337,9 @@
             app:argType="string" />
         <argument
             android:name="confirm_password"
+            app:argType="string" />
+        <argument
+            android:name="avatar"
             app:argType="string" />
     </fragment>
 <fragment

@@ -25,7 +25,6 @@ import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.uploadImageToFirebase
 import com.example.closedcircuitapplication.databinding.FragmentCreateAPlanBinding
 import com.example.closedcircuitapplication.plan.utils.PlanUtils
-import com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment
 
 
 class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {

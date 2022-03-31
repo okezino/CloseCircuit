@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.authentication.presentation.ui.adapter.OnBoardingItemAdapter
 import com.example.closedcircuitapplication.authentication.utils.DataFactory
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
+import com.example.closedcircuitapplication.common.utils.handleBackPress
+import com.example.closedcircuitapplication.common.utils.popBackStack
 import com.example.closedcircuitapplication.dashboard.presentation.ui.screens.ProfileFragmentDirections
 import com.example.closedcircuitapplication.databinding.FragmentLoansScreenBinding
 import com.example.closedcircuitapplication.loan.presentation.models.LoanStatus
@@ -26,6 +29,7 @@ class LoansScreenFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
         _binding = FragmentLoansScreenBinding.inflate(inflater, container, false)
 
         initData()
@@ -37,9 +41,15 @@ class LoansScreenFragment : Fragment() {
                 customNavAnimation().build()
             )
         }
-
         return binding.root
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        handleBackPress()
+        binding.fragmentLoanScreenToolbarBackArrowIv.setOnClickListener { popBackStack() }
     }
 
     private fun initData(){
