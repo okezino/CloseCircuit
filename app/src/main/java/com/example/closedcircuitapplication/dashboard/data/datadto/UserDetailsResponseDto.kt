@@ -14,6 +14,8 @@ data class UserDetailsResponseDto(
     val fullName: String,
     @SerializedName("id")
     val id: String,
+    @SerializedName("avatar")
+    val avatar: String,
     @SerializedName("is_beneficiary")
     val isBeneficiary: Boolean,
     @SerializedName("is_sponsor")

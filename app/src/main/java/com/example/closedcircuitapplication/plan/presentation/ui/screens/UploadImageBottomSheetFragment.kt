@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.ui.createAPlantScreenUi
+package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater

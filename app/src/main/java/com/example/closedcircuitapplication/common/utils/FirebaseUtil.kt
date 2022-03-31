@@ -2,7 +2,6 @@ package com.example.closedcircuitapplication.common.utils
 
 import android.content.Context
 import android.net.Uri
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import com.example.closedcircuitapplication.plan.utils.PlanConstants
 import com.google.firebase.storage.FirebaseStorage

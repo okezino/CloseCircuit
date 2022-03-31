@@ -168,7 +168,7 @@
         tools:layout="@layout/fragment_email_verification_successful" />
     <dialog
         android:id="@+id/uploadImageBottomSheetFragment2"
-        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.UploadImageBottomSheetFragment"
         android:label="fragment_upload_image_bottom_sheet"
         tools:layout="@layout/fragment_upload_image_bottom_sheet" >
         <argument
@@ -338,6 +338,9 @@
         <argument
             android:name="confirm_password"
             app:argType="string" />
+        <argument
+            android:name="avatar"
+            app:argType="string" />
     </fragment>
 <fragment
         android:id="@+id/complaintAndIssuesFragment"
@@ -442,5 +445,23 @@
         android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsStepsLoginFragment"
         android:label="fragment_settings_steps_login"
         tools:layout="@layout/fragment_settings_steps_login" />
+    <fragment
+        android:id="@+id/loansScreenFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoansScreenFragment"
+        android:label="fragment_loans_screen"
+        tools:layout="@layout/fragment_loans_screen" >
+        <action
+            android:id="@+id/action_loansScreenFragment_to_loanScheduleFragment"
+            app:destination="@id/loanScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanScheduleFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoanScheduleFragment"
+        android:label="fragment_loan_schedule"
+        tools:layout="@layout/fragment_loan_schedule" >
+        <action
+            android:id="@+id/action_loanScheduleFragment_to_loansScreenFragment"
+            app:destination="@id/loansScreenFragment" />
+    </fragment>
 
 </navigation>

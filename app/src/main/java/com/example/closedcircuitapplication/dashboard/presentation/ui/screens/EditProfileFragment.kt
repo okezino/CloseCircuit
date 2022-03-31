@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -19,6 +20,8 @@ import com.example.closedcircuitapplication.databinding.FragmentEditProfileBindi
 import com.example.closedcircuitapplication.plan.presentation.ui.screens.EditPlanFragmentDirections
 import com.example.closedcircuitapplication.plan.utils.PlanConstants
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
+import java.net.URL
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -41,6 +44,8 @@ class EditProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
         // Inflate the layout for this fragment
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         return binding.root
@@ -63,6 +68,9 @@ class EditProfileFragment : Fragment() {
             val phone = PhoneNumberSplitter.phoneNumberCode(args.phoneNumber)
             editProfilePhoneNumberTextInput.setText(phone)
             editProfileEmailTextInput.setText(args.email)
+
+            handleBackPress()
+            binding.fragmentEditProfileToolbarBackArrowIv.setOnClickListener { popBackStack() }
         }
 
         binding.editProfileButton.setOnClickListener {
@@ -84,7 +92,8 @@ class EditProfileFragment : Fragment() {
                     UpdateProfileRequest(
                         binding.editProfileFullNameTextInput.text.toString(),
                         binding.editProfileEmailTextInput.text.toString(),
-                        countryCode+phoneNumber),
+                        countryCode+phoneNumber, args.avatar
+                    ),
                     args.userId, "${PlanConstants.BEARER} ${preferences.getToken()}"
                 )
 
@@ -101,7 +110,6 @@ class EditProfileFragment : Fragment() {
         viewModel.updateProfileResponse.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Loading -> {
-
                 }
                 is Resource.Success -> {
                 }
