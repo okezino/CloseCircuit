@@ -120,10 +120,11 @@
                 app:layout_constraintTop_toBottomOf="@id/fullNameTextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:editable="false"
                     android:id="@+id/editProfileEmailTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
