@@ -76,7 +76,6 @@ dependencies {
     implementation Dependencies.navigation_ui_ktx
     implementation Dependencies.leung_pinview
     implementation Dependencies.phone_picker_ccp
-    implementation Dependencies.currency_picker_android
     implementation Dependencies.viewpagerindicator
     implementation Dependencies.otp_pin_view
 
