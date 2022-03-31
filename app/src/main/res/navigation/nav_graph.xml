@@ -190,7 +190,7 @@
         tools:layout="@layout/fragment_edit_plan" />
     <fragment
         android:id="@+id/uploadImageBottomSheetFragment"
-        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.UploadImageBottomSheetFragment"
         android:label="fragment_upload_image_bottom_sheet"
         tools:layout="@layout/fragment_upload_image_bottom_sheet" />
     <fragment

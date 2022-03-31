@@ -120,4 +120,7 @@
     <dimen name="width_64dp">64dp</dimen>
     <dimen name="margin_17dp">17dp</dimen>
     <dimen name="margin_18dp">18dp</dimen>
+    <dimen name="card_width_376">376dp</dimen>
+    <dimen name="card_height_145">145dp</dimen>
+    <dimen name="loan_screen_margin">42dp</dimen>
 </resources>

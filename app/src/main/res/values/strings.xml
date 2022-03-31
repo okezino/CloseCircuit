@@ -126,6 +126,34 @@
         <item>Others</item>
     </string-array>
 
+    <string-array name= "Means_of_support">
+        <item>Technology</item>
+        <item>Agriculture</item>
+        <item>Professional Services</item>
+        <item>Retail</item>
+        <item>Artisan</item>
+        <item>Hair and Beauty</item>
+        <item>Financial Services</item>
+        <item>Health Care</item>
+        <item>Catering</item>
+        <item>Hospitality</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name = "number_of_lenders">
+        <item>Technology</item>
+        <item>Agriculture</item>
+        <item>Professional Services</item>
+        <item>Retail</item>
+        <item>Artisan</item>
+        <item>Hair and Beauty</item>
+        <item>Financial Services</item>
+        <item>Health Care</item>
+        <item>Catering</item>
+        <item>Hospitality</item>
+        <item>Others</item>
+    </string-array>
+
     <string-array name="Choose_country">
         <item>Nigeria</item>
         <item>South Africa</item>
@@ -167,12 +195,49 @@
         <item>Both(loans and donations)</item>
     </string-array>
 
-    <string-array name="number_of_lenders">
+    <string-array name="total_number_of_lenders">
         <item>Select amount of lenders</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
     </string-array>
+
+
+    <string-array name="grace_duration">
+        <item>Select grace duration</item>
+        <item>1 Months</item>
+        <item>2 Months</item>
+        <item>3 Months</item>
+        <item>4 Months</item>
+        <item>5 Months</item>
+        <item>6 Months</item>
+    </string-array>
+
+    <string-array name="repayment_duration">
+        <item>Select repayment duration</item>
+        <item>1 Months</item>
+        <item>2 Months</item>
+        <item>3 Months</item>
+        <item>4 Months</item>
+        <item>5 Months</item>
+        <item>6 Months</item>
+        <item>7 Months</item>
+        <item>8 Months</item>
+        <item>9 Months</item>
+        <item>10 Months</item>
+        <item>11 Months</item>
+        <item>12 Months</item>
+    </string-array>
+
+    <string-array name="loan_interest">
+        <item>Select loan interest rate</item>
+        <item>1% Interest rate</item>
+        <item>2% Interest rate</item>
+        <item>3% Interest rate</item>
+        <item>4% Interest rate</item>
+        <item>5% Interest rate</item>
+    </string-array>
+
 
     <string-array name="currency_type">
         <item>NGN</item>
@@ -410,6 +475,21 @@
     <string name="_4_months">4 Months</string>
     <string name="plan_duration">Plan Duration</string>
     <string name="target_amount">Target Amount</string>
+    <string name="ngn_30_000_00">NGN 30,000.00</string>
+    <string name="loan_disbursed">Loan disbursed</string>
+    <string name="loan_offers">Loan offers</string>
+    <string name="current_loans">Current loans</string>
+    <string name="loans_declined">Loans declined</string>
+    <string name="loan_schedule">Loan schedule</string>
+    <string name="how_do_you_want_to_be_supported">How do you want to be supported?</string>
+    <string name="select_your_preferred_means_of_support">Select your preferred means of support</string>
+    <string name="select_your_preferred_loan_schedule">Select your preferred loan schedule.</string>
+    <string name="what_s_your_loan_range">What’s your loan range?</string>
+    <string name="minimum_">Minimum</string>
+    <string name="select_maximum_number_of_lenders">Select Maximum number of lenders</string>
+    <string name="select_grace_duration">Select grace duration</string>
+    <string name="select_repayment_duration">Select repayment duration</string>
+    <string name="select_loan_interest_rate">Select loan interest rate</string>
     <string name="account">Account</string>
     <string name="_0__">+0%</string>
     <string name="funds_released">Funds released</string>

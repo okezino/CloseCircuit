@@ -14,7 +14,7 @@
             android:title=""
             android:enabled="false"/>
         <item
-            android:id="@+id/messageFragment2"
+            android:id="@+id/loansScreenFragment"
             android:icon="@drawable/ic_messages"
             android:title="@string/menu_message" />
         <item

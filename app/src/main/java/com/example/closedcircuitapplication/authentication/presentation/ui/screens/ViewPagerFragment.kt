@@ -47,6 +47,7 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
 
 
         binding.onBoardingViewPager.adapter = onBoardingItemAdapter
+
         setUpIndicator()
         isCurrentIndicator(0)
         binding.onBoardingViewPager.registerOnPageChangeCallback(object :
