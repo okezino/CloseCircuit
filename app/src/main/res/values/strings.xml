@@ -524,7 +524,7 @@
     <string name="send_a_message">Send a message</string>
     <string name="decline_loan_message">You are about to decline a loan offer, would you like to send the Sponsor a message?</string>
     <string name="loan_summary">You are about to accept a loan offer of %1$s to pay back %2$s starting 3 months from now and to end 3 months after. The loan amount would be credited to your wallet.</string>
-    <string name="ok_continue">Ok, Continue</string>
+    <string name="ok_continue">OK, Continue</string>
     <string name="fish_farming">Fish Farming</string>
     <string name="ngn_3_000">NGN 3,000</string>
     <string name="total_number_of_sponsors">Total Number of Sponsors:</string>
