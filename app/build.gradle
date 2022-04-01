@@ -76,7 +76,6 @@ dependencies {
     implementation Dependencies.navigation_ui_ktx
     implementation Dependencies.leung_pinview
     implementation Dependencies.phone_picker_ccp
-    implementation Dependencies.currency_picker_android
     implementation Dependencies.viewpagerindicator
     implementation Dependencies.otp_pin_view
 
@@ -142,6 +141,7 @@ dependencies {
 
 
     //Android-Image-Cropper
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
 
     //Glide

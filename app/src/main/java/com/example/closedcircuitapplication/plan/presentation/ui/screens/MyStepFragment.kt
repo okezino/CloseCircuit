@@ -36,7 +36,7 @@ class MyStepFragment : Fragment() {
     private lateinit var  planId : String
     private lateinit var   deleteDialog : Dialog
     private val viewModel: PlanViewModel by viewModels()
-    private val args: MyStepFragmentArgs by navArgs()
+//    private val args: MyStepFragmentArgs by navArgs()
 
     @Inject
     lateinit var preferences : Preferences
@@ -57,9 +57,9 @@ class MyStepFragment : Fragment() {
         initObservers()
 
         val dialogBinding = DeletePlanDialogBinding.inflate(layoutInflater)
-
-         planId  = args.planId
-
+//        if (args != null) {
+//            planId = args.planId
+//        }
         budgetAdapter.submitList(budgetList)
         manageUiView()
         binding.myStepsRecyclerView.apply {

@@ -6,14 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.closedcircuitapplication.common.data.network.models.Result
 import com.example.closedcircuitapplication.common.utils.Resource
-import com.example.closedcircuitapplication.dashboard.data.datadto.UpdateProfileResponseDto
 import com.example.closedcircuitapplication.dashboard.data.datadto.UserDetailsResponseDto
 import com.example.closedcircuitapplication.dashboard.data.datadto.UserEditProfileResponseDto
 import com.example.closedcircuitapplication.dashboard.domain.model.UpdateProfileRequest
 import com.example.closedcircuitapplication.dashboard.domain.usecase.GetUserDetailsUseCase
 import com.example.closedcircuitapplication.dashboard.domain.usecase.UpdateProfileUseCae
-import com.example.closedcircuitapplication.plan.data.datadto.UpdatePlanResponseDto
-import com.example.closedcircuitapplication.plan.domain.models.UpdatePlanRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -47,5 +44,4 @@ class DashboardViewModel @Inject constructor(
             }
         }
     }
-
 }

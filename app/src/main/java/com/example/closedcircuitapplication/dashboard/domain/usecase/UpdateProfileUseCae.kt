@@ -9,7 +9,7 @@ import com.example.closedcircuitapplication.dashboard.domain.model.UpdateProfile
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class UpdateProfileUseCae @Inject constructor(private val dashboardRepository: DashboardRepository){
+class UpdateProfileUseCae @Inject constructor(private val dashboardRepository: DashboardRepository) {
     suspend operator fun invoke(updateProfileRequest: UpdateProfileRequest, userId: String, token: String): Flow<Resource<Result<UserEditProfileResponseDto>>> =
         dashboardRepository.editUserProfile(updateProfileRequest, userId, token)
 }

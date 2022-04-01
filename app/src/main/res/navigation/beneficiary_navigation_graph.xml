@@ -44,9 +44,6 @@
         android:label="fragment_create_plan"
         tools:layout="@layout/fragment_create_plan">
 
-        <action
-            android:id="@+id/action_createPlanFragment_to_sendFundsSummaryFragment"
-            app:destination="@id/sendFundsSummaryFragment" />
         <argument
             android:name="planId"
             app:argType="string" />
@@ -56,6 +53,9 @@
         <action
             android:id="@+id/action_createPlanFragment_to_projectScreenFragment"
             app:destination="@id/projectScreenFragment" />
+        <action
+            android:id="@+id/action_createPlanFragment_to_createStepsFragment"
+            app:destination="@id/createStepsFragment" />
     </fragment>
     <fragment
         android:id="@+id/createPlanBudgetFragment"
@@ -70,6 +70,9 @@
         <action
             android:id="@+id/action_createPlanStepsFragment_to_myStepFragment"
             app:destination="@id/myStepFragment" />
+        <action
+            android:id="@+id/action_createPlanStepsFragment_to_stepViewFragment"
+            app:destination="@id/stepViewFragment" />
     </fragment>
 
     <fragment
@@ -79,7 +82,8 @@
         tools:layout="@layout/fragment_create_steps" >
         <action
             android:id="@+id/action_createStepsFragment_to_createPlanFragment"
-            app:destination="@id/createPlanFragment" />
+            app:destination="@id/createPlanFragment"
+            app:popUpTo="@id/createPlanFragment"/>
     </fragment>
     <fragment
         android:id="@+id/createBudgetFragment"
@@ -449,6 +453,35 @@
         android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsStepsLoginFragment"
         android:label="fragment_settings_steps_login"
         tools:layout="@layout/fragment_settings_steps_login" />
+    <fragment
+        android:id="@+id/stepViewFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.StepViewFragment"
+        android:label="fragment_step_view"
+        tools:layout="@layout/fragment_step_view" >
+
+        <argument
+            android:name="BudgetDetails"
+            app:argType="com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem" />
+        <action
+            android:id="@+id/action_stepViewFragment_to_editStepFragment"
+            app:destination="@id/editStepFragment" />
+        <action
+            android:id="@+id/action_stepViewFragment_to_createPlanFragment"
+            app:popUpTo="@id/createPlanFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/editStepFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.EditStepFragment"
+        android:label="fragment_edit_step"
+        tools:layout="@layout/fragment_edit_step" >
+        <argument
+            android:name="Step"
+            app:argType="com.example.closedcircuitapplication.common.data.network.models.Step" />
+        <action
+            android:id="@+id/action_editStepFragment_to_createPlanFragment"
+            app:popUpTo="@id/createPlanFragment"/>
+    </fragment>
     <fragment
         android:id="@+id/loansScreenFragment"
         android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoansScreenFragment"
