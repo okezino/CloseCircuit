@@ -247,7 +247,7 @@
     <!--    Edit Text Styles-->
 
     <style name="LoanOfferText_style" parent="NormalFaintText">
-        <item name="android:layout_width">@dimen/width_0dp</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
