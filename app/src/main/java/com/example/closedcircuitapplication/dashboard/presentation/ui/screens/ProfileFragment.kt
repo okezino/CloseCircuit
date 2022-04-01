@@ -110,7 +110,7 @@ class ProfileFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
     }
 
     private fun showUploadImageBottomSheetDialog() {
-        UploadImageBottomSheetFragment(this).show(
+        ProfileScreenUploadImageBottomSheetFragment(this).show(
             requireActivity().supportFragmentManager,
             "uploadImageBottomSheet"
         )

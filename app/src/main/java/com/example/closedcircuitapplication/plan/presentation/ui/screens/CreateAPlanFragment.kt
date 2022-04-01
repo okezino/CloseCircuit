@@ -131,24 +131,35 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_CODE_IMAGE_PICKER) {
-            binding.uploadImageIV.setImageURI(data!!.data)
-            uri = data.data
-            uploadImageToFirebase(uri,this,requireContext()){
-                avatar = it
-            }
-        }
-        // upload image using camera
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == CAMERA_REQUEST_CODE) {
-                val pictureBitmap = data!!.getParcelableExtra<Bitmap>("data")
-                binding.uploadImageIV.setImageBitmap(pictureBitmap)
-                val uriImage = pictureBitmap?.let { PlanUtils.getImageUriFromBitmap(requireContext(), it) }
-                uploadImageToFirebase(uriImage,this,requireContext()){
+        try {
+            if (requestCode == REQUEST_CODE_IMAGE_PICKER) {
+                binding.uploadImageIV.setImageURI(data!!.data)
+                uri = data.data
+                uploadImageToFirebase(uri,this,requireContext()){
                     avatar = it
                 }
             }
+        }catch (e: Exception){
+            e.printStackTrace()
         }
+
+        // upload image using camera
+        try {
+            if (resultCode == Activity.RESULT_OK) {
+                if (requestCode == CAMERA_REQUEST_CODE) {
+                    val pictureBitmap = data!!.getParcelableExtra<Bitmap>("data")
+                    binding.uploadImageIV.setImageBitmap(pictureBitmap)
+                    val uriImage = pictureBitmap?.let { PlanUtils.getImageUriFromBitmap(requireContext(), it) }
+                    uploadImageToFirebase(uriImage,this,requireContext()){
+                        avatar = it
+                    }
+                }
+            }
+        }catch (e: Exception){
+            e.printStackTrace()
+
+        }
+
     }
 
     override fun onRequestPermissionsResult(

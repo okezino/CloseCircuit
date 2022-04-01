@@ -127,7 +127,7 @@
         <item>Others</item>
     </string-array>
 
-    <string-array name= "Means_of_support">
+    <string-array name="Means_of_support">
         <item>Technology</item>
         <item>Agriculture</item>
         <item>Professional Services</item>
@@ -141,7 +141,7 @@
         <item>Others</item>
     </string-array>
 
-    <string-array name = "number_of_lenders">
+    <string-array name="number_of_lenders">
         <item>Technology</item>
         <item>Agriculture</item>
         <item>Professional Services</item>
@@ -468,4 +468,5 @@
     <string name="bank_details">Bank details</string>
     <string name="card_details">Card details</string>
     <string name="kyc">KYC</string>
+    <string name="profile_image">Profile Image</string>
 </resources>

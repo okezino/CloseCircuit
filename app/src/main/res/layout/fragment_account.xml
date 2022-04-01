@@ -118,7 +118,7 @@
             app:layout_constraintTop_toBottomOf="@id/fragment_user_account_tabLayout">
 
             <RelativeLayout
-                android:id="@+id/fragment_user_account_loans_RL"
+                android:id="@+id/navigateToLoanScreen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -167,6 +167,7 @@
                     android:background="@drawable/user_account_chevron_container" />
 
                 <ImageView
+                    android:id="@+id/accountLoan_navigate_to_loan_screen"
                     android:layout_width="@dimen/width_24dp"
                     android:layout_height="@dimen/height_24dp"
                     android:layout_alignStart="@id/fragment_user_account_loan_chevron"
