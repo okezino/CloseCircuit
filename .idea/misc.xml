@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/drawable-anydpi/ic_copy.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_menu.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_plus.xml" value="0.16302083333333334" />
+        <entry key="app/src/main/res/drawable-hdpi/sponsor_item_background.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable-mdpi/end_icon_dropdown_drawable.xml" value="0.253125" />
         <entry key="app/src/main/res/drawable-mdpi/ic_autocomplete_dropdown_icon_normal_state.xml" value="0.253125" />
         <entry key="app/src/main/res/drawable-mdpi/ic_autocomplete_dropdown_icon_state_checked.xml" value="0.253125" />
@@ -68,6 +69,7 @@
         <entry key="app/src/main/res/drawable/tab_indicator.xml" value="0.21481481481481482" />
         <entry key="app/src/main/res/drawable/user_account_chevron_container.xml" value="0.19446254071661237" />
         <entry key="app/src/main/res/drawable/user_account_loan_container.xml" value="0.19638157894736843" />
+        <entry key="app/src/main/res/layout/accept_loan_offer_dialog.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/active_user_dashboard.xml" value="0.27716389136984754" />
         <entry key="app/src/main/res/layout/activity_beneficiary_dashboard.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
@@ -83,6 +85,7 @@
         <entry key="app/src/main/res/layout/custom_login_wait_dialog.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/custom_tabs.xml" value="0.2" />
         <entry key="app/src/main/res/layout/cutom_login_successful_dialog.xml" value="0.1585144927536232" />
+        <entry key="app/src/main/res/layout/decline_offer_dialog.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/delete_plan_dialog.xml" value="0.18" />
         <entry key="app/src/main/res/layout/delete_step_dialog.xml" value="0.21920289855072464" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.13768115942028986" />
@@ -104,6 +107,7 @@
         <entry key="app/src/main/res/layout/fragment_create_steps.xml" value="0.21875" />
         <entry key="app/src/main/res/layout/fragment_customer_care.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_decline_loan_offer.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/fragment_edit_plan.xml" value="0.2606541129831516" />
         <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.25" />
@@ -117,6 +121,9 @@
         <entry key="app/src/main/res/layout/fragment_fund_sent_successfully.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/fragment_how_to_use_suport.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/fragment_learn_about_us.xml" value="0.23125" />
+        <entry key="app/src/main/res/layout/fragment_loan_detail.xml" value="0.14175724637681159" />
+        <entry key="app/src/main/res/layout/fragment_loan_offer.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_loan_offer_details.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_message.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_my_budget.xml" value="0.18" />
@@ -152,6 +159,9 @@
         <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_whatis_the_closed_circuit.xml" value="0.204" />
         <entry key="app/src/main/res/layout/fragment_when_project_is_not_funded.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/loan_offer_detail_item.xml" value="0.14175724637681159" />
+        <entry key="app/src/main/res/layout/loan_offer_item.xml" value="0.14175724637681159" />
+        <entry key="app/src/main/res/layout/loan_sponsors_image_item.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/my_budget_sponsor_item_layout.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/plan_item.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/project_item.xml" value="0.23125" />

@@ -14,6 +14,9 @@
             android:id="@+id/action_dashboardFragment_to_projectScreenFragment2"
             app:destination="@id/projectScreenFragment"
             />
+        <action
+            android:id="@+id/action_dashboardFragment_to_loanOfferFragment"
+            app:destination="@id/loanOfferFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment2"
@@ -495,6 +498,51 @@
         <action
             android:id="@+id/action_loanScheduleFragment_to_loansScreenFragment"
             app:destination="@id/loansScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/declineLoanOfferFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.DeclineLoanOfferFragment"
+        android:label="fragment_decline_loan_offer"
+        tools:layout="@layout/fragment_decline_loan_offer" >
+        <action
+            android:id="@+id/action_declineLoanOfferFragment_to_loanOfferFragment"
+            app:destination="@id/loanOfferFragment" />
+        <action
+            android:id="@+id/action_declineLoanOfferFragment_to_loanOfferDetailsFragment"
+            app:destination="@id/loanOfferDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanDetailFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoanDetailFragment"
+        android:label="fragment_loan_detail"
+        tools:layout="@layout/fragment_loan_detail" >
+        <action
+            android:id="@+id/action_loanDetailFragment_to_declineLoanOfferFragment"
+            app:destination="@id/declineLoanOfferFragment" />
+        <action
+            android:id="@+id/action_loanDetailFragment_to_loanOfferFragment"
+            app:destination="@id/loanOfferFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanOfferFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoanOfferFragment"
+        android:label="fragment_loan_offer"
+        tools:layout="@layout/fragment_loan_offer" >
+        <action
+            android:id="@+id/action_loanOfferFragment_to_loanOfferDetailsFragment"
+            app:destination="@id/loanOfferDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanOfferDetailsFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoanOfferDetailsFragment"
+        android:label="fragment_loan_offer_details"
+        tools:layout="@layout/fragment_loan_offer_details" >
+        <action
+            android:id="@+id/action_loanOfferDetailsFragment_to_loanDetailFragment"
+            app:destination="@id/loanDetailFragment" />
+        <action
+            android:id="@+id/action_loanOfferDetailsFragment_to_declineLoanOfferFragment"
+            app:destination="@id/declineLoanOfferFragment" />
     </fragment>
 
 </navigation>

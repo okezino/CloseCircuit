@@ -1,13 +1,23 @@
 package com.example.closedcircuitapplication.common.utils
 
+import android.app.Activity
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.databinding.AcceptLoanOfferDialogBinding
+import com.example.closedcircuitapplication.databinding.ActivityBeneficiaryDashboardBinding
+import com.example.closedcircuitapplication.databinding.DeclineOfferDialogBinding
 import com.example.closedcircuitapplication.databinding.LogoutDialogLayoutBinding
+import com.example.closedcircuitapplication.loan.presentation.ui.screens.LoanDetailFragmentDirections
 import com.google.android.material.snackbar.Snackbar
 
 // this is used for navigation animation
@@ -71,4 +81,53 @@ fun showLogOutDialog(context: Context, binding: LogoutDialogLayoutBinding, resou
     }
     return dialog
 }
+
+
+fun Fragment.showAcceptLoanOfferAlertDialog(dialogBinding: AcceptLoanOfferDialogBinding, loanAmount: String, totalAmount:String, acceptLoanOffer:()-> Unit): Dialog {
+    val dialog = Dialog(requireContext()).apply {
+        setContentView(dialogBinding.root)
+        setCancelable(true)
+        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    }
+    dialogBinding.acceptLoanSummaryDialogTv.text = getString(R.string.loan_summary, loanAmount, totalAmount)
+
+
+    dialogBinding.acceptLoanOfferBtn.setOnClickListener {
+        acceptLoanOffer.invoke()
+        dialog.dismiss()
+        findNavController().navigate(LoanDetailFragmentDirections.actionLoanDetailFragmentToLoanOfferFragment(), customNavAnimation().build())
+    }
+    return dialog
+}
+
+fun Fragment.showDeclineLoanOfferAlertDialog(dialogBinding: DeclineOfferDialogBinding, declineLoanOffer:()-> Unit): Dialog {
+    val dialog = Dialog(requireContext()).apply {
+        setContentView(dialogBinding.root)
+        setCancelable(true)
+        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    }
+
+    dialogBinding.sendMessageT0SponsorBtn.setOnClickListener {
+        findNavController().navigate(LoanDetailFragmentDirections.actionLoanDetailFragmentToDeclineLoanOfferFragment(), customNavAnimation().build())
+        dialog.dismiss()
+    }
+    dialogBinding.declineLoanOfferBtn.setOnClickListener {
+        declineLoanOffer.invoke()
+        dialog.dismiss()
+        Toast.makeText(requireContext(), "Loan Declined", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(LoanDetailFragmentDirections.actionLoanDetailFragmentToLoanOfferFragment(), customNavAnimation().build())
+
+    }
+    return dialog
+}
+
+fun Activity.showToolbarHeader(binding: ActivityBeneficiaryDashboardBinding){
+    binding.appBarDashboard.toolbarHeaderTitleTv.visibility= View.VISIBLE
+    binding.appBarDashboard.toolbarHeaderTitleTv.text = "Loan offers"
+    binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
+    binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
+    binding.appBarDashboard.contentMain.bottomAppBar.visibility = View.GONE
+    binding.appBarDashboard.contentMain.fab.visibility = View.GONE
+}
+
 
