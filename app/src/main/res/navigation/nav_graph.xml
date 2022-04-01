@@ -161,18 +161,9 @@
         tools:layout="@layout/fragment_message" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.ProfileFragment"
+        android:name="com.example.closedcircuitapplication.profile.presentation.ui.screens.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/accountFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.AccountFragment"
-        android:label="fragment_account"
-        tools:layout="@layout/fragment_account" >
-        <action
-            android:id="@+id/action_accountFragment_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragment"/>
-    </fragment>
     <fragment
         android:id="@+id/createAPlanFragment"
         android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreateAPlanFragment"
@@ -197,6 +188,11 @@
         android:id="@+id/dashboardFragment2"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.DashboardFragment"
         android:label="DashboardFragment" />
+    <fragment
+        android:id="@+id/loanScheduleFragment2"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoanScheduleFragment"
+        android:label="fragment_loan_schedule"
+        tools:layout="@layout/fragment_loan_schedule" />
     <!--    <fragment-->
 <!--        android:id="@+id/creatPlanStepOneFragment2"-->
 <!--        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatPlanStepOneFragment"-->

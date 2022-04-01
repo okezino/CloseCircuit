@@ -19,7 +19,11 @@
         android:id="@+id/accountFragment2"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment2_to_loansScreenFragment2"
+            app:destination="@id/loansScreenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/messageFragment"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.MessageFragment"
@@ -27,7 +31,7 @@
         tools:layout="@layout/fragment_message" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.ProfileFragment"
+        android:name="com.example.closedcircuitapplication.profile.presentation.ui.screens.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -316,7 +320,7 @@
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.EditProfileFragment"
+        android:name="com.example.closedcircuitapplication.profile.presentation.ui.screens.EditProfileFragment"
         android:label="EditProfileFragment" >
         <argument
             android:name="fullName"
@@ -486,6 +490,9 @@
         <action
             android:id="@+id/action_loansScreenFragment_to_loanScheduleFragment"
             app:destination="@id/loanScheduleFragment" />
+        <action
+            android:id="@+id/action_loansScreenFragment_to_accountFragment2"
+            app:destination="@id/accountFragment2" />
     </fragment>
     <fragment
         android:id="@+id/loanScheduleFragment"

@@ -7,13 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
-import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.authentication.presentation.ui.adapter.OnBoardingItemAdapter
-import com.example.closedcircuitapplication.authentication.utils.DataFactory
 import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.handleBackPress
 import com.example.closedcircuitapplication.common.utils.popBackStack
-import com.example.closedcircuitapplication.dashboard.presentation.ui.screens.ProfileFragmentDirections
 import com.example.closedcircuitapplication.databinding.FragmentLoansScreenBinding
 import com.example.closedcircuitapplication.loan.presentation.models.LoanStatus
 import com.example.closedcircuitapplication.loan.presentation.ui.adapters.LoanViewPagerAdapter

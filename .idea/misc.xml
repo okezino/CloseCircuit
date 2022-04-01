@@ -125,7 +125,12 @@
         <entry key="app/src/main/res/layout/fragment_password_recovery_successful.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_payments_support.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/fragment_plan_created_sucessfully.xml" value="0.23229166666666667" />
+<<<<<<< HEAD
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_profile_screen_upload_image_bottom_sheet.xml" value="0.29791666666666666" />
+=======
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+>>>>>>> d7ae118ef9db875d388825485644dd28d9a584c0
         <entry key="app/src/main/res/layout/fragment_project_screen.xml" value="0.13768115942028986" />
         <entry key="app/src/main/res/layout/fragment_recover_password_otp.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_request_verification_successfull.xml" value="0.15555555555555556" />

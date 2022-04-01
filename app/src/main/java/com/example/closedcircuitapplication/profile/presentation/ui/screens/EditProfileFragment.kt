@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.dashboard.presentation.ui.screens
+package com.example.closedcircuitapplication.profile.presentation.ui.screens
 
 import android.os.Bundle
 import android.util.Log
@@ -17,11 +17,8 @@ import com.example.closedcircuitapplication.common.utils.*
 import com.example.closedcircuitapplication.dashboard.domain.model.UpdateProfileRequest
 import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentEditProfileBinding
-import com.example.closedcircuitapplication.plan.presentation.ui.screens.EditPlanFragmentDirections
 import com.example.closedcircuitapplication.plan.utils.PlanConstants
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
-import java.net.URL
 import javax.inject.Inject
 
 @AndroidEntryPoint
