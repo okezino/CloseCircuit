@@ -1,12 +1,10 @@
-package com.example.closedcircuitapplication.dashboard.presentation.ui.screens
+package com.example.closedcircuitapplication.profile.presentation.ui.screens
 
 import android.Manifest
 import android.app.Activity
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -34,7 +32,6 @@ import com.example.closedcircuitapplication.common.utils.*
 import com.example.closedcircuitapplication.dashboard.domain.model.UpdateProfileRequest
 import com.example.closedcircuitapplication.dashboard.presentation.ui.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentProfileBinding
-import com.example.closedcircuitapplication.plan.presentation.ui.screens.UploadImageBottomSheetFragment
 import com.example.closedcircuitapplication.plan.presentation.ui.viewmodels.PlanViewModel
 import com.example.closedcircuitapplication.plan.utils.PlanConstants
 import com.example.closedcircuitapplication.plan.utils.PlanUtils
@@ -42,7 +39,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.theartofdev.edmodo.cropper.CropImage
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
-import java.io.InputStream
 import java.net.MalformedURLException
 import java.net.URL
 import javax.inject.Inject
@@ -253,7 +249,7 @@ class ProfileFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                     binding.profileEditButton.setOnClickListener {
 
                         findNavController().navigate(
-                            ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(
+                                ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(
                                 fullName,
                                 phoneNumber,
                                 nationality,
@@ -265,7 +261,6 @@ class ProfileFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                             ),
                             customNavAnimation().build()
                         )
-
                     }
 //                  saving email to sharedPreference
                     it.data.data.let { email -> saveEmail(email.email) }

@@ -15,7 +15,6 @@
             android:layout_width="@dimen/height_40dp"
             android:layout_height="@dimen/height_40dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/diane_russell"
             app:layout_constraintBottom_toTopOf="@+id/project_summary_layout"
             app:layout_constraintEnd_toEndOf="@+id/project_title"
             app:layout_constraintHorizontal_bias="0.045"

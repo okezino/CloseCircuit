@@ -3,6 +3,7 @@ package com.example.closedcircuitapplication.plan.presentation.ui.screens
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,6 +18,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.utils.Resource
@@ -177,6 +180,10 @@ class ProjectSummaryFragment : Fragment() {
                 is Resource.Success -> {
                     planName.text =  it.data.data?.business_name
                     planDuration.text = it.data.data?.plan_duration
+                    Glide.with(this)
+                        .load(Uri.parse(it.data.data?.avatar))
+                        .apply(RequestOptions.circleCropTransform())
+                        .into(binding.planImageView)
                     sector.text = it.data.data?.plan_sector
                     _planDuration = it.data.data?.plan_duration.toString()
                     _planName = it.data.data?.business_name.toString()

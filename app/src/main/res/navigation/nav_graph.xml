@@ -161,7 +161,7 @@
         tools:layout="@layout/fragment_message" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.ProfileFragment"
+        android:name="com.example.closedcircuitapplication.profile.presentation.ui.screens.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
