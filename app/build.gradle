@@ -77,7 +77,7 @@ dependencies {
     implementation Dependencies.leung_pinview
     implementation Dependencies.phone_picker_ccp
     implementation Dependencies.viewpagerindicator
-    implementation Dependencies.otp_pin_view
+    ///implementation Dependencies.otp_pin_view
 
     // Retrofit
     implementation Dependencies.retrofit
