@@ -1,6 +1,5 @@
 package com.example.closedcircuitapplication.loan.presentation.ui.adapters
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +17,6 @@ class StackedRecyclerViewAdapter: RecyclerView.Adapter<StackedRecyclerViewAdapte
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun addSponsorImage(image : ArrayList<Int>){
         imageList.clear()
         imageList.addAll(image)
