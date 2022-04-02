@@ -24,7 +24,7 @@ class LoanOfferAdapter (private val loanOfferItemList : ArrayList<LoanOfferReque
             binding.valueTotalAmountOfferedTv.text = loanItemList.totalAmount
             if (loanItemList.sponsorImage.size >= 5){
                 binding.itemCountTv.text ="+ ${loanItemList.sponsorImage.size - 5}"
-                binding.itemCountTv.setBackgroundResource(loanItemList.sponsorImage[bindingAdapterPosition])
+                binding.itemCountTv.setBackgroundResource(loanItemList.sponsorImage[position])
             }else{
                 binding.itemCountTv.visibility = View.GONE
             }
@@ -51,7 +51,7 @@ class LoanOfferAdapter (private val loanOfferItemList : ArrayList<LoanOfferReque
                 listener.onItemClickListener(position)
             }
             itemView.setOnClickListener {
-                listener.onItemClickListener(bindingAdapterPosition)
+                listener.onItemClickListener(position)
             }
         }
     }
