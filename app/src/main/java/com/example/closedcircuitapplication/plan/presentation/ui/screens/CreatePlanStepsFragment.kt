@@ -60,7 +60,6 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
         val infoTitle = stepsInfo.infoDialogTitle
         val infoDescription = stepsInfo.infoDialogDescription
         val infoCloseButton = stepsInfo.closeDialogIcon
-        val createStepsButton = binding.addItemLayout
 
         infoTitle.text = getString(R.string.steps_info_title)
         infoDescription.text = getString(R.string.steps_info_description)
@@ -76,14 +75,6 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
                 stepsInfo.infoItemLayout.visibility = View.VISIBLE
             }
         }
-
-        createStepsButton.setOnClickListener {
-            findNavController().navigate(
-                R.id.createStepsFragment,
-                null,
-                customNavAnimation().build()
-            )
-        }
         viewModel.getStepsResponse.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {
@@ -98,7 +89,6 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
                     stepsAdapter.notifyDataSetChanged()
                 }
                 else -> {
-                    makeSnackBar(getString(R.string.Unable_to_get_steps), requireView())
                 }
             }
         }
