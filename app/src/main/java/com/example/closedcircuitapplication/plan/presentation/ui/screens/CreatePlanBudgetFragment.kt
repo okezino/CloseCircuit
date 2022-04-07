@@ -96,6 +96,7 @@ class CreatePlanBudgetFragment : Fragment(){
                     budgetsAdapter.submitList(budgetsForPlan)
                     budgetsAdapter.notifyDataSetChanged()
                 }
+                else -> {}
             }
         }
     }
