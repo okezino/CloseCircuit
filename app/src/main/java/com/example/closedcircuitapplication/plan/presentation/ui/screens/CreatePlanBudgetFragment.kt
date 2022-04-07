@@ -47,7 +47,6 @@ class CreatePlanBudgetFragment : Fragment(){
         val infoTitle = stepsInfo.infoDialogTitle
         val infoDescription = stepsInfo.infoDialogDescription
         val infoCloseButton = stepsInfo.closeDialogIcon
-        val createBudgetsButton = binding.addItemLayout
 
         infoTitle.text = getString(R.string.budget_info_title)
         infoDescription.text = getString(R.string.budget_info_description)
@@ -64,9 +63,6 @@ class CreatePlanBudgetFragment : Fragment(){
             }
         }
 
-        createBudgetsButton.setOnClickListener {
-            findNavController().navigate(R.id.createBudgetFragment)
-        }
         observeBudgetsList()
         setUpBudgetsAdapter()
     }
@@ -85,7 +81,7 @@ class CreatePlanBudgetFragment : Fragment(){
         binding.noBudgetYetTextView.visibility = View.GONE
     }
 
-    fun observeBudgetsList() {
+    private fun observeBudgetsList() {
         allStepsViewModel.getBudgetResponse.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {
@@ -100,6 +96,7 @@ class CreatePlanBudgetFragment : Fragment(){
                     budgetsAdapter.submitList(budgetsForPlan)
                     budgetsAdapter.notifyDataSetChanged()
                 }
+                else -> {}
             }
         }
     }
