@@ -124,6 +124,7 @@
         <entry key="app/src/main/res/layout/fragment_recover_password_otp.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_request_verification_successfull.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/fragment_reset_your_password.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_sample_dashboard.xml" value="0.1560792349726776" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/fragment_second_screen.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_send_funds_summary.xml" value="0.23125" />
