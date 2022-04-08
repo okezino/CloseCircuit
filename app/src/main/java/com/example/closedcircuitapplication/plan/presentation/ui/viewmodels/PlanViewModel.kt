@@ -14,6 +14,7 @@ import com.example.closedcircuitapplication.plan.domain.models.VerifyOtpRequest
 import com.example.closedcircuitapplication.plan.domain.usecases.*
 import com.example.closedcircuitapplication.plan.presentation.models.CreatePlanRequest
 import com.example.closedcircuitapplication.common.data.network.models.GenerateOtpDto
+import com.example.closedcircuitapplication.plan.domain.models.UpdateStepRequest
 import com.example.closedcircuitapplication.plan.presentation.models.GetMyPlansDto
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
@@ -28,7 +29,8 @@ class PlanViewModel @Inject constructor(
     private val createPlanUseCase: CreatePlanUseCase,
     private val getPlanUseCase: GetPlanUseCase,
     private val updatePlanUseCase: UpdatePlanUseCase,
-    private val getMyPlansUseCase: GetMyPlansUseCase
+    private val getMyPlansUseCase: GetMyPlansUseCase,
+    private val getUserStepsUseCase: GetUserStepsUseCase
 ): ViewModel() {
     private var _generateOtpResponse = MutableLiveData<Resource<Result<GenerateOtpDto>>>()
     val generateOtpResponse: LiveData<Resource<Result<GenerateOtpDto>>> get() = _generateOtpResponse
@@ -50,6 +52,11 @@ class PlanViewModel @Inject constructor(
 
     private var _getMyPlansResponse = MutableLiveData<Resource<Result<GetMyPlansDto>>>()
     val getMyPlansResponse: LiveData<Resource<Result<GetMyPlansDto>>> get() = _getMyPlansResponse
+
+    private var _getStepsResponse = MutableLiveData<Resource<Result<GetStepsDto>>>()
+    val getStepsResponse: LiveData<Resource<Result<GetStepsDto>>> get() = _getStepsResponse
+
+
 
     fun generateOtp(generateOtpRequest: GenerateOtpRequest) {
         viewModelScope.launch {
@@ -105,6 +112,13 @@ class PlanViewModel @Inject constructor(
                 _getMyPlansResponse.value = it
             }
         }
+    }
 
+    fun getUserSteps(authHeader: String) {
+        viewModelScope.launch {
+            getUserStepsUseCase(authHeader).collect {
+                _getStepsResponse.value = it
+            }
+        }
     }
 }

@@ -99,7 +99,7 @@
         <entry key="app/src/main/res/layout/fragment_customer_care.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.18704710144927536" />
-        <entry key="app/src/main/res/layout/fragment_edit_plan.xml" value="0.2606541129831516" />
+        <entry key="app/src/main/res/layout/fragment_edit_plan.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/fragment_email_verification_successful.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.26458333333333334" />

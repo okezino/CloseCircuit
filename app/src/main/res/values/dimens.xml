@@ -108,12 +108,19 @@
     <dimen name="width_90dp">90dp</dimen>
     <dimen name="margin_239dp">239dp</dimen>
     <dimen name="margin_256">256dp</dimen>
-    <dimen name="margin_55dp">55dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
     <dimen name="margin_32dp">32dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="height_5dp">5dp</dimen>
+    <dimen name="margin_185dp">185dp</dimen>
+    <dimen name="margin_55dp">55dp</dimen>
     <dimen name="margin_88dp">88dp</dimen>
     <dimen name="margin_14dp">14dp</dimen>
     <dimen name="margin_28dp">28dp</dimen>
     <dimen name="width_64dp">64dp</dimen>
     <dimen name="margin_17dp">17dp</dimen>
     <dimen name="margin_18dp">18dp</dimen>
+    <dimen name="card_width_376">376dp</dimen>
+    <dimen name="card_height_145">145dp</dimen>
+    <dimen name="loan_screen_margin">42dp</dimen>
 </resources>

@@ -14,12 +14,19 @@
             android:id="@+id/action_dashboardFragment_to_projectScreenFragment2"
             app:destination="@id/projectScreenFragment"
             />
+        <action
+            android:id="@+id/action_dashboardFragment_to_loanOfferFragment"
+            app:destination="@id/loanOfferFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment2"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment2_to_loansScreenFragment2"
+            app:destination="@id/loansScreenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/messageFragment"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.MessageFragment"
@@ -27,7 +34,7 @@
         tools:layout="@layout/fragment_message" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.ProfileFragment"
+        android:name="com.example.closedcircuitapplication.profile.presentation.ui.screens.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -40,9 +47,6 @@
         android:label="fragment_create_plan"
         tools:layout="@layout/fragment_create_plan">
 
-        <action
-            android:id="@+id/action_createPlanFragment_to_sendFundsSummaryFragment"
-            app:destination="@id/sendFundsSummaryFragment" />
         <argument
             android:name="planId"
             app:argType="string" />
@@ -52,6 +56,9 @@
         <action
             android:id="@+id/action_createPlanFragment_to_projectScreenFragment"
             app:destination="@id/projectScreenFragment" />
+        <action
+            android:id="@+id/action_createPlanFragment_to_createStepsFragment"
+            app:destination="@id/createStepsFragment" />
     </fragment>
     <fragment
         android:id="@+id/createPlanBudgetFragment"
@@ -66,6 +73,9 @@
         <action
             android:id="@+id/action_createPlanStepsFragment_to_myStepFragment"
             app:destination="@id/myStepFragment" />
+        <action
+            android:id="@+id/action_createPlanStepsFragment_to_stepViewFragment"
+            app:destination="@id/stepViewFragment" />
     </fragment>
 
     <fragment
@@ -75,7 +85,8 @@
         tools:layout="@layout/fragment_create_steps" >
         <action
             android:id="@+id/action_createStepsFragment_to_createPlanFragment"
-            app:destination="@id/createPlanFragment" />
+            app:destination="@id/createPlanFragment"
+            app:popUpTo="@id/createPlanFragment"/>
     </fragment>
     <fragment
         android:id="@+id/createBudgetFragment"
@@ -168,7 +179,7 @@
         tools:layout="@layout/fragment_email_verification_successful" />
     <dialog
         android:id="@+id/uploadImageBottomSheetFragment2"
-        android:name="com.example.closedcircuitapplication.ui.createAPlantScreenUi.UploadImageBottomSheetFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.UploadImageBottomSheetFragment"
         android:label="fragment_upload_image_bottom_sheet"
         tools:layout="@layout/fragment_upload_image_bottom_sheet" >
         <argument
@@ -309,10 +320,13 @@
         <action
             android:id="@+id/action_editPlanFragment_to_createPlanFragment"
             app:destination="@id/createPlanFragment" />
+        <argument
+            android:name="planAvatar"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.EditProfileFragment"
+        android:name="com.example.closedcircuitapplication.profile.presentation.ui.screens.EditProfileFragment"
         android:label="EditProfileFragment" >
         <argument
             android:name="fullName"
@@ -337,6 +351,9 @@
             app:argType="string" />
         <argument
             android:name="confirm_password"
+            app:argType="string" />
+        <argument
+            android:name="avatar"
             app:argType="string" />
     </fragment>
 <fragment
@@ -442,5 +459,100 @@
         android:name="com.example.closedcircuitapplication.settings.presentation.ui.screens.SettingsStepsLoginFragment"
         android:label="fragment_settings_steps_login"
         tools:layout="@layout/fragment_settings_steps_login" />
+    <fragment
+        android:id="@+id/stepViewFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.StepViewFragment"
+        android:label="fragment_step_view"
+        tools:layout="@layout/fragment_step_view" >
+
+        <argument
+            android:name="BudgetDetails"
+            app:argType="com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem" />
+        <action
+            android:id="@+id/action_stepViewFragment_to_editStepFragment"
+            app:destination="@id/editStepFragment" />
+        <action
+            android:id="@+id/action_stepViewFragment_to_createPlanFragment"
+            app:popUpTo="@id/createPlanFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/editStepFragment"
+        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.EditStepFragment"
+        android:label="fragment_edit_step"
+        tools:layout="@layout/fragment_edit_step" >
+        <argument
+            android:name="Step"
+            app:argType="com.example.closedcircuitapplication.common.data.network.models.Step" />
+        <action
+            android:id="@+id/action_editStepFragment_to_createPlanFragment"
+            app:popUpTo="@id/createPlanFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/loansScreenFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoansScreenFragment"
+        android:label="fragment_loans_screen"
+        tools:layout="@layout/fragment_loans_screen" >
+        <action
+            android:id="@+id/action_loansScreenFragment_to_loanScheduleFragment"
+            app:destination="@id/loanScheduleFragment" />
+        <action
+            android:id="@+id/action_loansScreenFragment_to_accountFragment2"
+            app:destination="@id/accountFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanScheduleFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoanScheduleFragment"
+        android:label="fragment_loan_schedule"
+        tools:layout="@layout/fragment_loan_schedule" >
+        <action
+            android:id="@+id/action_loanScheduleFragment_to_loansScreenFragment"
+            app:destination="@id/loansScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/declineLoanOfferFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.DeclineLoanOfferFragment"
+        android:label="fragment_decline_loan_offer"
+        tools:layout="@layout/fragment_decline_loan_offer" >
+        <action
+            android:id="@+id/action_declineLoanOfferFragment_to_loanOfferFragment"
+            app:destination="@id/loanOfferFragment" />
+        <action
+            android:id="@+id/action_declineLoanOfferFragment_to_loanOfferDetailsFragment"
+            app:destination="@id/loanOfferDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanDetailFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoanDetailFragment"
+        android:label="fragment_loan_detail"
+        tools:layout="@layout/fragment_loan_detail" >
+        <action
+            android:id="@+id/action_loanDetailFragment_to_declineLoanOfferFragment"
+            app:destination="@id/declineLoanOfferFragment" />
+        <action
+            android:id="@+id/action_loanDetailFragment_to_loanOfferFragment"
+            app:destination="@id/loanOfferFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanOfferFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoanOfferFragment"
+        android:label="fragment_loan_offer"
+        tools:layout="@layout/fragment_loan_offer" >
+        <action
+            android:id="@+id/action_loanOfferFragment_to_loanOfferDetailsFragment"
+            app:destination="@id/loanOfferDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanOfferDetailsFragment"
+        android:name="com.example.closedcircuitapplication.loan.presentation.ui.screens.LoanOfferDetailsFragment"
+        android:label="fragment_loan_offer_details"
+        tools:layout="@layout/fragment_loan_offer_details" >
+        <action
+            android:id="@+id/action_loanOfferDetailsFragment_to_loanDetailFragment"
+            app:destination="@id/loanDetailFragment" />
+        <action
+            android:id="@+id/action_loanOfferDetailsFragment_to_declineLoanOfferFragment"
+            app:destination="@id/declineLoanOfferFragment" />
+    </fragment>
 
 </navigation>

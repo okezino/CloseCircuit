@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.common.utils.handleBackPress
 import com.example.closedcircuitapplication.common.utils.popBackStack
 import com.example.closedcircuitapplication.databinding.FragmentAccountBinding
@@ -36,6 +38,13 @@ class AccountFragment : Fragment() {
         handleBackPress()
         setUpCustomTabLayout()
         binding.fragmentUserAccountBackArrowIv.setOnClickListener { popBackStack() }
+
+        binding.navigateToLoanScreen.setOnClickListener {
+            findNavController().navigate(
+               AccountFragmentDirections.actionAccountFragment2ToLoansScreenFragment2(),
+                customNavAnimation().build()
+            )
+        }
     }
 
     private fun setUpCustomTabLayout(){

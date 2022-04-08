@@ -12,7 +12,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="otpViewStyle">@style/OtpWidget.OtpView</item>
     </style>
 
     <style name="Theme.ClosedCircuitApplication.NoActionBar">
@@ -233,8 +232,33 @@
         <item name="android:textSize">@dimen/margin_17dp</item>
     </style>
 
+    <style name="LoanOfferButton" parent="ClosedCircuitDefaultButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/height_54dp</item>
+        <item name="android:textSize">@dimen/textSize_15sp</item>
+        <item name="android:fontFamily">@font/helvetica</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:padding">@dimen/margin_5dp</item>
+        <item name="android:layout_marginTop">@dimen/margin_20dp</item>
+        <item name="android:paddingBottom">@dimen/margin_15dp</item>
+        <item name="cornerRadius">@dimen/margin_5dp</item>
+    </style>
+
     <!--    Edit Text Styles-->
 
+    <style name="LoanOfferText_style" parent="NormalFaintText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name= "LoanOfferLinearLayout_style" parent="LinearLayout_style">
+        <item name="android:weightSum">1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_20dp</item>
+        <item name="android:layout_marginEnd">@dimen/margin_20dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
 
 
 

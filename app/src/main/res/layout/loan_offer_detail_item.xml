@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/loan_offerDetail_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/loan_sponsor_profile_IV"
+            android:layout_width="@dimen/margin_60dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_height="@dimen/margin_60dp"
+            android:src="@drawable/customer_chat_image" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_marginStart="@dimen/margin_6dp"
+            android:layout_marginEnd="@dimen/margin_0dp"
+            style="@style/LoanOfferLinearLayout_style">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12dp">
+
+                <TextView
+                    android:id="@+id/loan_sponsors_name_tv"
+                    style="@style/LoanOfferText_style"
+                    android:layout_weight="1.4"
+                    android:text="@string/jane_cooper"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/view_profile_tv"
+                    style="@style/LoanOfferText_style"
+                    android:layout_gravity="end"
+                    android:text="@string/view_profile"
+                    android:textColor="@color/light_green_500" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/loan_amount_offered_tv"
+                style="@style/LoanOfferText_style"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:text="@string/amount" />
+
+            <TextView
+                android:id="@+id/grace_period_tv"
+                style="@style/LoanOfferText_style"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:text="@string/grace_period_months" />
+
+            <TextView
+                android:id="@+id/loan_percentage_tv"
+                style="@style/LoanOfferText_style"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:text="@string/loan_percentage" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_12dp"
+                >
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/accept_loan_offer_detail_btn"
+                    style="@style/LoanOfferButton"
+                    android:layout_marginEnd="@dimen/margin_5dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/accept_loan_offer"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/main" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/decline_loan_offer_detail_btn"
+                    style="@style/LoanOfferButton"
+                    android:layout_marginStart="@dimen/margin_5dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/decline_loan_offer"
+                    android:textColor="@color/main"
+                    app:backgroundTint="@color/white"
+                    app:strokeColor="@color/main"
+                    app:strokeWidth="@dimen/margin_2dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

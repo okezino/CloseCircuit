@@ -102,6 +102,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.android.gms:play-services-fido:18.1.0'
 
     //Annotation Dependencies
     kapt AnnotationDependencies.hilt_android_compiler
@@ -142,5 +143,9 @@ dependencies {
 
 
     //Android-Image-Cropper
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
 }

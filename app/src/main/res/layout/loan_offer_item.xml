@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background1"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/business_name_loan_item_tv"
+        style="@style/LoanOfferText_style"
+        android:layout_marginStart="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/height_30dp"
+        android:text="@string/fish_farming"
+        android:textStyle="bold"
+        android:textColor="@color/closed_circuit_dark_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loanOfferLayout"
+        style="@style/LoanOfferLinearLayout_style"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/sponsor_item_background"
+        android:paddingStart="@dimen/margin_10dp"
+        android:paddingEnd="@dimen/margin_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/business_name_loan_item_tv">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/numbers_of_sponsor_tv"
+                style="@style/LoanOfferText_style"
+                android:layout_weight="1.4"
+                android:text="@string/total_number_of_sponsors" />
+
+            <TextView
+                android:id="@+id/value_numbers_of_sponsor_tv"
+                style="@style/LoanOfferText_style"
+                android:layout_gravity="end"
+                android:text="@string/value_numbers_of_sponsors"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+            <TextView
+                android:id="@+id/total_amount_offered_tv"
+                style="@style/LoanOfferText_style"
+                android:layout_weight="1.4"
+                android:text="@string/total_amount_offered" />
+
+            <TextView
+                android:id="@+id/value_total_amount_offered_tv"
+                style="@style/LoanOfferText_style"
+                android:layout_gravity="end"
+                android:text="@string/ngn_120_000_00"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/loan_sponsors_image_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+            tools:listitem="@layout/loan_sponsors_image_item" />
+
+        <TextView
+            android:id="@+id/item_count_tv"
+            android:layout_width="@dimen/height_30dp"
+            android:layout_height="@dimen/height_30dp"
+            android:gravity="center"
+            android:textSize="@dimen/textSize_14sp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/loan_sponsors_image_recyclerView"
+            app:layout_constraintStart_toEndOf="@+id/loan_sponsors_image_recyclerView"
+            app:layout_constraintTop_toTopOf="@+id/loan_sponsors_image_recyclerView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

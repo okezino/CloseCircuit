@@ -32,7 +32,7 @@ object Versions {
     val leak_canary = "2.0-alpha-3"
     val swipe_refresh_layout = "1.1.0-alpha03"
     val espresso_core = "3.4.0"
-    val otpview_pinview = "2.1.2"
+    val otpview_pinview = "3.0.0"
     val espresso_idling_resource = "3.2.0"
     val wharton_idling_resource = "1.0.0"
     val mockk_version = "1.9.2"

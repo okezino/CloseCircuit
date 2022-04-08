@@ -2,6 +2,7 @@ package com.example.closedcircuitapplication.plan.presentation.ui.screens
 
 import android.app.AlertDialog
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,6 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.utils.*
@@ -65,6 +68,9 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
             fragmentLetsCreateYourPlanSellingPriceEt.setText(args.planSellingPrice)
             fragmentEditPlanCostPriceEt.setText(args.planCostPrice)
         }
+        Glide.with(this)
+            .load(args.planAvatar)
+            .into(binding.uploadImageHolderIv)
 
         updatePlanInitObserver()
 
@@ -85,6 +91,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
 
             override fun afterTextChanged(p0: Editable?) {}
         })
+        val planAvatar = PlanUtils.avatarUpload(args.planAvatar)
 
         binding.fragmentEditPlanUpdatePlanBtn.setOnClickListener {
 
@@ -127,7 +134,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 binding.fragmentEditPlanEmptyCostPriceTv.visibility = View.GONE
             }
             viewModel.updateUserPlan(UpdatePlanRequest(
-                "https://www.whatsappimages.in/wp-content/uploads/2021/07/Top-HD-sad-quotes-for-whatsapp-status-in-hindi-Pics-Images-Download-Free.gif",
+                planAvatar,
                 capitalizeWords(binding.fragmentEditPlanBusinessTypeEt.text.toString()),
                 binding.fragmentEditPlanCostPriceEt.text.toString(),
                 binding.fragmentLetsCreateYourPlanSellingPriceEt.text.toString(),

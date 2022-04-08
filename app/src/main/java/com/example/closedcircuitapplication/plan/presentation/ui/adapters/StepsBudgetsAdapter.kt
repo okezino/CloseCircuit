@@ -4,12 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.closedcircuitapplication.common.data.network.models.CreateStepDto
+import com.example.closedcircuitapplication.common.data.network.models.GetStepsDto
+import com.example.closedcircuitapplication.common.data.network.models.Step
 import com.example.closedcircuitapplication.dashboard.presentation.ui.interfaces.ClickListener
 import com.example.closedcircuitapplication.plan.presentation.models.StepsBudgetItem
 import com.example.closedcircuitapplication.databinding.StepsBudgetRecyclerItemBinding
 
-class StepsBudgetsAdapter(private val items: MutableList<StepsBudgetItem>, var listener: ClickListener) : RecyclerView.Adapter<StepsBudgetsAdapter.ViewHolder>() {
+class StepsBudgetsAdapter( var listener: ClickListener) : RecyclerView.Adapter<StepsBudgetsAdapter.ViewHolder>() {
 
+    private var items: MutableList<Step> = arrayListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = StepsBudgetRecyclerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
@@ -30,10 +34,14 @@ class StepsBudgetsAdapter(private val items: MutableList<StepsBudgetItem>, var l
         private val targetFunds: TextView = binding.targetFundsAmtTextView
         private val totalFundsRaised: TextView = binding.fundsRaisedAmtTextView
 
-        fun bindView(item: StepsBudgetItem) {
-            stepsOrBudgetTitle.text = item.itemTitle
-            targetFunds.text = item.targetFunds
-            totalFundsRaised.text = item.totalFundsRaised
+        fun bindView(item: Step) {
+            stepsOrBudgetTitle.text = item.step_name
+            targetFunds.text = item.target_funds
+            totalFundsRaised.text = item.total_funds_raised
         }
+    }
+
+    fun submitList(list: ArrayList<Step>) {
+        this.items = list
     }
 }

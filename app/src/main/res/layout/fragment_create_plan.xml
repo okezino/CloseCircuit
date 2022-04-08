@@ -1,366 +1,325 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".plan.presentation.ui.screens.ProjectSummaryFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/planImageView"
-            android:layout_width="@dimen/height_40dp"
-            android:layout_height="@dimen/height_40dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/diane_russell"
-            app:layout_constraintBottom_toTopOf="@+id/project_summary_layout"
-            app:layout_constraintEnd_toEndOf="@+id/project_title"
-            app:layout_constraintHorizontal_bias="0.045"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/plan_name"
-            style="@style/TextAppearance.AppCompat.Large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_constraintEnd_toEndOf="@+id/project_title"
-            app:layout_constraintHorizontal_bias="0.048"
-            app:layout_constraintStart_toEndOf="@+id/planImageView"
-            app:layout_constraintTop_toTopOf="@+id/planImageView" />
-
-        <ImageView
-            android:visibility="visible"
-            android:id="@+id/project_summary_more_options"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_baseline_more_vert_24"
-            app:layout_constraintBottom_toBottomOf="@+id/project_title"
-            app:layout_constraintEnd_toEndOf="@+id/project_title"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/plan_name" />
-
-        <ImageView
-            android:visibility="gone"
-            android:id="@+id/project_summary_more_options_clicked"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_baseline_more_horiz_24"
-            app:layout_constraintBottom_toBottomOf="@+id/project_title"
-            app:layout_constraintEnd_toEndOf="@+id/project_title"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/plan_name" />
-
-        <TextView
-            android:id="@+id/project_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16dp"
-            android:textSize="@dimen/textSize_24sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/helvetica_bold"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/project_summary_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/textSize_16sp"
-            android:background="@color/gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/project_title">
-
-
-            <ImageView
-                android:id="@+id/project_sector_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-                android:background="@drawable/image_view_circular_shape"
-                android:padding="8dp"
-                android:scaleType="center"
-                android:src="@drawable/ic_briefcase"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <LinearLayout
-                android:id="@+id/project_sector_text_view"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@+id/project_sector_image_view"
-                app:layout_constraintEnd_toStartOf="@id/project_constraint_guideline"
-                app:layout_constraintStart_toEndOf="@+id/project_sector_image_view"
-                app:layout_constraintTop_toTopOf="@+id/project_sector_image_view">
-
-                <TextView
-                    android:id="@+id/project_business_sector"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="Business (Electronics)"
-                    android:textColor="@color/green_700"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginStart="5dp"
-                    android:text="Business Sector"
-                    android:textSize="10sp" />
-
-            </LinearLayout>
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/project_constraint_guideline"
+                android:id="@+id/project_summary_horizontal_guideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_end="185dp" />
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.95"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/planImageView"
+                android:layout_width="@dimen/height_40dp"
+                android:layout_height="@dimen/height_40dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/project_summary_layout"
+                app:layout_constraintEnd_toEndOf="@+id/project_title"
+                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/plan_name"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintEnd_toEndOf="@+id/project_title"
+                app:layout_constraintHorizontal_bias="0.048"
+                app:layout_constraintStart_toEndOf="@+id/planImageView"
+                app:layout_constraintTop_toTopOf="@+id/planImageView" />
 
             <ImageView
-                android:id="@+id/project_duration_image_view"
+                android:visibility="visible"
+                android:id="@+id/project_summary_more_options"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/image_view_circular_shape_blue"
-                android:padding="8dp"
-                android:scaleType="center"
-                android:src="@drawable/ic_calendar"
-                app:layout_constraintStart_toEndOf="@+id/project_constraint_guideline"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_baseline_more_vert_24"
+                app:layout_constraintBottom_toBottomOf="@+id/project_title"
+                app:layout_constraintEnd_toEndOf="@+id/project_title"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/plan_name" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/project_summary_more_options_clicked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_baseline_more_horiz_24"
+                app:layout_constraintBottom_toBottomOf="@+id/project_title"
+                app:layout_constraintEnd_toEndOf="@+id/project_title"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/plan_name" />
+
+            <TextView
+                android:id="@+id/project_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16dp"
+                android:textSize="@dimen/textSize_24sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/helvetica_bold"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/project_duration_text_view"
-                android:layout_width="0dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/project_summary_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@+id/project_duration_image_view"
+                android:layout_marginTop="@dimen/textSize_16sp"
+                android:background="@color/gray"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/project_duration_image_view"
-                app:layout_constraintTop_toTopOf="@+id/project_duration_image_view">
-
-                <TextView
-                    android:id="@+id/project_duration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:baselineAligned="false"
-                    android:text="4 Months"
-                    android:textColor="@color/green_700"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/project_duration_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="Plan Duration"
-                    android:textSize="10sp" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/project_target_amount_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="68dp"
-                android:background="@drawable/image_view_circular_shape"
-                android:padding="8dp"
-                android:scaleType="center"
-                android:src="@drawable/ic_target_amount"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/project_sector_image_view" />
+                app:layout_constraintTop_toBottomOf="@+id/project_title">
 
-            <LinearLayout
-                android:id="@+id/project_target_amount_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@+id/project_target_amount_image_view"
-                app:layout_constraintStart_toEndOf="@+id/project_target_amount_image_view"
-                app:layout_constraintTop_toTopOf="@+id/project_target_amount_image_view">
 
-                <TextView
-                    android:id="@+id/project_target_amount_text_view"
+                <ImageView
+                    android:id="@+id/project_sector_image_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:baselineAligned="false"
-                    android:text="NGN 0"
-                    android:textColor="@color/green_700"
-                    android:textStyle="bold" />
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/margin_16dp"
+                    android:background="@drawable/image_view_circular_shape"
+                    android:padding="@dimen/padding_8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_briefcase"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/target_amount_text_view"
+                <LinearLayout
+                    android:id="@+id/project_sector_text_view"
+                    android:layout_width="@dimen/width_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/project_sector_image_view"
+                    app:layout_constraintEnd_toStartOf="@id/project_constraint_guideline"
+                    app:layout_constraintStart_toEndOf="@+id/project_sector_image_view"
+                    app:layout_constraintTop_toTopOf="@+id/project_sector_image_view">
+
+                    <TextView
+                        android:id="@+id/project_business_sector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_5dp"
+                        tools:text="@string/business_electronics"
+                        android:textColor="@color/green_700"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginStart="@dimen/margin_5dp"
+                        android:text="@string/business_sector"
+                        android:textSize="@dimen/textSize_10sp" />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/project_constraint_guideline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="Target Amount"
-                    android:textSize="10sp"/>
-            </LinearLayout>
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/margin_185dp" />
 
-            <ImageView
-                android:id="@+id/project_funds_raised_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/image_view_circular_shape_blue"
-                android:padding="8dp"
-                android:scaleType="center"
-                android:src="@drawable/ic_funds"
-                app:layout_constraintStart_toStartOf="@+id/project_constraint_guideline"
-                app:layout_constraintTop_toBottomOf="@+id/project_duration_image_view" />
+                <ImageView
+                    android:id="@+id/project_duration_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:background="@drawable/image_view_circular_shape_blue"
+                    android:padding="@dimen/padding_8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_calendar"
+                    app:layout_constraintStart_toEndOf="@+id/project_constraint_guideline"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/project_funds_raised_layout"
-                android:layout_width="0dp"
+                <LinearLayout
+                    android:id="@+id/project_duration_text_view"
+                    android:layout_width="@dimen/width_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_32dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/project_duration_image_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/project_duration_image_view"
+                    app:layout_constraintTop_toTopOf="@+id/project_duration_image_view">
+
+                    <TextView
+                        android:id="@+id/project_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_5dp"
+                        android:baselineAligned="false"
+                        tools:text="@string/_4_months"
+                        android:textColor="@color/green_700"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/project_duration_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_5dp"
+                        android:text="@string/plan_duration"
+                        android:textSize="@dimen/textSize_10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/project_target_amount_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/margin_16dp"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_68dp"
+                    android:background="@drawable/image_view_circular_shape"
+                    android:padding="@dimen/padding_8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_target_amount"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/project_sector_image_view" />
+
+                <LinearLayout
+                    android:id="@+id/project_target_amount_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/project_target_amount_image_view"
+                    app:layout_constraintStart_toEndOf="@+id/project_target_amount_image_view"
+                    app:layout_constraintTop_toTopOf="@+id/project_target_amount_image_view">
+
+                    <TextView
+                        android:id="@+id/project_target_amount_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_5dp"
+                        android:baselineAligned="false"
+                        android:text="@string/ngn_0"
+                        android:textColor="@color/green_700"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/target_amount_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/target_amount"
+                        android:textSize="@dimen/textSize_10sp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/project_funds_raised_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:background="@drawable/image_view_circular_shape_blue"
+                    android:padding="@dimen/padding_8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_funds"
+                    app:layout_constraintStart_toStartOf="@+id/project_constraint_guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/project_duration_image_view" />
+
+                <LinearLayout
+                    android:id="@+id/project_funds_raised_layout"
+                    android:layout_width="@dimen/width_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_4dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/project_funds_raised_image_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/project_funds_raised_image_view"
+                    app:layout_constraintTop_toTopOf="@+id/project_funds_raised_image_view">
+
+                    <TextView
+                        android:id="@+id/project_funds_raised_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_5dp"
+                        android:baselineAligned="false"
+                        android:text="@string/ngn_0"
+                        android:textColor="@color/green_700"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/project_funds_raised"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/total_funds_raised"
+                        android:textSize="@dimen/textSize_10sp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:layout_marginTop="@dimen/margin_25dp"
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@+id/project_funds_raised_image_view"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/project_funds_raised_image_view"
-                app:layout_constraintTop_toTopOf="@+id/project_funds_raised_image_view">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/project_summary_layout"
+                app:tabIndicator="@drawable/tab_indicator"
+                app:tabIndicatorAnimationMode="linear"
+                app:tabIndicatorColor="@color/light_green_500"
+                app:tabIndicatorGravity="stretch"
+                app:tabTextAppearance="@style/TextAppearance.AppCompat.Title"
+                app:tabIndicatorFullWidth="true"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/green_700" />
 
-                <TextView
-                    android:id="@+id/project_funds_raised_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:baselineAligned="false"
-                    android:text="NGN 0"
-                    android:textColor="@color/green_700"
-                    android:textStyle="bold" />
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
-                <TextView
-                    android:id="@+id/project_funds_raised"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="Total Funds Raised"
-                    android:textSize="10sp" />
-            </LinearLayout>
-
-<!--            <ImageView-->
-<!--                android:id="@+id/project_summary_image_view"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="160dp"-->
-<!--                android:layout_margin="16dp"-->
-<!--                android:scaleType="centerCrop"-->
-<!--                android:src="@drawable/project_summary_image"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="1.0"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/project_target_amount_image_view" />-->
-
-<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--                android:id="@+id/add_image_fab"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="8dp"-->
-<!--                android:src="@drawable/ic_camera"-->
-<!--                app:backgroundTint="@color/white"-->
-<!--                app:tint="@color/black"-->
-<!--                app:layout_constraintBottom_toBottomOf="@+id/project_summary_image_view"-->
-<!--                app:layout_constraintEnd_toEndOf="@+id/project_summary_image_view"-->
-<!--                android:contentDescription="Add Image" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/project_description_title_text_view"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Plan Description"-->
-<!--                android:textSize="20sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:layout_margin="16dp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/project_summary_image_view" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/project_description_text_view"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="16dp"-->
-<!--                android:text="A small scale business selling mobile phones and other electronic devices. "-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/project_description_title_text_view" />-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="16dp"-->
-<!--                android:layout_marginBottom="16dp"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/project_description_text_view">-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/plan_link"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginHorizontal="4dp"-->
-<!--                    android:text="@string/copy_plan_link"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintTop_toBottomOf="@+id/project_description_text_view" />-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--&lt;!&ndash;                    android:src="@drawable/ic_copy" />&ndash;&gt;-->
-<!--            </LinearLayout>-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.tabs.TabLayout
-            android:layout_marginTop="@dimen/margin_25dp"
-            android:id="@+id/tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/project_summary_layout"
-            app:tabIndicator="@drawable/tab_indicator"
-            app:tabIndicatorAnimationMode="linear"
-            app:tabIndicatorColor="@color/light_green_500"
-            app:tabIndicatorGravity="stretch"
-            app:tabTextAppearance="@style/TextAppearance.AppCompat.Title"
-            app:tabIndicatorFullWidth="true"
-            app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/green_700" />
+    </androidx.core.widget.NestedScrollView>
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+    <TextView
+        android:id="@+id/project_summary_add_steps_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/emirate_green_curved_corners_background"
+        android:drawablePadding="@dimen/padding_10dp"
+        android:elevation="@dimen/elevation_10dp"
+        android:fontFamily="@font/helvetica"
+        android:padding="@dimen/padding_10dp"
+        android:text="Add step"
+        android:layout_marginEnd="@dimen/margin_30dp"
+        android:layout_marginBottom="70dp"
+        android:textColor="@color/closed_circuit_dark_green"
+        android:textSize="@dimen/textSize_15sp"
+        app:drawableEndCompat="@drawable/ic_plus_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
