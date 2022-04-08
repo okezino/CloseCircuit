@@ -43,6 +43,7 @@
         <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/ic_edit_square.xml" value="0.3140625" />
         <entry key="app/src/main/res/drawable/ic_funds.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/drawable/ic_grommet.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/drawable/ic_group.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/ic_group_32.xml" value="0.2703125" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.2522982635342186" />
@@ -66,8 +67,9 @@
         <entry key="app/src/main/res/drawable/user_account_chevron_container.xml" value="0.19446254071661237" />
         <entry key="app/src/main/res/drawable/user_account_loan_container.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/layout/active_user_dashboard.xml" value="0.27716389136984754" />
-        <entry key="app/src/main/res/layout/activity_beneficiary_dashboard.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/activity_beneficiary_dashboard.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
+        <entry key="app/src/main/res/layout/activity_sponsor_dashboard.xml" value="0.22" />
         <entry key="app/src/main/res/layout/app_bar_dashboard.xml" value="0.22" />
         <entry key="app/src/main/res/layout/budget_steps_item_layout.xml" value="0.18" />
         <entry key="app/src/main/res/layout/content_dashboard.xml" value="0.27434808593394083" />

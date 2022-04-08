@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_color"
-    tools:context=".authentication.presentation.ui.screens.LoginFragment">
+    tools:context="com.example.closedcircuitapplication.common.authentication.presentation.ui.screens.LoginFragment">
 
     <!--    profile toolbar-->
     <androidx.appcompat.widget.Toolbar
