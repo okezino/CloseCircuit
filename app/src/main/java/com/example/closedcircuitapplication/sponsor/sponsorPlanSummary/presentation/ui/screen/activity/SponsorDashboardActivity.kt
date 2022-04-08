@@ -12,6 +12,7 @@ class SponsorDashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySponsorDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.sponsorBottomNavigationView.background = null
     }
 
 }
