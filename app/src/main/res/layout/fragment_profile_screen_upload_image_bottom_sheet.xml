@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#000000"
-    tools:context=".plan.presentation.ui.screens.UploadImageBottomSheetFragment">
+    tools:context="com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.screens.UploadImageBottomSheetFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/planImageCard"

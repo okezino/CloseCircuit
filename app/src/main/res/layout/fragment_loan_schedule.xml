@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loan.presentation.ui.screens.LoanScheduleFragment">
+    tools:context=".beneficiary.loan.presentation.ui.screens.LoanScheduleFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_loan_schedule_toolbar"

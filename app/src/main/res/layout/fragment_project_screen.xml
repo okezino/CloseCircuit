@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background1"
-    tools:context=".plan.presentation.ui.screens.ProjectScreenFragment">
+    tools:context="com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.screens.ProjectScreenFragment">
 
     <ImageView
         android:id="@+id/imageView6"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FBFBFF"
-    tools:context=".plan.presentation.ui.screens.UploadingProofForCompletedStepFragment">
+    tools:context="com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.screens.UploadingProofForCompletedStepFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".authentication.presentation.ui.screens.EmailVerificationSuccessfulFragment">
+    tools:context="com.example.closedcircuitapplication.common.authentication.presentation.ui.screens.EmailVerificationSuccessfulFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

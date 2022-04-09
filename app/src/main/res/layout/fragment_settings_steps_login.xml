@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary_color"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".settings.presentation.ui.screens.SettingsStepsLoginFragment">
+    tools:context=".beneficiary.settings.presentation.ui.screens.SettingsStepsLoginFragment">
 
     <!--    Settings toolbar-->
     <androidx.appcompat.widget.Toolbar

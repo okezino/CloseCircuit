@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background1"
-    tools:context=".loan.presentation.ui.screens.LoanOfferFragment">
+    tools:context=".beneficiary.loan.presentation.ui.screens.LoanOfferFragment">
 
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/loan_offer_recyclerView"
