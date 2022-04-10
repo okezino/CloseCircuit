@@ -98,11 +98,10 @@ class CreatePlanStepsFragment : Fragment(), ClickListener {
                     stepsAdapter.notifyDataSetChanged()
                 }
                 else -> {
-                    makeSnackBar(getString(R.string.Unable_to_get_steps), requireView())
+                   // makeSnackBar(getString(R.string.Unable_to_get_steps), requireView())
                 }
             }
         }
-
         getProjectSteps()
     }
 
