@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/drawable-v24/circular_shape.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-v24/rectangle_button.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/drawable-v24/text_input_rectangle.xml" value="0.24316239316239316" />
+        <entry key="app/src/main/res/drawable-xhdpi/rectangle_button_gray.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/drawable-xxhdpi/custom_thumb.xml" value="0.29635416666666664" />
         <entry key="app/src/main/res/drawable-xxhdpi/ic_sponsor_fab.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/drawable-xxhdpi/rectangle_button_outlined.xml" value="0.29635416666666664" />
@@ -142,6 +143,7 @@
         <entry key="app/src/main/res/layout/fragment_settings_steps_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_sponsor_email_verification.xml" value="0.18618421052631579" />
+        <entry key="app/src/main/res/layout/fragment_sponsor_funding_level.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_sponsor_plan_summary.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_sponsor_successful_email_verification.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_sponsors_screen.xml" value="0.15555555555555556" />
@@ -160,6 +162,7 @@
         <entry key="app/src/main/res/layout/my_budget_sponsor_item_layout.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/plan_item.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/project_item.xml" value="0.23125" />
+        <entry key="app/src/main/res/layout/sponsor_funding_level_layout.xml" value="0.2" />
         <entry key="app/src/main/res/layout/sponsors_screen_copy_link_alart_dialog.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/view_pager_template.xml" value="0.13729508196721313" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />

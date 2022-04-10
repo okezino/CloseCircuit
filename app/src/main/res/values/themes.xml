@@ -376,6 +376,19 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="TCCDefaultButtonStyleGrey" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/rectangle_button_gray</item>
+        <item name="fontFamily">@font/helvetica</item>
+        <item name="android:paddingTop">@dimen/padding_10dp</item>
+        <item name="android:paddingBottom">@dimen/padding_10dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/textSize_15sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="SettingsDropDownStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
         <item name="android:layout_marginStart">@dimen/margin_20dp</item>
         <item name="android:layout_marginEnd">@dimen/margin_20dp</item>

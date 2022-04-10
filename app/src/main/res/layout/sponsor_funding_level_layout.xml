@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/padding_20dp"
+    android:id="@+id/sponor_fund_level_container_layout"
+    >
+    <TextView
+        android:id="@+id/sponsor_fund_level_layout_tv"
+        style="@style/TCCBodyText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSize_16sp"
+        android:layout_gravity="center_vertical"
+        android:text="Emmanuel"
+        android:layout_weight="1"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_sponsor_eye_close"
+        android:layout_gravity="end|center_horizontal"
+        />
+
+</LinearLayout>

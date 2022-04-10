@@ -238,11 +238,17 @@
         <item>5% Interest rate</item>
     </string-array>
 
-
     <string-array name="currency_type">
         <item>NGN</item>
         <item>USD</item>
         <item>ZAR</item>
+    </string-array>
+
+    <string-array name="plan_fund_level">
+        <item>Plan</item>
+        <item>Step</item>
+        <item>Budget</item>
+        <item>other amount</item>
     </string-array>
 
     <string name="notifications">Notifications</string>
@@ -537,4 +543,6 @@
     <string name="plan_summary">Plan summary</string>
     <string name="estimated_cost_price">Estimated cost price</string>
     <string name="estimated_selling_price">Estimated selling price</string>
+    <string name="how_would_you_like_to_sponsor">How would you like to sponsor?</string>
+    <string name="select_funding_level">Select funding level</string>
 </resources>

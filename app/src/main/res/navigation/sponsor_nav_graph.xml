@@ -9,5 +9,14 @@
         android:id="@+id/sampleDashboardFragment2"
         android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SampleDashboardFragment"
         android:label="fragment_sample_dashboard"
-        tools:layout="@layout/fragment_sample_dashboard" />
+        tools:layout="@layout/fragment_sample_dashboard" >
+        <action
+            android:id="@+id/action_sampleDashboardFragment2_to_sponsorFundingLevelFragment"
+            app:destination="@id/sponsorFundingLevelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sponsorFundingLevelFragment"
+        android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorFundingLevelFragment"
+        android:label="fragment_sponsor_funding_level"
+        tools:layout="@layout/fragment_sponsor_funding_level" />
 </navigation>

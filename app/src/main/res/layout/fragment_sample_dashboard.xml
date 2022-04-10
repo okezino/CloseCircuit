@@ -7,6 +7,7 @@
     tools:context=".sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SampleDashboardFragment">
 
     <TextView
+        android:id="@+id/fragment_sample_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
