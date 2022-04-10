@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/drawable-v24/rectangle_button.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/drawable-v24/text_input_rectangle.xml" value="0.24316239316239316" />
         <entry key="app/src/main/res/drawable-xxhdpi/custom_thumb.xml" value="0.29635416666666664" />
+        <entry key="app/src/main/res/drawable-xxhdpi/ic_sponsor_fab.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/drawable-xxhdpi/rectangle_button_outlined.xml" value="0.29635416666666664" />
         <entry key="app/src/main/res/drawable-xxhdpi/settings_icon_container.xml" value="0.29635416666666664" />
         <entry key="app/src/main/res/drawable-xxhdpi/text_input_background_16dp.xml" value="0.29635416666666664" />
@@ -42,6 +43,7 @@
         <entry key="app/src/main/res/drawable/ic_copy.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/ic_edit_square.xml" value="0.3140625" />
+        <entry key="app/src/main/res/drawable/ic_ep_sell.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/drawable/ic_funds.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/ic_grommet.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/drawable/ic_group.xml" value="0.25729166666666664" />
@@ -50,7 +52,13 @@
         <entry key="app/src/main/res/drawable/ic_messages.xml" value="0.2522982635342186" />
         <entry key="app/src/main/res/drawable/ic_notification_bell.xml" value="0.12135416666666667" />
         <entry key="app/src/main/res/drawable/ic_plus_circle.xml" value="0.12135416666666667" />
+        <entry key="app/src/main/res/drawable/ic_sell.xml" value="1.24375" />
         <entry key="app/src/main/res/drawable/ic_target_amount.xml" value="0.12135416666666667" />
+        <entry key="app/src/main/res/drawable/ic_vector_4.xml" value="0.19638157894736843" />
+        <entry key="app/src/main/res/drawable/ic_vector_5.xml" value="0.19638157894736843" />
+        <entry key="app/src/main/res/drawable/ic_vector_6.xml" value="0.19638157894736843" />
+        <entry key="app/src/main/res/drawable/ic_vector_7.xml" value="0.19638157894736843" />
+        <entry key="app/src/main/res/drawable/ic_vector_8.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/drawable/icon_circles_white.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/drawable/image_view_circular_shape.xml" value="0.2522982635342186" />
         <entry key="app/src/main/res/drawable/image_view_circular_shape_blue.xml" value="0.25729166666666664" />
@@ -133,8 +141,11 @@
         <entry key="app/src/main/res/layout/fragment_settings_reset_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_settings_steps_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/fragment_sponsor_email_verification.xml" value="0.18618421052631579" />
+        <entry key="app/src/main/res/layout/fragment_sponsor_plan_summary.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_sponsor_successful_email_verification.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_sponsors_screen.xml" value="0.15555555555555556" />
-        <entry key="app/src/main/res/layout/fragment_successful_email_verification_screen.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_successful_email_verification_screen.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_support.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_unsuccessful_email_screen.xml" value="0.15555555555555556" />

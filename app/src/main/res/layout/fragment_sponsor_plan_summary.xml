@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary_color"
+    tools:context=".sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorPlanSummaryFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/fragment_sponsor_plan_summary_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_10dp"
+        android:paddingRight="@dimen/padding_10dp"
+        app:elevation="@dimen/elevation_4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/fragment_sponsor_plan_summary_backArrow_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_button"
+            tools:ignore="ContentDescription"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_sponsor_plan_summary_toolbar">
+
+        <LinearLayout
+            android:id="@+id/fragment_sponsor_plan_summary_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/margin_20dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/fragment_sponsor_plan_summary_header1_tv"
+                style="@style/TCCHeaderTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:textSize="@dimen/textSize_24sp"
+                android:text="@string/how_can_you_help"
+                />
+            <TextView
+                android:id="@+id/fragment_sponsor_plan_summary_support_tv"
+                style="@style/TCCBodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textSize_15sp"
+                android:textColor="@color/text_color_normal"
+                android:text="@string/you_can_support_by_funding_text"
+                />
+            <TextView
+                android:id="@+id/fragment_sponsor_plan_summary_header2_tv"
+                style="@style/TCCHeaderTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_25dp"
+                android:textSize="@dimen/textSize_24sp"
+                android:text="@string/plan_summary"
+                />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/project_summary_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textSize_16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/project_title">
+
+
+                <ImageView
+                    android:id="@+id/project_sector_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/image_view_circular_shape"
+                    android:padding="@dimen/padding_8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_briefcase"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/project_sector_text_view"
+                    android:layout_width="@dimen/width_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/project_sector_image_view"
+                    app:layout_constraintEnd_toStartOf="@id/project_constraint_guideline"
+                    app:layout_constraintStart_toEndOf="@+id/project_sector_image_view"
+                    app:layout_constraintTop_toTopOf="@+id/project_sector_image_view">
+
+                    <TextView
+                        android:id="@+id/project_business_sector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:text="E-commerce "
+                        android:textColor="@color/green_700"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:text="@string/business_sector"
+                        android:textSize="@dimen/textSize_10sp" />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/project_constraint_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/margin_185dp" />
+
+                <ImageView
+                    android:id="@+id/project_duration_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:background="@drawable/image_view_circular_shape_blue"
+                    android:padding="@dimen/padding_8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_calendar"
+                    app:layout_constraintStart_toEndOf="@+id/project_constraint_guideline"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/project_duration_text_view"
+                    android:layout_width="@dimen/width_0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/project_duration_image_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/project_duration_image_view"
+                    app:layout_constraintTop_toTopOf="@+id/project_duration_image_view">
+
+                    <TextView
+                        android:id="@+id/project_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:baselineAligned="false"
+                        tools:text="@string/_4_months"
+                        android:textColor="@color/green_700"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/project_duration_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:text="@string/plan_duration"
+                        android:textSize="@dimen/textSize_10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/project_target_amount_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/image_view_circular_shape"
+                    android:padding="@dimen/padding_8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_ep_sell"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/project_sector_image_view" />
+
+                <LinearLayout
+                    android:id="@+id/project_target_amount_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/project_target_amount_image_view"
+                    app:layout_constraintStart_toEndOf="@+id/project_target_amount_image_view"
+                    app:layout_constraintTop_toTopOf="@+id/project_target_amount_image_view">
+
+                    <TextView
+                        android:id="@+id/project_target_amount_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:baselineAligned="false"
+                        android:text="@string/_0"
+                        android:textColor="@color/green_700"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/target_amount_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:text="@string/estimated_cost_price"
+                        android:textSize="@dimen/textSize_10sp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/project_funds_raised_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:background="@drawable/image_view_circular_shape_blue"
+                    android:padding="@dimen/padding_8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_plan_description"
+                    app:layout_constraintStart_toStartOf="@+id/project_constraint_guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/project_duration_image_view" />
+
+                <LinearLayout
+                    android:id="@+id/project_funds_raised_layout"
+                    android:layout_width="@dimen/width_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_4dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/project_funds_raised_image_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/project_funds_raised_image_view"
+                    app:layout_constraintTop_toTopOf="@+id/project_funds_raised_image_view">
+
+                    <TextView
+                        android:id="@+id/project_funds_raised_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:baselineAligned="false"
+                        android:text="@string/_0"
+                        android:textColor="@color/green_700"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/project_funds_raised"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:text="@string/estimated_selling_price"
+                        android:textSize="@dimen/textSize_10sp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

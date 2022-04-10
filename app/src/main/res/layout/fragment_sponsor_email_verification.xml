@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary_color"
+    tools:context=".sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorEmailVerificationFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_20dp">
+
+        <View
+            android:id="@+id/email_verification_notification_close_icon"
+            android:layout_width="@dimen/margin_40dp"
+            android:layout_height="@dimen/margin_40dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:background="@drawable/ic_leave_page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/close_icon"
+            android:layout_width="@dimen/width_24dp"
+            android:layout_height="@dimen/height_24dp"
+            android:src="@drawable/close_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/email_verification_notification_close_icon"
+            app:layout_constraintEnd_toEndOf="@+id/email_verification_notification_close_icon"
+            app:layout_constraintStart_toStartOf="@+id/email_verification_notification_close_icon"
+            app:layout_constraintTop_toTopOf="@+id/email_verification_notification_close_icon" />
+
+        <TextView
+            android:id="@+id/fragment_verify_email_title_tv"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica_bold"
+            android:text="@string/verify_email_address"
+            android:textColor="#0B0B0B"
+            android:textSize="@dimen/textSize_24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_verification_notification_close_icon" />
+
+        <TextView
+            android:id="@+id/verify_email_notification_message"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/email_has_been_sent_to_pat_gmail_com_please_click_on_the_link_sent_to_you_to_verify"
+            android:textColor="#8A8A8E"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_verify_email_title_tv" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/fragment_email_verification_recover_email_otpView"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_120dp"
+            android:background="@color/white"
+            android:cursorVisible="true"
+            android:hint="0"
+            android:inputType="number"
+            android:itemBackground="#EBEFF2"
+            android:selectAllOnFocus="true"
+            android:textSize="@dimen/textSize_24sp"
+            android:textStyle="bold"
+            app:cursorColor="@color/green_700"
+            app:itemCount="6"
+            app:itemRadius="@dimen/radius_5dp"
+            app:itemSpacing="@dimen/spacing_3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/verify_email_notification_message"
+            app:lineColor="#EBEFF2"
+            app:viewType="rectangle" />
+
+        <TextView
+            android:id="@+id/recover_password_error_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:text="@string/you_entered_a_wrong_code_text"
+            android:textColor="#D91D1D"
+            android:textSize="@dimen/textSize_16sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_email_verification_recover_email_otpView"
+            app:layout_constraintStart_toStartOf="@+id/fragment_email_verification_recover_email_otpView"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_email_verification_recover_email_otpView" />
+
+        <TextView
+            android:id="@+id/recover_password_otp_didnt_receive_email_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/didn_t_recieve_email_resend_text"
+            android:textSize="@dimen/textSize_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_email_verification_recover_email_otpView"
+            app:layout_constraintStart_toStartOf="@+id/fragment_email_verification_recover_email_otpView"
+            app:layout_constraintTop_toBottomOf="@+id/recover_password_error_textView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

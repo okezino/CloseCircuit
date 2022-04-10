@@ -8,7 +8,7 @@
     <string name="password_recovery_text">Password Recovery</string>
     <string name="you_re_almost_close_to_recovering_your_password_text">You’re almost close to recovering your password. A code has been sent to your email address, please enter code to proceed.</string>
     <string name="you_entered_a_wrong_code_text">You entered a wrong code, please enter code correctly</string>
-    <string name="didn_t_recieve_email_resend_text">Didn\'t receive email? resend</string>
+    <string name="didn_t_recieve_email_resend_text">Didn\'t receive email? <font color='#0386FF'>resend</font></string>
     <string name="all_password_recovery_text">Password Recovery</string>
     <string name="we_are_here_to_help_you_recover_your_password_text">We are here to help you recover your password, please enter your registered email address below.</string>
     <string name="email_text">Email</string>
@@ -532,4 +532,9 @@
     <string name="value_numbers_of_sponsors">10 Sponsors</string>
     <string name="ngn_120_000_00">NGN 120,000.00</string>
     <string name="bussines_name">Fish Farming</string>
+    <string name="how_can_you_help">How can you help?</string>
+    <string name="you_can_support_by_funding_text">You can support by funding <font color='#00000'>part, single or multiple</font> budgets through loans or donations.</string>
+    <string name="plan_summary">Plan summary</string>
+    <string name="estimated_cost_price">Estimated cost price</string>
+    <string name="estimated_selling_price">Estimated selling price</string>
 </resources>
