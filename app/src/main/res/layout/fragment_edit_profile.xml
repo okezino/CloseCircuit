@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authentication.presentation.ui.screens.CreateAccountFragment">
+    tools:context="com.example.closedcircuitapplication.common.authentication.presentation.ui.screens.CreateAccountFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_edit_profile_toolbar"

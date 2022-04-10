@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sponsors.presentation.Screens.SponsorsScreenFragment">
+    tools:context=".beneficiary.sponsors.presentation.Screens.SponsorsScreenFragment">
 
     <ImageView
         android:id="@+id/notification_IV"

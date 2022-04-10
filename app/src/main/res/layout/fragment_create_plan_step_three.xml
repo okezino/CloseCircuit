@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".plan.presentation.ui.screens.CreatePlanStepThreeFragment">
+    tools:context="com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.screens.CreatePlanStepThreeFragment">
 
     <TextView
         android:id="@+id/create_plan_step_three_create_plan_textView"

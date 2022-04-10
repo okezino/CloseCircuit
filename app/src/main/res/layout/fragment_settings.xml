@@ -6,7 +6,7 @@
     android:background="@color/primary_color"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".settings.presentation.ui.screens.SettingsFragment">
+    tools:context=".beneficiary.settings.presentation.ui.screens.SettingsFragment">
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:id="@+id/fragment_settings_container_layout"
