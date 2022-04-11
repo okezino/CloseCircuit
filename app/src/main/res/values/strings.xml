@@ -532,4 +532,10 @@
     <string name="value_numbers_of_sponsors">10 Sponsors</string>
     <string name="ngn_120_000_00">NGN 120,000.00</string>
     <string name="bussines_name">Fish Farming</string>
+    <string name="total_number_of_plans_funded">Total Number of Plans funded</string>
+    <string name="_3">3</string>
+    <string name="personal_info">Personal info</string>
+    <string name="account_name">Account name:</string>
+    <string name="account_number">Account number</string>
+    <string name="bank">Bank</string>
 </resources>

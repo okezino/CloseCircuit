@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_profileFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_notificationScreenFragment"
+            app:destination="@id/notificationScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/createPlanFragment"

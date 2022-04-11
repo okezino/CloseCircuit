@@ -12,7 +12,7 @@ plugins {
 }
 
 android {
-    compileSdk Versions.compilesdk
+    compileSdk 31
 
     defaultConfig {
         applicationId Application.id
@@ -32,8 +32,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility Java.java_version
-        targetCompatibility Java.java_version
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
     configurations.all {
@@ -139,7 +139,7 @@ dependencies {
 
     testImplementation 'org.mockito:mockito-core:2.24.5'
     androidTestImplementation 'org.mockito:mockito-android:2.24.5'
-    androidTestImplementation "androidx.navigation:navigation-testing:2.4.0"
+    androidTestImplementation 'androidx.navigation:navigation-testing:2.4.1'
 
 
 

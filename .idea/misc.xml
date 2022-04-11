@@ -119,7 +119,7 @@
         <entry key="app/src/main/res/layout/fragment_password_recovery_successful.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_payments_support.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/fragment_plan_created_sucessfully.xml" value="0.23229166666666667" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.13768115942028986" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_project_screen.xml" value="0.13768115942028986" />
         <entry key="app/src/main/res/layout/fragment_recover_password_otp.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_request_verification_successfull.xml" value="0.15555555555555556" />
@@ -133,6 +133,7 @@
         <entry key="app/src/main/res/layout/fragment_settings_reset_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_settings_steps_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/fragment_sponsor_profile.xml" value="0.29791666666666666" />
         <entry key="app/src/main/res/layout/fragment_sponsors_screen.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/fragment_successful_email_verification_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_support.xml" value="0.25" />
@@ -151,7 +152,7 @@
         <entry key="app/src/main/res/layout/project_item.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/sponsors_screen_copy_link_alart_dialog.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/view_pager_template.xml" value="0.13729508196721313" />
-        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
         <entry key="app/src/main/res/menu/drawer_navigation_menu.xml" value="0.23125" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.25" />
         <entry key="app/src/main/res/menu/plan_menu.xml" value="0.2833333333333333" />

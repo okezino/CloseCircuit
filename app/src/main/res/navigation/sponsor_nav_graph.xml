@@ -9,5 +9,18 @@
         android:id="@+id/sampleDashboardFragment2"
         android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SampleDashboardFragment"
         android:label="fragment_sample_dashboard"
-        tools:layout="@layout/fragment_sample_dashboard" />
+        tools:layout="@layout/fragment_sample_dashboard" >
+        <action
+            android:id="@+id/action_sampleDashboardFragment2_to_sponsorProfileFragment"
+            app:destination="@id/sponsorProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sponsorProfileFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.profile.presentation.ui.screens.ProfileFragment"
+        android:label="fragment_sponsor_profile"
+        tools:layout="@layout/fragment_sponsor_profile" >
+        <action
+            android:id="@+id/action_sponsorProfileFragment_to_sampleDashboardFragment2"
+            app:destination="@id/sampleDashboardFragment2" />
+    </fragment>
 </navigation>

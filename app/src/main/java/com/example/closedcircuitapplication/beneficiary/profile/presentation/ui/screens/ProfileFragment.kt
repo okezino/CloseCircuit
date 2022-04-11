@@ -246,21 +246,17 @@ class ProfileFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                         binding.errorMessage.visibility = View.INVISIBLE
                     }
 
-                    binding.profileEditButton.setOnClickListener {
-
-                        findNavController().navigate(
-                                ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(
-                                fullName,
-                                phoneNumber,
-                                nationality,
-                                userId,
-                                email,
-                                password,
-                                confirmPassword,
-                                avatar1
-                            ),
-                            customNavAnimation().build()
-                        )
+                    binding.profileEditButton.setOnClickListener{
+                        findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(
+                            fullName,
+                            phoneNumber,
+                            nationality,
+                            userId,
+                            email,
+                            password,
+                            confirmPassword,
+                            avatar1
+                        ), customNavAnimation().build())
                     }
 //                  saving email to sharedPreference
                     it.data.data.let { email -> saveEmail(email.email) }
