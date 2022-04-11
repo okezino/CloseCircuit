@@ -414,5 +414,9 @@
         <item name="tabSelectedTextColor">@color/body_text_color</item>
         <item name="tabTextColor">@color/body_text_color</item>
     </style>
+    <style name="CircularDeterminateProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/determinant_circular_progress_bar</item>
+    </style>
 
 </resources>

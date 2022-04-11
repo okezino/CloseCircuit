@@ -69,4 +69,7 @@
     <color name="settings_icon_background">#F5FCE2</color>
     <color name="user_account_loan_container_color">#F7F0FF</color>
     <color name="loan_amount_color">#24500F</color>
+    <color name="secondary_color_light">#259F46</color>
+
+
 </resources>

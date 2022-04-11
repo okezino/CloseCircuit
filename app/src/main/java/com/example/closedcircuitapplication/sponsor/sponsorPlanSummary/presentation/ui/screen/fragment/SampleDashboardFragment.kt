@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.databinding.FragmentSampleDashboardBinding
 
 class SampleDashboardFragment : Fragment() {
@@ -23,7 +23,9 @@ class SampleDashboardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.fragmentSampleTv.findNavController().navigate(SampleDashboardFragmentDirections.actionSampleDashboardFragment2ToSponsorFundingLevelFragment())
+        binding.fragmentSampleTv.setOnClickListener {
+            findNavController().navigate(SampleDashboardFragmentDirections.actionSampleDashboardFragment2ToSponsorFundingLevelFragment())
+        }
     }
 
     override fun onDestroy() {

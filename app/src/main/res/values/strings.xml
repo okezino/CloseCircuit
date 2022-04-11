@@ -545,4 +545,8 @@
     <string name="estimated_selling_price">Estimated selling price</string>
     <string name="how_would_you_like_to_sponsor">How would you like to sponsor?</string>
     <string name="select_funding_level">Select funding level</string>
+    <string name="plan_description">Plan description</string>
+    <string name="sponsor_plan_description_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
+    <string name="e_commerce">E-commerce</string>
+    <string name="_20">20%</string>
 </resources>

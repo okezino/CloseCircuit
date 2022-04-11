@@ -33,6 +33,7 @@
         <entry key="app/src/main/res/drawable/chat_reciever_background.xml" value="0.1105" />
         <entry key="app/src/main/res/drawable/chip_group_background.xml" value="0.18717105263157896" />
         <entry key="app/src/main/res/drawable/dailog_bg_color.xml" value="0.1105" />
+        <entry key="app/src/main/res/drawable/determinant_circular_progress_bar.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/drawable/google_btn.xml" value="0.24316239316239316" />
         <entry key="app/src/main/res/drawable/ic__menu_icon.xml" value="0.121875" />
         <entry key="app/src/main/res/drawable/ic_accounts.xml" value="0.2522982635342186" />
@@ -41,6 +42,7 @@
         <entry key="app/src/main/res/drawable/ic_briefcase.xml" value="0.24814814814814815" />
         <entry key="app/src/main/res/drawable/ic_calendar.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/ic_card.xml" value="0.2522982635342186" />
+        <entry key="app/src/main/res/drawable/ic_circular_green.xml" value="0.19638157894736843" />
         <entry key="app/src/main/res/drawable/ic_copy.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/ic_edit_square.xml" value="0.3140625" />

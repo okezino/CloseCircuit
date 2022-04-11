@@ -3,7 +3,9 @@ package com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presenta
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.closedcircuitapplication.databinding.ActivitySponsorDashboardBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SponsorDashboardActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySponsorDashboardBinding

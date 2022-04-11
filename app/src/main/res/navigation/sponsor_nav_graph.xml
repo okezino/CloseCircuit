@@ -18,5 +18,14 @@
         android:id="@+id/sponsorFundingLevelFragment"
         android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorFundingLevelFragment"
         android:label="fragment_sponsor_funding_level"
-        tools:layout="@layout/fragment_sponsor_funding_level" />
+        tools:layout="@layout/fragment_sponsor_funding_level" >
+        <action
+            android:id="@+id/action_sponsorFundingLevelFragment_to_sponsorEmailVerificationFragment"
+            app:destination="@id/sponsorEmailVerificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sponsorEmailVerificationFragment"
+        android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorEmailVerificationFragment"
+        android:label="fragment_sponsor_email_verification"
+        tools:layout="@layout/fragment_sponsor_email_verification" />
 </navigation>

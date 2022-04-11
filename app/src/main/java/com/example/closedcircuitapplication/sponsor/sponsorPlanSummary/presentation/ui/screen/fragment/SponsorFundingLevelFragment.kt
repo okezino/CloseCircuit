@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.core.content.res.ResourcesCompat
+import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.FragmentSponsorFundingLevelBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SponsorFundingLevelFragment : Fragment() {
 
     private var _binding: FragmentSponsorFundingLevelBinding? = null
@@ -26,6 +29,9 @@ class SponsorFundingLevelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fundLevelTypeAdapter()
+        binding.fragmentSponsorFundLevelBtn.setOnClickListener {
+            findNavController().navigate(SponsorFundingLevelFragmentDirections.actionSponsorFundingLevelFragmentToSponsorEmailVerificationFragment())
+        }
     }
     private fun fundLevelTypeAdapter(){
         val fundLevelType = resources.getStringArray(R.array.plan_fund_level)
