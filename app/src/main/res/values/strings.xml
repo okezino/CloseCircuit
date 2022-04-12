@@ -373,7 +373,7 @@
     <string name="click_to_edit">Click to edit.</string>
     <string name="account_page">Account page</string>
     <string name="please_verify_your_email_address_to_complete_profile_setup">Please verify your email address to complete profile setup</string>
-    <string name="phone_number">phone_number</string>
+    <string name="phone_number">Phone Number:</string>
     <string name="support_str">Support</string>
     <string name="how_to_use">How to use</string>
     <string name="payments_support">Payments</string>
@@ -538,4 +538,5 @@
     <string name="account_name">Account name:</string>
     <string name="account_number">Account number</string>
     <string name="bank">Bank</string>
+    <string name="click_to_edit2">Click to edit</string>
 </resources>

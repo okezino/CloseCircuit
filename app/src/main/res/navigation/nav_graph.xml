@@ -160,11 +160,6 @@
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.closedcircuitapplication.beneficiary.profile.presentation.ui.screens.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
         android:id="@+id/createAPlanFragment"
         android:name="com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.screens.CreateAPlanFragment"
         android:label="fragment_create_a_plan"

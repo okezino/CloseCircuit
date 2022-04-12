@@ -12,15 +12,27 @@
         tools:layout="@layout/fragment_sample_dashboard" >
         <action
             android:id="@+id/action_sampleDashboardFragment2_to_sponsorProfileFragment"
-            app:destination="@id/sponsorProfileFragment" />
+            app:destination="@id/sponsorProfileFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/sponsorProfileFragment"
-        android:name="com.example.closedcircuitapplication.beneficiary.profile.presentation.ui.screens.ProfileFragment"
+        android:id="@+id/sponsorProfileFragment2"
+        android:name="com.example.closedcircuitapplication.sponsor.profile.presentation.ui.screens.SponsorProfileFragment"
         android:label="fragment_sponsor_profile"
         tools:layout="@layout/fragment_sponsor_profile" >
         <action
             android:id="@+id/action_sponsorProfileFragment_to_sampleDashboardFragment2"
             app:destination="@id/sampleDashboardFragment2" />
+        <action
+            android:id="@+id/action_sponsorProfileFragment2_to_sponsorEditFragment"
+            app:destination="@id/sponsorEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sponsorEditFragment"
+        android:name="com.example.closedcircuitapplication.sponsor.profile.presentation.ui.screens.SponsorEditProfileFragment"
+        android:label="fragment_sponsor_edit"
+        tools:layout="@layout/fragment_sponsor_edit" >
+        <action
+            android:id="@+id/action_sponsorEditFragment_to_sponsorProfileFragment2"
+            app:destination="@id/sponsorProfileFragment2" />
     </fragment>
 </navigation>

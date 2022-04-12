@@ -35,6 +35,7 @@ import com.example.closedcircuitapplication.databinding.FragmentProfileBinding
 import com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.viewmodels.PlanViewModel
 import com.example.closedcircuitapplication.beneficiary.plan.utils.PlanConstants
 import com.example.closedcircuitapplication.beneficiary.plan.utils.PlanUtils
+import com.example.closedcircuitapplication.common.authentication.presentation.ui.screens.LoginFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 import com.theartofdev.edmodo.cropper.CropImage
 import dagger.hilt.android.AndroidEntryPoint
@@ -256,7 +257,7 @@ class ProfileFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
                             password,
                             confirmPassword,
                             avatar1
-                        ), customNavAnimation().build())
+                        ),customNavAnimation().build())
                     }
 //                  saving email to sharedPreference
                     it.data.data.let { email -> saveEmail(email.email) }
