@@ -549,4 +549,13 @@
     <string name="sponsor_plan_description_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
     <string name="e_commerce">E-commerce</string>
     <string name="_20">20%</string>
+    <string name="estimated_profit">Estimated profit</string>
+    <string name="plan_steps_and_budgets">Plan steps and budgets</string>
+    <string name="step_1">Step 1:</string>
+    <string name="cost_ngn_500_000">Cost(NGN 500,000)</string>
+    <string name="ngn_100_000">NGN 100,000</string>
+    <string name="ui_ux_design">UI/UX Design</string>
+    <string name="budgets_8">Budgets(8)</string>
+    <string name="total">Total:</string>
+    <string name="ngn_1_700_000_00">NGN 1,700,000.00</string>
 </resources>

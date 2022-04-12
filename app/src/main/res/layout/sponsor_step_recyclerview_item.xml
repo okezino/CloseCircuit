@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sponsor_step_rv_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_62dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/change_profile_text_color">
+
+        <TextView
+            android:id="@+id/fragment_sponsor_plan_summary_step_tv"
+            style="@style/TCCBodyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_14dp"
+            android:text="@string/step_1"
+            android:textColor="@color/secondary_color"
+            android:textSize="@dimen/textSize_15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <TextView
+            android:id="@+id/fragment_sponsor_plan_summary_step_name_tv"
+            style="@style/TCCBodyText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/design_a_website"
+            android:textColor="@color/secondary_color"
+            android:textSize="@dimen/textSize_15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_sponsor_plan_summary_step_amount_tv"
+            app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+            app:layout_constraintStart_toEndOf="@+id/left_guideline"
+            app:layout_constraintTop_toTopOf="@+id/fragment_sponsor_plan_summary_step_amount_tv" />
+
+        <TextView
+            android:id="@+id/fragment_sponsor_plan_summary_step_amount_tv"
+            style="@style/TCCBodyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_14dp"
+            android:layout_marginEnd="@dimen/margin_5dp"
+            android:text="@string/cost_ngn_500_000"
+            android:textColor="@color/secondary_color"
+            android:textSize="@dimen/textSize_15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="right_guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sponsor_step_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="3"
+        tools:listitem="@layout/sponsor_budget_recyclerview_item"
+        android:layout_below="@+id/sponsor_step_rv_container"
+        />
+
+</RelativeLayout>

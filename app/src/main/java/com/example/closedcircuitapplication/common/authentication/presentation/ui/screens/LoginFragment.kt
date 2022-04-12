@@ -159,7 +159,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
                     //Intent to navigate to Beneficiary DashBoard
 //                    Intent(requireContext(),BeneficiaryDashboardActivity::class.java).also { intentBeneficiaryDashboard -> startActivity(intentBeneficiaryDashboard) }
-
                     //Intent to navigate to Sponsor Dashboard
                     Intent(requireContext(),SponsorDashboardActivity::class.java).also { sponsorDashBoardIntent -> startActivity(sponsorDashBoardIntent) }
                 }
