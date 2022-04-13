@@ -113,7 +113,6 @@
                     android:id="@+id/editSponsorProfileEmailTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:editable="false"
                     android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -145,7 +144,8 @@
                     android:layout_marginStart="@dimen/margin_start_45dp"
                     android:inputType="phone"
                     android:maxLength="16"
-                    android:paddingStart="35dp" />
+                    android:paddingStart="35dp"
+                    android:paddingEnd="1dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.hbb20.CountryCodePicker
@@ -161,7 +161,8 @@
                 app:ccp_defaultNameCode="NG"
                 app:layout_constraintBottom_toBottomOf="@+id/phoneNumberTextInputLayout"
                 app:layout_constraintStart_toStartOf="@+id/phoneNumberTextInputLayout"
-                app:layout_constraintTop_toTopOf="@+id/phoneNumberTextInputLayout" />
+                app:layout_constraintTop_toTopOf="@+id/phoneNumberTextInputLayout"
+                android:focusable="true" />
 
 
             <TextView
