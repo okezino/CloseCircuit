@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_sampleDashboardFragment2_to_sponsorFundingLevelFragment"
             app:destination="@id/sponsorFundingLevelFragment" />
+        <action
+            android:id="@+id/action_sampleDashboardFragment2_to_sponsorPlanSummaryFragment"
+            app:destination="@id/sponsorPlanSummaryFragment" />
     </fragment>
     <fragment
         android:id="@+id/sponsorFundingLevelFragment"
@@ -28,4 +31,9 @@
         android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorEmailVerificationFragment"
         android:label="fragment_sponsor_email_verification"
         tools:layout="@layout/fragment_sponsor_email_verification" />
+    <fragment
+        android:id="@+id/sponsorPlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorPlanSummaryFragment"
+        android:label="fragment_sponsor_plan_summary"
+        tools:layout="@layout/fragment_sponsor_plan_summary" />
 </navigation>

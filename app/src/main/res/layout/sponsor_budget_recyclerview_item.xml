@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true">
 
         <TextView
-            android:id="@+id/fragment_sponsor_plan_summary_step_tv"
+            android:id="@+id/fragment_sponsor_plan_summary_budget_item_tv"
             style="@style/TCCBodyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,19 +38,19 @@
             app:layout_constraintGuide_percent="0.6"
             />
         <TextView
-            android:id="@+id/fragment_sponsor_plan_summary_step_name_tv"
+            android:id="@+id/fragment_sponsor_plan_summary_budget_item_name_tv"
             style="@style/TCCBodyText"
             android:layout_width="0dp"
             android:textSize="@dimen/textSize_15sp"
             android:layout_height="wrap_content"
             android:text="@string/ui_ux_design"
-            app:layout_constraintBottom_toBottomOf="@+id/fragment_sponsor_plan_summary_step_amount_tv"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_sponsor_plan_summary_budget_item_amount_tv"
             app:layout_constraintEnd_toStartOf="@+id/right_guideline"
             app:layout_constraintStart_toEndOf="@+id/left_guideline"
-            app:layout_constraintTop_toTopOf="@+id/fragment_sponsor_plan_summary_step_amount_tv" />
+            app:layout_constraintTop_toTopOf="@+id/fragment_sponsor_plan_summary_budget_item_amount_tv" />
 
         <TextView
-            android:id="@+id/fragment_sponsor_plan_summary_step_amount_tv"
+            android:id="@+id/fragment_sponsor_plan_summary_budget_item_amount_tv"
             style="@style/TCCBodyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
             android:layout_marginEnd="@dimen/margin_47dp"
             android:text="@string/ngn_100_000"
             android:textSize="@dimen/textSize_15sp"
-            app:layout_constraintStart_toEndOf="right_guideline"
+            app:layout_constraintStart_toEndOf="@+id/right_guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -66,16 +66,16 @@
             android:textSize="@dimen/textSize_15sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="right_guideline"
+            app:layout_constraintStart_toEndOf="@+id/right_guideline"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sponsor_step_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:itemCount="3"
-        tools:listitem="@layout/sponsor_budget_recyclerview_item"
         android:layout_below="@+id/sponsor_step_rv_container"
-        />
+        tools:itemCount="3"
+        tools:listitem="@layout/sponsor_budget_recyclerview_item" />
 
 </RelativeLayout>

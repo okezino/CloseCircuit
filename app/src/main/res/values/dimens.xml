@@ -131,7 +131,6 @@
     <dimen name="textSize_32sp">32sp</dimen>
     <dimen name="height_180dp">180dp</dimen>
     <dimen name="height_62dp">62dp</dimen>
-    <dimen name="margin_5dp">5dp</dimen>
     <dimen name="margin_47dp">47dp</dimen>
     <dimen name="height_45dp">45dp</dimen>
 </resources>
