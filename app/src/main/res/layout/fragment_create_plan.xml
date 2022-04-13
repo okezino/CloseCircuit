@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".plan.presentation.ui.screens.ProjectSummaryFragment">
+    tools:context="com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.screens.ProjectSummaryFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
-
+        android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -27,7 +25,6 @@
                 android:layout_width="@dimen/height_40dp"
                 android:layout_height="@dimen/height_40dp"
                 android:layout_marginBottom="8dp"
-                android:src="@drawable/diane_russell"
                 app:layout_constraintBottom_toTopOf="@+id/project_summary_layout"
                 app:layout_constraintEnd_toEndOf="@+id/project_title"
                 app:layout_constraintHorizontal_bias="0.045"

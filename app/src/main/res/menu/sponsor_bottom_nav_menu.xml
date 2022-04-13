@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/sponsorDashboardFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/menu_home" />
+    <item
+        android:id="@+id/sponsorProfileFragment"
+        android:icon="@drawable/ic_accounts"
+        android:title="@string/menu_profile" />
+    <item
+        android:id="@+id/placeholder"
+        android:title=""
+        android:enabled="false"/>
+    <item
+        android:id="@+id/sponsorMessageFragment"
+        android:icon="@drawable/ic_messages"
+        android:title="@string/menu_message" />
+    <item
+        android:id="@+id/sponsorAccountFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/menu_account" />
+</menu>

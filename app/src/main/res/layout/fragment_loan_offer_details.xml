@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/margin_20dp"
+    tools:context=".beneficiary.loan.presentation.ui.screens.LoanOfferDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="parent">
+
+    <TextView
+        android:id="@+id/business_name_loan_item_tv"
+        style="@style/LoanOfferText_style"
+        android:layout_marginStart="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/height_50dp"
+        android:text="@string/bussines_name"
+        android:textColor="@color/closed_circuit_dark_green"
+        android:textSize="@dimen/text_size_20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/loan_offer_detail_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/business_name_loan_item_tv"
+        tools:listitem="@layout/loan_offer_detail_item" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

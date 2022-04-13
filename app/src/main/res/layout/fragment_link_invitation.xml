@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".onboarding.presentation.ui.screens.LinkInvitationFragment">
+    tools:context=".beneficiary.onboarding.presentation.ui.screens.LinkInvitationFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

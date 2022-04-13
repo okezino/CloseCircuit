@@ -350,7 +350,7 @@
     <string name="nigerian_currency_code">NGN</string>
     <string name="south_african_country_code">+27</string>
     <string name="south_african_currency_code">ZAR</string>
-    <string name="did_not_receive_email_text">Didn’t recieve email? resend</string>
+    <string name="did_not_receive_email_text">Didn’t receive email? resend</string>
     <string name="input_valid_password_text">Please Input a valid password</string>
     <string name="passwords_do_not_match_text">Passwords do not match</string>
     <string name="loading_text">Loading</string>
@@ -499,13 +499,45 @@
     <string name="bank_details">Bank details</string>
     <string name="card_details">Card details</string>
     <string name="kyc">KYC</string>
+    <string name="profile_image">Profile Image</string>
     <string name="Unable_to_get_steps">Unable to get steps</string>
     <string name="placeholder_name_patience_tyav">Patience Tyav</string>
     <string name="someone_needs_help_text">needs your help in starting a business.</string>
     <string name="e_commerce_electronics">E-commerce (Electronics)</string>
     <string name="plan_description">Plan description</string>
     <string name="plan_description_placeholder_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
-    <string name="decline">Decline</string>
     <string name="accept">Accept</string>
     <string name="closed_circuit_description_placeholder_text">Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.</string>
+
+    <string name="total_amount_offered">Total Amount Offered:</string>
+    <string name="jane_cooper">Jane Cooper</string>
+    <string name="view_profile">View profile</string>
+    <string name="amount">Amount: <font color='#000000'><b>%1$s %2$s</b></font></string>
+    <string name="grace_period_months">Grace period:  <font color='#000000'><b>%1$s  Months</b></font></string>
+    <string name="loan_percentage">Loan Percentage: <font color='#000000'><b>%1$s</b></font></string>
+    <string name="decline_loan_offer">Decline loan offer</string>
+    <string name="accept_loan_offer">Accept loan offer</string>
+    <string name="loan_details">Loan details</string>
+    <string name="months">Months</string>
+    <string name="repayment_amount">Repayment amount</string>
+    <string name="second_month">Second month</string>
+    <string name="total_repayment">Total repayment</string>
+    <string name="interest">Interest</string>
+    <string name="first_month">First month</string>
+    <string name="ngn_11_000">NGN 11,000</string>
+    <string name="third_month">Third month</string>
+    <string name="decline_loan_off">Decline loan offer ?</string>
+    <string name="type_message">Type message</string>
+    <string name="decline">Decline</string>
+    <string name="send_a_message">Send a message</string>
+    <string name="decline_loan_message">You are about to decline a loan offer, would you like to send the Sponsor a message?</string>
+    <string name="loan_summary">You are about to accept a loan offer of %1$s to pay back %2$s starting 3 months from now and to end 3 months after. The loan amount would be credited to your wallet.</string>
+    <string name="ok_continue">OK, Continue</string>
+    <string name="fish_farming">Fish Farming</string>
+    <string name="ngn_3_000">NGN 3,000</string>
+    <string name="total_number_of_sponsors">Total Number of Sponsors:</string>
+    <string name="value_numbers_of_sponsors">10 Sponsors</string>
+    <string name="ngn_120_000_00">NGN 120,000.00</string>
+    <string name="bussines_name">Fish Farming</string>
+>>>>>>> 31213dc775f642b262e447cbef7c2d54d69c842f
 </resources>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".plan.presentation.ui.screens.FundSentSuccessfullyFragment">
+    tools:context="com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.screens.FundSentSuccessfullyFragment">
 
     <ScrollView
         android:layout_width="match_parent"
