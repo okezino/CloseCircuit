@@ -150,7 +150,7 @@
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_sponsor_email_verification.xml" value="0.18618421052631579" />
         <entry key="app/src/main/res/layout/fragment_sponsor_funding_level.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_sponsor_plan_summary.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_sponsor_plan_summary.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_sponsor_successful_email_verification.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_sponsors_screen.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/fragment_successful_email_verification_screen.xml" value="0.22" />

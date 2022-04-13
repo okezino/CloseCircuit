@@ -23,7 +23,7 @@ class PlanSummaryStepAdapter
             binding.fragmentSponsorPlanSummaryStepAmountTv.text = "Cost(NGN ${stepItems.stepCost})"
             bindBudgetViews(stepItems)
         }
-        fun bindBudgetViews(stepItems: SponsorPlanSummaryStepDto){
+        private fun bindBudgetViews(stepItems: SponsorPlanSummaryStepDto){
             binding.sponsorStepRecyclerView.apply {
                 val recyclerView = PlanSummaryBudgetAdapter()
                 recyclerView.addBudgetList(stepItems.budget)

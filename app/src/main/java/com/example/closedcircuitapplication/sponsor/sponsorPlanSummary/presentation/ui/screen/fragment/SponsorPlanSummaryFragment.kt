@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.closedcircuitapplication.common.common.utils.handleBackPress
+import com.example.closedcircuitapplication.common.common.utils.popBackStack
 import com.example.closedcircuitapplication.databinding.FragmentSponsorPlanSummaryBinding
 import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.model.SponsorPlanSummaryStepDto
 import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.adaptesr.PlanSummaryStepAdapter
@@ -27,6 +30,8 @@ class SponsorPlanSummaryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        handleBackPress()
+        binding.fragmentSponsorPlanSummaryBackArrowIv.setOnClickListener { popBackStack() }
         initRecyclerView()
     }
     private fun initRecyclerView(){

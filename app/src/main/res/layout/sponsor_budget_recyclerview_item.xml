@@ -67,7 +67,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/line_color_light"
-        android:layout_marginHorizontal="@dimen/margin_20dp"/>
+        android:background="@color/line_color_light" />
 
 </LinearLayout>
