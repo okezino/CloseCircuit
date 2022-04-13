@@ -80,7 +80,7 @@
                 app:layout_constraintTop_toBottomOf="@id/createAccount_tv">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editProfileFullNameTextInput"
+                    android:id="@+id/editSponsorProfileFullNameTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -110,7 +110,7 @@
                 app:layout_constraintTop_toBottomOf="@id/fullNameTextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editProfileEmailTextInput"
+                    android:id="@+id/editSponsorProfileEmailTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
@@ -139,7 +139,7 @@
                 app:layout_constraintTop_toBottomOf="@id/emailTextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editProfilePhoneNumberTextInput"
+                    android:id="@+id/editSponsorProfilePhoneNumberTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_start_45dp"
