@@ -126,7 +126,7 @@
         <item>Others</item>
     </string-array>
 
-    <string-array name= "Means_of_support">
+    <string-array name="Means_of_support">
         <item>Technology</item>
         <item>Agriculture</item>
         <item>Professional Services</item>
@@ -140,7 +140,7 @@
         <item>Others</item>
     </string-array>
 
-    <string-array name = "number_of_lenders">
+    <string-array name="number_of_lenders">
         <item>Technology</item>
         <item>Agriculture</item>
         <item>Professional Services</item>
@@ -500,4 +500,12 @@
     <string name="card_details">Card details</string>
     <string name="kyc">KYC</string>
     <string name="Unable_to_get_steps">Unable to get steps</string>
+    <string name="placeholder_name_patience_tyav">Patience Tyav</string>
+    <string name="someone_needs_help_text">needs your help in starting a business.</string>
+    <string name="e_commerce_electronics">E-commerce (Electronics)</string>
+    <string name="plan_description">Plan description</string>
+    <string name="plan_description_placeholder_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
+    <string name="closed_circuit_description_placeholder_text">Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.</string>
 </resources>

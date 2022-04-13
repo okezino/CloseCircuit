@@ -197,10 +197,24 @@
         android:id="@+id/dashboardFragment2"
         android:name="com.example.closedcircuitapplication.dashboard.presentation.ui.screens.DashboardFragment"
         android:label="DashboardFragment" />
-    <!--    <fragment-->
-<!--        android:id="@+id/creatPlanStepOneFragment2"-->
-<!--        android:name="com.example.closedcircuitapplication.plan.presentation.ui.screens.CreatPlanStepOneFragment"-->
-<!--        android:label="fragment_creat_plan_step_one"-->
-<!--        tools:layout="@layout/fragment_creat_plan_step_one" />-->
+    <fragment
+        android:id="@+id/linkInvitationFragment"
+        android:name="com.example.closedcircuitapplication.onboarding.presentation.ui.screens.LinkInvitationFragment"
+        android:label="fragment_link_invitation"
+        tools:layout="@layout/fragment_link_invitation">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="www.closecircuit.com/{planId}/" />
+        <argument
+            android:name="planId"
+            />
+        <action
+            android:id="@+id/action_linkInvitationFragment_to_splashScreen"
+            app:destination="@id/splashScreen"
+            app:popUpTo="@id/linkInvitationFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+
 
 </navigation>

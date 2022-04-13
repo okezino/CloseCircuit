@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".onboarding.presentation.ui.screens.LinkInvitationFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/link_invitation_fragment_left_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/link_invitation_fragment_right_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <TextView
+            android:id="@+id/link_invitation_fragment_person_needs_help_textView"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_40dp"
+            android:layout_marginEnd="@dimen/margin_40dp"
+            android:fontFamily="@font/helvetica"
+            android:text="Patience Tyav needs your help in starting a business."
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_20sp"
+            app:layout_constraintEnd_toStartOf="@+id/link_invitation_fragment_right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/link_invitation_fragment_left_guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/link_invitation_fragment_plan_imageView"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="154dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/project_summary_image"
+            app:layout_constraintEnd_toStartOf="@+id/link_invitation_fragment_right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/link_invitation_fragment_left_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/link_invitation_fragment_person_needs_help_textView" />
+
+        <TextView
+            android:id="@+id/link_invitation_fragment_business_sector_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/business_sector"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_17sp"
+            app:layout_constraintStart_toStartOf="@+id/link_invitation_fragment_left_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/link_invitation_fragment_plan_imageView" />
+
+        <TextView
+            android:id="@+id/link_invitation_fragment_business_sector_value_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/e_commerce_electronics"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintEnd_toStartOf="@+id/link_invitation_fragment_right_guideline"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="@+id/link_invitation_fragment_left_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/link_invitation_fragment_business_sector_textView" />
+
+        <TextView
+            android:id="@+id/link_invitation_fragment_plan_description_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/plan_description"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_17sp"
+            app:layout_constraintStart_toStartOf="@+id/link_invitation_fragment_left_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/link_invitation_fragment_business_sector_value_textView" />
+
+        <TextView
+            android:id="@+id/link_invitation_fragment_plan_description_value_textView"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/plan_description_placeholder_text"
+            android:textSize="@dimen/textSize_15sp"
+            app:layout_constraintEnd_toStartOf="@+id/link_invitation_fragment_right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/link_invitation_fragment_left_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/link_invitation_fragment_plan_description_textView" />
+
+        <TextView
+            android:id="@+id/link_invitation_fragment_decline_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_50dp"
+            android:background="@drawable/all_outlined_white_button_background"
+            android:fontFamily="@font/helvetica"
+            android:paddingStart="@dimen/padding_40dp"
+            android:paddingTop="@dimen/padding_11dp"
+            android:paddingEnd="@dimen/padding_40dp"
+            android:paddingBottom="@dimen/padding_11dp"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:text="@string/decline"
+            android:textSize="@dimen/textSize_16sp"
+            app:layout_constraintStart_toStartOf="@+id/link_invitation_fragment_left_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/link_invitation_fragment_plan_description_value_textView" />
+
+        <TextView
+            android:id="@+id/link_invitation_fragment_accept_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_50dp"
+            android:background="@drawable/all_button_background"
+            android:fontFamily="@font/helvetica"
+            android:paddingStart="@dimen/padding_40dp"
+            android:paddingTop="@dimen/padding_11dp"
+            android:paddingEnd="@dimen/padding_40dp"
+            android:paddingBottom="@dimen/padding_11dp"
+            android:text="@string/accept"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSize_16sp"
+            app:layout_constraintEnd_toStartOf="@+id/link_invitation_fragment_right_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/link_invitation_fragment_plan_description_value_textView" />
+
+        <TextView
+            android:id="@+id/link_invitation_fragment_what_is_closed_circuit_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/what_is_the_closed_circuit"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/link_invitation_fragment_left_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/link_invitation_fragment_decline_textView" />
+
+        <TextView
+            android:id="@+id/link_invitation_fragment_closed_circuit_description_textView"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:fontFamily="@font/helvetica"
+            android:text="@string/closed_circuit_description_placeholder_text"
+            android:textSize="@dimen/textSize_18sp"
+            app:layout_constraintEnd_toStartOf="@+id/link_invitation_fragment_right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/link_invitation_fragment_left_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/link_invitation_fragment_what_is_closed_circuit_textView" />
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/link_invitation_exoplayer"
+            android:layout_width="@dimen/width_0dp"
+            android:layout_height="@dimen/height_220dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/link_invitation_fragment_closed_circuit_description_textView" />
+
+        <ImageView
+            android:id="@+id/link_invitation_fragment_closed_circuit_logo_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:src="@drawable/ic_closed_circuit_logo"
+            android:layout_marginBottom="@dimen/margin_70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/link_invitation_exoplayer"
+            app:layout_constraintStart_toStartOf="@+id/link_invitation_exoplayer"
+            app:layout_constraintTop_toBottomOf="@+id/link_invitation_exoplayer" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
