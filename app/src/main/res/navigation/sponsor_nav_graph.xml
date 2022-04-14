@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sponsor_nav_graph"
-    app:startDestination="@id/sampleDashboardFragment2">
+    app:startDestination="@id/sponsorsDashboardFragment">
 
     <fragment
-        android:id="@+id/sampleDashboardFragment2"
-        android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SampleDashboardFragment"
+        android:id="@+id/sponsorsDashboardFragment"
+        android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorDashboardFragment"
         android:label="fragment_sample_dashboard"
-        tools:layout="@layout/fragment_sample_dashboard" />
+        tools:layout="@layout/fragment_sponsors_dashboard" />
 </navigation>

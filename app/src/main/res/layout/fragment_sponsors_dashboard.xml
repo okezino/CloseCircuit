@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorDashboardFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/wallet_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_20dp"
+            android:background="@drawable/ic_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/wallet_balance_tv"
+                style="@style/NormalFaintText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_60dp"
+                android:text="@string/wallet_balance"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/balance_amount_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/wallet_balance_tv"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/width_30dp"
+                android:layout_marginBottom="@dimen/width_32dp"
+                android:text="@string/ngn_0_placeholder_text"
+                android:textColor="@color/secondary_color"
+                android:textSize="@dimen/textSize_24sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/noPlansFundedLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_33dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wallet_card">
+
+            <TextView
+                android:id="@+id/plans_funded_tv"
+                style="@style/NormalFaintText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:text="@string/plans_funded"
+                android:textColor="@color/closed_circuit_dark_green"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/view_all_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_20dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/plans_funded_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/plans_funded_tv">
+
+                <TextView
+                    android:id="@+id/sp_view_all_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/helvetica"
+                    android:text="@string/view_all"
+                    android:textColor="@color/upload_image_button_color"
+                    android:textSize="@dimen/textSize_10sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/view_all_arrow_iv"
+                    android:layout_width="@dimen/width_37dp"
+                    android:layout_height="@dimen/height_30dp"
+                    android:src="@drawable/ic_chevron_right"
+                    app:backgroundTint="@color/upload_image_button_color" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/sponsor_plans_funded_RV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/plans_funded_tv"
+                tools:listitem="@layout/plans_funded_items" />
+
+            <View
+                android:id="@+id/noPlan_background"
+                android:layout_width="match_parent"
+                android:layout_height="81dp"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:background="@drawable/background_sponsors"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/plans_funded_tv" />
+
+            <TextView
+                android:id="@+id/noPlan_tv"
+                style="@style/NormalBlackText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:text="@string/no_plans"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/plans_funded_tv" />
+
+
+            <TextView
+                android:id="@+id/no_plan_yet_tv"
+                style="@style/NormalFaintText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/no_plan_yet"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:textSize="@dimen/text_size_12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/no_plan_icon_IV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/noPlan_tv" />
+
+            <ImageView
+                android:id="@+id/no_plan_icon_IV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_no_sponsor"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                app:backgroundTint="@color/upload_image_button_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <TextView
+            android:id="@+id/funding_request_tv"
+            style="@style/NormalFaintText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_43dp"
+            android:text="@string/funding_request"
+            android:textColor="@color/closed_circuit_dark_green"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noPlansFundedLayout" />
+
+        <LinearLayout
+            android:id="@+id/funding_request_view_all_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/funding_request_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/funding_request_tv">
+
+            <TextView
+                android:id="@+id/funding_request_view_all_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/helvetica"
+                android:text="@string/view_all"
+                android:textColor="@color/upload_image_button_color"
+                android:textSize="@dimen/textSize_10sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/funding_request_view_all_arrow_iv"
+                android:layout_width="@dimen/width_37dp"
+                android:layout_height="@dimen/height_30dp"
+                android:src="@drawable/ic_chevron_right"
+                app:backgroundTint="@color/upload_image_button_color" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sponsors_funding_request_RV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:background="@color/closed_circuit_progress_background_tint"
+            app:layout_constraintTop_toBottomOf="@+id/funding_request_tv"
+            tools:layout_editor_absoluteX="20dp">
+
+            <TextView
+                android:id="@+id/sp_business_sector_tv"
+                style="@style/NormalBlackText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:layout_marginEnd="@dimen/margin_20dp"
+                android:text="@string/sp_business_sector"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sp_e_commerce_electronics_tv"
+                style="@style/NormalFaintText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginTop="@dimen/margin_13dp"
+                android:layout_marginEnd="@dimen/margin_20dp"
+                android:text="@string/sp_e_commerce_electronics"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sp_business_sector_tv" />
+
+            <ImageView
+                android:id="@+id/funding_request_IV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_18dp"
+                android:layout_marginBottom="@dimen/margin_50dp"
+                android:src="@drawable/e_commerce_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sp_e_commerce_electronics_tv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
