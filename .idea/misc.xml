@@ -60,6 +60,7 @@
         <entry key="app/src/main/res/drawable/indicator_active.xml" value="0.18717105263157896" />
         <entry key="app/src/main/res/drawable/indicator_inactive.xml" value="0.18717105263157896" />
         <entry key="app/src/main/res/drawable/item_background.xml" value="0.136" />
+        <entry key="app/src/main/res/drawable/item_background_rv.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/left_corner_input_background.xml" value="0.1105" />
         <entry key="app/src/main/res/drawable/login_btn.xml" value="0.18717105263157896" />
         <entry key="app/src/main/res/drawable/on_boarding_button.xml" value="0.22037037037037038" />
