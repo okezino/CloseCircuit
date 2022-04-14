@@ -45,5 +45,4 @@ class PlansFundedAdapter(  val context: Context, private val itemList: List<Plan
             fundRaisedProgress.progress = planItem.fundRaised
         }
     }
-
 }
