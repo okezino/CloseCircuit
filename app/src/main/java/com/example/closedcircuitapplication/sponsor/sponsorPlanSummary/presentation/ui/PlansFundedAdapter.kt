@@ -25,7 +25,7 @@ class PlansFundedAdapter(  val context: Context, private val itemList: List<Plan
     }
 
     class ViewHolder(binding : PlansFundedItemsBinding):RecyclerView.ViewHolder(binding.root) {
-        val planFundedImage = binding.planFundedImageView
+        private val planFundedImage = binding.planFundedImageView
         private val fundType = binding.fundingType
         private val planSector = binding.planSectorTV
         private val amountFunded = binding.amountFundedTv
