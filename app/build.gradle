@@ -75,8 +75,9 @@ dependencies {
     implementation Dependencies.navigation_fragment_ktx
     implementation Dependencies.navigation_ui_ktx
     implementation Dependencies.leung_pinview
-    implementation Dependencies.phone_picker_ccp
     implementation Dependencies.viewpagerindicator
+    implementation Dependencies.phone_picker_ccp
+
     ///implementation Dependencies.otp_pin_view
 
     // Retrofit
@@ -133,7 +134,7 @@ dependencies {
     debugImplementation DebugDependencies.fragment_testing
 
     //exoplayer
-    implementation 'com.google.android.exoplayer:exoplayer:2.15.1'
+    implementation Dependencies.exoplayer
 
     //val nav_version = "2.4.0"
 

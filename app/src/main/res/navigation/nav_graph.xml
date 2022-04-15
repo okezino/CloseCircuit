@@ -189,14 +189,22 @@
         android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.ui.screens.DashboardFragment"
         android:label="DashboardFragment" />
     <fragment
-        android:id="@+id/loanScheduleFragment2"
-        android:name="com.example.closedcircuitapplication.beneficiary.loan.presentation.ui.screens.LoanScheduleFragment"
-        android:label="fragment_loan_schedule"
-        tools:layout="@layout/fragment_loan_schedule" />
-    <!--    <fragment-->
-<!--        android:id="@+id/creatPlanStepOneFragment2"-->
-<!--        android:name="com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.screens.CreatPlanStepOneFragment"-->
-<!--        android:label="fragment_creat_plan_step_one"-->
-<!--        tools:layout="@layout/fragment_creat_plan_step_one" />-->
+        android:id="@+id/linkInvitationFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.onboarding.presentation.ui.screens.LinkInvitationFragment"
+        android:label="fragment_link_invitation"
+        tools:layout="@layout/fragment_link_invitation">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="www.closecircuit.com/{planId}/" />
+        <argument
+            android:name="planId"
+            />
+        <action
+            android:id="@+id/action_linkInvitationFragment_to_splashScreen"
+            app:destination="@id/splashScreen"
+            app:popUpTo="@id/linkInvitationFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
 
 </navigation>

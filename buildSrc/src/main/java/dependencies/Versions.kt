@@ -24,7 +24,7 @@ object Versions {
     val nav_classpath_version = "2.3.1"
     val legacy_support_v4 = "1.0.0"
     val circleimageview = "3.1.0"
-    val phone_picker_ccp = "2.4.0"
+    val phone_picker_ccp = "2.6.0"
     val currency_picker_android = "1.2.1"
     val pinView = "1.4.4"
     val play_core = "1.7.1"
@@ -60,6 +60,7 @@ object Versions {
 
     val kotlinter_gradle = "3.6.0"
     val leung_pinview = "1.4.4"
+    val exoplayer = "2.15.1"
 
 
 }
