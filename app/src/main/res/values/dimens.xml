@@ -125,4 +125,6 @@
     <dimen name="width_46dp">46dp</dimen>
     <dimen name="text_size_12sp">12sp</dimen>
     <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_40dp">40dp</dimen>
+    <dimen name="height_220dp">220dp</dimen>
 </resources>

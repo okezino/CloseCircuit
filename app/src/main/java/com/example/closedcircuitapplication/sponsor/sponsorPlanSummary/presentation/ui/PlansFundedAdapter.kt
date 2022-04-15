@@ -21,9 +21,8 @@ class PlansFundedAdapter(  val context: Context, private val itemList: List<Plan
     }
 
     override fun getItemCount(): Int {
-        return 2
+        return itemList.size
     }
-
     class ViewHolder(binding : PlansFundedItemsBinding):RecyclerView.ViewHolder(binding.root) {
         private val planFundedImage = binding.planFundedImageView
         private val fundType = binding.fundingType

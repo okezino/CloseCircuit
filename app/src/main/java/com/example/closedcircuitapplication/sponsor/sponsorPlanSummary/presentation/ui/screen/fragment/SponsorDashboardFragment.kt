@@ -5,16 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.common.common.utils.showToast
 import com.example.closedcircuitapplication.databinding.FragmentSponsorsDashboardBinding
 import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.data.PlansFunded
 import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.PlansFundedAdapter
+import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.viewmodels.SponsorsViewModel
 import com.example.closedcircuitapplication.utils.planFundedItem
 
-class SponsorDashboardFragment : Fragment() {
+class SponsorDashboardFragment() : Fragment() {
     private  var _binding: FragmentSponsorsDashboardBinding? = null
     private val binding get() = _binding!!
+    private val viewModel : SponsorsViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,7 +32,15 @@ class SponsorDashboardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpRecyclerView(planFundedItem)
+
+        setUpRecyclerView(viewModel.displayPlanFundedItem(planFundedItem))
+        activateClickListeners()
+    }
+
+    private fun activateClickListeners(){
+        binding.viewAllLayout.setOnClickListener {
+            setUpRecyclerView(planFundedItem)
+        }
     }
 
     private fun setUpRecyclerView(itemList : List<PlansFunded>){
