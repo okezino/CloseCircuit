@@ -2,6 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:state_checked="true" android:drawable="@drawable/ic_autocomplete_dropdown_icon_state_checked"/>
-    <item  android:state_checked="false" android:drawable="@drawable/ic_autocomplete_dropdown_icon_normal_state"/>
+    <item android:drawable="@drawable/ic_autocomplete_dropdown_icon_normal_state"/>
 
 </selector>
