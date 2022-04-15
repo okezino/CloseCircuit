@@ -65,7 +65,6 @@
     <string name="menu_account">Account</string>
     <string name="floating_action_button_desc">Floating action button</string>
     <string name="share_link">share link</string>
-    <string name="view_all">VIEW ALL</string>
     <string name="recent_donations">Recent Donations</string>
     <string name="not_started_plans">Not started \nPlans</string>
     <string name="top_sponsor">Top Sponsor</string>
@@ -539,5 +538,17 @@
     <string name="value_numbers_of_sponsors">10 Sponsors</string>
     <string name="ngn_120_000_00">NGN 120,000.00</string>
     <string name="bussines_name">Fish Farming</string>
+    <string name="wallet_balance">Wallet balance</string>
+    <string name="plans_funded">Plans funded</string>
+    <string name="funding_request">Funding request</string>
+    <string name="sp_business_sector">Business sector</string>
+    <string name="sp_e_commerce_electronics">E-commerce (Electronics)</string>
+    <string name="view_all">VIEW ALL</string>
+    <string name="plan_sector">Plan sector: <font color='#000000'><b>%1$s</b></font></string>
+    <string name="funding_type">Funding type:  <font color='#000000'><b>%1$s</b></font></string>
+    <string name="amount_funded">Amount funded:  <font color='#000000'><b>%1$s</b></font></string>
+    <string name="no_plan_yet">%1$s, you currently have not sponsored any plan yet.</string>
+    <string name="funds_raised">%1s Funds raised</string>
+    <string name="tasks_completed">%1$s Tasks Completed</string>
 >>>>>>> 31213dc775f642b262e447cbef7c2d54d69c842f
 </resources>

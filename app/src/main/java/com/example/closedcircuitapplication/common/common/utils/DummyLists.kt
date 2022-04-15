@@ -5,24 +5,23 @@ import com.example.closedcircuitapplication.beneficiary.loan.data.dto.LoanOfferD
 import com.example.closedcircuitapplication.beneficiary.loan.data.dto.LoanOfferRequest
 import com.example.closedcircuitapplication.beneficiary.plan.presentation.models.SponsorsItem
 import com.example.closedcircuitapplication.beneficiary.plan.presentation.models.StepsBudgetItem
+import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.data.PlansFunded
 
-val budgetList = arrayListOf<StepsBudgetItem>(
+    val budgetList = arrayListOf<StepsBudgetItem>(
     StepsBudgetItem("UI/UX Design", "NGN 100,000.00", "NGN 0"),
     StepsBudgetItem("Frontend Development", "NGN 200,000.00", "NGN 0"),
-    StepsBudgetItem("Backend Development", "NGN 200,000.00", "NGN 0")
-)
+    StepsBudgetItem("Backend Development", "NGN 200,000.00", "NGN 0"))
 
-val sponsorsList = arrayListOf<SponsorsItem>(
+    val sponsorsList = arrayListOf<SponsorsItem>(
     SponsorsItem("Marvin McKinney", "Loan", "NGN 200,00.00", true),
     SponsorsItem("Robert Fox", "Donation", "NGN 10,000.00", false))
 
-
     val loanOfferList = arrayListOf(
         LoanOfferDetailDto("Marvin McKinney", "30,000", "3", "20%", R.drawable.chat_profile_iv),
-LoanOfferDetailDto("Gift Ben", "30,000", "3", "10%", R.drawable.customer_chat_image),
-LoanOfferDetailDto("Kate Donner", "30,000", "3", "5%", R.drawable.sponsors_screen_image))
+        LoanOfferDetailDto("Gift Ben", "30,000", "3", "10%", R.drawable.customer_chat_image),
+        LoanOfferDetailDto("Kate Donner", "30,000", "3", "5%", R.drawable.sponsors_screen_image))
 
-val loanItemList = arrayListOf(
+    val loanItemList = arrayListOf(
     LoanOfferRequest("Web Application","20 Sponsors", "NGN 30,000", arrayListOf(
         R.drawable.chat_sender_image, R.drawable.customer_chat_image, R.drawable.customer_chat_image,
         R.drawable.diane_russell,
@@ -30,4 +29,10 @@ val loanItemList = arrayListOf(
         R.drawable.diane_russell,
         R.drawable.diane_russell)),
     LoanOfferRequest("Mobile Application","40 Sponsors", "NGN 30,000", arrayListOf(R.drawable.customer_chat_image, R.drawable.diane_russell)),
-)
+    )
+
+    val planFundedItem = arrayListOf(
+    PlansFunded(R.drawable.customer_chat_image, "E-commerce(Electronics)", "NGN 20,000", "Loan", 40, 15),
+    PlansFunded(R.drawable.diane_russell, "Project", "NGN 50,000", "Loan", 30, 10),
+    PlansFunded(R.drawable.customer_chat_image, "School Fees", "NGN 90,000", "Loan", 90, 35)
+    )

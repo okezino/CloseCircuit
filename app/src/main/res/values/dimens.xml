@@ -75,7 +75,6 @@
     <dimen name="width_focused_2dp">2dp</dimen>
     <dimen name="padding_20dp">20dp</dimen>
     <dimen name="offset_4dp">4dp</dimen>
-    <dimen name="padding_4dp">4dp</dimen>
     <dimen name="padding_16dp">16dp</dimen>
     <dimen name="height_50dp">50dp</dimen>
     <dimen name="margin_70dp">70dp</dimen>
@@ -123,6 +122,9 @@
     <dimen name="card_width_376">376dp</dimen>
     <dimen name="card_height_145">145dp</dimen>
     <dimen name="loan_screen_margin">42dp</dimen>
+    <dimen name="width_46dp">46dp</dimen>
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
     <dimen name="padding_40dp">40dp</dimen>
     <dimen name="height_220dp">220dp</dimen>
 </resources>
