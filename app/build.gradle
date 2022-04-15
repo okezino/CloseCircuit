@@ -133,7 +133,7 @@ dependencies {
     debugImplementation DebugDependencies.fragment_testing
 
     //exoplayer
-    implementation 'com.google.android.exoplayer:exoplayer:2.15.1'
+    implementation Dependencies.exoplayer
 
     //val nav_version = "2.4.0"
 
