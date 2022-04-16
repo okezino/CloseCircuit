@@ -372,7 +372,7 @@
     <string name="click_to_edit">Click to edit.</string>
     <string name="account_page">Account page</string>
     <string name="please_verify_your_email_address_to_complete_profile_setup">Please verify your email address to complete profile setup</string>
-    <string name="phone_number">phone_number</string>
+    <string name="phone_number">Phone Number:</string>
     <string name="support_str">Support</string>
     <string name="how_to_use">How to use</string>
     <string name="payments_support">Payments</string>
@@ -538,6 +538,13 @@
     <string name="value_numbers_of_sponsors">10 Sponsors</string>
     <string name="ngn_120_000_00">NGN 120,000.00</string>
     <string name="bussines_name">Fish Farming</string>
+    <string name="total_number_of_plans_funded">Total Number of Plans funded</string>
+    <string name="_3">3</string>
+    <string name="personal_info">Personal info</string>
+    <string name="account_name">Account name:</string>
+    <string name="account_number">Account number</string>
+    <string name="bank">Bank</string>
+    <string name="click_to_edit2">Click to edit</string>
     <string name="wallet_balance">Wallet balance</string>
     <string name="plans_funded">Plans funded</string>
     <string name="funding_request">Funding request</string>
@@ -550,5 +557,4 @@
     <string name="no_plan_yet">%1$s, you currently have not sponsored any plan yet.</string>
     <string name="funds_raised">%1s Funds raised</string>
     <string name="tasks_completed">%1$s Tasks Completed</string>
->>>>>>> 31213dc775f642b262e447cbef7c2d54d69c842f
 </resources>

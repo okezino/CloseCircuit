@@ -5,7 +5,7 @@
         android:icon="@drawable/ic_home"
         android:title="@string/menu_home" />
     <item
-        android:id="@+id/sponsorProfileFragment"
+        android:id="@+id/sponsorProfileFragment2"
         android:icon="@drawable/ic_accounts"
         android:title="@string/menu_profile" />
     <item

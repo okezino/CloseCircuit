@@ -95,8 +95,7 @@ class EditProfileFragment : Fragment() {
                 )
 
                 findNavController().navigate(
-                    EditProfileFragmentDirections.actionEditProfileFragmentToProfileFragment(),
-                    customNavAnimation().build()
+                    EditProfileFragmentDirections.actionEditProfileFragmentToProfileFragment(), customNavAnimation().build()
                 )
             }
 

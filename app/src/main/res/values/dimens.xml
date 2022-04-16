@@ -122,6 +122,11 @@
     <dimen name="card_width_376">376dp</dimen>
     <dimen name="card_height_145">145dp</dimen>
     <dimen name="loan_screen_margin">42dp</dimen>
+    <dimen name="sponsor_profile_image">110dp</dimen>
+    <dimen name="sponsor_profile_image_margin_top">56dp</dimen>
+    <dimen name="profile_image_card_view_height">54dp</dimen>
+    <dimen name="sponsor_profile_image_error_card_view_height">66dp</dimen>
+    <dimen name="error_icon_height">40dp</dimen>
     <dimen name="width_46dp">46dp</dimen>
     <dimen name="text_size_12sp">12sp</dimen>
     <dimen name="padding_4dp">4dp</dimen>
