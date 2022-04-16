@@ -37,11 +37,6 @@ class SponsorDashboardActivity : AppCompatActivity() {
         binding = ActivitySponsorDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        binding.sponsorBottomNavigationView.background = null
-//
-//        bottomNavigationView = binding.sponsorBottomNavigationView
-
-        NavigationUI.setupWithNavController(bottomNavigationView, navController)
         setSupportActionBar(binding.sponsorAppBarDashboard.spDashboardActivityToolbar)
         bottomAppBar = binding.sponsorAppBarDashboard.sponsorBottomAppBar
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.sponsors_nav_host_fragment_container) as NavHostFragment
