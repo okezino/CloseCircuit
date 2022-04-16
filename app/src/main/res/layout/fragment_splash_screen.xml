@@ -11,7 +11,7 @@
         android:id="@+id/closedCircuit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/color_logo___no_background_1"
+        android:src="@drawable/ic_closed_circuit_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

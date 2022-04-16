@@ -65,7 +65,6 @@
     <string name="menu_account">Account</string>
     <string name="floating_action_button_desc">Floating action button</string>
     <string name="share_link">share link</string>
-    <string name="view_all">VIEW ALL</string>
     <string name="recent_donations">Recent Donations</string>
     <string name="not_started_plans">Not started \nPlans</string>
     <string name="top_sponsor">Top Sponsor</string>
@@ -501,6 +500,13 @@
     <string name="kyc">KYC</string>
     <string name="profile_image">Profile Image</string>
     <string name="Unable_to_get_steps">Unable to get steps</string>
+    <string name="placeholder_name_patience_tyav">Patience Tyav</string>
+    <string name="someone_needs_help_text">needs your help in starting a business.</string>
+    <string name="e_commerce_electronics">E-commerce (Electronics)</string>
+    <string name="plan_description">Plan description</string>
+    <string name="plan_description_placeholder_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
+    <string name="accept">Accept</string>
+    <string name="closed_circuit_description_placeholder_text">Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.</string>
 
     <string name="total_amount_offered">Total Amount Offered:</string>
     <string name="jane_cooper">Jane Cooper</string>
@@ -539,4 +545,16 @@
     <string name="account_number">Account number</string>
     <string name="bank">Bank</string>
     <string name="click_to_edit2">Click to edit</string>
+    <string name="wallet_balance">Wallet balance</string>
+    <string name="plans_funded">Plans funded</string>
+    <string name="funding_request">Funding request</string>
+    <string name="sp_business_sector">Business sector</string>
+    <string name="sp_e_commerce_electronics">E-commerce (Electronics)</string>
+    <string name="view_all">VIEW ALL</string>
+    <string name="plan_sector">Plan sector: <font color='#000000'><b>%1$s</b></font></string>
+    <string name="funding_type">Funding type:  <font color='#000000'><b>%1$s</b></font></string>
+    <string name="amount_funded">Amount funded:  <font color='#000000'><b>%1$s</b></font></string>
+    <string name="no_plan_yet">%1$s, you currently have not sponsored any plan yet.</string>
+    <string name="funds_raised">%1s Funds raised</string>
+    <string name="tasks_completed">%1$s Tasks Completed</string>
 </resources>

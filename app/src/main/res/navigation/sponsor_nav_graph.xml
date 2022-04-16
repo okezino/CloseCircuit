@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sponsor_nav_graph"
-    app:startDestination="@id/sampleDashboardFragment2">
+    app:startDestination="@id/sponsorsDashboardFragment">
 
     <fragment
-        android:id="@+id/sampleDashboardFragment2"
-        android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SampleDashboardFragment"
+        android:id="@+id/sponsorsDashboardFragment"
+        android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorDashboardFragment"
         android:label="fragment_sample_dashboard"
-        tools:layout="@layout/fragment_sample_dashboard" >
+        tools:layout="@layout/fragment_sponsors_dashboard" >
         <action
             android:id="@+id/action_sampleDashboardFragment2_to_sponsorProfileFragment"
             app:destination="@id/sponsorProfileFragment2" />
@@ -19,9 +19,6 @@
         android:name="com.example.closedcircuitapplication.sponsor.profile.presentation.ui.screens.SponsorProfileFragment"
         android:label="fragment_sponsor_profile"
         tools:layout="@layout/fragment_sponsor_profile" >
-        <action
-            android:id="@+id/action_sponsorProfileFragment_to_sampleDashboardFragment2"
-            app:destination="@id/sampleDashboardFragment2" />
         <action
             android:id="@+id/action_sponsorProfileFragment2_to_sponsorEditFragment"
             app:destination="@id/sponsorEditFragment" />

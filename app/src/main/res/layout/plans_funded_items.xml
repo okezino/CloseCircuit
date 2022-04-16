@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_20dp"
+    android:background="@drawable/item_background_rv">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/plan_funded_image_view"
+        android:layout_width="@dimen/width_46dp"
+        android:layout_height="@dimen/width_46dp"
+        android:layout_marginHorizontal="8dp"
+        android:src="@drawable/ic_no_sponsor"
+        android:layout_marginTop="@dimen/margin_16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/plan_sector_TV"
+        style="@style/NormalFaintText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:text="@string/plan_sector"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/plan_funded_image_view"
+        app:layout_constraintTop_toTopOf="@+id/plan_funded_image_view" />
+
+    <TextView
+        android:id="@+id/funding_type"
+        style="@style/NormalFaintText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/funding_type"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/amount_funded_tv"
+        app:layout_constraintTop_toBottomOf="@+id/amount_funded_tv" />
+
+    <TextView
+        android:id="@+id/amount_funded_tv"
+        style="@style/NormalFaintText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/amount_funded"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/plan_sector_TV"
+        app:layout_constraintTop_toBottomOf="@+id/plan_sector_TV" />
+
+    <ProgressBar
+        android:id="@+id/sp_funds_raised_progress_bar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_5dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="@dimen/margin_20dp"
+        android:max="100"
+        android:progress="20"
+        android:progressDrawable="@drawable/progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/funding_type" />
+
+    <TextView
+        android:id="@+id/sp_funds_raised_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/funds_raised"
+        android:textSize="@dimen/text_size_12sp"
+        android:textColor="@color/green_500"
+        android:padding="@dimen/padding_4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_funds_raised_progress_bar" />
+
+    <ProgressBar
+        android:id="@+id/sp_tasks_completed_progress_bar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_5dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="11dp"
+        android:max="100"
+        android:progress="10"
+        android:progressDrawable="@drawable/progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_funds_raised_tv" />
+
+    <TextView
+        android:id="@+id/tasks_completed_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tasks_completed"
+        android:textSize="@dimen/text_size_12sp"
+        android:textColor="@color/green_500"
+        android:padding="@dimen/padding_4dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_tasks_completed_progress_bar"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -64,4 +64,6 @@ object Dependencies {
     val viewpagerindicator =
         "com.tbuonomo.andrui:viewpagerdotsindicator:${Versions.viewpagerdotsindicator}"
 
+    val exoplayer = "com.google.android.exoplayer:exoplayer:${Versions.exoplayer}"
+
 }
