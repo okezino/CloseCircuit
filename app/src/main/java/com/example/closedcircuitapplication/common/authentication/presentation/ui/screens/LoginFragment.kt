@@ -158,10 +158,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     resource.datas?.data?.let { preferences.putToken(it.token) }
 
                     //Intent to navigate to Beneficiary DashBoard
-//                    Intent(requireContext(),BeneficiaryDashboardActivity::class.java).also { intentBeneficiaryDashboard -> startActivity(intentBeneficiaryDashboard) }
+                    Intent(requireContext(),BeneficiaryDashboardActivity::class.java).also { intentBeneficiaryDashboard -> startActivity(intentBeneficiaryDashboard) }
 
                     //Intent to navigate to Sponsor Dashboard
-                    Intent(requireContext(),SponsorDashboardActivity::class.java).also { sponsorDashBoardIntent -> startActivity(sponsorDashBoardIntent) }
+                   // Intent(requireContext(),SponsorDashboardActivity::class.java).also { sponsorDashBoardIntent -> startActivity(sponsorDashBoardIntent) }
                 }
 
                 is Resource.Error -> {
