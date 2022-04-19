@@ -75,7 +75,6 @@
     <dimen name="width_focused_2dp">2dp</dimen>
     <dimen name="padding_20dp">20dp</dimen>
     <dimen name="offset_4dp">4dp</dimen>
-    <dimen name="padding_4dp">4dp</dimen>
     <dimen name="padding_16dp">16dp</dimen>
     <dimen name="height_50dp">50dp</dimen>
     <dimen name="margin_70dp">70dp</dimen>
@@ -123,14 +122,14 @@
     <dimen name="card_width_376">376dp</dimen>
     <dimen name="card_height_145">145dp</dimen>
     <dimen name="loan_screen_margin">42dp</dimen>
-    <dimen name="height_152dp">152dp</dimen>
-    <dimen name="width_200dp">200dp</dimen>
-    <dimen name="height_200dp">200dp</dimen>
-    <dimen name="width_104dp">104dp</dimen>
-    <dimen name="height_104dp">104dp</dimen>
-    <dimen name="textSize_32sp">32sp</dimen>
-    <dimen name="height_180dp">180dp</dimen>
-    <dimen name="height_62dp">62dp</dimen>
-    <dimen name="margin_47dp">47dp</dimen>
-    <dimen name="height_45dp">45dp</dimen>
+    <dimen name="sponsor_profile_image">110dp</dimen>
+    <dimen name="sponsor_profile_image_margin_top">56dp</dimen>
+    <dimen name="profile_image_card_view_height">54dp</dimen>
+    <dimen name="sponsor_profile_image_error_card_view_height">66dp</dimen>
+    <dimen name="error_icon_height">40dp</dimen>
+    <dimen name="width_46dp">46dp</dimen>
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_40dp">40dp</dimen>
+    <dimen name="height_220dp">220dp</dimen>
 </resources>

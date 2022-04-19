@@ -8,7 +8,7 @@
     <string name="password_recovery_text">Password Recovery</string>
     <string name="you_re_almost_close_to_recovering_your_password_text">You’re almost close to recovering your password. A code has been sent to your email address, please enter code to proceed.</string>
     <string name="you_entered_a_wrong_code_text">You entered a wrong code, please enter code correctly</string>
-    <string name="didn_t_recieve_email_resend_text">Didn\'t receive email? <font color='#0386FF'>resend</font></string>
+    <string name="didn_t_recieve_email_resend_text">Didn\'t receive email? resend</string>
     <string name="all_password_recovery_text">Password Recovery</string>
     <string name="we_are_here_to_help_you_recover_your_password_text">We are here to help you recover your password, please enter your registered email address below.</string>
     <string name="email_text">Email</string>
@@ -65,7 +65,6 @@
     <string name="menu_account">Account</string>
     <string name="floating_action_button_desc">Floating action button</string>
     <string name="share_link">share link</string>
-    <string name="view_all">VIEW ALL</string>
     <string name="recent_donations">Recent Donations</string>
     <string name="not_started_plans">Not started \nPlans</string>
     <string name="top_sponsor">Top Sponsor</string>
@@ -238,17 +237,11 @@
         <item>5% Interest rate</item>
     </string-array>
 
+
     <string-array name="currency_type">
         <item>NGN</item>
         <item>USD</item>
         <item>ZAR</item>
-    </string-array>
-
-    <string-array name="plan_fund_level">
-        <item>Plan</item>
-        <item>Step</item>
-        <item>Budget</item>
-        <item>other amount</item>
     </string-array>
 
     <string name="notifications">Notifications</string>
@@ -379,7 +372,7 @@
     <string name="click_to_edit">Click to edit.</string>
     <string name="account_page">Account page</string>
     <string name="please_verify_your_email_address_to_complete_profile_setup">Please verify your email address to complete profile setup</string>
-    <string name="phone_number">phone_number</string>
+    <string name="phone_number">Phone Number:</string>
     <string name="support_str">Support</string>
     <string name="how_to_use">How to use</string>
     <string name="payments_support">Payments</string>
@@ -507,6 +500,13 @@
     <string name="kyc">KYC</string>
     <string name="profile_image">Profile Image</string>
     <string name="Unable_to_get_steps">Unable to get steps</string>
+    <string name="placeholder_name_patience_tyav">Patience Tyav</string>
+    <string name="someone_needs_help_text">needs your help in starting a business.</string>
+    <string name="e_commerce_electronics">E-commerce (Electronics)</string>
+    <string name="plan_description">Plan description</string>
+    <string name="plan_description_placeholder_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
+    <string name="accept">Accept</string>
+    <string name="closed_circuit_description_placeholder_text">Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.</string>
 
     <string name="total_amount_offered">Total Amount Offered:</string>
     <string name="jane_cooper">Jane Cooper</string>
@@ -538,25 +538,23 @@
     <string name="value_numbers_of_sponsors">10 Sponsors</string>
     <string name="ngn_120_000_00">NGN 120,000.00</string>
     <string name="bussines_name">Fish Farming</string>
-    <string name="how_can_you_help">How can you help?</string>
-    <string name="you_can_support_by_funding_text">You can support by funding <font color='#00000'>part, single or multiple</font> budgets through loans or donations.</string>
-    <string name="plan_summary">Plan summary</string>
-    <string name="estimated_cost_price">Estimated cost price</string>
-    <string name="estimated_selling_price">Estimated selling price</string>
-    <string name="how_would_you_like_to_sponsor">How would you like to sponsor?</string>
-    <string name="select_funding_level">Select funding level</string>
-    <string name="plan_description">Plan description</string>
-    <string name="sponsor_plan_description_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
-    <string name="e_commerce">E-commerce</string>
-    <string name="_20">20%</string>
-    <string name="estimated_profit">Estimated profit</string>
-    <string name="plan_steps_and_budgets">Plan steps and budgets</string>
-    <string name="step_1">Step 1:</string>
-    <string name="cost_ngn_500_000">Cost(NGN 500,000)</string>
-    <string name="ngn_100_000">NGN 100,000</string>
-    <string name="ui_ux_design">UI/UX Design</string>
-    <string name="budgets_8">Budgets(8)</string>
-    <string name="total">Total:</string>
-    <string name="ngn_1_700_000_00">NGN 1,700,000.00</string>
-    <string name="proceed_to_support">Proceed to Support</string>
+    <string name="total_number_of_plans_funded">Total Number of Plans funded</string>
+    <string name="_3">3</string>
+    <string name="personal_info">Personal info</string>
+    <string name="account_name">Account name:</string>
+    <string name="account_number">Account number</string>
+    <string name="bank">Bank</string>
+    <string name="click_to_edit2">Click to edit</string>
+    <string name="wallet_balance">Wallet balance</string>
+    <string name="plans_funded">Plans funded</string>
+    <string name="funding_request">Funding request</string>
+    <string name="sp_business_sector">Business sector</string>
+    <string name="sp_e_commerce_electronics">E-commerce (Electronics)</string>
+    <string name="view_all">VIEW ALL</string>
+    <string name="plan_sector">Plan sector: <font color='#000000'><b>%1$s</b></font></string>
+    <string name="funding_type">Funding type:  <font color='#000000'><b>%1$s</b></font></string>
+    <string name="amount_funded">Amount funded:  <font color='#000000'><b>%1$s</b></font></string>
+    <string name="no_plan_yet">%1$s, you currently have not sponsored any plan yet.</string>
+    <string name="funds_raised">%1s Funds raised</string>
+    <string name="tasks_completed">%1$s Tasks Completed</string>
 </resources>

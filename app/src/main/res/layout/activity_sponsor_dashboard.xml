@@ -1,45 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sponsorDrawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_color"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
     tools:context=".sponsor.sponsorPlanSummary.presentation.ui.screen.activity.SponsorDashboardActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment_content_main"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+    <include
+        android:id="@+id/sponsor_app_bar_dashboard"
+        layout="@layout/sponsor_app_bar_dashboard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/sponsor_nav_graph"/>
+        android:layout_height="match_parent" />
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/sponsor_bottom_app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fabCradleMargin="-20dp"
-        android:layout_gravity="bottom">
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/sponsor_bottom_navigation_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/margin_16dp"
-            app:labelVisibilityMode="labeled"
-            android:background="@android:color/transparent"
-            app:menu="@menu/sponsor_bottom_nav_menu"
-            />
-    </com.google.android.material.bottomappbar.BottomAppBar>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/sponsor_fab"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/sp_drawer_nav_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_sponsor_fab"
-        android:backgroundTint="@color/secondary_color"
-        app:layout_anchor="@id/sponsor_bottom_app_bar"
-        />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:itemTextAppearance="@style/Drawer_Text_Style"
+        app:itemBackground="@drawable/drawer_item_background_color"
+        app:itemIconTint="@color/drawer_item_color_state"
+        app:itemTextColor="@color/drawer_item_color_state"
+        app:menu="@menu/drawer_navigation_menu"
+        app:headerLayout="@layout/drawer_header_layout"
+        android:fitsSystemWindows="false"
+        android:focusable="true">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sp_drawer_logout_constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/drawer_primary_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/sp_drawer_logout_icon_imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_20dp"
+                    android:layout_marginTop="@dimen/margin_15dp"
+                    android:layout_marginBottom="@dimen/margin_15dp"
+                    android:src="@drawable/ic_log_out"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/sp_drawer_logout_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_20dp"
+                    android:text="@string/logout"
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/drawer_text_emirate_green"
+                    android:textSize="@dimen/textSize_18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/sp_drawer_logout_icon_imageView"
+                    app:layout_constraintStart_toEndOf="@+id/sp_drawer_logout_icon_imageView"
+                    app:layout_constraintTop_toTopOf="@+id/sp_drawer_logout_icon_imageView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -59,6 +59,7 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
         val drawerLayout = binding.drawerLayout
         navController = navHostFragment.navController
+
         bottomAppBar = binding.appBarDashboard.contentMain.bottomAppBar
         val fab = binding.appBarDashboard.contentMain.fab
         fab.setOnClickListener {
@@ -70,6 +71,7 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
         }
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
         drawerHeaderLayoutBinding = DrawerHeaderLayoutBinding.bind(binding.drawerNavView.getHeaderView(0))
+
         logoutDialogLayoutBinding = LogoutDialogLayoutBinding.inflate(layoutInflater)
         logoutDialog = showLogOutDialog(this, logoutDialogLayoutBinding,resources, {userLogOut()})
 
@@ -85,13 +87,6 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
         onDestinationChangedListener()
         userDetailsInitObserver()
         setUpNavigationDestinations()
-    }
-
-    private fun userLogOut(): Unit {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra(FROM_LOGOUT, true)
-            startActivity(intent)
-            this.finish()
     }
 
 
