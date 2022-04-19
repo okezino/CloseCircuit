@@ -1,9 +1,9 @@
 package com.example.closedcircuitapplication.beneficiary.dashboard.di
 
 import com.example.closedcircuitapplication.common.authentication.data.mappers.DomainPostMapper
-import com.example.closedcircuitapplication.common.common.data.network.Api
-import com.example.closedcircuitapplication.common.common.data.repository.DashboardRepository
-import com.example.closedcircuitapplication.common.common.domain.repository.DashboardRepositoryInterface
+import com.example.closedcircuitapplication.beneficiary.dashboard.data.datasource.DashboardRepository
+import com.example.closedcircuitapplication.beneficiary.dashboard.domain.repository.DashboardRepositoryInterface
+import com.example.closedcircuitapplication.common.common.data.network.webservice.BaseService
 import com.example.closedcircuitapplication.common.common.utils.DispatcherProvider
 import dagger.Module
 import dagger.Provides
@@ -16,10 +16,9 @@ object DashboardModule {
 
     @Provides
     fun provideDashboardRepository(
-        api: Api,
-        mapper: DomainPostMapper,
+        api: BaseService,
         dispatcherProvider: DispatcherProvider
-    ): DashboardRepositoryInterface{
-        return DashboardRepository(api, mapper, dispatcherProvider)
+    ): DashboardRepositoryInterface {
+        return DashboardRepository(api,dispatcherProvider)
     }
 }

@@ -6,6 +6,8 @@ interface Preferences {
 
     fun putToken(token: String)
 
+    fun putPlanId(string : String)
+
     fun putTokenExpirationTime(time: Long)
 
     fun putTokenType(tokenType: String)

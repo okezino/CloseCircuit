@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.common.data.network.models.Step
 import com.example.closedcircuitapplication.common.common.utils.Resource
-import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.ui.interfaces.ClickListener
+import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.interfaces.ClickListener
 import com.example.closedcircuitapplication.databinding.FragmentCreatePlanStepsBinding
 import com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.adapters.StepsBudgetsAdapter
 import com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.viewmodels.AllStepsViewModel

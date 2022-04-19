@@ -18,7 +18,7 @@ import com.example.closedcircuitapplication.common.common.data.preferences.Prefe
 import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.common.utils.Resource
 import com.example.closedcircuitapplication.common.common.utils.makeSnackBar
-import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.ui.viewmodel.DashboardViewModel
+import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentEmailVerificationBinding
 import com.example.closedcircuitapplication.beneficiary.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.beneficiary.plan.domain.models.VerifyOtpRequest

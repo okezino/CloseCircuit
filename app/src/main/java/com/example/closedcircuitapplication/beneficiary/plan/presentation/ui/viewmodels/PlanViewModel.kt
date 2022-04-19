@@ -73,49 +73,49 @@ class PlanViewModel @Inject constructor(
         }
     }
 
-    fun createPlan(createPlanRequest: CreatePlanRequest, authHeader: String) {
+    fun createPlan(createPlanRequest: CreatePlanRequest) {
         viewModelScope.launch {
-            createPlanUseCase(createPlanRequest, authHeader).collect {
+            createPlanUseCase(createPlanRequest).collect {
                 _createPlanResponse.value = it
             }
         }
     }
 
-    fun getPlan(planId: String, authHeader: String){
+    fun getPlan(planId: String){
         viewModelScope.launch {
-            getPlanUseCase(planId, authHeader).collect{
+            getPlanUseCase(planId).collect{
                 _getPlanResponse.value = it
             }
         }
     }
 
-    fun deletePlan(id: String, authHeader:String){
+    fun deletePlan(id: String){
         viewModelScope.launch {
-            deletePlanUseCases(id, authHeader).collect {
+            deletePlanUseCases(id).collect {
                 _deletePlanResponse.value = it
             }
         }
     }
 
-    fun updateUserPlan(updatePlanRequest: UpdatePlanRequest, planId: String, token: String){
+    fun updateUserPlan(updatePlanRequest: UpdatePlanRequest, planId: String){
         viewModelScope.launch {
-            updatePlanUseCase(updatePlanRequest, planId, token).collect {
+            updatePlanUseCase(updatePlanRequest, planId).collect {
                 _updatePlanResponse.value = it
             }
         }
     }
 
-    fun getMyPlans(limit: Int, offset: Int, authHeader: String){
+    fun getMyPlans(limit: Int, offset: Int){
         viewModelScope.launch {
-            getMyPlansUseCase(limit, offset, authHeader).collect {
+            getMyPlansUseCase(limit, offset).collect {
                 _getMyPlansResponse.value = it
             }
         }
     }
 
-    fun getUserSteps(authHeader: String) {
+    fun getUserSteps() {
         viewModelScope.launch {
-            getUserStepsUseCase(authHeader).collect {
+            getUserStepsUseCase().collect {
                 _getStepsResponse.value = it
             }
         }
