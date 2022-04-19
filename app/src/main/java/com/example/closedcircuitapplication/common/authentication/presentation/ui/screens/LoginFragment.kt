@@ -20,6 +20,7 @@ import com.example.closedcircuitapplication.common.common.utils.Validation
 import com.example.closedcircuitapplication.common.common.utils.customNavAnimation
 import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.BeneficiaryDashboardActivity
 import com.example.closedcircuitapplication.databinding.FragmentLoginBinding
+import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.activity.SponsorDashboardActivity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -147,11 +148,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     saveUserId(resource.data.data.user_id)
 
                     //Intent to navigate to Beneficiary DashBoard
-                     Intent(requireContext(),
-                         BeneficiaryDashboardActivity::class.java).also { intentBeneficiaryDashboard -> startActivity(intentBeneficiaryDashboard) }
+                    // Intent(requireContext(),
+                     //  BeneficiaryDashboardActivity::class.java).also { intentBeneficiaryDashboard -> startActivity(intentBeneficiaryDashboard) }
 
                     //Intent to navigate to Sponsor Dashboard
-                  // Intent(requireContext(),SponsorDashboardActivity::class.java).also { sponsorDashBoardIntent -> startActivity(sponsorDashBoardIntent) }
+                   Intent(requireContext(),
+                       SponsorDashboardActivity::class.java).also { sponsorDashBoardIntent -> startActivity(sponsorDashBoardIntent) }
                 }
 
                 is Resource.Error -> {
