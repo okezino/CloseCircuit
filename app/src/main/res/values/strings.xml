@@ -557,4 +557,21 @@
     <string name="no_plan_yet">%1$s, you currently have not sponsored any plan yet.</string>
     <string name="funds_raised">%1s Funds raised</string>
     <string name="tasks_completed">%1$s Tasks Completed</string>
+    <string name="how_can_you_help">How can you help?</string>
+    <string name="you_can_support_by_funding_text">You can support by funding part, single or multiple budgets through loans or donations.</string>
+    <string name="plan_summary">Plan summary</string>
+    <string name="e_commerce">"E-commerce "</string>
+    <string name="estimated_cost_price">Estimated cost price</string>
+    <string name="estimated_selling_price">Estimated selling price</string>
+    <string name="sponsor_plan_description_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
+    <string name="_20">20%</string>
+    <string name="estimated_profit">Estimated profit</string>
+    <string name="plan_steps_and_budgets">Plan steps and budgets</string>
+    <string name="total">Total:</string>
+    <string name="ngn_1_700_000_00">NGN 1,700,000.00</string>
+    <string name="proceed_to_support">Proceed to Support</string>
+    <string name="step_1">Step 1:</string>
+    <string name="cost_ngn_500_000">Cost(NGN 500,000)</string>
+    <string name="ui_ux_design">UI/UX Design</string>
+    <string name="ngn_100_000">NGN 100,000</string>
 </resources>

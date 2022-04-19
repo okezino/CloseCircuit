@@ -132,4 +132,12 @@
     <dimen name="padding_4dp">4dp</dimen>
     <dimen name="padding_40dp">40dp</dimen>
     <dimen name="height_220dp">220dp</dimen>
+    <dimen name="height_152dp">152dp</dimen>
+    <dimen name="height_180dp">180dp</dimen>
+    <dimen name="width_200dp">200dp</dimen>
+    <dimen name="height_200dp">200dp</dimen>
+    <dimen name="textSize_32sp">32sp</dimen>
+    <dimen name="height_45dp">45dp</dimen>
+    <dimen name="height_62dp">62dp</dimen>
+    <dimen name="margin_47dp">47dp</dimen>
 </resources>

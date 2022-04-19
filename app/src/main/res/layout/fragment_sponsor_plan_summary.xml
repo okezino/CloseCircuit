@@ -305,9 +305,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_180dp"
                     android:layout_marginTop="@dimen/margin_40dp"
-
                     >
-
                     <ProgressBar
                         android:id="@+id/progress_bar"
                         style="@style/CircularDeterminateProgressBar"
@@ -348,7 +346,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/_20"
-                        android:textColor="@color/secondary_color_light"
+                        android:textColor="@color/secondary_color"
                         android:textSize="@dimen/textSize_32sp"
                         app:layout_constraintBottom_toBottomOf="@+id/fragment_sponsor_plan_summary_view"
                         app:layout_constraintEnd_toEndOf="@+id/fragment_sponsor_plan_summary_view"
@@ -394,8 +392,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_12dp"
                         android:layout_marginTop="@dimen/margin_14dp"
-                        android:text="@string/budgets_8"
                         android:textColor="@color/secondary_color"
+                        android:text="Budgets(8)"
                         android:textSize="@dimen/textSize_15sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
