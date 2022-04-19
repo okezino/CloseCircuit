@@ -1,7 +1,9 @@
 package com.example.closedcircuitapplication.common.common.di
 
 import android.content.Context
-import com.example.closedcircuitapplication.common.common.data.network.Api
+import com.example.closedcircuitapplication.common.common.data.network.NetworkConstants
+import com.example.closedcircuitapplication.common.common.data.network.webservice.AuthService
+import com.example.closedcircuitapplication.common.common.data.network.webservice.BaseService
 import com.example.closedcircuitapplication.common.common.data.preferences.ClosedCircuitPreferences
 import com.example.closedcircuitapplication.common.common.data.preferences.Preferences
 import dagger.Module
@@ -15,6 +17,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
@@ -38,15 +41,27 @@ object AppModule {
         }
     }
 
-
+    @AuthInterceptorOkHttpClient
     @Provides
     @Singleton
-    fun providesOkhttp(loggingInterceptor: HttpLoggingInterceptor, headerAuthorization: Interceptor): OkHttpClient =
+    fun providesOkhttp(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
         OkHttpClient.Builder()
             .connectTimeout(30L, TimeUnit.SECONDS)
             .readTimeout(30L, TimeUnit.SECONDS)
             .writeTimeout(30L, TimeUnit.SECONDS)
             .addInterceptor(loggingInterceptor).build()
+
+    @OtherInterceptorOkHttpClient
+    @Provides
+    @Singleton
+    fun provideOkhttp(loggingInterceptor: HttpLoggingInterceptor, headerAuthorization: Interceptor): OkHttpClient =
+        OkHttpClient.Builder()
+            .connectTimeout(30L, TimeUnit.SECONDS)
+            .readTimeout(30L, TimeUnit.SECONDS)
+            .writeTimeout(30L, TimeUnit.SECONDS)
+            .addInterceptor(headerAuthorization)
+            .addInterceptor(loggingInterceptor).build()
+
 
     @Provides
     @Singleton
@@ -56,8 +71,18 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideJsonPlaceholderService(retrofit: Retrofit): Api =
-        retrofit.create(Api::class.java)
+    fun provideAuthService(@AuthInterceptorOkHttpClient okHttpClient: OkHttpClient,
+                           gsonConverterFactory: GsonConverterFactory): AuthService =
+        Retrofit.Builder().baseUrl(NetworkConstants.BASE_URL)
+            .addConverterFactory(gsonConverterFactory).client(okHttpClient).build().create(AuthService::class.java)
+
+
+    @Provides
+    @Singleton
+    fun provideBaseService(@OtherInterceptorOkHttpClient okHttpClient: OkHttpClient,
+                           gsonConverterFactory: GsonConverterFactory): BaseService =
+        Retrofit.Builder().baseUrl(NetworkConstants.BASE_URL)
+            .addConverterFactory(gsonConverterFactory).client(okHttpClient).build().create(BaseService::class.java)
 
     @Provides
     @Singleton
@@ -66,3 +91,11 @@ object AppModule {
     }
 
 }
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class AuthInterceptorOkHttpClient
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class OtherInterceptorOkHttpClient

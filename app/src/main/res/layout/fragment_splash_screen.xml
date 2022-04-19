@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="com.example.closedcircuitapplication.common.authentication.presentation.ui.screens.SplashScreenFragment">
+    tools:context="com.example.closedcircuitapplication.common.onboarding.presentation.view.SplashScreenFragment">
 
     <ImageView
         android:id="@+id/closedCircuit"

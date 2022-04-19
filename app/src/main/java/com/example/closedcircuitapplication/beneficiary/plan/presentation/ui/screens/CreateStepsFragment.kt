@@ -96,8 +96,7 @@ class CreateStepsFragment : Fragment(), BudgetItemClicklistener {
                     getTargetFunds(),
                     planId,
                     preferences.getUserId()
-                ),
-                "Bearer ${preferences.getToken()}"
+                )
             )
         }
     }
@@ -175,7 +174,7 @@ class CreateStepsFragment : Fragment(), BudgetItemClicklistener {
                         budget.budgetCost.toFloat(),
                         planId,
                         stepId
-                    ), "Bearer ${preferences.getToken()}"
+                    )
                 )
             }
         }

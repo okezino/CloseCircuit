@@ -8,6 +8,7 @@ import com.example.closedcircuitapplication.common.common.data.preferences.Prefe
 import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants.KEY_TOKEN
 import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants.KEY_TOKEN_EXPIRATION_TIME
 import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants.KEY_TOKEN_TYPE
+import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants.PLAN_ID
 import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants.USER_ID
 import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants.USER_FIRST_NAME
 import javax.inject.Inject
@@ -24,6 +25,10 @@ class ClosedCircuitPreferences @Inject constructor(
 
     override fun putToken(token: String) {
         edit { putString(KEY_TOKEN, token) }
+    }
+
+    override fun putPlanId(string: String) {
+        edit { putString(PLAN_ID, string) }
     }
 
     override fun putTokenExpirationTime(time: Long) {

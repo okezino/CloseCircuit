@@ -3,7 +3,7 @@ package com.example.closedcircuitapplication.common.authentication.domain.usecas
 import com.example.closedcircuitapplication.common.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.common.authentication.data.dataDto.LoginResponseDto
 import com.example.closedcircuitapplication.common.common.data.network.models.Result
-import com.example.closedcircuitapplication.common.common.domain.repository.AuthRepository
+import com.example.closedcircuitapplication.common.authentication.domain.repository.AuthRepository
 import com.example.closedcircuitapplication.common.common.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

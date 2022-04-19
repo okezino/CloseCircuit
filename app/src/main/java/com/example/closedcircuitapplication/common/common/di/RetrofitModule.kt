@@ -17,7 +17,7 @@ class RetrofitModule {
     @Singleton
     fun provideRetrofit(
         gsonConverterFactory: GsonConverterFactory,
-        okHttpClient: OkHttpClient
+       @AuthInterceptorOkHttpClient okHttpClient: OkHttpClient
     ): Retrofit =
         Retrofit.Builder().baseUrl(NetworkConstants.BASE_URL)
             .addConverterFactory(gsonConverterFactory).client(okHttpClient).build()

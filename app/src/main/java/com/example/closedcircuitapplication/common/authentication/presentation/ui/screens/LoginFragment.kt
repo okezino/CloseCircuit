@@ -18,9 +18,8 @@ import com.example.closedcircuitapplication.common.common.presentation.utils.sho
 import com.example.closedcircuitapplication.common.common.utils.Resource
 import com.example.closedcircuitapplication.common.common.utils.Validation
 import com.example.closedcircuitapplication.common.common.utils.customNavAnimation
-import com.example.closedcircuitapplication.beneficiary.dashboard.BeneficiaryDashboardActivity
+import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.BeneficiaryDashboardActivity
 import com.example.closedcircuitapplication.databinding.FragmentLoginBinding
-import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.activity.SponsorDashboardActivity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -144,28 +143,19 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     showLoginSuccessfulDialog()
                     // this is used to insert the token into the shared preference
                     saveToken(resource.data?.data!!.token)
-                    preferences.putToken(resource.datas?.data!!.token)
-
                     //this is used to save the userId address
                     saveUserId(resource.data.data.user_id)
-                    preferences.putUserId(resource.data.data.user_id)
-
-                    resource.data.data.let { token ->
-                        token?.let { saveToken(it.token) }
-                    }
-                    resource.data.data?.let { preferences.putToken(it.token) }
-                    saveToken(resource.data.data!!.token)
-                    resource.datas?.data?.let { preferences.putToken(it.token) }
 
                     //Intent to navigate to Beneficiary DashBoard
-                    // Intent(requireContext(),BeneficiaryDashboardActivity::class.java).also {intentBeneficiaryDashboard -> startActivity(intentBeneficiaryDashboard) }
+                     Intent(requireContext(),
+                         BeneficiaryDashboardActivity::class.java).also { intentBeneficiaryDashboard -> startActivity(intentBeneficiaryDashboard) }
 
                     //Intent to navigate to Sponsor Dashboard
-                   Intent(requireContext(),SponsorDashboardActivity::class.java).also { sponsorDashBoardIntent -> startActivity(sponsorDashBoardIntent) }
+                  // Intent(requireContext(),SponsorDashboardActivity::class.java).also { sponsorDashBoardIntent -> startActivity(sponsorDashBoardIntent) }
                 }
 
                 is Resource.Error -> {
-                    waitDialog!!.dismiss()
+                //    waitDialog!!.dismiss()
                     //TODO(Display error message and dismiss progress bar)
 
                     waitDialog?.dismiss()

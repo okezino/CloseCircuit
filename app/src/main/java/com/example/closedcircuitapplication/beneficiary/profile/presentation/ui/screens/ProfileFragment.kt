@@ -30,12 +30,11 @@ import com.example.closedcircuitapplication.common.common.data.preferences.Prefe
 import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants
 import com.example.closedcircuitapplication.common.common.utils.*
 import com.example.closedcircuitapplication.beneficiary.dashboard.domain.model.UpdateProfileRequest
-import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.ui.viewmodel.DashboardViewModel
+import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentProfileBinding
 import com.example.closedcircuitapplication.beneficiary.plan.presentation.ui.viewmodels.PlanViewModel
 import com.example.closedcircuitapplication.beneficiary.plan.utils.PlanConstants
 import com.example.closedcircuitapplication.beneficiary.plan.utils.PlanUtils
-import com.example.closedcircuitapplication.common.authentication.presentation.ui.screens.LoginFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 import com.theartofdev.edmodo.cropper.CropImage
 import dagger.hilt.android.AndroidEntryPoint
@@ -95,7 +94,7 @@ class ProfileFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
         handleBackPress()
         binding.fragmentProfileScreenToolbarBackArrowIv.setOnClickListener { popBackStack() }
 
-        _viewModel.getMyPlans(100, 0, "Bearer ${preferences.getToken()}")
+        _viewModel.getMyPlans(100, 0)
 
         binding.changeProfilePic.setOnClickListener {
             if (checkPermission()) {
