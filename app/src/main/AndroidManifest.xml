@@ -22,7 +22,7 @@
             android:name=".sponsor.sponsorPlanSummary.presentation.ui.screen.activity.SponsorDashboardActivity"
             android:exported="true" />
         <activity
-            android:name=".beneficiary.dashboard.BeneficiaryDashboardActivity"
+            android:name=".beneficiary.dashboard.presentation.view.screens.BeneficiaryDashboardActivity"
             android:exported="true" />
         <activity
             android:name=".common.common.presentation.ui.MainActivity"

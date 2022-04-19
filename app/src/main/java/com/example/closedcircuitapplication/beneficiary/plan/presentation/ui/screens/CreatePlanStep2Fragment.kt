@@ -71,8 +71,7 @@ class CreatePlanStep2Fragment : Fragment() {
                             fragmentLetsCreateYourPlanMonthDurationEt.text.toString(),
                             fragmentLetsCreateYourPlanSellingPriceEt.text.toString(),
                             fragmentLetsCreateYourPlanCostPriceEt.text.toString()
-                        ),
-                        "Bearer ${preferences.getToken()}"
+                        )
                     )
                 }
             }

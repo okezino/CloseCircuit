@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_email_verification_successful" />
     <fragment
         android:id="@+id/splashScreen"
-        android:name="com.example.closedcircuitapplication.common.authentication.presentation.ui.screens.SplashScreenFragment"
+        android:name="com.example.closedcircuitapplication.common.onboarding.presentation.view.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.example.closedcircuitapplication.common.authentication.presentation.ui.screens.ViewPagerFragment"
+        android:name="com.example.closedcircuitapplication.common.onboarding.presentation.view.ViewPagerFragment"
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeScreenFragment"
-        android:name="com.example.closedcircuitapplication.common.authentication.presentation.ui.screens.WelcomeScreenFragment"
+        android:name="com.example.closedcircuitapplication.common.onboarding.presentation.view.WelcomeScreenFragment"
         android:label="fragment_welcome_screen"
         tools:layout="@layout/fragment_welcome_screen">
         <action
@@ -156,7 +156,7 @@
     </fragment>
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.ui.screens.MessageFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
     <fragment
@@ -181,11 +181,11 @@
         tools:layout="@layout/fragment_upload_image_bottom_sheet" />
     <fragment
         android:id="@+id/dashboardFragment2"
-        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.ui.screens.DashboardFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.DashboardFragment"
         android:label="DashboardFragment" />
     <fragment
         android:id="@+id/linkInvitationFragment"
-        android:name="com.example.closedcircuitapplication.beneficiary.onboarding.presentation.ui.screens.LinkInvitationFragment"
+        android:name="com.example.closedcircuitapplication.common.onboarding.presentation.view.LinkInvitationFragment"
         android:label="fragment_link_invitation"
         tools:layout="@layout/fragment_link_invitation">
         <deepLink
@@ -193,7 +193,9 @@
             app:uri="www.closecircuit.com/{planId}/" />
         <argument
             android:name="planId"
-            />
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
         <action
             android:id="@+id/action_linkInvitationFragment_to_splashScreen"
             app:destination="@id/splashScreen"

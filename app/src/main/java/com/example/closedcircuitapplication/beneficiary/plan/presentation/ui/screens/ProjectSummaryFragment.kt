@@ -86,8 +86,8 @@ class ProjectSummaryFragment : Fragment() {
             bundle.putString(getString(R.string.plan_id), planId)
             findNavController().navigate(R.id.createStepsFragment,bundle, customNavAnimation().build())
         }
-        allStepsViewModel.getUserSteps("Bearer ${preferences.getToken()}")
-        allStepsViewModel.getUserBudgets("Bearer ${preferences.getToken()}")
+        allStepsViewModel.getUserSteps()
+        allStepsViewModel.getUserBudgets()
 
        val deletePlanDialogBinding = DeletePlanDialogBinding.inflate(layoutInflater)
 
@@ -95,7 +95,7 @@ class ProjectSummaryFragment : Fragment() {
         planImage = binding.planImageView
         sector = binding.projectBusinessSector
 
-        viewModel.getPlan(planId, "Bearer ${preferences.getToken()}")
+        viewModel.getPlan(planId)
         setUpObserver()
 
         binding.projectSummaryMoreOptions.setOnClickListener {
@@ -155,7 +155,7 @@ class ProjectSummaryFragment : Fragment() {
     }
 
     private fun deletePlan(){
-        viewModel.deletePlan(planId, "Bearer ${preferences.getToken()}")
+        viewModel.deletePlan(planId)
     }
     private fun initObservers() {
         viewModel.deletePlanResponse.observe(viewLifecycleOwner){ resources ->

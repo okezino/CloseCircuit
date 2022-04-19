@@ -1,9 +1,10 @@
 package com.example.closedcircuitapplication.beneficiary.plan.di
 
 import com.example.closedcircuitapplication.common.authentication.data.mappers.DomainPostMapper
-import com.example.closedcircuitapplication.common.common.data.network.Api
-import com.example.closedcircuitapplication.common.common.data.repository.PlanRepository
-import com.example.closedcircuitapplication.common.common.domain.repository.PlanRepositoryInterface
+import com.example.closedcircuitapplication.beneficiary.plan.data.repository.PlanRepository
+import com.example.closedcircuitapplication.beneficiary.plan.domain.repository.PlanRepositoryInterface
+import com.example.closedcircuitapplication.common.common.data.network.webservice.AuthService
+import com.example.closedcircuitapplication.common.common.data.network.webservice.BaseService
 import com.example.closedcircuitapplication.common.common.utils.DispatcherProvider
 import dagger.Module
 import dagger.Provides
@@ -16,10 +17,10 @@ object PlanModule {
 
     @Provides
     fun providePlanRepository(
-        api: Api,
-        mapper: DomainPostMapper,
+        baseApi: BaseService,
+        authApi : AuthService,
         dispatcherProvider: DispatcherProvider
-    ): PlanRepositoryInterface{
-        return PlanRepository(api, mapper, dispatcherProvider)
+    ): PlanRepositoryInterface {
+        return PlanRepository(baseApi,authApi,dispatcherProvider)
     }
 }

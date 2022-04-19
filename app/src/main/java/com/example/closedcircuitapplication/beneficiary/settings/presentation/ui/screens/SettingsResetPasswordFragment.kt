@@ -88,7 +88,7 @@ class SettingsResetPasswordFragment : Fragment() {
                     fragmentSettingsConfirmPasswordErrorTv.visibility = View.GONE
                     fragmentSettingsReEnterNewPasswordLayout.error = ""
                     if (password == confirmPassword){
-                        viewModel.changePassword(ChangePasswordRequest(confirmPassword,oldPassword,password),preferences.getUserId(),"$BEARER ${preferences.getToken()}")
+                        viewModel.changePassword(ChangePasswordRequest(confirmPassword,oldPassword,password),preferences.getUserId())
                     }else{
                         makeSnackBar(SettingsConstants.PASSWORD_MATCH, requireView())
                     }
