@@ -10,6 +10,7 @@ import com.example.closedcircuitapplication.common.common.data.network.models.Ve
 import com.example.closedcircuitapplication.common.common.utils.Resource
 import com.example.closedcircuitapplication.beneficiary.plan.domain.models.GenerateOtpRequest
 import com.example.closedcircuitapplication.beneficiary.plan.domain.models.VerifyOtpRequest
+import com.example.closedcircuitapplication.common.authentication.domain.repository.AuthRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

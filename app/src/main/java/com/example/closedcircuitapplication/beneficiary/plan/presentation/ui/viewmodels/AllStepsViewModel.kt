@@ -34,17 +34,17 @@ class AllStepsViewModel @Inject constructor(
     var stepId: String = ""
     var planId: String = ""
 
-    fun getUserSteps(authHeader: String) {
+    fun getUserSteps() {
         viewModelScope.launch {
-            getUserStepsUseCase(authHeader).collect {
+            getUserStepsUseCase().collect {
                 _getStepsResponse.value = it
             }
         }
     }
 
-    fun getUserBudgets(authHeader: String) {
+    fun getUserBudgets() {
         viewModelScope.launch {
-            getUserBudgetsUseCase(authHeader).collect {
+            getUserBudgetsUseCase().collect {
                 _getBudgetsResponse.value = it
             }
         }

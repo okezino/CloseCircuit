@@ -21,9 +21,9 @@ class SettingsViewModel @Inject constructor(
     private var _changePasswordResponse = MutableLiveData<ChangePasswordResponseType>()
     val changePasswordResponse: LiveData<ChangePasswordResponseType> get() = _changePasswordResponse
 
-    fun changePassword(changePasswordRequest: ChangePasswordRequest, userId: String, token: String){
+    fun changePassword(changePasswordRequest: ChangePasswordRequest, userId: String){
         viewModelScope.launch {
-            changePasswordUseCase(changePasswordRequest, userId, token).collect {
+            changePasswordUseCase(changePasswordRequest, userId).collect {
                 _changePasswordResponse.value = it
             }
         }

@@ -18,9 +18,9 @@ class CreatePlanViewModel @Inject constructor(private val createPlanUseCase: Cre
     private var _createPlanResponse = MutableLiveData<Resource<Result<CreatePlanDto>>>()
     val createPlanResponse: LiveData<Resource<Result<CreatePlanDto>>> get() = _createPlanResponse
 
-    fun createPlan(createPlanRequest: CreatePlanRequest, authHeader: String) {
+    fun createPlan(createPlanRequest: CreatePlanRequest) {
         viewModelScope.launch {
-            createPlanUseCase(createPlanRequest, authHeader).collect {
+            createPlanUseCase(createPlanRequest).collect {
                 _createPlanResponse.value = it
             }
         }

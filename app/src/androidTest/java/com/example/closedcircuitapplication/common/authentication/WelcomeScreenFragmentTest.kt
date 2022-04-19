@@ -10,7 +10,7 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.closedcircuitapplication.R
-import com.example.closedcircuitapplication.common.authentication.presentation.ui.screens.WelcomeScreenFragment
+import com.example.closedcircuitapplication.common.onboarding.presentation.view.WelcomeScreenFragment
 import junit.framework.TestCase
 import org.junit.Before
 import org.junit.Test
