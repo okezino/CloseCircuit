@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.ui.screens.DashboardFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.DashboardFragment"
         android:label="DashboardFragment"
         tools:layout="@layout/fragment_dashboard">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/accountFragment2"
-        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.ui.screens.AccountFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" >
         <action
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.ui.screens.MessageFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
     <fragment
@@ -325,38 +325,6 @@
             app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/editProfileFragment"
-        android:name="com.example.closedcircuitapplication.beneficiary.profile.presentation.ui.screens.EditProfileFragment"
-        android:label="EditProfileFragment" >
-        <argument
-            android:name="fullName"
-            app:argType="string" />
-        <argument
-            android:name="phoneNumber"
-            app:argType="string" />
-        <argument
-            android:name="nationality"
-            app:argType="string" />
-        <argument
-            android:name="userId"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_editProfileFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <argument
-            android:name="email"
-            app:argType="string" />
-        <argument
-            android:name="password"
-            app:argType="string" />
-        <argument
-            android:name="confirm_password"
-            app:argType="string" />
-        <argument
-            android:name="avatar"
-            app:argType="string" />
-    </fragment>
-<fragment
         android:id="@+id/complaintAndIssuesFragment"
         android:name="com.example.closedcircuitapplication.beneficiary.support.ui.screen.ComplaintAndIssuesFragment"
         android:label="fragment_complaint_and_issues"
@@ -553,6 +521,38 @@
         <action
             android:id="@+id/action_loanOfferDetailsFragment_to_declineLoanOfferFragment"
             app:destination="@id/declineLoanOfferFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.profile.presentation.ui.screens.EditProfileFragment"
+        android:label="EditProfileFragment" >
+        <argument
+            android:name="fullName"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+        <argument
+            android:name="nationality"
+            app:argType="string" />
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+        <argument
+            android:name="confirm_password"
+            app:argType="string" />
+        <argument
+            android:name="avatar"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 
 </navigation>

@@ -15,7 +15,7 @@ import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.common.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.common.utils.*
 import com.example.closedcircuitapplication.beneficiary.dashboard.domain.model.UpdateProfileRequest
-import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.ui.viewmodel.DashboardViewModel
+import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.viewmodel.DashboardViewModel
 import com.example.closedcircuitapplication.databinding.FragmentEditProfileBinding
 import com.example.closedcircuitapplication.beneficiary.plan.utils.PlanConstants
 import dagger.hilt.android.AndroidEntryPoint
@@ -50,10 +50,10 @@ class EditProfileFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val nationality = resources.getStringArray(R.array.Choose_country)
-        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, nationality)
+//        val nationality = resources.getStringArray(R.array.Choose_country)
+//        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, nationality)
 
-        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -95,8 +95,7 @@ class EditProfileFragment : Fragment() {
                 )
 
                 findNavController().navigate(
-                    EditProfileFragmentDirections.actionEditProfileFragmentToProfileFragment(),
-                    customNavAnimation().build()
+                    EditProfileFragmentDirections.actionEditProfileFragmentToProfileFragment(), customNavAnimation().build()
                 )
             }
 

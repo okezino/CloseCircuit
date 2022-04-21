@@ -111,7 +111,7 @@ class StepViewFragment : Fragment() {
         val deleteStepDialogBinding = DeleteStepDialogBinding.inflate(layoutInflater)
         dialog.setView(deleteStepDialogBinding.root)
         deleteStepDialogBinding.deleteStepDialogPositiveActionTextView.setOnClickListener {
-            stepsViewModel.deleteStep(budgetData.id, "Bearer ${preferences.getToken()}")
+            stepsViewModel.deleteStep(budgetData.id)
             dialog.dismiss()
             findNavController().navigate(
                 StepViewFragmentDirections.actionStepViewFragmentToCreatePlanFragment()

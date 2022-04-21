@@ -96,7 +96,7 @@ class CreateAPlanFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
 
     // show bottomsheet fragment holding the camera and uplaod image icon
     private fun showUploadImageBottomSheetDialog() {
-        UploadImageBottomSheetFragment(this).show(
+        UploadImageBottomSheetFragment(this, "").show(
             requireActivity().supportFragmentManager,
             "uploadImageBottomSheet"
         )

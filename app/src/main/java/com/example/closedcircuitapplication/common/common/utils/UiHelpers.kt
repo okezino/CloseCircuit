@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -18,6 +19,7 @@ import com.example.closedcircuitapplication.databinding.ActivityBeneficiaryDashb
 import com.example.closedcircuitapplication.databinding.DeclineOfferDialogBinding
 import com.example.closedcircuitapplication.databinding.LogoutDialogLayoutBinding
 import com.example.closedcircuitapplication.beneficiary.loan.presentation.ui.screens.LoanDetailFragmentDirections
+import com.example.closedcircuitapplication.common.common.presentation.ui.MainActivity
 import com.google.android.material.snackbar.Snackbar
 
 // this is used for navigation animation
@@ -42,6 +44,17 @@ fun Fragment.showPleaseWaitAlertDialog(): AlertDialog {
         R.layout.custom_login_wait_dialog,
         false
     )
+}
+
+fun showToast(context: Context, string: String){
+    Toast.makeText(context, string, Toast.LENGTH_SHORT).show()
+}
+
+ fun Activity.userLogOut(): Unit {
+    val intent = Intent(this, MainActivity::class.java)
+    intent.putExtra(FROM_LOGOUT, true)
+    startActivity(intent)
+    this.finish()
 }
 
 fun showCustomDialog(

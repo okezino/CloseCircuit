@@ -70,9 +70,9 @@ class StepsViewModel @Inject constructor(
 
 
 
-    fun deleteStep(stepId: String, authHeader: String ) {
+    fun deleteStep(stepId: String) {
         viewModelScope.launch {
-            deleteStepUseCase(stepId, authHeader).collect {
+            deleteStepUseCase(stepId).collect {
                 _deleteStepResponse.value = it
             }
         }
@@ -81,41 +81,41 @@ class StepsViewModel @Inject constructor(
     fun getBudgetList() = budgetList
 
 
-    fun createStep(createStepsRequest: CreateStepsRequest, authHeader: String) {
+    fun createStep(createStepsRequest: CreateStepsRequest) {
         viewModelScope.launch {
-            createStepUseCase(createStepsRequest, authHeader).collect {
+            createStepUseCase(createStepsRequest).collect {
                 _createStepResponse.value = it
             }
         }
     }
 
-    fun createBudget(createBudgetRequest: CreateBudgetRequest,authHeader: String ) {
+    fun createBudget(createBudgetRequest: CreateBudgetRequest ) {
         viewModelScope.launch {
-            createBudgetUseCase(createBudgetRequest, authHeader).collect {
+            createBudgetUseCase(createBudgetRequest).collect {
                 _createBudgetResponse.value = it
             }
         }
     }
 
-    fun updateStep(stepId:String, authHeader: String, updateStepRequest: UpdateStepRequest) {
+    fun updateStep(stepId:String,updateStepRequest: UpdateStepRequest) {
         viewModelScope.launch {
-            updateStepUseCase(stepId,authHeader, updateStepRequest).collect {
+            updateStepUseCase(stepId, updateStepRequest).collect {
                 _updateStepsResponse.value = it
             }
         }
     }
 
-    fun deleteBudget(budgetId: String, authHeader: String) {
+    fun deleteBudget(budgetId: String) {
         viewModelScope.launch {
-            deleteBudgetUseCase(budgetId, authHeader).collect {
+            deleteBudgetUseCase(budgetId).collect {
                 _deleteBudgetResponse.value = it
             }
         }
     }
 
-    fun updateBudget(budgetId: String, authHeader: String, updateBudgetRequest: UpdateBudgetRequest) {
+    fun updateBudget(budgetId: String,  updateBudgetRequest: UpdateBudgetRequest) {
         viewModelScope.launch {
-            updateBudgetUseCase(budgetId, authHeader, updateBudgetRequest).collect {
+            updateBudgetUseCase(budgetId,updateBudgetRequest).collect {
                 _updateBudgetResponse.value = it
             }
         }

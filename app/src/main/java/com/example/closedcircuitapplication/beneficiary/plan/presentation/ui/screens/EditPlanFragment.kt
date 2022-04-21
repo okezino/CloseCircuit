@@ -141,7 +141,7 @@ class EditPlanFragment : Fragment(R.layout.fragment_edit_plan) {
                 binding.fragmentEditPlanPlanDurationEt.text.toString(),
                 binding.dropdownMenuPlanSector.text.toString(),
                 "Physical Product"),
-                args.planId, "$BEARER ${preferences.getToken()}"
+                args.planId
             )
         }
     }

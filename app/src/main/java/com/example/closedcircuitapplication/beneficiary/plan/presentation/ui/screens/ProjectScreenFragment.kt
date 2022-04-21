@@ -58,7 +58,7 @@ class ProjectScreenFragment : Fragment(R.layout.fragment_project_screen) {
         fetchProjects()
         initObserversMyPlans()
 
-        viewModel.getMyPlans(100, 0, "Bearer ${preferences.getToken()}")
+        viewModel.getMyPlans(100, 0)
 
         binding.fragmentProjectScreenLayout.setOnClickListener {
 

@@ -69,7 +69,7 @@ class EditStepFragment : Fragment(), BudgetItemClickListeners {
 
         binding.editStepSaveStepButton.setOnClickListener {
             viewModel.updateStep(
-                navArgs.step.id, "Bearer ${preferences.getToken()}", UpdateStepRequest(
+                navArgs.step.id, UpdateStepRequest(
                     binding.editStepStepNameEditText.text.toString(),
                     binding.editStepsEditStepDescriptionEditText.text.toString(),
                     binding.editStepStepDurationAutoCompleteTextView.text.toString(),
@@ -106,7 +106,7 @@ class EditStepFragment : Fragment(), BudgetItemClickListeners {
                 navArgs.step.id
             )
             viewModel.newBudgetItem = newBudget
-            viewModel.createBudget(newBudget, "Bearer ${preferences.getToken()}")
+            viewModel.createBudget(newBudget)
         }
     }
 
@@ -114,7 +114,7 @@ class EditStepFragment : Fragment(), BudgetItemClickListeners {
         viewModel.createBudgetResponse.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {
-                    allStepsViewModel.getUserBudgets("Bearer ${preferences.getToken()}")
+                    allStepsViewModel.getUserBudgets()
                 }
                 else -> {
                     pleaseWaitDialog.dismiss()
@@ -147,7 +147,7 @@ class EditStepFragment : Fragment(), BudgetItemClickListeners {
         with(binding) {
             viewModel.budgetBeingEdited?.let {
                 viewModel.updateBudget(
-                    it.id, "Bearer ${preferences.getToken()}", UpdateBudgetRequest(
+                    it.id, UpdateBudgetRequest(
                         editStepBudgetNameEditText.text.toString(),
                         editStepBudgetNameEditText.text.toString(),
                         editStepBudgetCostEditText.text.toString().toFloat(),
@@ -270,7 +270,7 @@ class EditStepFragment : Fragment(), BudgetItemClickListeners {
         deleteBudgetDialog.setPositiveButton(
             getString(R.string.yes)
         ) { dialog, which ->
-            viewModel.deleteBudget(budgetItem.id, "Bearer ${preferences.getToken()}")
+            viewModel.deleteBudget(budgetItem.id)
             budgetsAdapter.deleteBudgetItem(budgetItem, position)
             dialog.dismiss()
         }

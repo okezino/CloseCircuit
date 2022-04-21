@@ -1,9 +1,9 @@
 package com.example.closedcircuitapplication.common.authentication.di
 
 import com.example.closedcircuitapplication.common.authentication.data.mappers.DomainPostMapper
-import com.example.closedcircuitapplication.common.common.data.network.Api
-import com.example.closedcircuitapplication.common.common.data.repository.AuthenticationRepository
-import com.example.closedcircuitapplication.common.common.domain.repository.AuthRepository
+import com.example.closedcircuitapplication.common.authentication.data.datasource.AuthenticationRepository
+import com.example.closedcircuitapplication.common.authentication.domain.repository.AuthRepository
+import com.example.closedcircuitapplication.common.common.data.network.webservice.AuthService
 import com.example.closedcircuitapplication.common.common.utils.DispatcherProvider
 import dagger.Module
 import dagger.Provides
@@ -16,7 +16,7 @@ object AuthModule {
 
     @Provides
     fun provideAuthRepository(
-        api: Api,
+        api: AuthService,
         mapper: DomainPostMapper,
         dispatcherProvider: DispatcherProvider
     ): AuthRepository {

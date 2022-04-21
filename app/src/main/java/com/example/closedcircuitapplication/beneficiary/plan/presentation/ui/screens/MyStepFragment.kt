@@ -75,7 +75,7 @@ class MyStepFragment : Fragment() {
     }
 
     private fun deletePlan(){
-        viewModel.deletePlan(planId, "Bearer ${preferences.getToken()}")
+        viewModel.deletePlan(planId)
     }
     private fun manageUiView() {
         binding.myStepTargetAmountValueTextView.text = budgetData.targetFunds
