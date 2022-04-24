@@ -133,14 +133,14 @@ class BeneficiaryDashboardActivity : AppCompatActivity() {
                         binding.appBarDashboard.toolbarHeaderTitleTv.visibility=View.INVISIBLE
                     }
                     R.id.supportFragment->{
-                        binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
-                        binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
-                        binding.appBarDashboard.toolbarHeaderTitleTv.visibility=View.VISIBLE
+                      //  binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
+                       // binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
+                      //  binding.appBarDashboard.toolbarHeaderTitleTv.visibility=View.VISIBLE
                     }
                     else -> {
-                        binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
-                        binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
-                        binding.appBarDashboard.toolbarHeaderTitleTv.visibility=View.INVISIBLE
+                      //  binding.appBarDashboard.notificationImageView.visibility = View.INVISIBLE
+                      //  binding.appBarDashboard.profileImageView.visibility = View.INVISIBLE
+                     //   binding.appBarDashboard.toolbarHeaderTitleTv.visibility=View.INVISIBLE
                     }
                 }
             }
