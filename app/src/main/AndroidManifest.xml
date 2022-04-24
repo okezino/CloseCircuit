@@ -19,7 +19,7 @@
         android:theme="@style/Theme.ClosedCircuitApplication"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".sponsor.sponsorPlanSummary.presentation.ui.screen.activity.SponsorDashboardActivity"
+            android:name=".sponsor.dashboard.presentation.view.screen.SponsorDashboardActivity"
             android:exported="true" />
         <activity
             android:name=".beneficiary.dashboard.presentation.view.screens.BeneficiaryDashboardActivity"

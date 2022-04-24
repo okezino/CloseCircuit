@@ -156,7 +156,7 @@
     </fragment>
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.MessageFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.message.presentation.view.screen.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
     <fragment

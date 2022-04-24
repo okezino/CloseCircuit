@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/accountFragment2"
-        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.AccountFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.account.presentation.view.screen.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" >
         <action
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.MessageFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.message.presentation.view.screen.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
     <fragment
@@ -99,7 +99,7 @@
     </fragment>
     <fragment
         android:id="@+id/notificationScreenFragment"
-        android:name="com.example.closedcircuitapplication.beneficiary.notification.presentation.ui.screens.NotificationScreenFragment"
+        android:name="com.example.closedcircuitapplication.beneficiary.notification.presentation.view.NotificationScreenFragment"
         android:label="fragment_notification_screen"
         tools:layout="@layout/fragment_notification_screen" />
     <fragment

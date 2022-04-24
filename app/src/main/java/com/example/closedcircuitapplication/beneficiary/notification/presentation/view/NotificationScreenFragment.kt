@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.beneficiary.notification.presentation.ui.screens
+package com.example.closedcircuitapplication.beneficiary.notification.presentation.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

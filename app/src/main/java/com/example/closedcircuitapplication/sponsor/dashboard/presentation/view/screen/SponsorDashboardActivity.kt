@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.activity
+package com.example.closedcircuitapplication.sponsor.dashboard.presentation.view.screen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,11 +16,13 @@ import android.view.View
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.closedcircuitapplication.common.common.data.preferences.Preferences
 import com.example.closedcircuitapplication.common.common.utils.showLogOutDialog
 import com.example.closedcircuitapplication.common.common.utils.showToast
 import com.example.closedcircuitapplication.common.common.utils.userLogOut
 import com.example.closedcircuitapplication.databinding.DrawerHeaderLayoutBinding
 import com.example.closedcircuitapplication.databinding.LogoutDialogLayoutBinding
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SponsorDashboardActivity : AppCompatActivity() {
@@ -31,6 +33,8 @@ class SponsorDashboardActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var drawerHeaderBinding : DrawerHeaderLayoutBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +51,8 @@ class SponsorDashboardActivity : AppCompatActivity() {
         activateClickListener()
         setUpNavigationDestinations()
         onDestinationChangedListener()
+
+
     }
 
     private  fun setUpBottomNavigation(){
@@ -142,5 +148,7 @@ class SponsorDashboardActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)||
         super.onSupportNavigateUp()
     }
+
+
 
 }

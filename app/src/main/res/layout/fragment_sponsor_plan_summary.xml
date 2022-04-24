@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary_color"
+    tools:context=".sponsor.sponsorPlanSummary.presentation.view.screen.SponsorPlanSummaryFragment">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/fragment_sponsor_plan_summary_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_20dp"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/margin_80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/fragment_sponsor_plan_summary_header1_tv"
+                    style="@style/TCCHeaderTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:text="@string/how_can_you_help"
+                    android:textSize="@dimen/textSize_24sp" />
+
+                <TextView
+                    android:id="@+id/fragment_sponsor_plan_summary_support_tv"
+                    style="@style/TCCBodyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/you_can_support_by_funding_text"
+                    android:textColor="@color/text_color_normal"
+                    android:textSize="@dimen/textSize_15sp" />
+
+                <TextView
+                    android:id="@+id/fragment_sponsor_plan_summary_header2_tv"
+                    style="@style/TCCHeaderTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_25dp"
+                    android:text="@string/plan_summary"
+                    android:textSize="@dimen/textSize_24sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/project_summary_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/textSize_16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/project_title">
+
+
+                    <ImageView
+                        android:id="@+id/project_sector_image_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/image_view_circular_shape"
+                        android:padding="@dimen/padding_8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_briefcase"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/project_sector_text_view"
+                        android:layout_width="@dimen/width_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/project_sector_image_view"
+                        app:layout_constraintEnd_toStartOf="@id/project_constraint_guideline"
+                        app:layout_constraintStart_toEndOf="@+id/project_sector_image_view"
+                        app:layout_constraintTop_toTopOf="@+id/project_sector_image_view">
+
+                        <TextView
+                            android:id="@+id/project_business_sector"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:text="@string/e_commerce"
+                            android:textColor="@color/green_700"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:text="@string/business_sector"
+                            android:textSize="@dimen/textSize_10sp" />
+
+                    </LinearLayout>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/project_constraint_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="165dp" />
+
+                    <ImageView
+                        android:id="@+id/project_duration_image_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/margin_8dp"
+                        android:background="@drawable/image_view_circular_shape_blue"
+                        android:padding="@dimen/padding_8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_calendar"
+                        app:layout_constraintStart_toEndOf="@+id/project_constraint_guideline"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/project_duration_text_view"
+                        android:layout_width="@dimen/width_0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/project_duration_image_view"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/project_duration_image_view"
+                        app:layout_constraintTop_toTopOf="@+id/project_duration_image_view">
+
+                        <TextView
+                            android:id="@+id/project_duration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:baselineAligned="false"
+                            android:textColor="@color/green_700"
+                            android:textStyle="bold"
+                            android:text="@string/_4_months" />
+
+                        <TextView
+                            android:id="@+id/project_duration_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:text="@string/plan_duration"
+                            android:textSize="@dimen/textSize_10sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/project_target_amount_image_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_20dp"
+                        android:background="@drawable/image_view_circular_shape"
+                        android:padding="@dimen/padding_8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_ep_sell"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/project_sector_image_view" />
+
+                    <LinearLayout
+                        android:id="@+id/project_target_amount_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/project_target_amount_image_view"
+                        app:layout_constraintStart_toEndOf="@+id/project_target_amount_image_view"
+                        app:layout_constraintTop_toTopOf="@+id/project_target_amount_image_view">
+
+                        <TextView
+                            android:id="@+id/project_target_amount_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:baselineAligned="false"
+                            android:text="@string/_0"
+                            android:textColor="@color/green_700"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/target_amount_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:text="@string/estimated_cost_price"
+                            android:textSize="@dimen/textSize_10sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/project_funds_raised_image_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_8dp"
+                        android:layout_marginTop="@dimen/margin_20dp"
+                        android:background="@drawable/image_view_circular_shape_blue"
+                        android:padding="@dimen/padding_8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_plan_description"
+                        app:layout_constraintStart_toStartOf="@+id/project_constraint_guideline"
+                        app:layout_constraintTop_toBottomOf="@+id/project_duration_image_view" />
+
+                    <LinearLayout
+                        android:id="@+id/project_funds_raised_layout"
+                        android:layout_width="@dimen/width_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin_4dp"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/project_funds_raised_image_view"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/project_funds_raised_image_view"
+                        app:layout_constraintTop_toTopOf="@+id/project_funds_raised_image_view">
+
+                        <TextView
+                            android:id="@+id/project_funds_raised_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:baselineAligned="false"
+                            android:text="@string/_0"
+                            android:textColor="@color/green_700"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/project_funds_raised"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:text="@string/estimated_selling_price"
+                            android:textSize="@dimen/textSize_10sp" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/fragment_sponsor_plan_summary_cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_152dp"
+                    android:layout_marginStart="@dimen/margin_2dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:background="@drawable/upload_image_button"
+                    app:cardBackgroundColor="@color/primary_color"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/fragment_sponsor_plan_summary_upload_image_holder_iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/unsplash_tl8mdaue_ii" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/fragment_sponsor_plan_summary_desc_tv"
+                    style="@style/TCCHeaderTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:text="@string/plan_description" />
+
+                <TextView
+                    android:id="@+id/fragment_sponsor_plan_summary_desc_body_tv"
+                    style="@style/TCCBodyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/sponsor_plan_description_text"
+                    android:textColor="@color/text_color_normal"
+                    android:textSize="@dimen/textSize_15sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/determinant_progress_bar_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_180dp"
+                    android:layout_marginTop="@dimen/margin_40dp"
+                    >
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        style="@style/CircularDeterminateProgressBar"
+                        android:layout_width="@dimen/width_200dp"
+                        android:layout_height="@dimen/height_200dp"
+                        android:elevation="@dimen/elevation_10dp"
+                        android:progress="20"
+                        android:progressBackgroundTint="@color/secondary_color"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/fragment_sponsor_plan_summary_progress_bar_iv"
+                        android:layout_width="163dp"
+                        android:layout_height="163dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/segmented"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/fragment_sponsor_plan_summary_view"
+                        android:layout_width="105dp"
+                        android:layout_height="107dp"
+                        android:background="@drawable/ic_circular_green"
+                        app:layout_constraintBottom_toBottomOf="@+id/fragment_sponsor_plan_summary_progress_bar_iv"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_sponsor_plan_summary_progress_bar_iv"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_sponsor_plan_summary_progress_bar_iv"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_sponsor_plan_summary_progress_bar_iv" />
+
+                    <TextView
+                        android:id="@+id/fragment_sponsor_plan_summary_progress_bar_tv"
+                        style="@style/TCCHeaderTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_20"
+                        android:textColor="@color/secondary_color"
+                        android:textSize="@dimen/textSize_32sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/fragment_sponsor_plan_summary_view"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_sponsor_plan_summary_view"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_sponsor_plan_summary_view"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_sponsor_plan_summary_view" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/fragment_sponsor_plan_summary_estimated_profit_tv"
+                    style="@style/TCCBodyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/estimated_profit" />
+
+                <TextView
+                    style="@style/TCCHeaderTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_40dp"
+                    android:text="@string/plan_steps_and_budgets"
+                    android:textSize="@dimen/textSize_24sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fragment_sponsor_plan_summary_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/sponsor_step_recyclerview_item" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sponsor_step_rv_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_45dp"
+                    android:background="@color/change_profile_text_color">
+
+                    <TextView
+                        android:id="@+id/fragment_sponsor_plan_summary_step_tv"
+                        style="@style/TCCBodyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_12dp"
+                        android:layout_marginTop="@dimen/margin_14dp"
+                        android:textColor="@color/secondary_color"
+                        android:text="Budgets(8)"
+                        android:textSize="@dimen/textSize_15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/left_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_0dp"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/right_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_0dp"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.6" />
+
+                    <TextView
+                        android:id="@+id/fragment_sponsor_plan_summary_step_name_tv"
+                        style="@style/TCCBodyText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total"
+                        android:textColor="@color/secondary_color"
+                        android:textSize="@dimen/textSize_15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/fragment_sponsor_plan_summary_step_amount_tv"
+                        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                        app:layout_constraintStart_toEndOf="@+id/left_guideline"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_sponsor_plan_summary_step_amount_tv" />
+
+                    <TextView
+                        android:id="@+id/fragment_sponsor_plan_summary_step_amount_tv"
+                        style="@style/TCCBodyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_14dp"
+                        android:layout_marginEnd="@dimen/margin_5dp"
+                        android:text="@string/ngn_1_700_000_00"
+                        android:textColor="@color/secondary_color"
+                        android:textSize="@dimen/textSize_15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/right_guideline"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/fragment_sponsor_plan_summary_proceed_btn"
+                    style="@style/TCCDefaultButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_54dp"
+                    android:layout_marginTop="@dimen/margin_60dp"
+                    android:layout_marginBottom="@dimen/margin_60dp"
+                    android:text="@string/proceed_to_support"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/successfullIcon_Iv" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

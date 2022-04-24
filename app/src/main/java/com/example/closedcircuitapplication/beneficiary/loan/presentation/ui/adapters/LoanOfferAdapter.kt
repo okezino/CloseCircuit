@@ -38,8 +38,7 @@ class LoanOfferAdapter (private val loanOfferItemList : ArrayList<LoanOfferReque
                 val recyclerView = StackedRecyclerViewAdapter()
                 recyclerView.addSponsorImage(loanItemList.sponsorImage)
                 adapter = recyclerView
-                val stackedLayoutManager=
-                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                val stackedLayoutManager= LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 stackedLayoutManager.reverseLayout = true
                 stackedLayoutManager.stackFromEnd = true
                 layoutManager = stackedLayoutManager

@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens
+package com.example.closedcircuitapplication.beneficiary.account.presentation.view.screen
 
 import android.content.Context
 import android.os.Bundle
@@ -40,8 +40,7 @@ class AccountFragment : Fragment() {
         binding.fragmentUserAccountBackArrowIv.setOnClickListener { popBackStack() }
 
         binding.navigateToLoanScreen.setOnClickListener {
-            findNavController().navigate(
-               AccountFragmentDirections.actionAccountFragment2ToLoansScreenFragment2(),
+            findNavController().navigate(AccountFragmentDirections.actionAccountFragment2ToLoansScreenFragment2(),
                 customNavAnimation().build()
             )
         }

@@ -6,11 +6,17 @@ interface Preferences {
 
     fun putToken(token: String)
 
-    fun putPlanId(string : String)
+    fun putPlanId(string: String)
 
     fun putTokenExpirationTime(time: Long)
 
     fun putTokenType(tokenType: String)
+
+    fun getPlanId(): String?
+
+    fun setDeepLinkedState(boolean: Boolean)
+
+    fun getDeepLinkedStated() : Boolean
 
     fun getToken(): String
 
@@ -29,7 +35,7 @@ interface Preferences {
     fun putUserId(userId: String)
     fun getUserId(): String
 
-    fun putUserFirstName(firstName:String)
+    fun putUserFirstName(firstName: String)
     fun getUserFirstName(): String
 
     fun getUserId(userIdKey: String): String

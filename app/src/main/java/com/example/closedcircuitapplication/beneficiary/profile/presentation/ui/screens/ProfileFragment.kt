@@ -92,7 +92,6 @@ class ProfileFragment : Fragment(), SendImage_UriToCreateAPlanInterface {
         initObserversMyPlansTotal()
 
         handleBackPress()
-        binding.fragmentProfileScreenToolbarBackArrowIv.setOnClickListener { popBackStack() }
 
         _viewModel.getMyPlans(100, 0)
 
