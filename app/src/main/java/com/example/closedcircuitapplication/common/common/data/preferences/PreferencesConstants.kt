@@ -4,6 +4,7 @@ object PreferencesConstants {
 
     const val KEY_TOKEN = "token"
     const val PLAN_ID = "plan_id"
+    const val DEEP_LINK_STATE = "validPlanId"
     const val KEY_TOKEN_EXPIRATION_TIME = "tokenExpirationTime"
     const val KEY_TOKEN_TYPE = "tokenType"
     const val ONBOARDING = "finished"

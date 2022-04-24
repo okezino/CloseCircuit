@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens
+package com.example.closedcircuitapplication.beneficiary.message.presentation.view.screen
 
 import android.os.Bundle
 import android.view.LayoutInflater

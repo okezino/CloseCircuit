@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.adaptesr
+package com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.view.adapter.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.closedcircuitapplication.R
 import com.example.closedcircuitapplication.databinding.SponsorStepRecyclerviewItemBinding
 import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.model.SponsorPlanSummaryStepDto
+import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.view.adapter.PlanSummaryBudgetAdapter
 
 class PlanSummaryStepAdapter
     (

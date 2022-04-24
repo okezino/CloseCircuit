@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.sponsor.profile.presentation.ui.screens
+package com.example.closedcircuitapplication.sponsor.profile.presentation.view.screen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

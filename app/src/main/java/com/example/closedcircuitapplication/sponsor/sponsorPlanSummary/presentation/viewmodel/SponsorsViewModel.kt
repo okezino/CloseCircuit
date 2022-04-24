@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.viewmodels
+package com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.data.PlansFunded

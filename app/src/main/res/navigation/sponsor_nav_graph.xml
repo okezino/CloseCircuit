@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/sponsorsDashboardFragment"
-        android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorDashboardFragment"
+        android:name="com.example.closedcircuitapplication.sponsor.dashboard.presentation.view.screen.SponsorDashboardFragment"
         android:label="fragment_sample_dashboard"
         tools:layout="@layout/fragment_sponsors_dashboard" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/sponsorProfileFragment2"
-        android:name="com.example.closedcircuitapplication.sponsor.profile.presentation.ui.screens.SponsorProfileFragment"
+        android:name="com.example.closedcircuitapplication.sponsor.profile.presentation.view.screen.SponsorProfileFragment"
         android:label="fragment_sponsor_profile"
         tools:layout="@layout/fragment_sponsor_profile" >
         <action
@@ -25,11 +25,16 @@
     </fragment>
     <fragment
         android:id="@+id/sponsorEditFragment"
-        android:name="com.example.closedcircuitapplication.sponsor.profile.presentation.ui.screens.SponsorEditProfileFragment"
+        android:name="com.example.closedcircuitapplication.sponsor.profile.presentation.view.screen.SponsorEditProfileFragment"
         android:label="fragment_sponsor_edit"
         tools:layout="@layout/fragment_sponsor_edit" >
         <action
             android:id="@+id/action_sponsorEditFragment_to_sponsorProfileFragment2"
             app:destination="@id/sponsorProfileFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/sponsorPlanSummaryFragment"
+        android:name="com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.view.screen.SponsorPlanSummaryFragment"
+        android:label="fragment_sponsor_plan_summary"
+        tools:layout="@layout/fragment_sponsor_plan_summary" />
 </navigation>
