@@ -103,6 +103,7 @@
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_edit_email_verification_screen.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/fragment_edit_plan.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.22708333333333333" />
         <entry key="app/src/main/res/layout/fragment_email_verification.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/fragment_email_verification_successful.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.26458333333333334" />
@@ -135,8 +136,9 @@
         <entry key="app/src/main/res/layout/fragment_settings_reset_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_settings_steps_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.2953125" />
-        <entry key="app/src/main/res/layout/fragment_sponsor_plan_summary.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_sponsor_plan_summary.xml" value="0.22826086956521738" />
         <entry key="app/src/main/res/layout/fragment_sponsor_profile.xml" value="0.17028985507246377" />
+        <entry key="app/src/main/res/layout/fragment_sponsors_dashboard.xml" value="0.22826086956521738" />
         <entry key="app/src/main/res/layout/fragment_sponsors_screen.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/fragment_successful_email_verification_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_support.xml" value="0.25" />
@@ -153,8 +155,7 @@
         <entry key="app/src/main/res/layout/my_budget_sponsor_item_layout.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/plan_item.xml" value="0.1585144927536232" />
         <entry key="app/src/main/res/layout/project_item.xml" value="0.23125" />
-        <entry key="app/src/main/res/layout/sponsor_budget_recyclerview_item.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/sponsor_step_recyclerview_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/sponsor_app_bar_dashboard.xml" value="0.15096251266464034" />
         <entry key="app/src/main/res/layout/sponsors_screen_copy_link_alart_dialog.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/view_pager_template.xml" value="0.13729508196721313" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
@@ -162,6 +163,7 @@
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.25" />
         <entry key="app/src/main/res/menu/plan_menu.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/menu/sponsor_bottom_nav_menu.xml" value="0.18618421052631579" />
+        <entry key="app/src/main/res/menu/step_menu.xml" value="0.3104166666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.165625" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.165625" />
       </map>

@@ -5,34 +5,16 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/primary_color"
-    tools:context=".sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorPlanSummaryFragment">
+    tools:context=".sponsor.sponsorPlanSummary.presentation.view.screen.SponsorPlanSummaryFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/fragment_sponsor_plan_summary_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/padding_10dp"
-        android:paddingRight="@dimen/padding_10dp"
-        app:elevation="@dimen/elevation_4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/fragment_sponsor_plan_summary_backArrow_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back_button"
-            tools:ignore="ContentDescription"/>
-
-    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_sponsor_plan_summary_toolbar">
+        app:layout_constraintTop_toTopOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

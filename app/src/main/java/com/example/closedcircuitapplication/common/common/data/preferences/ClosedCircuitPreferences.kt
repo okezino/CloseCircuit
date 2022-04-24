@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants.DEEP_LINK_STATE
 import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants.KEY_EMAIL
 import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants.KEY_TOKEN
 import com.example.closedcircuitapplication.common.common.data.preferences.PreferencesConstants.KEY_TOKEN_EXPIRATION_TIME
@@ -29,6 +30,18 @@ class ClosedCircuitPreferences @Inject constructor(
 
     override fun putPlanId(string: String) {
         edit { putString(PLAN_ID, string) }
+    }
+
+    override fun getPlanId(): String? {
+        return preferences.getString(PLAN_ID, null)
+    }
+
+    override fun setDeepLinkedState(boolean: Boolean) {
+        edit { putBoolean(DEEP_LINK_STATE, boolean) }
+    }
+
+    override fun getDeepLinkedStated(): Boolean {
+        return preferences.getBoolean(DEEP_LINK_STATE,false)
     }
 
     override fun putTokenExpirationTime(time: Long) {

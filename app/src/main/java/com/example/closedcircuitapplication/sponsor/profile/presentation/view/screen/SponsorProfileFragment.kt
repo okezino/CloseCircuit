@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.sponsor.profile.presentation.ui.screens
+package com.example.closedcircuitapplication.sponsor.profile.presentation.view.screen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.common.common.utils.customNavAnimation
-import com.example.closedcircuitapplication.common.common.utils.handleBackPress
-import com.example.closedcircuitapplication.common.common.utils.popBackStack
 import com.example.closedcircuitapplication.databinding.FragmentSponsorProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,8 +33,7 @@ class SponsorProfileFragment : Fragment() {
 
 
         binding.editSponsorProfileButton.setOnClickListener {
-            findNavController().navigate(
-                SponsorProfileFragmentDirections.actionSponsorProfileFragment2ToSponsorEditFragment(),
+            findNavController().navigate(SponsorProfileFragmentDirections.actionSponsorProfileFragment2ToSponsorEditFragment(),
                 customNavAnimation().build()
             )
 

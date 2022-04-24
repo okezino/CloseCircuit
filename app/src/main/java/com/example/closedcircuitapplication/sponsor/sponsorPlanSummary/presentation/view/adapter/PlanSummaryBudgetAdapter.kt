@@ -1,4 +1,4 @@
-package com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.adaptesr
+package com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View

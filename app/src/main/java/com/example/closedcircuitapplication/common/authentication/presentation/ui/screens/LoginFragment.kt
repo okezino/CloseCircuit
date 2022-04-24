@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.closedcircuitapplication.R
+import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.BeneficiaryDashboardActivity
 import com.example.closedcircuitapplication.common.authentication.domain.models.LoginRequest
 import com.example.closedcircuitapplication.common.authentication.presentation.ui.viewmodels.AuthenticationViewModel
 import com.example.closedcircuitapplication.common.common.data.preferences.Preferences
@@ -18,9 +19,8 @@ import com.example.closedcircuitapplication.common.common.presentation.utils.sho
 import com.example.closedcircuitapplication.common.common.utils.Resource
 import com.example.closedcircuitapplication.common.common.utils.Validation
 import com.example.closedcircuitapplication.common.common.utils.customNavAnimation
-import com.example.closedcircuitapplication.beneficiary.dashboard.presentation.view.screens.BeneficiaryDashboardActivity
 import com.example.closedcircuitapplication.databinding.FragmentLoginBinding
-import com.example.closedcircuitapplication.sponsor.sponsorPlanSummary.presentation.ui.screen.activity.SponsorDashboardActivity
+import com.example.closedcircuitapplication.sponsor.dashboard.presentation.view.screen.SponsorDashboardActivity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -46,16 +46,24 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         // navigate to forgot password screen
         binding.fragmentLoginForgotPasswordTv.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment(),customNavAnimation().build())
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment(),
+                customNavAnimation().build()
+            )
         }
 
         // navigate back to welcome screen from login screen
         binding.imageView.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeScreenFragment(),
-                customNavAnimation().build())
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToWelcomeScreenFragment(),
+                customNavAnimation().build()
+            )
         }
         binding.fragmentLoginCreateAccountTv.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToCreateAccountFragment(),customNavAnimation().build())
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToCreateAccountFragment(),
+                customNavAnimation().build()
+            )
         }
 
         binding.fragmentLoginEmailTv.addTextChangedListener(loginButtonHandler)
@@ -142,22 +150,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 is Resource.Success -> {
                     waitDialog!!.dismiss()  // dismiss the waitDialog
                     showLoginSuccessfulDialog()
-                    // this is used to insert the token into the shared preference
-                    saveToken(resource.data?.data!!.token)
-                    //this is used to save the userId address
-                    saveUserId(resource.data.data.user_id)
+                    saveTokenAndUserId(resource.data?.data!!.token, resource.data.data.user_id)
 
-                    //Intent to navigate to Beneficiary DashBoard
-                    // Intent(requireContext(),
-                     //  BeneficiaryDashboardActivity::class.java).also { intentBeneficiaryDashboard -> startActivity(intentBeneficiaryDashboard) }
+                    if (getDeepLinkedState()) {
+                        navigateToSponsor()
 
-                    //Intent to navigate to Sponsor Dashboard
-                   Intent(requireContext(),
-                       SponsorDashboardActivity::class.java).also { sponsorDashBoardIntent -> startActivity(sponsorDashBoardIntent) }
+                    } else navigateToBeneficiary()
+
                 }
 
                 is Resource.Error -> {
-                //    waitDialog!!.dismiss()
+                    //    waitDialog!!.dismiss()
                     //TODO(Display error message and dismiss progress bar)
 
                     waitDialog?.dismiss()
@@ -170,9 +173,31 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
+    private fun navigateToBeneficiary() {
+        Intent(
+            requireContext(),
+            BeneficiaryDashboardActivity::class.java
+        )
+            .also { intentBeneficiaryDashboard -> startActivity(intentBeneficiaryDashboard) }
+
+    }
+
+    private fun navigateToSponsor() {
+        Intent(
+            requireContext(),
+            SponsorDashboardActivity::class.java
+        ).also { sponsorDashBoardIntent -> startActivity(sponsorDashBoardIntent) }
+
+    }
+
+    private fun saveTokenAndUserId(token: String, userId: String) {
+        saveToken(token)
+        saveUserId(userId)
+    }
+
     private fun saveToken(token: String) = preferences.putToken(token)
     private fun saveUserId(userId: String) = preferences.putUserId(userId)
-
+    private fun getDeepLinkedState() = preferences.getDeepLinkedStated()
 
     override fun onDetach() {
         super.onDetach()

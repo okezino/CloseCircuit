@@ -6,21 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background1"
     android:orientation="vertical"
-    tools:context=".sponsor.profile.presentation.ui.screens.SponsorProfileFragment">
-
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/padding_10dp"
-        android:paddingRight="@dimen/padding_10dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back_button"
-            tools:ignore="ContentDescription" />
-
-    </androidx.appcompat.widget.Toolbar>
+    tools:context=".sponsor.profile.presentation.view.screen.SponsorProfileFragment">
 
     <ScrollView
         android:layout_width="match_parent"

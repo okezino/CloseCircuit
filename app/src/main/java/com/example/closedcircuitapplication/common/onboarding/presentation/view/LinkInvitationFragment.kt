@@ -51,7 +51,6 @@ class LinkInvitationFragment : Fragment() {
         activateClickListeners()
         showPlanOwnerName()
         playVideo(requireContext())
-        getPlanId(arg.planId)
     }
 
     private fun playVideo(context: Context){
@@ -78,6 +77,7 @@ class LinkInvitationFragment : Fragment() {
 
     private fun onPlanAcceptClick(){
         binding.linkInvitationFragmentAcceptTextView.setOnClickListener {
+            getPlanId(arg.planId)
             findNavController().navigate(LinkInvitationFragmentDirections.actionLinkInvitationFragmentToSplashScreen(), customNavAnimation().build())
         }
     }
@@ -85,6 +85,7 @@ class LinkInvitationFragment : Fragment() {
     private fun getPlanId(planId : String?){
         planId?.let{
             preferences.putPlanId(it)
+            preferences.setDeepLinkedState(true)
         }
     }
 

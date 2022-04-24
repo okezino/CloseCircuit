@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".sponsor.sponsorPlanSummary.presentation.ui.screen.fragment.SponsorDashboardFragment">
+    tools:context=".sponsor.dashboard.presentation.view.screen.SponsorDashboardFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
