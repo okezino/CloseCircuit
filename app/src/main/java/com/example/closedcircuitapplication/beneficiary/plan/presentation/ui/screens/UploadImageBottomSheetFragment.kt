@@ -8,7 +8,7 @@ import com.example.closedcircuitapplication.common.authentication.SendImage_UriT
 import com.example.closedcircuitapplication.databinding.FragmentUploadImageBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class UploadImageBottomSheetFragment(private val clickInterface: SendImage_UriToCreateAPlanInterface) : BottomSheetDialogFragment() {
+class UploadImageBottomSheetFragment(private val clickInterface: SendImage_UriToCreateAPlanInterface , private val str:String) : BottomSheetDialogFragment() {
     private var _binding : FragmentUploadImageBottomSheetBinding? = null
     private  val binding get() = _binding!!
     //val args : UploadImageBottomSheetFragmentArgs by navArgs()

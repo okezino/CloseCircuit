@@ -155,7 +155,7 @@ class ProjectSummaryFragment : Fragment() {
     }
 
     private fun deletePlan(){
-        viewModel.deletePlan(planId)
+        viewModel.deletePlan("$planId/")
     }
     private fun initObservers() {
         viewModel.deletePlanResponse.observe(viewLifecycleOwner){ resources ->
